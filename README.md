@@ -8,7 +8,7 @@ It supports version 3.1.0, but it is backward compatible with other versions as 
 
 ## Getting started
 
-The first think you need to do is to generate an API client. There are two options to do it:
+The first thing you need to do is to generate an API client. There are two options to do it:
 
     Parameters
     Environment variables
@@ -17,7 +17,7 @@ The first think you need to do is to generate an API client. There are two optio
 
 The client could be generated with the following parameters:
 
-- `baseURL`: The base URL, FQDN or IP, of the DNA instance.
+- `baseURL`: The base URL, FQDN or IP, of the ISE instance.
 - `username`: The username for the API authentication and authorization.
 - `password`: The password for the API authentication and authorization.
 - `debug`: Boolean to enable debugging
@@ -37,16 +37,16 @@ The client could be generated with the following parameters:
 
 The client can be configured with the following environment variables:
 
-- `DNAC_BASE_URL`: The base URL, FQDN or IP, of the DNA instance.
-- `DNAC_USERNAME`: The username for the API authentication and authorization.
-- `DNAC_PASSWORD`: The password for the API authentication and authorization.
-- `DNAC_DEBUG`: Boolean to enable debugging
-- `DNAC_SSL_VERIFY`: Boolean to enable or disable SSL certificate verification.
-- `USE_API_GATEWAY`: Boolean to enable or disable API Gateway usage.
-- `USE_CSRF_TOKEN`: Boolean to enable or disable CSRF token.
+- `ISE_BASE_URL`: The base URL, FQDN or IP, of the ISE instance.
+- `ISE_USERNAME`: The username for the API authentication and authorization.
+- `ISE_PASSWORD`: The password for the API authentication and authorization.
+- `ISE_DEBUG`: Boolean to enable debugging
+- `ISE_SSL_VERIFY`: Boolean to enable or disable SSL certificate verification.
+- `ISE_USE_API_GATEWAY`: Boolean to enable or disable API Gateway usage.
+- `ISE_USE_CSRF_TOKEN`: Boolean to enable or disable CSRF token.
 
 ```go
-Client = dnac.NewClient()
+Client = isegosdk.NewClient()
 devicesCount, _, err := Client.Devices.GetDeviceCount()
 ```
 
@@ -105,5 +105,4 @@ if err != nil {
 
 ## License
 
-This library is distributed under the MIT license found in the LICENSE file.
-
+This library is distributed under the MIT license found in the [LICENSE](./LICENSE) file.
