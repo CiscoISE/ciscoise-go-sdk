@@ -1,4 +1,4 @@
-module ise-go-sdk
+module ciscoise-go-sdk
 
 go 1.15
 
