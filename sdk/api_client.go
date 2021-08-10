@@ -220,11 +220,11 @@ func NewClient() (*Client, error) {
 	if os.Getenv("ISE_PASSWORD") != "" {
 		password = os.Getenv("ISE_PASSWORD")
 	}
-	if os.Getenv("USE_API_GATEWAY") == "true" {
+	if os.Getenv("ISE_USE_API_GATEWAY") == "true" {
 		UseAPIGateway = true
 	}
 
-	if os.Getenv("USE_CSRF_TOKEN") == "true" {
+	if os.Getenv("ISE_USE_CSRF_TOKEN") == "true" {
 		useCSRFToken = true
 	}
 	c.AciBindings = (*AciBindingsService)(&c.common)
@@ -354,7 +354,7 @@ func NewClientWithOptions(baseURL string, username string, password string, debu
 	os.Setenv("ISE_PASSWORD", password)
 	os.Setenv("ISE_DEBUG", debug)
 	os.Setenv("ISE_SSL_VERIFY", sslVerify)
-	os.Setenv("USE_API_GATEWAY", useAPIGateway)
-	os.Setenv("USE_CSRF_TOKEN", useCSRFToken)
+	os.Setenv("ISE_USE_API_GATEWAY", useAPIGateway)
+	os.Setenv("ISE_USE_CSRF_TOKEN", useCSRFToken)
 	return NewClient()
 }
