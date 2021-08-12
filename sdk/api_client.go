@@ -2,6 +2,7 @@ package isegosdk
 
 import (
 	"crypto/tls"
+	"fmt"
 	"os"
 
 	"io/ioutil"
@@ -11,10 +12,18 @@ import (
 )
 
 // RestyClient is the REST Client
-var UseAPIGateway = false
 var host = ""
+var UseAPIGateway = false
 var useCSRFToken = false
 var CSRFToken string
+
+const ISE_BASE_URL = "ISE_BASE_URL"
+const ISE_USERNAME = "ISE_USERNAME"
+const ISE_PASSWORD = "ISE_PASSWORD"
+const ISE_DEBUG = "ISE_DEBUG"
+const ISE_SSL_VERIFY = "ISE_SSL_VERIFY"
+const ISE_USE_API_GATEWAY = "ISE_USE_API_GATEWAY"
+const ISE_USE_CSRF_TOKEN = "ISE_USE_CSRF_TOKEN"
 
 type FileDownload struct {
 	FileName string
@@ -199,33 +208,49 @@ var Error map[string]interface{}
 // NewClient creates a new API client. Requires a userAgent string describing your application.
 // optionally a custom http.Client to allow for advanced features such as caching.
 func NewClient() (*Client, error) {
+	var err error
 	client := resty.New()
 	c := &Client{}
 	c.common.client = client
 	username := ""
 	password := ""
 
-	if os.Getenv("ISE_DEBUG") == "true" {
+	if os.Getenv(ISE_DEBUG) == "true" {
 		client.SetDebug(true)
 	}
-	if os.Getenv("ISE_SSL_VERIFY") == "false" {
+
+	if os.Getenv(ISE_SSL_VERIFY) == "false" {
 		client.SetTLSClientConfig(&tls.Config{InsecureSkipVerify: true})
 	}
-	if os.Getenv("ISE_BASE_URL") != "" {
-		host = os.Getenv("ISE_BASE_URL")
+
+	if os.Getenv(ISE_BASE_URL) != "" {
+		host = os.Getenv(ISE_BASE_URL)
+	} else {
+		err = fmt.Errorf("enviroment variable %s was not defined", ISE_BASE_URL)
 	}
-	if os.Getenv("ISE_USERNAME") != "" {
-		username = os.Getenv("ISE_USERNAME")
+
+	if os.Getenv(ISE_USERNAME) != "" {
+		username = os.Getenv(ISE_USERNAME)
+	} else {
+		err = fmt.Errorf("enviroment variable %s was not defined", ISE_USERNAME)
 	}
-	if os.Getenv("ISE_PASSWORD") != "" {
-		password = os.Getenv("ISE_PASSWORD")
+
+	if os.Getenv(ISE_PASSWORD) != "" {
+		password = os.Getenv(ISE_PASSWORD)
+	} else {
+		err = fmt.Errorf("enviroment variable %s was not defined", ISE_PASSWORD)
 	}
-	if os.Getenv("ISE_USE_API_GATEWAY") == "true" {
+
+	if os.Getenv(ISE_USE_API_GATEWAY) == "true" {
 		UseAPIGateway = true
 	}
 
-	if os.Getenv("ISE_USE_CSRF_TOKEN") == "true" {
+	if os.Getenv(ISE_USE_CSRF_TOKEN) == "true" {
 		useCSRFToken = true
+	}
+
+	if err != nil {
+		return nil, err
 	}
 	c.AciBindings = (*AciBindingsService)(&c.common)
 	c.AciSettings = (*AciSettingsService)(&c.common)
@@ -349,12 +374,12 @@ func NewClient() (*Client, error) {
 
 //NewClientWithOptions is the client with options passed with parameters
 func NewClientWithOptions(baseURL string, username string, password string, debug string, sslVerify string, useAPIGateway string, useCSRFToken string) (*Client, error) {
-	os.Setenv("ISE_BASE_URL", baseURL)
-	os.Setenv("ISE_USERNAME", username)
-	os.Setenv("ISE_PASSWORD", password)
-	os.Setenv("ISE_DEBUG", debug)
-	os.Setenv("ISE_SSL_VERIFY", sslVerify)
-	os.Setenv("ISE_USE_API_GATEWAY", useAPIGateway)
-	os.Setenv("ISE_USE_CSRF_TOKEN", useCSRFToken)
+	os.Setenv(ISE_BASE_URL, baseURL)
+	os.Setenv(ISE_USERNAME, username)
+	os.Setenv(ISE_PASSWORD, password)
+	os.Setenv(ISE_DEBUG, debug)
+	os.Setenv(ISE_SSL_VERIFY, sslVerify)
+	os.Setenv(ISE_USE_API_GATEWAY, useAPIGateway)
+	os.Setenv(ISE_USE_CSRF_TOKEN, useCSRFToken)
 	return NewClient()
 }
