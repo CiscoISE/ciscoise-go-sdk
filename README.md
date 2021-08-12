@@ -26,7 +26,7 @@ The client could be generated with the following parameters:
 - `useCSRFToken`: Boolean to enable or disable CSRF token.
 
 ```go
-    Client := isegosdk.NewClientWithOptions("https://198.18.133.27",
+    Client, err := isegosdk.NewClientWithOptions("https://198.18.133.27",
         "admin", "C1sco12345",
         "false", "false",
         "false", "false")
@@ -46,7 +46,11 @@ The client can be configured with the following environment variables:
 - `ISE_USE_CSRF_TOKEN`: Boolean to enable or disable CSRF token.
 
 ```go
-Client = isegosdk.NewClient()
+Client, err = isegosdk.NewClient()
+if err != nil {
+    fmt.Println(err)
+    os.Exit(1)
+}
 devicesCount, _, err := Client.Devices.GetDeviceCount()
 ```
 
@@ -59,49 +63,55 @@ The following section show how to create a new client, create a new ANC policy, 
 
 ```go
 // New client definition
-Client := isegosdk.NewClientWithOptions("https://198.18.133.27",
-    "admin", "C1sco12345",
-    "false", "false",
-    "false", "false")
+Client, err := isegosdk.NewClientWithOptions("https://198.18.133.27",
+	"admin", "C1sco12345",
+	"false", "false",
+	"false", "false")
+
+if err != nil {
+	fmt.Println(err)
+	os.Exit(1)
+}
 policyName := "policy1"
 
 policyContent := &isegosdk.RequestAncPolicyCreateAncPolicyErsAncPolicy{
-    Name:    policyName,
-    Actions: []string{"QUARANTINE"},
+	Name:    policyName,
+	Actions: []string{"QUARANTINE"},
 }
 
 policy := &isegosdk.RequestAncPolicyCreateAncPolicy{
-    ErsAncPolicy: policyContent,
+	ErsAncPolicy: policyContent,
 }
 
 // New policy creation
-_, err := Client.AncPolicy.CreateAncPolicy(policy)
+_, err = Client.AncPolicy.CreateAncPolicy(policy)
 if err != nil {
-    fmt.Println(err)
+	fmt.Println(err)
 }
 
 params := &isegosdk.GetAncPolicyQueryParams{
-    Size: 10,
+	Size: 10,
 }
 
 // Searchs for all policies
 pols, _, err := Client.AncPolicy.GetAncPolicy(params)
 if err != nil {
-    fmt.Println(err)
+	fmt.Println(err)
 }
 for _, pol := range pols.SearchResult.Resources {
-    fmt.Printf("Policy ID: %s \n", pol.ID)
-    fmt.Printf("Policy Name: %s \n", pol.Name)
+	fmt.Printf("Policy ID: %s \n", pol.ID)
+	fmt.Printf("Policy Name: %s \n", pol.Name)
 }
 
 // Delete policy by ID
 _, err = Client.AncPolicy.DeleteAncPolicyByID(policyName)
 if err != nil {
-    fmt.Println(err)
+	fmt.Println(err)
 }
-
 ```
 
+## Documentation
+https://pkg.go.dev/github.com/CiscoISE/ciscoise-go-sdk
 
 ## License
 
