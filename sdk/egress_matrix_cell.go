@@ -76,10 +76,10 @@ type ResponseEgressMatrixCellGetEgressMatrixCell struct {
 }
 
 type ResponseEgressMatrixCellGetEgressMatrixCellSearchResult struct {
-	Total        int                                                                   `json:"total,omitempty"`        //
-	Resources    []ResponseEgressMatrixCellGetEgressMatrixCellSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseEgressMatrixCellGetEgressMatrixCellSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseEgressMatrixCellGetEgressMatrixCellSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                 `json:"total,omitempty"`        //
+	Resources    []ResponseEgressMatrixCellGetEgressMatrixCellSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseEgressMatrixCellGetEgressMatrixCellSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseEgressMatrixCellGetEgressMatrixCellSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseEgressMatrixCellGetEgressMatrixCellSearchResultResources struct {

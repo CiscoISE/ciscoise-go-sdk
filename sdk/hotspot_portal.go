@@ -173,10 +173,10 @@ type ResponseHotspotPortalGetHotspotPortal struct {
 }
 
 type ResponseHotspotPortalGetHotspotPortalSearchResult struct {
-	Total        int                                                             `json:"total,omitempty"`        //
-	Resources    []ResponseHotspotPortalGetHotspotPortalSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseHotspotPortalGetHotspotPortalSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseHotspotPortalGetHotspotPortalSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                           `json:"total,omitempty"`        //
+	Resources    []ResponseHotspotPortalGetHotspotPortalSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseHotspotPortalGetHotspotPortalSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseHotspotPortalGetHotspotPortalSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseHotspotPortalGetHotspotPortalSearchResultResources struct {

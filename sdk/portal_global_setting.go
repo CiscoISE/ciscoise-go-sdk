@@ -57,10 +57,10 @@ type ResponsePortalGlobalSettingGetPortalGlobalSettings struct {
 }
 
 type ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResult struct {
-	Total        int                                                                          `json:"total,omitempty"`        //
-	Resources    []ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                        `json:"total,omitempty"`        //
+	Resources    []ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResultResources struct {

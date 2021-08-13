@@ -93,10 +93,10 @@ type ResponseExternalRadiusServerGetExternalRadiusServer struct {
 }
 
 type ResponseExternalRadiusServerGetExternalRadiusServerSearchResult struct {
-	Total        int                                                                           `json:"total,omitempty"`        //
-	Resources    []ResponseExternalRadiusServerGetExternalRadiusServerSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseExternalRadiusServerGetExternalRadiusServerSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseExternalRadiusServerGetExternalRadiusServerSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                         `json:"total,omitempty"`        //
+	Resources    []ResponseExternalRadiusServerGetExternalRadiusServerSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseExternalRadiusServerGetExternalRadiusServerSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseExternalRadiusServerGetExternalRadiusServerSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseExternalRadiusServerGetExternalRadiusServerSearchResultResources struct {

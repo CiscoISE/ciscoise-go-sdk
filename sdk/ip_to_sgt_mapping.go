@@ -76,10 +76,10 @@ type ResponseIPToSgtMappingGetIPToSgtMapping struct {
 }
 
 type ResponseIPToSgtMappingGetIPToSgtMappingSearchResult struct {
-	Total        int                                                               `json:"total,omitempty"`        //
-	Resources    []ResponseIPToSgtMappingGetIPToSgtMappingSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseIPToSgtMappingGetIPToSgtMappingSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseIPToSgtMappingGetIPToSgtMappingSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                             `json:"total,omitempty"`        //
+	Resources    []ResponseIPToSgtMappingGetIPToSgtMappingSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseIPToSgtMappingGetIPToSgtMappingSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseIPToSgtMappingGetIPToSgtMappingSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseIPToSgtMappingGetIPToSgtMappingSearchResultResources struct {

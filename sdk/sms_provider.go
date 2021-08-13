@@ -23,10 +23,10 @@ type ResponseSmsProviderGetSmsProvider struct {
 }
 
 type ResponseSmsProviderGetSmsProviderSearchResult struct {
-	Total        int                                                         `json:"total,omitempty"`        //
-	Resources    []ResponseSmsProviderGetSmsProviderSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseSmsProviderGetSmsProviderSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseSmsProviderGetSmsProviderSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                       `json:"total,omitempty"`        //
+	Resources    []ResponseSmsProviderGetSmsProviderSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseSmsProviderGetSmsProviderSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseSmsProviderGetSmsProviderSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSmsProviderGetSmsProviderSearchResultResources struct {

@@ -240,10 +240,10 @@ type ResponseNetworkDeviceGetNetworkDevice struct {
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceSearchResult struct {
-	Total        int                                                             `json:"total,omitempty"`        //
-	Resources    []ResponseNetworkDeviceGetNetworkDeviceSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseNetworkDeviceGetNetworkDeviceSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseNetworkDeviceGetNetworkDeviceSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                           `json:"total,omitempty"`        //
+	Resources    []ResponseNetworkDeviceGetNetworkDeviceSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseNetworkDeviceGetNetworkDeviceSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseNetworkDeviceGetNetworkDeviceSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceSearchResultResources struct {

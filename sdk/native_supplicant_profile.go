@@ -63,10 +63,10 @@ type ResponseNativeSupplicantProfileGetNativeSupplicantProfile struct {
 }
 
 type ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResult struct {
-	Total        int                                                                                 `json:"total,omitempty"`        //
-	Resources    []ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                               `json:"total,omitempty"`        //
+	Resources    []ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResultResources struct {

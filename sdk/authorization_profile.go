@@ -195,10 +195,10 @@ type ResponseAuthorizationProfileGetAuthorizationProfiles struct {
 }
 
 type ResponseAuthorizationProfileGetAuthorizationProfilesSearchResult struct {
-	Total        int                                                                            `json:"total,omitempty"`        //
-	Resources    []ResponseAuthorizationProfileGetAuthorizationProfilesSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseAuthorizationProfileGetAuthorizationProfilesSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseAuthorizationProfileGetAuthorizationProfilesSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                          `json:"total,omitempty"`        //
+	Resources    []ResponseAuthorizationProfileGetAuthorizationProfilesSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseAuthorizationProfileGetAuthorizationProfilesSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseAuthorizationProfileGetAuthorizationProfilesSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseAuthorizationProfileGetAuthorizationProfilesSearchResultResources struct {

@@ -64,10 +64,10 @@ type ResponseSxpConnectionsGetSxpConnections struct {
 }
 
 type ResponseSxpConnectionsGetSxpConnectionsSearchResult struct {
-	Total        int                                                               `json:"total,omitempty"`        //
-	Resources    []ResponseSxpConnectionsGetSxpConnectionsSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseSxpConnectionsGetSxpConnectionsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseSxpConnectionsGetSxpConnectionsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                             `json:"total,omitempty"`        //
+	Resources    []ResponseSxpConnectionsGetSxpConnectionsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseSxpConnectionsGetSxpConnectionsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseSxpConnectionsGetSxpConnectionsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSxpConnectionsGetSxpConnectionsSearchResultResources struct {

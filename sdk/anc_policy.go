@@ -72,10 +72,10 @@ type ResponseAncPolicyGetAncPolicy struct {
 }
 
 type ResponseAncPolicyGetAncPolicySearchResult struct {
-	Total        int                                                     `json:"total,omitempty"`        //
-	Resources    []ResponseAncPolicyGetAncPolicySearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseAncPolicyGetAncPolicySearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseAncPolicyGetAncPolicySearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                   `json:"total,omitempty"`        //
+	Resources    []ResponseAncPolicyGetAncPolicySearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseAncPolicyGetAncPolicySearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseAncPolicyGetAncPolicySearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseAncPolicyGetAncPolicySearchResultResources struct {

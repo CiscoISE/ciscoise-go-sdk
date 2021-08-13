@@ -175,10 +175,10 @@ type ResponseByodPortalGetByodPortal struct {
 }
 
 type ResponseByodPortalGetByodPortalSearchResult struct {
-	Total        int                                                       `json:"total,omitempty"`        //
-	Resources    []ResponseByodPortalGetByodPortalSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseByodPortalGetByodPortalSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseByodPortalGetByodPortalSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                     `json:"total,omitempty"`        //
+	Resources    []ResponseByodPortalGetByodPortalSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseByodPortalGetByodPortalSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseByodPortalGetByodPortalSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseByodPortalGetByodPortalSearchResultResources struct {

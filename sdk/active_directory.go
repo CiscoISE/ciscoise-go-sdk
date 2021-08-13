@@ -236,10 +236,10 @@ type ResponseActiveDirectoryGetActiveDirectory struct {
 }
 
 type ResponseActiveDirectoryGetActiveDirectorySearchResult struct {
-	Total        int                                                                 `json:"total,omitempty"`        //
-	Resources    []ResponseActiveDirectoryGetActiveDirectorySearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseActiveDirectoryGetActiveDirectorySearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseActiveDirectoryGetActiveDirectorySearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                               `json:"total,omitempty"`        //
+	Resources    []ResponseActiveDirectoryGetActiveDirectorySearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseActiveDirectoryGetActiveDirectorySearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseActiveDirectoryGetActiveDirectorySearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseActiveDirectoryGetActiveDirectorySearchResultResources struct {

@@ -41,10 +41,10 @@ type ResponseAncEndpointGetAncEndpoint struct {
 }
 
 type ResponseAncEndpointGetAncEndpointSearchResult struct {
-	Total        int                                                         `json:"total,omitempty"`        //
-	Resources    []ResponseAncEndpointGetAncEndpointSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseAncEndpointGetAncEndpointSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseAncEndpointGetAncEndpointSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                       `json:"total,omitempty"`        //
+	Resources    []ResponseAncEndpointGetAncEndpointSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseAncEndpointGetAncEndpointSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseAncEndpointGetAncEndpointSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseAncEndpointGetAncEndpointSearchResultResources struct {

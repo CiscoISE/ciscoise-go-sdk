@@ -57,10 +57,10 @@ type ResponseGuestSSIDGetGuestSSID struct {
 }
 
 type ResponseGuestSSIDGetGuestSSIDSearchResult struct {
-	Total        int                                                     `json:"total,omitempty"`        //
-	Resources    []ResponseGuestSSIDGetGuestSSIDSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseGuestSSIDGetGuestSSIDSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseGuestSSIDGetGuestSSIDSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                   `json:"total,omitempty"`        //
+	Resources    []ResponseGuestSSIDGetGuestSSIDSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseGuestSSIDGetGuestSSIDSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseGuestSSIDGetGuestSSIDSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseGuestSSIDGetGuestSSIDSearchResultResources struct {

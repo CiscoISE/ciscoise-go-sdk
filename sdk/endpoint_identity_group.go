@@ -77,10 +77,10 @@ type ResponseEndpointIDentityGroupGetEndpointGroups struct {
 }
 
 type ResponseEndpointIDentityGroupGetEndpointGroupsSearchResult struct {
-	Total        int                                                                      `json:"total,omitempty"`        //
-	Resources    []ResponseEndpointIDentityGroupGetEndpointGroupsSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseEndpointIDentityGroupGetEndpointGroupsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseEndpointIDentityGroupGetEndpointGroupsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                    `json:"total,omitempty"`        //
+	Resources    []ResponseEndpointIDentityGroupGetEndpointGroupsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseEndpointIDentityGroupGetEndpointGroupsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseEndpointIDentityGroupGetEndpointGroupsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseEndpointIDentityGroupGetEndpointGroupsSearchResultResources struct {

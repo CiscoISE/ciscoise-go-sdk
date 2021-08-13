@@ -49,10 +49,10 @@ type ResponseAdminUserGetAdminUsers struct {
 }
 
 type ResponseAdminUserGetAdminUsersSearchResult struct {
-	Total        int                                                      `json:"total,omitempty"`        //
-	Resources    []ResponseAdminUserGetAdminUsersSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseAdminUserGetAdminUsersSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseAdminUserGetAdminUsersSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                    `json:"total,omitempty"`        //
+	Resources    []ResponseAdminUserGetAdminUsersSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseAdminUserGetAdminUsersSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseAdminUserGetAdminUsersSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseAdminUserGetAdminUsersSearchResultResources struct {

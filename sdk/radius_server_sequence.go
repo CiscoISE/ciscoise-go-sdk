@@ -82,10 +82,10 @@ type ResponseRadiusServerSequenceGetRadiusServerSequence struct {
 }
 
 type ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResult struct {
-	Total        int                                                                           `json:"total,omitempty"`        //
-	Resources    []ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                         `json:"total,omitempty"`        //
+	Resources    []ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResultResources struct {

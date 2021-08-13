@@ -63,10 +63,10 @@ type ResponseSecurityGroupsGetSecurityGroups struct {
 }
 
 type ResponseSecurityGroupsGetSecurityGroupsSearchResult struct {
-	Total        int                                                               `json:"total,omitempty"`        //
-	Resources    []ResponseSecurityGroupsGetSecurityGroupsSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseSecurityGroupsGetSecurityGroupsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseSecurityGroupsGetSecurityGroupsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                             `json:"total,omitempty"`        //
+	Resources    []ResponseSecurityGroupsGetSecurityGroupsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseSecurityGroupsGetSecurityGroupsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseSecurityGroupsGetSecurityGroupsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSecurityGroupsGetSecurityGroupsSearchResultResources struct {

@@ -40,10 +40,10 @@ type ResponseGuestLocationGetGuestLocation struct {
 }
 
 type ResponseGuestLocationGetGuestLocationSearchResult struct {
-	Total        int                                                             `json:"total,omitempty"`        //
-	Resources    []ResponseGuestLocationGetGuestLocationSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseGuestLocationGetGuestLocationSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseGuestLocationGetGuestLocationSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                           `json:"total,omitempty"`        //
+	Resources    []ResponseGuestLocationGetGuestLocationSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseGuestLocationGetGuestLocationSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseGuestLocationGetGuestLocationSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseGuestLocationGetGuestLocationSearchResultResources struct {

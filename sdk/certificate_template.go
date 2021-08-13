@@ -46,10 +46,10 @@ type ResponseCertificateTemplateGetCertificateTemplate struct {
 }
 
 type ResponseCertificateTemplateGetCertificateTemplateSearchResult struct {
-	Total        int                                                                         `json:"total,omitempty"`        //
-	Resources    []ResponseCertificateTemplateGetCertificateTemplateSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseCertificateTemplateGetCertificateTemplateSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseCertificateTemplateGetCertificateTemplateSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                       `json:"total,omitempty"`        //
+	Resources    []ResponseCertificateTemplateGetCertificateTemplateSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseCertificateTemplateGetCertificateTemplateSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseCertificateTemplateGetCertificateTemplateSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseCertificateTemplateGetCertificateTemplateSearchResultResources struct {

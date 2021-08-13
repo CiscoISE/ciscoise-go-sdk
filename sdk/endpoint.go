@@ -140,10 +140,10 @@ type ResponseEndpointGetEndpoints struct {
 }
 
 type ResponseEndpointGetEndpointsSearchResult struct {
-	Total        int                                                    `json:"total,omitempty"`        //
-	Resources    []ResponseEndpointGetEndpointsSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseEndpointGetEndpointsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseEndpointGetEndpointsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                  `json:"total,omitempty"`        //
+	Resources    []ResponseEndpointGetEndpointsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseEndpointGetEndpointsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseEndpointGetEndpointsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseEndpointGetEndpointsSearchResultResources struct {

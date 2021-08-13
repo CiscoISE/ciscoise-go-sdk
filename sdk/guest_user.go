@@ -171,10 +171,10 @@ type ResponseGuestUserGetGuestUsers struct {
 }
 
 type ResponseGuestUserGetGuestUsersSearchResult struct {
-	Total        int                                                      `json:"total,omitempty"`        //
-	Resources    []ResponseGuestUserGetGuestUsersSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseGuestUserGetGuestUsersSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseGuestUserGetGuestUsersSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                    `json:"total,omitempty"`        //
+	Resources    []ResponseGuestUserGetGuestUsersSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseGuestUserGetGuestUsersSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseGuestUserGetGuestUsersSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseGuestUserGetGuestUsersSearchResultResources struct {

@@ -257,10 +257,10 @@ type ResponseAllowedProtocolsGetAllowedProtocols struct {
 }
 
 type ResponseAllowedProtocolsGetAllowedProtocolsSearchResult struct {
-	Total        int                                                                   `json:"total,omitempty"`        //
-	Resources    []ResponseAllowedProtocolsGetAllowedProtocolsSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseAllowedProtocolsGetAllowedProtocolsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseAllowedProtocolsGetAllowedProtocolsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                 `json:"total,omitempty"`        //
+	Resources    []ResponseAllowedProtocolsGetAllowedProtocolsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseAllowedProtocolsGetAllowedProtocolsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseAllowedProtocolsGetAllowedProtocolsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseAllowedProtocolsGetAllowedProtocolsSearchResultResources struct {

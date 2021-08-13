@@ -42,10 +42,10 @@ type ResponsePortalGetPortals struct {
 }
 
 type ResponsePortalGetPortalsSearchResult struct {
-	Total        int                                                `json:"total,omitempty"`        //
-	Resources    []ResponsePortalGetPortalsSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponsePortalGetPortalsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponsePortalGetPortalsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                              `json:"total,omitempty"`        //
+	Resources    []ResponsePortalGetPortalsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponsePortalGetPortalsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponsePortalGetPortalsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponsePortalGetPortalsSearchResultResources struct {

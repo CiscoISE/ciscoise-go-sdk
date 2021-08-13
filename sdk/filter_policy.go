@@ -48,10 +48,10 @@ type ResponseFilterPolicyGetFilterPolicy struct {
 }
 
 type ResponseFilterPolicyGetFilterPolicySearchResult struct {
-	Total        int                                                           `json:"total,omitempty"`        //
-	Resources    []ResponseFilterPolicyGetFilterPolicySearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseFilterPolicyGetFilterPolicySearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseFilterPolicyGetFilterPolicySearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                         `json:"total,omitempty"`        //
+	Resources    []ResponseFilterPolicyGetFilterPolicySearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseFilterPolicyGetFilterPolicySearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseFilterPolicyGetFilterPolicySearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseFilterPolicyGetFilterPolicySearchResultResources struct {

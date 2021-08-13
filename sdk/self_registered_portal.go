@@ -356,10 +356,10 @@ type ResponseSelfRegisteredPortalGetSelfRegisteredPortals struct {
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResult struct {
-	Total        int                                                                            `json:"total,omitempty"`        //
-	Resources    []ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                          `json:"total,omitempty"`        //
+	Resources    []ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResultResources struct {

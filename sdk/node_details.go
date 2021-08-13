@@ -82,10 +82,10 @@ type ResponseNodeDetailsGetNodeDetails struct {
 }
 
 type ResponseNodeDetailsGetNodeDetailsSearchResult struct {
-	Total        int                                                         `json:"total,omitempty"`        //
-	Resources    []ResponseNodeDetailsGetNodeDetailsSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseNodeDetailsGetNodeDetailsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseNodeDetailsGetNodeDetailsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                       `json:"total,omitempty"`        //
+	Resources    []ResponseNodeDetailsGetNodeDetailsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseNodeDetailsGetNodeDetailsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseNodeDetailsGetNodeDetailsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseNodeDetailsGetNodeDetailsSearchResultResources struct {

@@ -93,10 +93,10 @@ type ResponseTacacsProfileGetTacacsProfile struct {
 }
 
 type ResponseTacacsProfileGetTacacsProfileSearchResult struct {
-	Total        int                                                             `json:"total,omitempty"`        //
-	Resources    []ResponseTacacsProfileGetTacacsProfileSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseTacacsProfileGetTacacsProfileSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseTacacsProfileGetTacacsProfileSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                           `json:"total,omitempty"`        //
+	Resources    []ResponseTacacsProfileGetTacacsProfileSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseTacacsProfileGetTacacsProfileSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseTacacsProfileGetTacacsProfileSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseTacacsProfileGetTacacsProfileSearchResultResources struct {

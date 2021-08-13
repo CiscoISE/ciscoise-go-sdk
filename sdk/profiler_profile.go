@@ -42,10 +42,10 @@ type ResponseProfilerProfileGetProfilerProfiles struct {
 }
 
 type ResponseProfilerProfileGetProfilerProfilesSearchResult struct {
-	Total        int                                                                  `json:"total,omitempty"`        //
-	Resources    []ResponseProfilerProfileGetProfilerProfilesSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseProfilerProfileGetProfilerProfilesSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseProfilerProfileGetProfilerProfilesSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                `json:"total,omitempty"`        //
+	Resources    []ResponseProfilerProfileGetProfilerProfilesSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseProfilerProfileGetProfilerProfilesSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseProfilerProfileGetProfilerProfilesSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseProfilerProfileGetProfilerProfilesSearchResultResources struct {

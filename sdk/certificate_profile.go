@@ -78,10 +78,10 @@ type ResponseCertificateProfileGetCertificateProfile struct {
 }
 
 type ResponseCertificateProfileGetCertificateProfileSearchResult struct {
-	Total        int                                                                       `json:"total,omitempty"`        //
-	Resources    []ResponseCertificateProfileGetCertificateProfileSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseCertificateProfileGetCertificateProfileSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseCertificateProfileGetCertificateProfileSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                     `json:"total,omitempty"`        //
+	Resources    []ResponseCertificateProfileGetCertificateProfileSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseCertificateProfileGetCertificateProfileSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseCertificateProfileGetCertificateProfileSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseCertificateProfileGetCertificateProfileSearchResultResources struct {

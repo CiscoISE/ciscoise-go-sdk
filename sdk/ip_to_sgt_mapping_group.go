@@ -72,10 +72,10 @@ type ResponseIPToSgtMappingGroupGetIPToSgtMappingGroup struct {
 }
 
 type ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResult struct {
-	Total        int                                                                         `json:"total,omitempty"`        //
-	Resources    []ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                       `json:"total,omitempty"`        //
+	Resources    []ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResultResources struct {

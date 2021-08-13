@@ -40,10 +40,10 @@ type ResponseSxpVpnsGetSxpVpns struct {
 }
 
 type ResponseSxpVpnsGetSxpVpnsSearchResult struct {
-	Total        int                                                 `json:"total,omitempty"`        //
-	Resources    []ResponseSxpVpnsGetSxpVpnsSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseSxpVpnsGetSxpVpnsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseSxpVpnsGetSxpVpnsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                               `json:"total,omitempty"`        //
+	Resources    []ResponseSxpVpnsGetSxpVpnsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseSxpVpnsGetSxpVpnsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseSxpVpnsGetSxpVpnsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSxpVpnsGetSxpVpnsSearchResultResources struct {

@@ -81,10 +81,10 @@ type ResponseTacacsExternalServersGetTacacsExternalServers struct {
 }
 
 type ResponseTacacsExternalServersGetTacacsExternalServersSearchResult struct {
-	Total        int                                                                             `json:"total,omitempty"`        //
-	Resources    []ResponseTacacsExternalServersGetTacacsExternalServersSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseTacacsExternalServersGetTacacsExternalServersSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseTacacsExternalServersGetTacacsExternalServersSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                           `json:"total,omitempty"`        //
+	Resources    []ResponseTacacsExternalServersGetTacacsExternalServersSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseTacacsExternalServersGetTacacsExternalServersSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseTacacsExternalServersGetTacacsExternalServersSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseTacacsExternalServersGetTacacsExternalServersSearchResultResources struct {

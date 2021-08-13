@@ -116,10 +116,10 @@ type ResponseInternalUserGetInternalUser struct {
 }
 
 type ResponseInternalUserGetInternalUserSearchResult struct {
-	Total        int                                                           `json:"total,omitempty"`        //
-	Resources    []ResponseInternalUserGetInternalUserSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseInternalUserGetInternalUserSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseInternalUserGetInternalUserSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                         `json:"total,omitempty"`        //
+	Resources    []ResponseInternalUserGetInternalUserSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseInternalUserGetInternalUserSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseInternalUserGetInternalUserSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseInternalUserGetInternalUserSearchResultResources struct {

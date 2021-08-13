@@ -75,10 +75,10 @@ type ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLAN struct {
 }
 
 type ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResult struct {
-	Total        int                                                                                        `json:"total,omitempty"`        //
-	Resources    []ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                                      `json:"total,omitempty"`        //
+	Resources    []ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResultResources struct {

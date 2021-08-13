@@ -118,10 +118,10 @@ type ResponseRestidStoreGetRestIDStore struct {
 }
 
 type ResponseRestidStoreGetRestIDStoreSearchResult struct {
-	Total        int                                                         `json:"total,omitempty"`        //
-	Resources    []ResponseRestidStoreGetRestIDStoreSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseRestidStoreGetRestIDStoreSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseRestidStoreGetRestIDStoreSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                       `json:"total,omitempty"`        //
+	Resources    []ResponseRestidStoreGetRestIDStoreSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseRestidStoreGetRestIDStoreSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseRestidStoreGetRestIDStoreSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseRestidStoreGetRestIDStoreSearchResultResources struct {

@@ -66,10 +66,10 @@ type ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettings 
 }
 
 type ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResult struct {
-	Total        int                                                                                                  `json:"total,omitempty"`        //
-	Resources    []ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                                                `json:"total,omitempty"`        //
+	Resources    []ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResultResources struct {

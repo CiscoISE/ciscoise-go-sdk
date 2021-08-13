@@ -23,10 +23,10 @@ type ResponseSponsorGroupMemberGetSponsorGroupMember struct {
 }
 
 type ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResult struct {
-	Total        int                                                                       `json:"total,omitempty"`        //
-	Resources    []ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                     `json:"total,omitempty"`        //
+	Resources    []ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResultResources struct {

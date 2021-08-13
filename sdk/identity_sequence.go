@@ -89,10 +89,10 @@ type ResponseIDentitySequenceGetIDentitySequence struct {
 }
 
 type ResponseIDentitySequenceGetIDentitySequenceSearchResult struct {
-	Total        int                                                                   `json:"total,omitempty"`        //
-	Resources    []ResponseIDentitySequenceGetIDentitySequenceSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseIDentitySequenceGetIDentitySequenceSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseIDentitySequenceGetIDentitySequenceSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                 `json:"total,omitempty"`        //
+	Resources    []ResponseIDentitySequenceGetIDentitySequenceSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseIDentitySequenceGetIDentitySequenceSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseIDentitySequenceGetIDentitySequenceSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseIDentitySequenceGetIDentitySequenceSearchResultResources struct {

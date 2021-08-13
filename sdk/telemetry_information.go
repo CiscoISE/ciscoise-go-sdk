@@ -40,10 +40,10 @@ type ResponseTelemetryInformationGetTelemetryInformation struct {
 }
 
 type ResponseTelemetryInformationGetTelemetryInformationSearchResult struct {
-	Total        int                                                                           `json:"total,omitempty"`        //
-	Resources    []ResponseTelemetryInformationGetTelemetryInformationSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseTelemetryInformationGetTelemetryInformationSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseTelemetryInformationGetTelemetryInformationSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                         `json:"total,omitempty"`        //
+	Resources    []ResponseTelemetryInformationGetTelemetryInformationSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseTelemetryInformationGetTelemetryInformationSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseTelemetryInformationGetTelemetryInformationSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseTelemetryInformationGetTelemetryInformationSearchResultResources struct {

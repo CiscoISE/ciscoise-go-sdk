@@ -62,10 +62,10 @@ type ResponseSxpLocalBindingsGetSxpLocalBindings struct {
 }
 
 type ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResult struct {
-	Total        int                                                                   `json:"total,omitempty"`        //
-	Resources    []ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                 `json:"total,omitempty"`        //
+	Resources    []ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResultResources struct {

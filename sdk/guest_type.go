@@ -97,10 +97,10 @@ type ResponseGuestTypeGetGuestType struct {
 }
 
 type ResponseGuestTypeGetGuestTypeSearchResult struct {
-	Total        int                                                     `json:"total,omitempty"`        //
-	Resources    []ResponseGuestTypeGetGuestTypeSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseGuestTypeGetGuestTypeSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseGuestTypeGetGuestTypeSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                   `json:"total,omitempty"`        //
+	Resources    []ResponseGuestTypeGetGuestTypeSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseGuestTypeGetGuestTypeSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseGuestTypeGetGuestTypeSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseGuestTypeGetGuestTypeSearchResultResources struct {

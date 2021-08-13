@@ -77,10 +77,10 @@ type ResponseNetworkDeviceGroupGetNetworkDeviceGroup struct {
 }
 
 type ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResult struct {
-	Total        int                                                                       `json:"total,omitempty"`        //
-	Resources    []ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                     `json:"total,omitempty"`        //
+	Resources    []ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResultResources struct {

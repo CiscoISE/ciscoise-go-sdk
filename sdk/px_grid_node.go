@@ -60,10 +60,10 @@ type ResponsePxGridNodeGetPxGridNode struct {
 }
 
 type ResponsePxGridNodeGetPxGridNodeSearchResult struct {
-	Total        int                                                       `json:"total,omitempty"`        //
-	Resources    []ResponsePxGridNodeGetPxGridNodeSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponsePxGridNodeGetPxGridNodeSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponsePxGridNodeGetPxGridNodeSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                     `json:"total,omitempty"`        //
+	Resources    []ResponsePxGridNodeGetPxGridNodeSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponsePxGridNodeGetPxGridNodeSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponsePxGridNodeGetPxGridNodeSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponsePxGridNodeGetPxGridNodeSearchResultResources struct {

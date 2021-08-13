@@ -235,10 +235,10 @@ type ResponseSponsoredGuestPortalGetSponsoredGuestPortals struct {
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResult struct {
-	Total        int                                                                            `json:"total,omitempty"`        //
-	Resources    []ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                          `json:"total,omitempty"`        //
+	Resources    []ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResultResources struct {

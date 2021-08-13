@@ -77,10 +77,10 @@ type ResponseIDentityGroupsGetIDentityGroups struct {
 }
 
 type ResponseIDentityGroupsGetIDentityGroupsSearchResult struct {
-	Total        int                                                               `json:"total,omitempty"`        //
-	Resources    []ResponseIDentityGroupsGetIDentityGroupsSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseIDentityGroupsGetIDentityGroupsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseIDentityGroupsGetIDentityGroupsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                             `json:"total,omitempty"`        //
+	Resources    []ResponseIDentityGroupsGetIDentityGroupsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseIDentityGroupsGetIDentityGroupsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseIDentityGroupsGetIDentityGroupsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseIDentityGroupsGetIDentityGroupsSearchResultResources struct {

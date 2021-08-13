@@ -184,10 +184,10 @@ type ResponseSponsorPortalGetSponsorPortal struct {
 }
 
 type ResponseSponsorPortalGetSponsorPortalSearchResult struct {
-	Total        int                                                             `json:"total,omitempty"`        //
-	Resources    []ResponseSponsorPortalGetSponsorPortalSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseSponsorPortalGetSponsorPortalSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseSponsorPortalGetSponsorPortalSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                           `json:"total,omitempty"`        //
+	Resources    []ResponseSponsorPortalGetSponsorPortalSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseSponsorPortalGetSponsorPortalSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseSponsorPortalGetSponsorPortalSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSponsorPortalGetSponsorPortalSearchResultResources struct {

@@ -58,10 +58,10 @@ type ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNode struct {
 }
 
 type ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResult struct {
-	Total        int                                                                                    `json:"total,omitempty"`        //
-	Resources    []ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                                  `json:"total,omitempty"`        //
+	Resources    []ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResultResources struct {

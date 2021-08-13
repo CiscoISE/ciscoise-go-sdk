@@ -95,10 +95,10 @@ type ResponseTacacsCommandSetsGetTacacsCommandSets struct {
 }
 
 type ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResult struct {
-	Total        int                                                                     `json:"total,omitempty"`        //
-	Resources    []ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                   `json:"total,omitempty"`        //
+	Resources    []ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResultResources struct {

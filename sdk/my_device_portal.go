@@ -182,10 +182,10 @@ type ResponseMyDevicePortalGetMyDevicePortal struct {
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalSearchResult struct {
-	Total        int                                                               `json:"total,omitempty"`        //
-	Resources    []ResponseMyDevicePortalGetMyDevicePortalSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseMyDevicePortalGetMyDevicePortalSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseMyDevicePortalGetMyDevicePortalSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                             `json:"total,omitempty"`        //
+	Resources    []ResponseMyDevicePortalGetMyDevicePortalSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseMyDevicePortalGetMyDevicePortalSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseMyDevicePortalGetMyDevicePortalSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalSearchResultResources struct {

@@ -43,10 +43,10 @@ type ResponseSupportBundleStatusGetSupportBundleStatus struct {
 }
 
 type ResponseSupportBundleStatusGetSupportBundleStatusSearchResult struct {
-	Total        int                                                                         `json:"total,omitempty"`        //
-	Resources    []ResponseSupportBundleStatusGetSupportBundleStatusSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseSupportBundleStatusGetSupportBundleStatusSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseSupportBundleStatusGetSupportBundleStatusSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                                       `json:"total,omitempty"`        //
+	Resources    []ResponseSupportBundleStatusGetSupportBundleStatusSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseSupportBundleStatusGetSupportBundleStatusSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseSupportBundleStatusGetSupportBundleStatusSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSupportBundleStatusGetSupportBundleStatusSearchResultResources struct {

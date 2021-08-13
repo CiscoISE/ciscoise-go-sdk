@@ -56,10 +56,10 @@ type ResponseDownloadableACLGetDownloadableACL struct {
 }
 
 type ResponseDownloadableACLGetDownloadableACLSearchResult struct {
-	Total        int                                                                 `json:"total,omitempty"`        //
-	Resources    []ResponseDownloadableACLGetDownloadableACLSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponseDownloadableACLGetDownloadableACLSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponseDownloadableACLGetDownloadableACLSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                               `json:"total,omitempty"`        //
+	Resources    []ResponseDownloadableACLGetDownloadableACLSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponseDownloadableACLGetDownloadableACLSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponseDownloadableACLGetDownloadableACLSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseDownloadableACLGetDownloadableACLSearchResultResources struct {

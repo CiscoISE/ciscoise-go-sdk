@@ -59,10 +59,10 @@ type ResponsePortalThemeGetPortalThemes struct {
 }
 
 type ResponsePortalThemeGetPortalThemesSearchResult struct {
-	Total        int                                                          `json:"total,omitempty"`        //
-	Resources    []ResponsePortalThemeGetPortalThemesSearchResultResources    `json:"resources,omitempty"`    //
-	NextPage     []ResponsePortalThemeGetPortalThemesSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage []ResponsePortalThemeGetPortalThemesSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        int                                                        `json:"total,omitempty"`        //
+	Resources    []ResponsePortalThemeGetPortalThemesSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     ResponsePortalThemeGetPortalThemesSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage ResponsePortalThemeGetPortalThemesSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponsePortalThemeGetPortalThemesSearchResultResources struct {
