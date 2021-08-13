@@ -11,8 +11,8 @@ import (
 type ActiveDirectoryService service
 
 type GetActiveDirectoryQueryParams struct {
-	Page int `url: page,omitempty` //Page number
-	Size int `url: size,omitempty` //Number of objects returned per page
+	Page int `url:"page,omitempty"` //Page number
+	Size int `url:"size,omitempty"` //Number of objects returned per page
 }
 
 type ResponseActiveDirectoryGetActiveDirectoryByName struct {

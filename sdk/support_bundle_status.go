@@ -11,8 +11,8 @@ import (
 type SupportBundleStatusService service
 
 type GetSupportBundleStatusQueryParams struct {
-	Page int `url: page,omitempty` //Page number
-	Size int `url: size,omitempty` //Number of objects returned per page
+	Page int `url:"page,omitempty"` //Page number
+	Size int `url:"size,omitempty"` //Number of objects returned per page
 }
 
 type ResponseSupportBundleStatusGetSupportBundleStatusByID struct {

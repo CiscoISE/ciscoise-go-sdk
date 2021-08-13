@@ -11,8 +11,8 @@ import (
 type ExternalRadiusServerService service
 
 type GetExternalRadiusServerQueryParams struct {
-	Page int `url: page,omitempty` //Page number
-	Size int `url: size,omitempty` //Number of objects returned per page
+	Page int `url:"page,omitempty"` //Page number
+	Size int `url:"size,omitempty"` //Number of objects returned per page
 }
 
 type ResponseExternalRadiusServerGetExternalRadiusServerByName struct {

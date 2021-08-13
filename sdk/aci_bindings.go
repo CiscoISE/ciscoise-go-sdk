@@ -10,12 +10,12 @@ import (
 type AciBindingsService service
 
 type GetAciBindingsQueryParams struct {
-	Page        int      `url: page,omitempty`        //Page number
-	Size        int      `url: size,omitempty`        //Number of objects returned per page
-	Sort        string   `url: sort,omitempty`        //sort type - asc or desc
-	SortBy      string   `url: sortBy,omitempty`      //sort column by which objects needs to be sorted
-	FilterBy    []string `url: filterBy,omitempty`    //
-	FilterValue []string `url: filterValue,omitempty` //
+	Page        int      `url:"page,omitempty"`        //Page number
+	Size        int      `url:"size,omitempty"`        //Number of objects returned per page
+	Sort        string   `url:"sort,omitempty"`        //sort type - asc or desc
+	SortBy      string   `url:"sortBy,omitempty"`      //sort column by which objects needs to be sorted
+	FilterBy    []string `url:"filterBy,omitempty"`    //
+	FilterValue []string `url:"filterValue,omitempty"` //
 }
 
 type ResponseAciBindingsGetAciBindings struct {
