@@ -108,21 +108,24 @@ type ResponseCertificatesGenerateIntermediateCaCsrResponseLink struct {
 }
 
 type ResponseCertificatesGetCsrByID struct {
-	CsrContents        string                             `json:"csrContents,omitempty"`        // Contents of the certificate file.
-	FriendlyName       string                             `json:"friendlyName,omitempty"`       // Friendly name of the certificate.
-	GroupTag           string                             `json:"groupTag,omitempty"`           // GroupTag of the certificate.
-	HostName           string                             `json:"hostName,omitempty"`           // Hostname or IP address of the ISE node.
-	ID                 string                             `json:"id,omitempty"`                 // ID of the certificate.
-	KeySize            string                             `json:"keySize,omitempty"`            // Size of the cryptographic key used.
-	Link               ResponseCertificatesGetCsrByIDLink `json:"link,omitempty"`               //
-	SignatureAlgorithm string                             `json:"signatureAlgorithm,omitempty"` // Algorithm used for encrypting CSR
-	Subject            string                             `json:"subject,omitempty"`            // Subject of the certificate. Includes Common Name (CN), Organizational Unit (OU), etc.
-	TimeStamp          string                             `json:"timeStamp,omitempty"`          // Timestamp of the certificate generation.
-	UsedFor            string                             `json:"usedFor,omitempty"`            // Services for which the certificate is used for(for eg- MGMT, GENERIC).
-	Version            string                             `json:"version,omitempty"`            //
+	Response ResponseCertificatesGetCsrByIDResponse `json:"response,omitempty"` //
+	Version  string                                 `json:"version,omitempty"`  //
 }
 
-type ResponseCertificatesGetCsrByIDLink struct {
+type ResponseCertificatesGetCsrByIDResponse struct {
+	FriendlyName       string                                     `json:"friendlyName,omitempty"`       // Friendly name of the certificate.
+	GroupTag           string                                     `json:"groupTag,omitempty"`           // GroupTag of the certificate.
+	HostName           string                                     `json:"hostName,omitempty"`           // Hostname or IP address of the ISE node.
+	ID                 string                                     `json:"id,omitempty"`                 // ID of the certificate.
+	KeySize            string                                     `json:"keySize,omitempty"`            // Size of the cryptographic key used.
+	Link               ResponseCertificatesGetCsrByIDResponseLink `json:"link,omitempty"`               //
+	SignatureAlgorithm string                                     `json:"signatureAlgorithm,omitempty"` // Algorithm used for encrypting CSR
+	Subject            string                                     `json:"subject,omitempty"`            // Subject of the certificate. Includes Common Name (CN), Organizational Unit (OU), etc.
+	TimeStamp          string                                     `json:"timeStamp,omitempty"`          // Timestamp of the certificate generation.
+	UsedFor            string                                     `json:"usedFor,omitempty"`            // Services for which the certificate is used for(for eg- MGMT, GENERIC).
+}
+
+type ResponseCertificatesGetCsrByIDResponseLink struct {
 	Href string `json:"href,omitempty"` //
 	Rel  string `json:"rel,omitempty"`  //
 	Type string `json:"type,omitempty"` //

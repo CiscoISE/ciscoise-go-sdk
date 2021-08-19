@@ -15,127 +15,112 @@ type ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditions struc
 }
 
 type ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeCondition struct {
-	ConditionType       string                                                                                     `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate            bool                                                                                       `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
-	Link                ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionLink                `json:"link,omitempty"`                //
-	DatesRange          ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	DatesRangeException ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	Description         string                                                                                     `json:"description,omitempty"`         // Condition description
-	HoursRange          ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	HoursRangeException ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	ID                  string                                                                                     `json:"id,omitempty"`                  //
-	Name                string                                                                                     `json:"name,omitempty"`                // Condition name
-	WeekDays            []string                                                                                   `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
-	WeekDaysException   []string                                                                                   `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
-	Version             string                                                                                     `json:"version,omitempty"`             //
+	Response ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionResponse `json:"response,omitempty"` // <ul><li>Hierarchical structure which defines a set of conditions for which authentication or authorization policy rules could be matched.</li> <li>Logical operations(AND, OR) relationship between conditions are supported</li> <li>Each condition can have subconditions with relation to logical operations</li></ul>
+	Version  string                                                                          `json:"version,omitempty"`  //
 }
 
-type ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionLink struct {
-	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
+type ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionResponse struct {
+	DatesRange          ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionResponseDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionResponseDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	Description         string                                                                                             `json:"description,omitempty"`         // Condition description
+	HoursRange          ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionResponseHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionResponseHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	ID                  string                                                                                             `json:"id,omitempty"`                  //
+	Name                string                                                                                             `json:"name,omitempty"`                // Condition name
+	WeekDays            []string                                                                                           `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
+	WeekDaysException   []string                                                                                           `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
 }
 
-type ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionDatesRange struct {
+type ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionResponseDatesRange struct {
 	EndDate   string `json:"endDate,omitempty"`   //
 	StartDate string `json:"startDate,omitempty"` //
 }
 
-type ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionDatesRangeException struct {
+type ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionResponseDatesRangeException struct {
 	EndDate   string `json:"endDate,omitempty"`   //
 	StartDate string `json:"startDate,omitempty"` //
 }
 
-type ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionHoursRange struct {
+type ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionResponseHoursRange struct {
 	EndTime   string `json:"endTime,omitempty"`   //
 	StartTime string `json:"startTime,omitempty"` //
 }
 
-type ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionHoursRangeException struct {
+type ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeConditionResponseHoursRangeException struct {
 	EndTime   string `json:"endTime,omitempty"`   //
 	StartTime string `json:"startTime,omitempty"` //
 }
 
 type ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByID struct {
-	ConditionType       string                                                                                      `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate            bool                                                                                        `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
-	Link                ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDLink                `json:"link,omitempty"`                //
-	DatesRange          ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	DatesRangeException ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	Description         string                                                                                      `json:"description,omitempty"`         // Condition description
-	HoursRange          ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	HoursRangeException ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	ID                  string                                                                                      `json:"id,omitempty"`                  //
-	Name                string                                                                                      `json:"name,omitempty"`                // Condition name
-	WeekDays            []string                                                                                    `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
-	WeekDaysException   []string                                                                                    `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
-	Version             string                                                                                      `json:"version,omitempty"`             //
+	Response ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDResponse `json:"response,omitempty"` // <ul><li>Hierarchical structure which defines a set of conditions for which authentication or authorization policy rules could be matched.</li> <li>Logical operations(AND, OR) relationship between conditions are supported</li> <li>Each condition can have subconditions with relation to logical operations</li></ul>
+	Version  string                                                                           `json:"version,omitempty"`  //
 }
 
-type ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDLink struct {
-	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
+type ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDResponse struct {
+	DatesRange          ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDResponseDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDResponseDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	Description         string                                                                                              `json:"description,omitempty"`         // Condition description
+	HoursRange          ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDResponseHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDResponseHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	ID                  string                                                                                              `json:"id,omitempty"`                  //
+	Name                string                                                                                              `json:"name,omitempty"`                // Condition name
+	WeekDays            []string                                                                                            `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
+	WeekDaysException   []string                                                                                            `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
 }
 
-type ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDDatesRange struct {
+type ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDResponseDatesRange struct {
 	EndDate   string `json:"endDate,omitempty"`   //
 	StartDate string `json:"startDate,omitempty"` //
 }
 
-type ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDDatesRangeException struct {
+type ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDResponseDatesRangeException struct {
 	EndDate   string `json:"endDate,omitempty"`   //
 	StartDate string `json:"startDate,omitempty"` //
 }
 
-type ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDHoursRange struct {
+type ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDResponseHoursRange struct {
 	EndTime   string `json:"endTime,omitempty"`   //
 	StartTime string `json:"startTime,omitempty"` //
 }
 
-type ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDHoursRangeException struct {
+type ResponseNetworkAccessTimeDateConditionsGetNetworkAccessTimeConditionByIDResponseHoursRangeException struct {
 	EndTime   string `json:"endTime,omitempty"`   //
 	StartTime string `json:"startTime,omitempty"` //
 }
 
 type ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByID struct {
-	ConditionType       string                                                                                         `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate            bool                                                                                           `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
-	Link                ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDLink                `json:"link,omitempty"`                //
-	DatesRange          ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	DatesRangeException ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	Description         string                                                                                         `json:"description,omitempty"`         // Condition description
-	HoursRange          ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	HoursRangeException ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	ID                  string                                                                                         `json:"id,omitempty"`                  //
-	Name                string                                                                                         `json:"name,omitempty"`                // Condition name
-	WeekDays            []string                                                                                       `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
-	WeekDaysException   []string                                                                                       `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
-	Version             string                                                                                         `json:"version,omitempty"`             //
+	Response ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDResponse `json:"response,omitempty"` // <ul><li>Hierarchical structure which defines a set of conditions for which authentication or authorization policy rules could be matched.</li> <li>Logical operations(AND, OR) relationship between conditions are supported</li> <li>Each condition can have subconditions with relation to logical operations</li></ul>
+	Version  string                                                                              `json:"version,omitempty"`  //
 }
 
-type ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDLink struct {
-	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
+type ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDResponse struct {
+	DatesRange          ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDResponseDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDResponseDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	Description         string                                                                                                 `json:"description,omitempty"`         // Condition description
+	HoursRange          ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDResponseHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDResponseHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	ID                  string                                                                                                 `json:"id,omitempty"`                  //
+	Name                string                                                                                                 `json:"name,omitempty"`                // Condition name
+	WeekDays            []string                                                                                               `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
+	WeekDaysException   []string                                                                                               `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
 }
 
-type ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDDatesRange struct {
+type ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDResponseDatesRange struct {
 	EndDate   string `json:"endDate,omitempty"`   //
 	StartDate string `json:"startDate,omitempty"` //
 }
 
-type ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDDatesRangeException struct {
+type ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDResponseDatesRangeException struct {
 	EndDate   string `json:"endDate,omitempty"`   //
 	StartDate string `json:"startDate,omitempty"` //
 }
 
-type ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDHoursRange struct {
+type ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDResponseHoursRange struct {
 	EndTime   string `json:"endTime,omitempty"`   //
 	StartTime string `json:"startTime,omitempty"` //
 }
 
-type ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDHoursRangeException struct {
+type ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByIDResponseHoursRangeException struct {
 	EndTime   string `json:"endTime,omitempty"`   //
 	StartTime string `json:"startTime,omitempty"` //
 }

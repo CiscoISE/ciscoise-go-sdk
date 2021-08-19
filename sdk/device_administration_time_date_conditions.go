@@ -15,127 +15,112 @@ type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditions 
 }
 
 type ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeCondition struct {
-	ConditionType       string                                                                                          `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate            bool                                                                                            `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
-	Link                ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionLink                `json:"link,omitempty"`                //
-	DatesRange          ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	DatesRangeException ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	Description         string                                                                                          `json:"description,omitempty"`         // Condition description
-	HoursRange          ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	HoursRangeException ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	ID                  string                                                                                          `json:"id,omitempty"`                  //
-	Name                string                                                                                          `json:"name,omitempty"`                // Condition name
-	WeekDays            []string                                                                                        `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
-	WeekDaysException   []string                                                                                        `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
-	Version             string                                                                                          `json:"version,omitempty"`             //
+	Response ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponse `json:"response,omitempty"` // <ul><li>Hierarchical structure which defines a set of conditions for which authentication or authorization policy rules could be matched.</li> <li>Logical operations(AND, OR) relationship between conditions are supported</li> <li>Each condition can have subconditions with relation to logical operations</li></ul>
+	Version  string                                                                               `json:"version,omitempty"`  //
 }
 
-type ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionLink struct {
-	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
+type ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponse struct {
+	DatesRange          ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	Description         string                                                                                                  `json:"description,omitempty"`         // Condition description
+	HoursRange          ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	ID                  string                                                                                                  `json:"id,omitempty"`                  //
+	Name                string                                                                                                  `json:"name,omitempty"`                // Condition name
+	WeekDays            []string                                                                                                `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
+	WeekDaysException   []string                                                                                                `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
 }
 
-type ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionDatesRange struct {
+type ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseDatesRange struct {
 	EndDate   string `json:"endDate,omitempty"`   //
 	StartDate string `json:"startDate,omitempty"` //
 }
 
-type ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionDatesRangeException struct {
+type ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseDatesRangeException struct {
 	EndDate   string `json:"endDate,omitempty"`   //
 	StartDate string `json:"startDate,omitempty"` //
 }
 
-type ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionHoursRange struct {
+type ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseHoursRange struct {
 	EndTime   string `json:"endTime,omitempty"`   //
 	StartTime string `json:"startTime,omitempty"` //
 }
 
-type ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionHoursRangeException struct {
+type ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseHoursRangeException struct {
 	EndTime   string `json:"endTime,omitempty"`   //
 	StartTime string `json:"startTime,omitempty"` //
 }
 
 type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByID struct {
-	ConditionType       string                                                                                           `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate            bool                                                                                             `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
-	Link                ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDLink                `json:"link,omitempty"`                //
-	DatesRange          ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	DatesRangeException ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	Description         string                                                                                           `json:"description,omitempty"`         // Condition description
-	HoursRange          ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	HoursRangeException ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	ID                  string                                                                                           `json:"id,omitempty"`                  //
-	Name                string                                                                                           `json:"name,omitempty"`                // Condition name
-	WeekDays            []string                                                                                         `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
-	WeekDaysException   []string                                                                                         `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
-	Version             string                                                                                           `json:"version,omitempty"`             //
+	Response ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponse `json:"response,omitempty"` // <ul><li>Hierarchical structure which defines a set of conditions for which authentication or authorization policy rules could be matched.</li> <li>Logical operations(AND, OR) relationship between conditions are supported</li> <li>Each condition can have subconditions with relation to logical operations</li></ul>
+	Version  string                                                                                `json:"version,omitempty"`  //
 }
 
-type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDLink struct {
-	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
+type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponse struct {
+	DatesRange          ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	Description         string                                                                                                   `json:"description,omitempty"`         // Condition description
+	HoursRange          ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	ID                  string                                                                                                   `json:"id,omitempty"`                  //
+	Name                string                                                                                                   `json:"name,omitempty"`                // Condition name
+	WeekDays            []string                                                                                                 `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
+	WeekDaysException   []string                                                                                                 `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
 }
 
-type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDDatesRange struct {
+type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseDatesRange struct {
 	EndDate   string `json:"endDate,omitempty"`   //
 	StartDate string `json:"startDate,omitempty"` //
 }
 
-type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDDatesRangeException struct {
+type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseDatesRangeException struct {
 	EndDate   string `json:"endDate,omitempty"`   //
 	StartDate string `json:"startDate,omitempty"` //
 }
 
-type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDHoursRange struct {
+type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseHoursRange struct {
 	EndTime   string `json:"endTime,omitempty"`   //
 	StartTime string `json:"startTime,omitempty"` //
 }
 
-type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDHoursRangeException struct {
+type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseHoursRangeException struct {
 	EndTime   string `json:"endTime,omitempty"`   //
 	StartTime string `json:"startTime,omitempty"` //
 }
 
 type ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByID struct {
-	ConditionType       string                                                                                              `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate            bool                                                                                                `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
-	Link                ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDLink                `json:"link,omitempty"`                //
-	DatesRange          ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	DatesRangeException ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	Description         string                                                                                              `json:"description,omitempty"`         // Condition description
-	HoursRange          ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	HoursRangeException ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	ID                  string                                                                                              `json:"id,omitempty"`                  //
-	Name                string                                                                                              `json:"name,omitempty"`                // Condition name
-	WeekDays            []string                                                                                            `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
-	WeekDaysException   []string                                                                                            `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
-	Version             string                                                                                              `json:"version,omitempty"`             //
+	Response ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponse `json:"response,omitempty"` // <ul><li>Hierarchical structure which defines a set of conditions for which authentication or authorization policy rules could be matched.</li> <li>Logical operations(AND, OR) relationship between conditions are supported</li> <li>Each condition can have subconditions with relation to logical operations</li></ul>
+	Version  string                                                                                   `json:"version,omitempty"`  //
 }
 
-type ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDLink struct {
-	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
+type ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponse struct {
+	DatesRange          ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	Description         string                                                                                                      `json:"description,omitempty"`         // Condition description
+	HoursRange          ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	ID                  string                                                                                                      `json:"id,omitempty"`                  //
+	Name                string                                                                                                      `json:"name,omitempty"`                // Condition name
+	WeekDays            []string                                                                                                    `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
+	WeekDaysException   []string                                                                                                    `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
 }
 
-type ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDDatesRange struct {
+type ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseDatesRange struct {
 	EndDate   string `json:"endDate,omitempty"`   //
 	StartDate string `json:"startDate,omitempty"` //
 }
 
-type ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDDatesRangeException struct {
+type ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseDatesRangeException struct {
 	EndDate   string `json:"endDate,omitempty"`   //
 	StartDate string `json:"startDate,omitempty"` //
 }
 
-type ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDHoursRange struct {
+type ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseHoursRange struct {
 	EndTime   string `json:"endTime,omitempty"`   //
 	StartTime string `json:"startTime,omitempty"` //
 }
 
-type ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDHoursRangeException struct {
+type ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseHoursRangeException struct {
 	EndTime   string `json:"endTime,omitempty"`   //
 	StartTime string `json:"startTime,omitempty"` //
 }
