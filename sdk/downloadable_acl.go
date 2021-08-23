@@ -20,15 +20,15 @@ type ResponseDownloadableACLGetDownloadableACLByID struct {
 }
 
 type ResponseDownloadableACLGetDownloadableACLByIDDownloadableACL struct {
-	ID          string                                                            `json:"id,omitempty"`          //
-	Name        string                                                            `json:"name,omitempty"`        // Resource Name. Name may contain alphanumeric or any of the following characters [_.-]
-	Description string                                                            `json:"description,omitempty"` // Use the string \\n for a newline
-	Dacl        string                                                            `json:"dacl,omitempty"`        // The DACL Content. Use the string \\n for a newline
-	DaclType    string                                                            `json:"daclType,omitempty"`    // Allowed values: - IPV4, - IPV6, - IP_AGNOSTIC
-	Link1       ResponseDownloadableACLGetDownloadableACLByIDDownloadableACLLink1 `json:"link1,omitempty"`       //
+	ID          string                                                           `json:"id,omitempty"`          //
+	Name        string                                                           `json:"name,omitempty"`        // Resource Name. Name may contain alphanumeric or any of the following characters [_.-]
+	Description string                                                           `json:"description,omitempty"` // Use the string \\n for a newline
+	Dacl        string                                                           `json:"dacl,omitempty"`        // The DACL Content. Use the string \\n for a newline
+	DaclType    string                                                           `json:"daclType,omitempty"`    // Allowed values: - IPV4, - IPV6, - IP_AGNOSTIC
+	Link        ResponseDownloadableACLGetDownloadableACLByIDDownloadableACLLink `json:"link,omitempty"`        //
 }
 
-type ResponseDownloadableACLGetDownloadableACLByIDDownloadableACLLink1 struct {
+type ResponseDownloadableACLGetDownloadableACLByIDDownloadableACLLink struct {
 	Rel  string `json:"rel,omitempty"`  //
 	Href string `json:"href,omitempty"` //
 	Type string `json:"type,omitempty"` //
