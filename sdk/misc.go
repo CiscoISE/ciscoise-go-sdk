@@ -32,9 +32,9 @@ type ResponseMiscGetProfilerCount struct {
 
 type ResponseMiscGetMntVersion struct {
 	XMLName    xml.Name `xml:"product"`
-	Name       string   `xml:"name,attr,omitempty"`
-	Version    string   `xml:"version,omitempty"`
-	TypeOfNode string   `xml:"type_of_node,omitempty"`
+	Name       string   `xml:"name,attr,omitempty"`    //
+	Version    string   `xml:"version,omitempty"`      //
+	TypeOfNode int      `xml:"type_of_node,omitempty"` //
 }
 
 //GetActiveCount ActiveCount
