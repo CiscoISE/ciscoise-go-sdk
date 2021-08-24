@@ -10,25 +10,113 @@ import (
 type DeviceAdministrationTimeDateConditionsService service
 
 type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditions struct {
-	Response []interface{} `json:"response,omitempty"` //
-	Version  string        `json:"version,omitempty"`  //
+	Response []ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionsResponse `json:"response,omitempty"` //
+	Version  string                                                                               `json:"version,omitempty"`  //
+}
+
+type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionsResponse struct {
+	ConditionType       string                                                                                                `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate            bool                                                                                                  `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
+	Link                ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionsResponseLink                `json:"link,omitempty"`                //
+	Description         string                                                                                                `json:"description,omitempty"`         // Condition description
+	ID                  string                                                                                                `json:"id,omitempty"`                  //
+	Name                string                                                                                                `json:"name,omitempty"`                // Condition name
+	AttributeName       string                                                                                                `json:"attributeName,omitempty"`       // Dictionary attribute name
+	AttributeID         string                                                                                                `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
+	AttributeValue      string                                                                                                `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName      string                                                                                                `json:"dictionaryName,omitempty"`      // Dictionary name
+	DictionaryValue     string                                                                                                `json:"dictionaryValue,omitempty"`     // Dictionary value
+	Operator            string                                                                                                `json:"operator,omitempty"`            // Equality operator
+	Children            []ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionsResponseChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	DatesRange          ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionsResponseDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionsResponseDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	HoursRange          ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionsResponseHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionsResponseHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	WeekDays            []string                                                                                              `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
+	WeekDaysException   []string                                                                                              `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
+}
+
+type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionsResponseLink struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
+}
+
+type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionsResponseChildren struct {
+	ConditionType string                                                                                         `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate      bool                                                                                           `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
+	Link          ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionsResponseChildrenLink `json:"link,omitempty"`          //
+}
+
+type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionsResponseChildrenLink struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
+}
+
+type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionsResponseDatesRange struct {
+	EndDate   string `json:"endDate,omitempty"`   //
+	StartDate string `json:"startDate,omitempty"` //
+}
+
+type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionsResponseDatesRangeException struct {
+	EndDate   string `json:"endDate,omitempty"`   //
+	StartDate string `json:"startDate,omitempty"` //
+}
+
+type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionsResponseHoursRange struct {
+	EndTime   string `json:"endTime,omitempty"`   //
+	StartTime string `json:"startTime,omitempty"` //
+}
+
+type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionsResponseHoursRangeException struct {
+	EndTime   string `json:"endTime,omitempty"`   //
+	StartTime string `json:"startTime,omitempty"` //
 }
 
 type ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeCondition struct {
-	Response ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponse `json:"response,omitempty"` // <ul><li>Hierarchical structure which defines a set of conditions for which authentication or authorization policy rules could be matched.</li> <li>Logical operations(AND, OR) relationship between conditions are supported</li> <li>Each condition can have subconditions with relation to logical operations</li></ul>
+	Response ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponse `json:"response,omitempty"` //
 	Version  string                                                                               `json:"version,omitempty"`  //
 }
 
 type ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponse struct {
-	DatesRange          ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	DatesRangeException ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	ConditionType       string                                                                                                  `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate            bool                                                                                                    `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
+	Link                ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseLink                `json:"link,omitempty"`                //
 	Description         string                                                                                                  `json:"description,omitempty"`         // Condition description
-	HoursRange          ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	HoursRangeException ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
 	ID                  string                                                                                                  `json:"id,omitempty"`                  //
 	Name                string                                                                                                  `json:"name,omitempty"`                // Condition name
+	AttributeName       string                                                                                                  `json:"attributeName,omitempty"`       // Dictionary attribute name
+	AttributeID         string                                                                                                  `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
+	AttributeValue      string                                                                                                  `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName      string                                                                                                  `json:"dictionaryName,omitempty"`      // Dictionary name
+	DictionaryValue     string                                                                                                  `json:"dictionaryValue,omitempty"`     // Dictionary value
+	Operator            string                                                                                                  `json:"operator,omitempty"`            // Equality operator
+	Children            []ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	DatesRange          ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	HoursRange          ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
 	WeekDays            []string                                                                                                `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
 	WeekDaysException   []string                                                                                                `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
+}
+
+type ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseLink struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
+}
+
+type ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseChildren struct {
+	ConditionType string                                                                                           `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate      bool                                                                                             `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
+	Link          ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseChildrenLink `json:"link,omitempty"`          //
+}
+
+type ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseChildrenLink struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
 }
 
 type ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditionResponseDatesRange struct {
@@ -52,20 +140,48 @@ type ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeConditio
 }
 
 type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByID struct {
-	Response ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponse `json:"response,omitempty"` // <ul><li>Hierarchical structure which defines a set of conditions for which authentication or authorization policy rules could be matched.</li> <li>Logical operations(AND, OR) relationship between conditions are supported</li> <li>Each condition can have subconditions with relation to logical operations</li></ul>
+	Response ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponse `json:"response,omitempty"` //
 	Version  string                                                                                `json:"version,omitempty"`  //
 }
 
 type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponse struct {
-	DatesRange          ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	DatesRangeException ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	ConditionType       string                                                                                                   `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate            bool                                                                                                     `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
+	Link                ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseLink                `json:"link,omitempty"`                //
 	Description         string                                                                                                   `json:"description,omitempty"`         // Condition description
-	HoursRange          ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	HoursRangeException ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
 	ID                  string                                                                                                   `json:"id,omitempty"`                  //
 	Name                string                                                                                                   `json:"name,omitempty"`                // Condition name
+	AttributeName       string                                                                                                   `json:"attributeName,omitempty"`       // Dictionary attribute name
+	AttributeID         string                                                                                                   `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
+	AttributeValue      string                                                                                                   `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName      string                                                                                                   `json:"dictionaryName,omitempty"`      // Dictionary name
+	DictionaryValue     string                                                                                                   `json:"dictionaryValue,omitempty"`     // Dictionary value
+	Operator            string                                                                                                   `json:"operator,omitempty"`            // Equality operator
+	Children            []ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	DatesRange          ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	HoursRange          ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
 	WeekDays            []string                                                                                                 `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
 	WeekDaysException   []string                                                                                                 `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
+}
+
+type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseLink struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
+}
+
+type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseChildren struct {
+	ConditionType string                                                                                            `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate      bool                                                                                              `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
+	Link          ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseChildrenLink `json:"link,omitempty"`          //
+}
+
+type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseChildrenLink struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
 }
 
 type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionByIDResponseDatesRange struct {
@@ -89,20 +205,48 @@ type ResponseDeviceAdministrationTimeDateConditionsGetDeviceAdminTimeConditionBy
 }
 
 type ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByID struct {
-	Response ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponse `json:"response,omitempty"` // <ul><li>Hierarchical structure which defines a set of conditions for which authentication or authorization policy rules could be matched.</li> <li>Logical operations(AND, OR) relationship between conditions are supported</li> <li>Each condition can have subconditions with relation to logical operations</li></ul>
+	Response ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponse `json:"response,omitempty"` //
 	Version  string                                                                                   `json:"version,omitempty"`  //
 }
 
 type ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponse struct {
-	DatesRange          ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	DatesRangeException ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	ConditionType       string                                                                                                      `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate            bool                                                                                                        `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
+	Link                ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseLink                `json:"link,omitempty"`                //
 	Description         string                                                                                                      `json:"description,omitempty"`         // Condition description
-	HoursRange          ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	HoursRangeException ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
 	ID                  string                                                                                                      `json:"id,omitempty"`                  //
 	Name                string                                                                                                      `json:"name,omitempty"`                // Condition name
+	AttributeName       string                                                                                                      `json:"attributeName,omitempty"`       // Dictionary attribute name
+	AttributeID         string                                                                                                      `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
+	AttributeValue      string                                                                                                      `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName      string                                                                                                      `json:"dictionaryName,omitempty"`      // Dictionary name
+	DictionaryValue     string                                                                                                      `json:"dictionaryValue,omitempty"`     // Dictionary value
+	Operator            string                                                                                                      `json:"operator,omitempty"`            // Equality operator
+	Children            []ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	DatesRange          ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	HoursRange          ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
 	WeekDays            []string                                                                                                    `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
 	WeekDaysException   []string                                                                                                    `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
+}
+
+type ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseLink struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
+}
+
+type ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseChildren struct {
+	ConditionType string                                                                                               `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate      bool                                                                                                 `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
+	Link          ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseChildrenLink `json:"link,omitempty"`          //
+}
+
+type ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseChildrenLink struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
 }
 
 type ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByIDResponseDatesRange struct {

@@ -113,6 +113,7 @@ type ResponseCertificatesGetCsrByID struct {
 }
 
 type ResponseCertificatesGetCsrByIDResponse struct {
+	CsrContents        string                                     `json:"csrContents,omitempty"`        // Contents of the certificate file.
 	FriendlyName       string                                     `json:"friendlyName,omitempty"`       // Friendly name of the certificate.
 	GroupTag           string                                     `json:"groupTag,omitempty"`           // GroupTag of the certificate.
 	HostName           string                                     `json:"hostName,omitempty"`           // Hostname or IP address of the ISE node.

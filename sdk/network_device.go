@@ -48,7 +48,7 @@ type ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceAuthenticationSetti
 	EnableKeyWrap               bool   `json:"enableKeyWrap,omitempty"`               //
 	Enabled                     bool   `json:"enabled,omitempty"`                     //
 	DtlsRequired                bool   `json:"dtlsRequired,omitempty"`                // This value enforces use of dtls
-	EnableMultiSecret           bool   `json:"enableMultiSecret,omitempty"`           //
+	EnableMultiSecret           string `json:"enableMultiSecret,omitempty"`           //
 	KeyEncryptionKey            string `json:"keyEncryptionKey,omitempty"`            //
 	MessageAuthenticatorCodeKey string `json:"messageAuthenticatorCodeKey,omitempty"` //
 	KeyInputFormat              string `json:"keyInputFormat,omitempty"`              // Allowed values: - ASCII, - HEXADECIMAL
@@ -156,7 +156,7 @@ type ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceAuthenticationSetting
 	EnableKeyWrap               bool   `json:"enableKeyWrap,omitempty"`               //
 	Enabled                     bool   `json:"enabled,omitempty"`                     //
 	DtlsRequired                bool   `json:"dtlsRequired,omitempty"`                // This value enforces use of dtls
-	EnableMultiSecret           bool   `json:"enableMultiSecret,omitempty"`           //
+	EnableMultiSecret           string `json:"enableMultiSecret,omitempty"`           //
 	KeyEncryptionKey            string `json:"keyEncryptionKey,omitempty"`            //
 	MessageAuthenticatorCodeKey string `json:"messageAuthenticatorCodeKey,omitempty"` //
 	KeyInputFormat              string `json:"keyInputFormat,omitempty"`              // Allowed values: - ASCII, - HEXADECIMAL
@@ -339,7 +339,7 @@ type RequestNetworkDeviceUpdateNetworkDeviceByNameNetworkDeviceAuthenticationSet
 	EnableKeyWrap               *bool  `json:"enableKeyWrap,omitempty"`               //
 	Enabled                     *bool  `json:"enabled,omitempty"`                     //
 	DtlsRequired                *bool  `json:"dtlsRequired,omitempty"`                // This value enforces use of dtls
-	EnableMultiSecret           *bool  `json:"enableMultiSecret,omitempty"`           //
+	EnableMultiSecret           string `json:"enableMultiSecret,omitempty"`           //
 	KeyEncryptionKey            string `json:"keyEncryptionKey,omitempty"`            //
 	MessageAuthenticatorCodeKey string `json:"messageAuthenticatorCodeKey,omitempty"` //
 	KeyInputFormat              string `json:"keyInputFormat,omitempty"`              // Allowed values: - ASCII, - HEXADECIMAL
@@ -423,7 +423,7 @@ type RequestNetworkDeviceUpdateNetworkDeviceByIDNetworkDeviceAuthenticationSetti
 	EnableKeyWrap               *bool  `json:"enableKeyWrap,omitempty"`               //
 	Enabled                     *bool  `json:"enabled,omitempty"`                     //
 	DtlsRequired                *bool  `json:"dtlsRequired,omitempty"`                // This value enforces use of dtls
-	EnableMultiSecret           *bool  `json:"enableMultiSecret,omitempty"`           //
+	EnableMultiSecret           string `json:"enableMultiSecret,omitempty"`           //
 	KeyEncryptionKey            string `json:"keyEncryptionKey,omitempty"`            //
 	MessageAuthenticatorCodeKey string `json:"messageAuthenticatorCodeKey,omitempty"` //
 	KeyInputFormat              string `json:"keyInputFormat,omitempty"`              // Allowed values: - ASCII, - HEXADECIMAL
@@ -506,7 +506,7 @@ type RequestNetworkDeviceCreateNetworkDeviceNetworkDeviceAuthenticationSettings 
 	EnableKeyWrap               *bool  `json:"enableKeyWrap,omitempty"`               //
 	Enabled                     *bool  `json:"enabled,omitempty"`                     //
 	DtlsRequired                *bool  `json:"dtlsRequired,omitempty"`                // This value enforces use of dtls
-	EnableMultiSecret           *bool  `json:"enableMultiSecret,omitempty"`           //
+	EnableMultiSecret           string `json:"enableMultiSecret,omitempty"`           //
 	KeyEncryptionKey            string `json:"keyEncryptionKey,omitempty"`            //
 	MessageAuthenticatorCodeKey string `json:"messageAuthenticatorCodeKey,omitempty"` //
 	KeyInputFormat              string `json:"keyInputFormat,omitempty"`              // Allowed values: - ASCII, - HEXADECIMAL
