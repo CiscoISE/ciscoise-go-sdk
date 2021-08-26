@@ -10,7 +10,7 @@ type DeviceAdministrationServiceNamesService service
 
 type ResponseDeviceAdministrationServiceNamesGetDeviceAdminServiceNames struct {
 	ID                   string `json:"id,omitempty"`                   //
-	IsLocalAuthorization bool   `json:"isLocalAuthorization,omitempty"` //
+	IsLocalAuthorization *bool  `json:"isLocalAuthorization,omitempty"` //
 	Name                 string `json:"name,omitempty"`                 //
 	ServiceType          string `json:"serviceType,omitempty"`          // Allowed Protocols OR Server Sequence
 }

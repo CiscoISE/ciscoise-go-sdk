@@ -16,16 +16,16 @@ type GetDownloadableACLQueryParams struct {
 }
 
 type ResponseDownloadableACLGetDownloadableACLByID struct {
-	DownloadableACL ResponseDownloadableACLGetDownloadableACLByIDDownloadableACL `json:"DownloadableAcl,omitempty"` //
+	DownloadableACL *ResponseDownloadableACLGetDownloadableACLByIDDownloadableACL `json:"DownloadableAcl,omitempty"` //
 }
 
 type ResponseDownloadableACLGetDownloadableACLByIDDownloadableACL struct {
-	ID          string                                                           `json:"id,omitempty"`          //
-	Name        string                                                           `json:"name,omitempty"`        // Resource Name. Name may contain alphanumeric or any of the following characters [_.-]
-	Description string                                                           `json:"description,omitempty"` // Use the string \\n for a newline
-	Dacl        string                                                           `json:"dacl,omitempty"`        // The DACL Content. Use the string \\n for a newline
-	DaclType    string                                                           `json:"daclType,omitempty"`    // Allowed values: - IPV4, - IPV6, - IP_AGNOSTIC
-	Link        ResponseDownloadableACLGetDownloadableACLByIDDownloadableACLLink `json:"link,omitempty"`        //
+	ID          string                                                            `json:"id,omitempty"`          //
+	Name        string                                                            `json:"name,omitempty"`        // Resource Name. Name may contain alphanumeric or any of the following characters [_.-]
+	Description string                                                            `json:"description,omitempty"` // Use the string \\n for a newline
+	Dacl        string                                                            `json:"dacl,omitempty"`        // The DACL Content. Use the string \\n for a newline
+	DaclType    string                                                            `json:"daclType,omitempty"`    // Allowed values: - IPV4, - IPV6, - IP_AGNOSTIC
+	Link        *ResponseDownloadableACLGetDownloadableACLByIDDownloadableACLLink `json:"link,omitempty"`        //
 }
 
 type ResponseDownloadableACLGetDownloadableACLByIDDownloadableACLLink struct {
@@ -35,14 +35,14 @@ type ResponseDownloadableACLGetDownloadableACLByIDDownloadableACLLink struct {
 }
 
 type ResponseDownloadableACLUpdateDownloadableACLByID struct {
-	UpdatedFieldsList ResponseDownloadableACLUpdateDownloadableACLByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseDownloadableACLUpdateDownloadableACLByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseDownloadableACLUpdateDownloadableACLByIDUpdatedFieldsList struct {
-	UpdatedField ResponseDownloadableACLUpdateDownloadableACLByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                        `json:"field,omitempty"`        //
-	OldValue     string                                                                        `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                        `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseDownloadableACLUpdateDownloadableACLByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                           `json:"field,omitempty"`        //
+	OldValue     string                                                                           `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                           `json:"newValue,omitempty"`     //
 }
 
 type ResponseDownloadableACLUpdateDownloadableACLByIDUpdatedFieldsListUpdatedField struct {
@@ -52,21 +52,21 @@ type ResponseDownloadableACLUpdateDownloadableACLByIDUpdatedFieldsListUpdatedFie
 }
 
 type ResponseDownloadableACLGetDownloadableACL struct {
-	SearchResult ResponseDownloadableACLGetDownloadableACLSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseDownloadableACLGetDownloadableACLSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseDownloadableACLGetDownloadableACLSearchResult struct {
-	Total        int                                                               `json:"total,omitempty"`        //
-	Resources    []ResponseDownloadableACLGetDownloadableACLSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseDownloadableACLGetDownloadableACLSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseDownloadableACLGetDownloadableACLSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                               `json:"total,omitempty"`        //
+	Resources    *[]ResponseDownloadableACLGetDownloadableACLSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseDownloadableACLGetDownloadableACLSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseDownloadableACLGetDownloadableACLSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseDownloadableACLGetDownloadableACLSearchResultResources struct {
-	ID          string                                                             `json:"id,omitempty"`          //
-	Name        string                                                             `json:"name,omitempty"`        //
-	Description string                                                             `json:"description,omitempty"` //
-	Link        ResponseDownloadableACLGetDownloadableACLSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                              `json:"id,omitempty"`          //
+	Name        string                                                              `json:"name,omitempty"`        //
+	Description string                                                              `json:"description,omitempty"` //
+	Link        *ResponseDownloadableACLGetDownloadableACLSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseDownloadableACLGetDownloadableACLSearchResultResourcesLink struct {
@@ -88,13 +88,13 @@ type ResponseDownloadableACLGetDownloadableACLSearchResultPreviousPage struct {
 }
 
 type ResponseDownloadableACLGetVersion struct {
-	VersionInfo ResponseDownloadableACLGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseDownloadableACLGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseDownloadableACLGetVersionVersionInfo struct {
-	CurrentServerVersion string                                           `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                           `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseDownloadableACLGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                            `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                            `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseDownloadableACLGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseDownloadableACLGetVersionVersionInfoLink struct {

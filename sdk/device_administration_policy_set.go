@@ -10,44 +10,44 @@ import (
 type DeviceAdministrationPolicySetService service
 
 type ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySets struct {
-	Response []ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponse `json:"response,omitempty"` //
-	Version  string                                                                  `json:"version,omitempty"`  //
+	Response *[]ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponse `json:"response,omitempty"` //
+	Version  string                                                                   `json:"version,omitempty"`  //
 }
 
 type ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponse struct {
-	Condition   ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseCondition `json:"condition,omitempty"`   //
-	Default     bool                                                                           `json:"default,omitempty"`     // Flag which indicates if this policy set is the default one
-	Description string                                                                         `json:"description,omitempty"` // The description for the policy set
-	HitCounts   int                                                                            `json:"hitCounts,omitempty"`   // The amount of times the policy was matched
-	ID          string                                                                         `json:"id,omitempty"`          // Identifier for the policy set
-	IsProxy     bool                                                                           `json:"isProxy,omitempty"`     // Flag which indicates if the policy set service is of type 'Proxy Sequence' or 'Allowed Protocols'
-	Link        ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseLink      `json:"link,omitempty"`        //
-	Name        string                                                                         `json:"name,omitempty"`        // Given name for the policy set, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
-	Rank        int                                                                            `json:"rank,omitempty"`        // The rank(priority) in relation to other policy set. Lower rank is higher priority.
-	ServiceName string                                                                         `json:"serviceName,omitempty"` // Policy set service identifier - Allowed Protocols,Server Sequence..
-	State       string                                                                         `json:"state,omitempty"`       // The state that the policy set is in. A disabled policy set cannot be matched.
+	Condition   *ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseCondition `json:"condition,omitempty"`   //
+	Default     *bool                                                                           `json:"default,omitempty"`     // Flag which indicates if this policy set is the default one
+	Description string                                                                          `json:"description,omitempty"` // The description for the policy set
+	HitCounts   *int                                                                            `json:"hitCounts,omitempty"`   // The amount of times the policy was matched
+	ID          string                                                                          `json:"id,omitempty"`          // Identifier for the policy set
+	IsProxy     *bool                                                                           `json:"isProxy,omitempty"`     // Flag which indicates if the policy set service is of type 'Proxy Sequence' or 'Allowed Protocols'
+	Link        *ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseLink      `json:"link,omitempty"`        //
+	Name        string                                                                          `json:"name,omitempty"`        // Given name for the policy set, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
+	Rank        *int                                                                            `json:"rank,omitempty"`        // The rank(priority) in relation to other policy set. Lower rank is higher priority.
+	ServiceName string                                                                          `json:"serviceName,omitempty"` // Policy set service identifier - Allowed Protocols,Server Sequence..
+	State       string                                                                          `json:"state,omitempty"`       // The state that the policy set is in. A disabled policy set cannot be matched.
 }
 
 type ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseCondition struct {
-	ConditionType       string                                                                                            `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate            bool                                                                                              `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
-	Link                ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseConditionLink                `json:"link,omitempty"`                //
-	Description         string                                                                                            `json:"description,omitempty"`         // Condition description
-	ID                  string                                                                                            `json:"id,omitempty"`                  //
-	Name                string                                                                                            `json:"name,omitempty"`                // Condition name
-	AttributeName       string                                                                                            `json:"attributeName,omitempty"`       // Dictionary attribute name
-	AttributeID         string                                                                                            `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
-	AttributeValue      string                                                                                            `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
-	DictionaryName      string                                                                                            `json:"dictionaryName,omitempty"`      // Dictionary name
-	DictionaryValue     string                                                                                            `json:"dictionaryValue,omitempty"`     // Dictionary value
-	Operator            string                                                                                            `json:"operator,omitempty"`            // Equality operator
-	Children            []ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
-	DatesRange          ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	DatesRangeException ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	HoursRange          ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	HoursRangeException ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	WeekDays            []string                                                                                          `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
-	WeekDaysException   []string                                                                                          `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
+	ConditionType       string                                                                                             `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate            *bool                                                                                              `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
+	Link                *ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseConditionLink                `json:"link,omitempty"`                //
+	Description         string                                                                                             `json:"description,omitempty"`         // Condition description
+	ID                  string                                                                                             `json:"id,omitempty"`                  //
+	Name                string                                                                                             `json:"name,omitempty"`                // Condition name
+	AttributeName       string                                                                                             `json:"attributeName,omitempty"`       // Dictionary attribute name
+	AttributeID         string                                                                                             `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
+	AttributeValue      string                                                                                             `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName      string                                                                                             `json:"dictionaryName,omitempty"`      // Dictionary name
+	DictionaryValue     string                                                                                             `json:"dictionaryValue,omitempty"`     // Dictionary value
+	Operator            string                                                                                             `json:"operator,omitempty"`            // Equality operator
+	Children            *[]ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	DatesRange          *ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException *ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	HoursRange          *ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException *ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	WeekDays            []string                                                                                           `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
+	WeekDaysException   []string                                                                                           `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
 }
 
 type ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseConditionLink struct {
@@ -57,9 +57,9 @@ type ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseCondit
 }
 
 type ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseConditionChildren struct {
-	ConditionType string                                                                                     `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      bool                                                                                       `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseConditionChildrenLink `json:"link,omitempty"`          //
+	ConditionType string                                                                                      `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate      *bool                                                                                       `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
+	Link          *ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseConditionChildrenLink `json:"link,omitempty"`          //
 }
 
 type ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseConditionChildrenLink struct {
@@ -95,44 +95,44 @@ type ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetsResponseLink s
 }
 
 type ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySet struct {
-	Response ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponse `json:"response,omitempty"` // Policy set structure
-	Version  string                                                                  `json:"version,omitempty"`  //
+	Response *ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponse `json:"response,omitempty"` // Policy set structure
+	Version  string                                                                   `json:"version,omitempty"`  //
 }
 
 type ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponse struct {
-	Condition   ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseCondition `json:"condition,omitempty"`   //
-	Default     bool                                                                             `json:"default,omitempty"`     // Flag which indicates if this policy set is the default one
-	Description string                                                                           `json:"description,omitempty"` // The description for the policy set
-	HitCounts   int                                                                              `json:"hitCounts,omitempty"`   // The amount of times the policy was matched
-	ID          string                                                                           `json:"id,omitempty"`          // Identifier for the policy set
-	IsProxy     bool                                                                             `json:"isProxy,omitempty"`     // Flag which indicates if the policy set service is of type 'Proxy Sequence' or 'Allowed Protocols'
-	Link        ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseLink      `json:"link,omitempty"`        //
-	Name        string                                                                           `json:"name,omitempty"`        // Given name for the policy set, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
-	Rank        int                                                                              `json:"rank,omitempty"`        // The rank(priority) in relation to other policy set. Lower rank is higher priority.
-	ServiceName string                                                                           `json:"serviceName,omitempty"` // Policy set service identifier - Allowed Protocols,Server Sequence..
-	State       string                                                                           `json:"state,omitempty"`       // The state that the policy set is in. A disabled policy set cannot be matched.
+	Condition   *ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseCondition `json:"condition,omitempty"`   //
+	Default     *bool                                                                             `json:"default,omitempty"`     // Flag which indicates if this policy set is the default one
+	Description string                                                                            `json:"description,omitempty"` // The description for the policy set
+	HitCounts   *int                                                                              `json:"hitCounts,omitempty"`   // The amount of times the policy was matched
+	ID          string                                                                            `json:"id,omitempty"`          // Identifier for the policy set
+	IsProxy     *bool                                                                             `json:"isProxy,omitempty"`     // Flag which indicates if the policy set service is of type 'Proxy Sequence' or 'Allowed Protocols'
+	Link        *ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseLink      `json:"link,omitempty"`        //
+	Name        string                                                                            `json:"name,omitempty"`        // Given name for the policy set, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
+	Rank        *int                                                                              `json:"rank,omitempty"`        // The rank(priority) in relation to other policy set. Lower rank is higher priority.
+	ServiceName string                                                                            `json:"serviceName,omitempty"` // Policy set service identifier - Allowed Protocols,Server Sequence..
+	State       string                                                                            `json:"state,omitempty"`       // The state that the policy set is in. A disabled policy set cannot be matched.
 }
 
 type ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseCondition struct {
-	ConditionType       string                                                                                              `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate            bool                                                                                                `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
-	Link                ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseConditionLink                `json:"link,omitempty"`                //
-	Description         string                                                                                              `json:"description,omitempty"`         // Condition description
-	ID                  string                                                                                              `json:"id,omitempty"`                  //
-	Name                string                                                                                              `json:"name,omitempty"`                // Condition name
-	AttributeName       string                                                                                              `json:"attributeName,omitempty"`       // Dictionary attribute name
-	AttributeID         string                                                                                              `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
-	AttributeValue      string                                                                                              `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
-	DictionaryName      string                                                                                              `json:"dictionaryName,omitempty"`      // Dictionary name
-	DictionaryValue     string                                                                                              `json:"dictionaryValue,omitempty"`     // Dictionary value
-	Operator            string                                                                                              `json:"operator,omitempty"`            // Equality operator
-	Children            []ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
-	DatesRange          ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	DatesRangeException ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	HoursRange          ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	HoursRangeException ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	WeekDays            []string                                                                                            `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
-	WeekDaysException   []string                                                                                            `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
+	ConditionType       string                                                                                               `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate            *bool                                                                                                `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
+	Link                *ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseConditionLink                `json:"link,omitempty"`                //
+	Description         string                                                                                               `json:"description,omitempty"`         // Condition description
+	ID                  string                                                                                               `json:"id,omitempty"`                  //
+	Name                string                                                                                               `json:"name,omitempty"`                // Condition name
+	AttributeName       string                                                                                               `json:"attributeName,omitempty"`       // Dictionary attribute name
+	AttributeID         string                                                                                               `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
+	AttributeValue      string                                                                                               `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName      string                                                                                               `json:"dictionaryName,omitempty"`      // Dictionary name
+	DictionaryValue     string                                                                                               `json:"dictionaryValue,omitempty"`     // Dictionary value
+	Operator            string                                                                                               `json:"operator,omitempty"`            // Equality operator
+	Children            *[]ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	DatesRange          *ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException *ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	HoursRange          *ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException *ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	WeekDays            []string                                                                                             `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
+	WeekDaysException   []string                                                                                             `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
 }
 
 type ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseConditionLink struct {
@@ -142,9 +142,9 @@ type ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseCond
 }
 
 type ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseConditionChildren struct {
-	ConditionType string                                                                                       `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      bool                                                                                         `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseConditionChildrenLink `json:"link,omitempty"`          //
+	ConditionType string                                                                                        `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate      *bool                                                                                         `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
+	Link          *ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseConditionChildrenLink `json:"link,omitempty"`          //
 }
 
 type ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySetResponseConditionChildrenLink struct {
@@ -184,44 +184,44 @@ type ResponseDeviceAdministrationPolicySetResetHitCountsDeviceAdminPolicySets st
 }
 
 type ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByID struct {
-	Response ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponse `json:"response,omitempty"` // Policy set structure
-	Version  string                                                                   `json:"version,omitempty"`  //
+	Response *ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponse `json:"response,omitempty"` // Policy set structure
+	Version  string                                                                    `json:"version,omitempty"`  //
 }
 
 type ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponse struct {
-	Condition   ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseCondition `json:"condition,omitempty"`   //
-	Default     bool                                                                              `json:"default,omitempty"`     // Flag which indicates if this policy set is the default one
-	Description string                                                                            `json:"description,omitempty"` // The description for the policy set
-	HitCounts   int                                                                               `json:"hitCounts,omitempty"`   // The amount of times the policy was matched
-	ID          string                                                                            `json:"id,omitempty"`          // Identifier for the policy set
-	IsProxy     bool                                                                              `json:"isProxy,omitempty"`     // Flag which indicates if the policy set service is of type 'Proxy Sequence' or 'Allowed Protocols'
-	Link        ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseLink      `json:"link,omitempty"`        //
-	Name        string                                                                            `json:"name,omitempty"`        // Given name for the policy set, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
-	Rank        int                                                                               `json:"rank,omitempty"`        // The rank(priority) in relation to other policy set. Lower rank is higher priority.
-	ServiceName string                                                                            `json:"serviceName,omitempty"` // Policy set service identifier - Allowed Protocols,Server Sequence..
-	State       string                                                                            `json:"state,omitempty"`       // The state that the policy set is in. A disabled policy set cannot be matched.
+	Condition   *ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseCondition `json:"condition,omitempty"`   //
+	Default     *bool                                                                              `json:"default,omitempty"`     // Flag which indicates if this policy set is the default one
+	Description string                                                                             `json:"description,omitempty"` // The description for the policy set
+	HitCounts   *int                                                                               `json:"hitCounts,omitempty"`   // The amount of times the policy was matched
+	ID          string                                                                             `json:"id,omitempty"`          // Identifier for the policy set
+	IsProxy     *bool                                                                              `json:"isProxy,omitempty"`     // Flag which indicates if the policy set service is of type 'Proxy Sequence' or 'Allowed Protocols'
+	Link        *ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseLink      `json:"link,omitempty"`        //
+	Name        string                                                                             `json:"name,omitempty"`        // Given name for the policy set, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
+	Rank        *int                                                                               `json:"rank,omitempty"`        // The rank(priority) in relation to other policy set. Lower rank is higher priority.
+	ServiceName string                                                                             `json:"serviceName,omitempty"` // Policy set service identifier - Allowed Protocols,Server Sequence..
+	State       string                                                                             `json:"state,omitempty"`       // The state that the policy set is in. A disabled policy set cannot be matched.
 }
 
 type ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseCondition struct {
-	ConditionType       string                                                                                               `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate            bool                                                                                                 `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
-	Link                ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseConditionLink                `json:"link,omitempty"`                //
-	Description         string                                                                                               `json:"description,omitempty"`         // Condition description
-	ID                  string                                                                                               `json:"id,omitempty"`                  //
-	Name                string                                                                                               `json:"name,omitempty"`                // Condition name
-	AttributeName       string                                                                                               `json:"attributeName,omitempty"`       // Dictionary attribute name
-	AttributeID         string                                                                                               `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
-	AttributeValue      string                                                                                               `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
-	DictionaryName      string                                                                                               `json:"dictionaryName,omitempty"`      // Dictionary name
-	DictionaryValue     string                                                                                               `json:"dictionaryValue,omitempty"`     // Dictionary value
-	Operator            string                                                                                               `json:"operator,omitempty"`            // Equality operator
-	Children            []ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
-	DatesRange          ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	DatesRangeException ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	HoursRange          ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	HoursRangeException ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	WeekDays            []string                                                                                             `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
-	WeekDaysException   []string                                                                                             `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
+	ConditionType       string                                                                                                `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate            *bool                                                                                                 `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
+	Link                *ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseConditionLink                `json:"link,omitempty"`                //
+	Description         string                                                                                                `json:"description,omitempty"`         // Condition description
+	ID                  string                                                                                                `json:"id,omitempty"`                  //
+	Name                string                                                                                                `json:"name,omitempty"`                // Condition name
+	AttributeName       string                                                                                                `json:"attributeName,omitempty"`       // Dictionary attribute name
+	AttributeID         string                                                                                                `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
+	AttributeValue      string                                                                                                `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName      string                                                                                                `json:"dictionaryName,omitempty"`      // Dictionary name
+	DictionaryValue     string                                                                                                `json:"dictionaryValue,omitempty"`     // Dictionary value
+	Operator            string                                                                                                `json:"operator,omitempty"`            // Equality operator
+	Children            *[]ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	DatesRange          *ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException *ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	HoursRange          *ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException *ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	WeekDays            []string                                                                                              `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
+	WeekDaysException   []string                                                                                              `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
 }
 
 type ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseConditionLink struct {
@@ -231,9 +231,9 @@ type ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseCon
 }
 
 type ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseConditionChildren struct {
-	ConditionType string                                                                                        `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      bool                                                                                          `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseConditionChildrenLink `json:"link,omitempty"`          //
+	ConditionType string                                                                                         `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate      *bool                                                                                          `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
+	Link          *ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseConditionChildrenLink `json:"link,omitempty"`          //
 }
 
 type ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseConditionChildrenLink struct {
@@ -269,44 +269,44 @@ type ResponseDeviceAdministrationPolicySetGetDeviceAdminPolicySetByIDResponseLin
 }
 
 type ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByID struct {
-	Response ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponse `json:"response,omitempty"` // Policy set structure
-	Version  string                                                                      `json:"version,omitempty"`  //
+	Response *ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponse `json:"response,omitempty"` // Policy set structure
+	Version  string                                                                       `json:"version,omitempty"`  //
 }
 
 type ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponse struct {
-	Condition   ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseCondition `json:"condition,omitempty"`   //
-	Default     bool                                                                                 `json:"default,omitempty"`     // Flag which indicates if this policy set is the default one
-	Description string                                                                               `json:"description,omitempty"` // The description for the policy set
-	HitCounts   int                                                                                  `json:"hitCounts,omitempty"`   // The amount of times the policy was matched
-	ID          string                                                                               `json:"id,omitempty"`          // Identifier for the policy set
-	IsProxy     bool                                                                                 `json:"isProxy,omitempty"`     // Flag which indicates if the policy set service is of type 'Proxy Sequence' or 'Allowed Protocols'
-	Link        ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseLink      `json:"link,omitempty"`        //
-	Name        string                                                                               `json:"name,omitempty"`        // Given name for the policy set, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
-	Rank        int                                                                                  `json:"rank,omitempty"`        // The rank(priority) in relation to other policy set. Lower rank is higher priority.
-	ServiceName string                                                                               `json:"serviceName,omitempty"` // Policy set service identifier - Allowed Protocols,Server Sequence..
-	State       string                                                                               `json:"state,omitempty"`       // The state that the policy set is in. A disabled policy set cannot be matched.
+	Condition   *ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseCondition `json:"condition,omitempty"`   //
+	Default     *bool                                                                                 `json:"default,omitempty"`     // Flag which indicates if this policy set is the default one
+	Description string                                                                                `json:"description,omitempty"` // The description for the policy set
+	HitCounts   *int                                                                                  `json:"hitCounts,omitempty"`   // The amount of times the policy was matched
+	ID          string                                                                                `json:"id,omitempty"`          // Identifier for the policy set
+	IsProxy     *bool                                                                                 `json:"isProxy,omitempty"`     // Flag which indicates if the policy set service is of type 'Proxy Sequence' or 'Allowed Protocols'
+	Link        *ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseLink      `json:"link,omitempty"`        //
+	Name        string                                                                                `json:"name,omitempty"`        // Given name for the policy set, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
+	Rank        *int                                                                                  `json:"rank,omitempty"`        // The rank(priority) in relation to other policy set. Lower rank is higher priority.
+	ServiceName string                                                                                `json:"serviceName,omitempty"` // Policy set service identifier - Allowed Protocols,Server Sequence..
+	State       string                                                                                `json:"state,omitempty"`       // The state that the policy set is in. A disabled policy set cannot be matched.
 }
 
 type ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseCondition struct {
-	ConditionType       string                                                                                                  `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate            bool                                                                                                    `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
-	Link                ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseConditionLink                `json:"link,omitempty"`                //
-	Description         string                                                                                                  `json:"description,omitempty"`         // Condition description
-	ID                  string                                                                                                  `json:"id,omitempty"`                  //
-	Name                string                                                                                                  `json:"name,omitempty"`                // Condition name
-	AttributeName       string                                                                                                  `json:"attributeName,omitempty"`       // Dictionary attribute name
-	AttributeID         string                                                                                                  `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
-	AttributeValue      string                                                                                                  `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
-	DictionaryName      string                                                                                                  `json:"dictionaryName,omitempty"`      // Dictionary name
-	DictionaryValue     string                                                                                                  `json:"dictionaryValue,omitempty"`     // Dictionary value
-	Operator            string                                                                                                  `json:"operator,omitempty"`            // Equality operator
-	Children            []ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
-	DatesRange          ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	DatesRangeException ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	HoursRange          ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	HoursRangeException ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	WeekDays            []string                                                                                                `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
-	WeekDaysException   []string                                                                                                `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
+	ConditionType       string                                                                                                   `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate            *bool                                                                                                    `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
+	Link                *ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseConditionLink                `json:"link,omitempty"`                //
+	Description         string                                                                                                   `json:"description,omitempty"`         // Condition description
+	ID                  string                                                                                                   `json:"id,omitempty"`                  //
+	Name                string                                                                                                   `json:"name,omitempty"`                // Condition name
+	AttributeName       string                                                                                                   `json:"attributeName,omitempty"`       // Dictionary attribute name
+	AttributeID         string                                                                                                   `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
+	AttributeValue      string                                                                                                   `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName      string                                                                                                   `json:"dictionaryName,omitempty"`      // Dictionary name
+	DictionaryValue     string                                                                                                   `json:"dictionaryValue,omitempty"`     // Dictionary value
+	Operator            string                                                                                                   `json:"operator,omitempty"`            // Equality operator
+	Children            *[]ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	DatesRange          *ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException *ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	HoursRange          *ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException *ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	WeekDays            []string                                                                                                 `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
+	WeekDaysException   []string                                                                                                 `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
 }
 
 type ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseConditionLink struct {
@@ -316,9 +316,9 @@ type ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponse
 }
 
 type ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseConditionChildren struct {
-	ConditionType string                                                                                           `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      bool                                                                                             `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseConditionChildrenLink `json:"link,omitempty"`          //
+	ConditionType string                                                                                            `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate      *bool                                                                                             `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
+	Link          *ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseConditionChildrenLink `json:"link,omitempty"`          //
 }
 
 type ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDResponseConditionChildrenLink struct {

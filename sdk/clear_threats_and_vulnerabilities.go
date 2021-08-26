@@ -9,13 +9,13 @@ import (
 type ClearThreatsAndVulnerabilitiesService service
 
 type ResponseClearThreatsAndVulnerabilitiesGetVersion struct {
-	VersionInfo ResponseClearThreatsAndVulnerabilitiesGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseClearThreatsAndVulnerabilitiesGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseClearThreatsAndVulnerabilitiesGetVersionVersionInfo struct {
-	CurrentServerVersion string                                                          `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                                          `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseClearThreatsAndVulnerabilitiesGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                           `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                           `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseClearThreatsAndVulnerabilitiesGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseClearThreatsAndVulnerabilitiesGetVersionVersionInfoLink struct {

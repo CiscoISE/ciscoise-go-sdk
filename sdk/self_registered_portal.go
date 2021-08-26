@@ -20,37 +20,37 @@ type GetSelfRegisteredPortalsQueryParams struct {
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByID struct {
-	SelfRegPortal ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortal `json:"SelfRegPortal,omitempty"` //
+	SelfRegPortal *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortal `json:"SelfRegPortal,omitempty"` //
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortal struct {
-	ID             string                                                                             `json:"id,omitempty"`             //
-	Name           string                                                                             `json:"name,omitempty"`           //
-	Description    string                                                                             `json:"description,omitempty"`    //
-	PortalType     string                                                                             `json:"portalType,omitempty"`     // Allowed values: - BYOD, - HOTSPOTGUEST, - MYDEVICE, - SELFREGGUEST, - SPONSOR, - SPONSOREDGUEST
-	PortalTestURL  string                                                                             `json:"portalTestUrl,omitempty"`  // URL to bring up a test page for this portal
-	Settings       ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettings       `json:"settings,omitempty"`       // Defines all of the settings groups available for a portal
-	Customizations ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizations `json:"customizations,omitempty"` // Defines all of the Portal Customizations available
-	Link           ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalLink           `json:"link,omitempty"`           //
+	ID             string                                                                              `json:"id,omitempty"`             //
+	Name           string                                                                              `json:"name,omitempty"`           //
+	Description    string                                                                              `json:"description,omitempty"`    //
+	PortalType     string                                                                              `json:"portalType,omitempty"`     // Allowed values: - BYOD, - HOTSPOTGUEST, - MYDEVICE, - SELFREGGUEST, - SPONSOR, - SPONSOREDGUEST
+	PortalTestURL  string                                                                              `json:"portalTestUrl,omitempty"`  // URL to bring up a test page for this portal
+	Settings       *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettings       `json:"settings,omitempty"`       // Defines all of the settings groups available for a portal
+	Customizations *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizations `json:"customizations,omitempty"` // Defines all of the Portal Customizations available
+	Link           *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalLink           `json:"link,omitempty"`           //
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettings struct {
-	PortalSettings                  ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsPortalSettings                  `json:"portalSettings,omitempty"`                  // The port, interface, certificate, and other basic settings of a portal
-	LoginPageSettings               ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsLoginPageSettings               `json:"loginPageSettings,omitempty"`               // Portal Login Page settings groups follow
-	SelfRegPageSettings             ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettings             `json:"selfRegPageSettings,omitempty"`             //
-	SelfRegSuccessSettings          ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegSuccessSettings          `json:"selfRegSuccessSettings,omitempty"`          //
-	AupSettings                     ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsAupSettings                     `json:"aupSettings,omitempty"`                     //
-	GuestChangePasswordSettings     ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsGuestChangePasswordSettings     `json:"guestChangePasswordSettings,omitempty"`     //
-	GuestDeviceRegistrationSettings ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsGuestDeviceRegistrationSettings `json:"guestDeviceRegistrationSettings,omitempty"` //
-	ByodSettings                    ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsByodSettings                    `json:"byodSettings,omitempty"`                    // Configuration of BYOD Device Welcome, Registration and Success steps
-	PostLoginBannerSettings         ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsPostLoginBannerSettings         `json:"postLoginBannerSettings,omitempty"`         //
-	PostAccessBannerSettings        ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsPostAccessBannerSettings        `json:"postAccessBannerSettings,omitempty"`        //
-	AuthSuccessSettings             ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsAuthSuccessSettings             `json:"authSuccessSettings,omitempty"`             //
-	SupportInfoSettings             ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSupportInfoSettings             `json:"supportInfoSettings,omitempty"`             //
+	PortalSettings                  *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsPortalSettings                  `json:"portalSettings,omitempty"`                  // The port, interface, certificate, and other basic settings of a portal
+	LoginPageSettings               *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsLoginPageSettings               `json:"loginPageSettings,omitempty"`               // Portal Login Page settings groups follow
+	SelfRegPageSettings             *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettings             `json:"selfRegPageSettings,omitempty"`             //
+	SelfRegSuccessSettings          *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegSuccessSettings          `json:"selfRegSuccessSettings,omitempty"`          //
+	AupSettings                     *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsAupSettings                     `json:"aupSettings,omitempty"`                     //
+	GuestChangePasswordSettings     *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsGuestChangePasswordSettings     `json:"guestChangePasswordSettings,omitempty"`     //
+	GuestDeviceRegistrationSettings *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsGuestDeviceRegistrationSettings `json:"guestDeviceRegistrationSettings,omitempty"` //
+	ByodSettings                    *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsByodSettings                    `json:"byodSettings,omitempty"`                    // Configuration of BYOD Device Welcome, Registration and Success steps
+	PostLoginBannerSettings         *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsPostLoginBannerSettings         `json:"postLoginBannerSettings,omitempty"`         //
+	PostAccessBannerSettings        *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsPostAccessBannerSettings        `json:"postAccessBannerSettings,omitempty"`        //
+	AuthSuccessSettings             *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsAuthSuccessSettings             `json:"authSuccessSettings,omitempty"`             //
+	SupportInfoSettings             *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSupportInfoSettings             `json:"supportInfoSettings,omitempty"`             //
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsPortalSettings struct {
-	HTTPSPort                    int    `json:"httpsPort,omitempty"`                    // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
+	HTTPSPort                    *int   `json:"httpsPort,omitempty"`                    // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
 	AllowedInterfaces            string `json:"allowedInterfaces,omitempty"`            // Interfaces that the portal will be reachable on. Allowed values: - eth0, - eth1, - eth2, - eth3, - eth4, - eth5, - bond0, - bond1, - bond2
 	CertificateGroupTag          string `json:"certificateGroupTag,omitempty"`          // Logical name of the x.509 server certificate that will be used for the portal
 	AuthenticationMethod         string `json:"authenticationMethod,omitempty"`         // Unique Id of the identity source sequence
@@ -61,21 +61,21 @@ type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSetting
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsLoginPageSettings struct {
-	RequireAccessCode                bool                                                                                                         `json:"requireAccessCode,omitempty"`                // Require the portal user to enter an access code
-	MaxFailedAttemptsBeforeRateLimit int                                                                                                          `json:"maxFailedAttemptsBeforeRateLimit,omitempty"` // Maximum failed login attempts before rate limiting
-	TimeBetweenLoginsDuringRateLimit int                                                                                                          `json:"timeBetweenLoginsDuringRateLimit,omitempty"` // Time between login attempts when rate limiting
-	IncludeAup                       bool                                                                                                         `json:"includeAup,omitempty"`                       // Include an Acceptable Use Policy (AUP) that should be displayed during login
-	AupDisplay                       string                                                                                                       `json:"aupDisplay,omitempty"`                       // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed values: -  ONPAGE, - ASLINK
-	RequireAupAcceptance             bool                                                                                                         `json:"requireAupAcceptance,omitempty"`             // Require the portal user to accept the AUP. Only valid if includeAup = true
-	AccessCode                       string                                                                                                       `json:"accessCode,omitempty"`                       // Access code that must be entered by the portal user (only valid if requireAccessCode = true)
-	AllowGuestToCreateAccounts       bool                                                                                                         `json:"allowGuestToCreateAccounts,omitempty"`       //
-	AllowForgotPassword              bool                                                                                                         `json:"allowForgotPassword,omitempty"`              //
-	AllowGuestToChangePassword       bool                                                                                                         `json:"allowGuestToChangePassword,omitempty"`       // Require the portal user to enter an access code
-	AllowAlternateGuestPortal        bool                                                                                                         `json:"allowAlternateGuestPortal,omitempty"`        //
-	AlternateGuestPortal             string                                                                                                       `json:"alternateGuestPortal,omitempty"`             //
-	AllowGuestToUseSocialAccounts    bool                                                                                                         `json:"allowGuestToUseSocialAccounts,omitempty"`    //
-	AllowShowGuestForm               bool                                                                                                         `json:"allowShowGuestForm,omitempty"`               //
-	SocialConfigs                    []ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsLoginPageSettingsSocialConfigs `json:"socialConfigs,omitempty"`                    //
+	RequireAccessCode                *bool                                                                                                         `json:"requireAccessCode,omitempty"`                // Require the portal user to enter an access code
+	MaxFailedAttemptsBeforeRateLimit *int                                                                                                          `json:"maxFailedAttemptsBeforeRateLimit,omitempty"` // Maximum failed login attempts before rate limiting
+	TimeBetweenLoginsDuringRateLimit *int                                                                                                          `json:"timeBetweenLoginsDuringRateLimit,omitempty"` // Time between login attempts when rate limiting
+	IncludeAup                       *bool                                                                                                         `json:"includeAup,omitempty"`                       // Include an Acceptable Use Policy (AUP) that should be displayed during login
+	AupDisplay                       string                                                                                                        `json:"aupDisplay,omitempty"`                       // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed values: -  ONPAGE, - ASLINK
+	RequireAupAcceptance             *bool                                                                                                         `json:"requireAupAcceptance,omitempty"`             // Require the portal user to accept the AUP. Only valid if includeAup = true
+	AccessCode                       string                                                                                                        `json:"accessCode,omitempty"`                       // Access code that must be entered by the portal user (only valid if requireAccessCode = true)
+	AllowGuestToCreateAccounts       *bool                                                                                                         `json:"allowGuestToCreateAccounts,omitempty"`       //
+	AllowForgotPassword              *bool                                                                                                         `json:"allowForgotPassword,omitempty"`              //
+	AllowGuestToChangePassword       *bool                                                                                                         `json:"allowGuestToChangePassword,omitempty"`       // Require the portal user to enter an access code
+	AllowAlternateGuestPortal        *bool                                                                                                         `json:"allowAlternateGuestPortal,omitempty"`        //
+	AlternateGuestPortal             string                                                                                                        `json:"alternateGuestPortal,omitempty"`             //
+	AllowGuestToUseSocialAccounts    *bool                                                                                                         `json:"allowGuestToUseSocialAccounts,omitempty"`    //
+	AllowShowGuestForm               *bool                                                                                                         `json:"allowShowGuestForm,omitempty"`               //
+	SocialConfigs                    *[]ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsLoginPageSettingsSocialConfigs `json:"socialConfigs,omitempty"`                    //
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsLoginPageSettingsSocialConfigs struct {
@@ -84,158 +84,158 @@ type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSetting
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettings struct {
-	AssignGuestsToGuestType             string                                                                                                                 `json:"assignGuestsToGuestType,omitempty"`             // Guests are assigned to this guest type
-	AccountValidityDuration             int                                                                                                                    `json:"accountValidityDuration,omitempty"`             // Self-registered guest account is valid for this many account_validity_time_units
-	AccountValidityTimeUnits            string                                                                                                                 `json:"accountValidityTimeUnits,omitempty"`            // Time units for account_validity_duration. Allowed Values: - DAYS, - HOURS, - MINUTES
-	RequireRegistrationCode             bool                                                                                                                   `json:"requireRegistrationCode,omitempty"`             // Self-registered guests are required to enter a registration code
-	RegistrationCode                    string                                                                                                                 `json:"registrationCode,omitempty"`                    // The registration code that the guest user must enter
-	FieldUserName                       ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldUserName           `json:"fieldUserName,omitempty"`                       //
-	FieldFirstName                      ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldFirstName          `json:"fieldFirstName,omitempty"`                      //
-	FieldLastName                       ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldLastName           `json:"fieldLastName,omitempty"`                       //
-	FieldEmailAddr                      ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldEmailAddr          `json:"fieldEmailAddr,omitempty"`                      //
-	FieldPhoneNo                        ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldPhoneNo            `json:"fieldPhoneNo,omitempty"`                        //
-	FieldCompany                        ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldCompany            `json:"fieldCompany,omitempty"`                        //
-	FieldLocation                       ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldLocation           `json:"fieldLocation,omitempty"`                       //
-	SelectableLocations                 []string                                                                                                               `json:"selectableLocations,omitempty"`                 // Guests can choose from these locations to set their time zone
-	FieldSmsProvider                    ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldSmsProvider        `json:"fieldSmsProvider,omitempty"`                    //
-	SelectableSmsProviders              []string                                                                                                               `json:"selectableSmsProviders,omitempty"`              // This attribute is an array of SMS provider names
-	FieldPersonBeingVisited             ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldPersonBeingVisited `json:"fieldPersonBeingVisited,omitempty"`             //
-	FieldReasonForVisit                 ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldReasonForVisit     `json:"fieldReasonForVisit,omitempty"`                 //
-	IncludeAup                          bool                                                                                                                   `json:"includeAup,omitempty"`                          // Include an Acceptable Use Policy (AUP) that should be displayed during login
-	AupDisplay                          string                                                                                                                 `json:"aupDisplay,omitempty"`                          // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed values: - ONPAGE, - ASLINK
-	RequireAupAcceptance                bool                                                                                                                   `json:"requireAupAcceptance,omitempty"`                // Require the portal user to accept the AUP. Only valid if includeAup = true
-	EnableGuestEmailWhitelist           bool                                                                                                                   `json:"enableGuestEmailWhitelist,omitempty"`           // Allow guests with an e-mail address from selected domains
-	GuestEmailWhitelistDomains          string                                                                                                                 `json:"guestEmailWhitelistDomains,omitempty"`          // Self-registered guests whose e-mail address is in one of these domains will be allowed. Only valid if enableGuestEmailWhitelist = true
-	EnableGuestEmailBlacklist           bool                                                                                                                   `json:"enableGuestEmailBlacklist,omitempty"`           // Disallow guests with an e-mail address from selected domains
-	GuestEmailBlacklistDomains          string                                                                                                                 `json:"guestEmailBlacklistDomains,omitempty"`          // Disallow guests with an e-mail address from selected domains
-	RequireGuestApproval                bool                                                                                                                   `json:"requireGuestApproval,omitempty"`                // Require self-registered guests to be approved if true
-	AutoLoginSelfWait                   bool                                                                                                                   `json:"autoLoginSelfWait,omitempty"`                   // Allow guests to login automatically from self-registration after sponsor's approval. No need to provide the credentials by guest to login
-	AutoLoginTimePeriod                 int                                                                                                                    `json:"autoLoginTimePeriod,omitempty"`                 // Waiting period for auto login until sponsor's approval. If time exceeds, guest has to login manually by providing the credentials. Default value is 5 minutes
-	AllowGraceAccess                    bool                                                                                                                   `json:"allowGraceAccess,omitempty"`                    //
-	GraceAccessExpireInterval           int                                                                                                                    `json:"graceAccessExpireInterval,omitempty"`           //
-	GraceAccessSendAccountExpiration    bool                                                                                                                   `json:"graceAccessSendAccountExpiration,omitempty"`    //
-	SendApprovalRequestTo               string                                                                                                                 `json:"sendApprovalRequestTo,omitempty"`               // Specifies where approval requests are sent. Only valid if requireGuestApproval = true. Allowed Values: - SELECTEDEMAILADDRESSES, - PERSONBEINGVISITED
-	ApprovalEmailAddresses              string                                                                                                                 `json:"approvalEmailAddresses,omitempty"`              // Only valid if requireGuestApproval = true and sendApprovalRequestTo = SELECTEDEMAILADDRESSES
-	PostRegistrationRedirect            string                                                                                                                 `json:"postRegistrationRedirect,omitempty"`            // After the registration submission direct the guest user to one of the following pages. Only valid if requireGuestApproval = true. Allowed Values: - SELFREGISTRATIONSUCCESS, - LOGINPAGEWITHINSTRUCTIONS - URL
-	PostRegistrationRedirectURL         string                                                                                                                 `json:"postRegistrationRedirectUrl,omitempty"`         // URL where guest user is redirected after registration. Only valid if requireGuestApproval = true and postRegistrationRedirect = URL
-	CredentialNotificationUsingEmail    bool                                                                                                                   `json:"credentialNotificationUsingEmail,omitempty"`    // If true, send credential notification upon approval using email. Only valid if requireGuestApproval = true
-	CredentialNotificationUsingSms      bool                                                                                                                   `json:"credentialNotificationUsingSms,omitempty"`      // If true, send credential notification upon approval using SMS. Only valid if requireGuestApproval = true
-	ApproveDenyLinksValidFor            int                                                                                                                    `json:"approveDenyLinksValidFor,omitempty"`            // This attribute, along with approveDenyLinksTimeUnits, specifies how long the link can be used. Only valid if requireGuestApproval = true
-	ApproveDenyLinksTimeUnits           string                                                                                                                 `json:"approveDenyLinksTimeUnits,omitempty"`           // This attribute, along with approveDenyLinksValidFor, specifies how long the link can be used. Only valid if requireGuestApproval = true. Allowed Values: - DAYS, - HOURS, - MINUTES
-	RequireApproverToAuthenticate       bool                                                                                                                   `json:"requireApproverToAuthenticate,omitempty"`       // When self-registered guests require approval, an approval request is e-mailed to one or more sponsor users. If the Cisco ISE Administrator chooses to include an approval link in the e-mail, a sponsor user who clicks the link will be required to enter their username and password if this attribute is true. Only valid if requireGuestApproval = true
-	AuthenticateSponsorsUsingPortalList string                                                                                                                 `json:"authenticateSponsorsUsingPortalList,omitempty"` //
-	SponsorPortalList                   []interface{}                                                                                                          `json:"sponsorPortalList,omitempty"`                   //
+	AssignGuestsToGuestType             string                                                                                                                  `json:"assignGuestsToGuestType,omitempty"`             // Guests are assigned to this guest type
+	AccountValidityDuration             *int                                                                                                                    `json:"accountValidityDuration,omitempty"`             // Self-registered guest account is valid for this many account_validity_time_units
+	AccountValidityTimeUnits            string                                                                                                                  `json:"accountValidityTimeUnits,omitempty"`            // Time units for account_validity_duration. Allowed Values: - DAYS, - HOURS, - MINUTES
+	RequireRegistrationCode             *bool                                                                                                                   `json:"requireRegistrationCode,omitempty"`             // Self-registered guests are required to enter a registration code
+	RegistrationCode                    string                                                                                                                  `json:"registrationCode,omitempty"`                    // The registration code that the guest user must enter
+	FieldUserName                       *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldUserName           `json:"fieldUserName,omitempty"`                       //
+	FieldFirstName                      *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldFirstName          `json:"fieldFirstName,omitempty"`                      //
+	FieldLastName                       *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldLastName           `json:"fieldLastName,omitempty"`                       //
+	FieldEmailAddr                      *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldEmailAddr          `json:"fieldEmailAddr,omitempty"`                      //
+	FieldPhoneNo                        *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldPhoneNo            `json:"fieldPhoneNo,omitempty"`                        //
+	FieldCompany                        *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldCompany            `json:"fieldCompany,omitempty"`                        //
+	FieldLocation                       *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldLocation           `json:"fieldLocation,omitempty"`                       //
+	SelectableLocations                 []string                                                                                                                `json:"selectableLocations,omitempty"`                 // Guests can choose from these locations to set their time zone
+	FieldSmsProvider                    *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldSmsProvider        `json:"fieldSmsProvider,omitempty"`                    //
+	SelectableSmsProviders              []string                                                                                                                `json:"selectableSmsProviders,omitempty"`              // This attribute is an array of SMS provider names
+	FieldPersonBeingVisited             *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldPersonBeingVisited `json:"fieldPersonBeingVisited,omitempty"`             //
+	FieldReasonForVisit                 *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldReasonForVisit     `json:"fieldReasonForVisit,omitempty"`                 //
+	IncludeAup                          *bool                                                                                                                   `json:"includeAup,omitempty"`                          // Include an Acceptable Use Policy (AUP) that should be displayed during login
+	AupDisplay                          string                                                                                                                  `json:"aupDisplay,omitempty"`                          // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed values: - ONPAGE, - ASLINK
+	RequireAupAcceptance                *bool                                                                                                                   `json:"requireAupAcceptance,omitempty"`                // Require the portal user to accept the AUP. Only valid if includeAup = true
+	EnableGuestEmailWhitelist           *bool                                                                                                                   `json:"enableGuestEmailWhitelist,omitempty"`           // Allow guests with an e-mail address from selected domains
+	GuestEmailWhitelistDomains          string                                                                                                                  `json:"guestEmailWhitelistDomains,omitempty"`          // Self-registered guests whose e-mail address is in one of these domains will be allowed. Only valid if enableGuestEmailWhitelist = true
+	EnableGuestEmailBlacklist           *bool                                                                                                                   `json:"enableGuestEmailBlacklist,omitempty"`           // Disallow guests with an e-mail address from selected domains
+	GuestEmailBlacklistDomains          string                                                                                                                  `json:"guestEmailBlacklistDomains,omitempty"`          // Disallow guests with an e-mail address from selected domains
+	RequireGuestApproval                *bool                                                                                                                   `json:"requireGuestApproval,omitempty"`                // Require self-registered guests to be approved if true
+	AutoLoginSelfWait                   *bool                                                                                                                   `json:"autoLoginSelfWait,omitempty"`                   // Allow guests to login automatically from self-registration after sponsor's approval. No need to provide the credentials by guest to login
+	AutoLoginTimePeriod                 *int                                                                                                                    `json:"autoLoginTimePeriod,omitempty"`                 // Waiting period for auto login until sponsor's approval. If time exceeds, guest has to login manually by providing the credentials. Default value is 5 minutes
+	AllowGraceAccess                    *bool                                                                                                                   `json:"allowGraceAccess,omitempty"`                    //
+	GraceAccessExpireInterval           *int                                                                                                                    `json:"graceAccessExpireInterval,omitempty"`           //
+	GraceAccessSendAccountExpiration    *bool                                                                                                                   `json:"graceAccessSendAccountExpiration,omitempty"`    //
+	SendApprovalRequestTo               string                                                                                                                  `json:"sendApprovalRequestTo,omitempty"`               // Specifies where approval requests are sent. Only valid if requireGuestApproval = true. Allowed Values: - SELECTEDEMAILADDRESSES, - PERSONBEINGVISITED
+	ApprovalEmailAddresses              string                                                                                                                  `json:"approvalEmailAddresses,omitempty"`              // Only valid if requireGuestApproval = true and sendApprovalRequestTo = SELECTEDEMAILADDRESSES
+	PostRegistrationRedirect            string                                                                                                                  `json:"postRegistrationRedirect,omitempty"`            // After the registration submission direct the guest user to one of the following pages. Only valid if requireGuestApproval = true. Allowed Values: - SELFREGISTRATIONSUCCESS, - LOGINPAGEWITHINSTRUCTIONS - URL
+	PostRegistrationRedirectURL         string                                                                                                                  `json:"postRegistrationRedirectUrl,omitempty"`         // URL where guest user is redirected after registration. Only valid if requireGuestApproval = true and postRegistrationRedirect = URL
+	CredentialNotificationUsingEmail    *bool                                                                                                                   `json:"credentialNotificationUsingEmail,omitempty"`    // If true, send credential notification upon approval using email. Only valid if requireGuestApproval = true
+	CredentialNotificationUsingSms      *bool                                                                                                                   `json:"credentialNotificationUsingSms,omitempty"`      // If true, send credential notification upon approval using SMS. Only valid if requireGuestApproval = true
+	ApproveDenyLinksValidFor            *int                                                                                                                    `json:"approveDenyLinksValidFor,omitempty"`            // This attribute, along with approveDenyLinksTimeUnits, specifies how long the link can be used. Only valid if requireGuestApproval = true
+	ApproveDenyLinksTimeUnits           string                                                                                                                  `json:"approveDenyLinksTimeUnits,omitempty"`           // This attribute, along with approveDenyLinksValidFor, specifies how long the link can be used. Only valid if requireGuestApproval = true. Allowed Values: - DAYS, - HOURS, - MINUTES
+	RequireApproverToAuthenticate       *bool                                                                                                                   `json:"requireApproverToAuthenticate,omitempty"`       // When self-registered guests require approval, an approval request is e-mailed to one or more sponsor users. If the Cisco ISE Administrator chooses to include an approval link in the e-mail, a sponsor user who clicks the link will be required to enter their username and password if this attribute is true. Only valid if requireGuestApproval = true
+	AuthenticateSponsorsUsingPortalList string                                                                                                                  `json:"authenticateSponsorsUsingPortalList,omitempty"` //
+	SponsorPortalList                   *[]interface{}                                                                                                          `json:"sponsorPortalList,omitempty"`                   //
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldUserName struct {
-	Include bool `json:"include,omitempty"` //
-	Require bool `json:"require,omitempty"` // Only applicable if include = true
+	Include *bool `json:"include,omitempty"` //
+	Require *bool `json:"require,omitempty"` // Only applicable if include = true
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldFirstName struct {
-	Include bool `json:"include,omitempty"` //
-	Require bool `json:"require,omitempty"` // Only applicable if include = true
+	Include *bool `json:"include,omitempty"` //
+	Require *bool `json:"require,omitempty"` // Only applicable if include = true
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldLastName struct {
-	Include bool `json:"include,omitempty"` //
-	Require bool `json:"require,omitempty"` // Only applicable if include = true
+	Include *bool `json:"include,omitempty"` //
+	Require *bool `json:"require,omitempty"` // Only applicable if include = true
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldEmailAddr struct {
-	Include bool `json:"include,omitempty"` //
-	Require bool `json:"require,omitempty"` // Only applicable if include = true
+	Include *bool `json:"include,omitempty"` //
+	Require *bool `json:"require,omitempty"` // Only applicable if include = true
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldPhoneNo struct {
-	Include bool `json:"include,omitempty"` //
-	Require bool `json:"require,omitempty"` // Only applicable if include = true
+	Include *bool `json:"include,omitempty"` //
+	Require *bool `json:"require,omitempty"` // Only applicable if include = true
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldCompany struct {
-	Include bool `json:"include,omitempty"` //
-	Require bool `json:"require,omitempty"` // Only applicable if include = true
+	Include *bool `json:"include,omitempty"` //
+	Require *bool `json:"require,omitempty"` // Only applicable if include = true
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldLocation struct {
-	Include bool `json:"include,omitempty"` //
-	Require bool `json:"require,omitempty"` // Only applicable if include = true
+	Include *bool `json:"include,omitempty"` //
+	Require *bool `json:"require,omitempty"` // Only applicable if include = true
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldSmsProvider struct {
-	Include bool `json:"include,omitempty"` //
-	Require bool `json:"require,omitempty"` // Only applicable if include = true
+	Include *bool `json:"include,omitempty"` //
+	Require *bool `json:"require,omitempty"` // Only applicable if include = true
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldPersonBeingVisited struct {
-	Include bool `json:"include,omitempty"` //
-	Require bool `json:"require,omitempty"` // Only applicable if include = true
+	Include *bool `json:"include,omitempty"` //
+	Require *bool `json:"require,omitempty"` // Only applicable if include = true
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegPageSettingsFieldReasonForVisit struct {
-	Include bool `json:"include,omitempty"` //
-	Require bool `json:"require,omitempty"` // Only applicable if include = true
+	Include *bool `json:"include,omitempty"` //
+	Require *bool `json:"require,omitempty"` // Only applicable if include = true
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSelfRegSuccessSettings struct {
-	IncludeUserName                       bool `json:"includeUserName,omitempty"`                       //
-	IncludePassword                       bool `json:"includePassword,omitempty"`                       //
-	IncludeFirstName                      bool `json:"includeFirstName,omitempty"`                      //
-	IncludeLastName                       bool `json:"includeLastName,omitempty"`                       //
-	IncludeEmailAddr                      bool `json:"includeEmailAddr,omitempty"`                      //
-	IncludePhoneNo                        bool `json:"includePhoneNo,omitempty"`                        //
-	IncludeCompany                        bool `json:"includeCompany,omitempty"`                        //
-	IncludeLocation                       bool `json:"includeLocation,omitempty"`                       //
-	IncludeSmsProvider                    bool `json:"includeSmsProvider,omitempty"`                    //
-	IncludePersonBeingVisited             bool `json:"includePersonBeingVisited,omitempty"`             //
-	IncludeReasonForVisit                 bool `json:"includeReasonForVisit,omitempty"`                 //
-	AllowGuestSendSelfUsingPrint          bool `json:"allowGuestSendSelfUsingPrint,omitempty"`          //
-	AllowGuestSendSelfUsingEmail          bool `json:"allowGuestSendSelfUsingEmail,omitempty"`          //
-	AllowGuestSendSelfUsingSms            bool `json:"allowGuestSendSelfUsingSms,omitempty"`            //
-	IncludeAup                            bool `json:"includeAup,omitempty"`                            //
-	AupOnPage                             bool `json:"aupOnPage,omitempty"`                             //
-	RequireAupAcceptance                  bool `json:"requireAupAcceptance,omitempty"`                  //
-	RequireAupScrolling                   bool `json:"requireAupScrolling,omitempty"`                   //
-	AllowGuestLoginFromSelfregSuccessPage bool `json:"allowGuestLoginFromSelfregSuccessPage,omitempty"` //
+	IncludeUserName                       *bool `json:"includeUserName,omitempty"`                       //
+	IncludePassword                       *bool `json:"includePassword,omitempty"`                       //
+	IncludeFirstName                      *bool `json:"includeFirstName,omitempty"`                      //
+	IncludeLastName                       *bool `json:"includeLastName,omitempty"`                       //
+	IncludeEmailAddr                      *bool `json:"includeEmailAddr,omitempty"`                      //
+	IncludePhoneNo                        *bool `json:"includePhoneNo,omitempty"`                        //
+	IncludeCompany                        *bool `json:"includeCompany,omitempty"`                        //
+	IncludeLocation                       *bool `json:"includeLocation,omitempty"`                       //
+	IncludeSmsProvider                    *bool `json:"includeSmsProvider,omitempty"`                    //
+	IncludePersonBeingVisited             *bool `json:"includePersonBeingVisited,omitempty"`             //
+	IncludeReasonForVisit                 *bool `json:"includeReasonForVisit,omitempty"`                 //
+	AllowGuestSendSelfUsingPrint          *bool `json:"allowGuestSendSelfUsingPrint,omitempty"`          //
+	AllowGuestSendSelfUsingEmail          *bool `json:"allowGuestSendSelfUsingEmail,omitempty"`          //
+	AllowGuestSendSelfUsingSms            *bool `json:"allowGuestSendSelfUsingSms,omitempty"`            //
+	IncludeAup                            *bool `json:"includeAup,omitempty"`                            //
+	AupOnPage                             *bool `json:"aupOnPage,omitempty"`                             //
+	RequireAupAcceptance                  *bool `json:"requireAupAcceptance,omitempty"`                  //
+	RequireAupScrolling                   *bool `json:"requireAupScrolling,omitempty"`                   //
+	AllowGuestLoginFromSelfregSuccessPage *bool `json:"allowGuestLoginFromSelfregSuccessPage,omitempty"` //
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsAupSettings struct {
-	IncludeAup                   bool   `json:"includeAup,omitempty"`                   // Require the portal user to read and accept an AUP
-	UseDiffAupForEmployees       bool   `json:"useDiffAupForEmployees,omitempty"`       // Only valid if requireAupAcceptance = trueG
-	SkipAupForEmployees          bool   `json:"skipAupForEmployees,omitempty"`          // Only valid if requireAupAcceptance = trueG
-	RequireScrolling             bool   `json:"requireScrolling,omitempty"`             //
-	RequireAupScrolling          bool   `json:"requireAupScrolling,omitempty"`          // Require the portal user to scroll to the end of the AUP. Only valid if requireAupAcceptance = true
+	IncludeAup                   *bool  `json:"includeAup,omitempty"`                   // Require the portal user to read and accept an AUP
+	UseDiffAupForEmployees       *bool  `json:"useDiffAupForEmployees,omitempty"`       // Only valid if requireAupAcceptance = trueG
+	SkipAupForEmployees          *bool  `json:"skipAupForEmployees,omitempty"`          // Only valid if requireAupAcceptance = trueG
+	RequireScrolling             *bool  `json:"requireScrolling,omitempty"`             //
+	RequireAupScrolling          *bool  `json:"requireAupScrolling,omitempty"`          // Require the portal user to scroll to the end of the AUP. Only valid if requireAupAcceptance = true
 	DisplayFrequency             string `json:"displayFrequency,omitempty"`             // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed Values: - FIRSTLOGIN, - EVERYLOGIN, - RECURRING
-	DisplayFrequencyIntervalDays int    `json:"displayFrequencyIntervalDays,omitempty"` // Number of days between AUP confirmations (when displayFrequency = recurring)
+	DisplayFrequencyIntervalDays *int   `json:"displayFrequencyIntervalDays,omitempty"` // Number of days between AUP confirmations (when displayFrequency = recurring)
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsGuestChangePasswordSettings struct {
-	AllowChangePasswdAtFirstLogin bool `json:"allowChangePasswdAtFirstLogin,omitempty"` // Allow guest to change their own passwords
+	AllowChangePasswdAtFirstLogin *bool `json:"allowChangePasswdAtFirstLogin,omitempty"` // Allow guest to change their own passwords
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsGuestDeviceRegistrationSettings struct {
-	AutoRegisterGuestDevices     bool `json:"autoRegisterGuestDevices,omitempty"`     // Automatically register guest devices
-	AllowGuestsToRegisterDevices bool `json:"allowGuestsToRegisterDevices,omitempty"` // Allow guests to register devices
+	AutoRegisterGuestDevices     *bool `json:"autoRegisterGuestDevices,omitempty"`     // Automatically register guest devices
+	AllowGuestsToRegisterDevices *bool `json:"allowGuestsToRegisterDevices,omitempty"` // Allow guests to register devices
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsByodSettings struct {
-	ByodWelcomeSettings             ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsByodSettingsByodWelcomeSettings             `json:"byodWelcomeSettings,omitempty"`             // Configuration of BYOD endpoint welcome step configuration
-	ByodRegistrationSettings        ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsByodSettingsByodRegistrationSettings        `json:"byodRegistrationSettings,omitempty"`        // Configuration of BYOD endpoint Registration step configuration
-	ByodRegistrationSuccessSettings ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsByodSettingsByodRegistrationSuccessSettings `json:"byodRegistrationSuccessSettings,omitempty"` // Configuration of BYOD endpoint Registration Success step configuration
+	ByodWelcomeSettings             *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsByodSettingsByodWelcomeSettings             `json:"byodWelcomeSettings,omitempty"`             // Configuration of BYOD endpoint welcome step configuration
+	ByodRegistrationSettings        *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsByodSettingsByodRegistrationSettings        `json:"byodRegistrationSettings,omitempty"`        // Configuration of BYOD endpoint Registration step configuration
+	ByodRegistrationSuccessSettings *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsByodSettingsByodRegistrationSuccessSettings `json:"byodRegistrationSuccessSettings,omitempty"` // Configuration of BYOD endpoint Registration Success step configuration
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsByodSettingsByodWelcomeSettings struct {
-	EnableByod           bool   `json:"enableBYOD,omitempty"`           //
-	EnableGuestAccess    bool   `json:"enableGuestAccess,omitempty"`    //
-	RequireMdm           bool   `json:"requireMDM,omitempty"`           //
-	IncludeAup           bool   `json:"includeAup,omitempty"`           //
+	EnableByod           *bool  `json:"enableBYOD,omitempty"`           //
+	EnableGuestAccess    *bool  `json:"enableGuestAccess,omitempty"`    //
+	RequireMdm           *bool  `json:"requireMDM,omitempty"`           //
+	IncludeAup           *bool  `json:"includeAup,omitempty"`           //
 	AupDisplay           string `json:"aupDisplay,omitempty"`           // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed values: - ONPAGE, - ASLINK
-	RequireAupAcceptance bool   `json:"requireAupAcceptance,omitempty"` //
-	RequireScrolling     bool   `json:"requireScrolling,omitempty"`     // Require BYOD devices to scroll down to the bottom of the AUP,  Only valid if includeAup = true
+	RequireAupAcceptance *bool  `json:"requireAupAcceptance,omitempty"` //
+	RequireScrolling     *bool  `json:"requireScrolling,omitempty"`     // Require BYOD devices to scroll down to the bottom of the AUP,  Only valid if includeAup = true
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsByodSettingsByodRegistrationSettings struct {
-	ShowDeviceID            bool   `json:"showDeviceID,omitempty"`            // Display Device ID field during registration
+	ShowDeviceID            *bool  `json:"showDeviceID,omitempty"`            // Display Device ID field during registration
 	EndPointIDentityGroupID string `json:"endPointIdentityGroupId,omitempty"` // Identity group id for which endpoint belongs
 }
 
@@ -245,11 +245,11 @@ type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSetting
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsPostLoginBannerSettings struct {
-	IncludePostAccessBanner bool `json:"includePostAccessBanner,omitempty"` // Include a Post-Login Banner page
+	IncludePostAccessBanner *bool `json:"includePostAccessBanner,omitempty"` // Include a Post-Login Banner page
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsPostAccessBannerSettings struct {
-	IncludePostAccessBanner bool `json:"includePostAccessBanner,omitempty"` //
+	IncludePostAccessBanner *bool `json:"includePostAccessBanner,omitempty"` //
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsAuthSuccessSettings struct {
@@ -258,22 +258,22 @@ type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSetting
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsSupportInfoSettings struct {
-	IncludeSupportInfoPage  bool   `json:"includeSupportInfoPage,omitempty"`  //
-	IncludeMacAddr          bool   `json:"includeMacAddr,omitempty"`          //
-	IncludeIPAddress        bool   `json:"includeIpAddress,omitempty"`        //
-	IncludeBrowserUserAgent bool   `json:"includeBrowserUserAgent,omitempty"` //
-	IncludePolicyServer     bool   `json:"includePolicyServer,omitempty"`     //
-	IncludeFailureCode      bool   `json:"includeFailureCode,omitempty"`      //
+	IncludeSupportInfoPage  *bool  `json:"includeSupportInfoPage,omitempty"`  //
+	IncludeMacAddr          *bool  `json:"includeMacAddr,omitempty"`          //
+	IncludeIPAddress        *bool  `json:"includeIpAddress,omitempty"`        //
+	IncludeBrowserUserAgent *bool  `json:"includeBrowserUserAgent,omitempty"` //
+	IncludePolicyServer     *bool  `json:"includePolicyServer,omitempty"`     //
+	IncludeFailureCode      *bool  `json:"includeFailureCode,omitempty"`      //
 	EmptyFieldDisplay       string `json:"emptyFieldDisplay,omitempty"`       // Specifies how empty fields are handled on the Support Information Page. Allowed values: - HIDE, - DISPLAYWITHNOVALUE, - DISPLAYWITHDEFAULTVALUE
 	DefaultEmptyFieldValue  string `json:"defaultEmptyFieldValue,omitempty"`  // The default value displayed for an empty field. Only valid when emptyFieldDisplay = DISPLAYWITHDEFAULTVALUE
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizations struct {
-	PortalTheme          ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsPortalTheme          `json:"portalTheme,omitempty"`          //
-	PortalTweakSettings  ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsPortalTweakSettings  `json:"portalTweakSettings,omitempty"`  // The Tweak Settings are a customization of the Portal Theme that has been selected for the portal. When the Portal Theme selection is changed, the Tweak Settings are overwritten to match the values in the theme. The Tweak Settings can subsequently be changed by the user
-	Language             ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsLanguage             `json:"language,omitempty"`             // This property is supported only for Read operation and it allows to show the customizations in English. Other languages are not supported
-	GlobalCustomizations ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsGlobalCustomizations `json:"globalCustomizations,omitempty"` //
-	PageCustomizations   ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsPageCustomizations   `json:"pageCustomizations,omitempty"`   // Represent the entire page customization as a giant dictionary
+	PortalTheme          *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsPortalTheme          `json:"portalTheme,omitempty"`          //
+	PortalTweakSettings  *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsPortalTweakSettings  `json:"portalTweakSettings,omitempty"`  // The Tweak Settings are a customization of the Portal Theme that has been selected for the portal. When the Portal Theme selection is changed, the Tweak Settings are overwritten to match the values in the theme. The Tweak Settings can subsequently be changed by the user
+	Language             *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsLanguage             `json:"language,omitempty"`             // This property is supported only for Read operation and it allows to show the customizations in English. Other languages are not supported
+	GlobalCustomizations *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsGlobalCustomizations `json:"globalCustomizations,omitempty"` //
+	PageCustomizations   *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsPageCustomizations   `json:"pageCustomizations,omitempty"`   // Represent the entire page customization as a giant dictionary
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsPortalTheme struct {
@@ -294,13 +294,13 @@ type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomi
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsGlobalCustomizations struct {
-	MobileLogoImage  ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsGlobalCustomizationsMobileLogoImage  `json:"mobileLogoImage,omitempty"`  //
-	DesktopLogoImage ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsGlobalCustomizationsDesktopLogoImage `json:"desktopLogoImage,omitempty"` //
-	BannerImage      ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsGlobalCustomizationsBannerImage      `json:"bannerImage,omitempty"`      //
-	BackgroundImage  ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsGlobalCustomizationsBackgroundImage  `json:"backgroundImage,omitempty"`  //
-	BannerTitle      string                                                                                                                 `json:"bannerTitle,omitempty"`      //
-	ContactText      string                                                                                                                 `json:"contactText,omitempty"`      //
-	FooterElement    string                                                                                                                 `json:"footerElement,omitempty"`    //
+	MobileLogoImage  *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsGlobalCustomizationsMobileLogoImage  `json:"mobileLogoImage,omitempty"`  //
+	DesktopLogoImage *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsGlobalCustomizationsDesktopLogoImage `json:"desktopLogoImage,omitempty"` //
+	BannerImage      *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsGlobalCustomizationsBannerImage      `json:"bannerImage,omitempty"`      //
+	BackgroundImage  *ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsGlobalCustomizationsBackgroundImage  `json:"backgroundImage,omitempty"`  //
+	BannerTitle      string                                                                                                                  `json:"bannerTitle,omitempty"`      //
+	ContactText      string                                                                                                                  `json:"contactText,omitempty"`      //
+	FooterElement    string                                                                                                                  `json:"footerElement,omitempty"`    //
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsGlobalCustomizationsMobileLogoImage struct {
@@ -320,7 +320,7 @@ type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomi
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsPageCustomizations struct {
-	Data []ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsPageCustomizationsData `json:"data,omitempty"` // The Dictionary will be exposed here as key value pair
+	Data *[]ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsPageCustomizationsData `json:"data,omitempty"` // The Dictionary will be exposed here as key value pair
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalCustomizationsPageCustomizationsData struct {
@@ -335,14 +335,14 @@ type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalLink st
 }
 
 type ResponseSelfRegisteredPortalUpdateSelfRegisteredPortalByID struct {
-	UpdatedFieldsList ResponseSelfRegisteredPortalUpdateSelfRegisteredPortalByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseSelfRegisteredPortalUpdateSelfRegisteredPortalByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseSelfRegisteredPortalUpdateSelfRegisteredPortalByIDUpdatedFieldsList struct {
-	UpdatedField ResponseSelfRegisteredPortalUpdateSelfRegisteredPortalByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                                  `json:"field,omitempty"`        //
-	OldValue     string                                                                                  `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                                  `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseSelfRegisteredPortalUpdateSelfRegisteredPortalByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                                     `json:"field,omitempty"`        //
+	OldValue     string                                                                                     `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                                     `json:"newValue,omitempty"`     //
 }
 
 type ResponseSelfRegisteredPortalUpdateSelfRegisteredPortalByIDUpdatedFieldsListUpdatedField struct {
@@ -352,21 +352,21 @@ type ResponseSelfRegisteredPortalUpdateSelfRegisteredPortalByIDUpdatedFieldsList
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortals struct {
-	SearchResult ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResult struct {
-	Total        int                                                                          `json:"total,omitempty"`        //
-	Resources    []ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                          `json:"total,omitempty"`        //
+	Resources    *[]ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResultResources struct {
-	ID          string                                                                        `json:"id,omitempty"`          //
-	Name        string                                                                        `json:"name,omitempty"`        //
-	Description string                                                                        `json:"description,omitempty"` //
-	Link        ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                                         `json:"id,omitempty"`          //
+	Name        string                                                                         `json:"name,omitempty"`        //
+	Description string                                                                         `json:"description,omitempty"` //
+	Link        *ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResultResourcesLink struct {
@@ -388,13 +388,13 @@ type ResponseSelfRegisteredPortalGetSelfRegisteredPortalsSearchResultPreviousPag
 }
 
 type ResponseSelfRegisteredPortalGetVersion struct {
-	VersionInfo ResponseSelfRegisteredPortalGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseSelfRegisteredPortalGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseSelfRegisteredPortalGetVersionVersionInfo struct {
-	CurrentServerVersion string                                                `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                                `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseSelfRegisteredPortalGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                 `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                 `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseSelfRegisteredPortalGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseSelfRegisteredPortalGetVersionVersionInfoLink struct {

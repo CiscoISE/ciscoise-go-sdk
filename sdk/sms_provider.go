@@ -19,20 +19,20 @@ type GetSmsProviderQueryParams struct {
 }
 
 type ResponseSmsProviderGetSmsProvider struct {
-	SearchResult ResponseSmsProviderGetSmsProviderSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseSmsProviderGetSmsProviderSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseSmsProviderGetSmsProviderSearchResult struct {
-	Total        int                                                       `json:"total,omitempty"`        //
-	Resources    []ResponseSmsProviderGetSmsProviderSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseSmsProviderGetSmsProviderSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseSmsProviderGetSmsProviderSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                       `json:"total,omitempty"`        //
+	Resources    *[]ResponseSmsProviderGetSmsProviderSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseSmsProviderGetSmsProviderSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseSmsProviderGetSmsProviderSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSmsProviderGetSmsProviderSearchResultResources struct {
-	ID   string                                                     `json:"id,omitempty"`   //
-	Name string                                                     `json:"name,omitempty"` //
-	Link ResponseSmsProviderGetSmsProviderSearchResultResourcesLink `json:"link,omitempty"` //
+	ID   string                                                      `json:"id,omitempty"`   //
+	Name string                                                      `json:"name,omitempty"` //
+	Link *ResponseSmsProviderGetSmsProviderSearchResultResourcesLink `json:"link,omitempty"` //
 }
 
 type ResponseSmsProviderGetSmsProviderSearchResultResourcesLink struct {
@@ -54,13 +54,13 @@ type ResponseSmsProviderGetSmsProviderSearchResultPreviousPage struct {
 }
 
 type ResponseSmsProviderGetVersion struct {
-	VersionInfo ResponseSmsProviderGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseSmsProviderGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseSmsProviderGetVersionVersionInfo struct {
-	CurrentServerVersion string                                       `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                       `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseSmsProviderGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                        `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                        `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseSmsProviderGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseSmsProviderGetVersionVersionInfoLink struct {

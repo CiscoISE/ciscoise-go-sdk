@@ -20,15 +20,15 @@ type GetPortalsQueryParams struct {
 }
 
 type ResponsePortalGetPortalByID struct {
-	ERSPortal ResponsePortalGetPortalByIDERSPortal `json:"ERSPortal,omitempty"` //
+	ERSPortal *ResponsePortalGetPortalByIDERSPortal `json:"ERSPortal,omitempty"` //
 }
 
 type ResponsePortalGetPortalByIDERSPortal struct {
-	ID          string                                   `json:"id,omitempty"`          //
-	Name        string                                   `json:"name,omitempty"`        //
-	Description string                                   `json:"description,omitempty"` //
-	PortalType  string                                   `json:"portalType,omitempty"`  //
-	Link        ResponsePortalGetPortalByIDERSPortalLink `json:"link,omitempty"`        //
+	ID          string                                    `json:"id,omitempty"`          //
+	Name        string                                    `json:"name,omitempty"`        //
+	Description string                                    `json:"description,omitempty"` //
+	PortalType  string                                    `json:"portalType,omitempty"`  //
+	Link        *ResponsePortalGetPortalByIDERSPortalLink `json:"link,omitempty"`        //
 }
 
 type ResponsePortalGetPortalByIDERSPortalLink struct {
@@ -38,21 +38,21 @@ type ResponsePortalGetPortalByIDERSPortalLink struct {
 }
 
 type ResponsePortalGetPortals struct {
-	SearchResult ResponsePortalGetPortalsSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponsePortalGetPortalsSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponsePortalGetPortalsSearchResult struct {
-	Total        int                                              `json:"total,omitempty"`        //
-	Resources    []ResponsePortalGetPortalsSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponsePortalGetPortalsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponsePortalGetPortalsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                              `json:"total,omitempty"`        //
+	Resources    *[]ResponsePortalGetPortalsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponsePortalGetPortalsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponsePortalGetPortalsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponsePortalGetPortalsSearchResultResources struct {
-	ID          string                                            `json:"id,omitempty"`          //
-	Name        string                                            `json:"name,omitempty"`        //
-	Description string                                            `json:"description,omitempty"` //
-	Link        ResponsePortalGetPortalsSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                             `json:"id,omitempty"`          //
+	Name        string                                             `json:"name,omitempty"`        //
+	Description string                                             `json:"description,omitempty"` //
+	Link        *ResponsePortalGetPortalsSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponsePortalGetPortalsSearchResultResourcesLink struct {
@@ -74,13 +74,13 @@ type ResponsePortalGetPortalsSearchResultPreviousPage struct {
 }
 
 type ResponsePortalGetVersion struct {
-	VersionInfo ResponsePortalGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponsePortalGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponsePortalGetVersionVersionInfo struct {
-	CurrentServerVersion string                                  `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                  `json:"supportedVersions,omitempty"`    //
-	Link                 ResponsePortalGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                   `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                   `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponsePortalGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponsePortalGetVersionVersionInfoLink struct {

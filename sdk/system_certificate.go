@@ -9,13 +9,13 @@ import (
 type SystemCertificateService service
 
 type ResponseSystemCertificateGetVersion struct {
-	VersionInfo ResponseSystemCertificateGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseSystemCertificateGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseSystemCertificateGetVersionVersionInfo struct {
-	CurrentServerVersion string                                             `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                             `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseSystemCertificateGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                              `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                              `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseSystemCertificateGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseSystemCertificateGetVersionVersionInfoLink struct {

@@ -18,33 +18,33 @@ type GetSecurityGroupsToVnToVLANQueryParams struct {
 }
 
 type ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANByID struct {
-	SgtVnVLANContainer ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANByIDSgtVnVLANContainer `json:"SgtVNVlanContainer,omitempty"` //
+	SgtVnVLANContainer *ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANByIDSgtVnVLANContainer `json:"SgtVNVlanContainer,omitempty"` //
 }
 
 type ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANByIDSgtVnVLANContainer struct {
-	ID                 string                                                                                                     `json:"id,omitempty"`                 //
-	Name               string                                                                                                     `json:"name,omitempty"`               //
-	Description        string                                                                                                     `json:"description,omitempty"`        //
-	SgtID              string                                                                                                     `json:"sgtId,omitempty"`              //
-	Virtualnetworklist []ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANByIDSgtVnVLANContainerVirtualnetworklist `json:"virtualnetworklist,omitempty"` //
-	Link               ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANByIDSgtVnVLANContainerLink                 `json:"link,omitempty"`               //
+	ID                 string                                                                                                      `json:"id,omitempty"`                 //
+	Name               string                                                                                                      `json:"name,omitempty"`               //
+	Description        string                                                                                                      `json:"description,omitempty"`        //
+	SgtID              string                                                                                                      `json:"sgtId,omitempty"`              //
+	Virtualnetworklist *[]ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANByIDSgtVnVLANContainerVirtualnetworklist `json:"virtualnetworklist,omitempty"` //
+	Link               *ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANByIDSgtVnVLANContainerLink                 `json:"link,omitempty"`               //
 }
 
 type ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANByIDSgtVnVLANContainerVirtualnetworklist struct {
-	ID                    string                                                                                                          `json:"id,omitempty"`                    //
-	Name                  string                                                                                                          `json:"name,omitempty"`                  //
-	Description           string                                                                                                          `json:"description,omitempty"`           //
-	DefaultVirtualNetwork bool                                                                                                            `json:"defaultVirtualNetwork,omitempty"` //
-	VLANs                 []ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANByIDSgtVnVLANContainerVirtualnetworklistVLANs `json:"vlans,omitempty"`                 //
+	ID                    string                                                                                                           `json:"id,omitempty"`                    //
+	Name                  string                                                                                                           `json:"name,omitempty"`                  //
+	Description           string                                                                                                           `json:"description,omitempty"`           //
+	DefaultVirtualNetwork *bool                                                                                                            `json:"defaultVirtualNetwork,omitempty"` //
+	VLANs                 *[]ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANByIDSgtVnVLANContainerVirtualnetworklistVLANs `json:"vlans,omitempty"`                 //
 }
 
 type ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANByIDSgtVnVLANContainerVirtualnetworklistVLANs struct {
 	ID          string `json:"id,omitempty"`          //
 	Name        string `json:"name,omitempty"`        //
 	Description string `json:"description,omitempty"` //
-	DefaultVLAN bool   `json:"defaultVlan,omitempty"` //
-	MaxValue    int    `json:"maxValue,omitempty"`    //
-	Data        bool   `json:"data,omitempty"`        //
+	DefaultVLAN *bool  `json:"defaultVlan,omitempty"` //
+	MaxValue    *int   `json:"maxValue,omitempty"`    //
+	Data        *bool  `json:"data,omitempty"`        //
 }
 
 type ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANByIDSgtVnVLANContainerLink struct {
@@ -54,14 +54,14 @@ type ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANByIDSgtVnVL
 }
 
 type ResponseSecurityGroupToVirtualNetworkUpdateSecurityGroupsToVnToVLANByID struct {
-	UpdatedFieldsList ResponseSecurityGroupToVirtualNetworkUpdateSecurityGroupsToVnToVLANByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseSecurityGroupToVirtualNetworkUpdateSecurityGroupsToVnToVLANByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseSecurityGroupToVirtualNetworkUpdateSecurityGroupsToVnToVLANByIDUpdatedFieldsList struct {
-	UpdatedField ResponseSecurityGroupToVirtualNetworkUpdateSecurityGroupsToVnToVLANByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                                               `json:"field,omitempty"`        //
-	OldValue     string                                                                                               `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                                               `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseSecurityGroupToVirtualNetworkUpdateSecurityGroupsToVnToVLANByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                                                  `json:"field,omitempty"`        //
+	OldValue     string                                                                                                  `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                                                  `json:"newValue,omitempty"`     //
 }
 
 type ResponseSecurityGroupToVirtualNetworkUpdateSecurityGroupsToVnToVLANByIDUpdatedFieldsListUpdatedField struct {
@@ -71,21 +71,21 @@ type ResponseSecurityGroupToVirtualNetworkUpdateSecurityGroupsToVnToVLANByIDUpda
 }
 
 type ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLAN struct {
-	SearchResult ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResult struct {
-	Total        int                                                                                      `json:"total,omitempty"`        //
-	Resources    []ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                                      `json:"total,omitempty"`        //
+	Resources    *[]ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResultResources struct {
-	ID          string                                                                                    `json:"id,omitempty"`          //
-	Name        string                                                                                    `json:"name,omitempty"`        //
-	Description string                                                                                    `json:"description,omitempty"` //
-	Link        ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                                                     `json:"id,omitempty"`          //
+	Name        string                                                                                     `json:"name,omitempty"`        //
+	Description string                                                                                     `json:"description,omitempty"` //
+	Link        *ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResultResourcesLink struct {
@@ -107,13 +107,13 @@ type ResponseSecurityGroupToVirtualNetworkGetSecurityGroupsToVnToVLANSearchResul
 }
 
 type ResponseSecurityGroupToVirtualNetworkGetVersion struct {
-	VersionInfo ResponseSecurityGroupToVirtualNetworkGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseSecurityGroupToVirtualNetworkGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseSecurityGroupToVirtualNetworkGetVersionVersionInfo struct {
-	CurrentServerVersion string                                                         `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                                         `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseSecurityGroupToVirtualNetworkGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                          `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                          `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseSecurityGroupToVirtualNetworkGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseSecurityGroupToVirtualNetworkGetVersionVersionInfoLink struct {
@@ -123,19 +123,19 @@ type ResponseSecurityGroupToVirtualNetworkGetVersionVersionInfoLink struct {
 }
 
 type ResponseSecurityGroupToVirtualNetworkMonitorBulkStatusSecurityGroupsToVnToVLAN struct {
-	BulkStatus ResponseSecurityGroupToVirtualNetworkMonitorBulkStatusSecurityGroupsToVnToVLANBulkStatus `json:"BulkStatus,omitempty"` //
+	BulkStatus *ResponseSecurityGroupToVirtualNetworkMonitorBulkStatusSecurityGroupsToVnToVLANBulkStatus `json:"BulkStatus,omitempty"` //
 }
 
 type ResponseSecurityGroupToVirtualNetworkMonitorBulkStatusSecurityGroupsToVnToVLANBulkStatus struct {
-	BulkID          string                                                                                                    `json:"bulkId,omitempty"`          //
-	MediaType       string                                                                                                    `json:"mediaType,omitempty"`       //
-	ExecutionStatus string                                                                                                    `json:"executionStatus,omitempty"` //
-	OperationType   string                                                                                                    `json:"operationType,omitempty"`   //
-	StartTime       string                                                                                                    `json:"startTime,omitempty"`       //
-	ResourcesCount  int                                                                                                       `json:"resourcesCount,omitempty"`  //
-	SuccessCount    int                                                                                                       `json:"successCount,omitempty"`    //
-	FailCount       int                                                                                                       `json:"failCount,omitempty"`       //
-	ResourcesStatus []ResponseSecurityGroupToVirtualNetworkMonitorBulkStatusSecurityGroupsToVnToVLANBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
+	BulkID          string                                                                                                     `json:"bulkId,omitempty"`          //
+	MediaType       string                                                                                                     `json:"mediaType,omitempty"`       //
+	ExecutionStatus string                                                                                                     `json:"executionStatus,omitempty"` //
+	OperationType   string                                                                                                     `json:"operationType,omitempty"`   //
+	StartTime       string                                                                                                     `json:"startTime,omitempty"`       //
+	ResourcesCount  *int                                                                                                       `json:"resourcesCount,omitempty"`  //
+	SuccessCount    *int                                                                                                       `json:"successCount,omitempty"`    //
+	FailCount       *int                                                                                                       `json:"failCount,omitempty"`       //
+	ResourcesStatus *[]ResponseSecurityGroupToVirtualNetworkMonitorBulkStatusSecurityGroupsToVnToVLANBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
 }
 
 type ResponseSecurityGroupToVirtualNetworkMonitorBulkStatusSecurityGroupsToVnToVLANBulkStatusResourcesStatus struct {

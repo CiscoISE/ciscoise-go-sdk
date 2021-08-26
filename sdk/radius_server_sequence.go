@@ -16,26 +16,26 @@ type GetRadiusServerSequenceQueryParams struct {
 }
 
 type ResponseRadiusServerSequenceGetRadiusServerSequenceByID struct {
-	RadiusServerSequence ResponseRadiusServerSequenceGetRadiusServerSequenceByIDRadiusServerSequence `json:"RadiusServerSequence,omitempty"` //
+	RadiusServerSequence *ResponseRadiusServerSequenceGetRadiusServerSequenceByIDRadiusServerSequence `json:"RadiusServerSequence,omitempty"` //
 }
 
 type ResponseRadiusServerSequenceGetRadiusServerSequenceByIDRadiusServerSequence struct {
-	ID                               string                                                                                                        `json:"id,omitempty"`                               //
-	Name                             string                                                                                                        `json:"name,omitempty"`                             //
-	Description                      string                                                                                                        `json:"description,omitempty"`                      //
-	StripPrefix                      bool                                                                                                          `json:"stripPrefix,omitempty"`                      //
-	StripSuffix                      bool                                                                                                          `json:"stripSuffix,omitempty"`                      //
-	PrefixSeparator                  string                                                                                                        `json:"prefixSeparator,omitempty"`                  // The prefixSeparator is required only if stripPrefix is true. The maximum length is 1 character
-	SuffixSeparator                  string                                                                                                        `json:"suffixSeparator,omitempty"`                  // The suffixSeparator is required only if stripSuffix is true. The maximum length is 1 character
-	RemoteAccounting                 bool                                                                                                          `json:"remoteAccounting,omitempty"`                 //
-	LocalAccounting                  bool                                                                                                          `json:"localAccounting,omitempty"`                  //
-	UseAttrSetOnRequest              bool                                                                                                          `json:"useAttrSetOnRequest,omitempty"`              //
-	UseAttrSetBeforeAcc              bool                                                                                                          `json:"useAttrSetBeforeAcc,omitempty"`              //
-	ContinueAuthorzPolicy            bool                                                                                                          `json:"continueAuthorzPolicy,omitempty"`            //
-	RadiusServerList                 []string                                                                                                      `json:"RadiusServerList,omitempty"`                 //
-	OnRequestAttrManipulatorList     []ResponseRadiusServerSequenceGetRadiusServerSequenceByIDRadiusServerSequenceOnRequestAttrManipulatorList     `json:"OnRequestAttrManipulatorList,omitempty"`     // The onRequestAttrManipulators is required only if useAttrSetOnRequest is true
-	BeforeAcceptAttrManipulatorsList []ResponseRadiusServerSequenceGetRadiusServerSequenceByIDRadiusServerSequenceBeforeAcceptAttrManipulatorsList `json:"BeforeAcceptAttrManipulatorsList,omitempty"` // The beforeAcceptAttrManipulators is required only if useAttrSetBeforeAcc is true
-	Link                             ResponseRadiusServerSequenceGetRadiusServerSequenceByIDRadiusServerSequenceLink                               `json:"link,omitempty"`                             //
+	ID                               string                                                                                                         `json:"id,omitempty"`                               //
+	Name                             string                                                                                                         `json:"name,omitempty"`                             //
+	Description                      string                                                                                                         `json:"description,omitempty"`                      //
+	StripPrefix                      *bool                                                                                                          `json:"stripPrefix,omitempty"`                      //
+	StripSuffix                      *bool                                                                                                          `json:"stripSuffix,omitempty"`                      //
+	PrefixSeparator                  string                                                                                                         `json:"prefixSeparator,omitempty"`                  // The prefixSeparator is required only if stripPrefix is true. The maximum length is 1 character
+	SuffixSeparator                  string                                                                                                         `json:"suffixSeparator,omitempty"`                  // The suffixSeparator is required only if stripSuffix is true. The maximum length is 1 character
+	RemoteAccounting                 *bool                                                                                                          `json:"remoteAccounting,omitempty"`                 //
+	LocalAccounting                  *bool                                                                                                          `json:"localAccounting,omitempty"`                  //
+	UseAttrSetOnRequest              *bool                                                                                                          `json:"useAttrSetOnRequest,omitempty"`              //
+	UseAttrSetBeforeAcc              *bool                                                                                                          `json:"useAttrSetBeforeAcc,omitempty"`              //
+	ContinueAuthorzPolicy            *bool                                                                                                          `json:"continueAuthorzPolicy,omitempty"`            //
+	RadiusServerList                 []string                                                                                                       `json:"RadiusServerList,omitempty"`                 //
+	OnRequestAttrManipulatorList     *[]ResponseRadiusServerSequenceGetRadiusServerSequenceByIDRadiusServerSequenceOnRequestAttrManipulatorList     `json:"OnRequestAttrManipulatorList,omitempty"`     // The onRequestAttrManipulators is required only if useAttrSetOnRequest is true
+	BeforeAcceptAttrManipulatorsList *[]ResponseRadiusServerSequenceGetRadiusServerSequenceByIDRadiusServerSequenceBeforeAcceptAttrManipulatorsList `json:"BeforeAcceptAttrManipulatorsList,omitempty"` // The beforeAcceptAttrManipulators is required only if useAttrSetBeforeAcc is true
+	Link                             *ResponseRadiusServerSequenceGetRadiusServerSequenceByIDRadiusServerSequenceLink                               `json:"link,omitempty"`                             //
 }
 
 type ResponseRadiusServerSequenceGetRadiusServerSequenceByIDRadiusServerSequenceOnRequestAttrManipulatorList struct {
@@ -61,14 +61,14 @@ type ResponseRadiusServerSequenceGetRadiusServerSequenceByIDRadiusServerSequence
 }
 
 type ResponseRadiusServerSequenceUpdateRadiusServerSequenceByID struct {
-	UpdatedFieldsList ResponseRadiusServerSequenceUpdateRadiusServerSequenceByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseRadiusServerSequenceUpdateRadiusServerSequenceByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseRadiusServerSequenceUpdateRadiusServerSequenceByIDUpdatedFieldsList struct {
-	UpdatedField ResponseRadiusServerSequenceUpdateRadiusServerSequenceByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                                  `json:"field,omitempty"`        //
-	OldValue     string                                                                                  `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                                  `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseRadiusServerSequenceUpdateRadiusServerSequenceByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                                     `json:"field,omitempty"`        //
+	OldValue     string                                                                                     `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                                     `json:"newValue,omitempty"`     //
 }
 
 type ResponseRadiusServerSequenceUpdateRadiusServerSequenceByIDUpdatedFieldsListUpdatedField struct {
@@ -78,21 +78,21 @@ type ResponseRadiusServerSequenceUpdateRadiusServerSequenceByIDUpdatedFieldsList
 }
 
 type ResponseRadiusServerSequenceGetRadiusServerSequence struct {
-	SearchResult ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResult struct {
-	Total        int                                                                         `json:"total,omitempty"`        //
-	Resources    []ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                         `json:"total,omitempty"`        //
+	Resources    *[]ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResultResources struct {
-	ID          string                                                                       `json:"id,omitempty"`          //
-	Name        string                                                                       `json:"name,omitempty"`        //
-	Description string                                                                       `json:"description,omitempty"` //
-	Link        ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                                        `json:"id,omitempty"`          //
+	Name        string                                                                        `json:"name,omitempty"`        //
+	Description string                                                                        `json:"description,omitempty"` //
+	Link        *ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResultResourcesLink struct {
@@ -114,13 +114,13 @@ type ResponseRadiusServerSequenceGetRadiusServerSequenceSearchResultPreviousPage
 }
 
 type ResponseRadiusServerSequenceGetVersion struct {
-	VersionInfo ResponseRadiusServerSequenceGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseRadiusServerSequenceGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseRadiusServerSequenceGetVersionVersionInfo struct {
-	CurrentServerVersion string                                                `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                                `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseRadiusServerSequenceGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                 `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                 `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseRadiusServerSequenceGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseRadiusServerSequenceGetVersionVersionInfoLink struct {

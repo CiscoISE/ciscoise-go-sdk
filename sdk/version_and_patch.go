@@ -9,11 +9,11 @@ import (
 type VersionAndPatchService service
 
 type ResponseVersionAndPatchGetIseVersionAndPatch struct {
-	OperationResult ResponseVersionAndPatchGetIseVersionAndPatchOperationResult `json:"OperationResult,omitempty"` //
+	OperationResult *ResponseVersionAndPatchGetIseVersionAndPatchOperationResult `json:"OperationResult,omitempty"` //
 }
 
 type ResponseVersionAndPatchGetIseVersionAndPatchOperationResult struct {
-	ResultValue []ResponseVersionAndPatchGetIseVersionAndPatchOperationResultResultValue `json:"resultValue,omitempty"` //
+	ResultValue *[]ResponseVersionAndPatchGetIseVersionAndPatchOperationResultResultValue `json:"resultValue,omitempty"` //
 }
 
 type ResponseVersionAndPatchGetIseVersionAndPatchOperationResultResultValue struct {

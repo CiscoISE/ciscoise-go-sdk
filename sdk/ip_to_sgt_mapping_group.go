@@ -20,11 +20,11 @@ type GetIPToSgtMappingGroupQueryParams struct {
 }
 
 type ResponseIPToSgtMappingGroupGetDeployStatusIPToSgtMappingGroup struct {
-	OperationResult ResponseIPToSgtMappingGroupGetDeployStatusIPToSgtMappingGroupOperationResult `json:"OperationResult,omitempty"` //
+	OperationResult *ResponseIPToSgtMappingGroupGetDeployStatusIPToSgtMappingGroupOperationResult `json:"OperationResult,omitempty"` //
 }
 
 type ResponseIPToSgtMappingGroupGetDeployStatusIPToSgtMappingGroupOperationResult struct {
-	ResultValue []ResponseIPToSgtMappingGroupGetDeployStatusIPToSgtMappingGroupOperationResultResultValue `json:"resultValue,omitempty"` //
+	ResultValue *[]ResponseIPToSgtMappingGroupGetDeployStatusIPToSgtMappingGroupOperationResultResultValue `json:"resultValue,omitempty"` //
 }
 
 type ResponseIPToSgtMappingGroupGetDeployStatusIPToSgtMappingGroupOperationResultResultValue struct {
@@ -33,15 +33,15 @@ type ResponseIPToSgtMappingGroupGetDeployStatusIPToSgtMappingGroupOperationResul
 }
 
 type ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupByID struct {
-	SgMappingGroup ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupByIDSgMappingGroup `json:"SGMappingGroup,omitempty"` //
+	SgMappingGroup *ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupByIDSgMappingGroup `json:"SGMappingGroup,omitempty"` //
 }
 
 type ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupByIDSgMappingGroup struct {
-	Name       string                                                                  `json:"name,omitempty"`       //
-	Sgt        string                                                                  `json:"sgt,omitempty"`        // Mandatory unless mappingGroup is set
-	DeployTo   string                                                                  `json:"deployTo,omitempty"`   // Mandatory unless mappingGroup is set or unless deployType=ALL
-	DeployType string                                                                  `json:"deployType,omitempty"` // Allowed values: - ALL, - ND, - NDG
-	Link       ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupByIDSgMappingGroupLink `json:"link,omitempty"`       //
+	Name       string                                                                   `json:"name,omitempty"`       //
+	Sgt        string                                                                   `json:"sgt,omitempty"`        // Mandatory unless mappingGroup is set
+	DeployTo   string                                                                   `json:"deployTo,omitempty"`   // Mandatory unless mappingGroup is set or unless deployType=ALL
+	DeployType string                                                                   `json:"deployType,omitempty"` // Allowed values: - ALL, - ND, - NDG
+	Link       *ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupByIDSgMappingGroupLink `json:"link,omitempty"`       //
 }
 
 type ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupByIDSgMappingGroupLink struct {
@@ -51,14 +51,14 @@ type ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupByIDSgMappingGroupLink str
 }
 
 type ResponseIPToSgtMappingGroupUpdateIPToSgtMappingGroupByID struct {
-	UpdatedFieldsList ResponseIPToSgtMappingGroupUpdateIPToSgtMappingGroupByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseIPToSgtMappingGroupUpdateIPToSgtMappingGroupByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseIPToSgtMappingGroupUpdateIPToSgtMappingGroupByIDUpdatedFieldsList struct {
-	UpdatedField ResponseIPToSgtMappingGroupUpdateIPToSgtMappingGroupByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                                `json:"field,omitempty"`        //
-	OldValue     string                                                                                `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                                `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseIPToSgtMappingGroupUpdateIPToSgtMappingGroupByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                                   `json:"field,omitempty"`        //
+	OldValue     string                                                                                   `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                                   `json:"newValue,omitempty"`     //
 }
 
 type ResponseIPToSgtMappingGroupUpdateIPToSgtMappingGroupByIDUpdatedFieldsListUpdatedField struct {
@@ -68,20 +68,20 @@ type ResponseIPToSgtMappingGroupUpdateIPToSgtMappingGroupByIDUpdatedFieldsListUp
 }
 
 type ResponseIPToSgtMappingGroupGetIPToSgtMappingGroup struct {
-	SearchResult ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResult struct {
-	Total        int                                                                       `json:"total,omitempty"`        //
-	Resources    []ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                       `json:"total,omitempty"`        //
+	Resources    *[]ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResultResources struct {
-	ID   string                                                                     `json:"id,omitempty"`   //
-	Name string                                                                     `json:"name,omitempty"` //
-	Link ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResultResourcesLink `json:"link,omitempty"` //
+	ID   string                                                                      `json:"id,omitempty"`   //
+	Name string                                                                      `json:"name,omitempty"` //
+	Link *ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResultResourcesLink `json:"link,omitempty"` //
 }
 
 type ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResultResourcesLink struct {
@@ -103,13 +103,13 @@ type ResponseIPToSgtMappingGroupGetIPToSgtMappingGroupSearchResultPreviousPage s
 }
 
 type ResponseIPToSgtMappingGroupGetVersion struct {
-	VersionInfo ResponseIPToSgtMappingGroupGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseIPToSgtMappingGroupGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseIPToSgtMappingGroupGetVersionVersionInfo struct {
-	CurrentServerVersion string                                               `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                               `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseIPToSgtMappingGroupGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseIPToSgtMappingGroupGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseIPToSgtMappingGroupGetVersionVersionInfoLink struct {
@@ -119,19 +119,19 @@ type ResponseIPToSgtMappingGroupGetVersionVersionInfoLink struct {
 }
 
 type ResponseIPToSgtMappingGroupMonitorBulkStatusIPToSgtMappingGroup struct {
-	BulkStatus ResponseIPToSgtMappingGroupMonitorBulkStatusIPToSgtMappingGroupBulkStatus `json:"BulkStatus,omitempty"` //
+	BulkStatus *ResponseIPToSgtMappingGroupMonitorBulkStatusIPToSgtMappingGroupBulkStatus `json:"BulkStatus,omitempty"` //
 }
 
 type ResponseIPToSgtMappingGroupMonitorBulkStatusIPToSgtMappingGroupBulkStatus struct {
-	BulkID          string                                                                                     `json:"bulkId,omitempty"`          //
-	MediaType       string                                                                                     `json:"mediaType,omitempty"`       //
-	ExecutionStatus string                                                                                     `json:"executionStatus,omitempty"` //
-	OperationType   string                                                                                     `json:"operationType,omitempty"`   //
-	StartTime       string                                                                                     `json:"startTime,omitempty"`       //
-	ResourcesCount  int                                                                                        `json:"resourcesCount,omitempty"`  //
-	SuccessCount    int                                                                                        `json:"successCount,omitempty"`    //
-	FailCount       int                                                                                        `json:"failCount,omitempty"`       //
-	ResourcesStatus []ResponseIPToSgtMappingGroupMonitorBulkStatusIPToSgtMappingGroupBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
+	BulkID          string                                                                                      `json:"bulkId,omitempty"`          //
+	MediaType       string                                                                                      `json:"mediaType,omitempty"`       //
+	ExecutionStatus string                                                                                      `json:"executionStatus,omitempty"` //
+	OperationType   string                                                                                      `json:"operationType,omitempty"`   //
+	StartTime       string                                                                                      `json:"startTime,omitempty"`       //
+	ResourcesCount  *int                                                                                        `json:"resourcesCount,omitempty"`  //
+	SuccessCount    *int                                                                                        `json:"successCount,omitempty"`    //
+	FailCount       *int                                                                                        `json:"failCount,omitempty"`       //
+	ResourcesStatus *[]ResponseIPToSgtMappingGroupMonitorBulkStatusIPToSgtMappingGroupBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
 }
 
 type ResponseIPToSgtMappingGroupMonitorBulkStatusIPToSgtMappingGroupBulkStatusResourcesStatus struct {

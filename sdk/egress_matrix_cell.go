@@ -20,11 +20,11 @@ type GetEgressMatrixCellQueryParams struct {
 }
 
 type ResponseEgressMatrixCellCloneMatrixCell struct {
-	OperationResult ResponseEgressMatrixCellCloneMatrixCellOperationResult `json:"OperationResult,omitempty"` //
+	OperationResult *ResponseEgressMatrixCellCloneMatrixCellOperationResult `json:"OperationResult,omitempty"` //
 }
 
 type ResponseEgressMatrixCellCloneMatrixCellOperationResult struct {
-	ResultValue []ResponseEgressMatrixCellCloneMatrixCellOperationResultResultValue `json:"resultValue,omitempty"` //
+	ResultValue *[]ResponseEgressMatrixCellCloneMatrixCellOperationResultResultValue `json:"resultValue,omitempty"` //
 }
 
 type ResponseEgressMatrixCellCloneMatrixCellOperationResultResultValue struct {
@@ -33,19 +33,19 @@ type ResponseEgressMatrixCellCloneMatrixCellOperationResultResultValue struct {
 }
 
 type ResponseEgressMatrixCellGetEgressMatrixCellByID struct {
-	EgressMatrixCell ResponseEgressMatrixCellGetEgressMatrixCellByIDEgressMatrixCell `json:"EgressMatrixCell,omitempty"` //
+	EgressMatrixCell *ResponseEgressMatrixCellGetEgressMatrixCellByIDEgressMatrixCell `json:"EgressMatrixCell,omitempty"` //
 }
 
 type ResponseEgressMatrixCellGetEgressMatrixCellByIDEgressMatrixCell struct {
-	ID               string                                                              `json:"id,omitempty"`               //
-	Name             string                                                              `json:"name,omitempty"`             //
-	Description      string                                                              `json:"description,omitempty"`      //
-	SourceSgtID      string                                                              `json:"sourceSgtId,omitempty"`      //
-	DestinationSgtID string                                                              `json:"destinationSgtId,omitempty"` //
-	MatrixCellStatus string                                                              `json:"matrixCellStatus,omitempty"` // Allowed values: - DISABLED, - ENABLED, - MONITOR
-	DefaultRule      string                                                              `json:"defaultRule,omitempty"`      // Allowed values: - NONE, - DENY_IP, - PERMIT_IP
-	Sgacls           []string                                                            `json:"sgacls,omitempty"`           //
-	Link             ResponseEgressMatrixCellGetEgressMatrixCellByIDEgressMatrixCellLink `json:"link,omitempty"`             //
+	ID               string                                                               `json:"id,omitempty"`               //
+	Name             string                                                               `json:"name,omitempty"`             //
+	Description      string                                                               `json:"description,omitempty"`      //
+	SourceSgtID      string                                                               `json:"sourceSgtId,omitempty"`      //
+	DestinationSgtID string                                                               `json:"destinationSgtId,omitempty"` //
+	MatrixCellStatus string                                                               `json:"matrixCellStatus,omitempty"` // Allowed values: - DISABLED, - ENABLED, - MONITOR
+	DefaultRule      string                                                               `json:"defaultRule,omitempty"`      // Allowed values: - NONE, - DENY_IP, - PERMIT_IP
+	Sgacls           []string                                                             `json:"sgacls,omitempty"`           //
+	Link             *ResponseEgressMatrixCellGetEgressMatrixCellByIDEgressMatrixCellLink `json:"link,omitempty"`             //
 }
 
 type ResponseEgressMatrixCellGetEgressMatrixCellByIDEgressMatrixCellLink struct {
@@ -55,14 +55,14 @@ type ResponseEgressMatrixCellGetEgressMatrixCellByIDEgressMatrixCellLink struct 
 }
 
 type ResponseEgressMatrixCellUpdateEgressMatrixCellByID struct {
-	UpdatedFieldsList ResponseEgressMatrixCellUpdateEgressMatrixCellByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseEgressMatrixCellUpdateEgressMatrixCellByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseEgressMatrixCellUpdateEgressMatrixCellByIDUpdatedFieldsList struct {
-	UpdatedField ResponseEgressMatrixCellUpdateEgressMatrixCellByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                          `json:"field,omitempty"`        //
-	OldValue     string                                                                          `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                          `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseEgressMatrixCellUpdateEgressMatrixCellByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                             `json:"field,omitempty"`        //
+	OldValue     string                                                                             `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                             `json:"newValue,omitempty"`     //
 }
 
 type ResponseEgressMatrixCellUpdateEgressMatrixCellByIDUpdatedFieldsListUpdatedField struct {
@@ -72,21 +72,21 @@ type ResponseEgressMatrixCellUpdateEgressMatrixCellByIDUpdatedFieldsListUpdatedF
 }
 
 type ResponseEgressMatrixCellGetEgressMatrixCell struct {
-	SearchResult ResponseEgressMatrixCellGetEgressMatrixCellSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseEgressMatrixCellGetEgressMatrixCellSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseEgressMatrixCellGetEgressMatrixCellSearchResult struct {
-	Total        int                                                                 `json:"total,omitempty"`        //
-	Resources    []ResponseEgressMatrixCellGetEgressMatrixCellSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseEgressMatrixCellGetEgressMatrixCellSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseEgressMatrixCellGetEgressMatrixCellSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                 `json:"total,omitempty"`        //
+	Resources    *[]ResponseEgressMatrixCellGetEgressMatrixCellSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseEgressMatrixCellGetEgressMatrixCellSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseEgressMatrixCellGetEgressMatrixCellSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseEgressMatrixCellGetEgressMatrixCellSearchResultResources struct {
-	ID          string                                                               `json:"id,omitempty"`          //
-	Name        string                                                               `json:"name,omitempty"`        //
-	Description string                                                               `json:"description,omitempty"` //
-	Link        ResponseEgressMatrixCellGetEgressMatrixCellSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                                `json:"id,omitempty"`          //
+	Name        string                                                                `json:"name,omitempty"`        //
+	Description string                                                                `json:"description,omitempty"` //
+	Link        *ResponseEgressMatrixCellGetEgressMatrixCellSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseEgressMatrixCellGetEgressMatrixCellSearchResultResourcesLink struct {
@@ -108,13 +108,13 @@ type ResponseEgressMatrixCellGetEgressMatrixCellSearchResultPreviousPage struct 
 }
 
 type ResponseEgressMatrixCellGetVersion struct {
-	VersionInfo ResponseEgressMatrixCellGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseEgressMatrixCellGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseEgressMatrixCellGetVersionVersionInfo struct {
-	CurrentServerVersion string                                            `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                            `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseEgressMatrixCellGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                             `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                             `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseEgressMatrixCellGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseEgressMatrixCellGetVersionVersionInfoLink struct {
@@ -124,19 +124,19 @@ type ResponseEgressMatrixCellGetVersionVersionInfoLink struct {
 }
 
 type ResponseEgressMatrixCellMonitorBulkStatusEgressMatrixCell struct {
-	BulkStatus ResponseEgressMatrixCellMonitorBulkStatusEgressMatrixCellBulkStatus `json:"BulkStatus,omitempty"` //
+	BulkStatus *ResponseEgressMatrixCellMonitorBulkStatusEgressMatrixCellBulkStatus `json:"BulkStatus,omitempty"` //
 }
 
 type ResponseEgressMatrixCellMonitorBulkStatusEgressMatrixCellBulkStatus struct {
-	BulkID          string                                                                               `json:"bulkId,omitempty"`          //
-	MediaType       string                                                                               `json:"mediaType,omitempty"`       //
-	ExecutionStatus string                                                                               `json:"executionStatus,omitempty"` //
-	OperationType   string                                                                               `json:"operationType,omitempty"`   //
-	StartTime       string                                                                               `json:"startTime,omitempty"`       //
-	ResourcesCount  int                                                                                  `json:"resourcesCount,omitempty"`  //
-	SuccessCount    int                                                                                  `json:"successCount,omitempty"`    //
-	FailCount       int                                                                                  `json:"failCount,omitempty"`       //
-	ResourcesStatus []ResponseEgressMatrixCellMonitorBulkStatusEgressMatrixCellBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
+	BulkID          string                                                                                `json:"bulkId,omitempty"`          //
+	MediaType       string                                                                                `json:"mediaType,omitempty"`       //
+	ExecutionStatus string                                                                                `json:"executionStatus,omitempty"` //
+	OperationType   string                                                                                `json:"operationType,omitempty"`   //
+	StartTime       string                                                                                `json:"startTime,omitempty"`       //
+	ResourcesCount  *int                                                                                  `json:"resourcesCount,omitempty"`  //
+	SuccessCount    *int                                                                                  `json:"successCount,omitempty"`    //
+	FailCount       *int                                                                                  `json:"failCount,omitempty"`       //
+	ResourcesStatus *[]ResponseEgressMatrixCellMonitorBulkStatusEgressMatrixCellBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
 }
 
 type ResponseEgressMatrixCellMonitorBulkStatusEgressMatrixCellBulkStatusResourcesStatus struct {

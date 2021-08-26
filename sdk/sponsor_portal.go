@@ -20,88 +20,88 @@ type GetSponsorPortalQueryParams struct {
 }
 
 type ResponseSponsorPortalGetSponsorPortalByID struct {
-	SponsorPortal ResponseSponsorPortalGetSponsorPortalByIDSponsorPortal `json:"SponsorPortal,omitempty"` //
+	SponsorPortal *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortal `json:"SponsorPortal,omitempty"` //
 }
 
 type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortal struct {
-	ID             string                                                               `json:"id,omitempty"`             //
-	Name           string                                                               `json:"name,omitempty"`           //
-	Description    string                                                               `json:"description,omitempty"`    //
-	PortalType     string                                                               `json:"portalType,omitempty"`     // Allowed values: - BYOD, - HOTSPOTGUEST, - MYDEVICE, - SELFREGGUEST, - SPONSOR, - SPONSOREDGUEST
-	PortalTestURL  string                                                               `json:"portalTestUrl,omitempty"`  // URL to bring up a test page for this portal
-	Settings       ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettings       `json:"settings,omitempty"`       // Defines all of the settings groups available for a portal
-	Customizations ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizations `json:"customizations,omitempty"` //
-	Link           ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalLink           `json:"link,omitempty"`           //
+	ID             string                                                                `json:"id,omitempty"`             //
+	Name           string                                                                `json:"name,omitempty"`           //
+	Description    string                                                                `json:"description,omitempty"`    //
+	PortalType     string                                                                `json:"portalType,omitempty"`     // Allowed values: - BYOD, - HOTSPOTGUEST, - MYDEVICE, - SELFREGGUEST, - SPONSOR, - SPONSOREDGUEST
+	PortalTestURL  string                                                                `json:"portalTestUrl,omitempty"`  // URL to bring up a test page for this portal
+	Settings       *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettings       `json:"settings,omitempty"`       // Defines all of the settings groups available for a portal
+	Customizations *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizations `json:"customizations,omitempty"` //
+	Link           *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalLink           `json:"link,omitempty"`           //
 }
 
 type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettings struct {
-	PortalSettings                ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsPortalSettings                `json:"portalSettings,omitempty"`                // The port, interface, certificate, and other basic settings of a portal
-	LoginPageSettings             ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsLoginPageSettings             `json:"loginPageSettings,omitempty"`             // Portal Login Page settings groups follow
-	AupSettings                   ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsAupSettings                   `json:"aupSettings,omitempty"`                   //
-	SponsorChangePasswordSettings ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsSponsorChangePasswordSettings `json:"sponsorChangePasswordSettings,omitempty"` //
-	PostLoginBannerSettings       ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsPostLoginBannerSettings       `json:"postLoginBannerSettings,omitempty"`       //
-	PostAccessBannerSettings      ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsPostAccessBannerSettings      `json:"postAccessBannerSettings,omitempty"`      //
-	SupportInfoSettings           ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsSupportInfoSettings           `json:"supportInfoSettings,omitempty"`           //
+	PortalSettings                *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsPortalSettings                `json:"portalSettings,omitempty"`                // The port, interface, certificate, and other basic settings of a portal
+	LoginPageSettings             *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsLoginPageSettings             `json:"loginPageSettings,omitempty"`             // Portal Login Page settings groups follow
+	AupSettings                   *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsAupSettings                   `json:"aupSettings,omitempty"`                   //
+	SponsorChangePasswordSettings *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsSponsorChangePasswordSettings `json:"sponsorChangePasswordSettings,omitempty"` //
+	PostLoginBannerSettings       *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsPostLoginBannerSettings       `json:"postLoginBannerSettings,omitempty"`       //
+	PostAccessBannerSettings      *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsPostAccessBannerSettings      `json:"postAccessBannerSettings,omitempty"`      //
+	SupportInfoSettings           *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsSupportInfoSettings           `json:"supportInfoSettings,omitempty"`           //
 }
 
 type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsPortalSettings struct {
-	HTTPSPort            int    `json:"httpsPort,omitempty"`            // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
+	HTTPSPort            *int   `json:"httpsPort,omitempty"`            // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
 	AllowedInterfaces    string `json:"allowedInterfaces,omitempty"`    // Interfaces that the portal will be reachable on. Allowed values: - eth0, - eth1, - eth2, - eth3, - eth4, - eth5, - bond0, - bond1, - bond2
 	CertificateGroupTag  string `json:"certificateGroupTag,omitempty"`  // Logical name of the x.509 server certificate that will be used for the portal
 	Fqdn                 string `json:"fqdn,omitempty"`                 // The fully-qualified domain name (FQDN) that end-users will use to access this portal. Used only in Sponsor portal
 	AuthenticationMethod string `json:"authenticationMethod,omitempty"` // Unique Id of the identity source sequence
-	IDleTimeout          int    `json:"idleTimeout,omitempty"`          //
+	IDleTimeout          *int   `json:"idleTimeout,omitempty"`          //
 	DisplayLang          string `json:"displayLang,omitempty"`          // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
 	FallbackLanguage     string `json:"fallbackLanguage,omitempty"`     // Used when displayLang = USEBROWSERLOCALE
 	AvailableSSIDs       string `json:"availableSsids,omitempty"`       // Names of the SSIDs available for assignment to guest users by sponsors
 }
 
 type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsLoginPageSettings struct {
-	MaxFailedAttemptsBeforeRateLimit int           `json:"maxFailedAttemptsBeforeRateLimit,omitempty"` // Maximum failed login attempts before rate limiting
-	TimeBetweenLoginsDuringRateLimit int           `json:"timeBetweenLoginsDuringRateLimit,omitempty"` // Time between login attempts when rate limiting
-	IncludeAup                       bool          `json:"includeAup,omitempty"`                       // Include an Acceptable Use Policy (AUP) that should be displayed during login
-	AupDisplay                       string        `json:"aupDisplay,omitempty"`                       // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed values: -  ONPAGE, - ASLINK
-	RequireAupAcceptance             bool          `json:"requireAupAcceptance,omitempty"`             // Require the portal user to accept the AUP. Only valid if includeAup = true
-	RequireAupScrolling              bool          `json:"requireAupScrolling,omitempty"`              //
-	SocialConfigs                    []interface{} `json:"socialConfigs,omitempty"`                    //
+	MaxFailedAttemptsBeforeRateLimit *int           `json:"maxFailedAttemptsBeforeRateLimit,omitempty"` // Maximum failed login attempts before rate limiting
+	TimeBetweenLoginsDuringRateLimit *int           `json:"timeBetweenLoginsDuringRateLimit,omitempty"` // Time between login attempts when rate limiting
+	IncludeAup                       *bool          `json:"includeAup,omitempty"`                       // Include an Acceptable Use Policy (AUP) that should be displayed during login
+	AupDisplay                       string         `json:"aupDisplay,omitempty"`                       // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed values: -  ONPAGE, - ASLINK
+	RequireAupAcceptance             *bool          `json:"requireAupAcceptance,omitempty"`             // Require the portal user to accept the AUP. Only valid if includeAup = true
+	RequireAupScrolling              *bool          `json:"requireAupScrolling,omitempty"`              //
+	SocialConfigs                    *[]interface{} `json:"socialConfigs,omitempty"`                    //
 }
 
 type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsAupSettings struct {
-	IncludeAup                   bool   `json:"includeAup,omitempty"`                   //
-	RequireScrolling             bool   `json:"requireScrolling,omitempty"`             //
+	IncludeAup                   *bool  `json:"includeAup,omitempty"`                   //
+	RequireScrolling             *bool  `json:"requireScrolling,omitempty"`             //
 	DisplayFrequency             string `json:"displayFrequency,omitempty"`             // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed Values: - FIRSTLOGIN, - EVERYLOGIN, - RECURRING
-	DisplayFrequencyIntervalDays int    `json:"displayFrequencyIntervalDays,omitempty"` // Number of days between AUP confirmations (when displayFrequency = recurring)
+	DisplayFrequencyIntervalDays *int   `json:"displayFrequencyIntervalDays,omitempty"` // Number of days between AUP confirmations (when displayFrequency = recurring)
 }
 
 type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsSponsorChangePasswordSettings struct {
-	AllowSponsorToChangePwd bool `json:"allowSponsorToChangePwd,omitempty"` // Allow sponsors to change their own passwords
+	AllowSponsorToChangePwd *bool `json:"allowSponsorToChangePwd,omitempty"` // Allow sponsors to change their own passwords
 }
 
 type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsPostLoginBannerSettings struct {
-	IncludePostAccessBanner bool `json:"includePostAccessBanner,omitempty"` // Include a Post-Login Banner page
+	IncludePostAccessBanner *bool `json:"includePostAccessBanner,omitempty"` // Include a Post-Login Banner page
 }
 
 type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsPostAccessBannerSettings struct {
-	IncludePostAccessBanner bool `json:"includePostAccessBanner,omitempty"` //
+	IncludePostAccessBanner *bool `json:"includePostAccessBanner,omitempty"` //
 }
 
 type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsSupportInfoSettings struct {
-	IncludeSupportInfoPage  bool   `json:"includeSupportInfoPage,omitempty"`  //
-	IncludeMacAddr          bool   `json:"includeMacAddr,omitempty"`          //
-	IncludeIPAddress        bool   `json:"includeIpAddress,omitempty"`        //
-	IncludeBrowserUserAgent bool   `json:"includeBrowserUserAgent,omitempty"` //
-	IncludePolicyServer     bool   `json:"includePolicyServer,omitempty"`     //
-	IncludeFailureCode      bool   `json:"includeFailureCode,omitempty"`      //
+	IncludeSupportInfoPage  *bool  `json:"includeSupportInfoPage,omitempty"`  //
+	IncludeMacAddr          *bool  `json:"includeMacAddr,omitempty"`          //
+	IncludeIPAddress        *bool  `json:"includeIpAddress,omitempty"`        //
+	IncludeBrowserUserAgent *bool  `json:"includeBrowserUserAgent,omitempty"` //
+	IncludePolicyServer     *bool  `json:"includePolicyServer,omitempty"`     //
+	IncludeFailureCode      *bool  `json:"includeFailureCode,omitempty"`      //
 	EmptyFieldDisplay       string `json:"emptyFieldDisplay,omitempty"`       // Specifies how empty fields are handled on the Support Information Page. Allowed values: - HIDE, - DISPLAYWITHNOVALUE, - DISPLAYWITHDEFAULTVALUE
 	DefaultEmptyFieldValue  string `json:"defaultEmptyFieldValue,omitempty"`  // The default value displayed for an empty field. Only valid when emptyFieldDisplay = DISPLAYWITHDEFAULTVALUE
 }
 
 type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizations struct {
-	PortalTheme          ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsPortalTheme          `json:"portalTheme,omitempty"`          //
-	PortalTweakSettings  ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsPortalTweakSettings  `json:"portalTweakSettings,omitempty"`  // The Tweak Settings are a customization of the Portal Theme that has been selected for the portal. When the Portal Theme selection is changed, the Tweak Settings are overwritten to match the values in the theme. The Tweak Settings can subsequently be changed by the user
-	Language             ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsLanguage             `json:"language,omitempty"`             // This property is supported only for Read operation and it allows to show the customizations in English. Other languages are not supported
-	GlobalCustomizations ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsGlobalCustomizations `json:"globalCustomizations,omitempty"` //
-	PageCustomizations   ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsPageCustomizations   `json:"pageCustomizations,omitempty"`   //
+	PortalTheme          *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsPortalTheme          `json:"portalTheme,omitempty"`          //
+	PortalTweakSettings  *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsPortalTweakSettings  `json:"portalTweakSettings,omitempty"`  // The Tweak Settings are a customization of the Portal Theme that has been selected for the portal. When the Portal Theme selection is changed, the Tweak Settings are overwritten to match the values in the theme. The Tweak Settings can subsequently be changed by the user
+	Language             *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsLanguage             `json:"language,omitempty"`             // This property is supported only for Read operation and it allows to show the customizations in English. Other languages are not supported
+	GlobalCustomizations *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsGlobalCustomizations `json:"globalCustomizations,omitempty"` //
+	PageCustomizations   *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsPageCustomizations   `json:"pageCustomizations,omitempty"`   //
 }
 
 type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsPortalTheme struct {
@@ -122,13 +122,13 @@ type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsLanguag
 }
 
 type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsGlobalCustomizations struct {
-	MobileLogoImage  ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsGlobalCustomizationsMobileLogoImage  `json:"mobileLogoImage,omitempty"`  //
-	DesktopLogoImage ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsGlobalCustomizationsDesktopLogoImage `json:"desktopLogoImage,omitempty"` //
-	BannerImage      ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsGlobalCustomizationsBannerImage      `json:"bannerImage,omitempty"`      //
-	BackgroundImage  ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsGlobalCustomizationsBackgroundImage  `json:"backgroundImage,omitempty"`  //
-	BannerTitle      string                                                                                                   `json:"bannerTitle,omitempty"`      //
-	ContactText      string                                                                                                   `json:"contactText,omitempty"`      //
-	FooterElement    string                                                                                                   `json:"footerElement,omitempty"`    //
+	MobileLogoImage  *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsGlobalCustomizationsMobileLogoImage  `json:"mobileLogoImage,omitempty"`  //
+	DesktopLogoImage *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsGlobalCustomizationsDesktopLogoImage `json:"desktopLogoImage,omitempty"` //
+	BannerImage      *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsGlobalCustomizationsBannerImage      `json:"bannerImage,omitempty"`      //
+	BackgroundImage  *ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsGlobalCustomizationsBackgroundImage  `json:"backgroundImage,omitempty"`  //
+	BannerTitle      string                                                                                                    `json:"bannerTitle,omitempty"`      //
+	ContactText      string                                                                                                    `json:"contactText,omitempty"`      //
+	FooterElement    string                                                                                                    `json:"footerElement,omitempty"`    //
 }
 
 type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsGlobalCustomizationsMobileLogoImage struct {
@@ -148,7 +148,7 @@ type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsGlobalC
 }
 
 type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsPageCustomizations struct {
-	Data []ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsPageCustomizationsData `json:"data,omitempty"` // The Dictionary will be exposed here as key value pair
+	Data *[]ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsPageCustomizationsData `json:"data,omitempty"` // The Dictionary will be exposed here as key value pair
 }
 
 type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalCustomizationsPageCustomizationsData struct {
@@ -163,14 +163,14 @@ type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalLink struct {
 }
 
 type ResponseSponsorPortalUpdateSponsorPortalByID struct {
-	UpdatedFieldsList ResponseSponsorPortalUpdateSponsorPortalByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseSponsorPortalUpdateSponsorPortalByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseSponsorPortalUpdateSponsorPortalByIDUpdatedFieldsList struct {
-	UpdatedField ResponseSponsorPortalUpdateSponsorPortalByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                    `json:"field,omitempty"`        //
-	OldValue     string                                                                    `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                    `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseSponsorPortalUpdateSponsorPortalByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                       `json:"field,omitempty"`        //
+	OldValue     string                                                                       `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                       `json:"newValue,omitempty"`     //
 }
 
 type ResponseSponsorPortalUpdateSponsorPortalByIDUpdatedFieldsListUpdatedField struct {
@@ -180,21 +180,21 @@ type ResponseSponsorPortalUpdateSponsorPortalByIDUpdatedFieldsListUpdatedField s
 }
 
 type ResponseSponsorPortalGetSponsorPortal struct {
-	SearchResult ResponseSponsorPortalGetSponsorPortalSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseSponsorPortalGetSponsorPortalSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseSponsorPortalGetSponsorPortalSearchResult struct {
-	Total        int                                                           `json:"total,omitempty"`        //
-	Resources    []ResponseSponsorPortalGetSponsorPortalSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseSponsorPortalGetSponsorPortalSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseSponsorPortalGetSponsorPortalSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                           `json:"total,omitempty"`        //
+	Resources    *[]ResponseSponsorPortalGetSponsorPortalSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseSponsorPortalGetSponsorPortalSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseSponsorPortalGetSponsorPortalSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSponsorPortalGetSponsorPortalSearchResultResources struct {
-	ID          string                                                         `json:"id,omitempty"`          //
-	Name        string                                                         `json:"name,omitempty"`        //
-	Description string                                                         `json:"description,omitempty"` //
-	Link        ResponseSponsorPortalGetSponsorPortalSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                          `json:"id,omitempty"`          //
+	Name        string                                                          `json:"name,omitempty"`        //
+	Description string                                                          `json:"description,omitempty"` //
+	Link        *ResponseSponsorPortalGetSponsorPortalSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseSponsorPortalGetSponsorPortalSearchResultResourcesLink struct {
@@ -216,13 +216,13 @@ type ResponseSponsorPortalGetSponsorPortalSearchResultPreviousPage struct {
 }
 
 type ResponseSponsorPortalGetVersion struct {
-	VersionInfo ResponseSponsorPortalGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseSponsorPortalGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseSponsorPortalGetVersionVersionInfo struct {
-	CurrentServerVersion string                                         `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                         `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseSponsorPortalGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                          `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                          `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseSponsorPortalGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseSponsorPortalGetVersionVersionInfoLink struct {

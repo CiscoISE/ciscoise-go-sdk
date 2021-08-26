@@ -16,25 +16,25 @@ type GetExternalRadiusServerQueryParams struct {
 }
 
 type ResponseExternalRadiusServerGetExternalRadiusServerByName struct {
-	ExternalRadiusServer ResponseExternalRadiusServerGetExternalRadiusServerByNameExternalRadiusServer `json:"ExternalRadiusServer,omitempty"` //
+	ExternalRadiusServer *ResponseExternalRadiusServerGetExternalRadiusServerByNameExternalRadiusServer `json:"ExternalRadiusServer,omitempty"` //
 }
 
 type ResponseExternalRadiusServerGetExternalRadiusServerByNameExternalRadiusServer struct {
-	ID                 string                                                                            `json:"id,omitempty"`                 //
-	Name               string                                                                            `json:"name,omitempty"`               // Resource Name. Allowed charactera are alphanumeric and _ (underscore).
-	Description        string                                                                            `json:"description,omitempty"`        //
-	HostIP             string                                                                            `json:"hostIP,omitempty"`             // The IP of the host - must be a valid IPV4 address
-	SharedSecret       string                                                                            `json:"sharedSecret,omitempty"`       // Shared secret maximum length is 128 characters
-	EnableKeyWrap      bool                                                                              `json:"enableKeyWrap,omitempty"`      // KeyWrap may only be enabled if it is supported on the device. When running in FIPS mode this option should be enabled for such devices
-	EncryptionKey      string                                                                            `json:"encryptionKey,omitempty"`      // The encryptionKey is required only if enableKeyWrap is true, otherwise it must be ignored or empty. The maximum length is 16 ASCII characters or 32 HEXADECIMAL characters (depend on selection in field 'keyInputFormat')
-	AuthenticatorKey   string                                                                            `json:"authenticatorKey,omitempty"`   // The authenticatorKey is required only if enableKeyWrap is true, otherwise it must be ignored or empty. The maximum length is 20 ASCII characters or 40 HEXADECIMAL characters (depend on selection in field 'keyInputFormat')
-	KeyInputFormat     string                                                                            `json:"keyInputFormat,omitempty"`     // Specifies the format of the input for fields 'encryptionKey' and 'authenticatorKey'. Allowed Values: - ASCII - HEXADECIMAL
-	AuthenticationPort int                                                                               `json:"authenticationPort,omitempty"` // Valid Range 1 to 65535
-	AccountingPort     int                                                                               `json:"accountingPort,omitempty"`     // Valid Range 1 to 65535
-	Timeout            int                                                                               `json:"timeout,omitempty"`            // Valid Range 1 to 120
-	Retries            int                                                                               `json:"retries,omitempty"`            // Valid Range 1 to 9
-	ProxyTimeout       int                                                                               `json:"proxyTimeout,omitempty"`       // Valid Range 1 to 600
-	Link               ResponseExternalRadiusServerGetExternalRadiusServerByNameExternalRadiusServerLink `json:"link,omitempty"`               //
+	ID                 string                                                                             `json:"id,omitempty"`                 //
+	Name               string                                                                             `json:"name,omitempty"`               // Resource Name. Allowed charactera are alphanumeric and _ (underscore).
+	Description        string                                                                             `json:"description,omitempty"`        //
+	HostIP             string                                                                             `json:"hostIP,omitempty"`             // The IP of the host - must be a valid IPV4 address
+	SharedSecret       string                                                                             `json:"sharedSecret,omitempty"`       // Shared secret maximum length is 128 characters
+	EnableKeyWrap      *bool                                                                              `json:"enableKeyWrap,omitempty"`      // KeyWrap may only be enabled if it is supported on the device. When running in FIPS mode this option should be enabled for such devices
+	EncryptionKey      string                                                                             `json:"encryptionKey,omitempty"`      // The encryptionKey is required only if enableKeyWrap is true, otherwise it must be ignored or empty. The maximum length is 16 ASCII characters or 32 HEXADECIMAL characters (depend on selection in field 'keyInputFormat')
+	AuthenticatorKey   string                                                                             `json:"authenticatorKey,omitempty"`   // The authenticatorKey is required only if enableKeyWrap is true, otherwise it must be ignored or empty. The maximum length is 20 ASCII characters or 40 HEXADECIMAL characters (depend on selection in field 'keyInputFormat')
+	KeyInputFormat     string                                                                             `json:"keyInputFormat,omitempty"`     // Specifies the format of the input for fields 'encryptionKey' and 'authenticatorKey'. Allowed Values: - ASCII - HEXADECIMAL
+	AuthenticationPort *int                                                                               `json:"authenticationPort,omitempty"` // Valid Range 1 to 65535
+	AccountingPort     *int                                                                               `json:"accountingPort,omitempty"`     // Valid Range 1 to 65535
+	Timeout            *int                                                                               `json:"timeout,omitempty"`            // Valid Range 1 to 120
+	Retries            *int                                                                               `json:"retries,omitempty"`            // Valid Range 1 to 9
+	ProxyTimeout       *int                                                                               `json:"proxyTimeout,omitempty"`       // Valid Range 1 to 600
+	Link               *ResponseExternalRadiusServerGetExternalRadiusServerByNameExternalRadiusServerLink `json:"link,omitempty"`               //
 }
 
 type ResponseExternalRadiusServerGetExternalRadiusServerByNameExternalRadiusServerLink struct {
@@ -44,25 +44,25 @@ type ResponseExternalRadiusServerGetExternalRadiusServerByNameExternalRadiusServ
 }
 
 type ResponseExternalRadiusServerGetExternalRadiusServerByID struct {
-	ExternalRadiusServer ResponseExternalRadiusServerGetExternalRadiusServerByIDExternalRadiusServer `json:"ExternalRadiusServer,omitempty"` //
+	ExternalRadiusServer *ResponseExternalRadiusServerGetExternalRadiusServerByIDExternalRadiusServer `json:"ExternalRadiusServer,omitempty"` //
 }
 
 type ResponseExternalRadiusServerGetExternalRadiusServerByIDExternalRadiusServer struct {
-	ID                 string                                                                          `json:"id,omitempty"`                 //
-	Name               string                                                                          `json:"name,omitempty"`               // Resource Name. Allowed charactera are alphanumeric and _ (underscore).
-	Description        string                                                                          `json:"description,omitempty"`        //
-	HostIP             string                                                                          `json:"hostIP,omitempty"`             // The IP of the host - must be a valid IPV4 address
-	SharedSecret       string                                                                          `json:"sharedSecret,omitempty"`       // Shared secret maximum length is 128 characters
-	EnableKeyWrap      bool                                                                            `json:"enableKeyWrap,omitempty"`      // KeyWrap may only be enabled if it is supported on the device. When running in FIPS mode this option should be enabled for such devices
-	EncryptionKey      string                                                                          `json:"encryptionKey,omitempty"`      // The encryptionKey is required only if enableKeyWrap is true, otherwise it must be ignored or empty. The maximum length is 16 ASCII characters or 32 HEXADECIMAL characters (depend on selection in field 'keyInputFormat')
-	AuthenticatorKey   string                                                                          `json:"authenticatorKey,omitempty"`   // The authenticatorKey is required only if enableKeyWrap is true, otherwise it must be ignored or empty. The maximum length is 20 ASCII characters or 40 HEXADECIMAL characters (depend on selection in field 'keyInputFormat')
-	KeyInputFormat     string                                                                          `json:"keyInputFormat,omitempty"`     // Specifies the format of the input for fields 'encryptionKey' and 'authenticatorKey'. Allowed Values: - ASCII - HEXADECIMAL
-	AuthenticationPort int                                                                             `json:"authenticationPort,omitempty"` // Valid Range 1 to 65535
-	AccountingPort     int                                                                             `json:"accountingPort,omitempty"`     // Valid Range 1 to 65535
-	Timeout            int                                                                             `json:"timeout,omitempty"`            // Valid Range 1 to 120
-	Retries            int                                                                             `json:"retries,omitempty"`            // Valid Range 1 to 9
-	ProxyTimeout       int                                                                             `json:"proxyTimeout,omitempty"`       // Valid Range 1 to 600
-	Link               ResponseExternalRadiusServerGetExternalRadiusServerByIDExternalRadiusServerLink `json:"link,omitempty"`               //
+	ID                 string                                                                           `json:"id,omitempty"`                 //
+	Name               string                                                                           `json:"name,omitempty"`               // Resource Name. Allowed charactera are alphanumeric and _ (underscore).
+	Description        string                                                                           `json:"description,omitempty"`        //
+	HostIP             string                                                                           `json:"hostIP,omitempty"`             // The IP of the host - must be a valid IPV4 address
+	SharedSecret       string                                                                           `json:"sharedSecret,omitempty"`       // Shared secret maximum length is 128 characters
+	EnableKeyWrap      *bool                                                                            `json:"enableKeyWrap,omitempty"`      // KeyWrap may only be enabled if it is supported on the device. When running in FIPS mode this option should be enabled for such devices
+	EncryptionKey      string                                                                           `json:"encryptionKey,omitempty"`      // The encryptionKey is required only if enableKeyWrap is true, otherwise it must be ignored or empty. The maximum length is 16 ASCII characters or 32 HEXADECIMAL characters (depend on selection in field 'keyInputFormat')
+	AuthenticatorKey   string                                                                           `json:"authenticatorKey,omitempty"`   // The authenticatorKey is required only if enableKeyWrap is true, otherwise it must be ignored or empty. The maximum length is 20 ASCII characters or 40 HEXADECIMAL characters (depend on selection in field 'keyInputFormat')
+	KeyInputFormat     string                                                                           `json:"keyInputFormat,omitempty"`     // Specifies the format of the input for fields 'encryptionKey' and 'authenticatorKey'. Allowed Values: - ASCII - HEXADECIMAL
+	AuthenticationPort *int                                                                             `json:"authenticationPort,omitempty"` // Valid Range 1 to 65535
+	AccountingPort     *int                                                                             `json:"accountingPort,omitempty"`     // Valid Range 1 to 65535
+	Timeout            *int                                                                             `json:"timeout,omitempty"`            // Valid Range 1 to 120
+	Retries            *int                                                                             `json:"retries,omitempty"`            // Valid Range 1 to 9
+	ProxyTimeout       *int                                                                             `json:"proxyTimeout,omitempty"`       // Valid Range 1 to 600
+	Link               *ResponseExternalRadiusServerGetExternalRadiusServerByIDExternalRadiusServerLink `json:"link,omitempty"`               //
 }
 
 type ResponseExternalRadiusServerGetExternalRadiusServerByIDExternalRadiusServerLink struct {
@@ -72,14 +72,14 @@ type ResponseExternalRadiusServerGetExternalRadiusServerByIDExternalRadiusServer
 }
 
 type ResponseExternalRadiusServerUpdateExternalRadiusServerByID struct {
-	UpdatedFieldsList ResponseExternalRadiusServerUpdateExternalRadiusServerByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseExternalRadiusServerUpdateExternalRadiusServerByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseExternalRadiusServerUpdateExternalRadiusServerByIDUpdatedFieldsList struct {
-	UpdatedField ResponseExternalRadiusServerUpdateExternalRadiusServerByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                                  `json:"field,omitempty"`        //
-	OldValue     string                                                                                  `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                                  `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseExternalRadiusServerUpdateExternalRadiusServerByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                                     `json:"field,omitempty"`        //
+	OldValue     string                                                                                     `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                                     `json:"newValue,omitempty"`     //
 }
 
 type ResponseExternalRadiusServerUpdateExternalRadiusServerByIDUpdatedFieldsListUpdatedField struct {
@@ -89,21 +89,21 @@ type ResponseExternalRadiusServerUpdateExternalRadiusServerByIDUpdatedFieldsList
 }
 
 type ResponseExternalRadiusServerGetExternalRadiusServer struct {
-	SearchResult ResponseExternalRadiusServerGetExternalRadiusServerSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseExternalRadiusServerGetExternalRadiusServerSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseExternalRadiusServerGetExternalRadiusServerSearchResult struct {
-	Total        int                                                                         `json:"total,omitempty"`        //
-	Resources    []ResponseExternalRadiusServerGetExternalRadiusServerSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseExternalRadiusServerGetExternalRadiusServerSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseExternalRadiusServerGetExternalRadiusServerSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                         `json:"total,omitempty"`        //
+	Resources    *[]ResponseExternalRadiusServerGetExternalRadiusServerSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseExternalRadiusServerGetExternalRadiusServerSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseExternalRadiusServerGetExternalRadiusServerSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseExternalRadiusServerGetExternalRadiusServerSearchResultResources struct {
-	ID          string                                                                       `json:"id,omitempty"`          //
-	Name        string                                                                       `json:"name,omitempty"`        //
-	Description string                                                                       `json:"description,omitempty"` //
-	Link        ResponseExternalRadiusServerGetExternalRadiusServerSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                                        `json:"id,omitempty"`          //
+	Name        string                                                                        `json:"name,omitempty"`        //
+	Description string                                                                        `json:"description,omitempty"` //
+	Link        *ResponseExternalRadiusServerGetExternalRadiusServerSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseExternalRadiusServerGetExternalRadiusServerSearchResultResourcesLink struct {
@@ -125,13 +125,13 @@ type ResponseExternalRadiusServerGetExternalRadiusServerSearchResultPreviousPage
 }
 
 type ResponseExternalRadiusServerGetVersion struct {
-	VersionInfo ResponseExternalRadiusServerGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseExternalRadiusServerGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseExternalRadiusServerGetVersionVersionInfo struct {
-	CurrentServerVersion string                                                `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                                `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseExternalRadiusServerGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                 `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                 `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseExternalRadiusServerGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseExternalRadiusServerGetVersionVersionInfoLink struct {

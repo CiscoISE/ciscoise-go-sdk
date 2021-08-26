@@ -10,17 +10,17 @@ import (
 type NetworkAccessNetworkConditionsService service
 
 type ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditions struct {
-	Response []ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditionsResponse `json:"response,omitempty"` //
-	Version  string                                                                            `json:"version,omitempty"`  //
+	Response *[]ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditionsResponse `json:"response,omitempty"` //
+	Version  string                                                                             `json:"version,omitempty"`  //
 }
 
 type ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditionsResponse struct {
-	ConditionType string                                                                                      `json:"conditionType,omitempty"` // This field determines the content of the conditions field
-	Description   string                                                                                      `json:"description,omitempty"`   //
-	ID            string                                                                                      `json:"id,omitempty"`            //
-	Link          ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditionsResponseLink         `json:"link,omitempty"`          //
-	Name          string                                                                                      `json:"name,omitempty"`          // Network Condition name
-	Conditions    []ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditionsResponseConditions `json:"conditions,omitempty"`    //
+	ConditionType string                                                                                       `json:"conditionType,omitempty"` // This field determines the content of the conditions field
+	Description   string                                                                                       `json:"description,omitempty"`   //
+	ID            string                                                                                       `json:"id,omitempty"`            //
+	Link          *ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditionsResponseLink         `json:"link,omitempty"`          //
+	Name          string                                                                                       `json:"name,omitempty"`          // Network Condition name
+	Conditions    *[]ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditionsResponseConditions `json:"conditions,omitempty"`    //
 }
 
 type ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditionsResponseLink struct {
@@ -38,17 +38,17 @@ type ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditionsResp
 }
 
 type ResponseNetworkAccessNetworkConditionsCreateNetworkAccessNetworkCondition struct {
-	Response ResponseNetworkAccessNetworkConditionsCreateNetworkAccessNetworkConditionResponse `json:"response,omitempty"` // Unique network conditions to restrict access to the network
-	Version  string                                                                            `json:"version,omitempty"`  //
+	Response *ResponseNetworkAccessNetworkConditionsCreateNetworkAccessNetworkConditionResponse `json:"response,omitempty"` // Unique network conditions to restrict access to the network
+	Version  string                                                                             `json:"version,omitempty"`  //
 }
 
 type ResponseNetworkAccessNetworkConditionsCreateNetworkAccessNetworkConditionResponse struct {
-	ConditionType string                                                                                        `json:"conditionType,omitempty"` // This field determines the content of the conditions field
-	Description   string                                                                                        `json:"description,omitempty"`   //
-	ID            string                                                                                        `json:"id,omitempty"`            //
-	Link          ResponseNetworkAccessNetworkConditionsCreateNetworkAccessNetworkConditionResponseLink         `json:"link,omitempty"`          //
-	Name          string                                                                                        `json:"name,omitempty"`          // Network Condition name
-	Conditions    []ResponseNetworkAccessNetworkConditionsCreateNetworkAccessNetworkConditionResponseConditions `json:"conditions,omitempty"`    //
+	ConditionType string                                                                                         `json:"conditionType,omitempty"` // This field determines the content of the conditions field
+	Description   string                                                                                         `json:"description,omitempty"`   //
+	ID            string                                                                                         `json:"id,omitempty"`            //
+	Link          *ResponseNetworkAccessNetworkConditionsCreateNetworkAccessNetworkConditionResponseLink         `json:"link,omitempty"`          //
+	Name          string                                                                                         `json:"name,omitempty"`          // Network Condition name
+	Conditions    *[]ResponseNetworkAccessNetworkConditionsCreateNetworkAccessNetworkConditionResponseConditions `json:"conditions,omitempty"`    //
 }
 
 type ResponseNetworkAccessNetworkConditionsCreateNetworkAccessNetworkConditionResponseLink struct {
@@ -66,17 +66,17 @@ type ResponseNetworkAccessNetworkConditionsCreateNetworkAccessNetworkConditionRe
 }
 
 type ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditionByID struct {
-	Response ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditionByIDResponse `json:"response,omitempty"` // Unique network conditions to restrict access to the network
-	Version  string                                                                             `json:"version,omitempty"`  //
+	Response *ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditionByIDResponse `json:"response,omitempty"` // Unique network conditions to restrict access to the network
+	Version  string                                                                              `json:"version,omitempty"`  //
 }
 
 type ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditionByIDResponse struct {
-	ConditionType string                                                                                         `json:"conditionType,omitempty"` // This field determines the content of the conditions field
-	Description   string                                                                                         `json:"description,omitempty"`   //
-	ID            string                                                                                         `json:"id,omitempty"`            //
-	Link          ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditionByIDResponseLink         `json:"link,omitempty"`          //
-	Name          string                                                                                         `json:"name,omitempty"`          // Network Condition name
-	Conditions    []ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditionByIDResponseConditions `json:"conditions,omitempty"`    //
+	ConditionType string                                                                                          `json:"conditionType,omitempty"` // This field determines the content of the conditions field
+	Description   string                                                                                          `json:"description,omitempty"`   //
+	ID            string                                                                                          `json:"id,omitempty"`            //
+	Link          *ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditionByIDResponseLink         `json:"link,omitempty"`          //
+	Name          string                                                                                          `json:"name,omitempty"`          // Network Condition name
+	Conditions    *[]ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditionByIDResponseConditions `json:"conditions,omitempty"`    //
 }
 
 type ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditionByIDResponseLink struct {
@@ -94,17 +94,17 @@ type ResponseNetworkAccessNetworkConditionsGetNetworkAccessNetworkConditionByIDR
 }
 
 type ResponseNetworkAccessNetworkConditionsUpdateNetworkAccessNetworkConditionByID struct {
-	Response ResponseNetworkAccessNetworkConditionsUpdateNetworkAccessNetworkConditionByIDResponse `json:"response,omitempty"` // Unique network conditions to restrict access to the network
-	Version  string                                                                                `json:"version,omitempty"`  //
+	Response *ResponseNetworkAccessNetworkConditionsUpdateNetworkAccessNetworkConditionByIDResponse `json:"response,omitempty"` // Unique network conditions to restrict access to the network
+	Version  string                                                                                 `json:"version,omitempty"`  //
 }
 
 type ResponseNetworkAccessNetworkConditionsUpdateNetworkAccessNetworkConditionByIDResponse struct {
-	ConditionType string                                                                                            `json:"conditionType,omitempty"` // This field determines the content of the conditions field
-	Description   string                                                                                            `json:"description,omitempty"`   //
-	ID            string                                                                                            `json:"id,omitempty"`            //
-	Link          ResponseNetworkAccessNetworkConditionsUpdateNetworkAccessNetworkConditionByIDResponseLink         `json:"link,omitempty"`          //
-	Name          string                                                                                            `json:"name,omitempty"`          // Network Condition name
-	Conditions    []ResponseNetworkAccessNetworkConditionsUpdateNetworkAccessNetworkConditionByIDResponseConditions `json:"conditions,omitempty"`    //
+	ConditionType string                                                                                             `json:"conditionType,omitempty"` // This field determines the content of the conditions field
+	Description   string                                                                                             `json:"description,omitempty"`   //
+	ID            string                                                                                             `json:"id,omitempty"`            //
+	Link          *ResponseNetworkAccessNetworkConditionsUpdateNetworkAccessNetworkConditionByIDResponseLink         `json:"link,omitempty"`          //
+	Name          string                                                                                             `json:"name,omitempty"`          // Network Condition name
+	Conditions    *[]ResponseNetworkAccessNetworkConditionsUpdateNetworkAccessNetworkConditionByIDResponseConditions `json:"conditions,omitempty"`    //
 }
 
 type ResponseNetworkAccessNetworkConditionsUpdateNetworkAccessNetworkConditionByIDResponseLink struct {

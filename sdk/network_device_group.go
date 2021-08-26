@@ -20,15 +20,15 @@ type GetNetworkDeviceGroupQueryParams struct {
 }
 
 type ResponseNetworkDeviceGroupGetNetworkDeviceGroupByName struct {
-	NetworkDeviceGroup ResponseNetworkDeviceGroupGetNetworkDeviceGroupByNameNetworkDeviceGroup `json:"NetworkDeviceGroup,omitempty"` //
+	NetworkDeviceGroup *ResponseNetworkDeviceGroupGetNetworkDeviceGroupByNameNetworkDeviceGroup `json:"NetworkDeviceGroup,omitempty"` //
 }
 
 type ResponseNetworkDeviceGroupGetNetworkDeviceGroupByNameNetworkDeviceGroup struct {
-	ID          string                                                                      `json:"id,omitempty"`          //
-	Name        string                                                                      `json:"name,omitempty"`        //
-	Description string                                                                      `json:"description,omitempty"` //
-	Link        ResponseNetworkDeviceGroupGetNetworkDeviceGroupByNameNetworkDeviceGroupLink `json:"link,omitempty"`        //
-	Othername   string                                                                      `json:"othername,omitempty"`   //
+	ID          string                                                                       `json:"id,omitempty"`          //
+	Name        string                                                                       `json:"name,omitempty"`        //
+	Description string                                                                       `json:"description,omitempty"` //
+	Link        *ResponseNetworkDeviceGroupGetNetworkDeviceGroupByNameNetworkDeviceGroupLink `json:"link,omitempty"`        //
+	Othername   string                                                                       `json:"othername,omitempty"`   //
 }
 
 type ResponseNetworkDeviceGroupGetNetworkDeviceGroupByNameNetworkDeviceGroupLink struct {
@@ -38,15 +38,15 @@ type ResponseNetworkDeviceGroupGetNetworkDeviceGroupByNameNetworkDeviceGroupLink
 }
 
 type ResponseNetworkDeviceGroupGetNetworkDeviceGroupByID struct {
-	NetworkDeviceGroup ResponseNetworkDeviceGroupGetNetworkDeviceGroupByIDNetworkDeviceGroup `json:"NetworkDeviceGroup,omitempty"` //
+	NetworkDeviceGroup *ResponseNetworkDeviceGroupGetNetworkDeviceGroupByIDNetworkDeviceGroup `json:"NetworkDeviceGroup,omitempty"` //
 }
 
 type ResponseNetworkDeviceGroupGetNetworkDeviceGroupByIDNetworkDeviceGroup struct {
-	ID          string                                                                    `json:"id,omitempty"`          //
-	Name        string                                                                    `json:"name,omitempty"`        //
-	Description string                                                                    `json:"description,omitempty"` //
-	Link        ResponseNetworkDeviceGroupGetNetworkDeviceGroupByIDNetworkDeviceGroupLink `json:"link,omitempty"`        //
-	Othername   string                                                                    `json:"othername,omitempty"`   //
+	ID          string                                                                     `json:"id,omitempty"`          //
+	Name        string                                                                     `json:"name,omitempty"`        //
+	Description string                                                                     `json:"description,omitempty"` //
+	Link        *ResponseNetworkDeviceGroupGetNetworkDeviceGroupByIDNetworkDeviceGroupLink `json:"link,omitempty"`        //
+	Othername   string                                                                     `json:"othername,omitempty"`   //
 }
 
 type ResponseNetworkDeviceGroupGetNetworkDeviceGroupByIDNetworkDeviceGroupLink struct {
@@ -56,14 +56,14 @@ type ResponseNetworkDeviceGroupGetNetworkDeviceGroupByIDNetworkDeviceGroupLink s
 }
 
 type ResponseNetworkDeviceGroupUpdateNetworkDeviceGroupByID struct {
-	UpdatedFieldsList ResponseNetworkDeviceGroupUpdateNetworkDeviceGroupByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseNetworkDeviceGroupUpdateNetworkDeviceGroupByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseNetworkDeviceGroupUpdateNetworkDeviceGroupByIDUpdatedFieldsList struct {
-	UpdatedField ResponseNetworkDeviceGroupUpdateNetworkDeviceGroupByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                              `json:"field,omitempty"`        //
-	OldValue     string                                                                              `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                              `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseNetworkDeviceGroupUpdateNetworkDeviceGroupByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                                 `json:"field,omitempty"`        //
+	OldValue     string                                                                                 `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                                 `json:"newValue,omitempty"`     //
 }
 
 type ResponseNetworkDeviceGroupUpdateNetworkDeviceGroupByIDUpdatedFieldsListUpdatedField struct {
@@ -73,21 +73,21 @@ type ResponseNetworkDeviceGroupUpdateNetworkDeviceGroupByIDUpdatedFieldsListUpda
 }
 
 type ResponseNetworkDeviceGroupGetNetworkDeviceGroup struct {
-	SearchResult ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResult struct {
-	Total        int                                                                     `json:"total,omitempty"`        //
-	Resources    []ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                     `json:"total,omitempty"`        //
+	Resources    *[]ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResultResources struct {
-	ID          string                                                                   `json:"id,omitempty"`          //
-	Name        string                                                                   `json:"name,omitempty"`        //
-	Description string                                                                   `json:"description,omitempty"` //
-	Link        ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                                    `json:"id,omitempty"`          //
+	Name        string                                                                    `json:"name,omitempty"`        //
+	Description string                                                                    `json:"description,omitempty"` //
+	Link        *ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResultResourcesLink struct {
@@ -109,13 +109,13 @@ type ResponseNetworkDeviceGroupGetNetworkDeviceGroupSearchResultPreviousPage str
 }
 
 type ResponseNetworkDeviceGroupGetVersion struct {
-	VersionInfo ResponseNetworkDeviceGroupGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseNetworkDeviceGroupGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseNetworkDeviceGroupGetVersionVersionInfo struct {
-	CurrentServerVersion string                                              `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                              `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseNetworkDeviceGroupGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                               `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                               `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseNetworkDeviceGroupGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseNetworkDeviceGroupGetVersionVersionInfoLink struct {

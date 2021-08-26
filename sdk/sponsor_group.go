@@ -20,49 +20,49 @@ type GetSponsorGroupQueryParams struct {
 }
 
 type ResponseSponsorGroupGetSponsorGroupByID struct {
-	SponsorGroup ResponseSponsorGroupGetSponsorGroupByIDSponsorGroup `json:"SponsorGroup,omitempty"` //
+	SponsorGroup *ResponseSponsorGroupGetSponsorGroupByIDSponsorGroup `json:"SponsorGroup,omitempty"` //
 }
 
 type ResponseSponsorGroupGetSponsorGroupByIDSponsorGroup struct {
-	ID                string                                                               `json:"id,omitempty"`                //
-	Name              string                                                               `json:"name,omitempty"`              //
-	Description       string                                                               `json:"description,omitempty"`       //
-	IsEnabled         bool                                                                 `json:"isEnabled,omitempty"`         //
-	IsDefaultGroup    bool                                                                 `json:"isDefaultGroup,omitempty"`    //
-	MemberGroups      []string                                                             `json:"memberGroups,omitempty"`      //
-	GuestTypes        []string                                                             `json:"guestTypes,omitempty"`        //
-	Locations         []string                                                             `json:"locations,omitempty"`         //
-	AutoNotification  bool                                                                 `json:"autoNotification,omitempty"`  //
-	CreatePermissions ResponseSponsorGroupGetSponsorGroupByIDSponsorGroupCreatePermissions `json:"createPermissions,omitempty"` //
-	ManagePermission  string                                                               `json:"managePermission,omitempty"`  //
-	OtherPermissions  ResponseSponsorGroupGetSponsorGroupByIDSponsorGroupOtherPermissions  `json:"otherPermissions,omitempty"`  //
-	Link              ResponseSponsorGroupGetSponsorGroupByIDSponsorGroupLink              `json:"link,omitempty"`              //
+	ID                string                                                                `json:"id,omitempty"`                //
+	Name              string                                                                `json:"name,omitempty"`              //
+	Description       string                                                                `json:"description,omitempty"`       //
+	IsEnabled         *bool                                                                 `json:"isEnabled,omitempty"`         //
+	IsDefaultGroup    *bool                                                                 `json:"isDefaultGroup,omitempty"`    //
+	MemberGroups      []string                                                              `json:"memberGroups,omitempty"`      //
+	GuestTypes        []string                                                              `json:"guestTypes,omitempty"`        //
+	Locations         []string                                                              `json:"locations,omitempty"`         //
+	AutoNotification  *bool                                                                 `json:"autoNotification,omitempty"`  //
+	CreatePermissions *ResponseSponsorGroupGetSponsorGroupByIDSponsorGroupCreatePermissions `json:"createPermissions,omitempty"` //
+	ManagePermission  string                                                                `json:"managePermission,omitempty"`  //
+	OtherPermissions  *ResponseSponsorGroupGetSponsorGroupByIDSponsorGroupOtherPermissions  `json:"otherPermissions,omitempty"`  //
+	Link              *ResponseSponsorGroupGetSponsorGroupByIDSponsorGroupLink              `json:"link,omitempty"`              //
 }
 
 type ResponseSponsorGroupGetSponsorGroupByIDSponsorGroupCreatePermissions struct {
-	CanImportMultipleAccounts bool   `json:"canImportMultipleAccounts,omitempty"` //
-	ImportBatchSizeLimit      int    `json:"importBatchSizeLimit,omitempty"`      //
-	CanCreateRandomAccounts   bool   `json:"canCreateRandomAccounts,omitempty"`   //
-	RandomBatchSizeLimit      int    `json:"randomBatchSizeLimit,omitempty"`      //
+	CanImportMultipleAccounts *bool  `json:"canImportMultipleAccounts,omitempty"` //
+	ImportBatchSizeLimit      *int   `json:"importBatchSizeLimit,omitempty"`      //
+	CanCreateRandomAccounts   *bool  `json:"canCreateRandomAccounts,omitempty"`   //
+	RandomBatchSizeLimit      *int   `json:"randomBatchSizeLimit,omitempty"`      //
 	DefaultUsernamePrefix     string `json:"defaultUsernamePrefix,omitempty"`     //
-	CanSpecifyUsernamePrefix  bool   `json:"canSpecifyUsernamePrefix,omitempty"`  //
-	CanSetFutureStartDate     bool   `json:"canSetFutureStartDate,omitempty"`     //
-	StartDateFutureLimitDays  int    `json:"startDateFutureLimitDays,omitempty"`  //
+	CanSpecifyUsernamePrefix  *bool  `json:"canSpecifyUsernamePrefix,omitempty"`  //
+	CanSetFutureStartDate     *bool  `json:"canSetFutureStartDate,omitempty"`     //
+	StartDateFutureLimitDays  *int   `json:"startDateFutureLimitDays,omitempty"`  //
 }
 
 type ResponseSponsorGroupGetSponsorGroupByIDSponsorGroupOtherPermissions struct {
-	CanUpdateGuestContactInfo     bool `json:"canUpdateGuestContactInfo,omitempty"`     //
-	CanViewGuestPasswords         bool `json:"canViewGuestPasswords,omitempty"`         //
-	CanSendSmsNotifications       bool `json:"canSendSmsNotifications,omitempty"`       //
-	CanResetGuestPasswords        bool `json:"canResetGuestPasswords,omitempty"`        //
-	CanExtendGuestAccounts        bool `json:"canExtendGuestAccounts,omitempty"`        //
-	CanDeleteGuestAccounts        bool `json:"canDeleteGuestAccounts,omitempty"`        //
-	CanSuspendGuestAccounts       bool `json:"canSuspendGuestAccounts,omitempty"`       //
-	RequireSuspensionReason       bool `json:"requireSuspensionReason,omitempty"`       //
-	CanReinstateSuspendedAccounts bool `json:"canReinstateSuspendedAccounts,omitempty"` //
-	CanApproveSelfregGuests       bool `json:"canApproveSelfregGuests,omitempty"`       //
-	LimitApprovalToSponsorsGuests bool `json:"limitApprovalToSponsorsGuests,omitempty"` //
-	CanAccessViaRest              bool `json:"canAccessViaRest,omitempty"`              //
+	CanUpdateGuestContactInfo     *bool `json:"canUpdateGuestContactInfo,omitempty"`     //
+	CanViewGuestPasswords         *bool `json:"canViewGuestPasswords,omitempty"`         //
+	CanSendSmsNotifications       *bool `json:"canSendSmsNotifications,omitempty"`       //
+	CanResetGuestPasswords        *bool `json:"canResetGuestPasswords,omitempty"`        //
+	CanExtendGuestAccounts        *bool `json:"canExtendGuestAccounts,omitempty"`        //
+	CanDeleteGuestAccounts        *bool `json:"canDeleteGuestAccounts,omitempty"`        //
+	CanSuspendGuestAccounts       *bool `json:"canSuspendGuestAccounts,omitempty"`       //
+	RequireSuspensionReason       *bool `json:"requireSuspensionReason,omitempty"`       //
+	CanReinstateSuspendedAccounts *bool `json:"canReinstateSuspendedAccounts,omitempty"` //
+	CanApproveSelfregGuests       *bool `json:"canApproveSelfregGuests,omitempty"`       //
+	LimitApprovalToSponsorsGuests *bool `json:"limitApprovalToSponsorsGuests,omitempty"` //
+	CanAccessViaRest              *bool `json:"canAccessViaRest,omitempty"`              //
 }
 
 type ResponseSponsorGroupGetSponsorGroupByIDSponsorGroupLink struct {
@@ -72,14 +72,14 @@ type ResponseSponsorGroupGetSponsorGroupByIDSponsorGroupLink struct {
 }
 
 type ResponseSponsorGroupUpdateSponsorGroupByID struct {
-	UpdatedFieldsList ResponseSponsorGroupUpdateSponsorGroupByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseSponsorGroupUpdateSponsorGroupByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseSponsorGroupUpdateSponsorGroupByIDUpdatedFieldsList struct {
-	UpdatedField ResponseSponsorGroupUpdateSponsorGroupByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                  `json:"field,omitempty"`        //
-	OldValue     string                                                                  `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                  `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseSponsorGroupUpdateSponsorGroupByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                     `json:"field,omitempty"`        //
+	OldValue     string                                                                     `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                     `json:"newValue,omitempty"`     //
 }
 
 type ResponseSponsorGroupUpdateSponsorGroupByIDUpdatedFieldsListUpdatedField struct {
@@ -89,21 +89,21 @@ type ResponseSponsorGroupUpdateSponsorGroupByIDUpdatedFieldsListUpdatedField str
 }
 
 type ResponseSponsorGroupGetSponsorGroup struct {
-	SearchResult ResponseSponsorGroupGetSponsorGroupSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseSponsorGroupGetSponsorGroupSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseSponsorGroupGetSponsorGroupSearchResult struct {
-	Total        int                                                         `json:"total,omitempty"`        //
-	Resources    []ResponseSponsorGroupGetSponsorGroupSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseSponsorGroupGetSponsorGroupSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseSponsorGroupGetSponsorGroupSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                         `json:"total,omitempty"`        //
+	Resources    *[]ResponseSponsorGroupGetSponsorGroupSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseSponsorGroupGetSponsorGroupSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseSponsorGroupGetSponsorGroupSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSponsorGroupGetSponsorGroupSearchResultResources struct {
-	ID          string                                                       `json:"id,omitempty"`          //
-	Name        string                                                       `json:"name,omitempty"`        //
-	Description string                                                       `json:"description,omitempty"` //
-	Link        ResponseSponsorGroupGetSponsorGroupSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                        `json:"id,omitempty"`          //
+	Name        string                                                        `json:"name,omitempty"`        //
+	Description string                                                        `json:"description,omitempty"` //
+	Link        *ResponseSponsorGroupGetSponsorGroupSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseSponsorGroupGetSponsorGroupSearchResultResourcesLink struct {
@@ -125,13 +125,13 @@ type ResponseSponsorGroupGetSponsorGroupSearchResultPreviousPage struct {
 }
 
 type ResponseSponsorGroupGetVersion struct {
-	VersionInfo ResponseSponsorGroupGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseSponsorGroupGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseSponsorGroupGetVersionVersionInfo struct {
-	CurrentServerVersion string                                        `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                        `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseSponsorGroupGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                         `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                         `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseSponsorGroupGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseSponsorGroupGetVersionVersionInfoLink struct {

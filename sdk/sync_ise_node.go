@@ -9,7 +9,7 @@ import (
 type SyncIseNodeService service
 
 type ResponseSyncIseNodeSyncNode struct {
-	Code      int    `json:"code,omitempty"`      //
+	Code      *int   `json:"code,omitempty"`      //
 	Message   string `json:"message,omitempty"`   //
 	RootCause string `json:"rootCause,omitempty"` //
 }

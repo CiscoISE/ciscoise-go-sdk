@@ -20,22 +20,22 @@ type GetGuestSmtpNotificationSettingsQueryParams struct {
 }
 
 type ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsByID struct {
-	ERSGuestSmtpNotificationSettings ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsByIDERSGuestSmtpNotificationSettings `json:"ERSGuestSmtpNotificationSettings,omitempty"` //
+	ERSGuestSmtpNotificationSettings *ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsByIDERSGuestSmtpNotificationSettings `json:"ERSGuestSmtpNotificationSettings,omitempty"` //
 }
 
 type ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsByIDERSGuestSmtpNotificationSettings struct {
-	ID                        string                                                                                                             `json:"id,omitempty"`                        //
-	SmtpServer                string                                                                                                             `json:"smtpServer,omitempty"`                // The SMTP server ip address or fqdn such as outbound.mycompany.com
-	NotificationEnabled       bool                                                                                                               `json:"notificationEnabled,omitempty"`       // Indicates if the email notification service is to be enabled
-	UseDefaultFromAddress     bool                                                                                                               `json:"useDefaultFromAddress,omitempty"`     // If the default from address should be used rather than using a sponsor user email address
-	DefaultFromAddress        string                                                                                                             `json:"defaultFromAddress,omitempty"`        // The default from email address to be used to send emails from
-	SmtpPort                  string                                                                                                             `json:"smtpPort,omitempty"`                  // Port at which SMTP Secure Server is listening
-	ConnectionTimeout         string                                                                                                             `json:"connectionTimeout,omitempty"`         // Interval in seconds for all the SMTP client connections
-	UseTLSorSSLEncryption     bool                                                                                                               `json:"useTLSorSSLEncryption,omitempty"`     // If configured to true, SMTP server authentication will happen using TLS/SSL
-	UsePasswordAuthentication bool                                                                                                               `json:"usePasswordAuthentication,omitempty"` // If configured to true, SMTP server authentication will happen using username/password
-	UserName                  string                                                                                                             `json:"userName,omitempty"`                  // Username of Secure SMTP server
-	Password                  string                                                                                                             `json:"password,omitempty"`                  // Password of Secure SMTP server
-	Link                      ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsByIDERSGuestSmtpNotificationSettingsLink `json:"link,omitempty"`                      //
+	ID                        string                                                                                                              `json:"id,omitempty"`                        //
+	SmtpServer                string                                                                                                              `json:"smtpServer,omitempty"`                // The SMTP server ip address or fqdn such as outbound.mycompany.com
+	NotificationEnabled       *bool                                                                                                               `json:"notificationEnabled,omitempty"`       // Indicates if the email notification service is to be enabled
+	UseDefaultFromAddress     *bool                                                                                                               `json:"useDefaultFromAddress,omitempty"`     // If the default from address should be used rather than using a sponsor user email address
+	DefaultFromAddress        string                                                                                                              `json:"defaultFromAddress,omitempty"`        // The default from email address to be used to send emails from
+	SmtpPort                  string                                                                                                              `json:"smtpPort,omitempty"`                  // Port at which SMTP Secure Server is listening
+	ConnectionTimeout         string                                                                                                              `json:"connectionTimeout,omitempty"`         // Interval in seconds for all the SMTP client connections
+	UseTLSorSSLEncryption     *bool                                                                                                               `json:"useTLSorSSLEncryption,omitempty"`     // If configured to true, SMTP server authentication will happen using TLS/SSL
+	UsePasswordAuthentication *bool                                                                                                               `json:"usePasswordAuthentication,omitempty"` // If configured to true, SMTP server authentication will happen using username/password
+	UserName                  string                                                                                                              `json:"userName,omitempty"`                  // Username of Secure SMTP server
+	Password                  string                                                                                                              `json:"password,omitempty"`                  // Password of Secure SMTP server
+	Link                      *ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsByIDERSGuestSmtpNotificationSettingsLink `json:"link,omitempty"`                      //
 }
 
 type ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsByIDERSGuestSmtpNotificationSettingsLink struct {
@@ -45,14 +45,14 @@ type ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsB
 }
 
 type ResponseGuestSmtpNotificationConfigurationUpdateGuestSmtpNotificationSettingsByID struct {
-	UpdatedFieldsList ResponseGuestSmtpNotificationConfigurationUpdateGuestSmtpNotificationSettingsByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseGuestSmtpNotificationConfigurationUpdateGuestSmtpNotificationSettingsByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseGuestSmtpNotificationConfigurationUpdateGuestSmtpNotificationSettingsByIDUpdatedFieldsList struct {
-	UpdatedField ResponseGuestSmtpNotificationConfigurationUpdateGuestSmtpNotificationSettingsByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                                                         `json:"field,omitempty"`        //
-	OldValue     string                                                                                                         `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                                                         `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseGuestSmtpNotificationConfigurationUpdateGuestSmtpNotificationSettingsByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                                                            `json:"field,omitempty"`        //
+	OldValue     string                                                                                                            `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                                                            `json:"newValue,omitempty"`     //
 }
 
 type ResponseGuestSmtpNotificationConfigurationUpdateGuestSmtpNotificationSettingsByIDUpdatedFieldsListUpdatedField struct {
@@ -62,19 +62,19 @@ type ResponseGuestSmtpNotificationConfigurationUpdateGuestSmtpNotificationSettin
 }
 
 type ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettings struct {
-	SearchResult ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResult struct {
-	Total        int                                                                                                `json:"total,omitempty"`        //
-	Resources    []ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                                                `json:"total,omitempty"`        //
+	Resources    *[]ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResultResources struct {
-	ID   string                                                                                              `json:"id,omitempty"`   //
-	Link ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResultResourcesLink `json:"link,omitempty"` //
+	ID   string                                                                                               `json:"id,omitempty"`   //
+	Link *ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResultResourcesLink `json:"link,omitempty"` //
 }
 
 type ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsSearchResultResourcesLink struct {
@@ -96,13 +96,13 @@ type ResponseGuestSmtpNotificationConfigurationGetGuestSmtpNotificationSettingsS
 }
 
 type ResponseGuestSmtpNotificationConfigurationGetVersion struct {
-	VersionInfo ResponseGuestSmtpNotificationConfigurationGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseGuestSmtpNotificationConfigurationGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseGuestSmtpNotificationConfigurationGetVersionVersionInfo struct {
-	CurrentServerVersion string                                                              `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                                              `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseGuestSmtpNotificationConfigurationGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                               `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                               `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseGuestSmtpNotificationConfigurationGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseGuestSmtpNotificationConfigurationGetVersionVersionInfoLink struct {

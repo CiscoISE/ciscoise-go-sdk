@@ -20,15 +20,15 @@ type GetEndpointGroupsQueryParams struct {
 }
 
 type ResponseEndpointIDentityGroupGetEndpointGroupByName struct {
-	EndPointGroup ResponseEndpointIDentityGroupGetEndpointGroupByNameEndPointGroup `json:"EndPointGroup,omitempty"` //
+	EndPointGroup *ResponseEndpointIDentityGroupGetEndpointGroupByNameEndPointGroup `json:"EndPointGroup,omitempty"` //
 }
 
 type ResponseEndpointIDentityGroupGetEndpointGroupByNameEndPointGroup struct {
-	ID            string                                                               `json:"id,omitempty"`            //
-	Name          string                                                               `json:"name,omitempty"`          //
-	Description   string                                                               `json:"description,omitempty"`   //
-	SystemDefined bool                                                                 `json:"systemDefined,omitempty"` //
-	Link          ResponseEndpointIDentityGroupGetEndpointGroupByNameEndPointGroupLink `json:"link,omitempty"`          //
+	ID            string                                                                `json:"id,omitempty"`            //
+	Name          string                                                                `json:"name,omitempty"`          //
+	Description   string                                                                `json:"description,omitempty"`   //
+	SystemDefined *bool                                                                 `json:"systemDefined,omitempty"` //
+	Link          *ResponseEndpointIDentityGroupGetEndpointGroupByNameEndPointGroupLink `json:"link,omitempty"`          //
 }
 
 type ResponseEndpointIDentityGroupGetEndpointGroupByNameEndPointGroupLink struct {
@@ -38,15 +38,15 @@ type ResponseEndpointIDentityGroupGetEndpointGroupByNameEndPointGroupLink struct
 }
 
 type ResponseEndpointIDentityGroupGetEndpointGroupByID struct {
-	EndPointGroup ResponseEndpointIDentityGroupGetEndpointGroupByIDEndPointGroup `json:"EndPointGroup,omitempty"` //
+	EndPointGroup *ResponseEndpointIDentityGroupGetEndpointGroupByIDEndPointGroup `json:"EndPointGroup,omitempty"` //
 }
 
 type ResponseEndpointIDentityGroupGetEndpointGroupByIDEndPointGroup struct {
-	ID            string                                                             `json:"id,omitempty"`            //
-	Name          string                                                             `json:"name,omitempty"`          //
-	Description   string                                                             `json:"description,omitempty"`   //
-	SystemDefined bool                                                               `json:"systemDefined,omitempty"` //
-	Link          ResponseEndpointIDentityGroupGetEndpointGroupByIDEndPointGroupLink `json:"link,omitempty"`          //
+	ID            string                                                              `json:"id,omitempty"`            //
+	Name          string                                                              `json:"name,omitempty"`          //
+	Description   string                                                              `json:"description,omitempty"`   //
+	SystemDefined *bool                                                               `json:"systemDefined,omitempty"` //
+	Link          *ResponseEndpointIDentityGroupGetEndpointGroupByIDEndPointGroupLink `json:"link,omitempty"`          //
 }
 
 type ResponseEndpointIDentityGroupGetEndpointGroupByIDEndPointGroupLink struct {
@@ -56,14 +56,14 @@ type ResponseEndpointIDentityGroupGetEndpointGroupByIDEndPointGroupLink struct {
 }
 
 type ResponseEndpointIDentityGroupUpdateEndpointGroupByID struct {
-	UpdatedFieldsList ResponseEndpointIDentityGroupUpdateEndpointGroupByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseEndpointIDentityGroupUpdateEndpointGroupByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseEndpointIDentityGroupUpdateEndpointGroupByIDUpdatedFieldsList struct {
-	UpdatedField ResponseEndpointIDentityGroupUpdateEndpointGroupByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                            `json:"field,omitempty"`        //
-	OldValue     string                                                                            `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                            `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseEndpointIDentityGroupUpdateEndpointGroupByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                               `json:"field,omitempty"`        //
+	OldValue     string                                                                               `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                               `json:"newValue,omitempty"`     //
 }
 
 type ResponseEndpointIDentityGroupUpdateEndpointGroupByIDUpdatedFieldsListUpdatedField struct {
@@ -73,21 +73,21 @@ type ResponseEndpointIDentityGroupUpdateEndpointGroupByIDUpdatedFieldsListUpdate
 }
 
 type ResponseEndpointIDentityGroupGetEndpointGroups struct {
-	SearchResult ResponseEndpointIDentityGroupGetEndpointGroupsSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseEndpointIDentityGroupGetEndpointGroupsSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseEndpointIDentityGroupGetEndpointGroupsSearchResult struct {
-	Total        int                                                                    `json:"total,omitempty"`        //
-	Resources    []ResponseEndpointIDentityGroupGetEndpointGroupsSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseEndpointIDentityGroupGetEndpointGroupsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseEndpointIDentityGroupGetEndpointGroupsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                    `json:"total,omitempty"`        //
+	Resources    *[]ResponseEndpointIDentityGroupGetEndpointGroupsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseEndpointIDentityGroupGetEndpointGroupsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseEndpointIDentityGroupGetEndpointGroupsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseEndpointIDentityGroupGetEndpointGroupsSearchResultResources struct {
-	ID          string                                                                  `json:"id,omitempty"`          //
-	Name        string                                                                  `json:"name,omitempty"`        //
-	Description string                                                                  `json:"description,omitempty"` //
-	Link        ResponseEndpointIDentityGroupGetEndpointGroupsSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                                   `json:"id,omitempty"`          //
+	Name        string                                                                   `json:"name,omitempty"`        //
+	Description string                                                                   `json:"description,omitempty"` //
+	Link        *ResponseEndpointIDentityGroupGetEndpointGroupsSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseEndpointIDentityGroupGetEndpointGroupsSearchResultResourcesLink struct {
@@ -109,13 +109,13 @@ type ResponseEndpointIDentityGroupGetEndpointGroupsSearchResultPreviousPage stru
 }
 
 type ResponseEndpointIDentityGroupGetVersion struct {
-	VersionInfo ResponseEndpointIDentityGroupGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseEndpointIDentityGroupGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseEndpointIDentityGroupGetVersionVersionInfo struct {
-	CurrentServerVersion string                                                 `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                                 `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseEndpointIDentityGroupGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                  `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                  `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseEndpointIDentityGroupGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseEndpointIDentityGroupGetVersionVersionInfoLink struct {

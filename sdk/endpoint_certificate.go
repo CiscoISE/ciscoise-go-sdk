@@ -10,13 +10,13 @@ import (
 type EndpointCertificateService service
 
 type ResponseEndpointCertificateGetVersion struct {
-	VersionInfo ResponseEndpointCertificateGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseEndpointCertificateGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseEndpointCertificateGetVersionVersionInfo struct {
-	CurrentServerVersion string                                               `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                               `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseEndpointCertificateGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseEndpointCertificateGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseEndpointCertificateGetVersionVersionInfoLink struct {

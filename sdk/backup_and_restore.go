@@ -9,14 +9,14 @@ import (
 type BackupAndRestoreService service
 
 type ResponseBackupAndRestoreConfigBackup struct {
-	Response ResponseBackupAndRestoreConfigBackupResponse `json:"response,omitempty"` //
-	Version  string                                       `json:"version,omitempty"`  //
+	Response *ResponseBackupAndRestoreConfigBackupResponse `json:"response,omitempty"` //
+	Version  string                                        `json:"version,omitempty"`  //
 }
 
 type ResponseBackupAndRestoreConfigBackupResponse struct {
-	ID      string                                           `json:"id,omitempty"`      // Id which can be used to track the status of backup / restore of config DB.
-	Message string                                           `json:"message,omitempty"` //
-	Link    ResponseBackupAndRestoreConfigBackupResponseLink `json:"link,omitempty"`    //
+	ID      string                                            `json:"id,omitempty"`      // Id which can be used to track the status of backup / restore of config DB.
+	Message string                                            `json:"message,omitempty"` //
+	Link    *ResponseBackupAndRestoreConfigBackupResponseLink `json:"link,omitempty"`    //
 }
 
 type ResponseBackupAndRestoreConfigBackupResponseLink struct {
@@ -26,8 +26,8 @@ type ResponseBackupAndRestoreConfigBackupResponseLink struct {
 }
 
 type ResponseBackupAndRestoreCancelBackup struct {
-	Response ResponseBackupAndRestoreCancelBackupResponse `json:"response,omitempty"` //
-	Version  string                                       `json:"version,omitempty"`  //
+	Response *ResponseBackupAndRestoreCancelBackupResponse `json:"response,omitempty"` //
+	Version  string                                        `json:"version,omitempty"`  //
 }
 
 type ResponseBackupAndRestoreCancelBackupResponse struct {
@@ -48,8 +48,8 @@ type ResponseBackupAndRestoreCancelBackupResponse struct {
 }
 
 type ResponseBackupAndRestoreGetLastConfigBackupStatus struct {
-	Response ResponseBackupAndRestoreGetLastConfigBackupStatusResponse `json:"response,omitempty"` //
-	Version  string                                                    `json:"version,omitempty"`  //
+	Response *ResponseBackupAndRestoreGetLastConfigBackupStatusResponse `json:"response,omitempty"` //
+	Version  string                                                     `json:"version,omitempty"`  //
 }
 
 type ResponseBackupAndRestoreGetLastConfigBackupStatusResponse struct {
@@ -70,14 +70,14 @@ type ResponseBackupAndRestoreGetLastConfigBackupStatusResponse struct {
 }
 
 type ResponseBackupAndRestoreRestoreConfigBackup struct {
-	Response ResponseBackupAndRestoreRestoreConfigBackupResponse `json:"response,omitempty"` //
-	Version  string                                              `json:"version,omitempty"`  //
+	Response *ResponseBackupAndRestoreRestoreConfigBackupResponse `json:"response,omitempty"` //
+	Version  string                                               `json:"version,omitempty"`  //
 }
 
 type ResponseBackupAndRestoreRestoreConfigBackupResponse struct {
-	ID      string                                                  `json:"id,omitempty"`      // Id which can be used to track the status of backup / restore of config DB.
-	Message string                                                  `json:"message,omitempty"` //
-	Link    ResponseBackupAndRestoreRestoreConfigBackupResponseLink `json:"link,omitempty"`    //
+	ID      string                                                   `json:"id,omitempty"`      // Id which can be used to track the status of backup / restore of config DB.
+	Message string                                                   `json:"message,omitempty"` //
+	Link    *ResponseBackupAndRestoreRestoreConfigBackupResponseLink `json:"link,omitempty"`    //
 }
 
 type ResponseBackupAndRestoreRestoreConfigBackupResponseLink struct {
@@ -87,13 +87,13 @@ type ResponseBackupAndRestoreRestoreConfigBackupResponseLink struct {
 }
 
 type ResponseBackupAndRestoreUpdateScheduledConfigBackup struct {
-	Response ResponseBackupAndRestoreUpdateScheduledConfigBackupResponse `json:"response,omitempty"` //
-	Version  string                                                      `json:"version,omitempty"`  //
+	Response *ResponseBackupAndRestoreUpdateScheduledConfigBackupResponse `json:"response,omitempty"` //
+	Version  string                                                       `json:"version,omitempty"`  //
 }
 
 type ResponseBackupAndRestoreUpdateScheduledConfigBackupResponse struct {
-	Message string                                                          `json:"message,omitempty"` // Response message on successful scheduling the backup job.
-	Link    ResponseBackupAndRestoreUpdateScheduledConfigBackupResponseLink `json:"link,omitempty"`    //
+	Message string                                                           `json:"message,omitempty"` // Response message on successful scheduling the backup job.
+	Link    *ResponseBackupAndRestoreUpdateScheduledConfigBackupResponseLink `json:"link,omitempty"`    //
 }
 
 type ResponseBackupAndRestoreUpdateScheduledConfigBackupResponseLink struct {
@@ -103,13 +103,13 @@ type ResponseBackupAndRestoreUpdateScheduledConfigBackupResponseLink struct {
 }
 
 type ResponseBackupAndRestoreCreateScheduledConfigBackup struct {
-	Response ResponseBackupAndRestoreCreateScheduledConfigBackupResponse `json:"response,omitempty"` //
-	Version  string                                                      `json:"version,omitempty"`  //
+	Response *ResponseBackupAndRestoreCreateScheduledConfigBackupResponse `json:"response,omitempty"` //
+	Version  string                                                       `json:"version,omitempty"`  //
 }
 
 type ResponseBackupAndRestoreCreateScheduledConfigBackupResponse struct {
-	Message string                                                          `json:"message,omitempty"` // Response message on successful scheduling the backup job.
-	Link    ResponseBackupAndRestoreCreateScheduledConfigBackupResponseLink `json:"link,omitempty"`    //
+	Message string                                                           `json:"message,omitempty"` // Response message on successful scheduling the backup job.
+	Link    *ResponseBackupAndRestoreCreateScheduledConfigBackupResponseLink `json:"link,omitempty"`    //
 }
 
 type ResponseBackupAndRestoreCreateScheduledConfigBackupResponseLink struct {

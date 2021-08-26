@@ -9,12 +9,34 @@ import (
 type DeviceAdministrationDictionaryAttributesListService service
 
 type ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesAuthentication struct {
-	Response []ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesAuthenticationResponse `json:"response,omitempty"` //
-	Version  string                                                                                                 `json:"version,omitempty"`  //
+	Response *[]ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesAuthenticationResponse `json:"response,omitempty"` //
+	Version  string                                                                                                  `json:"version,omitempty"`  //
 }
 
 type ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesAuthenticationResponse struct {
-	AllowedValues  []ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesAuthenticationResponseAllowedValues `json:"allowedValues,omitempty"`  // all of the allowed values for the dictionary attribute
+	AllowedValues  *[]ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesAuthenticationResponseAllowedValues `json:"allowedValues,omitempty"`  // all of the allowed values for the dictionary attribute
+	DataType       string                                                                                                               `json:"dataType,omitempty"`       // the data type for the dictionary attribute
+	Description    string                                                                                                               `json:"description,omitempty"`    // The description of the Dictionary attribute
+	DictionaryName string                                                                                                               `json:"dictionaryName,omitempty"` // the name of the dictionary which the dictionary attribute belongs to
+	DirectionType  string                                                                                                               `json:"directionType,omitempty"`  // the direction for the useage of the dictionary attribute
+	ID             string                                                                                                               `json:"id,omitempty"`             // Identifier for the dictionary attribute
+	InternalName   string                                                                                                               `json:"internalName,omitempty"`   // the internal name of the dictionary attribute
+	Name           string                                                                                                               `json:"name,omitempty"`           // The dictionary attribute's name
+}
+
+type ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesAuthenticationResponseAllowedValues struct {
+	IsDefault *bool  `json:"isDefault,omitempty"` // true if this key value is the default between the allowed values of the dictionary attribute
+	Key       string `json:"key,omitempty"`       //
+	Value     string `json:"value,omitempty"`     //
+}
+
+type ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesAuthorization struct {
+	Response *[]ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesAuthorizationResponse `json:"response,omitempty"` //
+	Version  string                                                                                                 `json:"version,omitempty"`  //
+}
+
+type ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesAuthorizationResponse struct {
+	AllowedValues  *[]ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesAuthorizationResponseAllowedValues `json:"allowedValues,omitempty"`  // all of the allowed values for the dictionary attribute
 	DataType       string                                                                                                              `json:"dataType,omitempty"`       // the data type for the dictionary attribute
 	Description    string                                                                                                              `json:"description,omitempty"`    // The description of the Dictionary attribute
 	DictionaryName string                                                                                                              `json:"dictionaryName,omitempty"` // the name of the dictionary which the dictionary attribute belongs to
@@ -24,52 +46,30 @@ type ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionar
 	Name           string                                                                                                              `json:"name,omitempty"`           // The dictionary attribute's name
 }
 
-type ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesAuthenticationResponseAllowedValues struct {
-	IsDefault bool   `json:"isDefault,omitempty"` // true if this key value is the default between the allowed values of the dictionary attribute
-	Key       string `json:"key,omitempty"`       //
-	Value     string `json:"value,omitempty"`     //
-}
-
-type ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesAuthorization struct {
-	Response []ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesAuthorizationResponse `json:"response,omitempty"` //
-	Version  string                                                                                                `json:"version,omitempty"`  //
-}
-
-type ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesAuthorizationResponse struct {
-	AllowedValues  []ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesAuthorizationResponseAllowedValues `json:"allowedValues,omitempty"`  // all of the allowed values for the dictionary attribute
-	DataType       string                                                                                                             `json:"dataType,omitempty"`       // the data type for the dictionary attribute
-	Description    string                                                                                                             `json:"description,omitempty"`    // The description of the Dictionary attribute
-	DictionaryName string                                                                                                             `json:"dictionaryName,omitempty"` // the name of the dictionary which the dictionary attribute belongs to
-	DirectionType  string                                                                                                             `json:"directionType,omitempty"`  // the direction for the useage of the dictionary attribute
-	ID             string                                                                                                             `json:"id,omitempty"`             // Identifier for the dictionary attribute
-	InternalName   string                                                                                                             `json:"internalName,omitempty"`   // the internal name of the dictionary attribute
-	Name           string                                                                                                             `json:"name,omitempty"`           // The dictionary attribute's name
-}
-
 type ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesAuthorizationResponseAllowedValues struct {
-	IsDefault bool   `json:"isDefault,omitempty"` // true if this key value is the default between the allowed values of the dictionary attribute
+	IsDefault *bool  `json:"isDefault,omitempty"` // true if this key value is the default between the allowed values of the dictionary attribute
 	Key       string `json:"key,omitempty"`       //
 	Value     string `json:"value,omitempty"`     //
 }
 
 type ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesPolicySet struct {
-	Response []ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesPolicySetResponse `json:"response,omitempty"` //
-	Version  string                                                                                            `json:"version,omitempty"`  //
+	Response *[]ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesPolicySetResponse `json:"response,omitempty"` //
+	Version  string                                                                                             `json:"version,omitempty"`  //
 }
 
 type ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesPolicySetResponse struct {
-	AllowedValues  []ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesPolicySetResponseAllowedValues `json:"allowedValues,omitempty"`  // all of the allowed values for the dictionary attribute
-	DataType       string                                                                                                         `json:"dataType,omitempty"`       // the data type for the dictionary attribute
-	Description    string                                                                                                         `json:"description,omitempty"`    // The description of the Dictionary attribute
-	DictionaryName string                                                                                                         `json:"dictionaryName,omitempty"` // the name of the dictionary which the dictionary attribute belongs to
-	DirectionType  string                                                                                                         `json:"directionType,omitempty"`  // the direction for the useage of the dictionary attribute
-	ID             string                                                                                                         `json:"id,omitempty"`             // Identifier for the dictionary attribute
-	InternalName   string                                                                                                         `json:"internalName,omitempty"`   // the internal name of the dictionary attribute
-	Name           string                                                                                                         `json:"name,omitempty"`           // The dictionary attribute's name
+	AllowedValues  *[]ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesPolicySetResponseAllowedValues `json:"allowedValues,omitempty"`  // all of the allowed values for the dictionary attribute
+	DataType       string                                                                                                          `json:"dataType,omitempty"`       // the data type for the dictionary attribute
+	Description    string                                                                                                          `json:"description,omitempty"`    // The description of the Dictionary attribute
+	DictionaryName string                                                                                                          `json:"dictionaryName,omitempty"` // the name of the dictionary which the dictionary attribute belongs to
+	DirectionType  string                                                                                                          `json:"directionType,omitempty"`  // the direction for the useage of the dictionary attribute
+	ID             string                                                                                                          `json:"id,omitempty"`             // Identifier for the dictionary attribute
+	InternalName   string                                                                                                          `json:"internalName,omitempty"`   // the internal name of the dictionary attribute
+	Name           string                                                                                                          `json:"name,omitempty"`           // The dictionary attribute's name
 }
 
 type ResponseDeviceAdministrationDictionaryAttributesListGetDeviceAdminDictionariesPolicySetResponseAllowedValues struct {
-	IsDefault bool   `json:"isDefault,omitempty"` // true if this key value is the default between the allowed values of the dictionary attribute
+	IsDefault *bool  `json:"isDefault,omitempty"` // true if this key value is the default between the allowed values of the dictionary attribute
 	Key       string `json:"key,omitempty"`       //
 	Value     string `json:"value,omitempty"`     //
 }

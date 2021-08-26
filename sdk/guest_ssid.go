@@ -20,13 +20,13 @@ type GetGuestSSIDQueryParams struct {
 }
 
 type ResponseGuestSSIDGetGuestSSIDByID struct {
-	GuestSSID ResponseGuestSSIDGetGuestSSIDByIDGuestSSID `json:"GuestSSID,omitempty"` //
+	GuestSSID *ResponseGuestSSIDGetGuestSSIDByIDGuestSSID `json:"GuestSSID,omitempty"` //
 }
 
 type ResponseGuestSSIDGetGuestSSIDByIDGuestSSID struct {
-	ID   string                                         `json:"id,omitempty"`   //
-	Name string                                         `json:"name,omitempty"` // Resource Name. Name may contain alphanumeric or any of the following characters [_.-]
-	Link ResponseGuestSSIDGetGuestSSIDByIDGuestSSIDLink `json:"link,omitempty"` //
+	ID   string                                          `json:"id,omitempty"`   //
+	Name string                                          `json:"name,omitempty"` // Resource Name. Name may contain alphanumeric or any of the following characters [_.-]
+	Link *ResponseGuestSSIDGetGuestSSIDByIDGuestSSIDLink `json:"link,omitempty"` //
 }
 
 type ResponseGuestSSIDGetGuestSSIDByIDGuestSSIDLink struct {
@@ -36,14 +36,14 @@ type ResponseGuestSSIDGetGuestSSIDByIDGuestSSIDLink struct {
 }
 
 type ResponseGuestSSIDUpdateGuestSSIDByID struct {
-	UpdatedFieldsList ResponseGuestSSIDUpdateGuestSSIDByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseGuestSSIDUpdateGuestSSIDByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseGuestSSIDUpdateGuestSSIDByIDUpdatedFieldsList struct {
-	UpdatedField ResponseGuestSSIDUpdateGuestSSIDByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                            `json:"field,omitempty"`        //
-	OldValue     string                                                            `json:"oldValue,omitempty"`     //
-	NewValue     string                                                            `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseGuestSSIDUpdateGuestSSIDByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                               `json:"field,omitempty"`        //
+	OldValue     string                                                               `json:"oldValue,omitempty"`     //
+	NewValue     string                                                               `json:"newValue,omitempty"`     //
 }
 
 type ResponseGuestSSIDUpdateGuestSSIDByIDUpdatedFieldsListUpdatedField struct {
@@ -53,20 +53,20 @@ type ResponseGuestSSIDUpdateGuestSSIDByIDUpdatedFieldsListUpdatedField struct {
 }
 
 type ResponseGuestSSIDGetGuestSSID struct {
-	SearchResult ResponseGuestSSIDGetGuestSSIDSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseGuestSSIDGetGuestSSIDSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseGuestSSIDGetGuestSSIDSearchResult struct {
-	Total        int                                                   `json:"total,omitempty"`        //
-	Resources    []ResponseGuestSSIDGetGuestSSIDSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseGuestSSIDGetGuestSSIDSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseGuestSSIDGetGuestSSIDSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                   `json:"total,omitempty"`        //
+	Resources    *[]ResponseGuestSSIDGetGuestSSIDSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseGuestSSIDGetGuestSSIDSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseGuestSSIDGetGuestSSIDSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseGuestSSIDGetGuestSSIDSearchResultResources struct {
-	ID   string                                                 `json:"id,omitempty"`   //
-	Name string                                                 `json:"name,omitempty"` //
-	Link ResponseGuestSSIDGetGuestSSIDSearchResultResourcesLink `json:"link,omitempty"` //
+	ID   string                                                  `json:"id,omitempty"`   //
+	Name string                                                  `json:"name,omitempty"` //
+	Link *ResponseGuestSSIDGetGuestSSIDSearchResultResourcesLink `json:"link,omitempty"` //
 }
 
 type ResponseGuestSSIDGetGuestSSIDSearchResultResourcesLink struct {
@@ -88,13 +88,13 @@ type ResponseGuestSSIDGetGuestSSIDSearchResultPreviousPage struct {
 }
 
 type ResponseGuestSSIDGetVersion struct {
-	VersionInfo ResponseGuestSSIDGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseGuestSSIDGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseGuestSSIDGetVersionVersionInfo struct {
-	CurrentServerVersion string                                     `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                     `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseGuestSSIDGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                      `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                      `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseGuestSSIDGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseGuestSSIDGetVersionVersionInfoLink struct {

@@ -19,20 +19,20 @@ type GetSponsorGroupMemberQueryParams struct {
 }
 
 type ResponseSponsorGroupMemberGetSponsorGroupMember struct {
-	SearchResult ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResult struct {
-	Total        int                                                                     `json:"total,omitempty"`        //
-	Resources    []ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                     `json:"total,omitempty"`        //
+	Resources    *[]ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResultResources struct {
-	ID   string                                                                   `json:"id,omitempty"`   //
-	Name string                                                                   `json:"name,omitempty"` //
-	Link ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResultResourcesLink `json:"link,omitempty"` //
+	ID   string                                                                    `json:"id,omitempty"`   //
+	Name string                                                                    `json:"name,omitempty"` //
+	Link *ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResultResourcesLink `json:"link,omitempty"` //
 }
 
 type ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResultResourcesLink struct {
@@ -54,13 +54,13 @@ type ResponseSponsorGroupMemberGetSponsorGroupMemberSearchResultPreviousPage str
 }
 
 type ResponseSponsorGroupMemberGetVersion struct {
-	VersionInfo ResponseSponsorGroupMemberGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseSponsorGroupMemberGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseSponsorGroupMemberGetVersionVersionInfo struct {
-	CurrentServerVersion string                                              `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                              `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseSponsorGroupMemberGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                               `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                               `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseSponsorGroupMemberGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseSponsorGroupMemberGetVersionVersionInfoLink struct {

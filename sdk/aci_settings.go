@@ -10,12 +10,12 @@ import (
 type AciSettingsService service
 
 type ResponseAciSettingsGetAciSettings struct {
-	AciSettings ResponseAciSettingsGetAciSettingsAciSettings `json:"AciSettings,omitempty"` //
+	AciSettings *ResponseAciSettingsGetAciSettingsAciSettings `json:"AciSettings,omitempty"` //
 }
 
 type ResponseAciSettingsGetAciSettingsAciSettings struct {
 	ID                     string   `json:"id,omitempty"`                     // Resource UUID value
-	EnableAci              bool     `json:"enableAci,omitempty"`              // Enable ACI Integration
+	EnableAci              *bool    `json:"enableAci,omitempty"`              // Enable ACI Integration
 	IPAddressHostName      string   `json:"ipAddressHostName,omitempty"`      // ACI Cluster IP Address / Host name
 	AdminName              string   `json:"adminName,omitempty"`              // ACI Cluster Admin name
 	AdminPassword          string   `json:"adminPassword,omitempty"`          // ACI Cluster Admin password
@@ -26,36 +26,36 @@ type ResponseAciSettingsGetAciSettingsAciSettings struct {
 	L3RouteNetwork         string   `json:"l3RouteNetwork,omitempty"`         //
 	SuffixToEpg            string   `json:"suffixToEpg,omitempty"`            //
 	SuffixToSgt            string   `json:"suffixToSgt,omitempty"`            //
-	AllSxpDomain           bool     `json:"allSxpDomain,omitempty"`           //
-	SpecificSxpDomain      bool     `json:"specificSxpDomain,omitempty"`      //
+	AllSxpDomain           *bool    `json:"allSxpDomain,omitempty"`           //
+	SpecificSxpDomain      *bool    `json:"specificSxpDomain,omitempty"`      //
 	SpecifixSxpDomainList  []string `json:"specifixSxpDomainList,omitempty"`  //
-	EnableDataPlane        bool     `json:"enableDataPlane,omitempty"`        //
+	EnableDataPlane        *bool    `json:"enableDataPlane,omitempty"`        //
 	UntaggedPacketIepgName string   `json:"untaggedPacketIepgName,omitempty"` //
 	DefaultSgtName         string   `json:"defaultSgtName,omitempty"`         //
-	EnableElementsLimit    bool     `json:"enableElementsLimit,omitempty"`    //
-	MaxNumIepgFromAci      int      `json:"maxNumIepgFromAci,omitempty"`      //
-	MaxNumSgtToAci         int      `json:"maxNumSgtToAci,omitempty"`         //
-	Aci50                  bool     `json:"aci50,omitempty"`                  // Enable 5.0 ACI Version
-	Aci51                  bool     `json:"aci51,omitempty"`                  // Enable 5.1 ACI Version
+	EnableElementsLimit    *bool    `json:"enableElementsLimit,omitempty"`    //
+	MaxNumIepgFromAci      *int     `json:"maxNumIepgFromAci,omitempty"`      //
+	MaxNumSgtToAci         *int     `json:"maxNumSgtToAci,omitempty"`         //
+	Aci50                  *bool    `json:"aci50,omitempty"`                  // Enable 5.0 ACI Version
+	Aci51                  *bool    `json:"aci51,omitempty"`                  // Enable 5.1 ACI Version
 }
 
 type ResponseAciSettingsTestAciConnectivity struct {
-	AciTestConnectionResult ResponseAciSettingsTestAciConnectivityAciTestConnectionResult `json:"ACITestConnectionResult,omitempty"` //
+	AciTestConnectionResult *ResponseAciSettingsTestAciConnectivityAciTestConnectionResult `json:"ACITestConnectionResult,omitempty"` //
 }
 
 type ResponseAciSettingsTestAciConnectivityAciTestConnectionResult struct {
-	Result bool `json:"result,omitempty"` //
+	Result *bool `json:"result,omitempty"` //
 }
 
 type ResponseAciSettingsUpdateAciSettingsByID struct {
-	UpdatedFieldsList ResponseAciSettingsUpdateAciSettingsByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseAciSettingsUpdateAciSettingsByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseAciSettingsUpdateAciSettingsByIDUpdatedFieldsList struct {
-	UpdatedField ResponseAciSettingsUpdateAciSettingsByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                `json:"field,omitempty"`        //
-	OldValue     string                                                                `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseAciSettingsUpdateAciSettingsByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                   `json:"field,omitempty"`        //
+	OldValue     string                                                                   `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                   `json:"newValue,omitempty"`     //
 }
 
 type ResponseAciSettingsUpdateAciSettingsByIDUpdatedFieldsListUpdatedField struct {
@@ -65,13 +65,13 @@ type ResponseAciSettingsUpdateAciSettingsByIDUpdatedFieldsListUpdatedField struc
 }
 
 type ResponseAciSettingsGetVersion struct {
-	VersionInfo ResponseAciSettingsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseAciSettingsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseAciSettingsGetVersionVersionInfo struct {
-	CurrentServerVersion string                                       `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                       `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseAciSettingsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                        `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                        `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseAciSettingsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseAciSettingsGetVersionVersionInfoLink struct {

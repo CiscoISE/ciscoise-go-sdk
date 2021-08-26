@@ -10,13 +10,13 @@ import (
 type SupportBundleDownloadService service
 
 type ResponseSupportBundleDownloadGetVersion struct {
-	VersionInfo ResponseSupportBundleDownloadGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseSupportBundleDownloadGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseSupportBundleDownloadGetVersionVersionInfo struct {
-	CurrentServerVersion string                                                 `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                                 `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseSupportBundleDownloadGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                  `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                  `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseSupportBundleDownloadGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseSupportBundleDownloadGetVersionVersionInfoLink struct {

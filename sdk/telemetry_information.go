@@ -18,15 +18,15 @@ type GetTelemetryInformationQueryParams struct {
 }
 
 type ResponseTelemetryInformationGetTelemetryInfoByID struct {
-	TelemetryInfo ResponseTelemetryInformationGetTelemetryInfoByIDTelemetryInfo `json:"TelemetryInfo,omitempty"` //
+	TelemetryInfo *ResponseTelemetryInformationGetTelemetryInfoByIDTelemetryInfo `json:"TelemetryInfo,omitempty"` //
 }
 
 type ResponseTelemetryInformationGetTelemetryInfoByIDTelemetryInfo struct {
-	ID           string                                                            `json:"id,omitempty"`           //
-	Status       string                                                            `json:"status,omitempty"`       //
-	DeploymentID string                                                            `json:"deploymentId,omitempty"` //
-	UdiSN        string                                                            `json:"udiSN,omitempty"`        //
-	Link         ResponseTelemetryInformationGetTelemetryInfoByIDTelemetryInfoLink `json:"link,omitempty"`         //
+	ID           string                                                             `json:"id,omitempty"`           //
+	Status       string                                                             `json:"status,omitempty"`       //
+	DeploymentID string                                                             `json:"deploymentId,omitempty"` //
+	UdiSN        string                                                             `json:"udiSN,omitempty"`        //
+	Link         *ResponseTelemetryInformationGetTelemetryInfoByIDTelemetryInfoLink `json:"link,omitempty"`         //
 }
 
 type ResponseTelemetryInformationGetTelemetryInfoByIDTelemetryInfoLink struct {
@@ -36,19 +36,19 @@ type ResponseTelemetryInformationGetTelemetryInfoByIDTelemetryInfoLink struct {
 }
 
 type ResponseTelemetryInformationGetTelemetryInformation struct {
-	SearchResult ResponseTelemetryInformationGetTelemetryInformationSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseTelemetryInformationGetTelemetryInformationSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseTelemetryInformationGetTelemetryInformationSearchResult struct {
-	Total        int                                                                         `json:"total,omitempty"`        //
-	Resources    []ResponseTelemetryInformationGetTelemetryInformationSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseTelemetryInformationGetTelemetryInformationSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseTelemetryInformationGetTelemetryInformationSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                         `json:"total,omitempty"`        //
+	Resources    *[]ResponseTelemetryInformationGetTelemetryInformationSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseTelemetryInformationGetTelemetryInformationSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseTelemetryInformationGetTelemetryInformationSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseTelemetryInformationGetTelemetryInformationSearchResultResources struct {
-	ID   string                                                                       `json:"id,omitempty"`   //
-	Link ResponseTelemetryInformationGetTelemetryInformationSearchResultResourcesLink `json:"link,omitempty"` //
+	ID   string                                                                        `json:"id,omitempty"`   //
+	Link *ResponseTelemetryInformationGetTelemetryInformationSearchResultResourcesLink `json:"link,omitempty"` //
 }
 
 type ResponseTelemetryInformationGetTelemetryInformationSearchResultResourcesLink struct {
@@ -70,13 +70,13 @@ type ResponseTelemetryInformationGetTelemetryInformationSearchResultPreviousPage
 }
 
 type ResponseTelemetryInformationGetVersion struct {
-	VersionInfo ResponseTelemetryInformationGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseTelemetryInformationGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseTelemetryInformationGetVersionVersionInfo struct {
-	CurrentServerVersion string                                                `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                                `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseTelemetryInformationGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                 `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                 `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseTelemetryInformationGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseTelemetryInformationGetVersionVersionInfoLink struct {

@@ -9,13 +9,13 @@ import (
 type PxGridSettingsService service
 
 type ResponsePxGridSettingsGetVersion struct {
-	VersionInfo ResponsePxGridSettingsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponsePxGridSettingsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponsePxGridSettingsGetVersionVersionInfo struct {
-	CurrentServerVersion string                                          `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                          `json:"supportedVersions,omitempty"`    //
-	Link                 ResponsePxGridSettingsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                           `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                           `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponsePxGridSettingsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponsePxGridSettingsGetVersionVersionInfoLink struct {

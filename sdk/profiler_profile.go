@@ -20,15 +20,15 @@ type GetProfilerProfilesQueryParams struct {
 }
 
 type ResponseProfilerProfileGetProfilerProfileByID struct {
-	ProfilerProfile ResponseProfilerProfileGetProfilerProfileByIDProfilerProfile `json:"ProfilerProfile,omitempty"` //
+	ProfilerProfile *ResponseProfilerProfileGetProfilerProfileByIDProfilerProfile `json:"ProfilerProfile,omitempty"` //
 }
 
 type ResponseProfilerProfileGetProfilerProfileByIDProfilerProfile struct {
-	ID          string                                                           `json:"id,omitempty"`          //
-	Name        string                                                           `json:"name,omitempty"`        //
-	Description string                                                           `json:"description,omitempty"` //
-	ParentID    string                                                           `json:"parentId,omitempty"`    //
-	Link        ResponseProfilerProfileGetProfilerProfileByIDProfilerProfileLink `json:"link,omitempty"`        //
+	ID          string                                                            `json:"id,omitempty"`          //
+	Name        string                                                            `json:"name,omitempty"`        //
+	Description string                                                            `json:"description,omitempty"` //
+	ParentID    string                                                            `json:"parentId,omitempty"`    //
+	Link        *ResponseProfilerProfileGetProfilerProfileByIDProfilerProfileLink `json:"link,omitempty"`        //
 }
 
 type ResponseProfilerProfileGetProfilerProfileByIDProfilerProfileLink struct {
@@ -38,21 +38,21 @@ type ResponseProfilerProfileGetProfilerProfileByIDProfilerProfileLink struct {
 }
 
 type ResponseProfilerProfileGetProfilerProfiles struct {
-	SearchResult ResponseProfilerProfileGetProfilerProfilesSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseProfilerProfileGetProfilerProfilesSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseProfilerProfileGetProfilerProfilesSearchResult struct {
-	Total        int                                                                `json:"total,omitempty"`        //
-	Resources    []ResponseProfilerProfileGetProfilerProfilesSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseProfilerProfileGetProfilerProfilesSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseProfilerProfileGetProfilerProfilesSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                `json:"total,omitempty"`        //
+	Resources    *[]ResponseProfilerProfileGetProfilerProfilesSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseProfilerProfileGetProfilerProfilesSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseProfilerProfileGetProfilerProfilesSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseProfilerProfileGetProfilerProfilesSearchResultResources struct {
-	ID          string                                                              `json:"id,omitempty"`          //
-	Name        string                                                              `json:"name,omitempty"`        //
-	Description string                                                              `json:"description,omitempty"` //
-	Link        ResponseProfilerProfileGetProfilerProfilesSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                               `json:"id,omitempty"`          //
+	Name        string                                                               `json:"name,omitempty"`        //
+	Description string                                                               `json:"description,omitempty"` //
+	Link        *ResponseProfilerProfileGetProfilerProfilesSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseProfilerProfileGetProfilerProfilesSearchResultResourcesLink struct {
@@ -74,13 +74,13 @@ type ResponseProfilerProfileGetProfilerProfilesSearchResultPreviousPage struct {
 }
 
 type ResponseProfilerProfileGetVersion struct {
-	VersionInfo ResponseProfilerProfileGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseProfilerProfileGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseProfilerProfileGetVersionVersionInfo struct {
-	CurrentServerVersion string                                           `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                           `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseProfilerProfileGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                            `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                            `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseProfilerProfileGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseProfilerProfileGetVersionVersionInfoLink struct {

@@ -20,19 +20,19 @@ type GetSecurityGroupsQueryParams struct {
 }
 
 type ResponseSecurityGroupsGetSecurityGroupByID struct {
-	Sgt ResponseSecurityGroupsGetSecurityGroupByIDSgt `json:"Sgt,omitempty"` //
+	Sgt *ResponseSecurityGroupsGetSecurityGroupByIDSgt `json:"Sgt,omitempty"` //
 }
 
 type ResponseSecurityGroupsGetSecurityGroupByIDSgt struct {
-	ID              string                                            `json:"id,omitempty"`              //
-	Name            string                                            `json:"name,omitempty"`            //
-	Description     string                                            `json:"description,omitempty"`     //
-	Value           int                                               `json:"value,omitempty"`           // Value range: 2 ot 65519 or -1 to auto-generate
-	GenerationID    int                                               `json:"generationId,omitempty"`    //
-	IsReadOnly      bool                                              `json:"isReadOnly,omitempty"`      //
-	PropogateToAPIc bool                                              `json:"propogateToApic,omitempty"` //
-	DefaultSgACLs   []interface{}                                     `json:"defaultSGACLs,omitempty"`   //
-	Link            ResponseSecurityGroupsGetSecurityGroupByIDSgtLink `json:"link,omitempty"`            //
+	ID              string                                             `json:"id,omitempty"`              //
+	Name            string                                             `json:"name,omitempty"`            //
+	Description     string                                             `json:"description,omitempty"`     //
+	Value           *int                                               `json:"value,omitempty"`           // Value range: 2 ot 65519 or -1 to auto-generate
+	GenerationID    *int                                               `json:"generationId,omitempty"`    //
+	IsReadOnly      *bool                                              `json:"isReadOnly,omitempty"`      //
+	PropogateToAPIc *bool                                              `json:"propogateToApic,omitempty"` //
+	DefaultSgACLs   *[]interface{}                                     `json:"defaultSGACLs,omitempty"`   //
+	Link            *ResponseSecurityGroupsGetSecurityGroupByIDSgtLink `json:"link,omitempty"`            //
 }
 
 type ResponseSecurityGroupsGetSecurityGroupByIDSgtLink struct {
@@ -42,14 +42,14 @@ type ResponseSecurityGroupsGetSecurityGroupByIDSgtLink struct {
 }
 
 type ResponseSecurityGroupsUpdateSecurityGroupByID struct {
-	UpdatedFieldsList ResponseSecurityGroupsUpdateSecurityGroupByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseSecurityGroupsUpdateSecurityGroupByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseSecurityGroupsUpdateSecurityGroupByIDUpdatedFieldsList struct {
-	UpdatedField ResponseSecurityGroupsUpdateSecurityGroupByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                     `json:"field,omitempty"`        //
-	OldValue     string                                                                     `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                     `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseSecurityGroupsUpdateSecurityGroupByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                        `json:"field,omitempty"`        //
+	OldValue     string                                                                        `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                        `json:"newValue,omitempty"`     //
 }
 
 type ResponseSecurityGroupsUpdateSecurityGroupByIDUpdatedFieldsListUpdatedField struct {
@@ -59,21 +59,21 @@ type ResponseSecurityGroupsUpdateSecurityGroupByIDUpdatedFieldsListUpdatedField 
 }
 
 type ResponseSecurityGroupsGetSecurityGroups struct {
-	SearchResult ResponseSecurityGroupsGetSecurityGroupsSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseSecurityGroupsGetSecurityGroupsSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseSecurityGroupsGetSecurityGroupsSearchResult struct {
-	Total        int                                                             `json:"total,omitempty"`        //
-	Resources    []ResponseSecurityGroupsGetSecurityGroupsSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseSecurityGroupsGetSecurityGroupsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseSecurityGroupsGetSecurityGroupsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                             `json:"total,omitempty"`        //
+	Resources    *[]ResponseSecurityGroupsGetSecurityGroupsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseSecurityGroupsGetSecurityGroupsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseSecurityGroupsGetSecurityGroupsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSecurityGroupsGetSecurityGroupsSearchResultResources struct {
-	ID          string                                                           `json:"id,omitempty"`          //
-	Name        string                                                           `json:"name,omitempty"`        //
-	Description string                                                           `json:"description,omitempty"` //
-	Link        ResponseSecurityGroupsGetSecurityGroupsSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                            `json:"id,omitempty"`          //
+	Name        string                                                            `json:"name,omitempty"`        //
+	Description string                                                            `json:"description,omitempty"` //
+	Link        *ResponseSecurityGroupsGetSecurityGroupsSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseSecurityGroupsGetSecurityGroupsSearchResultResourcesLink struct {
@@ -95,13 +95,13 @@ type ResponseSecurityGroupsGetSecurityGroupsSearchResultPreviousPage struct {
 }
 
 type ResponseSecurityGroupsGetVersion struct {
-	VersionInfo ResponseSecurityGroupsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseSecurityGroupsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseSecurityGroupsGetVersionVersionInfo struct {
-	CurrentServerVersion string                                          `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                          `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseSecurityGroupsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                           `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                           `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseSecurityGroupsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseSecurityGroupsGetVersionVersionInfoLink struct {
@@ -111,19 +111,19 @@ type ResponseSecurityGroupsGetVersionVersionInfoLink struct {
 }
 
 type ResponseSecurityGroupsMonitorBulkStatusSecurityGroup struct {
-	BulkStatus ResponseSecurityGroupsMonitorBulkStatusSecurityGroupBulkStatus `json:"BulkStatus,omitempty"` //
+	BulkStatus *ResponseSecurityGroupsMonitorBulkStatusSecurityGroupBulkStatus `json:"BulkStatus,omitempty"` //
 }
 
 type ResponseSecurityGroupsMonitorBulkStatusSecurityGroupBulkStatus struct {
-	BulkID          string                                                                          `json:"bulkId,omitempty"`          //
-	MediaType       string                                                                          `json:"mediaType,omitempty"`       //
-	ExecutionStatus string                                                                          `json:"executionStatus,omitempty"` //
-	OperationType   string                                                                          `json:"operationType,omitempty"`   //
-	StartTime       string                                                                          `json:"startTime,omitempty"`       //
-	ResourcesCount  int                                                                             `json:"resourcesCount,omitempty"`  //
-	SuccessCount    int                                                                             `json:"successCount,omitempty"`    //
-	FailCount       int                                                                             `json:"failCount,omitempty"`       //
-	ResourcesStatus []ResponseSecurityGroupsMonitorBulkStatusSecurityGroupBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
+	BulkID          string                                                                           `json:"bulkId,omitempty"`          //
+	MediaType       string                                                                           `json:"mediaType,omitempty"`       //
+	ExecutionStatus string                                                                           `json:"executionStatus,omitempty"` //
+	OperationType   string                                                                           `json:"operationType,omitempty"`   //
+	StartTime       string                                                                           `json:"startTime,omitempty"`       //
+	ResourcesCount  *int                                                                             `json:"resourcesCount,omitempty"`  //
+	SuccessCount    *int                                                                             `json:"successCount,omitempty"`    //
+	FailCount       *int                                                                             `json:"failCount,omitempty"`       //
+	ResourcesStatus *[]ResponseSecurityGroupsMonitorBulkStatusSecurityGroupBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
 }
 
 type ResponseSecurityGroupsMonitorBulkStatusSecurityGroupBulkStatusResourcesStatus struct {

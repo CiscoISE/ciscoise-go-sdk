@@ -16,20 +16,20 @@ type GetTacacsCommandSetsQueryParams struct {
 }
 
 type ResponseTacacsCommandSetsGetTacacsCommandSetsByName struct {
-	TacacsCommandSets ResponseTacacsCommandSetsGetTacacsCommandSetsByNameTacacsCommandSets `json:"TacacsCommandSets,omitempty"` //
+	TacacsCommandSets *ResponseTacacsCommandSetsGetTacacsCommandSetsByNameTacacsCommandSets `json:"TacacsCommandSets,omitempty"` //
 }
 
 type ResponseTacacsCommandSetsGetTacacsCommandSetsByNameTacacsCommandSets struct {
-	ID              string                                                                       `json:"id,omitempty"`              //
-	Name            string                                                                       `json:"name,omitempty"`            //
-	Description     string                                                                       `json:"description,omitempty"`     //
-	PermitUnmatched bool                                                                         `json:"permitUnmatched,omitempty"` //
-	Commands        ResponseTacacsCommandSetsGetTacacsCommandSetsByNameTacacsCommandSetsCommands `json:"commands,omitempty"`        //
-	Link            ResponseTacacsCommandSetsGetTacacsCommandSetsByNameTacacsCommandSetsLink     `json:"link,omitempty"`            //
+	ID              string                                                                        `json:"id,omitempty"`              //
+	Name            string                                                                        `json:"name,omitempty"`            //
+	Description     string                                                                        `json:"description,omitempty"`     //
+	PermitUnmatched *bool                                                                         `json:"permitUnmatched,omitempty"` //
+	Commands        *ResponseTacacsCommandSetsGetTacacsCommandSetsByNameTacacsCommandSetsCommands `json:"commands,omitempty"`        //
+	Link            *ResponseTacacsCommandSetsGetTacacsCommandSetsByNameTacacsCommandSetsLink     `json:"link,omitempty"`            //
 }
 
 type ResponseTacacsCommandSetsGetTacacsCommandSetsByNameTacacsCommandSetsCommands struct {
-	CommandList []ResponseTacacsCommandSetsGetTacacsCommandSetsByNameTacacsCommandSetsCommandsCommandList `json:"commandList,omitempty"` //
+	CommandList *[]ResponseTacacsCommandSetsGetTacacsCommandSetsByNameTacacsCommandSetsCommandsCommandList `json:"commandList,omitempty"` //
 }
 
 type ResponseTacacsCommandSetsGetTacacsCommandSetsByNameTacacsCommandSetsCommandsCommandList struct {
@@ -45,20 +45,20 @@ type ResponseTacacsCommandSetsGetTacacsCommandSetsByNameTacacsCommandSetsLink st
 }
 
 type ResponseTacacsCommandSetsGetTacacsCommandSetsByID struct {
-	TacacsCommandSets ResponseTacacsCommandSetsGetTacacsCommandSetsByIDTacacsCommandSets `json:"TacacsCommandSets,omitempty"` //
+	TacacsCommandSets *ResponseTacacsCommandSetsGetTacacsCommandSetsByIDTacacsCommandSets `json:"TacacsCommandSets,omitempty"` //
 }
 
 type ResponseTacacsCommandSetsGetTacacsCommandSetsByIDTacacsCommandSets struct {
-	ID              string                                                                     `json:"id,omitempty"`              //
-	Name            string                                                                     `json:"name,omitempty"`            //
-	Description     string                                                                     `json:"description,omitempty"`     //
-	PermitUnmatched bool                                                                       `json:"permitUnmatched,omitempty"` //
-	Commands        ResponseTacacsCommandSetsGetTacacsCommandSetsByIDTacacsCommandSetsCommands `json:"commands,omitempty"`        //
-	Link            ResponseTacacsCommandSetsGetTacacsCommandSetsByIDTacacsCommandSetsLink     `json:"link,omitempty"`            //
+	ID              string                                                                      `json:"id,omitempty"`              //
+	Name            string                                                                      `json:"name,omitempty"`            //
+	Description     string                                                                      `json:"description,omitempty"`     //
+	PermitUnmatched *bool                                                                       `json:"permitUnmatched,omitempty"` //
+	Commands        *ResponseTacacsCommandSetsGetTacacsCommandSetsByIDTacacsCommandSetsCommands `json:"commands,omitempty"`        //
+	Link            *ResponseTacacsCommandSetsGetTacacsCommandSetsByIDTacacsCommandSetsLink     `json:"link,omitempty"`            //
 }
 
 type ResponseTacacsCommandSetsGetTacacsCommandSetsByIDTacacsCommandSetsCommands struct {
-	CommandList []ResponseTacacsCommandSetsGetTacacsCommandSetsByIDTacacsCommandSetsCommandsCommandList `json:"commandList,omitempty"` //
+	CommandList *[]ResponseTacacsCommandSetsGetTacacsCommandSetsByIDTacacsCommandSetsCommandsCommandList `json:"commandList,omitempty"` //
 }
 
 type ResponseTacacsCommandSetsGetTacacsCommandSetsByIDTacacsCommandSetsCommandsCommandList struct {
@@ -74,14 +74,14 @@ type ResponseTacacsCommandSetsGetTacacsCommandSetsByIDTacacsCommandSetsLink stru
 }
 
 type ResponseTacacsCommandSetsUpdateTacacsCommandSetsByID struct {
-	UpdatedFieldsList ResponseTacacsCommandSetsUpdateTacacsCommandSetsByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseTacacsCommandSetsUpdateTacacsCommandSetsByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseTacacsCommandSetsUpdateTacacsCommandSetsByIDUpdatedFieldsList struct {
-	UpdatedField ResponseTacacsCommandSetsUpdateTacacsCommandSetsByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                            `json:"field,omitempty"`        //
-	OldValue     string                                                                            `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                            `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseTacacsCommandSetsUpdateTacacsCommandSetsByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                               `json:"field,omitempty"`        //
+	OldValue     string                                                                               `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                               `json:"newValue,omitempty"`     //
 }
 
 type ResponseTacacsCommandSetsUpdateTacacsCommandSetsByIDUpdatedFieldsListUpdatedField struct {
@@ -91,21 +91,21 @@ type ResponseTacacsCommandSetsUpdateTacacsCommandSetsByIDUpdatedFieldsListUpdate
 }
 
 type ResponseTacacsCommandSetsGetTacacsCommandSets struct {
-	SearchResult ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResult struct {
-	Total        int                                                                   `json:"total,omitempty"`        //
-	Resources    []ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                   `json:"total,omitempty"`        //
+	Resources    *[]ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResultResources struct {
-	ID          string                                                                 `json:"id,omitempty"`          //
-	Name        string                                                                 `json:"name,omitempty"`        //
-	Description string                                                                 `json:"description,omitempty"` //
-	Link        ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                                  `json:"id,omitempty"`          //
+	Name        string                                                                  `json:"name,omitempty"`        //
+	Description string                                                                  `json:"description,omitempty"` //
+	Link        *ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResultResourcesLink struct {
@@ -127,13 +127,13 @@ type ResponseTacacsCommandSetsGetTacacsCommandSetsSearchResultPreviousPage struc
 }
 
 type ResponseTacacsCommandSetsGetVersion struct {
-	VersionInfo ResponseTacacsCommandSetsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseTacacsCommandSetsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseTacacsCommandSetsGetVersionVersionInfo struct {
-	CurrentServerVersion string                                             `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                             `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseTacacsCommandSetsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                              `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                              `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseTacacsCommandSetsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseTacacsCommandSetsGetVersionVersionInfoLink struct {

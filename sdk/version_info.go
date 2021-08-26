@@ -10,13 +10,13 @@ import (
 type VersionInfoService service
 
 type ResponseVersionInfoGetVersionInfo struct {
-	VersionInfo ResponseVersionInfoGetVersionInfoVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseVersionInfoGetVersionInfoVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseVersionInfoGetVersionInfoVersionInfo struct {
-	CurrentServerVersion string                                           `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                           `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseVersionInfoGetVersionInfoVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                            `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                            `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseVersionInfoGetVersionInfoVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseVersionInfoGetVersionInfoVersionInfoLink struct {

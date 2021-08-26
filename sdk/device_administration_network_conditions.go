@@ -10,17 +10,17 @@ import (
 type DeviceAdministrationNetworkConditionsService service
 
 type ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditions struct {
-	Response []ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionsResponse `json:"response,omitempty"` //
-	Version  string                                                                                 `json:"version,omitempty"`  //
+	Response *[]ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionsResponse `json:"response,omitempty"` //
+	Version  string                                                                                  `json:"version,omitempty"`  //
 }
 
 type ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionsResponse struct {
-	ConditionType string                                                                                           `json:"conditionType,omitempty"` // This field determines the content of the conditions field
-	Description   string                                                                                           `json:"description,omitempty"`   //
-	ID            string                                                                                           `json:"id,omitempty"`            //
-	Link          ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionsResponseLink         `json:"link,omitempty"`          //
-	Name          string                                                                                           `json:"name,omitempty"`          // Network Condition name
-	Conditions    []ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionsResponseConditions `json:"conditions,omitempty"`    //
+	ConditionType string                                                                                            `json:"conditionType,omitempty"` // This field determines the content of the conditions field
+	Description   string                                                                                            `json:"description,omitempty"`   //
+	ID            string                                                                                            `json:"id,omitempty"`            //
+	Link          *ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionsResponseLink         `json:"link,omitempty"`          //
+	Name          string                                                                                            `json:"name,omitempty"`          // Network Condition name
+	Conditions    *[]ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionsResponseConditions `json:"conditions,omitempty"`    //
 }
 
 type ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionsResponseLink struct {
@@ -38,17 +38,17 @@ type ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkCondition
 }
 
 type ResponseDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkCondition struct {
-	Response ResponseDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkConditionResponse `json:"response,omitempty"` // Unique network conditions to restrict access to the network
-	Version  string                                                                                 `json:"version,omitempty"`  //
+	Response *ResponseDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkConditionResponse `json:"response,omitempty"` // Unique network conditions to restrict access to the network
+	Version  string                                                                                  `json:"version,omitempty"`  //
 }
 
 type ResponseDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkConditionResponse struct {
-	ConditionType string                                                                                             `json:"conditionType,omitempty"` // This field determines the content of the conditions field
-	Description   string                                                                                             `json:"description,omitempty"`   //
-	ID            string                                                                                             `json:"id,omitempty"`            //
-	Link          ResponseDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkConditionResponseLink         `json:"link,omitempty"`          //
-	Name          string                                                                                             `json:"name,omitempty"`          // Network Condition name
-	Conditions    []ResponseDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkConditionResponseConditions `json:"conditions,omitempty"`    //
+	ConditionType string                                                                                              `json:"conditionType,omitempty"` // This field determines the content of the conditions field
+	Description   string                                                                                              `json:"description,omitempty"`   //
+	ID            string                                                                                              `json:"id,omitempty"`            //
+	Link          *ResponseDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkConditionResponseLink         `json:"link,omitempty"`          //
+	Name          string                                                                                              `json:"name,omitempty"`          // Network Condition name
+	Conditions    *[]ResponseDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkConditionResponseConditions `json:"conditions,omitempty"`    //
 }
 
 type ResponseDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkConditionResponseLink struct {
@@ -66,17 +66,17 @@ type ResponseDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkCondit
 }
 
 type ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionByID struct {
-	Response ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionByIDResponse `json:"response,omitempty"` // Unique network conditions to restrict access to the network
-	Version  string                                                                                  `json:"version,omitempty"`  //
+	Response *ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionByIDResponse `json:"response,omitempty"` // Unique network conditions to restrict access to the network
+	Version  string                                                                                   `json:"version,omitempty"`  //
 }
 
 type ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionByIDResponse struct {
-	ConditionType string                                                                                              `json:"conditionType,omitempty"` // This field determines the content of the conditions field
-	Description   string                                                                                              `json:"description,omitempty"`   //
-	ID            string                                                                                              `json:"id,omitempty"`            //
-	Link          ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionByIDResponseLink         `json:"link,omitempty"`          //
-	Name          string                                                                                              `json:"name,omitempty"`          // Network Condition name
-	Conditions    []ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionByIDResponseConditions `json:"conditions,omitempty"`    //
+	ConditionType string                                                                                               `json:"conditionType,omitempty"` // This field determines the content of the conditions field
+	Description   string                                                                                               `json:"description,omitempty"`   //
+	ID            string                                                                                               `json:"id,omitempty"`            //
+	Link          *ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionByIDResponseLink         `json:"link,omitempty"`          //
+	Name          string                                                                                               `json:"name,omitempty"`          // Network Condition name
+	Conditions    *[]ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionByIDResponseConditions `json:"conditions,omitempty"`    //
 }
 
 type ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionByIDResponseLink struct {
@@ -94,17 +94,17 @@ type ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkCondition
 }
 
 type ResponseDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkConditionByID struct {
-	Response ResponseDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkConditionByIDResponse `json:"response,omitempty"` // Unique network conditions to restrict access to the network
-	Version  string                                                                                     `json:"version,omitempty"`  //
+	Response *ResponseDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkConditionByIDResponse `json:"response,omitempty"` // Unique network conditions to restrict access to the network
+	Version  string                                                                                      `json:"version,omitempty"`  //
 }
 
 type ResponseDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkConditionByIDResponse struct {
-	ConditionType string                                                                                                 `json:"conditionType,omitempty"` // This field determines the content of the conditions field
-	Description   string                                                                                                 `json:"description,omitempty"`   //
-	ID            string                                                                                                 `json:"id,omitempty"`            //
-	Link          ResponseDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkConditionByIDResponseLink         `json:"link,omitempty"`          //
-	Name          string                                                                                                 `json:"name,omitempty"`          // Network Condition name
-	Conditions    []ResponseDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkConditionByIDResponseConditions `json:"conditions,omitempty"`    //
+	ConditionType string                                                                                                  `json:"conditionType,omitempty"` // This field determines the content of the conditions field
+	Description   string                                                                                                  `json:"description,omitempty"`   //
+	ID            string                                                                                                  `json:"id,omitempty"`            //
+	Link          *ResponseDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkConditionByIDResponseLink         `json:"link,omitempty"`          //
+	Name          string                                                                                                  `json:"name,omitempty"`          // Network Condition name
+	Conditions    *[]ResponseDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkConditionByIDResponseConditions `json:"conditions,omitempty"`    //
 }
 
 type ResponseDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkConditionByIDResponseLink struct {

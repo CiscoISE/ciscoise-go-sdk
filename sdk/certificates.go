@@ -36,23 +36,23 @@ type GetTrustedCertificatesQueryParams struct {
 }
 
 type ResponseCertificatesGetCsrs struct {
-	Response     []ResponseCertificatesGetCsrsResponse   `json:"response,omitempty"`     //
-	NextPage     ResponseCertificatesGetCsrsNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseCertificatesGetCsrsPreviousPage `json:"previousPage,omitempty"` //
-	Version      string                                  `json:"version,omitempty"`      //
+	Response     *[]ResponseCertificatesGetCsrsResponse   `json:"response,omitempty"`     //
+	NextPage     *ResponseCertificatesGetCsrsNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseCertificatesGetCsrsPreviousPage `json:"previousPage,omitempty"` //
+	Version      string                                   `json:"version,omitempty"`      //
 }
 
 type ResponseCertificatesGetCsrsResponse struct {
-	FriendlyName       string                                  `json:"friendlyName,omitempty"`       // Friendly name of the certificate.
-	GroupTag           string                                  `json:"groupTag,omitempty"`           // GroupTag of the certificate.
-	HostName           string                                  `json:"hostName,omitempty"`           // Hostname or IP address of the ISE node.
-	ID                 string                                  `json:"id,omitempty"`                 // ID of the certificate.
-	KeySize            string                                  `json:"keySize,omitempty"`            // Size of the cryptographic key used.
-	Link               ResponseCertificatesGetCsrsResponseLink `json:"link,omitempty"`               //
-	SignatureAlgorithm string                                  `json:"signatureAlgorithm,omitempty"` // Algorithm used for encrypting CSR
-	Subject            string                                  `json:"subject,omitempty"`            // Subject of the certificate. Includes Common Name (CN), Organizational Unit (OU), etc.
-	TimeStamp          string                                  `json:"timeStamp,omitempty"`          // Timestamp of the certificate generation.
-	UsedFor            string                                  `json:"usedFor,omitempty"`            // Services for which the certificate is used for(for eg- MGMT, GENERIC).
+	FriendlyName       string                                   `json:"friendlyName,omitempty"`       // Friendly name of the certificate.
+	GroupTag           string                                   `json:"groupTag,omitempty"`           // GroupTag of the certificate.
+	HostName           string                                   `json:"hostName,omitempty"`           // Hostname or IP address of the ISE node.
+	ID                 string                                   `json:"id,omitempty"`                 // ID of the certificate.
+	KeySize            string                                   `json:"keySize,omitempty"`            // Size of the cryptographic key used.
+	Link               *ResponseCertificatesGetCsrsResponseLink `json:"link,omitempty"`               //
+	SignatureAlgorithm string                                   `json:"signatureAlgorithm,omitempty"` // Algorithm used for encrypting CSR
+	Subject            string                                   `json:"subject,omitempty"`            // Subject of the certificate. Includes Common Name (CN), Organizational Unit (OU), etc.
+	TimeStamp          string                                   `json:"timeStamp,omitempty"`          // Timestamp of the certificate generation.
+	UsedFor            string                                   `json:"usedFor,omitempty"`            // Services for which the certificate is used for(for eg- MGMT, GENERIC).
 }
 
 type ResponseCertificatesGetCsrsResponseLink struct {
@@ -74,14 +74,14 @@ type ResponseCertificatesGetCsrsPreviousPage struct {
 }
 
 type ResponseCertificatesGenerateCsr struct {
-	Response []ResponseCertificatesGenerateCsrResponse `json:"response,omitempty"` //
-	Version  string                                    `json:"version,omitempty"`  //
+	Response *[]ResponseCertificatesGenerateCsrResponse `json:"response,omitempty"` //
+	Version  string                                     `json:"version,omitempty"`  //
 }
 
 type ResponseCertificatesGenerateCsrResponse struct {
-	ID      string                                      `json:"id,omitempty"`      // ID of the generated CSR
-	Link    ResponseCertificatesGenerateCsrResponseLink `json:"link,omitempty"`    //
-	Message string                                      `json:"message,omitempty"` // Response message on generation of CSR
+	ID      string                                       `json:"id,omitempty"`      // ID of the generated CSR
+	Link    *ResponseCertificatesGenerateCsrResponseLink `json:"link,omitempty"`    //
+	Message string                                       `json:"message,omitempty"` // Response message on generation of CSR
 }
 
 type ResponseCertificatesGenerateCsrResponseLink struct {
@@ -91,14 +91,14 @@ type ResponseCertificatesGenerateCsrResponseLink struct {
 }
 
 type ResponseCertificatesGenerateIntermediateCaCsr struct {
-	Response ResponseCertificatesGenerateIntermediateCaCsrResponse `json:"response,omitempty"` //
-	Version  string                                                `json:"version,omitempty"`  //
+	Response *ResponseCertificatesGenerateIntermediateCaCsrResponse `json:"response,omitempty"` //
+	Version  string                                                 `json:"version,omitempty"`  //
 }
 
 type ResponseCertificatesGenerateIntermediateCaCsrResponse struct {
-	ID      string                                                    `json:"id,omitempty"`      // ID of the generated CSR
-	Link    ResponseCertificatesGenerateIntermediateCaCsrResponseLink `json:"link,omitempty"`    //
-	Message string                                                    `json:"message,omitempty"` // Response message on generation of CSR
+	ID      string                                                     `json:"id,omitempty"`      // ID of the generated CSR
+	Link    *ResponseCertificatesGenerateIntermediateCaCsrResponseLink `json:"link,omitempty"`    //
+	Message string                                                     `json:"message,omitempty"` // Response message on generation of CSR
 }
 
 type ResponseCertificatesGenerateIntermediateCaCsrResponseLink struct {
@@ -108,22 +108,22 @@ type ResponseCertificatesGenerateIntermediateCaCsrResponseLink struct {
 }
 
 type ResponseCertificatesGetCsrByID struct {
-	Response ResponseCertificatesGetCsrByIDResponse `json:"response,omitempty"` //
-	Version  string                                 `json:"version,omitempty"`  //
+	Response *ResponseCertificatesGetCsrByIDResponse `json:"response,omitempty"` //
+	Version  string                                  `json:"version,omitempty"`  //
 }
 
 type ResponseCertificatesGetCsrByIDResponse struct {
-	CsrContents        string                                     `json:"csrContents,omitempty"`        // Contents of the certificate file.
-	FriendlyName       string                                     `json:"friendlyName,omitempty"`       // Friendly name of the certificate.
-	GroupTag           string                                     `json:"groupTag,omitempty"`           // GroupTag of the certificate.
-	HostName           string                                     `json:"hostName,omitempty"`           // Hostname or IP address of the ISE node.
-	ID                 string                                     `json:"id,omitempty"`                 // ID of the certificate.
-	KeySize            string                                     `json:"keySize,omitempty"`            // Size of the cryptographic key used.
-	Link               ResponseCertificatesGetCsrByIDResponseLink `json:"link,omitempty"`               //
-	SignatureAlgorithm string                                     `json:"signatureAlgorithm,omitempty"` // Algorithm used for encrypting CSR
-	Subject            string                                     `json:"subject,omitempty"`            // Subject of the certificate. Includes Common Name (CN), Organizational Unit (OU), etc.
-	TimeStamp          string                                     `json:"timeStamp,omitempty"`          // Timestamp of the certificate generation.
-	UsedFor            string                                     `json:"usedFor,omitempty"`            // Services for which the certificate is used for(for eg- MGMT, GENERIC).
+	CsrContents        string                                      `json:"csrContents,omitempty"`        // Contents of the certificate file.
+	FriendlyName       string                                      `json:"friendlyName,omitempty"`       // Friendly name of the certificate.
+	GroupTag           string                                      `json:"groupTag,omitempty"`           // GroupTag of the certificate.
+	HostName           string                                      `json:"hostName,omitempty"`           // Hostname or IP address of the ISE node.
+	ID                 string                                      `json:"id,omitempty"`                 // ID of the certificate.
+	KeySize            string                                      `json:"keySize,omitempty"`            // Size of the cryptographic key used.
+	Link               *ResponseCertificatesGetCsrByIDResponseLink `json:"link,omitempty"`               //
+	SignatureAlgorithm string                                      `json:"signatureAlgorithm,omitempty"` // Algorithm used for encrypting CSR
+	Subject            string                                      `json:"subject,omitempty"`            // Subject of the certificate. Includes Common Name (CN), Organizational Unit (OU), etc.
+	TimeStamp          string                                      `json:"timeStamp,omitempty"`          // Timestamp of the certificate generation.
+	UsedFor            string                                      `json:"usedFor,omitempty"`            // Services for which the certificate is used for(for eg- MGMT, GENERIC).
 }
 
 type ResponseCertificatesGetCsrByIDResponseLink struct {
@@ -133,8 +133,8 @@ type ResponseCertificatesGetCsrByIDResponseLink struct {
 }
 
 type ResponseCertificatesDeleteCsrByID struct {
-	Response ResponseCertificatesDeleteCsrByIDResponse `json:"response,omitempty"` //
-	Version  string                                    `json:"version,omitempty"`  //
+	Response *ResponseCertificatesDeleteCsrByIDResponse `json:"response,omitempty"` //
+	Version  string                                     `json:"version,omitempty"`  //
 }
 
 type ResponseCertificatesDeleteCsrByIDResponse struct {
@@ -142,14 +142,14 @@ type ResponseCertificatesDeleteCsrByIDResponse struct {
 }
 
 type ResponseCertificatesRegenerateIseRootCa struct {
-	Response ResponseCertificatesRegenerateIseRootCaResponse `json:"response,omitempty"` //
-	Version  string                                          `json:"version,omitempty"`  //
+	Response *ResponseCertificatesRegenerateIseRootCaResponse `json:"response,omitempty"` //
+	Version  string                                           `json:"version,omitempty"`  //
 }
 
 type ResponseCertificatesRegenerateIseRootCaResponse struct {
-	ID      string                                              `json:"id,omitempty"`      // Id which can be used to track status of ISE root CA chain regeneration
-	Link    ResponseCertificatesRegenerateIseRootCaResponseLink `json:"link,omitempty"`    //
-	Message string                                              `json:"message,omitempty"` //
+	ID      string                                               `json:"id,omitempty"`      // Id which can be used to track status of ISE root CA chain regeneration
+	Link    *ResponseCertificatesRegenerateIseRootCaResponseLink `json:"link,omitempty"`    //
+	Message string                                               `json:"message,omitempty"` //
 }
 
 type ResponseCertificatesRegenerateIseRootCaResponseLink struct {
@@ -159,14 +159,14 @@ type ResponseCertificatesRegenerateIseRootCaResponseLink struct {
 }
 
 type ResponseCertificatesRenewCertificates struct {
-	Response ResponseCertificatesRenewCertificatesResponse `json:"response,omitempty"` //
-	Version  string                                        `json:"version,omitempty"`  //
+	Response *ResponseCertificatesRenewCertificatesResponse `json:"response,omitempty"` //
+	Version  string                                         `json:"version,omitempty"`  //
 }
 
 type ResponseCertificatesRenewCertificatesResponse struct {
-	ID      string                                            `json:"id,omitempty"`      // Id which can be used to track status of certificate regeneration
-	Link    ResponseCertificatesRenewCertificatesResponseLink `json:"link,omitempty"`    //
-	Message string                                            `json:"message,omitempty"` //
+	ID      string                                             `json:"id,omitempty"`      // Id which can be used to track status of certificate regeneration
+	Link    *ResponseCertificatesRenewCertificatesResponseLink `json:"link,omitempty"`    //
+	Message string                                             `json:"message,omitempty"` //
 }
 
 type ResponseCertificatesRenewCertificatesResponseLink struct {
@@ -176,8 +176,8 @@ type ResponseCertificatesRenewCertificatesResponseLink struct {
 }
 
 type ResponseCertificatesBindCsr struct {
-	Response ResponseCertificatesBindCsrResponse `json:"response,omitempty"` //
-	Version  string                              `json:"version,omitempty"`  //
+	Response *ResponseCertificatesBindCsrResponse `json:"response,omitempty"` //
+	Version  string                               `json:"version,omitempty"`  //
 }
 
 type ResponseCertificatesBindCsrResponse struct {
@@ -186,8 +186,8 @@ type ResponseCertificatesBindCsrResponse struct {
 }
 
 type ResponseCertificatesImportSystemCertificate struct {
-	Response ResponseCertificatesImportSystemCertificateResponse `json:"response,omitempty"` //
-	Version  string                                              `json:"version,omitempty"`  //
+	Response *ResponseCertificatesImportSystemCertificateResponse `json:"response,omitempty"` //
+	Version  string                                               `json:"version,omitempty"`  //
 }
 
 type ResponseCertificatesImportSystemCertificateResponse struct {
@@ -197,28 +197,28 @@ type ResponseCertificatesImportSystemCertificateResponse struct {
 }
 
 type ResponseCertificatesGetSystemCertificates struct {
-	Response     []ResponseCertificatesGetSystemCertificatesResponse   `json:"response,omitempty"`     //
-	NextPage     ResponseCertificatesGetSystemCertificatesNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseCertificatesGetSystemCertificatesPreviousPage `json:"previousPage,omitempty"` //
-	Version      string                                                `json:"version,omitempty"`      //
+	Response     *[]ResponseCertificatesGetSystemCertificatesResponse   `json:"response,omitempty"`     //
+	NextPage     *ResponseCertificatesGetSystemCertificatesNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseCertificatesGetSystemCertificatesPreviousPage `json:"previousPage,omitempty"` //
+	Version      string                                                 `json:"version,omitempty"`      //
 }
 
 type ResponseCertificatesGetSystemCertificatesResponse struct {
-	ExpirationDate            string                                                `json:"expirationDate,omitempty"`            // The time and date past which the certificate is no longer valid
-	FriendlyName              string                                                `json:"friendlyName,omitempty"`              // Friendly name of system certificate
-	GroupTag                  string                                                `json:"groupTag,omitempty"`                  //
-	ID                        string                                                `json:"id,omitempty"`                        // ID of system certificate
-	IssuedBy                  string                                                `json:"issuedBy,omitempty"`                  // Common Name of the certificate issuer
-	IssuedTo                  string                                                `json:"issuedTo,omitempty"`                  // Common Name of the certificate subject
-	KeySize                   int                                                   `json:"keySize,omitempty"`                   // The length of key used for encrypting system certificate
-	Link                      ResponseCertificatesGetSystemCertificatesResponseLink `json:"link,omitempty"`                      //
-	PortalsUsingTheTag        string                                                `json:"portalsUsingTheTag,omitempty"`        //
-	SelfSigned                bool                                                  `json:"selfSigned,omitempty"`                //
-	SerialNumberDecimalFormat string                                                `json:"serialNumberDecimalFormat,omitempty"` // Used to uniquely identify the certificate within a CA's systems
-	Sha256Fingerprint         string                                                `json:"sha256Fingerprint,omitempty"`         //
-	SignatureAlgorithm        string                                                `json:"signatureAlgorithm,omitempty"`        //
-	UsedBy                    string                                                `json:"usedBy,omitempty"`                    //
-	ValidFrom                 string                                                `json:"validFrom,omitempty"`                 // The time and date on which the certificate was created, also known as the Not Before certificate attribute
+	ExpirationDate            string                                                 `json:"expirationDate,omitempty"`            // The time and date past which the certificate is no longer valid
+	FriendlyName              string                                                 `json:"friendlyName,omitempty"`              // Friendly name of system certificate
+	GroupTag                  string                                                 `json:"groupTag,omitempty"`                  //
+	ID                        string                                                 `json:"id,omitempty"`                        // ID of system certificate
+	IssuedBy                  string                                                 `json:"issuedBy,omitempty"`                  // Common Name of the certificate issuer
+	IssuedTo                  string                                                 `json:"issuedTo,omitempty"`                  // Common Name of the certificate subject
+	KeySize                   *int                                                   `json:"keySize,omitempty"`                   // The length of key used for encrypting system certificate
+	Link                      *ResponseCertificatesGetSystemCertificatesResponseLink `json:"link,omitempty"`                      //
+	PortalsUsingTheTag        string                                                 `json:"portalsUsingTheTag,omitempty"`        //
+	SelfSigned                *bool                                                  `json:"selfSigned,omitempty"`                //
+	SerialNumberDecimalFormat string                                                 `json:"serialNumberDecimalFormat,omitempty"` // Used to uniquely identify the certificate within a CA's systems
+	Sha256Fingerprint         string                                                 `json:"sha256Fingerprint,omitempty"`         //
+	SignatureAlgorithm        string                                                 `json:"signatureAlgorithm,omitempty"`        //
+	UsedBy                    string                                                 `json:"usedBy,omitempty"`                    //
+	ValidFrom                 string                                                 `json:"validFrom,omitempty"`                 // The time and date on which the certificate was created, also known as the Not Before certificate attribute
 }
 
 type ResponseCertificatesGetSystemCertificatesResponseLink struct {
@@ -240,26 +240,26 @@ type ResponseCertificatesGetSystemCertificatesPreviousPage struct {
 }
 
 type ResponseCertificatesGetSystemCertificateByID struct {
-	Response ResponseCertificatesGetSystemCertificateByIDResponse `json:"response,omitempty"` //
-	Version  string                                               `json:"version,omitempty"`  //
+	Response *ResponseCertificatesGetSystemCertificateByIDResponse `json:"response,omitempty"` //
+	Version  string                                                `json:"version,omitempty"`  //
 }
 
 type ResponseCertificatesGetSystemCertificateByIDResponse struct {
-	ExpirationDate            string                                                   `json:"expirationDate,omitempty"`            // The time and date past which the certificate is no longer valid
-	FriendlyName              string                                                   `json:"friendlyName,omitempty"`              // Friendly name of system certificate
-	GroupTag                  string                                                   `json:"groupTag,omitempty"`                  //
-	ID                        string                                                   `json:"id,omitempty"`                        // ID of system certificate
-	IssuedBy                  string                                                   `json:"issuedBy,omitempty"`                  // Common Name of the certificate issuer
-	IssuedTo                  string                                                   `json:"issuedTo,omitempty"`                  // Common Name of the certificate subject
-	KeySize                   int                                                      `json:"keySize,omitempty"`                   // The length of key used for encrypting system certificate
-	Link                      ResponseCertificatesGetSystemCertificateByIDResponseLink `json:"link,omitempty"`                      //
-	PortalsUsingTheTag        string                                                   `json:"portalsUsingTheTag,omitempty"`        //
-	SelfSigned                bool                                                     `json:"selfSigned,omitempty"`                //
-	SerialNumberDecimalFormat string                                                   `json:"serialNumberDecimalFormat,omitempty"` // Used to uniquely identify the certificate within a CA's systems
-	Sha256Fingerprint         string                                                   `json:"sha256Fingerprint,omitempty"`         //
-	SignatureAlgorithm        string                                                   `json:"signatureAlgorithm,omitempty"`        //
-	UsedBy                    string                                                   `json:"usedBy,omitempty"`                    //
-	ValidFrom                 string                                                   `json:"validFrom,omitempty"`                 // The time and date on which the certificate was created, also known as the Not Before certificate attribute
+	ExpirationDate            string                                                    `json:"expirationDate,omitempty"`            // The time and date past which the certificate is no longer valid
+	FriendlyName              string                                                    `json:"friendlyName,omitempty"`              // Friendly name of system certificate
+	GroupTag                  string                                                    `json:"groupTag,omitempty"`                  //
+	ID                        string                                                    `json:"id,omitempty"`                        // ID of system certificate
+	IssuedBy                  string                                                    `json:"issuedBy,omitempty"`                  // Common Name of the certificate issuer
+	IssuedTo                  string                                                    `json:"issuedTo,omitempty"`                  // Common Name of the certificate subject
+	KeySize                   *int                                                      `json:"keySize,omitempty"`                   // The length of key used for encrypting system certificate
+	Link                      *ResponseCertificatesGetSystemCertificateByIDResponseLink `json:"link,omitempty"`                      //
+	PortalsUsingTheTag        string                                                    `json:"portalsUsingTheTag,omitempty"`        //
+	SelfSigned                *bool                                                     `json:"selfSigned,omitempty"`                //
+	SerialNumberDecimalFormat string                                                    `json:"serialNumberDecimalFormat,omitempty"` // Used to uniquely identify the certificate within a CA's systems
+	Sha256Fingerprint         string                                                    `json:"sha256Fingerprint,omitempty"`         //
+	SignatureAlgorithm        string                                                    `json:"signatureAlgorithm,omitempty"`        //
+	UsedBy                    string                                                    `json:"usedBy,omitempty"`                    //
+	ValidFrom                 string                                                    `json:"validFrom,omitempty"`                 // The time and date on which the certificate was created, also known as the Not Before certificate attribute
 }
 
 type ResponseCertificatesGetSystemCertificateByIDResponseLink struct {
@@ -269,15 +269,15 @@ type ResponseCertificatesGetSystemCertificateByIDResponseLink struct {
 }
 
 type ResponseCertificatesUpdateSystemCertificate struct {
-	Response ResponseCertificatesUpdateSystemCertificateResponse `json:"response,omitempty"` //
-	Version  string                                              `json:"version,omitempty"`  //
+	Response *ResponseCertificatesUpdateSystemCertificateResponse `json:"response,omitempty"` //
+	Version  string                                               `json:"version,omitempty"`  //
 }
 
 type ResponseCertificatesUpdateSystemCertificateResponse struct {
-	ID      string                                                  `json:"id,omitempty"`      // ID of the imported trust certificate
-	Link    ResponseCertificatesUpdateSystemCertificateResponseLink `json:"link,omitempty"`    //
-	Message string                                                  `json:"message,omitempty"` // Response message on import of system or trust certificate
-	Status  string                                                  `json:"status,omitempty"`  // HTTP response status after import
+	ID      string                                                   `json:"id,omitempty"`      // ID of the imported trust certificate
+	Link    *ResponseCertificatesUpdateSystemCertificateResponseLink `json:"link,omitempty"`    //
+	Message string                                                   `json:"message,omitempty"` // Response message on import of system or trust certificate
+	Status  string                                                   `json:"status,omitempty"`  // HTTP response status after import
 }
 
 type ResponseCertificatesUpdateSystemCertificateResponseLink struct {
@@ -287,8 +287,8 @@ type ResponseCertificatesUpdateSystemCertificateResponseLink struct {
 }
 
 type ResponseCertificatesDeleteSystemCertificateByID struct {
-	Response ResponseCertificatesDeleteSystemCertificateByIDResponse `json:"response,omitempty"` //
-	Version  string                                                  `json:"version,omitempty"`  //
+	Response *ResponseCertificatesDeleteSystemCertificateByIDResponse `json:"response,omitempty"` //
+	Version  string                                                   `json:"version,omitempty"`  //
 }
 
 type ResponseCertificatesDeleteSystemCertificateByIDResponse struct {
@@ -296,46 +296,46 @@ type ResponseCertificatesDeleteSystemCertificateByIDResponse struct {
 }
 
 type ResponseCertificatesGetTrustedCertificates struct {
-	Response     []ResponseCertificatesGetTrustedCertificatesResponse   `json:"response,omitempty"`     //
-	NextPage     ResponseCertificatesGetTrustedCertificatesNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseCertificatesGetTrustedCertificatesPreviousPage `json:"previousPage,omitempty"` //
-	Version      string                                                 `json:"version,omitempty"`      //
+	Response     *[]ResponseCertificatesGetTrustedCertificatesResponse   `json:"response,omitempty"`     //
+	NextPage     *ResponseCertificatesGetTrustedCertificatesNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseCertificatesGetTrustedCertificatesPreviousPage `json:"previousPage,omitempty"` //
+	Version      string                                                  `json:"version,omitempty"`      //
 }
 
 type ResponseCertificatesGetTrustedCertificatesResponse struct {
-	AuthenticateBeforeCRLReceived  string                                                 `json:"authenticateBeforeCRLReceived,omitempty"`  // Switch to enable/disable authentication before receiving CRL
-	AutomaticCRLUpdate             string                                                 `json:"automaticCRLUpdate,omitempty"`             // Switch to enable/disable automatic CRL update
-	AutomaticCRLUpdatePeriod       string                                                 `json:"automaticCRLUpdatePeriod,omitempty"`       // Automatic CRL update period
-	AutomaticCRLUpdateUnits        string                                                 `json:"automaticCRLUpdateUnits,omitempty"`        // Unit of time of automatic CRL update
-	CrlDistributionURL             string                                                 `json:"crlDistributionUrl,omitempty"`             // CRL Distribution URL
-	CrlDownloadFailureRetries      string                                                 `json:"crlDownloadFailureRetries,omitempty"`      // If CRL download fails, wait time before retry
-	CrlDownloadFailureRetriesUnits string                                                 `json:"crlDownloadFailureRetriesUnits,omitempty"` // Unit of time before retry if CRL download fails
-	Description                    string                                                 `json:"description,omitempty"`                    // Description of trust certificate
-	DownloadCRL                    string                                                 `json:"downloadCRL,omitempty"`                    // Switch to enable/disable download of CRL
-	EnableOCSpValidation           string                                                 `json:"enableOCSPValidation,omitempty"`           // Switch to enable/disable OCSP Validation
-	EnableServerIDentityCheck      string                                                 `json:"enableServerIdentityCheck,omitempty"`      // Switch to enable/disable Server Identity Check
-	ExpirationDate                 string                                                 `json:"expirationDate,omitempty"`                 // The time and date past which the certificate is no longer valid
-	FriendlyName                   string                                                 `json:"friendlyName,omitempty"`                   // Friendly name of trust certificate
-	ID                             string                                                 `json:"id,omitempty"`                             // ID of trust certificate
-	IgnoreCRLExpiration            string                                                 `json:"ignoreCRLExpiration,omitempty"`            // Switch to enable/disable ignore CRL Expiration
-	InternalCa                     bool                                                   `json:"internalCA,omitempty"`                     //
-	IsReferredInPolicy             bool                                                   `json:"isReferredInPolicy,omitempty"`             //
-	IssuedBy                       string                                                 `json:"issuedBy,omitempty"`                       // The entity that verified the information and signed the certificate
-	IssuedTo                       string                                                 `json:"issuedTo,omitempty"`                       // Entity to which trust certificate is issued
-	KeySize                        string                                                 `json:"keySize,omitempty"`                        // The length of key used for encrypting trust certificate
-	Link                           ResponseCertificatesGetTrustedCertificatesResponseLink `json:"link,omitempty"`                           //
-	NonAutomaticCRLUpdatePeriod    string                                                 `json:"nonAutomaticCRLUpdatePeriod,omitempty"`    // Non automatic CRL update period
-	NonAutomaticCRLUpdateUnits     string                                                 `json:"nonAutomaticCRLUpdateUnits,omitempty"`     // Unit of time of non automatic CRL update
-	RejectIfNoStatusFromOCSP       string                                                 `json:"rejectIfNoStatusFromOCSP,omitempty"`       // Switch to reject certificate if there is no status from OCSP
-	RejectIfUnreachableFromOCSP    string                                                 `json:"rejectIfUnreachableFromOCSP,omitempty"`    // Switch to reject certificate if unreachable from OCSP
-	SelectedOCSpService            string                                                 `json:"selectedOCSPService,omitempty"`            // Name of selected OCSP Service
-	SerialNumberDecimalFormat      string                                                 `json:"serialNumberDecimalFormat,omitempty"`      // Used to uniquely identify the certificate within a CA's systems
-	Sha256Fingerprint              string                                                 `json:"sha256Fingerprint,omitempty"`              //
-	SignatureAlgorithm             string                                                 `json:"signatureAlgorithm,omitempty"`             // Algorithm used for encrypting trust certificate
-	Status                         string                                                 `json:"status,omitempty"`                         //
-	Subject                        string                                                 `json:"subject,omitempty"`                        // The Subject or entity with which public key of trust certificate is associated
-	TrustedFor                     string                                                 `json:"trustedFor,omitempty"`                     // Different services for which the certificated is trusted
-	ValidFrom                      string                                                 `json:"validFrom,omitempty"`                      // The earliest time and date on which the certificate is valid
+	AuthenticateBeforeCRLReceived  string                                                  `json:"authenticateBeforeCRLReceived,omitempty"`  // Switch to enable/disable authentication before receiving CRL
+	AutomaticCRLUpdate             string                                                  `json:"automaticCRLUpdate,omitempty"`             // Switch to enable/disable automatic CRL update
+	AutomaticCRLUpdatePeriod       string                                                  `json:"automaticCRLUpdatePeriod,omitempty"`       // Automatic CRL update period
+	AutomaticCRLUpdateUnits        string                                                  `json:"automaticCRLUpdateUnits,omitempty"`        // Unit of time of automatic CRL update
+	CrlDistributionURL             string                                                  `json:"crlDistributionUrl,omitempty"`             // CRL Distribution URL
+	CrlDownloadFailureRetries      string                                                  `json:"crlDownloadFailureRetries,omitempty"`      // If CRL download fails, wait time before retry
+	CrlDownloadFailureRetriesUnits string                                                  `json:"crlDownloadFailureRetriesUnits,omitempty"` // Unit of time before retry if CRL download fails
+	Description                    string                                                  `json:"description,omitempty"`                    // Description of trust certificate
+	DownloadCRL                    string                                                  `json:"downloadCRL,omitempty"`                    // Switch to enable/disable download of CRL
+	EnableOCSpValidation           string                                                  `json:"enableOCSPValidation,omitempty"`           // Switch to enable/disable OCSP Validation
+	EnableServerIDentityCheck      string                                                  `json:"enableServerIdentityCheck,omitempty"`      // Switch to enable/disable Server Identity Check
+	ExpirationDate                 string                                                  `json:"expirationDate,omitempty"`                 // The time and date past which the certificate is no longer valid
+	FriendlyName                   string                                                  `json:"friendlyName,omitempty"`                   // Friendly name of trust certificate
+	ID                             string                                                  `json:"id,omitempty"`                             // ID of trust certificate
+	IgnoreCRLExpiration            string                                                  `json:"ignoreCRLExpiration,omitempty"`            // Switch to enable/disable ignore CRL Expiration
+	InternalCa                     *bool                                                   `json:"internalCA,omitempty"`                     //
+	IsReferredInPolicy             *bool                                                   `json:"isReferredInPolicy,omitempty"`             //
+	IssuedBy                       string                                                  `json:"issuedBy,omitempty"`                       // The entity that verified the information and signed the certificate
+	IssuedTo                       string                                                  `json:"issuedTo,omitempty"`                       // Entity to which trust certificate is issued
+	KeySize                        string                                                  `json:"keySize,omitempty"`                        // The length of key used for encrypting trust certificate
+	Link                           *ResponseCertificatesGetTrustedCertificatesResponseLink `json:"link,omitempty"`                           //
+	NonAutomaticCRLUpdatePeriod    string                                                  `json:"nonAutomaticCRLUpdatePeriod,omitempty"`    // Non automatic CRL update period
+	NonAutomaticCRLUpdateUnits     string                                                  `json:"nonAutomaticCRLUpdateUnits,omitempty"`     // Unit of time of non automatic CRL update
+	RejectIfNoStatusFromOCSP       string                                                  `json:"rejectIfNoStatusFromOCSP,omitempty"`       // Switch to reject certificate if there is no status from OCSP
+	RejectIfUnreachableFromOCSP    string                                                  `json:"rejectIfUnreachableFromOCSP,omitempty"`    // Switch to reject certificate if unreachable from OCSP
+	SelectedOCSpService            string                                                  `json:"selectedOCSPService,omitempty"`            // Name of selected OCSP Service
+	SerialNumberDecimalFormat      string                                                  `json:"serialNumberDecimalFormat,omitempty"`      // Used to uniquely identify the certificate within a CA's systems
+	Sha256Fingerprint              string                                                  `json:"sha256Fingerprint,omitempty"`              //
+	SignatureAlgorithm             string                                                  `json:"signatureAlgorithm,omitempty"`             // Algorithm used for encrypting trust certificate
+	Status                         string                                                  `json:"status,omitempty"`                         //
+	Subject                        string                                                  `json:"subject,omitempty"`                        // The Subject or entity with which public key of trust certificate is associated
+	TrustedFor                     string                                                  `json:"trustedFor,omitempty"`                     // Different services for which the certificated is trusted
+	ValidFrom                      string                                                  `json:"validFrom,omitempty"`                      // The earliest time and date on which the certificate is valid
 }
 
 type ResponseCertificatesGetTrustedCertificatesResponseLink struct {
@@ -357,8 +357,8 @@ type ResponseCertificatesGetTrustedCertificatesPreviousPage struct {
 }
 
 type ResponseCertificatesImportTrustCertificate struct {
-	Response ResponseCertificatesImportTrustCertificateResponse `json:"response,omitempty"` //
-	Version  string                                             `json:"version,omitempty"`  //
+	Response *ResponseCertificatesImportTrustCertificateResponse `json:"response,omitempty"` //
+	Version  string                                              `json:"version,omitempty"`  //
 }
 
 type ResponseCertificatesImportTrustCertificateResponse struct {
@@ -368,44 +368,44 @@ type ResponseCertificatesImportTrustCertificateResponse struct {
 }
 
 type ResponseCertificatesGetTrustedCertificateByID struct {
-	Response ResponseCertificatesGetTrustedCertificateByIDResponse `json:"response,omitempty"` //
-	Version  string                                                `json:"version,omitempty"`  //
+	Response *ResponseCertificatesGetTrustedCertificateByIDResponse `json:"response,omitempty"` //
+	Version  string                                                 `json:"version,omitempty"`  //
 }
 
 type ResponseCertificatesGetTrustedCertificateByIDResponse struct {
-	AuthenticateBeforeCRLReceived  string                                                    `json:"authenticateBeforeCRLReceived,omitempty"`  // Switch to enable/disable authentication before receiving CRL
-	AutomaticCRLUpdate             string                                                    `json:"automaticCRLUpdate,omitempty"`             // Switch to enable/disable automatic CRL update
-	AutomaticCRLUpdatePeriod       string                                                    `json:"automaticCRLUpdatePeriod,omitempty"`       // Automatic CRL update period
-	AutomaticCRLUpdateUnits        string                                                    `json:"automaticCRLUpdateUnits,omitempty"`        // Unit of time of automatic CRL update
-	CrlDistributionURL             string                                                    `json:"crlDistributionUrl,omitempty"`             // CRL Distribution URL
-	CrlDownloadFailureRetries      string                                                    `json:"crlDownloadFailureRetries,omitempty"`      // If CRL download fails, wait time before retry
-	CrlDownloadFailureRetriesUnits string                                                    `json:"crlDownloadFailureRetriesUnits,omitempty"` // Unit of time before retry if CRL download fails
-	Description                    string                                                    `json:"description,omitempty"`                    // Description of trust certificate
-	DownloadCRL                    string                                                    `json:"downloadCRL,omitempty"`                    // Switch to enable/disable download of CRL
-	EnableOCSpValidation           string                                                    `json:"enableOCSPValidation,omitempty"`           // Switch to enable/disable OCSP Validation
-	EnableServerIDentityCheck      string                                                    `json:"enableServerIdentityCheck,omitempty"`      // Switch to enable/disable Server Identity Check
-	ExpirationDate                 string                                                    `json:"expirationDate,omitempty"`                 // The time and date past which the certificate is no longer valid
-	FriendlyName                   string                                                    `json:"friendlyName,omitempty"`                   // Friendly name of trust certificate
-	ID                             string                                                    `json:"id,omitempty"`                             // ID of trust certificate
-	IgnoreCRLExpiration            string                                                    `json:"ignoreCRLExpiration,omitempty"`            // Switch to enable/disable ignore CRL Expiration
-	InternalCa                     bool                                                      `json:"internalCA,omitempty"`                     //
-	IsReferredInPolicy             bool                                                      `json:"isReferredInPolicy,omitempty"`             //
-	IssuedBy                       string                                                    `json:"issuedBy,omitempty"`                       // The entity that verified the information and signed the certificate
-	IssuedTo                       string                                                    `json:"issuedTo,omitempty"`                       // Entity to which trust certificate is issued
-	KeySize                        string                                                    `json:"keySize,omitempty"`                        // The length of key used for encrypting trust certificate
-	Link                           ResponseCertificatesGetTrustedCertificateByIDResponseLink `json:"link,omitempty"`                           //
-	NonAutomaticCRLUpdatePeriod    string                                                    `json:"nonAutomaticCRLUpdatePeriod,omitempty"`    // Non automatic CRL update period
-	NonAutomaticCRLUpdateUnits     string                                                    `json:"nonAutomaticCRLUpdateUnits,omitempty"`     // Unit of time of non automatic CRL update
-	RejectIfNoStatusFromOCSP       string                                                    `json:"rejectIfNoStatusFromOCSP,omitempty"`       // Switch to reject certificate if there is no status from OCSP
-	RejectIfUnreachableFromOCSP    string                                                    `json:"rejectIfUnreachableFromOCSP,omitempty"`    // Switch to reject certificate if unreachable from OCSP
-	SelectedOCSpService            string                                                    `json:"selectedOCSPService,omitempty"`            // Name of selected OCSP Service
-	SerialNumberDecimalFormat      string                                                    `json:"serialNumberDecimalFormat,omitempty"`      // Used to uniquely identify the certificate within a CA's systems
-	Sha256Fingerprint              string                                                    `json:"sha256Fingerprint,omitempty"`              //
-	SignatureAlgorithm             string                                                    `json:"signatureAlgorithm,omitempty"`             // Algorithm used for encrypting trust certificate
-	Status                         string                                                    `json:"status,omitempty"`                         //
-	Subject                        string                                                    `json:"subject,omitempty"`                        // The Subject or entity with which public key of trust certificate is associated
-	TrustedFor                     string                                                    `json:"trustedFor,omitempty"`                     // Different services for which the certificated is trusted
-	ValidFrom                      string                                                    `json:"validFrom,omitempty"`                      // The earliest time and date on which the certificate is valid
+	AuthenticateBeforeCRLReceived  string                                                     `json:"authenticateBeforeCRLReceived,omitempty"`  // Switch to enable/disable authentication before receiving CRL
+	AutomaticCRLUpdate             string                                                     `json:"automaticCRLUpdate,omitempty"`             // Switch to enable/disable automatic CRL update
+	AutomaticCRLUpdatePeriod       string                                                     `json:"automaticCRLUpdatePeriod,omitempty"`       // Automatic CRL update period
+	AutomaticCRLUpdateUnits        string                                                     `json:"automaticCRLUpdateUnits,omitempty"`        // Unit of time of automatic CRL update
+	CrlDistributionURL             string                                                     `json:"crlDistributionUrl,omitempty"`             // CRL Distribution URL
+	CrlDownloadFailureRetries      string                                                     `json:"crlDownloadFailureRetries,omitempty"`      // If CRL download fails, wait time before retry
+	CrlDownloadFailureRetriesUnits string                                                     `json:"crlDownloadFailureRetriesUnits,omitempty"` // Unit of time before retry if CRL download fails
+	Description                    string                                                     `json:"description,omitempty"`                    // Description of trust certificate
+	DownloadCRL                    string                                                     `json:"downloadCRL,omitempty"`                    // Switch to enable/disable download of CRL
+	EnableOCSpValidation           string                                                     `json:"enableOCSPValidation,omitempty"`           // Switch to enable/disable OCSP Validation
+	EnableServerIDentityCheck      string                                                     `json:"enableServerIdentityCheck,omitempty"`      // Switch to enable/disable Server Identity Check
+	ExpirationDate                 string                                                     `json:"expirationDate,omitempty"`                 // The time and date past which the certificate is no longer valid
+	FriendlyName                   string                                                     `json:"friendlyName,omitempty"`                   // Friendly name of trust certificate
+	ID                             string                                                     `json:"id,omitempty"`                             // ID of trust certificate
+	IgnoreCRLExpiration            string                                                     `json:"ignoreCRLExpiration,omitempty"`            // Switch to enable/disable ignore CRL Expiration
+	InternalCa                     *bool                                                      `json:"internalCA,omitempty"`                     //
+	IsReferredInPolicy             *bool                                                      `json:"isReferredInPolicy,omitempty"`             //
+	IssuedBy                       string                                                     `json:"issuedBy,omitempty"`                       // The entity that verified the information and signed the certificate
+	IssuedTo                       string                                                     `json:"issuedTo,omitempty"`                       // Entity to which trust certificate is issued
+	KeySize                        string                                                     `json:"keySize,omitempty"`                        // The length of key used for encrypting trust certificate
+	Link                           *ResponseCertificatesGetTrustedCertificateByIDResponseLink `json:"link,omitempty"`                           //
+	NonAutomaticCRLUpdatePeriod    string                                                     `json:"nonAutomaticCRLUpdatePeriod,omitempty"`    // Non automatic CRL update period
+	NonAutomaticCRLUpdateUnits     string                                                     `json:"nonAutomaticCRLUpdateUnits,omitempty"`     // Unit of time of non automatic CRL update
+	RejectIfNoStatusFromOCSP       string                                                     `json:"rejectIfNoStatusFromOCSP,omitempty"`       // Switch to reject certificate if there is no status from OCSP
+	RejectIfUnreachableFromOCSP    string                                                     `json:"rejectIfUnreachableFromOCSP,omitempty"`    // Switch to reject certificate if unreachable from OCSP
+	SelectedOCSpService            string                                                     `json:"selectedOCSPService,omitempty"`            // Name of selected OCSP Service
+	SerialNumberDecimalFormat      string                                                     `json:"serialNumberDecimalFormat,omitempty"`      // Used to uniquely identify the certificate within a CA's systems
+	Sha256Fingerprint              string                                                     `json:"sha256Fingerprint,omitempty"`              //
+	SignatureAlgorithm             string                                                     `json:"signatureAlgorithm,omitempty"`             // Algorithm used for encrypting trust certificate
+	Status                         string                                                     `json:"status,omitempty"`                         //
+	Subject                        string                                                     `json:"subject,omitempty"`                        // The Subject or entity with which public key of trust certificate is associated
+	TrustedFor                     string                                                     `json:"trustedFor,omitempty"`                     // Different services for which the certificated is trusted
+	ValidFrom                      string                                                     `json:"validFrom,omitempty"`                      // The earliest time and date on which the certificate is valid
 }
 
 type ResponseCertificatesGetTrustedCertificateByIDResponseLink struct {
@@ -415,14 +415,14 @@ type ResponseCertificatesGetTrustedCertificateByIDResponseLink struct {
 }
 
 type ResponseCertificatesUpdateTrustedCertificate struct {
-	Response ResponseCertificatesUpdateTrustedCertificateResponse `json:"response,omitempty"` //
-	Version  string                                               `json:"version,omitempty"`  //
+	Response *ResponseCertificatesUpdateTrustedCertificateResponse `json:"response,omitempty"` //
+	Version  string                                                `json:"version,omitempty"`  //
 }
 
 type ResponseCertificatesUpdateTrustedCertificateResponse struct {
-	ID      string                                                   `json:"id,omitempty"`      // ID of the trust certificate
-	Link    ResponseCertificatesUpdateTrustedCertificateResponseLink `json:"link,omitempty"`    //
-	Message string                                                   `json:"message,omitempty"` // Response message on successful update of trust certificate
+	ID      string                                                    `json:"id,omitempty"`      // ID of the trust certificate
+	Link    *ResponseCertificatesUpdateTrustedCertificateResponseLink `json:"link,omitempty"`    //
+	Message string                                                    `json:"message,omitempty"` // Response message on successful update of trust certificate
 }
 
 type ResponseCertificatesUpdateTrustedCertificateResponseLink struct {
@@ -432,8 +432,8 @@ type ResponseCertificatesUpdateTrustedCertificateResponseLink struct {
 }
 
 type ResponseCertificatesDeleteTrustedCertificateByID struct {
-	Response ResponseCertificatesDeleteTrustedCertificateByIDResponse `json:"response,omitempty"` //
-	Version  string                                                   `json:"version,omitempty"`  //
+	Response *ResponseCertificatesDeleteTrustedCertificateByIDResponse `json:"response,omitempty"` //
+	Version  string                                                    `json:"version,omitempty"`  //
 }
 
 type ResponseCertificatesDeleteTrustedCertificateByIDResponse struct {

@@ -10,17 +10,17 @@ import (
 type NetworkAccessDictionaryService service
 
 type ResponseNetworkAccessDictionaryGetNetworkAccessDictionaries struct {
-	Response []ResponseNetworkAccessDictionaryGetNetworkAccessDictionariesResponse `json:"response,omitempty"` //
-	Version  string                                                                `json:"version,omitempty"`  //
+	Response *[]ResponseNetworkAccessDictionaryGetNetworkAccessDictionariesResponse `json:"response,omitempty"` //
+	Version  string                                                                 `json:"version,omitempty"`  //
 }
 
 type ResponseNetworkAccessDictionaryGetNetworkAccessDictionariesResponse struct {
-	Description        string                                                                  `json:"description,omitempty"`        // The description of the Dictionary
-	DictionaryAttrType string                                                                  `json:"dictionaryAttrType,omitempty"` // The dictionary attribute type
-	ID                 string                                                                  `json:"id,omitempty"`                 // Identifier for the dictionary
-	Link               ResponseNetworkAccessDictionaryGetNetworkAccessDictionariesResponseLink `json:"link,omitempty"`               //
-	Name               string                                                                  `json:"name,omitempty"`               // The dictionary name
-	Version            string                                                                  `json:"version,omitempty"`            // The dictionary version
+	Description        string                                                                   `json:"description,omitempty"`        // The description of the Dictionary
+	DictionaryAttrType string                                                                   `json:"dictionaryAttrType,omitempty"` // The dictionary attribute type
+	ID                 string                                                                   `json:"id,omitempty"`                 // Identifier for the dictionary
+	Link               *ResponseNetworkAccessDictionaryGetNetworkAccessDictionariesResponseLink `json:"link,omitempty"`               //
+	Name               string                                                                   `json:"name,omitempty"`               // The dictionary name
+	Version            string                                                                   `json:"version,omitempty"`            // The dictionary version
 }
 
 type ResponseNetworkAccessDictionaryGetNetworkAccessDictionariesResponseLink struct {
@@ -30,17 +30,17 @@ type ResponseNetworkAccessDictionaryGetNetworkAccessDictionariesResponseLink str
 }
 
 type ResponseNetworkAccessDictionaryCreateNetworkAccessDictionaries struct {
-	Response ResponseNetworkAccessDictionaryCreateNetworkAccessDictionariesResponse `json:"response,omitempty"` // Dictionary POST format
-	Version  string                                                                 `json:"version,omitempty"`  //
+	Response *ResponseNetworkAccessDictionaryCreateNetworkAccessDictionariesResponse `json:"response,omitempty"` // Dictionary POST format
+	Version  string                                                                  `json:"version,omitempty"`  //
 }
 
 type ResponseNetworkAccessDictionaryCreateNetworkAccessDictionariesResponse struct {
-	Description        string                                                                     `json:"description,omitempty"`        // The description of the Dictionary
-	DictionaryAttrType string                                                                     `json:"dictionaryAttrType,omitempty"` // The dictionary attribute type
-	ID                 string                                                                     `json:"id,omitempty"`                 // Identifier for the dictionary
-	Link               ResponseNetworkAccessDictionaryCreateNetworkAccessDictionariesResponseLink `json:"link,omitempty"`               //
-	Name               string                                                                     `json:"name,omitempty"`               // The dictionary name
-	Version            string                                                                     `json:"version,omitempty"`            // The dictionary version
+	Description        string                                                                      `json:"description,omitempty"`        // The description of the Dictionary
+	DictionaryAttrType string                                                                      `json:"dictionaryAttrType,omitempty"` // The dictionary attribute type
+	ID                 string                                                                      `json:"id,omitempty"`                 // Identifier for the dictionary
+	Link               *ResponseNetworkAccessDictionaryCreateNetworkAccessDictionariesResponseLink `json:"link,omitempty"`               //
+	Name               string                                                                      `json:"name,omitempty"`               // The dictionary name
+	Version            string                                                                      `json:"version,omitempty"`            // The dictionary version
 }
 
 type ResponseNetworkAccessDictionaryCreateNetworkAccessDictionariesResponseLink struct {
@@ -50,17 +50,17 @@ type ResponseNetworkAccessDictionaryCreateNetworkAccessDictionariesResponseLink 
 }
 
 type ResponseNetworkAccessDictionaryGetNetworkAccessDictionaryByName struct {
-	Response ResponseNetworkAccessDictionaryGetNetworkAccessDictionaryByNameResponse `json:"response,omitempty"` // Dictionary POST format
-	Version  string                                                                  `json:"version,omitempty"`  //
+	Response *ResponseNetworkAccessDictionaryGetNetworkAccessDictionaryByNameResponse `json:"response,omitempty"` // Dictionary POST format
+	Version  string                                                                   `json:"version,omitempty"`  //
 }
 
 type ResponseNetworkAccessDictionaryGetNetworkAccessDictionaryByNameResponse struct {
-	Description        string                                                                      `json:"description,omitempty"`        // The description of the Dictionary
-	DictionaryAttrType string                                                                      `json:"dictionaryAttrType,omitempty"` // The dictionary attribute type
-	ID                 string                                                                      `json:"id,omitempty"`                 // Identifier for the dictionary
-	Link               ResponseNetworkAccessDictionaryGetNetworkAccessDictionaryByNameResponseLink `json:"link,omitempty"`               //
-	Name               string                                                                      `json:"name,omitempty"`               // The dictionary name
-	Version            string                                                                      `json:"version,omitempty"`            // The dictionary version
+	Description        string                                                                       `json:"description,omitempty"`        // The description of the Dictionary
+	DictionaryAttrType string                                                                       `json:"dictionaryAttrType,omitempty"` // The dictionary attribute type
+	ID                 string                                                                       `json:"id,omitempty"`                 // Identifier for the dictionary
+	Link               *ResponseNetworkAccessDictionaryGetNetworkAccessDictionaryByNameResponseLink `json:"link,omitempty"`               //
+	Name               string                                                                       `json:"name,omitempty"`               // The dictionary name
+	Version            string                                                                       `json:"version,omitempty"`            // The dictionary version
 }
 
 type ResponseNetworkAccessDictionaryGetNetworkAccessDictionaryByNameResponseLink struct {
@@ -70,17 +70,17 @@ type ResponseNetworkAccessDictionaryGetNetworkAccessDictionaryByNameResponseLink
 }
 
 type ResponseNetworkAccessDictionaryUpdateNetworkAccessDictionaryByName struct {
-	Response ResponseNetworkAccessDictionaryUpdateNetworkAccessDictionaryByNameResponse `json:"response,omitempty"` // Dictionary POST format
-	Version  string                                                                     `json:"version,omitempty"`  //
+	Response *ResponseNetworkAccessDictionaryUpdateNetworkAccessDictionaryByNameResponse `json:"response,omitempty"` // Dictionary POST format
+	Version  string                                                                      `json:"version,omitempty"`  //
 }
 
 type ResponseNetworkAccessDictionaryUpdateNetworkAccessDictionaryByNameResponse struct {
-	Description        string                                                                         `json:"description,omitempty"`        // The description of the Dictionary
-	DictionaryAttrType string                                                                         `json:"dictionaryAttrType,omitempty"` // The dictionary attribute type
-	ID                 string                                                                         `json:"id,omitempty"`                 // Identifier for the dictionary
-	Link               ResponseNetworkAccessDictionaryUpdateNetworkAccessDictionaryByNameResponseLink `json:"link,omitempty"`               //
-	Name               string                                                                         `json:"name,omitempty"`               // The dictionary name
-	Version            string                                                                         `json:"version,omitempty"`            // The dictionary version
+	Description        string                                                                          `json:"description,omitempty"`        // The description of the Dictionary
+	DictionaryAttrType string                                                                          `json:"dictionaryAttrType,omitempty"` // The dictionary attribute type
+	ID                 string                                                                          `json:"id,omitempty"`                 // Identifier for the dictionary
+	Link               *ResponseNetworkAccessDictionaryUpdateNetworkAccessDictionaryByNameResponseLink `json:"link,omitempty"`               //
+	Name               string                                                                          `json:"name,omitempty"`               // The dictionary name
+	Version            string                                                                          `json:"version,omitempty"`            // The dictionary version
 }
 
 type ResponseNetworkAccessDictionaryUpdateNetworkAccessDictionaryByNameResponseLink struct {
@@ -90,17 +90,17 @@ type ResponseNetworkAccessDictionaryUpdateNetworkAccessDictionaryByNameResponseL
 }
 
 type ResponseNetworkAccessDictionaryDeleteNetworkAccessDictionaryByName struct {
-	Response ResponseNetworkAccessDictionaryDeleteNetworkAccessDictionaryByNameResponse `json:"response,omitempty"` // Dictionary POST format
-	Version  string                                                                     `json:"version,omitempty"`  //
+	Response *ResponseNetworkAccessDictionaryDeleteNetworkAccessDictionaryByNameResponse `json:"response,omitempty"` // Dictionary POST format
+	Version  string                                                                      `json:"version,omitempty"`  //
 }
 
 type ResponseNetworkAccessDictionaryDeleteNetworkAccessDictionaryByNameResponse struct {
-	Description        string                                                                         `json:"description,omitempty"`        // The description of the Dictionary
-	DictionaryAttrType string                                                                         `json:"dictionaryAttrType,omitempty"` // The dictionary attribute type
-	ID                 string                                                                         `json:"id,omitempty"`                 // Identifier for the dictionary
-	Link               ResponseNetworkAccessDictionaryDeleteNetworkAccessDictionaryByNameResponseLink `json:"link,omitempty"`               //
-	Name               string                                                                         `json:"name,omitempty"`               // The dictionary name
-	Version            string                                                                         `json:"version,omitempty"`            // The dictionary version
+	Description        string                                                                          `json:"description,omitempty"`        // The description of the Dictionary
+	DictionaryAttrType string                                                                          `json:"dictionaryAttrType,omitempty"` // The dictionary attribute type
+	ID                 string                                                                          `json:"id,omitempty"`                 // Identifier for the dictionary
+	Link               *ResponseNetworkAccessDictionaryDeleteNetworkAccessDictionaryByNameResponseLink `json:"link,omitempty"`               //
+	Name               string                                                                          `json:"name,omitempty"`               // The dictionary name
+	Version            string                                                                          `json:"version,omitempty"`            // The dictionary version
 }
 
 type ResponseNetworkAccessDictionaryDeleteNetworkAccessDictionaryByNameResponseLink struct {

@@ -20,14 +20,14 @@ type GetAncPolicyQueryParams struct {
 }
 
 type ResponseAncPolicyGetAncPolicyByName struct {
-	ErsAncPolicy ResponseAncPolicyGetAncPolicyByNameErsAncPolicy `json:"ErsAncPolicy,omitempty"` //
+	ErsAncPolicy *ResponseAncPolicyGetAncPolicyByNameErsAncPolicy `json:"ErsAncPolicy,omitempty"` //
 }
 
 type ResponseAncPolicyGetAncPolicyByNameErsAncPolicy struct {
-	ID      string                                              `json:"id,omitempty"`      //
-	Name    string                                              `json:"name,omitempty"`    //
-	Actions []string                                            `json:"actions,omitempty"` // - QUARANTINE: Allows you to use Exception policies (authorization policies) to limit or deny an endpoint access to the network. - PORTBOUNCE: Resets the port on the network device to which the endpoint is connected. - SHUTDOWN : Shuts down the port on the network device to which the endpoint is connected. - RE_AUTHENTICATE: Re-authenticates the session from the endpoint.
-	Link    ResponseAncPolicyGetAncPolicyByNameErsAncPolicyLink `json:"link,omitempty"`    //
+	ID      string                                               `json:"id,omitempty"`      //
+	Name    string                                               `json:"name,omitempty"`    //
+	Actions []string                                             `json:"actions,omitempty"` // - QUARANTINE: Allows you to use Exception policies (authorization policies) to limit or deny an endpoint access to the network. - PORTBOUNCE: Resets the port on the network device to which the endpoint is connected. - SHUTDOWN : Shuts down the port on the network device to which the endpoint is connected. - RE_AUTHENTICATE: Re-authenticates the session from the endpoint.
+	Link    *ResponseAncPolicyGetAncPolicyByNameErsAncPolicyLink `json:"link,omitempty"`    //
 }
 
 type ResponseAncPolicyGetAncPolicyByNameErsAncPolicyLink struct {
@@ -37,14 +37,14 @@ type ResponseAncPolicyGetAncPolicyByNameErsAncPolicyLink struct {
 }
 
 type ResponseAncPolicyGetAncPolicyByID struct {
-	ErsAncPolicy ResponseAncPolicyGetAncPolicyByIDErsAncPolicy `json:"ErsAncPolicy,omitempty"` //
+	ErsAncPolicy *ResponseAncPolicyGetAncPolicyByIDErsAncPolicy `json:"ErsAncPolicy,omitempty"` //
 }
 
 type ResponseAncPolicyGetAncPolicyByIDErsAncPolicy struct {
-	ID      string                                            `json:"id,omitempty"`      //
-	Name    string                                            `json:"name,omitempty"`    //
-	Actions []string                                          `json:"actions,omitempty"` // - QUARANTINE: Allows you to use Exception policies (authorization policies) to limit or deny an endpoint access to the network. - PORTBOUNCE: Resets the port on the network device to which the endpoint is connected. - SHUTDOWN : Shuts down the port on the network device to which the endpoint is connected. - RE_AUTHENTICATE: Re-authenticates the session from the endpoint.
-	Link    ResponseAncPolicyGetAncPolicyByIDErsAncPolicyLink `json:"link,omitempty"`    //
+	ID      string                                             `json:"id,omitempty"`      //
+	Name    string                                             `json:"name,omitempty"`    //
+	Actions []string                                           `json:"actions,omitempty"` // - QUARANTINE: Allows you to use Exception policies (authorization policies) to limit or deny an endpoint access to the network. - PORTBOUNCE: Resets the port on the network device to which the endpoint is connected. - SHUTDOWN : Shuts down the port on the network device to which the endpoint is connected. - RE_AUTHENTICATE: Re-authenticates the session from the endpoint.
+	Link    *ResponseAncPolicyGetAncPolicyByIDErsAncPolicyLink `json:"link,omitempty"`    //
 }
 
 type ResponseAncPolicyGetAncPolicyByIDErsAncPolicyLink struct {
@@ -54,11 +54,11 @@ type ResponseAncPolicyGetAncPolicyByIDErsAncPolicyLink struct {
 }
 
 type ResponseAncPolicyUpdateAncPolicyByID struct {
-	UpdatedFieldsList ResponseAncPolicyUpdateAncPolicyByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseAncPolicyUpdateAncPolicyByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseAncPolicyUpdateAncPolicyByIDUpdatedFieldsList struct {
-	UpdatedField []ResponseAncPolicyUpdateAncPolicyByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	UpdatedField *[]ResponseAncPolicyUpdateAncPolicyByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
 }
 
 type ResponseAncPolicyUpdateAncPolicyByIDUpdatedFieldsListUpdatedField struct {
@@ -68,20 +68,20 @@ type ResponseAncPolicyUpdateAncPolicyByIDUpdatedFieldsListUpdatedField struct {
 }
 
 type ResponseAncPolicyGetAncPolicy struct {
-	SearchResult ResponseAncPolicyGetAncPolicySearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseAncPolicyGetAncPolicySearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseAncPolicyGetAncPolicySearchResult struct {
-	Total        int                                                   `json:"total,omitempty"`        //
-	Resources    []ResponseAncPolicyGetAncPolicySearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseAncPolicyGetAncPolicySearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseAncPolicyGetAncPolicySearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                   `json:"total,omitempty"`        //
+	Resources    *[]ResponseAncPolicyGetAncPolicySearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseAncPolicyGetAncPolicySearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseAncPolicyGetAncPolicySearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseAncPolicyGetAncPolicySearchResultResources struct {
-	ID   string                                                 `json:"id,omitempty"`   //
-	Name string                                                 `json:"name,omitempty"` //
-	Link ResponseAncPolicyGetAncPolicySearchResultResourcesLink `json:"link,omitempty"` //
+	ID   string                                                  `json:"id,omitempty"`   //
+	Name string                                                  `json:"name,omitempty"` //
+	Link *ResponseAncPolicyGetAncPolicySearchResultResourcesLink `json:"link,omitempty"` //
 }
 
 type ResponseAncPolicyGetAncPolicySearchResultResourcesLink struct {
@@ -103,13 +103,13 @@ type ResponseAncPolicyGetAncPolicySearchResultPreviousPage struct {
 }
 
 type ResponseAncPolicyGetVersion struct {
-	VersionInfo ResponseAncPolicyGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseAncPolicyGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseAncPolicyGetVersionVersionInfo struct {
-	CurrentServerVersion string                                     `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                     `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseAncPolicyGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                      `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                      `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseAncPolicyGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseAncPolicyGetVersionVersionInfoLink struct {
@@ -119,18 +119,18 @@ type ResponseAncPolicyGetVersionVersionInfoLink struct {
 }
 
 type ResponseAncPolicyMonitorBulkStatusAncPolicy struct {
-	BulkStatus ResponseAncPolicyMonitorBulkStatusAncPolicyBulkStatus `json:"BulkStatus,omitempty"` //
+	BulkStatus *ResponseAncPolicyMonitorBulkStatusAncPolicyBulkStatus `json:"BulkStatus,omitempty"` //
 }
 
 type ResponseAncPolicyMonitorBulkStatusAncPolicyBulkStatus struct {
-	BulkID          string                                                                 `json:"bulkID,omitempty"`          //
-	ExecutionStatus string                                                                 `json:"executionStatus,omitempty"` //
-	OperationType   string                                                                 `json:"operationType,omitempty"`   //
-	StartTime       string                                                                 `json:"startTime,omitempty"`       //
-	ResourcesCount  int                                                                    `json:"resourcesCount,omitempty"`  //
-	SuccessCount    int                                                                    `json:"successCount,omitempty"`    //
-	FailCount       int                                                                    `json:"failCount,omitempty"`       //
-	ResourcesStatus []ResponseAncPolicyMonitorBulkStatusAncPolicyBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
+	BulkID          string                                                                  `json:"bulkID,omitempty"`          //
+	ExecutionStatus string                                                                  `json:"executionStatus,omitempty"` //
+	OperationType   string                                                                  `json:"operationType,omitempty"`   //
+	StartTime       string                                                                  `json:"startTime,omitempty"`       //
+	ResourcesCount  *int                                                                    `json:"resourcesCount,omitempty"`  //
+	SuccessCount    *int                                                                    `json:"successCount,omitempty"`    //
+	FailCount       *int                                                                    `json:"failCount,omitempty"`       //
+	ResourcesStatus *[]ResponseAncPolicyMonitorBulkStatusAncPolicyBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
 }
 
 type ResponseAncPolicyMonitorBulkStatusAncPolicyBulkStatusResourcesStatus struct {

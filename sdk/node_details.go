@@ -18,27 +18,27 @@ type GetNodeDetailsQueryParams struct {
 }
 
 type ResponseNodeDetailsGetNodeDetailByName struct {
-	Node ResponseNodeDetailsGetNodeDetailByNameNode `json:"Node,omitempty"` //
+	Node *ResponseNodeDetailsGetNodeDetailByNameNode `json:"Node,omitempty"` //
 }
 
 type ResponseNodeDetailsGetNodeDetailByNameNode struct {
-	ID               string                                         `json:"id,omitempty"`               //
-	Name             string                                         `json:"name,omitempty"`             //
-	GateWay          string                                         `json:"gateWay,omitempty"`          //
-	UserName         string                                         `json:"userName,omitempty"`         //
-	PassWord         string                                         `json:"passWord,omitempty"`         //
-	DisplayName      string                                         `json:"displayName,omitempty"`      //
-	InDeployment     bool                                           `json:"inDeployment,omitempty"`     //
-	OtherPapFqdn     string                                         `json:"otherPapFqdn,omitempty"`     //
-	IPAddresses      []string                                       `json:"ipAddresses,omitempty"`      //
-	IPAddress        string                                         `json:"ipAddress,omitempty"`        //
-	SxpIPAddress     string                                         `json:"sxpIpAddress,omitempty"`     //
-	NodeServiceTypes string                                         `json:"nodeServiceTypes,omitempty"` //
-	Fqdn             string                                         `json:"fqdn,omitempty"`             //
-	PapNode          bool                                           `json:"papNode,omitempty"`          //
-	PrimaryPapNode   bool                                           `json:"primaryPapNode,omitempty"`   //
-	PxGridNode       bool                                           `json:"pxGridNode,omitempty"`       //
-	Link             ResponseNodeDetailsGetNodeDetailByNameNodeLink `json:"link,omitempty"`             //
+	ID               string                                          `json:"id,omitempty"`               //
+	Name             string                                          `json:"name,omitempty"`             //
+	GateWay          string                                          `json:"gateWay,omitempty"`          //
+	UserName         string                                          `json:"userName,omitempty"`         //
+	PassWord         string                                          `json:"passWord,omitempty"`         //
+	DisplayName      string                                          `json:"displayName,omitempty"`      //
+	InDeployment     *bool                                           `json:"inDeployment,omitempty"`     //
+	OtherPapFqdn     string                                          `json:"otherPapFqdn,omitempty"`     //
+	IPAddresses      []string                                        `json:"ipAddresses,omitempty"`      //
+	IPAddress        string                                          `json:"ipAddress,omitempty"`        //
+	SxpIPAddress     string                                          `json:"sxpIpAddress,omitempty"`     //
+	NodeServiceTypes string                                          `json:"nodeServiceTypes,omitempty"` //
+	Fqdn             string                                          `json:"fqdn,omitempty"`             //
+	PapNode          *bool                                           `json:"papNode,omitempty"`          //
+	PrimaryPapNode   *bool                                           `json:"primaryPapNode,omitempty"`   //
+	PxGridNode       *bool                                           `json:"pxGridNode,omitempty"`       //
+	Link             *ResponseNodeDetailsGetNodeDetailByNameNodeLink `json:"link,omitempty"`             //
 }
 
 type ResponseNodeDetailsGetNodeDetailByNameNodeLink struct {
@@ -48,27 +48,27 @@ type ResponseNodeDetailsGetNodeDetailByNameNodeLink struct {
 }
 
 type ResponseNodeDetailsGetNodeDetailByID struct {
-	Node ResponseNodeDetailsGetNodeDetailByIDNode `json:"Node,omitempty"` //
+	Node *ResponseNodeDetailsGetNodeDetailByIDNode `json:"Node,omitempty"` //
 }
 
 type ResponseNodeDetailsGetNodeDetailByIDNode struct {
-	ID               string                                       `json:"id,omitempty"`               //
-	Name             string                                       `json:"name,omitempty"`             //
-	GateWay          string                                       `json:"gateWay,omitempty"`          //
-	UserName         string                                       `json:"userName,omitempty"`         //
-	PassWord         string                                       `json:"passWord,omitempty"`         //
-	DisplayName      string                                       `json:"displayName,omitempty"`      //
-	InDeployment     bool                                         `json:"inDeployment,omitempty"`     //
-	OtherPapFqdn     string                                       `json:"otherPapFqdn,omitempty"`     //
-	IPAddresses      []string                                     `json:"ipAddresses,omitempty"`      //
-	IPAddress        string                                       `json:"ipAddress,omitempty"`        //
-	SxpIPAddress     string                                       `json:"sxpIpAddress,omitempty"`     //
-	NodeServiceTypes string                                       `json:"nodeServiceTypes,omitempty"` //
-	Fqdn             string                                       `json:"fqdn,omitempty"`             //
-	PapNode          bool                                         `json:"papNode,omitempty"`          //
-	PrimaryPapNode   bool                                         `json:"primaryPapNode,omitempty"`   //
-	PxGridNode       bool                                         `json:"pxGridNode,omitempty"`       //
-	Link             ResponseNodeDetailsGetNodeDetailByIDNodeLink `json:"link,omitempty"`             //
+	ID               string                                        `json:"id,omitempty"`               //
+	Name             string                                        `json:"name,omitempty"`             //
+	GateWay          string                                        `json:"gateWay,omitempty"`          //
+	UserName         string                                        `json:"userName,omitempty"`         //
+	PassWord         string                                        `json:"passWord,omitempty"`         //
+	DisplayName      string                                        `json:"displayName,omitempty"`      //
+	InDeployment     *bool                                         `json:"inDeployment,omitempty"`     //
+	OtherPapFqdn     string                                        `json:"otherPapFqdn,omitempty"`     //
+	IPAddresses      []string                                      `json:"ipAddresses,omitempty"`      //
+	IPAddress        string                                        `json:"ipAddress,omitempty"`        //
+	SxpIPAddress     string                                        `json:"sxpIpAddress,omitempty"`     //
+	NodeServiceTypes string                                        `json:"nodeServiceTypes,omitempty"` //
+	Fqdn             string                                        `json:"fqdn,omitempty"`             //
+	PapNode          *bool                                         `json:"papNode,omitempty"`          //
+	PrimaryPapNode   *bool                                         `json:"primaryPapNode,omitempty"`   //
+	PxGridNode       *bool                                         `json:"pxGridNode,omitempty"`       //
+	Link             *ResponseNodeDetailsGetNodeDetailByIDNodeLink `json:"link,omitempty"`             //
 }
 
 type ResponseNodeDetailsGetNodeDetailByIDNodeLink struct {
@@ -78,21 +78,21 @@ type ResponseNodeDetailsGetNodeDetailByIDNodeLink struct {
 }
 
 type ResponseNodeDetailsGetNodeDetails struct {
-	SearchResult ResponseNodeDetailsGetNodeDetailsSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseNodeDetailsGetNodeDetailsSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseNodeDetailsGetNodeDetailsSearchResult struct {
-	Total        int                                                       `json:"total,omitempty"`        //
-	Resources    []ResponseNodeDetailsGetNodeDetailsSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseNodeDetailsGetNodeDetailsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseNodeDetailsGetNodeDetailsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                       `json:"total,omitempty"`        //
+	Resources    *[]ResponseNodeDetailsGetNodeDetailsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseNodeDetailsGetNodeDetailsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseNodeDetailsGetNodeDetailsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseNodeDetailsGetNodeDetailsSearchResultResources struct {
-	ID          string                                                     `json:"id,omitempty"`          //
-	Name        string                                                     `json:"name,omitempty"`        //
-	Description string                                                     `json:"description,omitempty"` //
-	Link        ResponseNodeDetailsGetNodeDetailsSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                      `json:"id,omitempty"`          //
+	Name        string                                                      `json:"name,omitempty"`        //
+	Description string                                                      `json:"description,omitempty"` //
+	Link        *ResponseNodeDetailsGetNodeDetailsSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseNodeDetailsGetNodeDetailsSearchResultResourcesLink struct {
@@ -114,13 +114,13 @@ type ResponseNodeDetailsGetNodeDetailsSearchResultPreviousPage struct {
 }
 
 type ResponseNodeDetailsGetVersion struct {
-	VersionInfo ResponseNodeDetailsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseNodeDetailsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseNodeDetailsGetVersionVersionInfo struct {
-	CurrentServerVersion string                                       `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                       `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseNodeDetailsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                        `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                        `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseNodeDetailsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseNodeDetailsGetVersionVersionInfoLink struct {

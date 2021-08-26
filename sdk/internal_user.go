@@ -20,26 +20,26 @@ type GetInternalUserQueryParams struct {
 }
 
 type ResponseInternalUserGetInternalUserByName struct {
-	InternalUser ResponseInternalUserGetInternalUserByNameInternalUser `json:"InternalUser,omitempty"` //
+	InternalUser *ResponseInternalUserGetInternalUserByNameInternalUser `json:"InternalUser,omitempty"` //
 }
 
 type ResponseInternalUserGetInternalUserByNameInternalUser struct {
-	ID                string                                                    `json:"id,omitempty"`                //
-	Name              string                                                    `json:"name,omitempty"`              //
-	Description       string                                                    `json:"description,omitempty"`       //
-	Enabled           bool                                                      `json:"enabled,omitempty"`           // Whether the user is enabled/disabled. To use it as filter, the values should be 'Enabled' or 'Disabled'. The values are case sensitive. For example, '[ERSObjectURL]?filter=enabled.EQ.Enabled'
-	Email             string                                                    `json:"email,omitempty"`             //
-	Password          string                                                    `json:"password,omitempty"`          //
-	FirstName         string                                                    `json:"firstName,omitempty"`         //
-	LastName          string                                                    `json:"lastName,omitempty"`          //
-	ChangePassword    bool                                                      `json:"changePassword,omitempty"`    //
-	IDentityGroups    string                                                    `json:"identityGroups,omitempty"`    // CSV of identity group IDs
-	ExpiryDateEnabled bool                                                      `json:"expiryDateEnabled,omitempty"` //
-	ExpiryDate        string                                                    `json:"expiryDate,omitempty"`        // To store the internal user's expiry date information. It's format is = 'YYYY-MM-DD'
-	EnablePassword    string                                                    `json:"enablePassword,omitempty"`    //
-	CustomAttributes  map[string]interface{}                                    `json:"customAttributes,omitempty"`  // Key value map
-	PasswordIDStore   string                                                    `json:"passwordIDStore,omitempty"`   // The id store where the internal user's password is kept
-	Link              ResponseInternalUserGetInternalUserByNameInternalUserLink `json:"link,omitempty"`              //
+	ID                string                                                     `json:"id,omitempty"`                //
+	Name              string                                                     `json:"name,omitempty"`              //
+	Description       string                                                     `json:"description,omitempty"`       //
+	Enabled           *bool                                                      `json:"enabled,omitempty"`           // Whether the user is enabled/disabled. To use it as filter, the values should be 'Enabled' or 'Disabled'. The values are case sensitive. For example, '[ERSObjectURL]?filter=enabled.EQ.Enabled'
+	Email             string                                                     `json:"email,omitempty"`             //
+	Password          string                                                     `json:"password,omitempty"`          //
+	FirstName         string                                                     `json:"firstName,omitempty"`         //
+	LastName          string                                                     `json:"lastName,omitempty"`          //
+	ChangePassword    *bool                                                      `json:"changePassword,omitempty"`    //
+	IDentityGroups    string                                                     `json:"identityGroups,omitempty"`    // CSV of identity group IDs
+	ExpiryDateEnabled *bool                                                      `json:"expiryDateEnabled,omitempty"` //
+	ExpiryDate        string                                                     `json:"expiryDate,omitempty"`        // To store the internal user's expiry date information. It's format is = 'YYYY-MM-DD'
+	EnablePassword    string                                                     `json:"enablePassword,omitempty"`    //
+	CustomAttributes  *map[string]interface{}                                    `json:"customAttributes,omitempty"`  // Key value map
+	PasswordIDStore   string                                                     `json:"passwordIDStore,omitempty"`   // The id store where the internal user's password is kept
+	Link              *ResponseInternalUserGetInternalUserByNameInternalUserLink `json:"link,omitempty"`              //
 }
 
 type ResponseInternalUserGetInternalUserByNameInternalUserLink struct {
@@ -49,14 +49,14 @@ type ResponseInternalUserGetInternalUserByNameInternalUserLink struct {
 }
 
 type ResponseInternalUserUpdateInternalUserByName struct {
-	UpdatedFieldsList ResponseInternalUserUpdateInternalUserByNameUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseInternalUserUpdateInternalUserByNameUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseInternalUserUpdateInternalUserByNameUpdatedFieldsList struct {
-	UpdatedField ResponseInternalUserUpdateInternalUserByNameUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                    `json:"field,omitempty"`        //
-	OldValue     string                                                                    `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                    `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseInternalUserUpdateInternalUserByNameUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                       `json:"field,omitempty"`        //
+	OldValue     string                                                                       `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                       `json:"newValue,omitempty"`     //
 }
 
 type ResponseInternalUserUpdateInternalUserByNameUpdatedFieldsListUpdatedField struct {
@@ -66,26 +66,26 @@ type ResponseInternalUserUpdateInternalUserByNameUpdatedFieldsListUpdatedField s
 }
 
 type ResponseInternalUserGetInternalUserByID struct {
-	InternalUser ResponseInternalUserGetInternalUserByIDInternalUser `json:"InternalUser,omitempty"` //
+	InternalUser *ResponseInternalUserGetInternalUserByIDInternalUser `json:"InternalUser,omitempty"` //
 }
 
 type ResponseInternalUserGetInternalUserByIDInternalUser struct {
-	ID                string                                                  `json:"id,omitempty"`                //
-	Name              string                                                  `json:"name,omitempty"`              //
-	Description       string                                                  `json:"description,omitempty"`       //
-	Enabled           bool                                                    `json:"enabled,omitempty"`           // Whether the user is enabled/disabled. To use it as filter, the values should be 'Enabled' or 'Disabled'. The values are case sensitive. For example, '[ERSObjectURL]?filter=enabled.EQ.Enabled'
-	Email             string                                                  `json:"email,omitempty"`             //
-	Password          string                                                  `json:"password,omitempty"`          //
-	FirstName         string                                                  `json:"firstName,omitempty"`         //
-	LastName          string                                                  `json:"lastName,omitempty"`          //
-	ChangePassword    bool                                                    `json:"changePassword,omitempty"`    //
-	IDentityGroups    string                                                  `json:"identityGroups,omitempty"`    // CSV of identity group IDs
-	ExpiryDateEnabled bool                                                    `json:"expiryDateEnabled,omitempty"` //
-	ExpiryDate        string                                                  `json:"expiryDate,omitempty"`        // To store the internal user's expiry date information. It's format is = 'YYYY-MM-DD'
-	EnablePassword    string                                                  `json:"enablePassword,omitempty"`    //
-	CustomAttributes  map[string]interface{}                                  `json:"customAttributes,omitempty"`  // Key value map
-	PasswordIDStore   string                                                  `json:"passwordIDStore,omitempty"`   // The id store where the internal user's password is kept
-	Link              ResponseInternalUserGetInternalUserByIDInternalUserLink `json:"link,omitempty"`              //
+	ID                string                                                   `json:"id,omitempty"`                //
+	Name              string                                                   `json:"name,omitempty"`              //
+	Description       string                                                   `json:"description,omitempty"`       //
+	Enabled           *bool                                                    `json:"enabled,omitempty"`           // Whether the user is enabled/disabled. To use it as filter, the values should be 'Enabled' or 'Disabled'. The values are case sensitive. For example, '[ERSObjectURL]?filter=enabled.EQ.Enabled'
+	Email             string                                                   `json:"email,omitempty"`             //
+	Password          string                                                   `json:"password,omitempty"`          //
+	FirstName         string                                                   `json:"firstName,omitempty"`         //
+	LastName          string                                                   `json:"lastName,omitempty"`          //
+	ChangePassword    *bool                                                    `json:"changePassword,omitempty"`    //
+	IDentityGroups    string                                                   `json:"identityGroups,omitempty"`    // CSV of identity group IDs
+	ExpiryDateEnabled *bool                                                    `json:"expiryDateEnabled,omitempty"` //
+	ExpiryDate        string                                                   `json:"expiryDate,omitempty"`        // To store the internal user's expiry date information. It's format is = 'YYYY-MM-DD'
+	EnablePassword    string                                                   `json:"enablePassword,omitempty"`    //
+	CustomAttributes  *map[string]interface{}                                  `json:"customAttributes,omitempty"`  // Key value map
+	PasswordIDStore   string                                                   `json:"passwordIDStore,omitempty"`   // The id store where the internal user's password is kept
+	Link              *ResponseInternalUserGetInternalUserByIDInternalUserLink `json:"link,omitempty"`              //
 }
 
 type ResponseInternalUserGetInternalUserByIDInternalUserLink struct {
@@ -95,14 +95,14 @@ type ResponseInternalUserGetInternalUserByIDInternalUserLink struct {
 }
 
 type ResponseInternalUserUpdateInternalUserByID struct {
-	UpdatedFieldsList ResponseInternalUserUpdateInternalUserByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseInternalUserUpdateInternalUserByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseInternalUserUpdateInternalUserByIDUpdatedFieldsList struct {
-	UpdatedField ResponseInternalUserUpdateInternalUserByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                  `json:"field,omitempty"`        //
-	OldValue     string                                                                  `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                  `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseInternalUserUpdateInternalUserByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                     `json:"field,omitempty"`        //
+	OldValue     string                                                                     `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                     `json:"newValue,omitempty"`     //
 }
 
 type ResponseInternalUserUpdateInternalUserByIDUpdatedFieldsListUpdatedField struct {
@@ -112,21 +112,21 @@ type ResponseInternalUserUpdateInternalUserByIDUpdatedFieldsListUpdatedField str
 }
 
 type ResponseInternalUserGetInternalUser struct {
-	SearchResult ResponseInternalUserGetInternalUserSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseInternalUserGetInternalUserSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseInternalUserGetInternalUserSearchResult struct {
-	Total        int                                                         `json:"total,omitempty"`        //
-	Resources    []ResponseInternalUserGetInternalUserSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseInternalUserGetInternalUserSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseInternalUserGetInternalUserSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                         `json:"total,omitempty"`        //
+	Resources    *[]ResponseInternalUserGetInternalUserSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseInternalUserGetInternalUserSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseInternalUserGetInternalUserSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseInternalUserGetInternalUserSearchResultResources struct {
-	ID          string                                                       `json:"id,omitempty"`          //
-	Name        string                                                       `json:"name,omitempty"`        //
-	Description string                                                       `json:"description,omitempty"` //
-	Link        ResponseInternalUserGetInternalUserSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                        `json:"id,omitempty"`          //
+	Name        string                                                        `json:"name,omitempty"`        //
+	Description string                                                        `json:"description,omitempty"` //
+	Link        *ResponseInternalUserGetInternalUserSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseInternalUserGetInternalUserSearchResultResourcesLink struct {
@@ -148,13 +148,13 @@ type ResponseInternalUserGetInternalUserSearchResultPreviousPage struct {
 }
 
 type ResponseInternalUserGetVersion struct {
-	VersionInfo ResponseInternalUserGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseInternalUserGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseInternalUserGetVersionVersionInfo struct {
-	CurrentServerVersion string                                        `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                        `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseInternalUserGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                         `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                         `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseInternalUserGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseInternalUserGetVersionVersionInfoLink struct {
