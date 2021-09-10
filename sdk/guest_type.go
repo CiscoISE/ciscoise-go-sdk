@@ -20,28 +20,28 @@ type GetGuestTypeQueryParams struct {
 }
 
 type ResponseGuestTypeGetGuestTypeByID struct {
-	GuestType ResponseGuestTypeGetGuestTypeByIDGuestType `json:"GuestType,omitempty"` //
+	GuestType *ResponseGuestTypeGetGuestTypeByIDGuestType `json:"GuestType,omitempty"` //
 }
 
 type ResponseGuestTypeGetGuestTypeByIDGuestType struct {
-	ID                     string                                                           `json:"id,omitempty"`                     //
-	Name                   string                                                           `json:"name,omitempty"`                   //
-	Description            string                                                           `json:"description,omitempty"`            //
-	IsDefaultType          bool                                                             `json:"isDefaultType,omitempty"`          //
-	AccessTime             ResponseGuestTypeGetGuestTypeByIDGuestTypeAccessTime             `json:"accessTime,omitempty"`             //
-	LoginOptions           ResponseGuestTypeGetGuestTypeByIDGuestTypeLoginOptions           `json:"loginOptions,omitempty"`           //
-	ExpirationNotification ResponseGuestTypeGetGuestTypeByIDGuestTypeExpirationNotification `json:"expirationNotification,omitempty"` // Expiration Notification Settings
-	SponsorGroups          []string                                                         `json:"sponsorGroups,omitempty"`          //
-	Link                   ResponseGuestTypeGetGuestTypeByIDGuestTypeLink                   `json:"link,omitempty"`                   //
+	ID                     string                                                            `json:"id,omitempty"`                     //
+	Name                   string                                                            `json:"name,omitempty"`                   //
+	Description            string                                                            `json:"description,omitempty"`            //
+	IsDefaultType          *bool                                                             `json:"isDefaultType,omitempty"`          //
+	AccessTime             *ResponseGuestTypeGetGuestTypeByIDGuestTypeAccessTime             `json:"accessTime,omitempty"`             //
+	LoginOptions           *ResponseGuestTypeGetGuestTypeByIDGuestTypeLoginOptions           `json:"loginOptions,omitempty"`           //
+	ExpirationNotification *ResponseGuestTypeGetGuestTypeByIDGuestTypeExpirationNotification `json:"expirationNotification,omitempty"` // Expiration Notification Settings
+	SponsorGroups          []string                                                          `json:"sponsorGroups,omitempty"`          //
+	Link                   *ResponseGuestTypeGetGuestTypeByIDGuestTypeLink                   `json:"link,omitempty"`                   //
 }
 
 type ResponseGuestTypeGetGuestTypeByIDGuestTypeAccessTime struct {
-	FromFirstLogin                 bool                                                                `json:"fromFirstLogin,omitempty"`                 // When Account Duration starts from first login or specified date
-	MaxAccountDuration             int                                                                 `json:"maxAccountDuration,omitempty"`             // Maximum value of Account Duration
-	DurationTimeUnit               string                                                              `json:"durationTimeUnit,omitempty"`               // Allowed values are: - DAYS, - HOURS, - MINUTES
-	DefaultDuration                int                                                                 `json:"defaultDuration,omitempty"`                //
-	AllowAccessOnSpecificDaysTimes bool                                                                `json:"allowAccessOnSpecificDaysTimes,omitempty"` //
-	DayTimeLimits                  []ResponseGuestTypeGetGuestTypeByIDGuestTypeAccessTimeDayTimeLimits `json:"dayTimeLimits,omitempty"`                  // List of Time Ranges for account access
+	FromFirstLogin                 *bool                                                                `json:"fromFirstLogin,omitempty"`                 // When Account Duration starts from first login or specified date
+	MaxAccountDuration             *int                                                                 `json:"maxAccountDuration,omitempty"`             // Maximum value of Account Duration
+	DurationTimeUnit               string                                                               `json:"durationTimeUnit,omitempty"`               // Allowed values are: - DAYS, - HOURS, - MINUTES
+	DefaultDuration                *int                                                                 `json:"defaultDuration,omitempty"`                //
+	AllowAccessOnSpecificDaysTimes *bool                                                                `json:"allowAccessOnSpecificDaysTimes,omitempty"` //
+	DayTimeLimits                  *[]ResponseGuestTypeGetGuestTypeByIDGuestTypeAccessTimeDayTimeLimits `json:"dayTimeLimits,omitempty"`                  // List of Time Ranges for account access
 }
 
 type ResponseGuestTypeGetGuestTypeByIDGuestTypeAccessTimeDayTimeLimits struct {
@@ -51,21 +51,21 @@ type ResponseGuestTypeGetGuestTypeByIDGuestTypeAccessTimeDayTimeLimits struct {
 }
 
 type ResponseGuestTypeGetGuestTypeByIDGuestTypeLoginOptions struct {
-	LimitSimultaneousLogins bool   `json:"limitSimultaneousLogins,omitempty"` // Enable Simultaneous Logins
-	MaxSimultaneousLogins   int    `json:"maxSimultaneousLogins,omitempty"`   // Number of Simultaneous Logins
+	LimitSimultaneousLogins *bool  `json:"limitSimultaneousLogins,omitempty"` // Enable Simultaneous Logins
+	MaxSimultaneousLogins   *int   `json:"maxSimultaneousLogins,omitempty"`   // Number of Simultaneous Logins
 	FailureAction           string `json:"failureAction,omitempty"`           // When Guest Exceeds limit this action will be invoked. Allowed values are: - Disconnect_Oldest_Connection, - Disconnect_Newest_Connection
-	MaxRegisteredDevices    int    `json:"maxRegisteredDevices,omitempty"`    // Maximum devices guests can register
+	MaxRegisteredDevices    *int   `json:"maxRegisteredDevices,omitempty"`    // Maximum devices guests can register
 	IDentityGroupID         string `json:"identityGroupId,omitempty"`         //
-	AllowGuestPortalBypass  bool   `json:"allowGuestPortalBypass,omitempty"`  //
+	AllowGuestPortalBypass  *bool  `json:"allowGuestPortalBypass,omitempty"`  //
 }
 
 type ResponseGuestTypeGetGuestTypeByIDGuestTypeExpirationNotification struct {
-	EnableNotification          bool   `json:"enableNotification,omitempty"`          // Enable Notification settings
-	AdvanceNotificationDuration int    `json:"advanceNotificationDuration,omitempty"` // Send Account Expiration Notification Duration before ( Days, Hours, Minutes )
+	EnableNotification          *bool  `json:"enableNotification,omitempty"`          // Enable Notification settings
+	AdvanceNotificationDuration *int   `json:"advanceNotificationDuration,omitempty"` // Send Account Expiration Notification Duration before ( Days, Hours, Minutes )
 	AdvanceNotificationUnits    string `json:"advanceNotificationUnits,omitempty"`    // Allowed values are: - DAYS, - HOURS, - MINUTES
-	SendEmailNotification       bool   `json:"sendEmailNotification,omitempty"`       // Enable Email Notification
+	SendEmailNotification       *bool  `json:"sendEmailNotification,omitempty"`       // Enable Email Notification
 	EmailText                   string `json:"emailText,omitempty"`                   //
-	SendSmsNotification         bool   `json:"sendSmsNotification,omitempty"`         // Maximum devices guests can register
+	SendSmsNotification         *bool  `json:"sendSmsNotification,omitempty"`         // Maximum devices guests can register
 	SmsText                     string `json:"smsText,omitempty"`                     //
 }
 
@@ -76,14 +76,14 @@ type ResponseGuestTypeGetGuestTypeByIDGuestTypeLink struct {
 }
 
 type ResponseGuestTypeUpdateGuestTypeByID struct {
-	UpdatedFieldsList ResponseGuestTypeUpdateGuestTypeByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseGuestTypeUpdateGuestTypeByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseGuestTypeUpdateGuestTypeByIDUpdatedFieldsList struct {
-	UpdatedField ResponseGuestTypeUpdateGuestTypeByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                            `json:"field,omitempty"`        //
-	OldValue     string                                                            `json:"oldValue,omitempty"`     //
-	NewValue     string                                                            `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseGuestTypeUpdateGuestTypeByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                               `json:"field,omitempty"`        //
+	OldValue     string                                                               `json:"oldValue,omitempty"`     //
+	NewValue     string                                                               `json:"newValue,omitempty"`     //
 }
 
 type ResponseGuestTypeUpdateGuestTypeByIDUpdatedFieldsListUpdatedField struct {
@@ -93,21 +93,21 @@ type ResponseGuestTypeUpdateGuestTypeByIDUpdatedFieldsListUpdatedField struct {
 }
 
 type ResponseGuestTypeGetGuestType struct {
-	SearchResult ResponseGuestTypeGetGuestTypeSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseGuestTypeGetGuestTypeSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseGuestTypeGetGuestTypeSearchResult struct {
-	Total        int                                                   `json:"total,omitempty"`        //
-	Resources    []ResponseGuestTypeGetGuestTypeSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseGuestTypeGetGuestTypeSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseGuestTypeGetGuestTypeSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                   `json:"total,omitempty"`        //
+	Resources    *[]ResponseGuestTypeGetGuestTypeSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseGuestTypeGetGuestTypeSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseGuestTypeGetGuestTypeSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseGuestTypeGetGuestTypeSearchResultResources struct {
-	ID          string                                                 `json:"id,omitempty"`          //
-	Name        string                                                 `json:"name,omitempty"`        //
-	Description string                                                 `json:"description,omitempty"` //
-	Link        ResponseGuestTypeGetGuestTypeSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                  `json:"id,omitempty"`          //
+	Name        string                                                  `json:"name,omitempty"`        //
+	Description string                                                  `json:"description,omitempty"` //
+	Link        *ResponseGuestTypeGetGuestTypeSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseGuestTypeGetGuestTypeSearchResultResourcesLink struct {
@@ -129,13 +129,13 @@ type ResponseGuestTypeGetGuestTypeSearchResultPreviousPage struct {
 }
 
 type ResponseGuestTypeGetVersion struct {
-	VersionInfo ResponseGuestTypeGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseGuestTypeGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseGuestTypeGetVersionVersionInfo struct {
-	CurrentServerVersion string                                     `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                     `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseGuestTypeGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                      `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                      `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseGuestTypeGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseGuestTypeGetVersionVersionInfoLink struct {

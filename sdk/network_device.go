@@ -20,35 +20,35 @@ type GetNetworkDeviceQueryParams struct {
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceByName struct {
-	NetworkDevice ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDevice `json:"NetworkDevice,omitempty"` //
+	NetworkDevice *ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDevice `json:"NetworkDevice,omitempty"` //
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDevice struct {
-	ID                     string                                                                         `json:"id,omitempty"`                     //
-	Name                   string                                                                         `json:"name,omitempty"`                   //
-	Description            string                                                                         `json:"description,omitempty"`            //
-	AuthenticationSettings ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceAuthenticationSettings `json:"authenticationSettings,omitempty"` //
-	SNMPsettings           ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceSNMPsettings           `json:"snmpsettings,omitempty"`           //
-	Trustsecsettings       ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettings       `json:"trustsecsettings,omitempty"`       //
-	TacacsSettings         ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTacacsSettings         `json:"tacacsSettings,omitempty"`         //
-	ProfileName            string                                                                         `json:"profileName,omitempty"`            //
-	ModelName              string                                                                         `json:"modelName,omitempty"`              //
-	SoftwareVersion        string                                                                         `json:"softwareVersion,omitempty"`        //
-	CoaPort                int                                                                            `json:"coaPort,omitempty"`                //
-	DtlsDNSName            string                                                                         `json:"dtlsDnsName,omitempty"`            // This value is used to verify the client identity contained in the X.509 RADIUS/DTLS client certificate
-	NetworkDeviceIPList    []ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceNetworkDeviceIPList  `json:"NetworkDeviceIPList,omitempty"`    // List of IP Subnets for this node
-	NetworkDeviceGroupList []string                                                                       `json:"NetworkDeviceGroupList,omitempty"` // List of Network Device Group names for this node
-	Link                   ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceLink                   `json:"link,omitempty"`                   //
+	ID                     string                                                                          `json:"id,omitempty"`                     //
+	Name                   string                                                                          `json:"name,omitempty"`                   //
+	Description            string                                                                          `json:"description,omitempty"`            //
+	AuthenticationSettings *ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceAuthenticationSettings `json:"authenticationSettings,omitempty"` //
+	SNMPsettings           *ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceSNMPsettings           `json:"snmpsettings,omitempty"`           //
+	Trustsecsettings       *ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettings       `json:"trustsecsettings,omitempty"`       //
+	TacacsSettings         *ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTacacsSettings         `json:"tacacsSettings,omitempty"`         //
+	ProfileName            string                                                                          `json:"profileName,omitempty"`            //
+	ModelName              string                                                                          `json:"modelName,omitempty"`              //
+	SoftwareVersion        string                                                                          `json:"softwareVersion,omitempty"`        //
+	CoaPort                *int                                                                            `json:"coaPort,omitempty"`                //
+	DtlsDNSName            string                                                                          `json:"dtlsDnsName,omitempty"`            // This value is used to verify the client identity contained in the X.509 RADIUS/DTLS client certificate
+	NetworkDeviceIPList    *[]ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceNetworkDeviceIPList  `json:"NetworkDeviceIPList,omitempty"`    // List of IP Subnets for this node
+	NetworkDeviceGroupList []string                                                                        `json:"NetworkDeviceGroupList,omitempty"` // List of Network Device Group names for this node
+	Link                   *ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceLink                   `json:"link,omitempty"`                   //
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceAuthenticationSettings struct {
 	NetworkProtocol             string `json:"networkProtocol,omitempty"`             // Allowed values: - RADIUS, - TACACS_PLUS
 	SecondRadiusSharedSecret    string `json:"secondRadiusSharedSecret,omitempty"`    //
 	RadiusSharedSecret          string `json:"radiusSharedSecret,omitempty"`          //
-	EnableKeyWrap               bool   `json:"enableKeyWrap,omitempty"`               //
-	Enabled                     bool   `json:"enabled,omitempty"`                     //
-	DtlsRequired                bool   `json:"dtlsRequired,omitempty"`                // This value enforces use of dtls
-	EnableMultiSecret           bool   `json:"enableMultiSecret,omitempty"`           //
+	EnableKeyWrap               *bool  `json:"enableKeyWrap,omitempty"`               //
+	Enabled                     *bool  `json:"enabled,omitempty"`                     //
+	DtlsRequired                *bool  `json:"dtlsRequired,omitempty"`                // This value enforces use of dtls
+	EnableMultiSecret           string `json:"enableMultiSecret,omitempty"`           //
 	KeyEncryptionKey            string `json:"keyEncryptionKey,omitempty"`            //
 	MessageAuthenticatorCodeKey string `json:"messageAuthenticatorCodeKey,omitempty"` //
 	KeyInputFormat              string `json:"keyInputFormat,omitempty"`              // Allowed values: - ASCII, - HEXADECIMAL
@@ -57,17 +57,17 @@ type ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceAuthenticationSetti
 type ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceSNMPsettings struct {
 	Version                       string `json:"version,omitempty"`                       //
 	RoCommunity                   string `json:"roCommunity,omitempty"`                   //
-	PollingInterval               int    `json:"pollingInterval,omitempty"`               //
-	LinkTrapQuery                 bool   `json:"linkTrapQuery,omitempty"`                 //
-	MacTrapQuery                  bool   `json:"macTrapQuery,omitempty"`                  //
+	PollingInterval               *int   `json:"pollingInterval,omitempty"`               //
+	LinkTrapQuery                 *bool  `json:"linkTrapQuery,omitempty"`                 //
+	MacTrapQuery                  *bool  `json:"macTrapQuery,omitempty"`                  //
 	OriginatingPolicyServicesNode string `json:"originatingPolicyServicesNode,omitempty"` //
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettings struct {
-	DeviceAuthenticationSettings  ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettingsDeviceAuthenticationSettings  `json:"deviceAuthenticationSettings,omitempty"`  //
-	SgaNotificationAndUpdates     ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettingsSgaNotificationAndUpdates     `json:"sgaNotificationAndUpdates,omitempty"`     //
-	DeviceConfigurationDeployment ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettingsDeviceConfigurationDeployment `json:"deviceConfigurationDeployment,omitempty"` //
-	PushIDSupport                 bool                                                                                                  `json:"pushIdSupport,omitempty"`                 //
+	DeviceAuthenticationSettings  *ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettingsDeviceAuthenticationSettings  `json:"deviceAuthenticationSettings,omitempty"`  //
+	SgaNotificationAndUpdates     *ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettingsSgaNotificationAndUpdates     `json:"sgaNotificationAndUpdates,omitempty"`     //
+	DeviceConfigurationDeployment *ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettingsDeviceConfigurationDeployment `json:"deviceConfigurationDeployment,omitempty"` //
+	PushIDSupport                 *bool                                                                                                  `json:"pushIdSupport,omitempty"`                 //
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettingsDeviceAuthenticationSettings struct {
@@ -76,18 +76,18 @@ type ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettingsDev
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettingsSgaNotificationAndUpdates struct {
-	DownlaodEnvironmentDataEveryXSeconds         int    `json:"downlaodEnvironmentDataEveryXSeconds,omitempty"`         //
-	DownlaodPeerAuthorizationPolicyEveryXSeconds int    `json:"downlaodPeerAuthorizationPolicyEveryXSeconds,omitempty"` //
-	ReAuthenticationEveryXSeconds                int    `json:"reAuthenticationEveryXSeconds,omitempty"`                //
-	DownloadSgACLListsEveryXSeconds              int    `json:"downloadSGACLListsEveryXSeconds,omitempty"`              //
-	OtherSgADevicesToTrustThisDevice             bool   `json:"otherSGADevicesToTrustThisDevice,omitempty"`             //
-	SendConfigurationToDevice                    bool   `json:"sendConfigurationToDevice,omitempty"`                    //
+	DownlaodEnvironmentDataEveryXSeconds         *int   `json:"downlaodEnvironmentDataEveryXSeconds,omitempty"`         //
+	DownlaodPeerAuthorizationPolicyEveryXSeconds *int   `json:"downlaodPeerAuthorizationPolicyEveryXSeconds,omitempty"` //
+	ReAuthenticationEveryXSeconds                *int   `json:"reAuthenticationEveryXSeconds,omitempty"`                //
+	DownloadSgACLListsEveryXSeconds              *int   `json:"downloadSGACLListsEveryXSeconds,omitempty"`              //
+	OtherSgADevicesToTrustThisDevice             *bool  `json:"otherSGADevicesToTrustThisDevice,omitempty"`             //
+	SendConfigurationToDevice                    *bool  `json:"sendConfigurationToDevice,omitempty"`                    //
 	SendConfigurationToDeviceUsing               string `json:"sendConfigurationToDeviceUsing,omitempty"`               // Allowed values: - ENABLE_USING_COA, - ENABLE_USING_CLI, - DISABLE_ALL
 	CoaSourceHost                                string `json:"coaSourceHost,omitempty"`                                //
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettingsDeviceConfigurationDeployment struct {
-	IncludeWhenDeployingSgtUpdates bool   `json:"includeWhenDeployingSGTUpdates,omitempty"` //
+	IncludeWhenDeployingSgtUpdates *bool  `json:"includeWhenDeployingSGTUpdates,omitempty"` //
 	EnableModePassword             string `json:"enableModePassword,omitempty"`             //
 	ExecModePassword               string `json:"execModePassword,omitempty"`               //
 	ExecModeUsername               string `json:"execModeUsername,omitempty"`               //
@@ -100,7 +100,7 @@ type ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTacacsSettings stru
 
 type ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceNetworkDeviceIPList struct {
 	IPaddress           string `json:"ipaddress,omitempty"`           //
-	Mask                int    `json:"mask,omitempty"`                //
+	Mask                *int   `json:"mask,omitempty"`                //
 	GetIPaddressExclude string `json:"getIpaddressExclude,omitempty"` // It can be either single IP address or IP range address
 }
 
@@ -111,14 +111,14 @@ type ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceLink struct {
 }
 
 type ResponseNetworkDeviceUpdateNetworkDeviceByName struct {
-	UpdatedFieldsList ResponseNetworkDeviceUpdateNetworkDeviceByNameUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseNetworkDeviceUpdateNetworkDeviceByNameUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseNetworkDeviceUpdateNetworkDeviceByNameUpdatedFieldsList struct {
-	UpdatedField ResponseNetworkDeviceUpdateNetworkDeviceByNameUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                      `json:"field,omitempty"`        //
-	OldValue     string                                                                      `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                      `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseNetworkDeviceUpdateNetworkDeviceByNameUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                         `json:"field,omitempty"`        //
+	OldValue     string                                                                         `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                         `json:"newValue,omitempty"`     //
 }
 
 type ResponseNetworkDeviceUpdateNetworkDeviceByNameUpdatedFieldsListUpdatedField struct {
@@ -128,35 +128,35 @@ type ResponseNetworkDeviceUpdateNetworkDeviceByNameUpdatedFieldsListUpdatedField
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceByID struct {
-	NetworkDevice ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDevice `json:"NetworkDevice,omitempty"` //
+	NetworkDevice *ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDevice `json:"NetworkDevice,omitempty"` //
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDevice struct {
-	ID                     string                                                                       `json:"id,omitempty"`                     //
-	Name                   string                                                                       `json:"name,omitempty"`                   //
-	Description            string                                                                       `json:"description,omitempty"`            //
-	AuthenticationSettings ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceAuthenticationSettings `json:"authenticationSettings,omitempty"` //
-	SNMPsettings           ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceSNMPsettings           `json:"snmpsettings,omitempty"`           //
-	Trustsecsettings       ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTrustsecsettings       `json:"trustsecsettings,omitempty"`       //
-	TacacsSettings         ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTacacsSettings         `json:"tacacsSettings,omitempty"`         //
-	ProfileName            string                                                                       `json:"profileName,omitempty"`            //
-	CoaPort                int                                                                          `json:"coaPort,omitempty"`                //
-	DtlsDNSName            string                                                                       `json:"dtlsDnsName,omitempty"`            // This value is used to verify the client identity contained in the X.509 RADIUS/DTLS client certificate
-	ModelName              string                                                                       `json:"modelName,omitempty"`              //
-	SoftwareVersion        string                                                                       `json:"softwareVersion,omitempty"`        //
-	NetworkDeviceIPList    []ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceNetworkDeviceIPList  `json:"NetworkDeviceIPList,omitempty"`    // List of IP Subnets for this node
-	NetworkDeviceGroupList []string                                                                     `json:"NetworkDeviceGroupList,omitempty"` // List of Network Device Group names for this node
-	Link                   ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceLink                   `json:"link,omitempty"`                   //
+	ID                     string                                                                        `json:"id,omitempty"`                     //
+	Name                   string                                                                        `json:"name,omitempty"`                   //
+	Description            string                                                                        `json:"description,omitempty"`            //
+	AuthenticationSettings *ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceAuthenticationSettings `json:"authenticationSettings,omitempty"` //
+	SNMPsettings           *ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceSNMPsettings           `json:"snmpsettings,omitempty"`           //
+	Trustsecsettings       *ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTrustsecsettings       `json:"trustsecsettings,omitempty"`       //
+	TacacsSettings         *ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTacacsSettings         `json:"tacacsSettings,omitempty"`         //
+	ProfileName            string                                                                        `json:"profileName,omitempty"`            //
+	CoaPort                *int                                                                          `json:"coaPort,omitempty"`                //
+	DtlsDNSName            string                                                                        `json:"dtlsDnsName,omitempty"`            // This value is used to verify the client identity contained in the X.509 RADIUS/DTLS client certificate
+	ModelName              string                                                                        `json:"modelName,omitempty"`              //
+	SoftwareVersion        string                                                                        `json:"softwareVersion,omitempty"`        //
+	NetworkDeviceIPList    *[]ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceNetworkDeviceIPList  `json:"NetworkDeviceIPList,omitempty"`    // List of IP Subnets for this node
+	NetworkDeviceGroupList []string                                                                      `json:"NetworkDeviceGroupList,omitempty"` // List of Network Device Group names for this node
+	Link                   *ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceLink                   `json:"link,omitempty"`                   //
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceAuthenticationSettings struct {
 	NetworkProtocol             string `json:"networkProtocol,omitempty"`             // Allowed values: - RADIUS, - TACACS_PLUS
 	SecondRadiusSharedSecret    string `json:"secondRadiusSharedSecret,omitempty"`    //
 	RadiusSharedSecret          string `json:"radiusSharedSecret,omitempty"`          //
-	EnableKeyWrap               bool   `json:"enableKeyWrap,omitempty"`               //
-	Enabled                     bool   `json:"enabled,omitempty"`                     //
-	DtlsRequired                bool   `json:"dtlsRequired,omitempty"`                // This value enforces use of dtls
-	EnableMultiSecret           bool   `json:"enableMultiSecret,omitempty"`           //
+	EnableKeyWrap               *bool  `json:"enableKeyWrap,omitempty"`               //
+	Enabled                     *bool  `json:"enabled,omitempty"`                     //
+	DtlsRequired                *bool  `json:"dtlsRequired,omitempty"`                // This value enforces use of dtls
+	EnableMultiSecret           string `json:"enableMultiSecret,omitempty"`           //
 	KeyEncryptionKey            string `json:"keyEncryptionKey,omitempty"`            //
 	MessageAuthenticatorCodeKey string `json:"messageAuthenticatorCodeKey,omitempty"` //
 	KeyInputFormat              string `json:"keyInputFormat,omitempty"`              // Allowed values: - ASCII, - HEXADECIMAL
@@ -165,17 +165,17 @@ type ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceAuthenticationSetting
 type ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceSNMPsettings struct {
 	Version                       string `json:"version,omitempty"`                       //
 	RoCommunity                   string `json:"roCommunity,omitempty"`                   //
-	PollingInterval               int    `json:"pollingInterval,omitempty"`               //
-	LinkTrapQuery                 bool   `json:"linkTrapQuery,omitempty"`                 //
-	MacTrapQuery                  bool   `json:"macTrapQuery,omitempty"`                  //
+	PollingInterval               *int   `json:"pollingInterval,omitempty"`               //
+	LinkTrapQuery                 *bool  `json:"linkTrapQuery,omitempty"`                 //
+	MacTrapQuery                  *bool  `json:"macTrapQuery,omitempty"`                  //
 	OriginatingPolicyServicesNode string `json:"originatingPolicyServicesNode,omitempty"` //
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTrustsecsettings struct {
-	DeviceAuthenticationSettings  ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTrustsecsettingsDeviceAuthenticationSettings  `json:"deviceAuthenticationSettings,omitempty"`  //
-	SgaNotificationAndUpdates     ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTrustsecsettingsSgaNotificationAndUpdates     `json:"sgaNotificationAndUpdates,omitempty"`     //
-	DeviceConfigurationDeployment ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTrustsecsettingsDeviceConfigurationDeployment `json:"deviceConfigurationDeployment,omitempty"` //
-	PushIDSupport                 bool                                                                                                `json:"pushIdSupport,omitempty"`                 //
+	DeviceAuthenticationSettings  *ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTrustsecsettingsDeviceAuthenticationSettings  `json:"deviceAuthenticationSettings,omitempty"`  //
+	SgaNotificationAndUpdates     *ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTrustsecsettingsSgaNotificationAndUpdates     `json:"sgaNotificationAndUpdates,omitempty"`     //
+	DeviceConfigurationDeployment *ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTrustsecsettingsDeviceConfigurationDeployment `json:"deviceConfigurationDeployment,omitempty"` //
+	PushIDSupport                 *bool                                                                                                `json:"pushIdSupport,omitempty"`                 //
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTrustsecsettingsDeviceAuthenticationSettings struct {
@@ -184,18 +184,18 @@ type ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTrustsecsettingsDevic
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTrustsecsettingsSgaNotificationAndUpdates struct {
-	DownlaodEnvironmentDataEveryXSeconds         int    `json:"downlaodEnvironmentDataEveryXSeconds,omitempty"`         //
-	DownlaodPeerAuthorizationPolicyEveryXSeconds int    `json:"downlaodPeerAuthorizationPolicyEveryXSeconds,omitempty"` //
-	ReAuthenticationEveryXSeconds                int    `json:"reAuthenticationEveryXSeconds,omitempty"`                //
-	DownloadSgACLListsEveryXSeconds              int    `json:"downloadSGACLListsEveryXSeconds,omitempty"`              //
-	OtherSgADevicesToTrustThisDevice             bool   `json:"otherSGADevicesToTrustThisDevice,omitempty"`             //
-	SendConfigurationToDevice                    bool   `json:"sendConfigurationToDevice,omitempty"`                    //
+	DownlaodEnvironmentDataEveryXSeconds         *int   `json:"downlaodEnvironmentDataEveryXSeconds,omitempty"`         //
+	DownlaodPeerAuthorizationPolicyEveryXSeconds *int   `json:"downlaodPeerAuthorizationPolicyEveryXSeconds,omitempty"` //
+	ReAuthenticationEveryXSeconds                *int   `json:"reAuthenticationEveryXSeconds,omitempty"`                //
+	DownloadSgACLListsEveryXSeconds              *int   `json:"downloadSGACLListsEveryXSeconds,omitempty"`              //
+	OtherSgADevicesToTrustThisDevice             *bool  `json:"otherSGADevicesToTrustThisDevice,omitempty"`             //
+	SendConfigurationToDevice                    *bool  `json:"sendConfigurationToDevice,omitempty"`                    //
 	SendConfigurationToDeviceUsing               string `json:"sendConfigurationToDeviceUsing,omitempty"`               // Allowed values: - ENABLE_USING_COA, - ENABLE_USING_CLI, - DISABLE_ALL
 	CoaSourceHost                                string `json:"coaSourceHost,omitempty"`                                //
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTrustsecsettingsDeviceConfigurationDeployment struct {
-	IncludeWhenDeployingSgtUpdates bool   `json:"includeWhenDeployingSGTUpdates,omitempty"` //
+	IncludeWhenDeployingSgtUpdates *bool  `json:"includeWhenDeployingSGTUpdates,omitempty"` //
 	EnableModePassword             string `json:"enableModePassword,omitempty"`             //
 	ExecModePassword               string `json:"execModePassword,omitempty"`               //
 	ExecModeUsername               string `json:"execModeUsername,omitempty"`               //
@@ -208,7 +208,7 @@ type ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTacacsSettings struct
 
 type ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceNetworkDeviceIPList struct {
 	IPaddress           string `json:"ipaddress,omitempty"`           //
-	Mask                int    `json:"mask,omitempty"`                //
+	Mask                *int   `json:"mask,omitempty"`                //
 	GetIPaddressExclude string `json:"getIpaddressExclude,omitempty"` // It can be either single IP address or IP range address
 }
 
@@ -219,14 +219,14 @@ type ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceLink struct {
 }
 
 type ResponseNetworkDeviceUpdateNetworkDeviceByID struct {
-	UpdatedFieldsList ResponseNetworkDeviceUpdateNetworkDeviceByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseNetworkDeviceUpdateNetworkDeviceByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseNetworkDeviceUpdateNetworkDeviceByIDUpdatedFieldsList struct {
-	UpdatedField ResponseNetworkDeviceUpdateNetworkDeviceByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                    `json:"field,omitempty"`        //
-	OldValue     string                                                                    `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                    `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseNetworkDeviceUpdateNetworkDeviceByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                       `json:"field,omitempty"`        //
+	OldValue     string                                                                       `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                       `json:"newValue,omitempty"`     //
 }
 
 type ResponseNetworkDeviceUpdateNetworkDeviceByIDUpdatedFieldsListUpdatedField struct {
@@ -236,21 +236,21 @@ type ResponseNetworkDeviceUpdateNetworkDeviceByIDUpdatedFieldsListUpdatedField s
 }
 
 type ResponseNetworkDeviceGetNetworkDevice struct {
-	SearchResult ResponseNetworkDeviceGetNetworkDeviceSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseNetworkDeviceGetNetworkDeviceSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceSearchResult struct {
-	Total        int                                                           `json:"total,omitempty"`        //
-	Resources    []ResponseNetworkDeviceGetNetworkDeviceSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseNetworkDeviceGetNetworkDeviceSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseNetworkDeviceGetNetworkDeviceSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                           `json:"total,omitempty"`        //
+	Resources    *[]ResponseNetworkDeviceGetNetworkDeviceSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseNetworkDeviceGetNetworkDeviceSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseNetworkDeviceGetNetworkDeviceSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceSearchResultResources struct {
-	ID          string                                                         `json:"id,omitempty"`          //
-	Name        string                                                         `json:"name,omitempty"`        //
-	Description string                                                         `json:"description,omitempty"` //
-	Link        ResponseNetworkDeviceGetNetworkDeviceSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                          `json:"id,omitempty"`          //
+	Name        string                                                          `json:"name,omitempty"`        //
+	Description string                                                          `json:"description,omitempty"` //
+	Link        *ResponseNetworkDeviceGetNetworkDeviceSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceSearchResultResourcesLink struct {
@@ -272,13 +272,13 @@ type ResponseNetworkDeviceGetNetworkDeviceSearchResultPreviousPage struct {
 }
 
 type ResponseNetworkDeviceGetVersion struct {
-	VersionInfo ResponseNetworkDeviceGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseNetworkDeviceGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseNetworkDeviceGetVersionVersionInfo struct {
-	CurrentServerVersion string                                         `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                         `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseNetworkDeviceGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                          `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                          `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseNetworkDeviceGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseNetworkDeviceGetVersionVersionInfoLink struct {
@@ -288,19 +288,19 @@ type ResponseNetworkDeviceGetVersionVersionInfoLink struct {
 }
 
 type ResponseNetworkDeviceMonitorBulkStatusNetworkDevice struct {
-	BulkStatus ResponseNetworkDeviceMonitorBulkStatusNetworkDeviceBulkStatus `json:"BulkStatus,omitempty"` //
+	BulkStatus *ResponseNetworkDeviceMonitorBulkStatusNetworkDeviceBulkStatus `json:"BulkStatus,omitempty"` //
 }
 
 type ResponseNetworkDeviceMonitorBulkStatusNetworkDeviceBulkStatus struct {
-	BulkID          string                                                                         `json:"bulkId,omitempty"`          //
-	MediaType       string                                                                         `json:"mediaType,omitempty"`       //
-	ExecutionStatus string                                                                         `json:"executionStatus,omitempty"` //
-	OperationType   string                                                                         `json:"operationType,omitempty"`   //
-	StartTime       string                                                                         `json:"startTime,omitempty"`       //
-	ResourcesCount  int                                                                            `json:"resourcesCount,omitempty"`  //
-	SuccessCount    int                                                                            `json:"successCount,omitempty"`    //
-	FailCount       int                                                                            `json:"failCount,omitempty"`       //
-	ResourcesStatus []ResponseNetworkDeviceMonitorBulkStatusNetworkDeviceBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
+	BulkID          string                                                                          `json:"bulkId,omitempty"`          //
+	MediaType       string                                                                          `json:"mediaType,omitempty"`       //
+	ExecutionStatus string                                                                          `json:"executionStatus,omitempty"` //
+	OperationType   string                                                                          `json:"operationType,omitempty"`   //
+	StartTime       string                                                                          `json:"startTime,omitempty"`       //
+	ResourcesCount  *int                                                                            `json:"resourcesCount,omitempty"`  //
+	SuccessCount    *int                                                                            `json:"successCount,omitempty"`    //
+	FailCount       *int                                                                            `json:"failCount,omitempty"`       //
+	ResourcesStatus *[]ResponseNetworkDeviceMonitorBulkStatusNetworkDeviceBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
 }
 
 type ResponseNetworkDeviceMonitorBulkStatusNetworkDeviceBulkStatusResourcesStatus struct {
@@ -339,7 +339,7 @@ type RequestNetworkDeviceUpdateNetworkDeviceByNameNetworkDeviceAuthenticationSet
 	EnableKeyWrap               *bool  `json:"enableKeyWrap,omitempty"`               //
 	Enabled                     *bool  `json:"enabled,omitempty"`                     //
 	DtlsRequired                *bool  `json:"dtlsRequired,omitempty"`                // This value enforces use of dtls
-	EnableMultiSecret           *bool  `json:"enableMultiSecret,omitempty"`           //
+	EnableMultiSecret           string `json:"enableMultiSecret,omitempty"`           //
 	KeyEncryptionKey            string `json:"keyEncryptionKey,omitempty"`            //
 	MessageAuthenticatorCodeKey string `json:"messageAuthenticatorCodeKey,omitempty"` //
 	KeyInputFormat              string `json:"keyInputFormat,omitempty"`              // Allowed values: - ASCII, - HEXADECIMAL
@@ -423,7 +423,7 @@ type RequestNetworkDeviceUpdateNetworkDeviceByIDNetworkDeviceAuthenticationSetti
 	EnableKeyWrap               *bool  `json:"enableKeyWrap,omitempty"`               //
 	Enabled                     *bool  `json:"enabled,omitempty"`                     //
 	DtlsRequired                *bool  `json:"dtlsRequired,omitempty"`                // This value enforces use of dtls
-	EnableMultiSecret           *bool  `json:"enableMultiSecret,omitempty"`           //
+	EnableMultiSecret           string `json:"enableMultiSecret,omitempty"`           //
 	KeyEncryptionKey            string `json:"keyEncryptionKey,omitempty"`            //
 	MessageAuthenticatorCodeKey string `json:"messageAuthenticatorCodeKey,omitempty"` //
 	KeyInputFormat              string `json:"keyInputFormat,omitempty"`              // Allowed values: - ASCII, - HEXADECIMAL
@@ -506,7 +506,7 @@ type RequestNetworkDeviceCreateNetworkDeviceNetworkDeviceAuthenticationSettings 
 	EnableKeyWrap               *bool  `json:"enableKeyWrap,omitempty"`               //
 	Enabled                     *bool  `json:"enabled,omitempty"`                     //
 	DtlsRequired                *bool  `json:"dtlsRequired,omitempty"`                // This value enforces use of dtls
-	EnableMultiSecret           *bool  `json:"enableMultiSecret,omitempty"`           //
+	EnableMultiSecret           string `json:"enableMultiSecret,omitempty"`           //
 	KeyEncryptionKey            string `json:"keyEncryptionKey,omitempty"`            //
 	MessageAuthenticatorCodeKey string `json:"messageAuthenticatorCodeKey,omitempty"` //
 	KeyInputFormat              string `json:"keyInputFormat,omitempty"`              // Allowed values: - ASCII, - HEXADECIMAL

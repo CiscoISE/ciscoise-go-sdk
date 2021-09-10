@@ -16,16 +16,16 @@ type GetSessionServiceNodeQueryParams struct {
 }
 
 type ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeByName struct {
-	SessionServiceNode ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeByNameSessionServiceNode `json:"SessionServiceNode,omitempty"` //
+	SessionServiceNode *ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeByNameSessionServiceNode `json:"SessionServiceNode,omitempty"` //
 }
 
 type ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeByNameSessionServiceNode struct {
-	ID          string                                                                                   `json:"id,omitempty"`          //
-	Name        string                                                                                   `json:"name,omitempty"`        //
-	Description string                                                                                   `json:"description,omitempty"` //
-	IPAddress   string                                                                                   `json:"ipAddress,omitempty"`   //
-	GateWay     string                                                                                   `json:"gateWay,omitempty"`     //
-	Link        ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeByNameSessionServiceNodeLink `json:"link,omitempty"`        //
+	ID          string                                                                                    `json:"id,omitempty"`          //
+	Name        string                                                                                    `json:"name,omitempty"`        //
+	Description string                                                                                    `json:"description,omitempty"` //
+	IPAddress   string                                                                                    `json:"ipAddress,omitempty"`   //
+	GateWay     string                                                                                    `json:"gateWay,omitempty"`     //
+	Link        *ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeByNameSessionServiceNodeLink `json:"link,omitempty"`        //
 }
 
 type ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeByNameSessionServiceNodeLink struct {
@@ -35,16 +35,16 @@ type ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeByNameSessionSe
 }
 
 type ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeByID struct {
-	SessionServiceNode ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeByIDSessionServiceNode `json:"SessionServiceNode,omitempty"` //
+	SessionServiceNode *ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeByIDSessionServiceNode `json:"SessionServiceNode,omitempty"` //
 }
 
 type ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeByIDSessionServiceNode struct {
-	ID          string                                                                                 `json:"id,omitempty"`          //
-	Name        string                                                                                 `json:"name,omitempty"`        //
-	Description string                                                                                 `json:"description,omitempty"` //
-	IPAddress   string                                                                                 `json:"ipAddress,omitempty"`   //
-	GateWay     string                                                                                 `json:"gateWay,omitempty"`     //
-	Link        ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeByIDSessionServiceNodeLink `json:"link,omitempty"`        //
+	ID          string                                                                                  `json:"id,omitempty"`          //
+	Name        string                                                                                  `json:"name,omitempty"`        //
+	Description string                                                                                  `json:"description,omitempty"` //
+	IPAddress   string                                                                                  `json:"ipAddress,omitempty"`   //
+	GateWay     string                                                                                  `json:"gateWay,omitempty"`     //
+	Link        *ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeByIDSessionServiceNodeLink `json:"link,omitempty"`        //
 }
 
 type ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeByIDSessionServiceNodeLink struct {
@@ -54,21 +54,21 @@ type ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeByIDSessionServ
 }
 
 type ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNode struct {
-	SearchResult ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResult struct {
-	Total        int                                                                                  `json:"total,omitempty"`        //
-	Resources    []ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                                  `json:"total,omitempty"`        //
+	Resources    *[]ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResultResources struct {
-	ID          string                                                                                `json:"id,omitempty"`          //
-	Name        string                                                                                `json:"name,omitempty"`        //
-	Description string                                                                                `json:"description,omitempty"` //
-	Link        ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                                                 `json:"id,omitempty"`          //
+	Name        string                                                                                 `json:"name,omitempty"`        //
+	Description string                                                                                 `json:"description,omitempty"` //
+	Link        *ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResultResourcesLink struct {
@@ -90,13 +90,13 @@ type ResponsePsnNodeDetailsWithRadiusServiceGetSessionServiceNodeSearchResultPre
 }
 
 type ResponsePsnNodeDetailsWithRadiusServiceGetVersion struct {
-	VersionInfo ResponsePsnNodeDetailsWithRadiusServiceGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponsePsnNodeDetailsWithRadiusServiceGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponsePsnNodeDetailsWithRadiusServiceGetVersionVersionInfo struct {
-	CurrentServerVersion string                                                           `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                                           `json:"supportedVersions,omitempty"`    //
-	Link                 ResponsePsnNodeDetailsWithRadiusServiceGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                            `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                            `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponsePsnNodeDetailsWithRadiusServiceGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponsePsnNodeDetailsWithRadiusServiceGetVersionVersionInfoLink struct {

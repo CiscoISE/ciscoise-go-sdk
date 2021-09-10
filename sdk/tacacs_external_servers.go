@@ -16,19 +16,19 @@ type GetTacacsExternalServersQueryParams struct {
 }
 
 type ResponseTacacsExternalServersGetTacacsExternalServersByName struct {
-	TacacsExternalServer ResponseTacacsExternalServersGetTacacsExternalServersByNameTacacsExternalServer `json:"TacacsExternalServer,omitempty"` //
+	TacacsExternalServer *ResponseTacacsExternalServersGetTacacsExternalServersByNameTacacsExternalServer `json:"TacacsExternalServer,omitempty"` //
 }
 
 type ResponseTacacsExternalServersGetTacacsExternalServersByNameTacacsExternalServer struct {
-	ID             string                                                                              `json:"id,omitempty"`             //
-	Name           string                                                                              `json:"name,omitempty"`           //
-	Description    string                                                                              `json:"description,omitempty"`    //
-	HostIP         string                                                                              `json:"hostIP,omitempty"`         // The server IPV4 address
-	ConnectionPort int                                                                                 `json:"connectionPort,omitempty"` // The port to connect the server
-	SingleConnect  bool                                                                                `json:"singleConnect,omitempty"`  // Define the use of single connection
-	SharedSecret   string                                                                              `json:"sharedSecret,omitempty"`   // The server shared secret
-	Timeout        int                                                                                 `json:"timeout,omitempty"`        // The server timeout
-	Link           ResponseTacacsExternalServersGetTacacsExternalServersByNameTacacsExternalServerLink `json:"link,omitempty"`           //
+	ID             string                                                                               `json:"id,omitempty"`             //
+	Name           string                                                                               `json:"name,omitempty"`           //
+	Description    string                                                                               `json:"description,omitempty"`    //
+	HostIP         string                                                                               `json:"hostIP,omitempty"`         // The server IPV4 address
+	ConnectionPort *int                                                                                 `json:"connectionPort,omitempty"` // The port to connect the server
+	SingleConnect  *bool                                                                                `json:"singleConnect,omitempty"`  // Define the use of single connection
+	SharedSecret   string                                                                               `json:"sharedSecret,omitempty"`   // The server shared secret
+	Timeout        *int                                                                                 `json:"timeout,omitempty"`        // The server timeout
+	Link           *ResponseTacacsExternalServersGetTacacsExternalServersByNameTacacsExternalServerLink `json:"link,omitempty"`           //
 }
 
 type ResponseTacacsExternalServersGetTacacsExternalServersByNameTacacsExternalServerLink struct {
@@ -38,19 +38,19 @@ type ResponseTacacsExternalServersGetTacacsExternalServersByNameTacacsExternalSe
 }
 
 type ResponseTacacsExternalServersGetTacacsExternalServersByID struct {
-	TacacsExternalServer ResponseTacacsExternalServersGetTacacsExternalServersByIDTacacsExternalServer `json:"TacacsExternalServer,omitempty"` //
+	TacacsExternalServer *ResponseTacacsExternalServersGetTacacsExternalServersByIDTacacsExternalServer `json:"TacacsExternalServer,omitempty"` //
 }
 
 type ResponseTacacsExternalServersGetTacacsExternalServersByIDTacacsExternalServer struct {
-	ID             string                                                                            `json:"id,omitempty"`             //
-	Name           string                                                                            `json:"name,omitempty"`           //
-	Description    string                                                                            `json:"description,omitempty"`    //
-	HostIP         string                                                                            `json:"hostIP,omitempty"`         // The server IPV4 address
-	ConnectionPort int                                                                               `json:"connectionPort,omitempty"` // The port to connect the server
-	SingleConnect  bool                                                                              `json:"singleConnect,omitempty"`  // Define the use of single connection
-	SharedSecret   string                                                                            `json:"sharedSecret,omitempty"`   // The server shared secret
-	Timeout        int                                                                               `json:"timeout,omitempty"`        // The server timeout
-	Link           ResponseTacacsExternalServersGetTacacsExternalServersByIDTacacsExternalServerLink `json:"link,omitempty"`           //
+	ID             string                                                                             `json:"id,omitempty"`             //
+	Name           string                                                                             `json:"name,omitempty"`           //
+	Description    string                                                                             `json:"description,omitempty"`    //
+	HostIP         string                                                                             `json:"hostIP,omitempty"`         // The server IPV4 address
+	ConnectionPort *int                                                                               `json:"connectionPort,omitempty"` // The port to connect the server
+	SingleConnect  *bool                                                                              `json:"singleConnect,omitempty"`  // Define the use of single connection
+	SharedSecret   string                                                                             `json:"sharedSecret,omitempty"`   // The server shared secret
+	Timeout        *int                                                                               `json:"timeout,omitempty"`        // The server timeout
+	Link           *ResponseTacacsExternalServersGetTacacsExternalServersByIDTacacsExternalServerLink `json:"link,omitempty"`           //
 }
 
 type ResponseTacacsExternalServersGetTacacsExternalServersByIDTacacsExternalServerLink struct {
@@ -60,14 +60,14 @@ type ResponseTacacsExternalServersGetTacacsExternalServersByIDTacacsExternalServ
 }
 
 type ResponseTacacsExternalServersUpdateTacacsExternalServersByID struct {
-	UpdatedFieldsList ResponseTacacsExternalServersUpdateTacacsExternalServersByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseTacacsExternalServersUpdateTacacsExternalServersByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseTacacsExternalServersUpdateTacacsExternalServersByIDUpdatedFieldsList struct {
-	UpdatedField ResponseTacacsExternalServersUpdateTacacsExternalServersByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                                    `json:"field,omitempty"`        //
-	OldValue     string                                                                                    `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                                    `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseTacacsExternalServersUpdateTacacsExternalServersByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                                       `json:"field,omitempty"`        //
+	OldValue     string                                                                                       `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                                       `json:"newValue,omitempty"`     //
 }
 
 type ResponseTacacsExternalServersUpdateTacacsExternalServersByIDUpdatedFieldsListUpdatedField struct {
@@ -77,21 +77,21 @@ type ResponseTacacsExternalServersUpdateTacacsExternalServersByIDUpdatedFieldsLi
 }
 
 type ResponseTacacsExternalServersGetTacacsExternalServers struct {
-	SearchResult ResponseTacacsExternalServersGetTacacsExternalServersSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseTacacsExternalServersGetTacacsExternalServersSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseTacacsExternalServersGetTacacsExternalServersSearchResult struct {
-	Total        int                                                                           `json:"total,omitempty"`        //
-	Resources    []ResponseTacacsExternalServersGetTacacsExternalServersSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseTacacsExternalServersGetTacacsExternalServersSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseTacacsExternalServersGetTacacsExternalServersSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                           `json:"total,omitempty"`        //
+	Resources    *[]ResponseTacacsExternalServersGetTacacsExternalServersSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseTacacsExternalServersGetTacacsExternalServersSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseTacacsExternalServersGetTacacsExternalServersSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseTacacsExternalServersGetTacacsExternalServersSearchResultResources struct {
-	ID          string                                                                         `json:"id,omitempty"`          //
-	Name        string                                                                         `json:"name,omitempty"`        //
-	Description string                                                                         `json:"description,omitempty"` //
-	Link        ResponseTacacsExternalServersGetTacacsExternalServersSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                                          `json:"id,omitempty"`          //
+	Name        string                                                                          `json:"name,omitempty"`        //
+	Description string                                                                          `json:"description,omitempty"` //
+	Link        *ResponseTacacsExternalServersGetTacacsExternalServersSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseTacacsExternalServersGetTacacsExternalServersSearchResultResourcesLink struct {
@@ -113,13 +113,13 @@ type ResponseTacacsExternalServersGetTacacsExternalServersSearchResultPreviousPa
 }
 
 type ResponseTacacsExternalServersGetVersion struct {
-	VersionInfo ResponseTacacsExternalServersGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseTacacsExternalServersGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseTacacsExternalServersGetVersionVersionInfo struct {
-	CurrentServerVersion string                                                 `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                                 `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseTacacsExternalServersGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                  `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                  `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseTacacsExternalServersGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseTacacsExternalServersGetVersionVersionInfoLink struct {

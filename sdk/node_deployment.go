@@ -10,7 +10,7 @@ import (
 type NodeDeploymentService service
 
 type ResponseNodeDeploymentGetNodes struct {
-	Response []ResponseNodeDeploymentGetNodesResponse `json:"response,omitempty"` //
+	Response *[]ResponseNodeDeploymentGetNodesResponse `json:"response,omitempty"` //
 }
 
 type ResponseNodeDeploymentGetNodesResponse struct {
@@ -22,159 +22,159 @@ type ResponseNodeDeploymentGetNodesResponse struct {
 }
 
 type ResponseNodeDeploymentRegisterNode struct {
-	Code      int    `json:"code,omitempty"`      //
+	Code      *int   `json:"code,omitempty"`      //
 	Message   string `json:"message,omitempty"`   //
 	RootCause string `json:"rootCause,omitempty"` //
 }
 
 type ResponseNodeDeploymentPromoteNode struct {
-	Code      int    `json:"code,omitempty"`      //
+	Code      *int   `json:"code,omitempty"`      //
 	Message   string `json:"message,omitempty"`   //
 	RootCause string `json:"rootCause,omitempty"` //
 }
 
 type ResponseNodeDeploymentGetNodeDetails struct {
-	Response ResponseNodeDeploymentGetNodeDetailsResponse `json:"response,omitempty"` //
+	Response *ResponseNodeDeploymentGetNodeDetailsResponse `json:"response,omitempty"` //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponse struct {
-	Hostname               string                                                             `json:"hostname,omitempty"`               //
-	Fqdn                   string                                                             `json:"fqdn,omitempty"`                   //
-	IPAddress              string                                                             `json:"ipAddress,omitempty"`              //
-	NodeType               string                                                             `json:"nodeType,omitempty"`               //
-	Administration         ResponseNodeDeploymentGetNodeDetailsResponseAdministration         `json:"administration,omitempty"`         //
-	GeneralSettings        ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettings        `json:"generalSettings,omitempty"`        //
-	ProfilingConfiguration ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfiguration `json:"profilingConfiguration,omitempty"` //
+	Hostname               string                                                              `json:"hostname,omitempty"`               //
+	Fqdn                   string                                                              `json:"fqdn,omitempty"`                   //
+	IPAddress              string                                                              `json:"ipAddress,omitempty"`              //
+	NodeType               string                                                              `json:"nodeType,omitempty"`               //
+	Administration         *ResponseNodeDeploymentGetNodeDetailsResponseAdministration         `json:"administration,omitempty"`         //
+	GeneralSettings        *ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettings        `json:"generalSettings,omitempty"`        //
+	ProfilingConfiguration *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfiguration `json:"profilingConfiguration,omitempty"` //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponseAdministration struct {
-	IsEnabled bool   `json:"isEnabled,omitempty"` //
+	IsEnabled *bool  `json:"isEnabled,omitempty"` //
 	Role      string `json:"role,omitempty"`      //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettings struct {
-	Monitoring ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoring `json:"monitoring,omitempty"` //
+	Monitoring *ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoring `json:"monitoring,omitempty"` //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoring struct {
-	IsEnabled           bool                                                                               `json:"isEnabled,omitempty"`           //
-	Role                string                                                                             `json:"role,omitempty"`                //
-	OtherMonitoringNode string                                                                             `json:"otherMonitoringNode,omitempty"` //
-	IsMntDedicated      bool                                                                               `json:"isMntDedicated,omitempty"`      //
-	Policyservice       ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoringPolicyservice `json:"policyservice,omitempty"`       //
-	EnablePXGrid        bool                                                                               `json:"enablePXGrid,omitempty"`        //
+	IsEnabled           *bool                                                                               `json:"isEnabled,omitempty"`           //
+	Role                string                                                                              `json:"role,omitempty"`                //
+	OtherMonitoringNode string                                                                              `json:"otherMonitoringNode,omitempty"` //
+	IsMntDedicated      *bool                                                                               `json:"isMntDedicated,omitempty"`      //
+	Policyservice       *ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoringPolicyservice `json:"policyservice,omitempty"`       //
+	EnablePXGrid        *bool                                                                               `json:"enablePXGrid,omitempty"`        //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoringPolicyservice struct {
-	Enabled                      bool                                                                                             `json:"enabled,omitempty"`                      //
-	SessionService               ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoringPolicyserviceSessionService `json:"sessionService,omitempty"`               //
-	EnableProfilingService       bool                                                                                             `json:"enableProfilingService,omitempty"`       //
-	EnableNACService             bool                                                                                             `json:"enableNACService,omitempty"`             //
-	Sxpservice                   ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoringPolicyserviceSxpservice     `json:"sxpservice,omitempty"`                   //
-	EnableDeviceAdminService     bool                                                                                             `json:"enableDeviceAdminService,omitempty"`     //
-	EnablePassiveIDentityService bool                                                                                             `json:"enablePassiveIdentityService,omitempty"` //
+	Enabled                      *bool                                                                                             `json:"enabled,omitempty"`                      //
+	SessionService               *ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoringPolicyserviceSessionService `json:"sessionService,omitempty"`               //
+	EnableProfilingService       *bool                                                                                             `json:"enableProfilingService,omitempty"`       //
+	EnableNACService             *bool                                                                                             `json:"enableNACService,omitempty"`             //
+	Sxpservice                   *ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoringPolicyserviceSxpservice     `json:"sxpservice,omitempty"`                   //
+	EnableDeviceAdminService     *bool                                                                                             `json:"enableDeviceAdminService,omitempty"`     //
+	EnablePassiveIDentityService *bool                                                                                             `json:"enablePassiveIdentityService,omitempty"` //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoringPolicyserviceSessionService struct {
-	IsEnabled bool   `json:"isEnabled,omitempty"` //
+	IsEnabled *bool  `json:"isEnabled,omitempty"` //
 	Nodegroup string `json:"nodegroup,omitempty"` //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoringPolicyserviceSxpservice struct {
-	IsEnabled     bool   `json:"isEnabled,omitempty"`     //
+	IsEnabled     *bool  `json:"isEnabled,omitempty"`     //
 	UserInterface string `json:"userInterface,omitempty"` //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfiguration struct {
-	Netflow         ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationNetflow         `json:"netflow,omitempty"`         //
-	Dhcp            ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationDhcp            `json:"dhcp,omitempty"`            //
-	DhcpSpan        ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationDhcpSpan        `json:"dhcpSpan,omitempty"`        //
-	HTTP            ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationHTTP            `json:"http,omitempty"`            //
-	Radius          ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationRadius          `json:"radius,omitempty"`          //
-	Nmap            ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationNmap            `json:"nmap,omitempty"`            //
-	DNS             ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationDNS             `json:"dns,omitempty"`             //
-	SNMPQuery       ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationSNMPQuery       `json:"snmpQuery,omitempty"`       //
-	SNMPTrap        ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationSNMPTrap        `json:"snmpTrap,omitempty"`        //
-	ActiveDirectory ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationActiveDirectory `json:"activeDirectory,omitempty"` //
-	Pxgrid          ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationPxgrid          `json:"pxgrid,omitempty"`          //
+	Netflow         *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationNetflow         `json:"netflow,omitempty"`         //
+	Dhcp            *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationDhcp            `json:"dhcp,omitempty"`            //
+	DhcpSpan        *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationDhcpSpan        `json:"dhcpSpan,omitempty"`        //
+	HTTP            *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationHTTP            `json:"http,omitempty"`            //
+	Radius          *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationRadius          `json:"radius,omitempty"`          //
+	Nmap            *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationNmap            `json:"nmap,omitempty"`            //
+	DNS             *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationDNS             `json:"dns,omitempty"`             //
+	SNMPQuery       *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationSNMPQuery       `json:"snmpQuery,omitempty"`       //
+	SNMPTrap        *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationSNMPTrap        `json:"snmpTrap,omitempty"`        //
+	ActiveDirectory *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationActiveDirectory `json:"activeDirectory,omitempty"` //
+	Pxgrid          *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationPxgrid          `json:"pxgrid,omitempty"`          //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationNetflow struct {
-	Enabled     bool   `json:"enabled,omitempty"`     //
+	Enabled     *bool  `json:"enabled,omitempty"`     //
 	Interface   string `json:"interface,omitempty"`   //
-	Port        int    `json:"port,omitempty"`        //
+	Port        *int   `json:"port,omitempty"`        //
 	Description string `json:"description,omitempty"` //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationDhcp struct {
-	Enabled     bool   `json:"enabled,omitempty"`     //
+	Enabled     *bool  `json:"enabled,omitempty"`     //
 	Interface   string `json:"interface,omitempty"`   //
-	Port        int    `json:"port,omitempty"`        //
+	Port        *int   `json:"port,omitempty"`        //
 	Description string `json:"description,omitempty"` //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationDhcpSpan struct {
-	Enabled     bool   `json:"enabled,omitempty"`     //
+	Enabled     *bool  `json:"enabled,omitempty"`     //
 	Interface   string `json:"interface,omitempty"`   //
 	Description string `json:"description,omitempty"` //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationHTTP struct {
-	Enabled     bool   `json:"enabled,omitempty"`     //
+	Enabled     *bool  `json:"enabled,omitempty"`     //
 	Interface   string `json:"interface,omitempty"`   //
 	Description string `json:"description,omitempty"` //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationRadius struct {
-	Enabled     bool   `json:"enabled,omitempty"`     //
+	Enabled     *bool  `json:"enabled,omitempty"`     //
 	Description string `json:"description,omitempty"` //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationNmap struct {
-	Enabled     bool   `json:"enabled,omitempty"`     //
+	Enabled     *bool  `json:"enabled,omitempty"`     //
 	Description string `json:"description,omitempty"` //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationDNS struct {
-	Enabled     bool   `json:"enabled,omitempty"`     //
+	Enabled     *bool  `json:"enabled,omitempty"`     //
 	Description string `json:"description,omitempty"` //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationSNMPQuery struct {
-	Enabled      bool   `json:"enabled,omitempty"`      //
+	Enabled      *bool  `json:"enabled,omitempty"`      //
 	Description  string `json:"description,omitempty"`  //
-	Retries      int    `json:"retries,omitempty"`      //
-	Timeout      int    `json:"timeout,omitempty"`      //
-	EventTimeout int    `json:"eventTimeout,omitempty"` //
+	Retries      *int   `json:"retries,omitempty"`      //
+	Timeout      *int   `json:"timeout,omitempty"`      //
+	EventTimeout *int   `json:"eventTimeout,omitempty"` //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationSNMPTrap struct {
-	LinkTrapQuery bool   `json:"linkTrapQuery,omitempty"` //
-	MacTrapQuery  bool   `json:"macTrapQuery,omitempty"`  //
+	LinkTrapQuery *bool  `json:"linkTrapQuery,omitempty"` //
+	MacTrapQuery  *bool  `json:"macTrapQuery,omitempty"`  //
 	Interface     string `json:"interface,omitempty"`     //
-	Port          int    `json:"port,omitempty"`          //
+	Port          *int   `json:"port,omitempty"`          //
 	Description   string `json:"description,omitempty"`   //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationActiveDirectory struct {
-	Enabled          bool   `json:"enabled,omitempty"`          //
-	DaysBeforeRescan int    `json:"daysBeforeRescan,omitempty"` //
+	Enabled          *bool  `json:"enabled,omitempty"`          //
+	DaysBeforeRescan *int   `json:"daysBeforeRescan,omitempty"` //
 	Description      string `json:"description,omitempty"`      //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationPxgrid struct {
-	Enabled     bool   `json:"enabled,omitempty"`     //
+	Enabled     *bool  `json:"enabled,omitempty"`     //
 	Description string `json:"description,omitempty"` //
 }
 
 type ResponseNodeDeploymentUpdateNode struct {
-	Code      int    `json:"code,omitempty"`      //
+	Code      *int   `json:"code,omitempty"`      //
 	Message   string `json:"message,omitempty"`   //
 	RootCause string `json:"rootCause,omitempty"` //
 }
 
 type ResponseNodeDeploymentDeleteNode struct {
-	Code      int    `json:"code,omitempty"`      //
+	Code      *int   `json:"code,omitempty"`      //
 	Message   string `json:"message,omitempty"`   //
 	RootCause string `json:"rootCause,omitempty"` //
 }

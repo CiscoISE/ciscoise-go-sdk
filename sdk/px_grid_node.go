@@ -16,17 +16,17 @@ type GetPxGridNodeQueryParams struct {
 }
 
 type ResponsePxGridNodeGetPxGridNodeByName struct {
-	PxgridNode ResponsePxGridNodeGetPxGridNodeByNamePxgridNode `json:"PxgridNode,omitempty"` //
+	PxgridNode *ResponsePxGridNodeGetPxGridNodeByNamePxgridNode `json:"PxgridNode,omitempty"` //
 }
 
 type ResponsePxGridNodeGetPxGridNodeByNamePxgridNode struct {
-	ID          string                                              `json:"id,omitempty"`          //
-	Name        string                                              `json:"name,omitempty"`        //
-	Description string                                              `json:"description,omitempty"` //
-	Status      string                                              `json:"status,omitempty"`      //
-	AuthMethod  string                                              `json:"authMethod,omitempty"`  //
-	Groups      string                                              `json:"groups,omitempty"`      //
-	Link        ResponsePxGridNodeGetPxGridNodeByNamePxgridNodeLink `json:"link,omitempty"`        //
+	ID          string                                               `json:"id,omitempty"`          //
+	Name        string                                               `json:"name,omitempty"`        //
+	Description string                                               `json:"description,omitempty"` //
+	Status      string                                               `json:"status,omitempty"`      //
+	AuthMethod  string                                               `json:"authMethod,omitempty"`  //
+	Groups      string                                               `json:"groups,omitempty"`      //
+	Link        *ResponsePxGridNodeGetPxGridNodeByNamePxgridNodeLink `json:"link,omitempty"`        //
 }
 
 type ResponsePxGridNodeGetPxGridNodeByNamePxgridNodeLink struct {
@@ -36,17 +36,17 @@ type ResponsePxGridNodeGetPxGridNodeByNamePxgridNodeLink struct {
 }
 
 type ResponsePxGridNodeGetPxGridNodeByID struct {
-	PxgridNode ResponsePxGridNodeGetPxGridNodeByIDPxgridNode `json:"PxgridNode,omitempty"` //
+	PxgridNode *ResponsePxGridNodeGetPxGridNodeByIDPxgridNode `json:"PxgridNode,omitempty"` //
 }
 
 type ResponsePxGridNodeGetPxGridNodeByIDPxgridNode struct {
-	ID          string                                            `json:"id,omitempty"`          //
-	Name        string                                            `json:"name,omitempty"`        //
-	Description string                                            `json:"description,omitempty"` //
-	Status      string                                            `json:"status,omitempty"`      //
-	AuthMethod  string                                            `json:"authMethod,omitempty"`  //
-	Groups      string                                            `json:"groups,omitempty"`      //
-	Link        ResponsePxGridNodeGetPxGridNodeByIDPxgridNodeLink `json:"link,omitempty"`        //
+	ID          string                                             `json:"id,omitempty"`          //
+	Name        string                                             `json:"name,omitempty"`        //
+	Description string                                             `json:"description,omitempty"` //
+	Status      string                                             `json:"status,omitempty"`      //
+	AuthMethod  string                                             `json:"authMethod,omitempty"`  //
+	Groups      string                                             `json:"groups,omitempty"`      //
+	Link        *ResponsePxGridNodeGetPxGridNodeByIDPxgridNodeLink `json:"link,omitempty"`        //
 }
 
 type ResponsePxGridNodeGetPxGridNodeByIDPxgridNodeLink struct {
@@ -56,21 +56,21 @@ type ResponsePxGridNodeGetPxGridNodeByIDPxgridNodeLink struct {
 }
 
 type ResponsePxGridNodeGetPxGridNode struct {
-	SearchResult ResponsePxGridNodeGetPxGridNodeSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponsePxGridNodeGetPxGridNodeSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponsePxGridNodeGetPxGridNodeSearchResult struct {
-	Total        int                                                     `json:"total,omitempty"`        //
-	Resources    []ResponsePxGridNodeGetPxGridNodeSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponsePxGridNodeGetPxGridNodeSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponsePxGridNodeGetPxGridNodeSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                     `json:"total,omitempty"`        //
+	Resources    *[]ResponsePxGridNodeGetPxGridNodeSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponsePxGridNodeGetPxGridNodeSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponsePxGridNodeGetPxGridNodeSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponsePxGridNodeGetPxGridNodeSearchResultResources struct {
-	ID          string                                                   `json:"id,omitempty"`          //
-	Name        string                                                   `json:"name,omitempty"`        //
-	Description string                                                   `json:"description,omitempty"` //
-	Link        ResponsePxGridNodeGetPxGridNodeSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                    `json:"id,omitempty"`          //
+	Name        string                                                    `json:"name,omitempty"`        //
+	Description string                                                    `json:"description,omitempty"` //
+	Link        *ResponsePxGridNodeGetPxGridNodeSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponsePxGridNodeGetPxGridNodeSearchResultResourcesLink struct {
@@ -92,13 +92,13 @@ type ResponsePxGridNodeGetPxGridNodeSearchResultPreviousPage struct {
 }
 
 type ResponsePxGridNodeGetVersion struct {
-	VersionInfo ResponsePxGridNodeGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponsePxGridNodeGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponsePxGridNodeGetVersionVersionInfo struct {
-	CurrentServerVersion string                                      `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                      `json:"supportedVersions,omitempty"`    //
-	Link                 ResponsePxGridNodeGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                       `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                       `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponsePxGridNodeGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponsePxGridNodeGetVersionVersionInfoLink struct {

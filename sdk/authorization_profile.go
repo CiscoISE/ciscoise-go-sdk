@@ -16,44 +16,44 @@ type GetAuthorizationProfilesQueryParams struct {
 }
 
 type ResponseAuthorizationProfileGetAuthorizationProfileByName struct {
-	AuthorizationProfile ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfile `json:"AuthorizationProfile,omitempty"` //
+	AuthorizationProfile *ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfile `json:"AuthorizationProfile,omitempty"` //
 }
 
 type ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfile struct {
-	ID                        string                                                                                            `json:"id,omitempty"`                        // Resource UUID value
-	Name                      string                                                                                            `json:"name,omitempty"`                      // Resource Name
-	Description               string                                                                                            `json:"description,omitempty"`               //
-	AdvancedAttributes        []ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfileAdvancedAttributes `json:"advancedAttributes,omitempty"`        //
-	AccessType                string                                                                                            `json:"accessType,omitempty"`                // Allowed Values: - ACCESS_ACCEPT, - ACCESS_REJECT
-	AuthzProfileType          string                                                                                            `json:"authzProfileType,omitempty"`          // Allowed Values: - SWITCH, - TRUSTSEC, - TACACS SWITCH is used for Standard Authorization Profiles
-	VLAN                      ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfileVLAN                 `json:"vlan,omitempty"`                      //
-	Reauth                    ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfileReauth               `json:"reauth,omitempty"`                    //
-	AirespaceACL              string                                                                                            `json:"airespaceACL,omitempty"`              //
-	AirespaceIPv6ACL          string                                                                                            `json:"airespaceIPv6ACL,omitempty"`          //
-	WebRedirection            ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfileWebRedirection       `json:"webRedirection,omitempty"`            //
-	ACL                       string                                                                                            `json:"acl,omitempty"`                       //
-	TrackMovement             bool                                                                                              `json:"trackMovement,omitempty"`             //
-	AgentlessPosture          bool                                                                                              `json:"agentlessPosture,omitempty"`          //
-	ServiceTemplate           bool                                                                                              `json:"serviceTemplate,omitempty"`           //
-	EasywiredSessionCandidate bool                                                                                              `json:"easywiredSessionCandidate,omitempty"` //
-	DaclName                  string                                                                                            `json:"daclName,omitempty"`                  //
-	VoiceDomainPermission     bool                                                                                              `json:"voiceDomainPermission,omitempty"`     //
-	Neat                      bool                                                                                              `json:"neat,omitempty"`                      //
-	WebAuth                   bool                                                                                              `json:"webAuth,omitempty"`                   //
-	AutoSmartPort             string                                                                                            `json:"autoSmartPort,omitempty"`             //
-	InterfaceTemplate         string                                                                                            `json:"interfaceTemplate,omitempty"`         //
-	IPv6ACLFilter             string                                                                                            `json:"ipv6ACLFilter,omitempty"`             //
-	AvcProfile                string                                                                                            `json:"avcProfile,omitempty"`                //
-	MacSecPolicy              string                                                                                            `json:"macSecPolicy,omitempty"`              // Allowed Values: - MUST_SECURE, - MUST_NOT_SECURE, - SHOULD_SECURE
-	AsaVpn                    string                                                                                            `json:"asaVpn,omitempty"`                    //
-	ProfileName               string                                                                                            `json:"profileName,omitempty"`               //
-	IPv6DaclName              string                                                                                            `json:"ipv6DaclName,omitempty"`              //
-	Link                      ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfileLink                 `json:"link,omitempty"`                      //
+	ID                        string                                                                                             `json:"id,omitempty"`                        // Resource UUID value
+	Name                      string                                                                                             `json:"name,omitempty"`                      // Resource Name
+	Description               string                                                                                             `json:"description,omitempty"`               //
+	AdvancedAttributes        *[]ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfileAdvancedAttributes `json:"advancedAttributes,omitempty"`        //
+	AccessType                string                                                                                             `json:"accessType,omitempty"`                // Allowed Values: - ACCESS_ACCEPT, - ACCESS_REJECT
+	AuthzProfileType          string                                                                                             `json:"authzProfileType,omitempty"`          // Allowed Values: - SWITCH, - TRUSTSEC, - TACACS SWITCH is used for Standard Authorization Profiles
+	VLAN                      *ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfileVLAN                 `json:"vlan,omitempty"`                      //
+	Reauth                    *ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfileReauth               `json:"reauth,omitempty"`                    //
+	AirespaceACL              string                                                                                             `json:"airespaceACL,omitempty"`              //
+	AirespaceIPv6ACL          string                                                                                             `json:"airespaceIPv6ACL,omitempty"`          //
+	WebRedirection            *ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfileWebRedirection       `json:"webRedirection,omitempty"`            //
+	ACL                       string                                                                                             `json:"acl,omitempty"`                       //
+	TrackMovement             *bool                                                                                              `json:"trackMovement,omitempty"`             //
+	AgentlessPosture          *bool                                                                                              `json:"agentlessPosture,omitempty"`          //
+	ServiceTemplate           *bool                                                                                              `json:"serviceTemplate,omitempty"`           //
+	EasywiredSessionCandidate *bool                                                                                              `json:"easywiredSessionCandidate,omitempty"` //
+	DaclName                  string                                                                                             `json:"daclName,omitempty"`                  //
+	VoiceDomainPermission     *bool                                                                                              `json:"voiceDomainPermission,omitempty"`     //
+	Neat                      *bool                                                                                              `json:"neat,omitempty"`                      //
+	WebAuth                   *bool                                                                                              `json:"webAuth,omitempty"`                   //
+	AutoSmartPort             string                                                                                             `json:"autoSmartPort,omitempty"`             //
+	InterfaceTemplate         string                                                                                             `json:"interfaceTemplate,omitempty"`         //
+	IPv6ACLFilter             string                                                                                             `json:"ipv6ACLFilter,omitempty"`             //
+	AvcProfile                string                                                                                             `json:"avcProfile,omitempty"`                //
+	MacSecPolicy              string                                                                                             `json:"macSecPolicy,omitempty"`              // Allowed Values: - MUST_SECURE, - MUST_NOT_SECURE, - SHOULD_SECURE
+	AsaVpn                    string                                                                                             `json:"asaVpn,omitempty"`                    //
+	ProfileName               string                                                                                             `json:"profileName,omitempty"`               //
+	IPv6DaclName              string                                                                                             `json:"ipv6DaclName,omitempty"`              //
+	Link                      *ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfileLink                 `json:"link,omitempty"`                      //
 }
 
 type ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfileAdvancedAttributes struct {
-	LeftHandSideDictionaryAttribue ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfileAdvancedAttributesLeftHandSideDictionaryAttribue `json:"leftHandSideDictionaryAttribue,omitempty"` //
-	RightHandSideAttribueValue     ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfileAdvancedAttributesRightHandSideAttribueValue     `json:"rightHandSideAttribueValue,omitempty"`     // Attribute value can be of type AttributeValue or AdvancedDictionaryAttribute. For AttributeValue the value is String, For AdvancedDictionaryAttribute the value is dictionaryName and attributeName properties
+	LeftHandSideDictionaryAttribue *ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfileAdvancedAttributesLeftHandSideDictionaryAttribue `json:"leftHandSideDictionaryAttribue,omitempty"` //
+	RightHandSideAttribueValue     *ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfileAdvancedAttributesRightHandSideAttribueValue     `json:"rightHandSideAttribueValue,omitempty"`     // Attribute value can be of type AttributeValue or AdvancedDictionaryAttribute. For AttributeValue the value is String, For AdvancedDictionaryAttribute the value is dictionaryName and attributeName properties
 }
 
 type ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfileAdvancedAttributesLeftHandSideDictionaryAttribue struct {
@@ -72,11 +72,11 @@ type ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfi
 
 type ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfileVLAN struct {
 	NameID string `json:"nameID,omitempty"` //
-	TagID  int    `json:"tagID,omitempty"`  // Valid range is 0-31
+	TagID  *int   `json:"tagID,omitempty"`  // Valid range is 0-31
 }
 
 type ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfileReauth struct {
-	Timer        int    `json:"timer,omitempty"`        // Valid range is 1-65535
+	Timer        *int   `json:"timer,omitempty"`        // Valid range is 1-65535
 	Connectivity string `json:"connectivity,omitempty"` // Allowed Values: - DEFAULT, - RADIUS_REQUEST
 }
 
@@ -85,7 +85,7 @@ type ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfi
 	ACL                                string `json:"acl,omitempty"`                                //
 	PortalName                         string `json:"portalName,omitempty"`                         // A portal that exist in the DB and fits the WebRedirectionType
 	StaticIPHostNameFQDN               string `json:"staticIPHostNameFQDN,omitempty"`               //
-	DisplayCertificatesRenewalMessages bool   `json:"displayCertificatesRenewalMessages,omitempty"` // The displayCertificatesRenewalMessages is mandatory when 'WebRedirectionType' value is 'CentralizedWebAuth'. For all other 'WebRedirectionType' values the field must be ignored
+	DisplayCertificatesRenewalMessages *bool  `json:"displayCertificatesRenewalMessages,omitempty"` // The displayCertificatesRenewalMessages is mandatory when 'WebRedirectionType' value is 'CentralizedWebAuth'. For all other 'WebRedirectionType' values the field must be ignored
 }
 
 type ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfileLink struct {
@@ -95,44 +95,44 @@ type ResponseAuthorizationProfileGetAuthorizationProfileByNameAuthorizationProfi
 }
 
 type ResponseAuthorizationProfileGetAuthorizationProfileByID struct {
-	AuthorizationProfile ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfile `json:"AuthorizationProfile,omitempty"` //
+	AuthorizationProfile *ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfile `json:"AuthorizationProfile,omitempty"` //
 }
 
 type ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfile struct {
-	ID                        string                                                                                          `json:"id,omitempty"`                        // Resource UUID value
-	Name                      string                                                                                          `json:"name,omitempty"`                      // Resource Name
-	Description               string                                                                                          `json:"description,omitempty"`               //
-	AdvancedAttributes        []ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfileAdvancedAttributes `json:"advancedAttributes,omitempty"`        //
-	AccessType                string                                                                                          `json:"accessType,omitempty"`                // Allowed Values: - ACCESS_ACCEPT, - ACCESS_REJECT
-	AuthzProfileType          string                                                                                          `json:"authzProfileType,omitempty"`          // Allowed Values: - SWITCH, - TRUSTSEC, - TACACS SWITCH is used for Standard Authorization Profiles
-	VLAN                      ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfileVLAN                 `json:"vlan,omitempty"`                      //
-	Reauth                    ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfileReauth               `json:"reauth,omitempty"`                    //
-	AirespaceACL              string                                                                                          `json:"airespaceACL,omitempty"`              //
-	AirespaceIPv6ACL          string                                                                                          `json:"airespaceIPv6ACL,omitempty"`          //
-	WebRedirection            ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfileWebRedirection       `json:"webRedirection,omitempty"`            //
-	ACL                       string                                                                                          `json:"acl,omitempty"`                       //
-	TrackMovement             bool                                                                                            `json:"trackMovement,omitempty"`             //
-	AgentlessPosture          bool                                                                                            `json:"agentlessPosture,omitempty"`          //
-	ServiceTemplate           bool                                                                                            `json:"serviceTemplate,omitempty"`           //
-	EasywiredSessionCandidate bool                                                                                            `json:"easywiredSessionCandidate,omitempty"` //
-	DaclName                  string                                                                                          `json:"daclName,omitempty"`                  //
-	VoiceDomainPermission     bool                                                                                            `json:"voiceDomainPermission,omitempty"`     //
-	Neat                      bool                                                                                            `json:"neat,omitempty"`                      //
-	WebAuth                   bool                                                                                            `json:"webAuth,omitempty"`                   //
-	AutoSmartPort             string                                                                                          `json:"autoSmartPort,omitempty"`             //
-	InterfaceTemplate         string                                                                                          `json:"interfaceTemplate,omitempty"`         //
-	IPv6ACLFilter             string                                                                                          `json:"ipv6ACLFilter,omitempty"`             //
-	AvcProfile                string                                                                                          `json:"avcProfile,omitempty"`                //
-	MacSecPolicy              string                                                                                          `json:"macSecPolicy,omitempty"`              // Allowed Values: - MUST_SECURE, - MUST_NOT_SECURE, - SHOULD_SECURE
-	AsaVpn                    string                                                                                          `json:"asaVpn,omitempty"`                    //
-	ProfileName               string                                                                                          `json:"profileName,omitempty"`               //
-	IPv6DaclName              string                                                                                          `json:"ipv6DaclName,omitempty"`              //
-	Link                      ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfileLink                 `json:"link,omitempty"`                      //
+	ID                        string                                                                                           `json:"id,omitempty"`                        // Resource UUID value
+	Name                      string                                                                                           `json:"name,omitempty"`                      // Resource Name
+	Description               string                                                                                           `json:"description,omitempty"`               //
+	AdvancedAttributes        *[]ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfileAdvancedAttributes `json:"advancedAttributes,omitempty"`        //
+	AccessType                string                                                                                           `json:"accessType,omitempty"`                // Allowed Values: - ACCESS_ACCEPT, - ACCESS_REJECT
+	AuthzProfileType          string                                                                                           `json:"authzProfileType,omitempty"`          // Allowed Values: - SWITCH, - TRUSTSEC, - TACACS SWITCH is used for Standard Authorization Profiles
+	VLAN                      *ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfileVLAN                 `json:"vlan,omitempty"`                      //
+	Reauth                    *ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfileReauth               `json:"reauth,omitempty"`                    //
+	AirespaceACL              string                                                                                           `json:"airespaceACL,omitempty"`              //
+	AirespaceIPv6ACL          string                                                                                           `json:"airespaceIPv6ACL,omitempty"`          //
+	WebRedirection            *ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfileWebRedirection       `json:"webRedirection,omitempty"`            //
+	ACL                       string                                                                                           `json:"acl,omitempty"`                       //
+	TrackMovement             *bool                                                                                            `json:"trackMovement,omitempty"`             //
+	AgentlessPosture          *bool                                                                                            `json:"agentlessPosture,omitempty"`          //
+	ServiceTemplate           *bool                                                                                            `json:"serviceTemplate,omitempty"`           //
+	EasywiredSessionCandidate *bool                                                                                            `json:"easywiredSessionCandidate,omitempty"` //
+	DaclName                  string                                                                                           `json:"daclName,omitempty"`                  //
+	VoiceDomainPermission     *bool                                                                                            `json:"voiceDomainPermission,omitempty"`     //
+	Neat                      *bool                                                                                            `json:"neat,omitempty"`                      //
+	WebAuth                   *bool                                                                                            `json:"webAuth,omitempty"`                   //
+	AutoSmartPort             string                                                                                           `json:"autoSmartPort,omitempty"`             //
+	InterfaceTemplate         string                                                                                           `json:"interfaceTemplate,omitempty"`         //
+	IPv6ACLFilter             string                                                                                           `json:"ipv6ACLFilter,omitempty"`             //
+	AvcProfile                string                                                                                           `json:"avcProfile,omitempty"`                //
+	MacSecPolicy              string                                                                                           `json:"macSecPolicy,omitempty"`              // Allowed Values: - MUST_SECURE, - MUST_NOT_SECURE, - SHOULD_SECURE
+	AsaVpn                    string                                                                                           `json:"asaVpn,omitempty"`                    //
+	ProfileName               string                                                                                           `json:"profileName,omitempty"`               //
+	IPv6DaclName              string                                                                                           `json:"ipv6DaclName,omitempty"`              //
+	Link                      *ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfileLink                 `json:"link,omitempty"`                      //
 }
 
 type ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfileAdvancedAttributes struct {
-	LeftHandSideDictionaryAttribue ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfileAdvancedAttributesLeftHandSideDictionaryAttribue `json:"leftHandSideDictionaryAttribue,omitempty"` //
-	RightHandSideAttribueValue     ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfileAdvancedAttributesRightHandSideAttribueValue     `json:"rightHandSideAttribueValue,omitempty"`     // Attribute value can be of type AttributeValue or AdvancedDictionaryAttribute. For AttributeValue the value is String, For AdvancedDictionaryAttribute the value is dictionaryName and attributeName properties
+	LeftHandSideDictionaryAttribue *ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfileAdvancedAttributesLeftHandSideDictionaryAttribue `json:"leftHandSideDictionaryAttribue,omitempty"` //
+	RightHandSideAttribueValue     *ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfileAdvancedAttributesRightHandSideAttribueValue     `json:"rightHandSideAttribueValue,omitempty"`     // Attribute value can be of type AttributeValue or AdvancedDictionaryAttribute. For AttributeValue the value is String, For AdvancedDictionaryAttribute the value is dictionaryName and attributeName properties
 }
 
 type ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfileAdvancedAttributesLeftHandSideDictionaryAttribue struct {
@@ -151,11 +151,11 @@ type ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfile
 
 type ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfileVLAN struct {
 	NameID string `json:"nameID,omitempty"` //
-	TagID  int    `json:"tagID,omitempty"`  // Valid range is 0-31
+	TagID  *int   `json:"tagID,omitempty"`  // Valid range is 0-31
 }
 
 type ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfileReauth struct {
-	Timer        int    `json:"timer,omitempty"`        // Valid range is 1-65535
+	Timer        *int   `json:"timer,omitempty"`        // Valid range is 1-65535
 	Connectivity string `json:"connectivity,omitempty"` // Allowed Values: - DEFAULT, - RADIUS_REQUEST
 }
 
@@ -164,7 +164,7 @@ type ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfile
 	ACL                                string `json:"acl,omitempty"`                                //
 	PortalName                         string `json:"portalName,omitempty"`                         // A portal that exist in the DB and fits the WebRedirectionType
 	StaticIPHostNameFQDN               string `json:"staticIPHostNameFQDN,omitempty"`               //
-	DisplayCertificatesRenewalMessages bool   `json:"displayCertificatesRenewalMessages,omitempty"` // The displayCertificatesRenewalMessages is mandatory when 'WebRedirectionType' value is 'CentralizedWebAuth'. For all other 'WebRedirectionType' values the field must be ignored
+	DisplayCertificatesRenewalMessages *bool  `json:"displayCertificatesRenewalMessages,omitempty"` // The displayCertificatesRenewalMessages is mandatory when 'WebRedirectionType' value is 'CentralizedWebAuth'. For all other 'WebRedirectionType' values the field must be ignored
 }
 
 type ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfileLink struct {
@@ -174,14 +174,14 @@ type ResponseAuthorizationProfileGetAuthorizationProfileByIDAuthorizationProfile
 }
 
 type ResponseAuthorizationProfileUpdateAuthorizationProfileByID struct {
-	UpdatedFieldsList ResponseAuthorizationProfileUpdateAuthorizationProfileByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseAuthorizationProfileUpdateAuthorizationProfileByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseAuthorizationProfileUpdateAuthorizationProfileByIDUpdatedFieldsList struct {
-	UpdatedField ResponseAuthorizationProfileUpdateAuthorizationProfileByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                                  `json:"field,omitempty"`        //
-	OldValue     string                                                                                  `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                                  `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseAuthorizationProfileUpdateAuthorizationProfileByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                                     `json:"field,omitempty"`        //
+	OldValue     string                                                                                     `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                                     `json:"newValue,omitempty"`     //
 }
 
 type ResponseAuthorizationProfileUpdateAuthorizationProfileByIDUpdatedFieldsListUpdatedField struct {
@@ -191,21 +191,21 @@ type ResponseAuthorizationProfileUpdateAuthorizationProfileByIDUpdatedFieldsList
 }
 
 type ResponseAuthorizationProfileGetAuthorizationProfiles struct {
-	SearchResult ResponseAuthorizationProfileGetAuthorizationProfilesSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseAuthorizationProfileGetAuthorizationProfilesSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseAuthorizationProfileGetAuthorizationProfilesSearchResult struct {
-	Total        int                                                                          `json:"total,omitempty"`        //
-	Resources    []ResponseAuthorizationProfileGetAuthorizationProfilesSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseAuthorizationProfileGetAuthorizationProfilesSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseAuthorizationProfileGetAuthorizationProfilesSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                          `json:"total,omitempty"`        //
+	Resources    *[]ResponseAuthorizationProfileGetAuthorizationProfilesSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseAuthorizationProfileGetAuthorizationProfilesSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseAuthorizationProfileGetAuthorizationProfilesSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseAuthorizationProfileGetAuthorizationProfilesSearchResultResources struct {
-	ID          string                                                                        `json:"id,omitempty"`          //
-	Name        string                                                                        `json:"name,omitempty"`        //
-	Description string                                                                        `json:"description,omitempty"` //
-	Link        ResponseAuthorizationProfileGetAuthorizationProfilesSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                                         `json:"id,omitempty"`          //
+	Name        string                                                                         `json:"name,omitempty"`        //
+	Description string                                                                         `json:"description,omitempty"` //
+	Link        *ResponseAuthorizationProfileGetAuthorizationProfilesSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseAuthorizationProfileGetAuthorizationProfilesSearchResultResourcesLink struct {
@@ -227,13 +227,13 @@ type ResponseAuthorizationProfileGetAuthorizationProfilesSearchResultPreviousPag
 }
 
 type ResponseAuthorizationProfileGetVersion struct {
-	VersionInfo ResponseAuthorizationProfileGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseAuthorizationProfileGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseAuthorizationProfileGetVersionVersionInfo struct {
-	CurrentServerVersion string                                                `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                                `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseAuthorizationProfileGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                 `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                 `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseAuthorizationProfileGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseAuthorizationProfileGetVersionVersionInfoLink struct {

@@ -20,11 +20,11 @@ type GetEndpointsQueryParams struct {
 }
 
 type ResponseEndpointGetRejectedEndpoints struct {
-	OperationResult ResponseEndpointGetRejectedEndpointsOperationResult `json:"OperationResult,omitempty"` //
+	OperationResult *ResponseEndpointGetRejectedEndpointsOperationResult `json:"OperationResult,omitempty"` //
 }
 
 type ResponseEndpointGetRejectedEndpointsOperationResult struct {
-	ResultValue []ResponseEndpointGetRejectedEndpointsOperationResultResultValue `json:"resultValue,omitempty"` //
+	ResultValue *[]ResponseEndpointGetRejectedEndpointsOperationResultResultValue `json:"resultValue,omitempty"` //
 }
 
 type ResponseEndpointGetRejectedEndpointsOperationResultResultValue struct {
@@ -33,38 +33,38 @@ type ResponseEndpointGetRejectedEndpointsOperationResultResultValue struct {
 }
 
 type ResponseEndpointGetEndpointByName struct {
-	ERSEndPoint ResponseEndpointGetEndpointByNameERSEndPoint `json:"ERSEndPoint,omitempty"` //
+	ERSEndPoint *ResponseEndpointGetEndpointByNameERSEndPoint `json:"ERSEndPoint,omitempty"` //
 }
 
 type ResponseEndpointGetEndpointByNameERSEndPoint struct {
-	ID                      string                                                    `json:"id,omitempty"`                      //
-	Name                    string                                                    `json:"name,omitempty"`                    //
-	Description             string                                                    `json:"description,omitempty"`             //
-	Mac                     string                                                    `json:"mac,omitempty"`                     //
-	ProfileID               string                                                    `json:"profileId,omitempty"`               //
-	StaticProfileAssignment bool                                                      `json:"staticProfileAssignment,omitempty"` //
-	GroupID                 string                                                    `json:"groupId,omitempty"`                 //
-	StaticGroupAssignment   bool                                                      `json:"staticGroupAssignment,omitempty"`   //
-	PortalUser              string                                                    `json:"portalUser,omitempty"`              //
-	IDentityStore           string                                                    `json:"identityStore,omitempty"`           //
-	IDentityStoreID         string                                                    `json:"identityStoreId,omitempty"`         //
-	MdmAttributes           ResponseEndpointGetEndpointByNameERSEndPointMdmAttributes `json:"mdmAttributes,omitempty"`           //
-	CustomAttributes        map[string]interface{}                                    `json:"customAttributes,omitempty"`        //
-	Link                    ResponseEndpointGetEndpointByNameERSEndPointLink          `json:"link,omitempty"`                    //
+	ID                      string                                                     `json:"id,omitempty"`                      //
+	Name                    string                                                     `json:"name,omitempty"`                    //
+	Description             string                                                     `json:"description,omitempty"`             //
+	Mac                     string                                                     `json:"mac,omitempty"`                     //
+	ProfileID               string                                                     `json:"profileId,omitempty"`               //
+	StaticProfileAssignment *bool                                                      `json:"staticProfileAssignment,omitempty"` //
+	GroupID                 string                                                     `json:"groupId,omitempty"`                 //
+	StaticGroupAssignment   *bool                                                      `json:"staticGroupAssignment,omitempty"`   //
+	PortalUser              string                                                     `json:"portalUser,omitempty"`              //
+	IDentityStore           string                                                     `json:"identityStore,omitempty"`           //
+	IDentityStoreID         string                                                     `json:"identityStoreId,omitempty"`         //
+	MdmAttributes           *ResponseEndpointGetEndpointByNameERSEndPointMdmAttributes `json:"mdmAttributes,omitempty"`           //
+	CustomAttributes        *map[string]interface{}                                    `json:"customAttributes,omitempty"`        //
+	Link                    *ResponseEndpointGetEndpointByNameERSEndPointLink          `json:"link,omitempty"`                    //
 }
 
 type ResponseEndpointGetEndpointByNameERSEndPointMdmAttributes struct {
 	MdmServerName       string `json:"mdmServerName,omitempty"`       //
-	MdmReachable        bool   `json:"mdmReachable,omitempty"`        //
-	MdmEnrolled         bool   `json:"mdmEnrolled,omitempty"`         //
-	MdmComplianceStatus bool   `json:"mdmComplianceStatus,omitempty"` //
+	MdmReachable        *bool  `json:"mdmReachable,omitempty"`        //
+	MdmEnrolled         *bool  `json:"mdmEnrolled,omitempty"`         //
+	MdmComplianceStatus *bool  `json:"mdmComplianceStatus,omitempty"` //
 	MdmOS               string `json:"mdmOS,omitempty"`               //
 	MdmManufacturer     string `json:"mdmManufacturer,omitempty"`     //
 	MdmModel            string `json:"mdmModel,omitempty"`            //
 	MdmSerial           string `json:"mdmSerial,omitempty"`           //
-	MdmEncrypted        bool   `json:"mdmEncrypted,omitempty"`        //
-	MdmPinlock          bool   `json:"mdmPinlock,omitempty"`          //
-	MdmJailBroken       bool   `json:"mdmJailBroken,omitempty"`       //
+	MdmEncrypted        *bool  `json:"mdmEncrypted,omitempty"`        //
+	MdmPinlock          *bool  `json:"mdmPinlock,omitempty"`          //
+	MdmJailBroken       *bool  `json:"mdmJailBroken,omitempty"`       //
 	MdmIMEI             string `json:"mdmIMEI,omitempty"`             //
 	MdmPhoneNumber      string `json:"mdmPhoneNumber,omitempty"`      //
 }
@@ -76,38 +76,38 @@ type ResponseEndpointGetEndpointByNameERSEndPointLink struct {
 }
 
 type ResponseEndpointGetEndpointByID struct {
-	ERSEndPoint ResponseEndpointGetEndpointByIDERSEndPoint `json:"ERSEndPoint,omitempty"` //
+	ERSEndPoint *ResponseEndpointGetEndpointByIDERSEndPoint `json:"ERSEndPoint,omitempty"` //
 }
 
 type ResponseEndpointGetEndpointByIDERSEndPoint struct {
-	ID                      string                                                  `json:"id,omitempty"`                      //
-	Name                    string                                                  `json:"name,omitempty"`                    //
-	Description             string                                                  `json:"description,omitempty"`             //
-	Mac                     string                                                  `json:"mac,omitempty"`                     //
-	ProfileID               string                                                  `json:"profileId,omitempty"`               //
-	StaticProfileAssignment bool                                                    `json:"staticProfileAssignment,omitempty"` //
-	GroupID                 string                                                  `json:"groupId,omitempty"`                 //
-	StaticGroupAssignment   bool                                                    `json:"staticGroupAssignment,omitempty"`   //
-	PortalUser              string                                                  `json:"portalUser,omitempty"`              //
-	IDentityStore           string                                                  `json:"identityStore,omitempty"`           //
-	IDentityStoreID         string                                                  `json:"identityStoreId,omitempty"`         //
-	MdmAttributes           ResponseEndpointGetEndpointByIDERSEndPointMdmAttributes `json:"mdmAttributes,omitempty"`           //
-	CustomAttributes        map[string]interface{}                                  `json:"customAttributes,omitempty"`        //
-	Link                    ResponseEndpointGetEndpointByIDERSEndPointLink          `json:"link,omitempty"`                    //
+	ID                      string                                                   `json:"id,omitempty"`                      //
+	Name                    string                                                   `json:"name,omitempty"`                    //
+	Description             string                                                   `json:"description,omitempty"`             //
+	Mac                     string                                                   `json:"mac,omitempty"`                     //
+	ProfileID               string                                                   `json:"profileId,omitempty"`               //
+	StaticProfileAssignment *bool                                                    `json:"staticProfileAssignment,omitempty"` //
+	GroupID                 string                                                   `json:"groupId,omitempty"`                 //
+	StaticGroupAssignment   *bool                                                    `json:"staticGroupAssignment,omitempty"`   //
+	PortalUser              string                                                   `json:"portalUser,omitempty"`              //
+	IDentityStore           string                                                   `json:"identityStore,omitempty"`           //
+	IDentityStoreID         string                                                   `json:"identityStoreId,omitempty"`         //
+	MdmAttributes           *ResponseEndpointGetEndpointByIDERSEndPointMdmAttributes `json:"mdmAttributes,omitempty"`           //
+	CustomAttributes        *map[string]interface{}                                  `json:"customAttributes,omitempty"`        //
+	Link                    *ResponseEndpointGetEndpointByIDERSEndPointLink          `json:"link,omitempty"`                    //
 }
 
 type ResponseEndpointGetEndpointByIDERSEndPointMdmAttributes struct {
 	MdmServerName       string `json:"mdmServerName,omitempty"`       //
-	MdmReachable        bool   `json:"mdmReachable,omitempty"`        //
-	MdmEnrolled         bool   `json:"mdmEnrolled,omitempty"`         //
-	MdmComplianceStatus bool   `json:"mdmComplianceStatus,omitempty"` //
+	MdmReachable        *bool  `json:"mdmReachable,omitempty"`        //
+	MdmEnrolled         *bool  `json:"mdmEnrolled,omitempty"`         //
+	MdmComplianceStatus *bool  `json:"mdmComplianceStatus,omitempty"` //
 	MdmOS               string `json:"mdmOS,omitempty"`               //
 	MdmManufacturer     string `json:"mdmManufacturer,omitempty"`     //
 	MdmModel            string `json:"mdmModel,omitempty"`            //
 	MdmSerial           string `json:"mdmSerial,omitempty"`           //
-	MdmEncrypted        bool   `json:"mdmEncrypted,omitempty"`        //
-	MdmPinlock          bool   `json:"mdmPinlock,omitempty"`          //
-	MdmJailBroken       bool   `json:"mdmJailBroken,omitempty"`       //
+	MdmEncrypted        *bool  `json:"mdmEncrypted,omitempty"`        //
+	MdmPinlock          *bool  `json:"mdmPinlock,omitempty"`          //
+	MdmJailBroken       *bool  `json:"mdmJailBroken,omitempty"`       //
 	MdmIMEI             string `json:"mdmIMEI,omitempty"`             //
 	MdmPhoneNumber      string `json:"mdmPhoneNumber,omitempty"`      //
 }
@@ -119,14 +119,14 @@ type ResponseEndpointGetEndpointByIDERSEndPointLink struct {
 }
 
 type ResponseEndpointUpdateEndpointByID struct {
-	UpdatedFieldsList ResponseEndpointUpdateEndpointByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseEndpointUpdateEndpointByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseEndpointUpdateEndpointByIDUpdatedFieldsList struct {
-	UpdatedField ResponseEndpointUpdateEndpointByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                          `json:"field,omitempty"`        //
-	OldValue     string                                                          `json:"oldValue,omitempty"`     //
-	NewValue     string                                                          `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseEndpointUpdateEndpointByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                             `json:"field,omitempty"`        //
+	OldValue     string                                                             `json:"oldValue,omitempty"`     //
+	NewValue     string                                                             `json:"newValue,omitempty"`     //
 }
 
 type ResponseEndpointUpdateEndpointByIDUpdatedFieldsListUpdatedField struct {
@@ -136,21 +136,21 @@ type ResponseEndpointUpdateEndpointByIDUpdatedFieldsListUpdatedField struct {
 }
 
 type ResponseEndpointGetEndpoints struct {
-	SearchResult ResponseEndpointGetEndpointsSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseEndpointGetEndpointsSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseEndpointGetEndpointsSearchResult struct {
-	Total        int                                                  `json:"total,omitempty"`        //
-	Resources    []ResponseEndpointGetEndpointsSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseEndpointGetEndpointsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseEndpointGetEndpointsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                  `json:"total,omitempty"`        //
+	Resources    *[]ResponseEndpointGetEndpointsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseEndpointGetEndpointsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseEndpointGetEndpointsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseEndpointGetEndpointsSearchResultResources struct {
-	ID          string                                                `json:"id,omitempty"`          //
-	Name        string                                                `json:"name,omitempty"`        //
-	Description string                                                `json:"description,omitempty"` //
-	Link        ResponseEndpointGetEndpointsSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                 `json:"id,omitempty"`          //
+	Name        string                                                 `json:"name,omitempty"`        //
+	Description string                                                 `json:"description,omitempty"` //
+	Link        *ResponseEndpointGetEndpointsSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseEndpointGetEndpointsSearchResultResourcesLink struct {
@@ -172,13 +172,13 @@ type ResponseEndpointGetEndpointsSearchResultPreviousPage struct {
 }
 
 type ResponseEndpointGetVersion struct {
-	VersionInfo ResponseEndpointGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseEndpointGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseEndpointGetVersionVersionInfo struct {
-	CurrentServerVersion string                                    `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                    `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseEndpointGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                     `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                     `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseEndpointGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseEndpointGetVersionVersionInfoLink struct {
@@ -188,19 +188,19 @@ type ResponseEndpointGetVersionVersionInfoLink struct {
 }
 
 type ResponseEndpointMonitorBulkStatusEndpoint struct {
-	BulkStatus ResponseEndpointMonitorBulkStatusEndpointBulkStatus `json:"BulkStatus,omitempty"` //
+	BulkStatus *ResponseEndpointMonitorBulkStatusEndpointBulkStatus `json:"BulkStatus,omitempty"` //
 }
 
 type ResponseEndpointMonitorBulkStatusEndpointBulkStatus struct {
-	BulkID          string                                                               `json:"bulkId,omitempty"`          //
-	MediaType       string                                                               `json:"mediaType,omitempty"`       //
-	ExecutionStatus string                                                               `json:"executionStatus,omitempty"` //
-	OperationType   string                                                               `json:"operationType,omitempty"`   //
-	StartTime       string                                                               `json:"startTime,omitempty"`       //
-	ResourcesCount  int                                                                  `json:"resourcesCount,omitempty"`  //
-	SuccessCount    int                                                                  `json:"successCount,omitempty"`    //
-	FailCount       int                                                                  `json:"failCount,omitempty"`       //
-	ResourcesStatus []ResponseEndpointMonitorBulkStatusEndpointBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
+	BulkID          string                                                                `json:"bulkId,omitempty"`          //
+	MediaType       string                                                                `json:"mediaType,omitempty"`       //
+	ExecutionStatus string                                                                `json:"executionStatus,omitempty"` //
+	OperationType   string                                                                `json:"operationType,omitempty"`   //
+	StartTime       string                                                                `json:"startTime,omitempty"`       //
+	ResourcesCount  *int                                                                  `json:"resourcesCount,omitempty"`  //
+	SuccessCount    *int                                                                  `json:"successCount,omitempty"`    //
+	FailCount       *int                                                                  `json:"failCount,omitempty"`       //
+	ResourcesStatus *[]ResponseEndpointMonitorBulkStatusEndpointBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
 }
 
 type ResponseEndpointMonitorBulkStatusEndpointBulkStatusResourcesStatus struct {

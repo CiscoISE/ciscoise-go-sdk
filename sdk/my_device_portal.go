@@ -20,32 +20,32 @@ type GetMyDevicePortalQueryParams struct {
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalByID struct {
-	MyDevicePortal ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortal `json:"MyDevicePortal,omitempty"` //
+	MyDevicePortal *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortal `json:"MyDevicePortal,omitempty"` //
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortal struct {
-	ID             string                                                                  `json:"id,omitempty"`             //
-	Name           string                                                                  `json:"name,omitempty"`           //
-	Description    string                                                                  `json:"description,omitempty"`    //
-	PortalType     string                                                                  `json:"portalType,omitempty"`     // Allowed values: - BYOD, - HOTSPOTGUEST, - MYDEVICE, - SELFREGGUEST, - SPONSOR, - SPONSOREDGUEST
-	PortalTestURL  string                                                                  `json:"portalTestUrl,omitempty"`  // URL to bring up a test page for this portal
-	Settings       ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettings       `json:"settings,omitempty"`       // Defines all of the settings groups available for a Mydevice portal
-	Customizations ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizations `json:"customizations,omitempty"` // Defines all of the Portal Customizations available
-	Link           ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalLink           `json:"link,omitempty"`           //
+	ID             string                                                                   `json:"id,omitempty"`             //
+	Name           string                                                                   `json:"name,omitempty"`           //
+	Description    string                                                                   `json:"description,omitempty"`    //
+	PortalType     string                                                                   `json:"portalType,omitempty"`     // Allowed values: - BYOD, - HOTSPOTGUEST, - MYDEVICE, - SELFREGGUEST, - SPONSOR, - SPONSOREDGUEST
+	PortalTestURL  string                                                                   `json:"portalTestUrl,omitempty"`  // URL to bring up a test page for this portal
+	Settings       *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettings       `json:"settings,omitempty"`       // Defines all of the settings groups available for a Mydevice portal
+	Customizations *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizations `json:"customizations,omitempty"` // Defines all of the Portal Customizations available
+	Link           *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalLink           `json:"link,omitempty"`           //
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettings struct {
-	PortalSettings                 ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsPortalSettings                 `json:"portalSettings,omitempty"`                 // The port, interface, certificate, and other basic settings of a portal
-	LoginPageSettings              ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsLoginPageSettings              `json:"loginPageSettings,omitempty"`              //
-	AupSettings                    ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsAupSettings                    `json:"aupSettings,omitempty"`                    // Configuration of the Acceptable Use Policy (AUP) for a portal
-	EmployeeChangePasswordSettings ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsEmployeeChangePasswordSettings `json:"employeeChangePasswordSettings,omitempty"` //
-	PostLoginBannerSettings        ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsPostLoginBannerSettings        `json:"postLoginBannerSettings,omitempty"`        //
-	PostAccessBannerSettings       ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsPostAccessBannerSettings       `json:"postAccessBannerSettings,omitempty"`       //
-	SupportInfoSettings            ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsSupportInfoSettings            `json:"supportInfoSettings,omitempty"`            //
+	PortalSettings                 *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsPortalSettings                 `json:"portalSettings,omitempty"`                 // The port, interface, certificate, and other basic settings of a portal
+	LoginPageSettings              *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsLoginPageSettings              `json:"loginPageSettings,omitempty"`              //
+	AupSettings                    *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsAupSettings                    `json:"aupSettings,omitempty"`                    // Configuration of the Acceptable Use Policy (AUP) for a portal
+	EmployeeChangePasswordSettings *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsEmployeeChangePasswordSettings `json:"employeeChangePasswordSettings,omitempty"` //
+	PostLoginBannerSettings        *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsPostLoginBannerSettings        `json:"postLoginBannerSettings,omitempty"`        //
+	PostAccessBannerSettings       *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsPostAccessBannerSettings       `json:"postAccessBannerSettings,omitempty"`       //
+	SupportInfoSettings            *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsSupportInfoSettings            `json:"supportInfoSettings,omitempty"`            //
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsPortalSettings struct {
-	HTTPSPort             int    `json:"httpsPort,omitempty"`             // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
+	HTTPSPort             *int   `json:"httpsPort,omitempty"`             // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
 	AllowedInterfaces     string `json:"allowedInterfaces,omitempty"`     // Interfaces that the portal will be reachable on. Allowed values: - eth0, - eth1, - eth2, - eth3, - eth4, - eth5, - bond0, - bond1, - bond2
 	CertificateGroupTag   string `json:"certificateGroupTag,omitempty"`   // Logical name of the x.509 server certificate that will be used for the portal
 	EndpointIDentityGroup string `json:"endpointIdentityGroup,omitempty"` // Unique Id of the endpoint identity group where user's devices will be added. Used only in Hotspot Portal
@@ -55,51 +55,51 @@ type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsPortalSett
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsLoginPageSettings struct {
-	MaxFailedAttemptsBeforeRateLimit int           `json:"maxFailedAttemptsBeforeRateLimit,omitempty"` // Maximum failed login attempts before rate limiting
-	TimeBetweenLoginsDuringRateLimit int           `json:"timeBetweenLoginsDuringRateLimit,omitempty"` // Time between login attempts when rate limiting
-	IncludeAup                       bool          `json:"includeAup,omitempty"`                       // Include an Acceptable Use Policy (AUP) that should be displayed during login
-	AupDisplay                       string        `json:"aupDisplay,omitempty"`                       // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed values: -  ONPAGE, - ASLINK
-	RequireAupAcceptance             bool          `json:"requireAupAcceptance,omitempty"`             // Require the portal user to accept the AUP. Only valid if includeAup = true
-	RequireScrolling                 bool          `json:"requireScrolling,omitempty"`                 // Require the portal user to scroll to the end of the AUP. Only valid if requireAupAcceptance = true
-	SocialConfigs                    []interface{} `json:"socialConfigs,omitempty"`                    //
+	MaxFailedAttemptsBeforeRateLimit *int           `json:"maxFailedAttemptsBeforeRateLimit,omitempty"` // Maximum failed login attempts before rate limiting
+	TimeBetweenLoginsDuringRateLimit *int           `json:"timeBetweenLoginsDuringRateLimit,omitempty"` // Time between login attempts when rate limiting
+	IncludeAup                       *bool          `json:"includeAup,omitempty"`                       // Include an Acceptable Use Policy (AUP) that should be displayed during login
+	AupDisplay                       string         `json:"aupDisplay,omitempty"`                       // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed values: -  ONPAGE, - ASLINK
+	RequireAupAcceptance             *bool          `json:"requireAupAcceptance,omitempty"`             // Require the portal user to accept the AUP. Only valid if includeAup = true
+	RequireScrolling                 *bool          `json:"requireScrolling,omitempty"`                 // Require the portal user to scroll to the end of the AUP. Only valid if requireAupAcceptance = true
+	SocialConfigs                    *[]interface{} `json:"socialConfigs,omitempty"`                    //
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsAupSettings struct {
-	DisplayFrequencyIntervalDays int    `json:"displayFrequencyIntervalDays,omitempty"` // Number of days between AUP confirmations (when displayFrequency = recurring)
+	DisplayFrequencyIntervalDays *int   `json:"displayFrequencyIntervalDays,omitempty"` // Number of days between AUP confirmations (when displayFrequency = recurring)
 	DisplayFrequency             string `json:"displayFrequency,omitempty"`             // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed Values: - FIRSTLOGIN, - EVERYLOGIN, - RECURRING
-	IncludeAup                   bool   `json:"includeAup,omitempty"`                   // Require the portal user to read and accept an AUP
-	RequireScrolling             bool   `json:"requireScrolling,omitempty"`             // Require the portal user to scroll to the end of the AUP. Only valid if requireAupAcceptance = true
+	IncludeAup                   *bool  `json:"includeAup,omitempty"`                   // Require the portal user to read and accept an AUP
+	RequireScrolling             *bool  `json:"requireScrolling,omitempty"`             // Require the portal user to scroll to the end of the AUP. Only valid if requireAupAcceptance = true
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsEmployeeChangePasswordSettings struct {
-	AllowEmployeeToChangePwd bool `json:"allowEmployeeToChangePwd,omitempty"` //
+	AllowEmployeeToChangePwd *bool `json:"allowEmployeeToChangePwd,omitempty"` //
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsPostLoginBannerSettings struct {
-	IncludePostAccessBanner bool `json:"includePostAccessBanner,omitempty"` // Include a Post-Login Banner page
+	IncludePostAccessBanner *bool `json:"includePostAccessBanner,omitempty"` // Include a Post-Login Banner page
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsPostAccessBannerSettings struct {
-	IncludePostAccessBanner bool `json:"includePostAccessBanner,omitempty"` //
+	IncludePostAccessBanner *bool `json:"includePostAccessBanner,omitempty"` //
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsSupportInfoSettings struct {
-	IncludeSupportInfoPage  bool   `json:"includeSupportInfoPage,omitempty"`  //
-	IncludeMacAddr          bool   `json:"includeMacAddr,omitempty"`          //
-	IncludeIPAddress        bool   `json:"includeIpAddress,omitempty"`        //
-	IncludeBrowserUserAgent bool   `json:"includeBrowserUserAgent,omitempty"` //
-	IncludePolicyServer     bool   `json:"includePolicyServer,omitempty"`     //
-	IncludeFailureCode      bool   `json:"includeFailureCode,omitempty"`      //
+	IncludeSupportInfoPage  *bool  `json:"includeSupportInfoPage,omitempty"`  //
+	IncludeMacAddr          *bool  `json:"includeMacAddr,omitempty"`          //
+	IncludeIPAddress        *bool  `json:"includeIpAddress,omitempty"`        //
+	IncludeBrowserUserAgent *bool  `json:"includeBrowserUserAgent,omitempty"` //
+	IncludePolicyServer     *bool  `json:"includePolicyServer,omitempty"`     //
+	IncludeFailureCode      *bool  `json:"includeFailureCode,omitempty"`      //
 	EmptyFieldDisplay       string `json:"emptyFieldDisplay,omitempty"`       // Specifies how empty fields are handled on the Support Information Page. Allowed values: - HIDE, - DISPLAYWITHNOVALUE, - DISPLAYWITHDEFAULTVALUE
 	DefaultEmptyFieldValue  string `json:"defaultEmptyFieldValue,omitempty"`  // The default value displayed for an empty field. Only valid when emptyFieldDisplay = DISPLAYWITHDEFAULTVALUE
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizations struct {
-	PortalTheme          ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsPortalTheme          `json:"portalTheme,omitempty"`          //
-	PortalTweakSettings  ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsPortalTweakSettings  `json:"portalTweakSettings,omitempty"`  // The Tweak Settings are a customization of the Portal Theme that has been selected for the portal. When the Portal Theme selection is changed, the Tweak Settings are overwritten to match the values in the theme. The Tweak Settings can subsequently be changed by the user
-	Language             ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsLanguage             `json:"language,omitempty"`             // This property is supported only for Read operation and it allows to show the customizations in English. Other languages are not supported
-	GlobalCustomizations ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsGlobalCustomizations `json:"globalCustomizations,omitempty"` //
-	PageCustomizations   ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsPageCustomizations   `json:"pageCustomizations,omitempty"`   // Represent the entire page customization as a giant dictionary
+	PortalTheme          *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsPortalTheme          `json:"portalTheme,omitempty"`          //
+	PortalTweakSettings  *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsPortalTweakSettings  `json:"portalTweakSettings,omitempty"`  // The Tweak Settings are a customization of the Portal Theme that has been selected for the portal. When the Portal Theme selection is changed, the Tweak Settings are overwritten to match the values in the theme. The Tweak Settings can subsequently be changed by the user
+	Language             *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsLanguage             `json:"language,omitempty"`             // This property is supported only for Read operation and it allows to show the customizations in English. Other languages are not supported
+	GlobalCustomizations *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsGlobalCustomizations `json:"globalCustomizations,omitempty"` //
+	PageCustomizations   *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsPageCustomizations   `json:"pageCustomizations,omitempty"`   // Represent the entire page customization as a giant dictionary
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsPortalTheme struct {
@@ -120,13 +120,13 @@ type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsLang
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsGlobalCustomizations struct {
-	MobileLogoImage  ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsGlobalCustomizationsMobileLogoImage  `json:"mobileLogoImage,omitempty"`  //
-	DesktopLogoImage ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsGlobalCustomizationsDesktopLogoImage `json:"desktopLogoImage,omitempty"` //
-	BannerImage      ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsGlobalCustomizationsBannerImage      `json:"bannerImage,omitempty"`      //
-	BackgroundImage  ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsGlobalCustomizationsBackgroundImage  `json:"backgroundImage,omitempty"`  //
-	BannerTitle      string                                                                                                      `json:"bannerTitle,omitempty"`      //
-	ContactText      string                                                                                                      `json:"contactText,omitempty"`      //
-	FooterElement    string                                                                                                      `json:"footerElement,omitempty"`    //
+	MobileLogoImage  *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsGlobalCustomizationsMobileLogoImage  `json:"mobileLogoImage,omitempty"`  //
+	DesktopLogoImage *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsGlobalCustomizationsDesktopLogoImage `json:"desktopLogoImage,omitempty"` //
+	BannerImage      *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsGlobalCustomizationsBannerImage      `json:"bannerImage,omitempty"`      //
+	BackgroundImage  *ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsGlobalCustomizationsBackgroundImage  `json:"backgroundImage,omitempty"`  //
+	BannerTitle      string                                                                                                       `json:"bannerTitle,omitempty"`      //
+	ContactText      string                                                                                                       `json:"contactText,omitempty"`      //
+	FooterElement    string                                                                                                       `json:"footerElement,omitempty"`    //
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsGlobalCustomizationsMobileLogoImage struct {
@@ -146,7 +146,7 @@ type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsGlob
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsPageCustomizations struct {
-	Data []ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsPageCustomizationsData `json:"data,omitempty"` // The Dictionary will be exposed here as key value pair
+	Data *[]ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsPageCustomizationsData `json:"data,omitempty"` // The Dictionary will be exposed here as key value pair
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalCustomizationsPageCustomizationsData struct {
@@ -161,14 +161,14 @@ type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalLink struct {
 }
 
 type ResponseMyDevicePortalUpdateMyDevicePortalByID struct {
-	UpdatedFieldsList ResponseMyDevicePortalUpdateMyDevicePortalByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseMyDevicePortalUpdateMyDevicePortalByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseMyDevicePortalUpdateMyDevicePortalByIDUpdatedFieldsList struct {
-	UpdatedField ResponseMyDevicePortalUpdateMyDevicePortalByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                      `json:"field,omitempty"`        //
-	OldValue     string                                                                      `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                      `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseMyDevicePortalUpdateMyDevicePortalByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                         `json:"field,omitempty"`        //
+	OldValue     string                                                                         `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                         `json:"newValue,omitempty"`     //
 }
 
 type ResponseMyDevicePortalUpdateMyDevicePortalByIDUpdatedFieldsListUpdatedField struct {
@@ -178,21 +178,21 @@ type ResponseMyDevicePortalUpdateMyDevicePortalByIDUpdatedFieldsListUpdatedField
 }
 
 type ResponseMyDevicePortalGetMyDevicePortal struct {
-	SearchResult ResponseMyDevicePortalGetMyDevicePortalSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseMyDevicePortalGetMyDevicePortalSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalSearchResult struct {
-	Total        int                                                             `json:"total,omitempty"`        //
-	Resources    []ResponseMyDevicePortalGetMyDevicePortalSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseMyDevicePortalGetMyDevicePortalSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseMyDevicePortalGetMyDevicePortalSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                             `json:"total,omitempty"`        //
+	Resources    *[]ResponseMyDevicePortalGetMyDevicePortalSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseMyDevicePortalGetMyDevicePortalSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseMyDevicePortalGetMyDevicePortalSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalSearchResultResources struct {
-	ID          string                                                           `json:"id,omitempty"`          //
-	Name        string                                                           `json:"name,omitempty"`        //
-	Description string                                                           `json:"description,omitempty"` //
-	Link        ResponseMyDevicePortalGetMyDevicePortalSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                            `json:"id,omitempty"`          //
+	Name        string                                                            `json:"name,omitempty"`        //
+	Description string                                                            `json:"description,omitempty"` //
+	Link        *ResponseMyDevicePortalGetMyDevicePortalSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalSearchResultResourcesLink struct {
@@ -214,13 +214,13 @@ type ResponseMyDevicePortalGetMyDevicePortalSearchResultPreviousPage struct {
 }
 
 type ResponseMyDevicePortalGetVersion struct {
-	VersionInfo ResponseMyDevicePortalGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseMyDevicePortalGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseMyDevicePortalGetVersionVersionInfo struct {
-	CurrentServerVersion string                                          `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                          `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseMyDevicePortalGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                           `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                           `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseMyDevicePortalGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseMyDevicePortalGetVersionVersionInfoLink struct {

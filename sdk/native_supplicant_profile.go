@@ -16,15 +16,15 @@ type GetNativeSupplicantProfileQueryParams struct {
 }
 
 type ResponseNativeSupplicantProfileGetNativeSupplicantProfileByID struct {
-	ERSNSpProfile ResponseNativeSupplicantProfileGetNativeSupplicantProfileByIDERSNSpProfile `json:"ERSNSPProfile,omitempty"` //
+	ERSNSpProfile *ResponseNativeSupplicantProfileGetNativeSupplicantProfileByIDERSNSpProfile `json:"ERSNSPProfile,omitempty"` //
 }
 
 type ResponseNativeSupplicantProfileGetNativeSupplicantProfileByIDERSNSpProfile struct {
-	ID               string                                                                                       `json:"id,omitempty"`               //
-	Name             string                                                                                       `json:"name,omitempty"`             //
-	Description      string                                                                                       `json:"description,omitempty"`      //
-	WirelessProfiles []ResponseNativeSupplicantProfileGetNativeSupplicantProfileByIDERSNSpProfileWirelessProfiles `json:"wirelessProfiles,omitempty"` //
-	Link             ResponseNativeSupplicantProfileGetNativeSupplicantProfileByIDERSNSpProfileLink               `json:"link,omitempty"`             //
+	ID               string                                                                                        `json:"id,omitempty"`               //
+	Name             string                                                                                        `json:"name,omitempty"`             //
+	Description      string                                                                                        `json:"description,omitempty"`      //
+	WirelessProfiles *[]ResponseNativeSupplicantProfileGetNativeSupplicantProfileByIDERSNSpProfileWirelessProfiles `json:"wirelessProfiles,omitempty"` //
+	Link             *ResponseNativeSupplicantProfileGetNativeSupplicantProfileByIDERSNSpProfileLink               `json:"link,omitempty"`             //
 }
 
 type ResponseNativeSupplicantProfileGetNativeSupplicantProfileByIDERSNSpProfileWirelessProfiles struct {
@@ -42,14 +42,14 @@ type ResponseNativeSupplicantProfileGetNativeSupplicantProfileByIDERSNSpProfileL
 }
 
 type ResponseNativeSupplicantProfileUpdateNativeSupplicantProfileByID struct {
-	UpdatedFieldsList ResponseNativeSupplicantProfileUpdateNativeSupplicantProfileByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseNativeSupplicantProfileUpdateNativeSupplicantProfileByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseNativeSupplicantProfileUpdateNativeSupplicantProfileByIDUpdatedFieldsList struct {
-	UpdatedField ResponseNativeSupplicantProfileUpdateNativeSupplicantProfileByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                                        `json:"field,omitempty"`        //
-	OldValue     string                                                                                        `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                                        `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseNativeSupplicantProfileUpdateNativeSupplicantProfileByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                                           `json:"field,omitempty"`        //
+	OldValue     string                                                                                           `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                                           `json:"newValue,omitempty"`     //
 }
 
 type ResponseNativeSupplicantProfileUpdateNativeSupplicantProfileByIDUpdatedFieldsListUpdatedField struct {
@@ -59,21 +59,21 @@ type ResponseNativeSupplicantProfileUpdateNativeSupplicantProfileByIDUpdatedFiel
 }
 
 type ResponseNativeSupplicantProfileGetNativeSupplicantProfile struct {
-	SearchResult ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResult struct {
-	Total        int                                                                               `json:"total,omitempty"`        //
-	Resources    []ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                               `json:"total,omitempty"`        //
+	Resources    *[]ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResultResources struct {
-	ID          string                                                                             `json:"id,omitempty"`          //
-	Name        string                                                                             `json:"name,omitempty"`        //
-	Description string                                                                             `json:"description,omitempty"` //
-	Link        ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                                              `json:"id,omitempty"`          //
+	Name        string                                                                              `json:"name,omitempty"`        //
+	Description string                                                                              `json:"description,omitempty"` //
+	Link        *ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResultResourcesLink struct {
@@ -95,13 +95,13 @@ type ResponseNativeSupplicantProfileGetNativeSupplicantProfileSearchResultPrevio
 }
 
 type ResponseNativeSupplicantProfileGetVersion struct {
-	VersionInfo ResponseNativeSupplicantProfileGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseNativeSupplicantProfileGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseNativeSupplicantProfileGetVersionVersionInfo struct {
-	CurrentServerVersion string                                                   `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                                   `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseNativeSupplicantProfileGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                    `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                    `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseNativeSupplicantProfileGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseNativeSupplicantProfileGetVersionVersionInfoLink struct {

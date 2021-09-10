@@ -10,18 +10,18 @@ import (
 type NetworkAccessAuthenticationRulesService service
 
 type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRules struct {
-	Response []ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponse `json:"response,omitempty"` //
-	Version  string                                                                                `json:"version,omitempty"`  //
+	Response *[]ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponse `json:"response,omitempty"` //
+	Version  string                                                                                 `json:"version,omitempty"`  //
 }
 
 type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponse struct {
-	IDentitySourceID   string                                                                                  `json:"identitySourceId,omitempty"`   // Identity source id from the identity stores
-	IDentitySourceName string                                                                                  `json:"identitySourceName,omitempty"` // Identity source name from the identity stores
-	IfAuthFail         string                                                                                  `json:"ifAuthFail,omitempty"`         // Action to perform when authentication fails such as Bad credentials, disabled user and so on
-	IfProcessFail      string                                                                                  `json:"ifProcessFail,omitempty"`      // Action to perform when ISE is uanble to access the identity database
-	IfUserNotFound     string                                                                                  `json:"ifUserNotFound,omitempty"`     // Action to perform when user is not found in any of identity stores
-	Link               ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseLink `json:"link,omitempty"`               //
-	Rule               ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRule `json:"rule,omitempty"`               // Common attributes in rule authentication/authorization
+	IDentitySourceID   string                                                                                   `json:"identitySourceId,omitempty"`   // Identity source id from the identity stores
+	IDentitySourceName string                                                                                   `json:"identitySourceName,omitempty"` // Identity source name from the identity stores
+	IfAuthFail         string                                                                                   `json:"ifAuthFail,omitempty"`         // Action to perform when authentication fails such as Bad credentials, disabled user and so on
+	IfProcessFail      string                                                                                   `json:"ifProcessFail,omitempty"`      // Action to perform when ISE is uanble to access the identity database
+	IfUserNotFound     string                                                                                   `json:"ifUserNotFound,omitempty"`     // Action to perform when user is not found in any of identity stores
+	Link               *ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseLink `json:"link,omitempty"`               //
+	Rule               *ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRule `json:"rule,omitempty"`               // Common attributes in rule authentication/authorization
 }
 
 type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseLink struct {
@@ -31,19 +31,35 @@ type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRules
 }
 
 type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRule struct {
-	Condition ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleCondition `json:"condition,omitempty"` // <ul><li>Hierarchical structure which defines a set of conditions for which authentication or authorization policy rules could be matched.</li> <li>Logical operations(AND, OR) relationship between conditions are supported</li> <li>Each condition can have subconditions with relation to logical operations</li></ul>
-	Default   bool                                                                                             `json:"default,omitempty"`   // Indicates if this rule is the default one
-	HitCounts int                                                                                              `json:"hitCounts,omitempty"` // The amount of times the rule was matched
-	ID        string                                                                                           `json:"id,omitempty"`        // The identifier of the rule
-	Name      string                                                                                           `json:"name,omitempty"`      // Rule name, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
-	Rank      int                                                                                              `json:"rank,omitempty"`      // The rank(priority) in relation to other rules. Lower rank is higher priority.
-	State     string                                                                                           `json:"state,omitempty"`     // The state that the rule is in. A disabled rule cannot be matched.
+	Condition *ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleCondition `json:"condition,omitempty"` //
+	Default   *bool                                                                                             `json:"default,omitempty"`   // Indicates if this rule is the default one
+	HitCounts *int                                                                                              `json:"hitCounts,omitempty"` // The amount of times the rule was matched
+	ID        string                                                                                            `json:"id,omitempty"`        // The identifier of the rule
+	Name      string                                                                                            `json:"name,omitempty"`      // Rule name, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
+	Rank      *int                                                                                              `json:"rank,omitempty"`      // The rank(priority) in relation to other rules. Lower rank is higher priority.
+	State     string                                                                                            `json:"state,omitempty"`     // The state that the rule is in. A disabled rule cannot be matched.
 }
 
 type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleCondition struct {
-	ConditionType string                                                                                               `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      bool                                                                                                 `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleConditionLink `json:"link,omitempty"`          //
+	ConditionType       string                                                                                                               `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate            *bool                                                                                                                `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
+	Link                *ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleConditionLink                `json:"link,omitempty"`                //
+	Description         string                                                                                                               `json:"description,omitempty"`         // Condition description
+	ID                  string                                                                                                               `json:"id,omitempty"`                  //
+	Name                string                                                                                                               `json:"name,omitempty"`                // Condition name
+	AttributeName       string                                                                                                               `json:"attributeName,omitempty"`       // Dictionary attribute name
+	AttributeID         string                                                                                                               `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
+	AttributeValue      string                                                                                                               `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName      string                                                                                                               `json:"dictionaryName,omitempty"`      // Dictionary name
+	DictionaryValue     string                                                                                                               `json:"dictionaryValue,omitempty"`     // Dictionary value
+	Operator            string                                                                                                               `json:"operator,omitempty"`            // Equality operator
+	Children            *[]ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	DatesRange          *ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException *ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	HoursRange          *ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException *ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	WeekDays            []string                                                                                                             `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
+	WeekDaysException   []string                                                                                                             `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
 }
 
 type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleConditionLink struct {
@@ -52,19 +68,51 @@ type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRules
 	Type string `json:"type,omitempty"` //
 }
 
+type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleConditionChildren struct {
+	ConditionType string                                                                                                        `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate      *bool                                                                                                         `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
+	Link          *ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleConditionChildrenLink `json:"link,omitempty"`          //
+}
+
+type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleConditionChildrenLink struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
+}
+
+type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleConditionDatesRange struct {
+	EndDate   string `json:"endDate,omitempty"`   //
+	StartDate string `json:"startDate,omitempty"` //
+}
+
+type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleConditionDatesRangeException struct {
+	EndDate   string `json:"endDate,omitempty"`   //
+	StartDate string `json:"startDate,omitempty"` //
+}
+
+type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleConditionHoursRange struct {
+	EndTime   string `json:"endTime,omitempty"`   //
+	StartTime string `json:"startTime,omitempty"` //
+}
+
+type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleConditionHoursRangeException struct {
+	EndTime   string `json:"endTime,omitempty"`   //
+	StartTime string `json:"startTime,omitempty"` //
+}
+
 type ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRule struct {
-	Response ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponse `json:"response,omitempty"` // Rule for authentication in Network Access/Device Admin
-	Version  string                                                                                `json:"version,omitempty"`  //
+	Response *ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponse `json:"response,omitempty"` // Rule for authentication in Network Access/Device Admin
+	Version  string                                                                                 `json:"version,omitempty"`  //
 }
 
 type ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponse struct {
-	IDentitySourceID   string                                                                                    `json:"identitySourceId,omitempty"`   // Identity source id from the identity stores
-	IDentitySourceName string                                                                                    `json:"identitySourceName,omitempty"` // Identity source name from the identity stores
-	IfAuthFail         string                                                                                    `json:"ifAuthFail,omitempty"`         // Action to perform when authentication fails such as Bad credentials, disabled user and so on
-	IfProcessFail      string                                                                                    `json:"ifProcessFail,omitempty"`      // Action to perform when ISE is uanble to access the identity database
-	IfUserNotFound     string                                                                                    `json:"ifUserNotFound,omitempty"`     // Action to perform when user is not found in any of identity stores
-	Link               ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseLink `json:"link,omitempty"`               //
-	Rule               ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRule `json:"rule,omitempty"`               // Common attributes in rule authentication/authorization
+	IDentitySourceID   string                                                                                     `json:"identitySourceId,omitempty"`   // Identity source id from the identity stores
+	IDentitySourceName string                                                                                     `json:"identitySourceName,omitempty"` // Identity source name from the identity stores
+	IfAuthFail         string                                                                                     `json:"ifAuthFail,omitempty"`         // Action to perform when authentication fails such as Bad credentials, disabled user and so on
+	IfProcessFail      string                                                                                     `json:"ifProcessFail,omitempty"`      // Action to perform when ISE is uanble to access the identity database
+	IfUserNotFound     string                                                                                     `json:"ifUserNotFound,omitempty"`     // Action to perform when user is not found in any of identity stores
+	Link               *ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseLink `json:"link,omitempty"`               //
+	Rule               *ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRule `json:"rule,omitempty"`               // Common attributes in rule authentication/authorization
 }
 
 type ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseLink struct {
@@ -74,35 +122,35 @@ type ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRu
 }
 
 type ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRule struct {
-	Condition ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleCondition `json:"condition,omitempty"` //
-	Default   bool                                                                                               `json:"default,omitempty"`   // Indicates if this rule is the default one
-	HitCounts int                                                                                                `json:"hitCounts,omitempty"` // The amount of times the rule was matched
-	ID        string                                                                                             `json:"id,omitempty"`        // The identifier of the rule
-	Name      string                                                                                             `json:"name,omitempty"`      // Rule name, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
-	Rank      int                                                                                                `json:"rank,omitempty"`      // The rank(priority) in relation to other rules. Lower rank is higher priority.
-	State     string                                                                                             `json:"state,omitempty"`     // The state that the rule is in. A disabled rule cannot be matched.
+	Condition *ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleCondition `json:"condition,omitempty"` //
+	Default   *bool                                                                                               `json:"default,omitempty"`   // Indicates if this rule is the default one
+	HitCounts *int                                                                                                `json:"hitCounts,omitempty"` // The amount of times the rule was matched
+	ID        string                                                                                              `json:"id,omitempty"`        // The identifier of the rule
+	Name      string                                                                                              `json:"name,omitempty"`      // Rule name, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
+	Rank      *int                                                                                                `json:"rank,omitempty"`      // The rank(priority) in relation to other rules. Lower rank is higher priority.
+	State     string                                                                                              `json:"state,omitempty"`     // The state that the rule is in. A disabled rule cannot be matched.
 }
 
 type ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleCondition struct {
-	ConditionType       string                                                                                                                `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate            bool                                                                                                                  `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
-	Link                ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleConditionLink                `json:"link,omitempty"`                //
-	Description         string                                                                                                                `json:"description,omitempty"`         // Condition description
-	ID                  string                                                                                                                `json:"id,omitempty"`                  //
-	Name                string                                                                                                                `json:"name,omitempty"`                // Condition name
-	AttributeName       string                                                                                                                `json:"attributeName,omitempty"`       // Dictionary attribute name
-	AttributeID         string                                                                                                                `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
-	AttributeValue      string                                                                                                                `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
-	DictionaryName      string                                                                                                                `json:"dictionaryName,omitempty"`      // Dictionary name
-	DictionaryValue     string                                                                                                                `json:"dictionaryValue,omitempty"`     // Dictionary value
-	Operator            string                                                                                                                `json:"operator,omitempty"`            // Equality operator
-	Children            []ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
-	DatesRange          ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	DatesRangeException ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	HoursRange          ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	HoursRangeException ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	WeekDays            []string                                                                                                              `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
-	WeekDaysException   []string                                                                                                              `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
+	ConditionType       string                                                                                                                 `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate            *bool                                                                                                                  `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
+	Link                *ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleConditionLink                `json:"link,omitempty"`                //
+	Description         string                                                                                                                 `json:"description,omitempty"`         // Condition description
+	ID                  string                                                                                                                 `json:"id,omitempty"`                  //
+	Name                string                                                                                                                 `json:"name,omitempty"`                // Condition name
+	AttributeName       string                                                                                                                 `json:"attributeName,omitempty"`       // Dictionary attribute name
+	AttributeID         string                                                                                                                 `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
+	AttributeValue      string                                                                                                                 `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName      string                                                                                                                 `json:"dictionaryName,omitempty"`      // Dictionary name
+	DictionaryValue     string                                                                                                                 `json:"dictionaryValue,omitempty"`     // Dictionary value
+	Operator            string                                                                                                                 `json:"operator,omitempty"`            // Equality operator
+	Children            *[]ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	DatesRange          *ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException *ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	HoursRange          *ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException *ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	WeekDays            []string                                                                                                               `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
+	WeekDaysException   []string                                                                                                               `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
 }
 
 type ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleConditionLink struct {
@@ -112,9 +160,9 @@ type ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRu
 }
 
 type ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleConditionChildren struct {
-	ConditionType string                                                                                                         `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      bool                                                                                                           `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleConditionChildrenLink `json:"link,omitempty"`          //
+	ConditionType string                                                                                                          `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate      *bool                                                                                                           `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
+	Link          *ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleConditionChildrenLink `json:"link,omitempty"`          //
 }
 
 type ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleResponseRuleConditionChildrenLink struct {
@@ -148,18 +196,18 @@ type ResponseNetworkAccessAuthenticationRulesResetHitCountsNetworkAccessAuthenti
 }
 
 type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByID struct {
-	Response ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponse `json:"response,omitempty"` // Rule for authentication in Network Access/Device Admin
-	Version  string                                                                                 `json:"version,omitempty"`  //
+	Response *ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponse `json:"response,omitempty"` // Rule for authentication in Network Access/Device Admin
+	Version  string                                                                                  `json:"version,omitempty"`  //
 }
 
 type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponse struct {
-	IDentitySourceID   string                                                                                     `json:"identitySourceId,omitempty"`   // Identity source id from the identity stores
-	IDentitySourceName string                                                                                     `json:"identitySourceName,omitempty"` // Identity source name from the identity stores
-	IfAuthFail         string                                                                                     `json:"ifAuthFail,omitempty"`         // Action to perform when authentication fails such as Bad credentials, disabled user and so on
-	IfProcessFail      string                                                                                     `json:"ifProcessFail,omitempty"`      // Action to perform when ISE is uanble to access the identity database
-	IfUserNotFound     string                                                                                     `json:"ifUserNotFound,omitempty"`     // Action to perform when user is not found in any of identity stores
-	Link               ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseLink `json:"link,omitempty"`               //
-	Rule               ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRule `json:"rule,omitempty"`               // Common attributes in rule authentication/authorization
+	IDentitySourceID   string                                                                                      `json:"identitySourceId,omitempty"`   // Identity source id from the identity stores
+	IDentitySourceName string                                                                                      `json:"identitySourceName,omitempty"` // Identity source name from the identity stores
+	IfAuthFail         string                                                                                      `json:"ifAuthFail,omitempty"`         // Action to perform when authentication fails such as Bad credentials, disabled user and so on
+	IfProcessFail      string                                                                                      `json:"ifProcessFail,omitempty"`      // Action to perform when ISE is uanble to access the identity database
+	IfUserNotFound     string                                                                                      `json:"ifUserNotFound,omitempty"`     // Action to perform when user is not found in any of identity stores
+	Link               *ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseLink `json:"link,omitempty"`               //
+	Rule               *ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRule `json:"rule,omitempty"`               // Common attributes in rule authentication/authorization
 }
 
 type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseLink struct {
@@ -169,35 +217,35 @@ type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleB
 }
 
 type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRule struct {
-	Condition ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleCondition `json:"condition,omitempty"` //
-	Default   bool                                                                                                `json:"default,omitempty"`   // Indicates if this rule is the default one
-	HitCounts int                                                                                                 `json:"hitCounts,omitempty"` // The amount of times the rule was matched
-	ID        string                                                                                              `json:"id,omitempty"`        // The identifier of the rule
-	Name      string                                                                                              `json:"name,omitempty"`      // Rule name, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
-	Rank      int                                                                                                 `json:"rank,omitempty"`      // The rank(priority) in relation to other rules. Lower rank is higher priority.
-	State     string                                                                                              `json:"state,omitempty"`     // The state that the rule is in. A disabled rule cannot be matched.
+	Condition *ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleCondition `json:"condition,omitempty"` //
+	Default   *bool                                                                                                `json:"default,omitempty"`   // Indicates if this rule is the default one
+	HitCounts *int                                                                                                 `json:"hitCounts,omitempty"` // The amount of times the rule was matched
+	ID        string                                                                                               `json:"id,omitempty"`        // The identifier of the rule
+	Name      string                                                                                               `json:"name,omitempty"`      // Rule name, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
+	Rank      *int                                                                                                 `json:"rank,omitempty"`      // The rank(priority) in relation to other rules. Lower rank is higher priority.
+	State     string                                                                                               `json:"state,omitempty"`     // The state that the rule is in. A disabled rule cannot be matched.
 }
 
 type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleCondition struct {
-	ConditionType       string                                                                                                                 `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate            bool                                                                                                                   `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
-	Link                ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleConditionLink                `json:"link,omitempty"`                //
-	Description         string                                                                                                                 `json:"description,omitempty"`         // Condition description
-	ID                  string                                                                                                                 `json:"id,omitempty"`                  //
-	Name                string                                                                                                                 `json:"name,omitempty"`                // Condition name
-	AttributeName       string                                                                                                                 `json:"attributeName,omitempty"`       // Dictionary attribute name
-	AttributeID         string                                                                                                                 `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
-	AttributeValue      string                                                                                                                 `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
-	DictionaryName      string                                                                                                                 `json:"dictionaryName,omitempty"`      // Dictionary name
-	DictionaryValue     string                                                                                                                 `json:"dictionaryValue,omitempty"`     // Dictionary value
-	Operator            string                                                                                                                 `json:"operator,omitempty"`            // Equality operator
-	Children            []ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
-	DatesRange          ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	DatesRangeException ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	HoursRange          ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	HoursRangeException ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	WeekDays            []string                                                                                                               `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
-	WeekDaysException   []string                                                                                                               `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
+	ConditionType       string                                                                                                                  `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate            *bool                                                                                                                   `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
+	Link                *ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleConditionLink                `json:"link,omitempty"`                //
+	Description         string                                                                                                                  `json:"description,omitempty"`         // Condition description
+	ID                  string                                                                                                                  `json:"id,omitempty"`                  //
+	Name                string                                                                                                                  `json:"name,omitempty"`                // Condition name
+	AttributeName       string                                                                                                                  `json:"attributeName,omitempty"`       // Dictionary attribute name
+	AttributeID         string                                                                                                                  `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
+	AttributeValue      string                                                                                                                  `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName      string                                                                                                                  `json:"dictionaryName,omitempty"`      // Dictionary name
+	DictionaryValue     string                                                                                                                  `json:"dictionaryValue,omitempty"`     // Dictionary value
+	Operator            string                                                                                                                  `json:"operator,omitempty"`            // Equality operator
+	Children            *[]ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	DatesRange          *ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException *ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	HoursRange          *ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException *ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	WeekDays            []string                                                                                                                `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
+	WeekDaysException   []string                                                                                                                `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
 }
 
 type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleConditionLink struct {
@@ -207,9 +255,9 @@ type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleB
 }
 
 type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleConditionChildren struct {
-	ConditionType string                                                                                                          `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      bool                                                                                                            `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleConditionChildrenLink `json:"link,omitempty"`          //
+	ConditionType string                                                                                                           `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate      *bool                                                                                                            `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
+	Link          *ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleConditionChildrenLink `json:"link,omitempty"`          //
 }
 
 type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleConditionChildrenLink struct {
@@ -239,18 +287,18 @@ type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleB
 }
 
 type ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByID struct {
-	Response ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponse `json:"response,omitempty"` // Rule for authentication in Network Access/Device Admin
-	Version  string                                                                                    `json:"version,omitempty"`  //
+	Response *ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponse `json:"response,omitempty"` // Rule for authentication in Network Access/Device Admin
+	Version  string                                                                                     `json:"version,omitempty"`  //
 }
 
 type ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponse struct {
-	IDentitySourceID   string                                                                                        `json:"identitySourceId,omitempty"`   // Identity source id from the identity stores
-	IDentitySourceName string                                                                                        `json:"identitySourceName,omitempty"` // Identity source name from the identity stores
-	IfAuthFail         string                                                                                        `json:"ifAuthFail,omitempty"`         // Action to perform when authentication fails such as Bad credentials, disabled user and so on
-	IfProcessFail      string                                                                                        `json:"ifProcessFail,omitempty"`      // Action to perform when ISE is uanble to access the identity database
-	IfUserNotFound     string                                                                                        `json:"ifUserNotFound,omitempty"`     // Action to perform when user is not found in any of identity stores
-	Link               ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseLink `json:"link,omitempty"`               //
-	Rule               ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRule `json:"rule,omitempty"`               // Common attributes in rule authentication/authorization
+	IDentitySourceID   string                                                                                         `json:"identitySourceId,omitempty"`   // Identity source id from the identity stores
+	IDentitySourceName string                                                                                         `json:"identitySourceName,omitempty"` // Identity source name from the identity stores
+	IfAuthFail         string                                                                                         `json:"ifAuthFail,omitempty"`         // Action to perform when authentication fails such as Bad credentials, disabled user and so on
+	IfProcessFail      string                                                                                         `json:"ifProcessFail,omitempty"`      // Action to perform when ISE is uanble to access the identity database
+	IfUserNotFound     string                                                                                         `json:"ifUserNotFound,omitempty"`     // Action to perform when user is not found in any of identity stores
+	Link               *ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseLink `json:"link,omitempty"`               //
+	Rule               *ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRule `json:"rule,omitempty"`               // Common attributes in rule authentication/authorization
 }
 
 type ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseLink struct {
@@ -260,35 +308,35 @@ type ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRu
 }
 
 type ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRule struct {
-	Condition ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleCondition `json:"condition,omitempty"` //
-	Default   bool                                                                                                   `json:"default,omitempty"`   // Indicates if this rule is the default one
-	HitCounts int                                                                                                    `json:"hitCounts,omitempty"` // The amount of times the rule was matched
-	ID        string                                                                                                 `json:"id,omitempty"`        // The identifier of the rule
-	Name      string                                                                                                 `json:"name,omitempty"`      // Rule name, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
-	Rank      int                                                                                                    `json:"rank,omitempty"`      // The rank(priority) in relation to other rules. Lower rank is higher priority.
-	State     string                                                                                                 `json:"state,omitempty"`     // The state that the rule is in. A disabled rule cannot be matched.
+	Condition *ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleCondition `json:"condition,omitempty"` //
+	Default   *bool                                                                                                   `json:"default,omitempty"`   // Indicates if this rule is the default one
+	HitCounts *int                                                                                                    `json:"hitCounts,omitempty"` // The amount of times the rule was matched
+	ID        string                                                                                                  `json:"id,omitempty"`        // The identifier of the rule
+	Name      string                                                                                                  `json:"name,omitempty"`      // Rule name, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
+	Rank      *int                                                                                                    `json:"rank,omitempty"`      // The rank(priority) in relation to other rules. Lower rank is higher priority.
+	State     string                                                                                                  `json:"state,omitempty"`     // The state that the rule is in. A disabled rule cannot be matched.
 }
 
 type ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleCondition struct {
-	ConditionType       string                                                                                                                    `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate            bool                                                                                                                      `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
-	Link                ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleConditionLink                `json:"link,omitempty"`                //
-	Description         string                                                                                                                    `json:"description,omitempty"`         // Condition description
-	ID                  string                                                                                                                    `json:"id,omitempty"`                  //
-	Name                string                                                                                                                    `json:"name,omitempty"`                // Condition name
-	AttributeName       string                                                                                                                    `json:"attributeName,omitempty"`       // Dictionary attribute name
-	AttributeID         string                                                                                                                    `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
-	AttributeValue      string                                                                                                                    `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
-	DictionaryName      string                                                                                                                    `json:"dictionaryName,omitempty"`      // Dictionary name
-	DictionaryValue     string                                                                                                                    `json:"dictionaryValue,omitempty"`     // Dictionary value
-	Operator            string                                                                                                                    `json:"operator,omitempty"`            // Equality operator
-	Children            []ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
-	DatesRange          ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	DatesRangeException ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	HoursRange          ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	HoursRangeException ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	WeekDays            []string                                                                                                                  `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
-	WeekDaysException   []string                                                                                                                  `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
+	ConditionType       string                                                                                                                     `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate            *bool                                                                                                                      `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
+	Link                *ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleConditionLink                `json:"link,omitempty"`                //
+	Description         string                                                                                                                     `json:"description,omitempty"`         // Condition description
+	ID                  string                                                                                                                     `json:"id,omitempty"`                  //
+	Name                string                                                                                                                     `json:"name,omitempty"`                // Condition name
+	AttributeName       string                                                                                                                     `json:"attributeName,omitempty"`       // Dictionary attribute name
+	AttributeID         string                                                                                                                     `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
+	AttributeValue      string                                                                                                                     `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName      string                                                                                                                     `json:"dictionaryName,omitempty"`      // Dictionary name
+	DictionaryValue     string                                                                                                                     `json:"dictionaryValue,omitempty"`     // Dictionary value
+	Operator            string                                                                                                                     `json:"operator,omitempty"`            // Equality operator
+	Children            *[]ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	DatesRange          *ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException *ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	HoursRange          *ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException *ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	WeekDays            []string                                                                                                                   `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
+	WeekDaysException   []string                                                                                                                   `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
 }
 
 type ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleConditionLink struct {
@@ -298,9 +346,9 @@ type ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRu
 }
 
 type ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleConditionChildren struct {
-	ConditionType string                                                                                                             `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      bool                                                                                                               `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleConditionChildrenLink `json:"link,omitempty"`          //
+	ConditionType string                                                                                                              `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate      *bool                                                                                                               `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
+	Link          *ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleConditionChildrenLink `json:"link,omitempty"`          //
 }
 
 type ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByIDResponseRuleConditionChildrenLink struct {

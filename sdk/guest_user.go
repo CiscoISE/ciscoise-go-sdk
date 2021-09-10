@@ -20,24 +20,24 @@ type GetGuestUsersQueryParams struct {
 }
 
 type ResponseGuestUserGetGuestUserByName struct {
-	GuestUser ResponseGuestUserGetGuestUserByNameGuestUser `json:"GuestUser,omitempty"` //
+	GuestUser *ResponseGuestUserGetGuestUserByNameGuestUser `json:"GuestUser,omitempty"` //
 }
 
 type ResponseGuestUserGetGuestUserByNameGuestUser struct {
-	ID              string                                                      `json:"id,omitempty"`              //
-	Name            string                                                      `json:"name,omitempty"`            //
-	Description     string                                                      `json:"description,omitempty"`     //
-	GuestType       string                                                      `json:"guestType,omitempty"`       //
-	Status          string                                                      `json:"status,omitempty"`          //
-	StatusReason    string                                                      `json:"statusReason,omitempty"`    //
-	ReasonForVisit  string                                                      `json:"reasonForVisit,omitempty"`  //
-	SponsorUserID   string                                                      `json:"sponsorUserId,omitempty"`   //
-	SponsorUserName string                                                      `json:"sponsorUserName,omitempty"` //
-	GuestInfo       ResponseGuestUserGetGuestUserByNameGuestUserGuestInfo       `json:"guestInfo,omitempty"`       //
-	GuestAccessInfo ResponseGuestUserGetGuestUserByNameGuestUserGuestAccessInfo `json:"guestAccessInfo,omitempty"` //
-	PortalID        string                                                      `json:"portalId,omitempty"`        //
-	CustomFields    map[string]interface{}                                      `json:"customFields,omitempty"`    // Key value map
-	Link            ResponseGuestUserGetGuestUserByNameGuestUserLink            `json:"link,omitempty"`            //
+	ID              string                                                       `json:"id,omitempty"`              //
+	Name            string                                                       `json:"name,omitempty"`            //
+	Description     string                                                       `json:"description,omitempty"`     //
+	GuestType       string                                                       `json:"guestType,omitempty"`       //
+	Status          string                                                       `json:"status,omitempty"`          //
+	StatusReason    string                                                       `json:"statusReason,omitempty"`    //
+	ReasonForVisit  string                                                       `json:"reasonForVisit,omitempty"`  //
+	SponsorUserID   string                                                       `json:"sponsorUserId,omitempty"`   //
+	SponsorUserName string                                                       `json:"sponsorUserName,omitempty"` //
+	GuestInfo       *ResponseGuestUserGetGuestUserByNameGuestUserGuestInfo       `json:"guestInfo,omitempty"`       //
+	GuestAccessInfo *ResponseGuestUserGetGuestUserByNameGuestUserGuestAccessInfo `json:"guestAccessInfo,omitempty"` //
+	PortalID        string                                                       `json:"portalId,omitempty"`        //
+	CustomFields    *map[string]interface{}                                      `json:"customFields,omitempty"`    // Key value map
+	Link            *ResponseGuestUserGetGuestUserByNameGuestUserLink            `json:"link,omitempty"`            //
 }
 
 type ResponseGuestUserGetGuestUserByNameGuestUserGuestInfo struct {
@@ -50,12 +50,12 @@ type ResponseGuestUserGetGuestUserByNameGuestUserGuestInfo struct {
 	EmailAddress         string `json:"emailAddress,omitempty"`         //
 	PhoneNumber          string `json:"phoneNumber,omitempty"`          // Phone number should be E.164 format
 	Password             string `json:"password,omitempty"`             //
-	Enabled              bool   `json:"enabled,omitempty"`              // This field is only for Get operation not applicable for Create, Update operations
+	Enabled              *bool  `json:"enabled,omitempty"`              // This field is only for Get operation not applicable for Create, Update operations
 	SmsServiceProvider   string `json:"smsServiceProvider,omitempty"`   //
 }
 
 type ResponseGuestUserGetGuestUserByNameGuestUserGuestAccessInfo struct {
-	ValidDays int    `json:"validDays,omitempty"` //
+	ValidDays *int   `json:"validDays,omitempty"` //
 	FromDate  string `json:"fromDate,omitempty"`  //
 	ToDate    string `json:"toDate,omitempty"`    //
 	Location  string `json:"location,omitempty"`  //
@@ -70,14 +70,14 @@ type ResponseGuestUserGetGuestUserByNameGuestUserLink struct {
 }
 
 type ResponseGuestUserUpdateGuestUserByName struct {
-	UpdatedFieldsList ResponseGuestUserUpdateGuestUserByNameUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseGuestUserUpdateGuestUserByNameUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseGuestUserUpdateGuestUserByNameUpdatedFieldsList struct {
-	UpdatedField ResponseGuestUserUpdateGuestUserByNameUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                              `json:"field,omitempty"`        //
-	OldValue     string                                                              `json:"oldValue,omitempty"`     //
-	NewValue     string                                                              `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseGuestUserUpdateGuestUserByNameUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                 `json:"field,omitempty"`        //
+	OldValue     string                                                                 `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                 `json:"newValue,omitempty"`     //
 }
 
 type ResponseGuestUserUpdateGuestUserByNameUpdatedFieldsListUpdatedField struct {
@@ -87,11 +87,11 @@ type ResponseGuestUserUpdateGuestUserByNameUpdatedFieldsListUpdatedField struct 
 }
 
 type ResponseGuestUserResetGuestUserPasswordByID struct {
-	OperationResult ResponseGuestUserResetGuestUserPasswordByIDOperationResult `json:"OperationResult,omitempty"` //
+	OperationResult *ResponseGuestUserResetGuestUserPasswordByIDOperationResult `json:"OperationResult,omitempty"` //
 }
 
 type ResponseGuestUserResetGuestUserPasswordByIDOperationResult struct {
-	ResultValue []ResponseGuestUserResetGuestUserPasswordByIDOperationResultResultValue `json:"resultValue,omitempty"` //
+	ResultValue *[]ResponseGuestUserResetGuestUserPasswordByIDOperationResultResultValue `json:"resultValue,omitempty"` //
 }
 
 type ResponseGuestUserResetGuestUserPasswordByIDOperationResultResultValue struct {
@@ -100,24 +100,24 @@ type ResponseGuestUserResetGuestUserPasswordByIDOperationResultResultValue struc
 }
 
 type ResponseGuestUserGetGuestUserByID struct {
-	GuestUser ResponseGuestUserGetGuestUserByIDGuestUser `json:"GuestUser,omitempty"` //
+	GuestUser *ResponseGuestUserGetGuestUserByIDGuestUser `json:"GuestUser,omitempty"` //
 }
 
 type ResponseGuestUserGetGuestUserByIDGuestUser struct {
-	ID              string                                                    `json:"id,omitempty"`              //
-	Name            string                                                    `json:"name,omitempty"`            //
-	Description     string                                                    `json:"description,omitempty"`     //
-	GuestType       string                                                    `json:"guestType,omitempty"`       //
-	Status          string                                                    `json:"status,omitempty"`          //
-	StatusReason    string                                                    `json:"statusReason,omitempty"`    //
-	ReasonForVisit  string                                                    `json:"reasonForVisit,omitempty"`  //
-	SponsorUserID   string                                                    `json:"sponsorUserId,omitempty"`   //
-	SponsorUserName string                                                    `json:"sponsorUserName,omitempty"` //
-	GuestInfo       ResponseGuestUserGetGuestUserByIDGuestUserGuestInfo       `json:"guestInfo,omitempty"`       //
-	GuestAccessInfo ResponseGuestUserGetGuestUserByIDGuestUserGuestAccessInfo `json:"guestAccessInfo,omitempty"` //
-	PortalID        string                                                    `json:"portalId,omitempty"`        //
-	CustomFields    map[string]interface{}                                    `json:"customFields,omitempty"`    // Key value map
-	Link            ResponseGuestUserGetGuestUserByIDGuestUserLink            `json:"link,omitempty"`            //
+	ID              string                                                     `json:"id,omitempty"`              //
+	Name            string                                                     `json:"name,omitempty"`            //
+	Description     string                                                     `json:"description,omitempty"`     //
+	GuestType       string                                                     `json:"guestType,omitempty"`       //
+	Status          string                                                     `json:"status,omitempty"`          //
+	StatusReason    string                                                     `json:"statusReason,omitempty"`    //
+	ReasonForVisit  string                                                     `json:"reasonForVisit,omitempty"`  //
+	SponsorUserID   string                                                     `json:"sponsorUserId,omitempty"`   //
+	SponsorUserName string                                                     `json:"sponsorUserName,omitempty"` //
+	GuestInfo       *ResponseGuestUserGetGuestUserByIDGuestUserGuestInfo       `json:"guestInfo,omitempty"`       //
+	GuestAccessInfo *ResponseGuestUserGetGuestUserByIDGuestUserGuestAccessInfo `json:"guestAccessInfo,omitempty"` //
+	PortalID        string                                                     `json:"portalId,omitempty"`        //
+	CustomFields    *map[string]interface{}                                    `json:"customFields,omitempty"`    // Key value map
+	Link            *ResponseGuestUserGetGuestUserByIDGuestUserLink            `json:"link,omitempty"`            //
 }
 
 type ResponseGuestUserGetGuestUserByIDGuestUserGuestInfo struct {
@@ -130,12 +130,12 @@ type ResponseGuestUserGetGuestUserByIDGuestUserGuestInfo struct {
 	EmailAddress         string `json:"emailAddress,omitempty"`         //
 	PhoneNumber          string `json:"phoneNumber,omitempty"`          // Phone number should be E.164 format
 	Password             string `json:"password,omitempty"`             //
-	Enabled              bool   `json:"enabled,omitempty"`              // This field is only for Get operation not applicable for Create, Update operations
+	Enabled              *bool  `json:"enabled,omitempty"`              // This field is only for Get operation not applicable for Create, Update operations
 	SmsServiceProvider   string `json:"smsServiceProvider,omitempty"`   //
 }
 
 type ResponseGuestUserGetGuestUserByIDGuestUserGuestAccessInfo struct {
-	ValidDays int    `json:"validDays,omitempty"` //
+	ValidDays *int   `json:"validDays,omitempty"` //
 	FromDate  string `json:"fromDate,omitempty"`  //
 	ToDate    string `json:"toDate,omitempty"`    //
 	Location  string `json:"location,omitempty"`  //
@@ -150,14 +150,14 @@ type ResponseGuestUserGetGuestUserByIDGuestUserLink struct {
 }
 
 type ResponseGuestUserUpdateGuestUserByID struct {
-	UpdatedFieldsList ResponseGuestUserUpdateGuestUserByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseGuestUserUpdateGuestUserByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseGuestUserUpdateGuestUserByIDUpdatedFieldsList struct {
-	UpdatedField ResponseGuestUserUpdateGuestUserByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                            `json:"field,omitempty"`        //
-	OldValue     string                                                            `json:"oldValue,omitempty"`     //
-	NewValue     string                                                            `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseGuestUserUpdateGuestUserByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                               `json:"field,omitempty"`        //
+	OldValue     string                                                               `json:"oldValue,omitempty"`     //
+	NewValue     string                                                               `json:"newValue,omitempty"`     //
 }
 
 type ResponseGuestUserUpdateGuestUserByIDUpdatedFieldsListUpdatedField struct {
@@ -167,21 +167,21 @@ type ResponseGuestUserUpdateGuestUserByIDUpdatedFieldsListUpdatedField struct {
 }
 
 type ResponseGuestUserGetGuestUsers struct {
-	SearchResult ResponseGuestUserGetGuestUsersSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseGuestUserGetGuestUsersSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseGuestUserGetGuestUsersSearchResult struct {
-	Total        int                                                    `json:"total,omitempty"`        //
-	Resources    []ResponseGuestUserGetGuestUsersSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseGuestUserGetGuestUsersSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseGuestUserGetGuestUsersSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                    `json:"total,omitempty"`        //
+	Resources    *[]ResponseGuestUserGetGuestUsersSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseGuestUserGetGuestUsersSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseGuestUserGetGuestUsersSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseGuestUserGetGuestUsersSearchResultResources struct {
-	ID          string                                                  `json:"id,omitempty"`          //
-	Name        string                                                  `json:"name,omitempty"`        //
-	Description string                                                  `json:"description,omitempty"` //
-	Link        ResponseGuestUserGetGuestUsersSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                   `json:"id,omitempty"`          //
+	Name        string                                                   `json:"name,omitempty"`        //
+	Description string                                                   `json:"description,omitempty"` //
+	Link        *ResponseGuestUserGetGuestUsersSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseGuestUserGetGuestUsersSearchResultResourcesLink struct {
@@ -203,13 +203,13 @@ type ResponseGuestUserGetGuestUsersSearchResultPreviousPage struct {
 }
 
 type ResponseGuestUserGetVersion struct {
-	VersionInfo ResponseGuestUserGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseGuestUserGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseGuestUserGetVersionVersionInfo struct {
-	CurrentServerVersion string                                     `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                     `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseGuestUserGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                      `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                      `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseGuestUserGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseGuestUserGetVersionVersionInfoLink struct {
@@ -219,19 +219,19 @@ type ResponseGuestUserGetVersionVersionInfoLink struct {
 }
 
 type ResponseGuestUserMonitorBulkStatusGuestUser struct {
-	BulkStatus ResponseGuestUserMonitorBulkStatusGuestUserBulkStatus `json:"BulkStatus,omitempty"` //
+	BulkStatus *ResponseGuestUserMonitorBulkStatusGuestUserBulkStatus `json:"BulkStatus,omitempty"` //
 }
 
 type ResponseGuestUserMonitorBulkStatusGuestUserBulkStatus struct {
-	BulkID          string                                                                 `json:"bulkId,omitempty"`          //
-	MediaType       string                                                                 `json:"mediaType,omitempty"`       //
-	ExecutionStatus string                                                                 `json:"executionStatus,omitempty"` //
-	OperationType   string                                                                 `json:"operationType,omitempty"`   //
-	StartTime       string                                                                 `json:"startTime,omitempty"`       //
-	ResourcesCount  int                                                                    `json:"resourcesCount,omitempty"`  //
-	SuccessCount    int                                                                    `json:"successCount,omitempty"`    //
-	FailCount       int                                                                    `json:"failCount,omitempty"`       //
-	ResourcesStatus []ResponseGuestUserMonitorBulkStatusGuestUserBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
+	BulkID          string                                                                  `json:"bulkId,omitempty"`          //
+	MediaType       string                                                                  `json:"mediaType,omitempty"`       //
+	ExecutionStatus string                                                                  `json:"executionStatus,omitempty"` //
+	OperationType   string                                                                  `json:"operationType,omitempty"`   //
+	StartTime       string                                                                  `json:"startTime,omitempty"`       //
+	ResourcesCount  *int                                                                    `json:"resourcesCount,omitempty"`  //
+	SuccessCount    *int                                                                    `json:"successCount,omitempty"`    //
+	FailCount       *int                                                                    `json:"failCount,omitempty"`       //
+	ResourcesStatus *[]ResponseGuestUserMonitorBulkStatusGuestUserBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
 }
 
 type ResponseGuestUserMonitorBulkStatusGuestUserBulkStatusResourcesStatus struct {

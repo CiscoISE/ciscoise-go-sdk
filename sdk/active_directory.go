@@ -16,25 +16,25 @@ type GetActiveDirectoryQueryParams struct {
 }
 
 type ResponseActiveDirectoryGetActiveDirectoryByName struct {
-	ERSActiveDirectory ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectory `json:"ERSActiveDirectory,omitempty"` //
+	ERSActiveDirectory *ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectory `json:"ERSActiveDirectory,omitempty"` //
 }
 
 type ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectory struct {
-	ID                      string                                                                            `json:"id,omitempty"`                      // Resource UUID value
-	Name                    string                                                                            `json:"name,omitempty"`                    // Resource Name. Maximum 32 characters allowed. Allowed characters are alphanumeric and .-_/\\ characters
-	Description             string                                                                            `json:"description,omitempty"`             // No character restriction
-	Domain                  string                                                                            `json:"domain,omitempty"`                  // The AD domain. Alphanumeric, hyphen (-) and dot (.) characters are allowed
-	EnableDomainAllowedList bool                                                                              `json:"enableDomainAllowedList,omitempty"` //
-	EnableDomainWhiteList   bool                                                                              `json:"enableDomainWhiteList,omitempty"`   //
-	Adgroups                ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryAdgroups         `json:"adgroups,omitempty"`                // Holds list of AD Groups
-	AdvancedSettings        ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryAdvancedSettings `json:"advancedSettings,omitempty"`        //
-	AdAttributes            ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryAdAttributes     `json:"adAttributes,omitempty"`            // Holds list of AD Attributes
-	AdScopesNames           string                                                                            `json:"adScopesNames,omitempty"`           // String that contains the names of the scopes that the active directory belongs to. Names are separated by comma. Alphanumeric, underscore (_) characters are allowed
-	Link                    ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryLink             `json:"link,omitempty"`                    //
+	ID                      string                                                                             `json:"id,omitempty"`                      // Resource UUID value
+	Name                    string                                                                             `json:"name,omitempty"`                    // Resource Name. Maximum 32 characters allowed. Allowed characters are alphanumeric and .-_/\\ characters
+	Description             string                                                                             `json:"description,omitempty"`             // No character restriction
+	Domain                  string                                                                             `json:"domain,omitempty"`                  // The AD domain. Alphanumeric, hyphen (-) and dot (.) characters are allowed
+	EnableDomainAllowedList *bool                                                                              `json:"enableDomainAllowedList,omitempty"` //
+	EnableDomainWhiteList   *bool                                                                              `json:"enableDomainWhiteList,omitempty"`   //
+	Adgroups                *ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryAdgroups         `json:"adgroups,omitempty"`                // Holds list of AD Groups
+	AdvancedSettings        *ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryAdvancedSettings `json:"advancedSettings,omitempty"`        //
+	AdAttributes            *ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryAdAttributes     `json:"adAttributes,omitempty"`            // Holds list of AD Attributes
+	AdScopesNames           string                                                                             `json:"adScopesNames,omitempty"`           // String that contains the names of the scopes that the active directory belongs to. Names are separated by comma. Alphanumeric, underscore (_) characters are allowed
+	Link                    *ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryLink             `json:"link,omitempty"`                    //
 }
 
 type ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryAdgroups struct {
-	Groups []ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryAdgroupsGroups `json:"groups,omitempty"` // List of Groups
+	Groups *[]ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryAdgroupsGroups `json:"groups,omitempty"` // List of Groups
 }
 
 type ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryAdgroupsGroups struct {
@@ -44,42 +44,42 @@ type ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryAdgroupsGr
 }
 
 type ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryAdvancedSettings struct {
-	EnablePassChange              bool                                                                                            `json:"enablePassChange,omitempty"`              //
-	EnableMachineAuth             bool                                                                                            `json:"enableMachineAuth,omitempty"`             //
-	EnableMachineAccess           bool                                                                                            `json:"enableMachineAccess,omitempty"`           //
-	AgingTime                     int                                                                                             `json:"agingTime,omitempty"`                     // Range 1-8760 hours
-	EnableDialinPermissionCheck   bool                                                                                            `json:"enableDialinPermissionCheck,omitempty"`   //
-	EnableCallbackForDialinClient bool                                                                                            `json:"enableCallbackForDialinClient,omitempty"` //
-	PlaintextAuth                 bool                                                                                            `json:"plaintextAuth,omitempty"`                 //
-	EnableFailedAuthProtection    bool                                                                                            `json:"enableFailedAuthProtection,omitempty"`    // Enable prevent AD account lockout due to too many bad password attempts
-	AuthProtectionType            string                                                                                          `json:"authProtectionType,omitempty"`            // Enable prevent AD account lockout. Allowed values: - WIRELESS, - WIRED, - BOTH
-	FailedAuthThreshold           int                                                                                             `json:"failedAuthThreshold,omitempty"`           // Number of bad password attempts
-	IDentityNotInAdBehaviour      string                                                                                          `json:"identityNotInAdBehaviour,omitempty"`      // Allowed values: REJECT, SEARCH_JOINED_FOREST, SEARCH_ALL
-	UnreachableDomainsBehaviour   string                                                                                          `json:"unreachableDomainsBehaviour,omitempty"`   // Allowed values: PROCEED, DROP
-	EnableRewrites                bool                                                                                            `json:"enableRewrites,omitempty"`                //
-	RewriteRules                  []ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryAdvancedSettingsRewriteRules `json:"rewriteRules,omitempty"`                  // Identity rewrite is an advanced feature that directs Cisco ISE to manipulate the identity before it is passed to the external Active Directory system. You can create rules to change the identity to a desired format that includes or excludes a domain prefix and/or suffix or other additional markup of your choice
-	FirstName                     string                                                                                          `json:"firstName,omitempty"`                     // User info attribute. All characters are allowed except %
-	Department                    string                                                                                          `json:"department,omitempty"`                    // User info attribute. All characters are allowed except %
-	LastName                      string                                                                                          `json:"lastName,omitempty"`                      // User info attribute. All characters are allowed except %
-	OrganizationalUnit            string                                                                                          `json:"organizationalUnit,omitempty"`            // User info attribute. All characters are allowed except %
-	JobTitle                      string                                                                                          `json:"jobTitle,omitempty"`                      // User info attribute. All characters are allowed except %
-	Locality                      string                                                                                          `json:"locality,omitempty"`                      // User info attribute. All characters are allowed except %
-	Email                         string                                                                                          `json:"email,omitempty"`                         // User info attribute. All characters are allowed except %
-	StateOrProvince               string                                                                                          `json:"stateOrProvince,omitempty"`               // User info attribute. All characters are allowed except %
-	Telephone                     string                                                                                          `json:"telephone,omitempty"`                     // User info attribute. All characters are allowed except %
-	Country                       string                                                                                          `json:"country,omitempty"`                       // User info attribute. All characters are allowed except %
-	StreetAddress                 string                                                                                          `json:"streetAddress,omitempty"`                 // User info attribute. All characters are allowed except %
-	Schema                        string                                                                                          `json:"schema,omitempty"`                        // Allowed values: ACTIVE_DIRECTORY, CUSTOM. Choose ACTIVE_DIRECTORY schema when the AD attributes defined in AD can be copied to relevant attributes in Cisco ISE. If customization is needed, choose CUSTOM schema. All User info attributes are always set to default value if schema is ACTIVE_DIRECTORY. Values can be changed only for CUSTOM schema
+	EnablePassChange              *bool                                                                                            `json:"enablePassChange,omitempty"`              //
+	EnableMachineAuth             *bool                                                                                            `json:"enableMachineAuth,omitempty"`             //
+	EnableMachineAccess           *bool                                                                                            `json:"enableMachineAccess,omitempty"`           //
+	AgingTime                     *int                                                                                             `json:"agingTime,omitempty"`                     // Range 1-8760 hours
+	EnableDialinPermissionCheck   *bool                                                                                            `json:"enableDialinPermissionCheck,omitempty"`   //
+	EnableCallbackForDialinClient *bool                                                                                            `json:"enableCallbackForDialinClient,omitempty"` //
+	PlaintextAuth                 *bool                                                                                            `json:"plaintextAuth,omitempty"`                 //
+	EnableFailedAuthProtection    *bool                                                                                            `json:"enableFailedAuthProtection,omitempty"`    // Enable prevent AD account lockout due to too many bad password attempts
+	AuthProtectionType            string                                                                                           `json:"authProtectionType,omitempty"`            // Enable prevent AD account lockout. Allowed values: - WIRELESS, - WIRED, - BOTH
+	FailedAuthThreshold           *int                                                                                             `json:"failedAuthThreshold,omitempty"`           // Number of bad password attempts
+	IDentityNotInAdBehaviour      string                                                                                           `json:"identityNotInAdBehaviour,omitempty"`      // Allowed values: REJECT, SEARCH_JOINED_FOREST, SEARCH_ALL
+	UnreachableDomainsBehaviour   string                                                                                           `json:"unreachableDomainsBehaviour,omitempty"`   // Allowed values: PROCEED, DROP
+	EnableRewrites                *bool                                                                                            `json:"enableRewrites,omitempty"`                //
+	RewriteRules                  *[]ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryAdvancedSettingsRewriteRules `json:"rewriteRules,omitempty"`                  // Identity rewrite is an advanced feature that directs Cisco ISE to manipulate the identity before it is passed to the external Active Directory system. You can create rules to change the identity to a desired format that includes or excludes a domain prefix and/or suffix or other additional markup of your choice
+	FirstName                     string                                                                                           `json:"firstName,omitempty"`                     // User info attribute. All characters are allowed except %
+	Department                    string                                                                                           `json:"department,omitempty"`                    // User info attribute. All characters are allowed except %
+	LastName                      string                                                                                           `json:"lastName,omitempty"`                      // User info attribute. All characters are allowed except %
+	OrganizationalUnit            string                                                                                           `json:"organizationalUnit,omitempty"`            // User info attribute. All characters are allowed except %
+	JobTitle                      string                                                                                           `json:"jobTitle,omitempty"`                      // User info attribute. All characters are allowed except %
+	Locality                      string                                                                                           `json:"locality,omitempty"`                      // User info attribute. All characters are allowed except %
+	Email                         string                                                                                           `json:"email,omitempty"`                         // User info attribute. All characters are allowed except %
+	StateOrProvince               string                                                                                           `json:"stateOrProvince,omitempty"`               // User info attribute. All characters are allowed except %
+	Telephone                     string                                                                                           `json:"telephone,omitempty"`                     // User info attribute. All characters are allowed except %
+	Country                       string                                                                                           `json:"country,omitempty"`                       // User info attribute. All characters are allowed except %
+	StreetAddress                 string                                                                                           `json:"streetAddress,omitempty"`                 // User info attribute. All characters are allowed except %
+	Schema                        string                                                                                           `json:"schema,omitempty"`                        // Allowed values: ACTIVE_DIRECTORY, CUSTOM. Choose ACTIVE_DIRECTORY schema when the AD attributes defined in AD can be copied to relevant attributes in Cisco ISE. If customization is needed, choose CUSTOM schema. All User info attributes are always set to default value if schema is ACTIVE_DIRECTORY. Values can be changed only for CUSTOM schema
 }
 
 type ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryAdvancedSettingsRewriteRules struct {
-	RowID         int    `json:"rowId,omitempty"`         // Required for each rule in the list in serial order
+	RowID         *int   `json:"rowId,omitempty"`         // Required for each rule in the list in serial order
 	RewriteMatch  string `json:"rewriteMatch,omitempty"`  // Required for each rule in the list with no duplication between rules. All characters are allowed except %"
 	RewriteResult string `json:"rewriteResult,omitempty"` // Required for each rule in the list. All characters are allowed except %"
 }
 
 type ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryAdAttributes struct {
-	Attributes []ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryAdAttributesAttributes `json:"attributes,omitempty"` // List of Attributes
+	Attributes *[]ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryAdAttributesAttributes `json:"attributes,omitempty"` // List of Attributes
 }
 
 type ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryAdAttributesAttributes struct {
@@ -96,11 +96,11 @@ type ResponseActiveDirectoryGetActiveDirectoryByNameERSActiveDirectoryLink struc
 }
 
 type ResponseActiveDirectoryGetUserGroups struct {
-	ERSActiveDirectoryGroups ResponseActiveDirectoryGetUserGroupsERSActiveDirectoryGroups `json:"ERSActiveDirectoryGroups,omitempty"` //
+	ERSActiveDirectoryGroups *ResponseActiveDirectoryGetUserGroupsERSActiveDirectoryGroups `json:"ERSActiveDirectoryGroups,omitempty"` //
 }
 
 type ResponseActiveDirectoryGetUserGroupsERSActiveDirectoryGroups struct {
-	Groups []ResponseActiveDirectoryGetUserGroupsERSActiveDirectoryGroupsGroups `json:"groups,omitempty"` //
+	Groups *[]ResponseActiveDirectoryGetUserGroupsERSActiveDirectoryGroupsGroups `json:"groups,omitempty"` //
 }
 
 type ResponseActiveDirectoryGetUserGroupsERSActiveDirectoryGroupsGroups struct {
@@ -110,11 +110,11 @@ type ResponseActiveDirectoryGetUserGroupsERSActiveDirectoryGroupsGroups struct {
 }
 
 type ResponseActiveDirectoryIsUserMemberOfGroups struct {
-	ERSActiveDirectoryGroups ResponseActiveDirectoryIsUserMemberOfGroupsERSActiveDirectoryGroups `json:"ERSActiveDirectoryGroups,omitempty"` //
+	ERSActiveDirectoryGroups *ResponseActiveDirectoryIsUserMemberOfGroupsERSActiveDirectoryGroups `json:"ERSActiveDirectoryGroups,omitempty"` //
 }
 
 type ResponseActiveDirectoryIsUserMemberOfGroupsERSActiveDirectoryGroups struct {
-	Groups []ResponseActiveDirectoryIsUserMemberOfGroupsERSActiveDirectoryGroupsGroups `json:"groups,omitempty"` //
+	Groups *[]ResponseActiveDirectoryIsUserMemberOfGroupsERSActiveDirectoryGroupsGroups `json:"groups,omitempty"` //
 }
 
 type ResponseActiveDirectoryIsUserMemberOfGroupsERSActiveDirectoryGroupsGroups struct {
@@ -124,11 +124,11 @@ type ResponseActiveDirectoryIsUserMemberOfGroupsERSActiveDirectoryGroupsGroups s
 }
 
 type ResponseActiveDirectoryGetTrustedDomains struct {
-	ERSActiveDirectoryDomains ResponseActiveDirectoryGetTrustedDomainsERSActiveDirectoryDomains `json:"ERSActiveDirectoryDomains,omitempty"` //
+	ERSActiveDirectoryDomains *ResponseActiveDirectoryGetTrustedDomainsERSActiveDirectoryDomains `json:"ERSActiveDirectoryDomains,omitempty"` //
 }
 
 type ResponseActiveDirectoryGetTrustedDomainsERSActiveDirectoryDomains struct {
-	Domains []ResponseActiveDirectoryGetTrustedDomainsERSActiveDirectoryDomainsDomains `json:"domains,omitempty"` //
+	Domains *[]ResponseActiveDirectoryGetTrustedDomainsERSActiveDirectoryDomainsDomains `json:"domains,omitempty"` //
 }
 
 type ResponseActiveDirectoryGetTrustedDomainsERSActiveDirectoryDomainsDomains struct {
@@ -138,11 +138,11 @@ type ResponseActiveDirectoryGetTrustedDomainsERSActiveDirectoryDomainsDomains st
 }
 
 type ResponseActiveDirectoryGetGroupsByDomain struct {
-	ERSActiveDirectoryGroups ResponseActiveDirectoryGetGroupsByDomainERSActiveDirectoryGroups `json:"ERSActiveDirectoryGroups,omitempty"` //
+	ERSActiveDirectoryGroups *ResponseActiveDirectoryGetGroupsByDomainERSActiveDirectoryGroups `json:"ERSActiveDirectoryGroups,omitempty"` //
 }
 
 type ResponseActiveDirectoryGetGroupsByDomainERSActiveDirectoryGroups struct {
-	Groups []ResponseActiveDirectoryGetGroupsByDomainERSActiveDirectoryGroupsGroups `json:"groups,omitempty"` //
+	Groups *[]ResponseActiveDirectoryGetGroupsByDomainERSActiveDirectoryGroupsGroups `json:"groups,omitempty"` //
 }
 
 type ResponseActiveDirectoryGetGroupsByDomainERSActiveDirectoryGroupsGroups struct {
@@ -152,25 +152,25 @@ type ResponseActiveDirectoryGetGroupsByDomainERSActiveDirectoryGroupsGroups stru
 }
 
 type ResponseActiveDirectoryGetActiveDirectoryByID struct {
-	ERSActiveDirectory ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectory `json:"ERSActiveDirectory,omitempty"` //
+	ERSActiveDirectory *ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectory `json:"ERSActiveDirectory,omitempty"` //
 }
 
 type ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectory struct {
-	ID                      string                                                                          `json:"id,omitempty"`                      // Resource UUID value
-	Name                    string                                                                          `json:"name,omitempty"`                    // Resource Name. Maximum 32 characters allowed. Allowed characters are alphanumeric and .-_/\\ characters
-	Description             string                                                                          `json:"description,omitempty"`             // No character restriction
-	Domain                  string                                                                          `json:"domain,omitempty"`                  // The AD domain. Alphanumeric, hyphen (-) and dot (.) characters are allowed
-	EnableDomainWhiteList   bool                                                                            `json:"enableDomainWhiteList,omitempty"`   //
-	EnableDomainAllowedList bool                                                                            `json:"enableDomainAllowedList,omitempty"` //
-	Adgroups                ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryAdgroups         `json:"adgroups,omitempty"`                // Holds list of AD Groups
-	AdvancedSettings        ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryAdvancedSettings `json:"advancedSettings,omitempty"`        //
-	AdAttributes            ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryAdAttributes     `json:"adAttributes,omitempty"`            // Holds list of AD Attributes
-	AdScopesNames           string                                                                          `json:"adScopesNames,omitempty"`           // String that contains the names of the scopes that the active directory belongs to. Names are separated by comma. Alphanumeric, underscore (_) characters are allowed
-	Link                    ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryLink             `json:"link,omitempty"`                    //
+	ID                      string                                                                           `json:"id,omitempty"`                      // Resource UUID value
+	Name                    string                                                                           `json:"name,omitempty"`                    // Resource Name. Maximum 32 characters allowed. Allowed characters are alphanumeric and .-_/\\ characters
+	Description             string                                                                           `json:"description,omitempty"`             // No character restriction
+	Domain                  string                                                                           `json:"domain,omitempty"`                  // The AD domain. Alphanumeric, hyphen (-) and dot (.) characters are allowed
+	EnableDomainWhiteList   *bool                                                                            `json:"enableDomainWhiteList,omitempty"`   //
+	EnableDomainAllowedList *bool                                                                            `json:"enableDomainAllowedList,omitempty"` //
+	Adgroups                *ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryAdgroups         `json:"adgroups,omitempty"`                // Holds list of AD Groups
+	AdvancedSettings        *ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryAdvancedSettings `json:"advancedSettings,omitempty"`        //
+	AdAttributes            *ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryAdAttributes     `json:"adAttributes,omitempty"`            // Holds list of AD Attributes
+	AdScopesNames           string                                                                           `json:"adScopesNames,omitempty"`           // String that contains the names of the scopes that the active directory belongs to. Names are separated by comma. Alphanumeric, underscore (_) characters are allowed
+	Link                    *ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryLink             `json:"link,omitempty"`                    //
 }
 
 type ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryAdgroups struct {
-	Groups []ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryAdgroupsGroups `json:"groups,omitempty"` // List of Groups
+	Groups *[]ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryAdgroupsGroups `json:"groups,omitempty"` // List of Groups
 }
 
 type ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryAdgroupsGroups struct {
@@ -180,42 +180,42 @@ type ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryAdgroupsGrou
 }
 
 type ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryAdvancedSettings struct {
-	EnablePassChange              bool                                                                                          `json:"enablePassChange,omitempty"`              //
-	EnableMachineAuth             bool                                                                                          `json:"enableMachineAuth,omitempty"`             //
-	EnableMachineAccess           bool                                                                                          `json:"enableMachineAccess,omitempty"`           //
-	AgingTime                     int                                                                                           `json:"agingTime,omitempty"`                     // Range 1-8760 hours
-	EnableDialinPermissionCheck   bool                                                                                          `json:"enableDialinPermissionCheck,omitempty"`   //
-	EnableCallbackForDialinClient bool                                                                                          `json:"enableCallbackForDialinClient,omitempty"` //
-	PlaintextAuth                 bool                                                                                          `json:"plaintextAuth,omitempty"`                 //
-	EnableFailedAuthProtection    bool                                                                                          `json:"enableFailedAuthProtection,omitempty"`    // Enable prevent AD account lockout due to too many bad password attempts
-	AuthProtectionType            string                                                                                        `json:"authProtectionType,omitempty"`            // Enable prevent AD account lockout. Allowed values: - WIRELESS, - WIRED, - BOTH
-	FailedAuthThreshold           int                                                                                           `json:"failedAuthThreshold,omitempty"`           // Number of bad password attempts
-	IDentityNotInAdBehaviour      string                                                                                        `json:"identityNotInAdBehaviour,omitempty"`      // Allowed values: REJECT, SEARCH_JOINED_FOREST, SEARCH_ALL
-	UnreachableDomainsBehaviour   string                                                                                        `json:"unreachableDomainsBehaviour,omitempty"`   // Allowed values: PROCEED, DROP
-	EnableRewrites                bool                                                                                          `json:"enableRewrites,omitempty"`                //
-	RewriteRules                  []ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryAdvancedSettingsRewriteRules `json:"rewriteRules,omitempty"`                  // Identity rewrite is an advanced feature that directs Cisco ISE to manipulate the identity before it is passed to the external Active Directory system. You can create rules to change the identity to a desired format that includes or excludes a domain prefix and/or suffix or other additional markup of your choice
-	FirstName                     string                                                                                        `json:"firstName,omitempty"`                     // User info attribute. All characters are allowed except %
-	Department                    string                                                                                        `json:"department,omitempty"`                    // User info attribute. All characters are allowed except %
-	LastName                      string                                                                                        `json:"lastName,omitempty"`                      // User info attribute. All characters are allowed except %
-	OrganizationalUnit            string                                                                                        `json:"organizationalUnit,omitempty"`            // User info attribute. All characters are allowed except %
-	JobTitle                      string                                                                                        `json:"jobTitle,omitempty"`                      // User info attribute. All characters are allowed except %
-	Locality                      string                                                                                        `json:"locality,omitempty"`                      // User info attribute. All characters are allowed except %
-	Email                         string                                                                                        `json:"email,omitempty"`                         // User info attribute. All characters are allowed except %
-	StateOrProvince               string                                                                                        `json:"stateOrProvince,omitempty"`               // User info attribute. All characters are allowed except %
-	Telephone                     string                                                                                        `json:"telephone,omitempty"`                     // User info attribute. All characters are allowed except %
-	Country                       string                                                                                        `json:"country,omitempty"`                       // User info attribute. All characters are allowed except %
-	StreetAddress                 string                                                                                        `json:"streetAddress,omitempty"`                 // User info attribute. All characters are allowed except %
-	Schema                        string                                                                                        `json:"schema,omitempty"`                        // Allowed values: ACTIVE_DIRECTORY, CUSTOM. Choose ACTIVE_DIRECTORY schema when the AD attributes defined in AD can be copied to relevant attributes in Cisco ISE. If customization is needed, choose CUSTOM schema. All User info attributes are always set to default value if schema is ACTIVE_DIRECTORY. Values can be changed only for CUSTOM schema
+	EnablePassChange              *bool                                                                                          `json:"enablePassChange,omitempty"`              //
+	EnableMachineAuth             *bool                                                                                          `json:"enableMachineAuth,omitempty"`             //
+	EnableMachineAccess           *bool                                                                                          `json:"enableMachineAccess,omitempty"`           //
+	AgingTime                     *int                                                                                           `json:"agingTime,omitempty"`                     // Range 1-8760 hours
+	EnableDialinPermissionCheck   *bool                                                                                          `json:"enableDialinPermissionCheck,omitempty"`   //
+	EnableCallbackForDialinClient *bool                                                                                          `json:"enableCallbackForDialinClient,omitempty"` //
+	PlaintextAuth                 *bool                                                                                          `json:"plaintextAuth,omitempty"`                 //
+	EnableFailedAuthProtection    *bool                                                                                          `json:"enableFailedAuthProtection,omitempty"`    // Enable prevent AD account lockout due to too many bad password attempts
+	AuthProtectionType            string                                                                                         `json:"authProtectionType,omitempty"`            // Enable prevent AD account lockout. Allowed values: - WIRELESS, - WIRED, - BOTH
+	FailedAuthThreshold           *int                                                                                           `json:"failedAuthThreshold,omitempty"`           // Number of bad password attempts
+	IDentityNotInAdBehaviour      string                                                                                         `json:"identityNotInAdBehaviour,omitempty"`      // Allowed values: REJECT, SEARCH_JOINED_FOREST, SEARCH_ALL
+	UnreachableDomainsBehaviour   string                                                                                         `json:"unreachableDomainsBehaviour,omitempty"`   // Allowed values: PROCEED, DROP
+	EnableRewrites                *bool                                                                                          `json:"enableRewrites,omitempty"`                //
+	RewriteRules                  *[]ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryAdvancedSettingsRewriteRules `json:"rewriteRules,omitempty"`                  // Identity rewrite is an advanced feature that directs Cisco ISE to manipulate the identity before it is passed to the external Active Directory system. You can create rules to change the identity to a desired format that includes or excludes a domain prefix and/or suffix or other additional markup of your choice
+	FirstName                     string                                                                                         `json:"firstName,omitempty"`                     // User info attribute. All characters are allowed except %
+	Department                    string                                                                                         `json:"department,omitempty"`                    // User info attribute. All characters are allowed except %
+	LastName                      string                                                                                         `json:"lastName,omitempty"`                      // User info attribute. All characters are allowed except %
+	OrganizationalUnit            string                                                                                         `json:"organizationalUnit,omitempty"`            // User info attribute. All characters are allowed except %
+	JobTitle                      string                                                                                         `json:"jobTitle,omitempty"`                      // User info attribute. All characters are allowed except %
+	Locality                      string                                                                                         `json:"locality,omitempty"`                      // User info attribute. All characters are allowed except %
+	Email                         string                                                                                         `json:"email,omitempty"`                         // User info attribute. All characters are allowed except %
+	StateOrProvince               string                                                                                         `json:"stateOrProvince,omitempty"`               // User info attribute. All characters are allowed except %
+	Telephone                     string                                                                                         `json:"telephone,omitempty"`                     // User info attribute. All characters are allowed except %
+	Country                       string                                                                                         `json:"country,omitempty"`                       // User info attribute. All characters are allowed except %
+	StreetAddress                 string                                                                                         `json:"streetAddress,omitempty"`                 // User info attribute. All characters are allowed except %
+	Schema                        string                                                                                         `json:"schema,omitempty"`                        // Allowed values: ACTIVE_DIRECTORY, CUSTOM. Choose ACTIVE_DIRECTORY schema when the AD attributes defined in AD can be copied to relevant attributes in Cisco ISE. If customization is needed, choose CUSTOM schema. All User info attributes are always set to default value if schema is ACTIVE_DIRECTORY. Values can be changed only for CUSTOM schema
 }
 
 type ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryAdvancedSettingsRewriteRules struct {
-	RowID         int    `json:"rowId,omitempty"`         // Required for each rule in the list in serial order
+	RowID         *int   `json:"rowId,omitempty"`         // Required for each rule in the list in serial order
 	RewriteMatch  string `json:"rewriteMatch,omitempty"`  // Required for each rule in the list with no duplication between rules. All characters are allowed except %"
 	RewriteResult string `json:"rewriteResult,omitempty"` // Required for each rule in the list. All characters are allowed except %"
 }
 
 type ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryAdAttributes struct {
-	Attributes []ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryAdAttributesAttributes `json:"attributes,omitempty"` // List of Attributes
+	Attributes *[]ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryAdAttributesAttributes `json:"attributes,omitempty"` // List of Attributes
 }
 
 type ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryAdAttributesAttributes struct {
@@ -232,21 +232,21 @@ type ResponseActiveDirectoryGetActiveDirectoryByIDERSActiveDirectoryLink struct 
 }
 
 type ResponseActiveDirectoryGetActiveDirectory struct {
-	SearchResult ResponseActiveDirectoryGetActiveDirectorySearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseActiveDirectoryGetActiveDirectorySearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseActiveDirectoryGetActiveDirectorySearchResult struct {
-	Total        int                                                               `json:"total,omitempty"`        //
-	Resources    []ResponseActiveDirectoryGetActiveDirectorySearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseActiveDirectoryGetActiveDirectorySearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseActiveDirectoryGetActiveDirectorySearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                               `json:"total,omitempty"`        //
+	Resources    *[]ResponseActiveDirectoryGetActiveDirectorySearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseActiveDirectoryGetActiveDirectorySearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseActiveDirectoryGetActiveDirectorySearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseActiveDirectoryGetActiveDirectorySearchResultResources struct {
-	ID          string                                                             `json:"id,omitempty"`          //
-	Name        string                                                             `json:"name,omitempty"`        //
-	Description string                                                             `json:"description,omitempty"` //
-	Link        ResponseActiveDirectoryGetActiveDirectorySearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                              `json:"id,omitempty"`          //
+	Name        string                                                              `json:"name,omitempty"`        //
+	Description string                                                              `json:"description,omitempty"` //
+	Link        *ResponseActiveDirectoryGetActiveDirectorySearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseActiveDirectoryGetActiveDirectorySearchResultResourcesLink struct {
@@ -268,13 +268,13 @@ type ResponseActiveDirectoryGetActiveDirectorySearchResultPreviousPage struct {
 }
 
 type ResponseActiveDirectoryGetVersion struct {
-	VersionInfo ResponseActiveDirectoryGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseActiveDirectoryGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseActiveDirectoryGetVersionVersionInfo struct {
-	CurrentServerVersion string                                           `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                           `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseActiveDirectoryGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                            `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                            `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseActiveDirectoryGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseActiveDirectoryGetVersionVersionInfoLink struct {

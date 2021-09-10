@@ -20,13 +20,13 @@ type GetPortalGlobalSettingsQueryParams struct {
 }
 
 type ResponsePortalGlobalSettingGetPortalGlobalSettingByID struct {
-	PortalCustomizationGlobalSetting ResponsePortalGlobalSettingGetPortalGlobalSettingByIDPortalCustomizationGlobalSetting `json:"PortalCustomizationGlobalSetting,omitempty"` //
+	PortalCustomizationGlobalSetting *ResponsePortalGlobalSettingGetPortalGlobalSettingByIDPortalCustomizationGlobalSetting `json:"PortalCustomizationGlobalSetting,omitempty"` //
 }
 
 type ResponsePortalGlobalSettingGetPortalGlobalSettingByIDPortalCustomizationGlobalSetting struct {
-	ID            string                                                                                    `json:"id,omitempty"`            //
-	Customization string                                                                                    `json:"customization,omitempty"` // Allowed values: - HTML, - HTMLANDJAVASCRIPT
-	Link          ResponsePortalGlobalSettingGetPortalGlobalSettingByIDPortalCustomizationGlobalSettingLink `json:"link,omitempty"`          //
+	ID            string                                                                                     `json:"id,omitempty"`            //
+	Customization string                                                                                     `json:"customization,omitempty"` // Allowed values: - HTML, - HTMLANDJAVASCRIPT
+	Link          *ResponsePortalGlobalSettingGetPortalGlobalSettingByIDPortalCustomizationGlobalSettingLink `json:"link,omitempty"`          //
 }
 
 type ResponsePortalGlobalSettingGetPortalGlobalSettingByIDPortalCustomizationGlobalSettingLink struct {
@@ -36,14 +36,14 @@ type ResponsePortalGlobalSettingGetPortalGlobalSettingByIDPortalCustomizationGlo
 }
 
 type ResponsePortalGlobalSettingUpdatePortalGlobalSettingByID struct {
-	UpdatedFieldsList ResponsePortalGlobalSettingUpdatePortalGlobalSettingByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponsePortalGlobalSettingUpdatePortalGlobalSettingByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponsePortalGlobalSettingUpdatePortalGlobalSettingByIDUpdatedFieldsList struct {
-	UpdatedField ResponsePortalGlobalSettingUpdatePortalGlobalSettingByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                                `json:"field,omitempty"`        //
-	OldValue     string                                                                                `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                                `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponsePortalGlobalSettingUpdatePortalGlobalSettingByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                                   `json:"field,omitempty"`        //
+	OldValue     string                                                                                   `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                                   `json:"newValue,omitempty"`     //
 }
 
 type ResponsePortalGlobalSettingUpdatePortalGlobalSettingByIDUpdatedFieldsListUpdatedField struct {
@@ -53,19 +53,19 @@ type ResponsePortalGlobalSettingUpdatePortalGlobalSettingByIDUpdatedFieldsListUp
 }
 
 type ResponsePortalGlobalSettingGetPortalGlobalSettings struct {
-	SearchResult ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResult struct {
-	Total        int                                                                        `json:"total,omitempty"`        //
-	Resources    []ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                        `json:"total,omitempty"`        //
+	Resources    *[]ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResultResources struct {
-	ID   string                                                                      `json:"id,omitempty"`   //
-	Link ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResultResourcesLink `json:"link,omitempty"` //
+	ID   string                                                                       `json:"id,omitempty"`   //
+	Link *ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResultResourcesLink `json:"link,omitempty"` //
 }
 
 type ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResultResourcesLink struct {
@@ -87,13 +87,13 @@ type ResponsePortalGlobalSettingGetPortalGlobalSettingsSearchResultPreviousPage 
 }
 
 type ResponsePortalGlobalSettingGetVersion struct {
-	VersionInfo ResponsePortalGlobalSettingGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponsePortalGlobalSettingGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponsePortalGlobalSettingGetVersionVersionInfo struct {
-	CurrentServerVersion string                                               `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                               `json:"supportedVersions,omitempty"`    //
-	Link                 ResponsePortalGlobalSettingGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponsePortalGlobalSettingGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponsePortalGlobalSettingGetVersionVersionInfoLink struct {

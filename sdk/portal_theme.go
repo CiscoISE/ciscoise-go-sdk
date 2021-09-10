@@ -20,15 +20,15 @@ type GetPortalThemesQueryParams struct {
 }
 
 type ResponsePortalThemeGetPortalThemeByID struct {
-	PortalTheme ResponsePortalThemeGetPortalThemeByIDPortalTheme `json:"PortalTheme,omitempty"` //
+	PortalTheme *ResponsePortalThemeGetPortalThemeByIDPortalTheme `json:"PortalTheme,omitempty"` //
 }
 
 type ResponsePortalThemeGetPortalThemeByIDPortalTheme struct {
-	ID          string                                               `json:"id,omitempty"`          //
-	Name        string                                               `json:"name,omitempty"`        //
-	Description string                                               `json:"description,omitempty"` //
-	ThemeData   string                                               `json:"themeData,omitempty"`   // Portal Theme for all portals
-	Link        ResponsePortalThemeGetPortalThemeByIDPortalThemeLink `json:"link,omitempty"`        //
+	ID          string                                                `json:"id,omitempty"`          //
+	Name        string                                                `json:"name,omitempty"`        //
+	Description string                                                `json:"description,omitempty"` //
+	ThemeData   string                                                `json:"themeData,omitempty"`   // Portal Theme for all portals
+	Link        *ResponsePortalThemeGetPortalThemeByIDPortalThemeLink `json:"link,omitempty"`        //
 }
 
 type ResponsePortalThemeGetPortalThemeByIDPortalThemeLink struct {
@@ -38,14 +38,14 @@ type ResponsePortalThemeGetPortalThemeByIDPortalThemeLink struct {
 }
 
 type ResponsePortalThemeUpdatePortalThemeByID struct {
-	UpdatedFieldsList ResponsePortalThemeUpdatePortalThemeByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponsePortalThemeUpdatePortalThemeByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponsePortalThemeUpdatePortalThemeByIDUpdatedFieldsList struct {
-	UpdatedField ResponsePortalThemeUpdatePortalThemeByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                `json:"field,omitempty"`        //
-	OldValue     string                                                                `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponsePortalThemeUpdatePortalThemeByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                   `json:"field,omitempty"`        //
+	OldValue     string                                                                   `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                   `json:"newValue,omitempty"`     //
 }
 
 type ResponsePortalThemeUpdatePortalThemeByIDUpdatedFieldsListUpdatedField struct {
@@ -55,20 +55,20 @@ type ResponsePortalThemeUpdatePortalThemeByIDUpdatedFieldsListUpdatedField struc
 }
 
 type ResponsePortalThemeGetPortalThemes struct {
-	SearchResult ResponsePortalThemeGetPortalThemesSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponsePortalThemeGetPortalThemesSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponsePortalThemeGetPortalThemesSearchResult struct {
-	Total        int                                                        `json:"total,omitempty"`        //
-	Resources    []ResponsePortalThemeGetPortalThemesSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponsePortalThemeGetPortalThemesSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponsePortalThemeGetPortalThemesSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                        `json:"total,omitempty"`        //
+	Resources    *[]ResponsePortalThemeGetPortalThemesSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponsePortalThemeGetPortalThemesSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponsePortalThemeGetPortalThemesSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponsePortalThemeGetPortalThemesSearchResultResources struct {
-	ID   string                                                      `json:"id,omitempty"`   //
-	Name string                                                      `json:"name,omitempty"` //
-	Link ResponsePortalThemeGetPortalThemesSearchResultResourcesLink `json:"link,omitempty"` //
+	ID   string                                                       `json:"id,omitempty"`   //
+	Name string                                                       `json:"name,omitempty"` //
+	Link *ResponsePortalThemeGetPortalThemesSearchResultResourcesLink `json:"link,omitempty"` //
 }
 
 type ResponsePortalThemeGetPortalThemesSearchResultResourcesLink struct {
@@ -90,13 +90,13 @@ type ResponsePortalThemeGetPortalThemesSearchResultPreviousPage struct {
 }
 
 type ResponsePortalThemeGetVersion struct {
-	VersionInfo ResponsePortalThemeGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponsePortalThemeGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponsePortalThemeGetVersionVersionInfo struct {
-	CurrentServerVersion string                                       `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                       `json:"supportedVersions,omitempty"`    //
-	Link                 ResponsePortalThemeGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                        `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                        `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponsePortalThemeGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponsePortalThemeGetVersionVersionInfoLink struct {

@@ -20,13 +20,13 @@ type GetSxpVpnsQueryParams struct {
 }
 
 type ResponseSxpVpnsGetSxpVpnByID struct {
-	ERSSxpVpn ResponseSxpVpnsGetSxpVpnByIDERSSxpVpn `json:"ERSSxpVpn,omitempty"` //
+	ERSSxpVpn *ResponseSxpVpnsGetSxpVpnByIDERSSxpVpn `json:"ERSSxpVpn,omitempty"` //
 }
 
 type ResponseSxpVpnsGetSxpVpnByIDERSSxpVpn struct {
-	ID         string                                    `json:"id,omitempty"`         //
-	SxpVpnName string                                    `json:"sxpVpnName,omitempty"` //
-	Link       ResponseSxpVpnsGetSxpVpnByIDERSSxpVpnLink `json:"link,omitempty"`       //
+	ID         string                                     `json:"id,omitempty"`         //
+	SxpVpnName string                                     `json:"sxpVpnName,omitempty"` //
+	Link       *ResponseSxpVpnsGetSxpVpnByIDERSSxpVpnLink `json:"link,omitempty"`       //
 }
 
 type ResponseSxpVpnsGetSxpVpnByIDERSSxpVpnLink struct {
@@ -36,19 +36,19 @@ type ResponseSxpVpnsGetSxpVpnByIDERSSxpVpnLink struct {
 }
 
 type ResponseSxpVpnsGetSxpVpns struct {
-	SearchResult ResponseSxpVpnsGetSxpVpnsSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseSxpVpnsGetSxpVpnsSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseSxpVpnsGetSxpVpnsSearchResult struct {
-	Total        int                                               `json:"total,omitempty"`        //
-	Resources    []ResponseSxpVpnsGetSxpVpnsSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseSxpVpnsGetSxpVpnsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseSxpVpnsGetSxpVpnsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                               `json:"total,omitempty"`        //
+	Resources    *[]ResponseSxpVpnsGetSxpVpnsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseSxpVpnsGetSxpVpnsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseSxpVpnsGetSxpVpnsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSxpVpnsGetSxpVpnsSearchResultResources struct {
-	ID   string                                             `json:"id,omitempty"`   //
-	Link ResponseSxpVpnsGetSxpVpnsSearchResultResourcesLink `json:"link,omitempty"` //
+	ID   string                                              `json:"id,omitempty"`   //
+	Link *ResponseSxpVpnsGetSxpVpnsSearchResultResourcesLink `json:"link,omitempty"` //
 }
 
 type ResponseSxpVpnsGetSxpVpnsSearchResultResourcesLink struct {
@@ -70,13 +70,13 @@ type ResponseSxpVpnsGetSxpVpnsSearchResultPreviousPage struct {
 }
 
 type ResponseSxpVpnsGetVersion struct {
-	VersionInfo ResponseSxpVpnsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseSxpVpnsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseSxpVpnsGetVersionVersionInfo struct {
-	CurrentServerVersion string                                   `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                   `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseSxpVpnsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                    `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                    `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseSxpVpnsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseSxpVpnsGetVersionVersionInfoLink struct {
@@ -86,19 +86,19 @@ type ResponseSxpVpnsGetVersionVersionInfoLink struct {
 }
 
 type ResponseSxpVpnsMonitorBulkStatusSxpVpns struct {
-	BulkStatus ResponseSxpVpnsMonitorBulkStatusSxpVpnsBulkStatus `json:"BulkStatus,omitempty"` //
+	BulkStatus *ResponseSxpVpnsMonitorBulkStatusSxpVpnsBulkStatus `json:"BulkStatus,omitempty"` //
 }
 
 type ResponseSxpVpnsMonitorBulkStatusSxpVpnsBulkStatus struct {
-	BulkID          string                                                             `json:"bulkId,omitempty"`          //
-	MediaType       string                                                             `json:"mediaType,omitempty"`       //
-	ExecutionStatus string                                                             `json:"executionStatus,omitempty"` //
-	OperationType   string                                                             `json:"operationType,omitempty"`   //
-	StartTime       string                                                             `json:"startTime,omitempty"`       //
-	ResourcesCount  int                                                                `json:"resourcesCount,omitempty"`  //
-	SuccessCount    int                                                                `json:"successCount,omitempty"`    //
-	FailCount       int                                                                `json:"failCount,omitempty"`       //
-	ResourcesStatus []ResponseSxpVpnsMonitorBulkStatusSxpVpnsBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
+	BulkID          string                                                              `json:"bulkId,omitempty"`          //
+	MediaType       string                                                              `json:"mediaType,omitempty"`       //
+	ExecutionStatus string                                                              `json:"executionStatus,omitempty"` //
+	OperationType   string                                                              `json:"operationType,omitempty"`   //
+	StartTime       string                                                              `json:"startTime,omitempty"`       //
+	ResourcesCount  *int                                                                `json:"resourcesCount,omitempty"`  //
+	SuccessCount    *int                                                                `json:"successCount,omitempty"`    //
+	FailCount       *int                                                                `json:"failCount,omitempty"`       //
+	ResourcesStatus *[]ResponseSxpVpnsMonitorBulkStatusSxpVpnsBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
 }
 
 type ResponseSxpVpnsMonitorBulkStatusSxpVpnsBulkStatusResourcesStatus struct {

@@ -16,21 +16,21 @@ type GetTacacsServerSequenceQueryParams struct {
 }
 
 type ResponseTacacsServerSequenceGetTacacsServerSequenceByName struct {
-	TacacsServerSequence ResponseTacacsServerSequenceGetTacacsServerSequenceByNameTacacsServerSequence `json:"TacacsServerSequence,omitempty"` //
+	TacacsServerSequence *ResponseTacacsServerSequenceGetTacacsServerSequenceByNameTacacsServerSequence `json:"TacacsServerSequence,omitempty"` //
 }
 
 type ResponseTacacsServerSequenceGetTacacsServerSequenceByNameTacacsServerSequence struct {
-	ID               string                                                                            `json:"id,omitempty"`               //
-	Name             string                                                                            `json:"name,omitempty"`             //
-	Description      string                                                                            `json:"description,omitempty"`      //
-	ServerList       string                                                                            `json:"serverList,omitempty"`       // The names of Tacacs external servers separated by commas. The order of the names in the string is the order of servers that will be used during authentication
-	LocalAccounting  bool                                                                              `json:"localAccounting,omitempty"`  //
-	RemoteAccounting bool                                                                              `json:"remoteAccounting,omitempty"` //
-	PrefixStrip      bool                                                                              `json:"prefixStrip,omitempty"`      // Define if a delimiter will be used for prefix strip
-	PrefixDelimiter  string                                                                            `json:"prefixDelimiter,omitempty"`  // The delimiter that will be used for prefix strip
-	SuffixStrip      bool                                                                              `json:"suffixStrip,omitempty"`      // Define if a delimiter will be used for suffix strip
-	SuffixDelimiter  string                                                                            `json:"suffixDelimiter,omitempty"`  // The delimiter that will be used for suffix strip
-	Link             ResponseTacacsServerSequenceGetTacacsServerSequenceByNameTacacsServerSequenceLink `json:"link,omitempty"`             //
+	ID               string                                                                             `json:"id,omitempty"`               //
+	Name             string                                                                             `json:"name,omitempty"`             //
+	Description      string                                                                             `json:"description,omitempty"`      //
+	ServerList       string                                                                             `json:"serverList,omitempty"`       // The names of Tacacs external servers separated by commas. The order of the names in the string is the order of servers that will be used during authentication
+	LocalAccounting  *bool                                                                              `json:"localAccounting,omitempty"`  //
+	RemoteAccounting *bool                                                                              `json:"remoteAccounting,omitempty"` //
+	PrefixStrip      *bool                                                                              `json:"prefixStrip,omitempty"`      // Define if a delimiter will be used for prefix strip
+	PrefixDelimiter  string                                                                             `json:"prefixDelimiter,omitempty"`  // The delimiter that will be used for prefix strip
+	SuffixStrip      *bool                                                                              `json:"suffixStrip,omitempty"`      // Define if a delimiter will be used for suffix strip
+	SuffixDelimiter  string                                                                             `json:"suffixDelimiter,omitempty"`  // The delimiter that will be used for suffix strip
+	Link             *ResponseTacacsServerSequenceGetTacacsServerSequenceByNameTacacsServerSequenceLink `json:"link,omitempty"`             //
 }
 
 type ResponseTacacsServerSequenceGetTacacsServerSequenceByNameTacacsServerSequenceLink struct {
@@ -40,21 +40,21 @@ type ResponseTacacsServerSequenceGetTacacsServerSequenceByNameTacacsServerSequen
 }
 
 type ResponseTacacsServerSequenceGetTacacsServerSequenceByID struct {
-	TacacsServerSequence ResponseTacacsServerSequenceGetTacacsServerSequenceByIDTacacsServerSequence `json:"TacacsServerSequence,omitempty"` //
+	TacacsServerSequence *ResponseTacacsServerSequenceGetTacacsServerSequenceByIDTacacsServerSequence `json:"TacacsServerSequence,omitempty"` //
 }
 
 type ResponseTacacsServerSequenceGetTacacsServerSequenceByIDTacacsServerSequence struct {
-	ID               string                                                                          `json:"id,omitempty"`               //
-	Name             string                                                                          `json:"name,omitempty"`             //
-	Description      string                                                                          `json:"description,omitempty"`      //
-	ServerList       string                                                                          `json:"serverList,omitempty"`       // The names of Tacacs external servers separated by commas. The order of the names in the string is the order of servers that will be used during authentication
-	LocalAccounting  bool                                                                            `json:"localAccounting,omitempty"`  //
-	RemoteAccounting bool                                                                            `json:"remoteAccounting,omitempty"` //
-	PrefixStrip      bool                                                                            `json:"prefixStrip,omitempty"`      // Define if a delimiter will be used for prefix strip
-	PrefixDelimiter  string                                                                          `json:"prefixDelimiter,omitempty"`  // The delimiter that will be used for prefix strip
-	SuffixStrip      bool                                                                            `json:"suffixStrip,omitempty"`      // Define if a delimiter will be used for suffix strip
-	SuffixDelimiter  string                                                                          `json:"suffixDelimiter,omitempty"`  // The delimiter that will be used for suffix strip
-	Link             ResponseTacacsServerSequenceGetTacacsServerSequenceByIDTacacsServerSequenceLink `json:"link,omitempty"`             //
+	ID               string                                                                           `json:"id,omitempty"`               //
+	Name             string                                                                           `json:"name,omitempty"`             //
+	Description      string                                                                           `json:"description,omitempty"`      //
+	ServerList       string                                                                           `json:"serverList,omitempty"`       // The names of Tacacs external servers separated by commas. The order of the names in the string is the order of servers that will be used during authentication
+	LocalAccounting  *bool                                                                            `json:"localAccounting,omitempty"`  //
+	RemoteAccounting *bool                                                                            `json:"remoteAccounting,omitempty"` //
+	PrefixStrip      *bool                                                                            `json:"prefixStrip,omitempty"`      // Define if a delimiter will be used for prefix strip
+	PrefixDelimiter  string                                                                           `json:"prefixDelimiter,omitempty"`  // The delimiter that will be used for prefix strip
+	SuffixStrip      *bool                                                                            `json:"suffixStrip,omitempty"`      // Define if a delimiter will be used for suffix strip
+	SuffixDelimiter  string                                                                           `json:"suffixDelimiter,omitempty"`  // The delimiter that will be used for suffix strip
+	Link             *ResponseTacacsServerSequenceGetTacacsServerSequenceByIDTacacsServerSequenceLink `json:"link,omitempty"`             //
 }
 
 type ResponseTacacsServerSequenceGetTacacsServerSequenceByIDTacacsServerSequenceLink struct {
@@ -64,14 +64,14 @@ type ResponseTacacsServerSequenceGetTacacsServerSequenceByIDTacacsServerSequence
 }
 
 type ResponseTacacsServerSequenceUpdateTacacsServerSequenceByID struct {
-	UpdatedFieldsList ResponseTacacsServerSequenceUpdateTacacsServerSequenceByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseTacacsServerSequenceUpdateTacacsServerSequenceByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseTacacsServerSequenceUpdateTacacsServerSequenceByIDUpdatedFieldsList struct {
-	UpdatedField ResponseTacacsServerSequenceUpdateTacacsServerSequenceByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                                  `json:"field,omitempty"`        //
-	OldValue     string                                                                                  `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                                  `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseTacacsServerSequenceUpdateTacacsServerSequenceByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                                     `json:"field,omitempty"`        //
+	OldValue     string                                                                                     `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                                     `json:"newValue,omitempty"`     //
 }
 
 type ResponseTacacsServerSequenceUpdateTacacsServerSequenceByIDUpdatedFieldsListUpdatedField struct {
@@ -81,21 +81,21 @@ type ResponseTacacsServerSequenceUpdateTacacsServerSequenceByIDUpdatedFieldsList
 }
 
 type ResponseTacacsServerSequenceGetTacacsServerSequence struct {
-	SearchResult ResponseTacacsServerSequenceGetTacacsServerSequenceSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseTacacsServerSequenceGetTacacsServerSequenceSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseTacacsServerSequenceGetTacacsServerSequenceSearchResult struct {
-	Total        int                                                                         `json:"total,omitempty"`        //
-	Resources    []ResponseTacacsServerSequenceGetTacacsServerSequenceSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseTacacsServerSequenceGetTacacsServerSequenceSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseTacacsServerSequenceGetTacacsServerSequenceSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                         `json:"total,omitempty"`        //
+	Resources    *[]ResponseTacacsServerSequenceGetTacacsServerSequenceSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseTacacsServerSequenceGetTacacsServerSequenceSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseTacacsServerSequenceGetTacacsServerSequenceSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseTacacsServerSequenceGetTacacsServerSequenceSearchResultResources struct {
-	ID          string                                                                       `json:"id,omitempty"`          //
-	Name        string                                                                       `json:"name,omitempty"`        //
-	Description string                                                                       `json:"description,omitempty"` //
-	Link        ResponseTacacsServerSequenceGetTacacsServerSequenceSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                                        `json:"id,omitempty"`          //
+	Name        string                                                                        `json:"name,omitempty"`        //
+	Description string                                                                        `json:"description,omitempty"` //
+	Link        *ResponseTacacsServerSequenceGetTacacsServerSequenceSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseTacacsServerSequenceGetTacacsServerSequenceSearchResultResourcesLink struct {
@@ -117,13 +117,13 @@ type ResponseTacacsServerSequenceGetTacacsServerSequenceSearchResultPreviousPage
 }
 
 type ResponseTacacsServerSequenceGetVersion struct {
-	VersionInfo ResponseTacacsServerSequenceGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseTacacsServerSequenceGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseTacacsServerSequenceGetVersionVersionInfo struct {
-	CurrentServerVersion string                                                `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                                `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseTacacsServerSequenceGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                 `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                 `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseTacacsServerSequenceGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseTacacsServerSequenceGetVersionVersionInfoLink struct {

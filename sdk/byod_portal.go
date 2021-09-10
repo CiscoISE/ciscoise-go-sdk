@@ -20,28 +20,28 @@ type GetByodPortalQueryParams struct {
 }
 
 type ResponseByodPortalGetByodPortalByID struct {
-	ByodPortal ResponseByodPortalGetByodPortalByIDByodPortal `json:"BYODPortal,omitempty"` //
+	ByodPortal *ResponseByodPortalGetByodPortalByIDByodPortal `json:"BYODPortal,omitempty"` //
 }
 
 type ResponseByodPortalGetByodPortalByIDByodPortal struct {
-	ID             string                                                      `json:"id,omitempty"`             // Resource UUID, mandatory for update
-	Name           string                                                      `json:"name,omitempty"`           // Resource Name
-	Description    string                                                      `json:"description,omitempty"`    //
-	PortalType     string                                                      `json:"portalType,omitempty"`     // Allowed values: - BYOD, - HOTSPOTGUEST, - MYDEVICE, - SELFREGGUEST, - SPONSOR, - SPONSOREDGUEST
-	PortalTestURL  string                                                      `json:"portalTestUrl,omitempty"`  // URL to bring up a test page for this portal
-	Settings       ResponseByodPortalGetByodPortalByIDByodPortalSettings       `json:"settings,omitempty"`       // Defines all of the settings groups available for a BYOD
-	Customizations ResponseByodPortalGetByodPortalByIDByodPortalCustomizations `json:"customizations,omitempty"` // Defines all of the Portal Customizations available for a BYOD
-	Link           ResponseByodPortalGetByodPortalByIDByodPortalLink           `json:"link,omitempty"`           //
+	ID             string                                                       `json:"id,omitempty"`             // Resource UUID, mandatory for update
+	Name           string                                                       `json:"name,omitempty"`           // Resource Name
+	Description    string                                                       `json:"description,omitempty"`    //
+	PortalType     string                                                       `json:"portalType,omitempty"`     // Allowed values: - BYOD, - HOTSPOTGUEST, - MYDEVICE, - SELFREGGUEST, - SPONSOR, - SPONSOREDGUEST
+	PortalTestURL  string                                                       `json:"portalTestUrl,omitempty"`  // URL to bring up a test page for this portal
+	Settings       *ResponseByodPortalGetByodPortalByIDByodPortalSettings       `json:"settings,omitempty"`       // Defines all of the settings groups available for a BYOD
+	Customizations *ResponseByodPortalGetByodPortalByIDByodPortalCustomizations `json:"customizations,omitempty"` // Defines all of the Portal Customizations available for a BYOD
+	Link           *ResponseByodPortalGetByodPortalByIDByodPortalLink           `json:"link,omitempty"`           //
 }
 
 type ResponseByodPortalGetByodPortalByIDByodPortalSettings struct {
-	PortalSettings      ResponseByodPortalGetByodPortalByIDByodPortalSettingsPortalSettings      `json:"portalSettings,omitempty"`      // The port, interface, certificate, and other basic settings of a portal
-	ByodSettings        ResponseByodPortalGetByodPortalByIDByodPortalSettingsByodSettings        `json:"byodSettings,omitempty"`        // Configuration of BYOD Device Welcome, Registration and Success steps
-	SupportInfoSettings ResponseByodPortalGetByodPortalByIDByodPortalSettingsSupportInfoSettings `json:"supportInfoSettings,omitempty"` //
+	PortalSettings      *ResponseByodPortalGetByodPortalByIDByodPortalSettingsPortalSettings      `json:"portalSettings,omitempty"`      // The port, interface, certificate, and other basic settings of a portal
+	ByodSettings        *ResponseByodPortalGetByodPortalByIDByodPortalSettingsByodSettings        `json:"byodSettings,omitempty"`        // Configuration of BYOD Device Welcome, Registration and Success steps
+	SupportInfoSettings *ResponseByodPortalGetByodPortalByIDByodPortalSettingsSupportInfoSettings `json:"supportInfoSettings,omitempty"` //
 }
 
 type ResponseByodPortalGetByodPortalByIDByodPortalSettingsPortalSettings struct {
-	HTTPSPort             int      `json:"httpsPort,omitempty"`             // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
+	HTTPSPort             *int     `json:"httpsPort,omitempty"`             // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
 	AllowedInterfaces     []string `json:"allowedInterfaces,omitempty"`     // Interfaces that the portal will be reachable on. Allowed values: - eth0, - eth1, - eth2, - eth3, - eth4, - eth5, - bond0, - bond1, - bond2
 	CertificateGroupTag   string   `json:"certificateGroupTag,omitempty"`   // Logical name of the x.509 server certificate that will be used for the portal
 	EndpointIDentityGroup string   `json:"endpointIdentityGroup,omitempty"` // Unique Id of the endpoint identity group where user's devices will be added. Used only in Hotspot Portal
@@ -51,23 +51,23 @@ type ResponseByodPortalGetByodPortalByIDByodPortalSettingsPortalSettings struct 
 }
 
 type ResponseByodPortalGetByodPortalByIDByodPortalSettingsByodSettings struct {
-	ByodWelcomeSettings             ResponseByodPortalGetByodPortalByIDByodPortalSettingsByodSettingsByodWelcomeSettings             `json:"byodWelcomeSettings,omitempty"`             // Configuration of BYOD endpoint welcome step configuration
-	ByodRegistrationSettings        ResponseByodPortalGetByodPortalByIDByodPortalSettingsByodSettingsByodRegistrationSettings        `json:"byodRegistrationSettings,omitempty"`        //
-	ByodRegistrationSuccessSettings ResponseByodPortalGetByodPortalByIDByodPortalSettingsByodSettingsByodRegistrationSuccessSettings `json:"byodRegistrationSuccessSettings,omitempty"` //
+	ByodWelcomeSettings             *ResponseByodPortalGetByodPortalByIDByodPortalSettingsByodSettingsByodWelcomeSettings             `json:"byodWelcomeSettings,omitempty"`             // Configuration of BYOD endpoint welcome step configuration
+	ByodRegistrationSettings        *ResponseByodPortalGetByodPortalByIDByodPortalSettingsByodSettingsByodRegistrationSettings        `json:"byodRegistrationSettings,omitempty"`        //
+	ByodRegistrationSuccessSettings *ResponseByodPortalGetByodPortalByIDByodPortalSettingsByodSettingsByodRegistrationSuccessSettings `json:"byodRegistrationSuccessSettings,omitempty"` //
 }
 
 type ResponseByodPortalGetByodPortalByIDByodPortalSettingsByodSettingsByodWelcomeSettings struct {
-	EnableByod           bool   `json:"enableBYOD,omitempty"`           //
-	EnableGuestAccess    bool   `json:"enableGuestAccess,omitempty"`    //
-	RequireMdm           bool   `json:"requireMDM,omitempty"`           //
-	IncludeAup           bool   `json:"includeAup,omitempty"`           //
+	EnableByod           *bool  `json:"enableBYOD,omitempty"`           //
+	EnableGuestAccess    *bool  `json:"enableGuestAccess,omitempty"`    //
+	RequireMdm           *bool  `json:"requireMDM,omitempty"`           //
+	IncludeAup           *bool  `json:"includeAup,omitempty"`           //
 	AupDisplay           string `json:"aupDisplay,omitempty"`           // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed values: - ONPAGE, - ASLINK
-	RequireAupAcceptance bool   `json:"requireAupAcceptance,omitempty"` //
-	RequireScrolling     bool   `json:"requireScrolling,omitempty"`     // Require BYOD devices to scroll down to the bottom of the AUP, Only valid if includeAup = true
+	RequireAupAcceptance *bool  `json:"requireAupAcceptance,omitempty"` //
+	RequireScrolling     *bool  `json:"requireScrolling,omitempty"`     // Require BYOD devices to scroll down to the bottom of the AUP, Only valid if includeAup = true
 }
 
 type ResponseByodPortalGetByodPortalByIDByodPortalSettingsByodSettingsByodRegistrationSettings struct {
-	ShowDeviceID            bool   `json:"showDeviceID,omitempty"`            //
+	ShowDeviceID            *bool  `json:"showDeviceID,omitempty"`            //
 	EndPointIDentityGroupID string `json:"endPointIdentityGroupId,omitempty"` //
 }
 
@@ -77,22 +77,22 @@ type ResponseByodPortalGetByodPortalByIDByodPortalSettingsByodSettingsByodRegist
 }
 
 type ResponseByodPortalGetByodPortalByIDByodPortalSettingsSupportInfoSettings struct {
-	IncludeSupportInfoPage  bool   `json:"includeSupportInfoPage,omitempty"`  //
-	IncludeMacAddr          bool   `json:"includeMacAddr,omitempty"`          //
-	IncludeIPAddress        bool   `json:"includeIpAddress,omitempty"`        //
-	IncludeBrowserUserAgent bool   `json:"includeBrowserUserAgent,omitempty"` //
-	IncludePolicyServer     bool   `json:"includePolicyServer,omitempty"`     //
-	IncludeFailureCode      bool   `json:"includeFailureCode,omitempty"`      //
+	IncludeSupportInfoPage  *bool  `json:"includeSupportInfoPage,omitempty"`  //
+	IncludeMacAddr          *bool  `json:"includeMacAddr,omitempty"`          //
+	IncludeIPAddress        *bool  `json:"includeIpAddress,omitempty"`        //
+	IncludeBrowserUserAgent *bool  `json:"includeBrowserUserAgent,omitempty"` //
+	IncludePolicyServer     *bool  `json:"includePolicyServer,omitempty"`     //
+	IncludeFailureCode      *bool  `json:"includeFailureCode,omitempty"`      //
 	EmptyFieldDisplay       string `json:"emptyFieldDisplay,omitempty"`       // Specifies how empty fields are handled on the Support Information Page. Allowed values: - HIDE, - DISPLAYWITHNOVALUE, - DISPLAYWITHDEFAULTVALUE
 	DefaultEmptyFieldValue  string `json:"defaultEmptyFieldValue,omitempty"`  // The default value displayed for an empty field. Only valid when emptyFieldDisplay = DISPLAYWITHDEFAULTVALUE
 }
 
 type ResponseByodPortalGetByodPortalByIDByodPortalCustomizations struct {
-	PortalTheme          ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsPortalTheme          `json:"portalTheme,omitempty"`          // Defines the configuration for portal theme
-	PortalTweakSettings  ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsPortalTweakSettings  `json:"portalTweakSettings,omitempty"`  // The Tweak Settings are a customization of the Portal Theme that has been selected for the portal. When the Portal Theme selection is changed, the Tweak Settings are overwritten to match the values in the theme. The Tweak Settings can subsequently be changed by the user
-	Language             ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsLanguage             `json:"language,omitempty"`             // This property is supported only for Read operation and it allows to show the customizations in English. Other languages are not supported
-	GlobalCustomizations ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsGlobalCustomizations `json:"globalCustomizations,omitempty"` // Represent the portal Global customizations
-	PageCustomizations   ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsPageCustomizations   `json:"pageCustomizations,omitempty"`   // Represent the entire page customization as a giant dictionary
+	PortalTheme          *ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsPortalTheme          `json:"portalTheme,omitempty"`          // Defines the configuration for portal theme
+	PortalTweakSettings  *ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsPortalTweakSettings  `json:"portalTweakSettings,omitempty"`  // The Tweak Settings are a customization of the Portal Theme that has been selected for the portal. When the Portal Theme selection is changed, the Tweak Settings are overwritten to match the values in the theme. The Tweak Settings can subsequently be changed by the user
+	Language             *ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsLanguage             `json:"language,omitempty"`             // This property is supported only for Read operation and it allows to show the customizations in English. Other languages are not supported
+	GlobalCustomizations *ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsGlobalCustomizations `json:"globalCustomizations,omitempty"` // Represent the portal Global customizations
+	PageCustomizations   *ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsPageCustomizations   `json:"pageCustomizations,omitempty"`   // Represent the entire page customization as a giant dictionary
 }
 
 type ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsPortalTheme struct {
@@ -113,13 +113,13 @@ type ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsLanguage struct 
 }
 
 type ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsGlobalCustomizations struct {
-	MobileLogoImage  ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsGlobalCustomizationsMobileLogoImage  `json:"mobileLogoImage,omitempty"`  //
-	DesktopLogoImage ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsGlobalCustomizationsDesktopLogoImage `json:"desktopLogoImage,omitempty"` //
-	BannerImage      ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsGlobalCustomizationsBannerImage      `json:"bannerImage,omitempty"`      //
-	BackgroundImage  ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsGlobalCustomizationsBackgroundImage  `json:"backgroundImage,omitempty"`  //
-	BannerTitle      string                                                                                          `json:"bannerTitle,omitempty"`      //
-	ContactText      string                                                                                          `json:"contactText,omitempty"`      //
-	FooterElement    string                                                                                          `json:"footerElement,omitempty"`    //
+	MobileLogoImage  *ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsGlobalCustomizationsMobileLogoImage  `json:"mobileLogoImage,omitempty"`  //
+	DesktopLogoImage *ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsGlobalCustomizationsDesktopLogoImage `json:"desktopLogoImage,omitempty"` //
+	BannerImage      *ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsGlobalCustomizationsBannerImage      `json:"bannerImage,omitempty"`      //
+	BackgroundImage  *ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsGlobalCustomizationsBackgroundImage  `json:"backgroundImage,omitempty"`  //
+	BannerTitle      string                                                                                           `json:"bannerTitle,omitempty"`      //
+	ContactText      string                                                                                           `json:"contactText,omitempty"`      //
+	FooterElement    string                                                                                           `json:"footerElement,omitempty"`    //
 }
 
 type ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsGlobalCustomizationsMobileLogoImage struct {
@@ -139,7 +139,7 @@ type ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsGlobalCustomizat
 }
 
 type ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsPageCustomizations struct {
-	Data []ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsPageCustomizationsData `json:"data,omitempty"` // The Dictionary will be exposed here as key value pair
+	Data *[]ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsPageCustomizationsData `json:"data,omitempty"` // The Dictionary will be exposed here as key value pair
 }
 
 type ResponseByodPortalGetByodPortalByIDByodPortalCustomizationsPageCustomizationsData struct {
@@ -154,14 +154,14 @@ type ResponseByodPortalGetByodPortalByIDByodPortalLink struct {
 }
 
 type ResponseByodPortalUpdateByodPortalByID struct {
-	UpdatedFieldsList ResponseByodPortalUpdateByodPortalByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseByodPortalUpdateByodPortalByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseByodPortalUpdateByodPortalByIDUpdatedFieldsList struct {
-	UpdatedField ResponseByodPortalUpdateByodPortalByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                              `json:"field,omitempty"`        //
-	OldValue     string                                                              `json:"oldValue,omitempty"`     //
-	NewValue     string                                                              `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseByodPortalUpdateByodPortalByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                 `json:"field,omitempty"`        //
+	OldValue     string                                                                 `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                 `json:"newValue,omitempty"`     //
 }
 
 type ResponseByodPortalUpdateByodPortalByIDUpdatedFieldsListUpdatedField struct {
@@ -171,21 +171,21 @@ type ResponseByodPortalUpdateByodPortalByIDUpdatedFieldsListUpdatedField struct 
 }
 
 type ResponseByodPortalGetByodPortal struct {
-	SearchResult ResponseByodPortalGetByodPortalSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseByodPortalGetByodPortalSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseByodPortalGetByodPortalSearchResult struct {
-	Total        int                                                     `json:"total,omitempty"`        //
-	Resources    []ResponseByodPortalGetByodPortalSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseByodPortalGetByodPortalSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseByodPortalGetByodPortalSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                     `json:"total,omitempty"`        //
+	Resources    *[]ResponseByodPortalGetByodPortalSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseByodPortalGetByodPortalSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseByodPortalGetByodPortalSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseByodPortalGetByodPortalSearchResultResources struct {
-	ID          string                                                   `json:"id,omitempty"`          //
-	Name        string                                                   `json:"name,omitempty"`        //
-	Description string                                                   `json:"description,omitempty"` //
-	Link        ResponseByodPortalGetByodPortalSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                    `json:"id,omitempty"`          //
+	Name        string                                                    `json:"name,omitempty"`        //
+	Description string                                                    `json:"description,omitempty"` //
+	Link        *ResponseByodPortalGetByodPortalSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseByodPortalGetByodPortalSearchResultResourcesLink struct {
@@ -207,13 +207,13 @@ type ResponseByodPortalGetByodPortalSearchResultPreviousPage struct {
 }
 
 type ResponseByodPortalGetVersion struct {
-	VersionInfo ResponseByodPortalGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseByodPortalGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseByodPortalGetVersionVersionInfo struct {
-	CurrentServerVersion string                                      `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                      `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseByodPortalGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                       `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                       `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseByodPortalGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseByodPortalGetVersionVersionInfoLink struct {

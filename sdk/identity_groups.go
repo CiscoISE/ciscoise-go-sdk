@@ -20,15 +20,15 @@ type GetIDentityGroupsQueryParams struct {
 }
 
 type ResponseIDentityGroupsGetIDentityGroupByName struct {
-	IDentityGroup ResponseIDentityGroupsGetIDentityGroupByNameIDentityGroup `json:"IdentityGroup,omitempty"` //
+	IDentityGroup *ResponseIDentityGroupsGetIDentityGroupByNameIDentityGroup `json:"IdentityGroup,omitempty"` //
 }
 
 type ResponseIDentityGroupsGetIDentityGroupByNameIDentityGroup struct {
-	ID          string                                                        `json:"id,omitempty"`          //
-	Name        string                                                        `json:"name,omitempty"`        //
-	Description string                                                        `json:"description,omitempty"` //
-	Parent      string                                                        `json:"parent,omitempty"`      //
-	Link        ResponseIDentityGroupsGetIDentityGroupByNameIDentityGroupLink `json:"link,omitempty"`        //
+	ID          string                                                         `json:"id,omitempty"`          //
+	Name        string                                                         `json:"name,omitempty"`        //
+	Description string                                                         `json:"description,omitempty"` //
+	Parent      string                                                         `json:"parent,omitempty"`      //
+	Link        *ResponseIDentityGroupsGetIDentityGroupByNameIDentityGroupLink `json:"link,omitempty"`        //
 }
 
 type ResponseIDentityGroupsGetIDentityGroupByNameIDentityGroupLink struct {
@@ -38,15 +38,15 @@ type ResponseIDentityGroupsGetIDentityGroupByNameIDentityGroupLink struct {
 }
 
 type ResponseIDentityGroupsGetIDentityGroupByID struct {
-	IDentityGroup ResponseIDentityGroupsGetIDentityGroupByIDIDentityGroup `json:"IdentityGroup,omitempty"` //
+	IDentityGroup *ResponseIDentityGroupsGetIDentityGroupByIDIDentityGroup `json:"IdentityGroup,omitempty"` //
 }
 
 type ResponseIDentityGroupsGetIDentityGroupByIDIDentityGroup struct {
-	ID          string                                                      `json:"id,omitempty"`          //
-	Name        string                                                      `json:"name,omitempty"`        //
-	Description string                                                      `json:"description,omitempty"` //
-	Parent      string                                                      `json:"parent,omitempty"`      //
-	Link        ResponseIDentityGroupsGetIDentityGroupByIDIDentityGroupLink `json:"link,omitempty"`        //
+	ID          string                                                       `json:"id,omitempty"`          //
+	Name        string                                                       `json:"name,omitempty"`        //
+	Description string                                                       `json:"description,omitempty"` //
+	Parent      string                                                       `json:"parent,omitempty"`      //
+	Link        *ResponseIDentityGroupsGetIDentityGroupByIDIDentityGroupLink `json:"link,omitempty"`        //
 }
 
 type ResponseIDentityGroupsGetIDentityGroupByIDIDentityGroupLink struct {
@@ -56,14 +56,14 @@ type ResponseIDentityGroupsGetIDentityGroupByIDIDentityGroupLink struct {
 }
 
 type ResponseIDentityGroupsUpdateIDentityGroupByID struct {
-	UpdatedFieldsList ResponseIDentityGroupsUpdateIDentityGroupByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseIDentityGroupsUpdateIDentityGroupByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseIDentityGroupsUpdateIDentityGroupByIDUpdatedFieldsList struct {
-	UpdatedField ResponseIDentityGroupsUpdateIDentityGroupByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                     `json:"field,omitempty"`        //
-	OldValue     string                                                                     `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                     `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseIDentityGroupsUpdateIDentityGroupByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                        `json:"field,omitempty"`        //
+	OldValue     string                                                                        `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                        `json:"newValue,omitempty"`     //
 }
 
 type ResponseIDentityGroupsUpdateIDentityGroupByIDUpdatedFieldsListUpdatedField struct {
@@ -73,21 +73,21 @@ type ResponseIDentityGroupsUpdateIDentityGroupByIDUpdatedFieldsListUpdatedField 
 }
 
 type ResponseIDentityGroupsGetIDentityGroups struct {
-	SearchResult ResponseIDentityGroupsGetIDentityGroupsSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseIDentityGroupsGetIDentityGroupsSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseIDentityGroupsGetIDentityGroupsSearchResult struct {
-	Total        int                                                             `json:"total,omitempty"`        //
-	Resources    []ResponseIDentityGroupsGetIDentityGroupsSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseIDentityGroupsGetIDentityGroupsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseIDentityGroupsGetIDentityGroupsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                             `json:"total,omitempty"`        //
+	Resources    *[]ResponseIDentityGroupsGetIDentityGroupsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseIDentityGroupsGetIDentityGroupsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseIDentityGroupsGetIDentityGroupsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseIDentityGroupsGetIDentityGroupsSearchResultResources struct {
-	ID          string                                                           `json:"id,omitempty"`          //
-	Name        string                                                           `json:"name,omitempty"`        //
-	Description string                                                           `json:"description,omitempty"` //
-	Link        ResponseIDentityGroupsGetIDentityGroupsSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                            `json:"id,omitempty"`          //
+	Name        string                                                            `json:"name,omitempty"`        //
+	Description string                                                            `json:"description,omitempty"` //
+	Link        *ResponseIDentityGroupsGetIDentityGroupsSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseIDentityGroupsGetIDentityGroupsSearchResultResourcesLink struct {
@@ -109,13 +109,13 @@ type ResponseIDentityGroupsGetIDentityGroupsSearchResultPreviousPage struct {
 }
 
 type ResponseIDentityGroupsGetVersion struct {
-	VersionInfo ResponseIDentityGroupsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseIDentityGroupsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseIDentityGroupsGetVersionVersionInfo struct {
-	CurrentServerVersion string                                          `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                          `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseIDentityGroupsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                           `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                           `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseIDentityGroupsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseIDentityGroupsGetVersionVersionInfoLink struct {

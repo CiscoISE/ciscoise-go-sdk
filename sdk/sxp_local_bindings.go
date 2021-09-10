@@ -20,18 +20,18 @@ type GetSxpLocalBindingsQueryParams struct {
 }
 
 type ResponseSxpLocalBindingsGetSxpLocalBindingsByID struct {
-	ERSSxpLocalBindings ResponseSxpLocalBindingsGetSxpLocalBindingsByIDERSSxpLocalBindings `json:"ERSSxpLocalBindings,omitempty"` //
+	ERSSxpLocalBindings *ResponseSxpLocalBindingsGetSxpLocalBindingsByIDERSSxpLocalBindings `json:"ERSSxpLocalBindings,omitempty"` //
 }
 
 type ResponseSxpLocalBindingsGetSxpLocalBindingsByIDERSSxpLocalBindings struct {
-	ID              string                                                                 `json:"id,omitempty"`              //
-	Description     string                                                                 `json:"description,omitempty"`     //
-	BindingName     string                                                                 `json:"bindingName,omitempty"`     // This field is depricated from Cisco ISE 3.0
-	IPAddressOrHost string                                                                 `json:"ipAddressOrHost,omitempty"` // IP address for static mapping (hostname is not supported)
-	SxpVpn          string                                                                 `json:"sxpVpn,omitempty"`          // List of SXP Domains, separated with comma. At least one of: sxpVpn or vns should be defined
-	Sgt             string                                                                 `json:"sgt,omitempty"`             // SGT name or ID
-	Vns             string                                                                 `json:"vns,omitempty"`             // List of Virtual Networks, separated with comma. At least one of: sxpVpn or vns should be defined
-	Link            ResponseSxpLocalBindingsGetSxpLocalBindingsByIDERSSxpLocalBindingsLink `json:"link,omitempty"`            //
+	ID              string                                                                  `json:"id,omitempty"`              //
+	Description     string                                                                  `json:"description,omitempty"`     //
+	BindingName     string                                                                  `json:"bindingName,omitempty"`     // This field is depricated from Cisco ISE 3.0
+	IPAddressOrHost string                                                                  `json:"ipAddressOrHost,omitempty"` // IP address for static mapping (hostname is not supported)
+	SxpVpn          string                                                                  `json:"sxpVpn,omitempty"`          // List of SXP Domains, separated with comma. At least one of: sxpVpn or vns should be defined
+	Sgt             string                                                                  `json:"sgt,omitempty"`             // SGT name or ID
+	Vns             string                                                                  `json:"vns,omitempty"`             // List of Virtual Networks, separated with comma. At least one of: sxpVpn or vns should be defined
+	Link            *ResponseSxpLocalBindingsGetSxpLocalBindingsByIDERSSxpLocalBindingsLink `json:"link,omitempty"`            //
 }
 
 type ResponseSxpLocalBindingsGetSxpLocalBindingsByIDERSSxpLocalBindingsLink struct {
@@ -41,14 +41,14 @@ type ResponseSxpLocalBindingsGetSxpLocalBindingsByIDERSSxpLocalBindingsLink stru
 }
 
 type ResponseSxpLocalBindingsUpdateSxpLocalBindingsByID struct {
-	UpdatedFieldsList ResponseSxpLocalBindingsUpdateSxpLocalBindingsByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseSxpLocalBindingsUpdateSxpLocalBindingsByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseSxpLocalBindingsUpdateSxpLocalBindingsByIDUpdatedFieldsList struct {
-	UpdatedField ResponseSxpLocalBindingsUpdateSxpLocalBindingsByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                          `json:"field,omitempty"`        //
-	OldValue     string                                                                          `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                          `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseSxpLocalBindingsUpdateSxpLocalBindingsByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                             `json:"field,omitempty"`        //
+	OldValue     string                                                                             `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                             `json:"newValue,omitempty"`     //
 }
 
 type ResponseSxpLocalBindingsUpdateSxpLocalBindingsByIDUpdatedFieldsListUpdatedField struct {
@@ -58,19 +58,19 @@ type ResponseSxpLocalBindingsUpdateSxpLocalBindingsByIDUpdatedFieldsListUpdatedF
 }
 
 type ResponseSxpLocalBindingsGetSxpLocalBindings struct {
-	SearchResult ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResult struct {
-	Total        int                                                                 `json:"total,omitempty"`        //
-	Resources    []ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                 `json:"total,omitempty"`        //
+	Resources    *[]ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResultResources struct {
-	ID   string                                                               `json:"id,omitempty"`   //
-	Link ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResultResourcesLink `json:"link,omitempty"` //
+	ID   string                                                                `json:"id,omitempty"`   //
+	Link *ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResultResourcesLink `json:"link,omitempty"` //
 }
 
 type ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResultResourcesLink struct {
@@ -92,13 +92,13 @@ type ResponseSxpLocalBindingsGetSxpLocalBindingsSearchResultPreviousPage struct 
 }
 
 type ResponseSxpLocalBindingsGetVersion struct {
-	VersionInfo ResponseSxpLocalBindingsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseSxpLocalBindingsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseSxpLocalBindingsGetVersionVersionInfo struct {
-	CurrentServerVersion string                                            `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                            `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseSxpLocalBindingsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                             `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                             `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseSxpLocalBindingsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseSxpLocalBindingsGetVersionVersionInfoLink struct {
@@ -108,19 +108,19 @@ type ResponseSxpLocalBindingsGetVersionVersionInfoLink struct {
 }
 
 type ResponseSxpLocalBindingsMonitorBulkStatusSxpLocalBindings struct {
-	BulkStatus ResponseSxpLocalBindingsMonitorBulkStatusSxpLocalBindingsBulkStatus `json:"BulkStatus,omitempty"` //
+	BulkStatus *ResponseSxpLocalBindingsMonitorBulkStatusSxpLocalBindingsBulkStatus `json:"BulkStatus,omitempty"` //
 }
 
 type ResponseSxpLocalBindingsMonitorBulkStatusSxpLocalBindingsBulkStatus struct {
-	BulkID          string                                                                               `json:"bulkId,omitempty"`          //
-	MediaType       string                                                                               `json:"mediaType,omitempty"`       //
-	ExecutionStatus string                                                                               `json:"executionStatus,omitempty"` //
-	OperationType   string                                                                               `json:"operationType,omitempty"`   //
-	StartTime       string                                                                               `json:"startTime,omitempty"`       //
-	ResourcesCount  int                                                                                  `json:"resourcesCount,omitempty"`  //
-	SuccessCount    int                                                                                  `json:"successCount,omitempty"`    //
-	FailCount       int                                                                                  `json:"failCount,omitempty"`       //
-	ResourcesStatus []ResponseSxpLocalBindingsMonitorBulkStatusSxpLocalBindingsBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
+	BulkID          string                                                                                `json:"bulkId,omitempty"`          //
+	MediaType       string                                                                                `json:"mediaType,omitempty"`       //
+	ExecutionStatus string                                                                                `json:"executionStatus,omitempty"` //
+	OperationType   string                                                                                `json:"operationType,omitempty"`   //
+	StartTime       string                                                                                `json:"startTime,omitempty"`       //
+	ResourcesCount  *int                                                                                  `json:"resourcesCount,omitempty"`  //
+	SuccessCount    *int                                                                                  `json:"successCount,omitempty"`    //
+	FailCount       *int                                                                                  `json:"failCount,omitempty"`       //
+	ResourcesStatus *[]ResponseSxpLocalBindingsMonitorBulkStatusSxpLocalBindingsBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
 }
 
 type ResponseSxpLocalBindingsMonitorBulkStatusSxpLocalBindingsBulkStatusResourcesStatus struct {

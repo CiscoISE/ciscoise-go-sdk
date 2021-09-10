@@ -10,15 +10,15 @@ import (
 type DeviceAdministrationAuthorizationExceptionRulesService service
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRules struct {
-	Response []ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponse `json:"response,omitempty"` //
-	Version  string                                                                                             `json:"version,omitempty"`  //
+	Response *[]ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponse `json:"response,omitempty"` //
+	Version  string                                                                                              `json:"version,omitempty"`  //
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponse struct {
-	Commands []string                                                                                             `json:"commands,omitempty"` // Command sets enforce the specified list of commands that can be executed by a device administrator
-	Link     ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseLink `json:"link,omitempty"`     //
-	Profile  string                                                                                               `json:"profile,omitempty"`  // Device admin profiles control the initial login session of the device administrator
-	Rule     ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRule `json:"rule,omitempty"`     // Common attributes in rule authentication/authorization
+	Commands []string                                                                                              `json:"commands,omitempty"` // Command sets enforce the specified list of commands that can be executed by a device administrator
+	Link     *ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseLink `json:"link,omitempty"`     //
+	Profile  string                                                                                                `json:"profile,omitempty"`  // Device admin profiles control the initial login session of the device administrator
+	Rule     *ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRule `json:"rule,omitempty"`     // Common attributes in rule authentication/authorization
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseLink struct {
@@ -28,19 +28,35 @@ type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalE
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRule struct {
-	Condition ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRuleCondition `json:"condition,omitempty"` // <ul><li>Hierarchical structure which defines a set of conditions for which authentication or authorization policy rules could be matched.</li> <li>Logical operations(AND, OR) relationship between conditions are supported</li> <li>Each condition can have subconditions with relation to logical operations</li></ul>
-	Default   bool                                                                                                          `json:"default,omitempty"`   // Indicates if this rule is the default one
-	HitCounts int                                                                                                           `json:"hitCounts,omitempty"` // The amount of times the rule was matched
-	ID        string                                                                                                        `json:"id,omitempty"`        // The identifier of the rule
-	Name      string                                                                                                        `json:"name,omitempty"`      // Rule name, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
-	Rank      int                                                                                                           `json:"rank,omitempty"`      // The rank(priority) in relation to other rules. Lower rank is higher priority.
-	State     string                                                                                                        `json:"state,omitempty"`     // The state that the rule is in. A disabled rule cannot be matched.
+	Condition *ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRuleCondition `json:"condition,omitempty"` //
+	Default   *bool                                                                                                          `json:"default,omitempty"`   // Indicates if this rule is the default one
+	HitCounts *int                                                                                                           `json:"hitCounts,omitempty"` // The amount of times the rule was matched
+	ID        string                                                                                                         `json:"id,omitempty"`        // The identifier of the rule
+	Name      string                                                                                                         `json:"name,omitempty"`      // Rule name, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
+	Rank      *int                                                                                                           `json:"rank,omitempty"`      // The rank(priority) in relation to other rules. Lower rank is higher priority.
+	State     string                                                                                                         `json:"state,omitempty"`     // The state that the rule is in. A disabled rule cannot be matched.
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRuleCondition struct {
-	ConditionType string                                                                                                            `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      bool                                                                                                              `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRuleConditionLink `json:"link,omitempty"`          //
+	ConditionType       string                                                                                                                            `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate            *bool                                                                                                                             `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
+	Link                *ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRuleConditionLink                `json:"link,omitempty"`                //
+	Description         string                                                                                                                            `json:"description,omitempty"`         // Condition description
+	ID                  string                                                                                                                            `json:"id,omitempty"`                  //
+	Name                string                                                                                                                            `json:"name,omitempty"`                // Condition name
+	AttributeName       string                                                                                                                            `json:"attributeName,omitempty"`       // Dictionary attribute name
+	AttributeID         string                                                                                                                            `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
+	AttributeValue      string                                                                                                                            `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName      string                                                                                                                            `json:"dictionaryName,omitempty"`      // Dictionary name
+	DictionaryValue     string                                                                                                                            `json:"dictionaryValue,omitempty"`     // Dictionary value
+	Operator            string                                                                                                                            `json:"operator,omitempty"`            // Equality operator
+	Children            *[]ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	DatesRange          *ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException *ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	HoursRange          *ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException *ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRuleConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	WeekDays            []string                                                                                                                          `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
+	WeekDaysException   []string                                                                                                                          `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRuleConditionLink struct {
@@ -49,16 +65,48 @@ type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalE
 	Type string `json:"type,omitempty"` //
 }
 
+type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRuleConditionChildren struct {
+	ConditionType string                                                                                                                     `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate      *bool                                                                                                                      `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
+	Link          *ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRuleConditionChildrenLink `json:"link,omitempty"`          //
+}
+
+type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRuleConditionChildrenLink struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
+}
+
+type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRuleConditionDatesRange struct {
+	EndDate   string `json:"endDate,omitempty"`   //
+	StartDate string `json:"startDate,omitempty"` //
+}
+
+type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRuleConditionDatesRangeException struct {
+	EndDate   string `json:"endDate,omitempty"`   //
+	StartDate string `json:"startDate,omitempty"` //
+}
+
+type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRuleConditionHoursRange struct {
+	EndTime   string `json:"endTime,omitempty"`   //
+	StartTime string `json:"startTime,omitempty"` //
+}
+
+type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRulesResponseRuleConditionHoursRangeException struct {
+	EndTime   string `json:"endTime,omitempty"`   //
+	StartTime string `json:"startTime,omitempty"` //
+}
+
 type ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRule struct {
-	Response ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponse `json:"response,omitempty"` // Authorization rule for device admin
-	Version  string                                                                                             `json:"version,omitempty"`  //
+	Response *ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponse `json:"response,omitempty"` // Authorization rule for device admin
+	Version  string                                                                                              `json:"version,omitempty"`  //
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponse struct {
-	Commands []string                                                                                               `json:"commands,omitempty"` // Command sets enforce the specified list of commands that can be executed by a device administrator
-	Link     ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseLink `json:"link,omitempty"`     //
-	Profile  string                                                                                                 `json:"profile,omitempty"`  // Device admin profiles control the initial login session of the device administrator
-	Rule     ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRule `json:"rule,omitempty"`     // Common attributes in rule authentication/authorization
+	Commands []string                                                                                                `json:"commands,omitempty"` // Command sets enforce the specified list of commands that can be executed by a device administrator
+	Link     *ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseLink `json:"link,omitempty"`     //
+	Profile  string                                                                                                  `json:"profile,omitempty"`  // Device admin profiles control the initial login session of the device administrator
+	Rule     *ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRule `json:"rule,omitempty"`     // Common attributes in rule authentication/authorization
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseLink struct {
@@ -68,35 +116,35 @@ type ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLoc
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRule struct {
-	Condition ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleCondition `json:"condition,omitempty"` //
-	Default   bool                                                                                                            `json:"default,omitempty"`   // Indicates if this rule is the default one
-	HitCounts int                                                                                                             `json:"hitCounts,omitempty"` // The amount of times the rule was matched
-	ID        string                                                                                                          `json:"id,omitempty"`        // The identifier of the rule
-	Name      string                                                                                                          `json:"name,omitempty"`      // Rule name, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
-	Rank      int                                                                                                             `json:"rank,omitempty"`      // The rank(priority) in relation to other rules. Lower rank is higher priority.
-	State     string                                                                                                          `json:"state,omitempty"`     // The state that the rule is in. A disabled rule cannot be matched.
+	Condition *ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleCondition `json:"condition,omitempty"` //
+	Default   *bool                                                                                                            `json:"default,omitempty"`   // Indicates if this rule is the default one
+	HitCounts *int                                                                                                             `json:"hitCounts,omitempty"` // The amount of times the rule was matched
+	ID        string                                                                                                           `json:"id,omitempty"`        // The identifier of the rule
+	Name      string                                                                                                           `json:"name,omitempty"`      // Rule name, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
+	Rank      *int                                                                                                             `json:"rank,omitempty"`      // The rank(priority) in relation to other rules. Lower rank is higher priority.
+	State     string                                                                                                           `json:"state,omitempty"`     // The state that the rule is in. A disabled rule cannot be matched.
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleCondition struct {
-	ConditionType       string                                                                                                                             `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate            bool                                                                                                                               `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
-	Link                ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleConditionLink                `json:"link,omitempty"`                //
-	Description         string                                                                                                                             `json:"description,omitempty"`         // Condition description
-	ID                  string                                                                                                                             `json:"id,omitempty"`                  //
-	Name                string                                                                                                                             `json:"name,omitempty"`                // Condition name
-	AttributeName       string                                                                                                                             `json:"attributeName,omitempty"`       // Dictionary attribute name
-	AttributeID         string                                                                                                                             `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
-	AttributeValue      string                                                                                                                             `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
-	DictionaryName      string                                                                                                                             `json:"dictionaryName,omitempty"`      // Dictionary name
-	DictionaryValue     string                                                                                                                             `json:"dictionaryValue,omitempty"`     // Dictionary value
-	Operator            string                                                                                                                             `json:"operator,omitempty"`            // Equality operator
-	Children            []ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
-	DatesRange          ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	DatesRangeException ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	HoursRange          ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	HoursRangeException ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	WeekDays            []string                                                                                                                           `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
-	WeekDaysException   []string                                                                                                                           `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
+	ConditionType       string                                                                                                                              `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate            *bool                                                                                                                               `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
+	Link                *ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleConditionLink                `json:"link,omitempty"`                //
+	Description         string                                                                                                                              `json:"description,omitempty"`         // Condition description
+	ID                  string                                                                                                                              `json:"id,omitempty"`                  //
+	Name                string                                                                                                                              `json:"name,omitempty"`                // Condition name
+	AttributeName       string                                                                                                                              `json:"attributeName,omitempty"`       // Dictionary attribute name
+	AttributeID         string                                                                                                                              `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
+	AttributeValue      string                                                                                                                              `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName      string                                                                                                                              `json:"dictionaryName,omitempty"`      // Dictionary name
+	DictionaryValue     string                                                                                                                              `json:"dictionaryValue,omitempty"`     // Dictionary value
+	Operator            string                                                                                                                              `json:"operator,omitempty"`            // Equality operator
+	Children            *[]ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	DatesRange          *ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException *ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	HoursRange          *ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException *ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	WeekDays            []string                                                                                                                            `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
+	WeekDaysException   []string                                                                                                                            `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleConditionLink struct {
@@ -106,9 +154,9 @@ type ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLoc
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleConditionChildren struct {
-	ConditionType string                                                                                                                      `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      bool                                                                                                                        `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleConditionChildrenLink `json:"link,omitempty"`          //
+	ConditionType string                                                                                                                       `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate      *bool                                                                                                                        `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
+	Link          *ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleConditionChildrenLink `json:"link,omitempty"`          //
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRuleResponseRuleConditionChildrenLink struct {
@@ -142,15 +190,15 @@ type ResponseDeviceAdministrationAuthorizationExceptionRulesResetHitCountsDevice
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByID struct {
-	Response ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponse `json:"response,omitempty"` // Authorization rule for device admin
-	Version  string                                                                                              `json:"version,omitempty"`  //
+	Response *ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponse `json:"response,omitempty"` // Authorization rule for device admin
+	Version  string                                                                                               `json:"version,omitempty"`  //
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponse struct {
-	Commands []string                                                                                                `json:"commands,omitempty"` // Command sets enforce the specified list of commands that can be executed by a device administrator
-	Link     ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseLink `json:"link,omitempty"`     //
-	Profile  string                                                                                                  `json:"profile,omitempty"`  // Device admin profiles control the initial login session of the device administrator
-	Rule     ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRule `json:"rule,omitempty"`     // Common attributes in rule authentication/authorization
+	Commands []string                                                                                                 `json:"commands,omitempty"` // Command sets enforce the specified list of commands that can be executed by a device administrator
+	Link     *ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseLink `json:"link,omitempty"`     //
+	Profile  string                                                                                                   `json:"profile,omitempty"`  // Device admin profiles control the initial login session of the device administrator
+	Rule     *ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRule `json:"rule,omitempty"`     // Common attributes in rule authentication/authorization
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseLink struct {
@@ -160,35 +208,35 @@ type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalE
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRule struct {
-	Condition ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleCondition `json:"condition,omitempty"` //
-	Default   bool                                                                                                             `json:"default,omitempty"`   // Indicates if this rule is the default one
-	HitCounts int                                                                                                              `json:"hitCounts,omitempty"` // The amount of times the rule was matched
-	ID        string                                                                                                           `json:"id,omitempty"`        // The identifier of the rule
-	Name      string                                                                                                           `json:"name,omitempty"`      // Rule name, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
-	Rank      int                                                                                                              `json:"rank,omitempty"`      // The rank(priority) in relation to other rules. Lower rank is higher priority.
-	State     string                                                                                                           `json:"state,omitempty"`     // The state that the rule is in. A disabled rule cannot be matched.
+	Condition *ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleCondition `json:"condition,omitempty"` //
+	Default   *bool                                                                                                             `json:"default,omitempty"`   // Indicates if this rule is the default one
+	HitCounts *int                                                                                                              `json:"hitCounts,omitempty"` // The amount of times the rule was matched
+	ID        string                                                                                                            `json:"id,omitempty"`        // The identifier of the rule
+	Name      string                                                                                                            `json:"name,omitempty"`      // Rule name, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
+	Rank      *int                                                                                                              `json:"rank,omitempty"`      // The rank(priority) in relation to other rules. Lower rank is higher priority.
+	State     string                                                                                                            `json:"state,omitempty"`     // The state that the rule is in. A disabled rule cannot be matched.
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleCondition struct {
-	ConditionType       string                                                                                                                              `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate            bool                                                                                                                                `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
-	Link                ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleConditionLink                `json:"link,omitempty"`                //
-	Description         string                                                                                                                              `json:"description,omitempty"`         // Condition description
-	ID                  string                                                                                                                              `json:"id,omitempty"`                  //
-	Name                string                                                                                                                              `json:"name,omitempty"`                // Condition name
-	AttributeName       string                                                                                                                              `json:"attributeName,omitempty"`       // Dictionary attribute name
-	AttributeID         string                                                                                                                              `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
-	AttributeValue      string                                                                                                                              `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
-	DictionaryName      string                                                                                                                              `json:"dictionaryName,omitempty"`      // Dictionary name
-	DictionaryValue     string                                                                                                                              `json:"dictionaryValue,omitempty"`     // Dictionary value
-	Operator            string                                                                                                                              `json:"operator,omitempty"`            // Equality operator
-	Children            []ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
-	DatesRange          ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	DatesRangeException ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	HoursRange          ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	HoursRangeException ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	WeekDays            []string                                                                                                                            `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
-	WeekDaysException   []string                                                                                                                            `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
+	ConditionType       string                                                                                                                               `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate            *bool                                                                                                                                `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
+	Link                *ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleConditionLink                `json:"link,omitempty"`                //
+	Description         string                                                                                                                               `json:"description,omitempty"`         // Condition description
+	ID                  string                                                                                                                               `json:"id,omitempty"`                  //
+	Name                string                                                                                                                               `json:"name,omitempty"`                // Condition name
+	AttributeName       string                                                                                                                               `json:"attributeName,omitempty"`       // Dictionary attribute name
+	AttributeID         string                                                                                                                               `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
+	AttributeValue      string                                                                                                                               `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName      string                                                                                                                               `json:"dictionaryName,omitempty"`      // Dictionary name
+	DictionaryValue     string                                                                                                                               `json:"dictionaryValue,omitempty"`     // Dictionary value
+	Operator            string                                                                                                                               `json:"operator,omitempty"`            // Equality operator
+	Children            *[]ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	DatesRange          *ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException *ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	HoursRange          *ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException *ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	WeekDays            []string                                                                                                                             `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
+	WeekDaysException   []string                                                                                                                             `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleConditionLink struct {
@@ -198,9 +246,9 @@ type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalE
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleConditionChildren struct {
-	ConditionType string                                                                                                                       `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      bool                                                                                                                         `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleConditionChildrenLink `json:"link,omitempty"`          //
+	ConditionType string                                                                                                                        `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate      *bool                                                                                                                         `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
+	Link          *ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleConditionChildrenLink `json:"link,omitempty"`          //
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalExceptionRuleByIDResponseRuleConditionChildrenLink struct {
@@ -230,15 +278,15 @@ type ResponseDeviceAdministrationAuthorizationExceptionRulesGetDeviceAdminLocalE
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByID struct {
-	Response ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponse `json:"response,omitempty"` // Authorization rule for device admin
-	Version  string                                                                                                 `json:"version,omitempty"`  //
+	Response *ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponse `json:"response,omitempty"` // Authorization rule for device admin
+	Version  string                                                                                                  `json:"version,omitempty"`  //
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponse struct {
-	Commands []string                                                                                                   `json:"commands,omitempty"` // Command sets enforce the specified list of commands that can be executed by a device administrator
-	Link     ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseLink `json:"link,omitempty"`     //
-	Profile  string                                                                                                     `json:"profile,omitempty"`  // Device admin profiles control the initial login session of the device administrator
-	Rule     ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRule `json:"rule,omitempty"`     // Common attributes in rule authentication/authorization
+	Commands []string                                                                                                    `json:"commands,omitempty"` // Command sets enforce the specified list of commands that can be executed by a device administrator
+	Link     *ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseLink `json:"link,omitempty"`     //
+	Profile  string                                                                                                      `json:"profile,omitempty"`  // Device admin profiles control the initial login session of the device administrator
+	Rule     *ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRule `json:"rule,omitempty"`     // Common attributes in rule authentication/authorization
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseLink struct {
@@ -248,35 +296,35 @@ type ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLoc
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRule struct {
-	Condition ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleCondition `json:"condition,omitempty"` //
-	Default   bool                                                                                                                `json:"default,omitempty"`   // Indicates if this rule is the default one
-	HitCounts int                                                                                                                 `json:"hitCounts,omitempty"` // The amount of times the rule was matched
-	ID        string                                                                                                              `json:"id,omitempty"`        // The identifier of the rule
-	Name      string                                                                                                              `json:"name,omitempty"`      // Rule name, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
-	Rank      int                                                                                                                 `json:"rank,omitempty"`      // The rank(priority) in relation to other rules. Lower rank is higher priority.
-	State     string                                                                                                              `json:"state,omitempty"`     // The state that the rule is in. A disabled rule cannot be matched.
+	Condition *ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleCondition `json:"condition,omitempty"` //
+	Default   *bool                                                                                                                `json:"default,omitempty"`   // Indicates if this rule is the default one
+	HitCounts *int                                                                                                                 `json:"hitCounts,omitempty"` // The amount of times the rule was matched
+	ID        string                                                                                                               `json:"id,omitempty"`        // The identifier of the rule
+	Name      string                                                                                                               `json:"name,omitempty"`      // Rule name, [Valid characters are alphanumerics, underscore, hyphen, space, period, parentheses]
+	Rank      *int                                                                                                                 `json:"rank,omitempty"`      // The rank(priority) in relation to other rules. Lower rank is higher priority.
+	State     string                                                                                                               `json:"state,omitempty"`     // The state that the rule is in. A disabled rule cannot be matched.
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleCondition struct {
-	ConditionType       string                                                                                                                                 `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate            bool                                                                                                                                   `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
-	Link                ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleConditionLink                `json:"link,omitempty"`                //
-	Description         string                                                                                                                                 `json:"description,omitempty"`         // Condition description
-	ID                  string                                                                                                                                 `json:"id,omitempty"`                  //
-	Name                string                                                                                                                                 `json:"name,omitempty"`                // Condition name
-	AttributeName       string                                                                                                                                 `json:"attributeName,omitempty"`       // Dictionary attribute name
-	AttributeID         string                                                                                                                                 `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
-	AttributeValue      string                                                                                                                                 `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
-	DictionaryName      string                                                                                                                                 `json:"dictionaryName,omitempty"`      // Dictionary name
-	DictionaryValue     string                                                                                                                                 `json:"dictionaryValue,omitempty"`     // Dictionary value
-	Operator            string                                                                                                                                 `json:"operator,omitempty"`            // Equality operator
-	Children            []ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
-	DatesRange          ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	DatesRangeException ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
-	HoursRange          ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	HoursRangeException ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
-	WeekDays            []string                                                                                                                               `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
-	WeekDaysException   []string                                                                                                                               `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
+	ConditionType       string                                                                                                                                  `json:"conditionType,omitempty"`       // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate            *bool                                                                                                                                   `json:"isNegate,omitempty"`            // Indicates whereas this condition is in negate mode
+	Link                *ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleConditionLink                `json:"link,omitempty"`                //
+	Description         string                                                                                                                                  `json:"description,omitempty"`         // Condition description
+	ID                  string                                                                                                                                  `json:"id,omitempty"`                  //
+	Name                string                                                                                                                                  `json:"name,omitempty"`                // Condition name
+	AttributeName       string                                                                                                                                  `json:"attributeName,omitempty"`       // Dictionary attribute name
+	AttributeID         string                                                                                                                                  `json:"attributeId,omitempty"`         // Dictionary attribute id (Optional), used for additional verification
+	AttributeValue      string                                                                                                                                  `json:"attributeValue,omitempty"`      // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName      string                                                                                                                                  `json:"dictionaryName,omitempty"`      // Dictionary name
+	DictionaryValue     string                                                                                                                                  `json:"dictionaryValue,omitempty"`     // Dictionary value
+	Operator            string                                                                                                                                  `json:"operator,omitempty"`            // Equality operator
+	Children            *[]ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	DatesRange          *ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	DatesRangeException *ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched or NOT matched if used in exceptionDates prooperty<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
+	HoursRange          *ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	HoursRangeException *ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleConditionHoursRangeException `json:"hoursRangeException,omitempty"` // <p>Defines for which hours a TimeAndDate condition will be matched or not matched if used in exceptionHours property<br> Time foramt - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
+	WeekDays            []string                                                                                                                                `json:"weekDays,omitempty"`            // <p>Defines for which days this condition will be matched<br> Days format - Arrays of WeekDay enums <br> Default - List of All week days</p>
+	WeekDaysException   []string                                                                                                                                `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleConditionLink struct {
@@ -286,9 +334,9 @@ type ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLoc
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleConditionChildren struct {
-	ConditionType string                                                                                                                          `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      bool                                                                                                                            `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleConditionChildrenLink `json:"link,omitempty"`          //
+	ConditionType string                                                                                                                           `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate      *bool                                                                                                                            `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
+	Link          *ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleConditionChildrenLink `json:"link,omitempty"`          //
 }
 
 type ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByIDResponseRuleConditionChildrenLink struct {

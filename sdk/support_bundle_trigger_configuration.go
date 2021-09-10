@@ -9,13 +9,13 @@ import (
 type SupportBundleTriggerConfigurationService service
 
 type ResponseSupportBundleTriggerConfigurationGetVersion struct {
-	VersionInfo ResponseSupportBundleTriggerConfigurationGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseSupportBundleTriggerConfigurationGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseSupportBundleTriggerConfigurationGetVersionVersionInfo struct {
-	CurrentServerVersion string                                                             `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                                             `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseSupportBundleTriggerConfigurationGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                              `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                              `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseSupportBundleTriggerConfigurationGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseSupportBundleTriggerConfigurationGetVersionVersionInfoLink struct {

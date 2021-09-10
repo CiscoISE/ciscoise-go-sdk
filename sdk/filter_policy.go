@@ -16,7 +16,7 @@ type GetFilterPolicyQueryParams struct {
 }
 
 type ResponseFilterPolicyGetFilterPolicyByID struct {
-	ERSFilterPolicy ResponseFilterPolicyGetFilterPolicyByIDERSFilterPolicy `json:"ERSFilterPolicy,omitempty"` //
+	ERSFilterPolicy *ResponseFilterPolicyGetFilterPolicyByIDERSFilterPolicy `json:"ERSFilterPolicy,omitempty"` //
 }
 
 type ResponseFilterPolicyGetFilterPolicyByIDERSFilterPolicy struct {
@@ -27,14 +27,14 @@ type ResponseFilterPolicyGetFilterPolicyByIDERSFilterPolicy struct {
 }
 
 type ResponseFilterPolicyUpdateFilterPolicyByID struct {
-	UpdatedFieldsList ResponseFilterPolicyUpdateFilterPolicyByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseFilterPolicyUpdateFilterPolicyByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseFilterPolicyUpdateFilterPolicyByIDUpdatedFieldsList struct {
-	UpdatedField ResponseFilterPolicyUpdateFilterPolicyByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                  `json:"field,omitempty"`        //
-	OldValue     string                                                                  `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                  `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseFilterPolicyUpdateFilterPolicyByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                     `json:"field,omitempty"`        //
+	OldValue     string                                                                     `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                     `json:"newValue,omitempty"`     //
 }
 
 type ResponseFilterPolicyUpdateFilterPolicyByIDUpdatedFieldsListUpdatedField struct {
@@ -44,21 +44,21 @@ type ResponseFilterPolicyUpdateFilterPolicyByIDUpdatedFieldsListUpdatedField str
 }
 
 type ResponseFilterPolicyGetFilterPolicy struct {
-	SearchResult ResponseFilterPolicyGetFilterPolicySearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseFilterPolicyGetFilterPolicySearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseFilterPolicyGetFilterPolicySearchResult struct {
-	Total        int                                                         `json:"total,omitempty"`        //
-	Resources    []ResponseFilterPolicyGetFilterPolicySearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseFilterPolicyGetFilterPolicySearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseFilterPolicyGetFilterPolicySearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                         `json:"total,omitempty"`        //
+	Resources    *[]ResponseFilterPolicyGetFilterPolicySearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseFilterPolicyGetFilterPolicySearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseFilterPolicyGetFilterPolicySearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseFilterPolicyGetFilterPolicySearchResultResources struct {
-	ID          string                                                       `json:"id,omitempty"`          //
-	Name        string                                                       `json:"name,omitempty"`        //
-	Description string                                                       `json:"description,omitempty"` //
-	Link        ResponseFilterPolicyGetFilterPolicySearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                        `json:"id,omitempty"`          //
+	Name        string                                                        `json:"name,omitempty"`        //
+	Description string                                                        `json:"description,omitempty"` //
+	Link        *ResponseFilterPolicyGetFilterPolicySearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseFilterPolicyGetFilterPolicySearchResultResourcesLink struct {
@@ -80,13 +80,13 @@ type ResponseFilterPolicyGetFilterPolicySearchResultPreviousPage struct {
 }
 
 type ResponseFilterPolicyGetVersion struct {
-	VersionInfo ResponseFilterPolicyGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseFilterPolicyGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseFilterPolicyGetVersionVersionInfo struct {
-	CurrentServerVersion string                                        `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                        `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseFilterPolicyGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                         `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                         `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseFilterPolicyGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseFilterPolicyGetVersionVersionInfoLink struct {

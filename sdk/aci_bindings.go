@@ -19,7 +19,7 @@ type GetAciBindingsQueryParams struct {
 }
 
 type ResponseAciBindingsGetAciBindings struct {
-	AciBindings ResponseAciBindingsGetAciBindingsAciBindings `json:"ACIBindings,omitempty"` //
+	AciBindings *ResponseAciBindingsGetAciBindingsAciBindings `json:"ACIBindings,omitempty"` //
 }
 
 type ResponseAciBindingsGetAciBindingsAciBindings struct {
@@ -35,13 +35,13 @@ type ResponseAciBindingsGetAciBindingsAciBindings struct {
 }
 
 type ResponseAciBindingsGetVersion struct {
-	VersionInfo ResponseAciBindingsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseAciBindingsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseAciBindingsGetVersionVersionInfo struct {
-	CurrentServerVersion string                                       `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                       `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseAciBindingsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                        `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                        `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseAciBindingsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseAciBindingsGetVersionVersionInfoLink struct {

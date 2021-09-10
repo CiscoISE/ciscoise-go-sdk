@@ -10,51 +10,51 @@ import (
 type NodeGroupService service
 
 type ResponseNodeGroupGetNodeGroups struct {
-	Response []ResponseNodeGroupGetNodeGroupsResponse `json:"response,omitempty"` //
+	Response *[]ResponseNodeGroupGetNodeGroupsResponse `json:"response,omitempty"` //
 }
 
 type ResponseNodeGroupGetNodeGroupsResponse struct {
-	Name        string                                         `json:"name,omitempty"`        //
-	Description string                                         `json:"description,omitempty"` //
-	MarCache    ResponseNodeGroupGetNodeGroupsResponseMarCache `json:"mar-cache,omitempty"`   //
+	Name        string                                          `json:"name,omitempty"`        //
+	Description string                                          `json:"description,omitempty"` //
+	MarCache    *ResponseNodeGroupGetNodeGroupsResponseMarCache `json:"mar-cache,omitempty"`   //
 }
 
 type ResponseNodeGroupGetNodeGroupsResponseMarCache struct {
-	Enabled             bool `json:"enabled,omitempty"`              //
-	ReplicationTimeout  int  `json:"replication-timeout,omitempty"`  //
-	ReplicationAttempts int  `json:"replication-attempts,omitempty"` //
-	QueryTimeout        int  `json:"query-timeout,omitempty"`        //
-	QueryAttempts       int  `json:"query-attempts,omitempty"`       //
+	Enabled             *bool `json:"enabled,omitempty"`              //
+	ReplicationTimeout  *int  `json:"replication-timeout,omitempty"`  //
+	ReplicationAttempts *int  `json:"replication-attempts,omitempty"` //
+	QueryTimeout        *int  `json:"query-timeout,omitempty"`        //
+	QueryAttempts       *int  `json:"query-attempts,omitempty"`       //
 }
 
 type ResponseNodeGroupGetNodeGroup struct {
-	Name        string                                `json:"name,omitempty"`        //
-	Description string                                `json:"description,omitempty"` //
-	MarCache    ResponseNodeGroupGetNodeGroupMarCache `json:"mar-cache,omitempty"`   //
+	Name        string                                 `json:"name,omitempty"`        //
+	Description string                                 `json:"description,omitempty"` //
+	MarCache    *ResponseNodeGroupGetNodeGroupMarCache `json:"mar-cache,omitempty"`   //
 }
 
 type ResponseNodeGroupGetNodeGroupMarCache struct {
-	Enabled             bool `json:"enabled,omitempty"`              //
-	ReplicationTimeout  int  `json:"replication-timeout,omitempty"`  //
-	ReplicationAttempts int  `json:"replication-attempts,omitempty"` //
-	QueryTimeout        int  `json:"query-timeout,omitempty"`        //
-	QueryAttempts       int  `json:"query-attempts,omitempty"`       //
+	Enabled             *bool `json:"enabled,omitempty"`              //
+	ReplicationTimeout  *int  `json:"replication-timeout,omitempty"`  //
+	ReplicationAttempts *int  `json:"replication-attempts,omitempty"` //
+	QueryTimeout        *int  `json:"query-timeout,omitempty"`        //
+	QueryAttempts       *int  `json:"query-attempts,omitempty"`       //
 }
 
 type ResponseNodeGroupCreateNodeGroup struct {
-	Code      int    `json:"code,omitempty"`      //
+	Code      *int   `json:"code,omitempty"`      //
 	Message   string `json:"message,omitempty"`   //
 	RootCause string `json:"rootCause,omitempty"` //
 }
 
 type ResponseNodeGroupUpdateNodeGroup struct {
-	Code      int    `json:"code,omitempty"`      //
+	Code      *int   `json:"code,omitempty"`      //
 	Message   string `json:"message,omitempty"`   //
 	RootCause string `json:"rootCause,omitempty"` //
 }
 
 type ResponseNodeGroupDeleteNodeGroup struct {
-	Code      int    `json:"code,omitempty"`      //
+	Code      *int   `json:"code,omitempty"`      //
 	Message   string `json:"message,omitempty"`   //
 	RootCause string `json:"rootCause,omitempty"` //
 }

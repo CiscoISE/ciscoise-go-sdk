@@ -16,19 +16,19 @@ type GetTacacsProfileQueryParams struct {
 }
 
 type ResponseTacacsProfileGetTacacsProfileByName struct {
-	TacacsProfile ResponseTacacsProfileGetTacacsProfileByNameTacacsProfile `json:"TacacsProfile,omitempty"` //
+	TacacsProfile *ResponseTacacsProfileGetTacacsProfileByNameTacacsProfile `json:"TacacsProfile,omitempty"` //
 }
 
 type ResponseTacacsProfileGetTacacsProfileByNameTacacsProfile struct {
-	ID                string                                                                    `json:"id,omitempty"`                //
-	Name              string                                                                    `json:"name,omitempty"`              //
-	Description       string                                                                    `json:"description,omitempty"`       //
-	SessionAttributes ResponseTacacsProfileGetTacacsProfileByNameTacacsProfileSessionAttributes `json:"sessionAttributes,omitempty"` // Holds list of session attributes. View type for GUI is Shell by default
-	Link              ResponseTacacsProfileGetTacacsProfileByNameTacacsProfileLink              `json:"link,omitempty"`              //
+	ID                string                                                                     `json:"id,omitempty"`                //
+	Name              string                                                                     `json:"name,omitempty"`              //
+	Description       string                                                                     `json:"description,omitempty"`       //
+	SessionAttributes *ResponseTacacsProfileGetTacacsProfileByNameTacacsProfileSessionAttributes `json:"sessionAttributes,omitempty"` // Holds list of session attributes. View type for GUI is Shell by default
+	Link              *ResponseTacacsProfileGetTacacsProfileByNameTacacsProfileLink              `json:"link,omitempty"`              //
 }
 
 type ResponseTacacsProfileGetTacacsProfileByNameTacacsProfileSessionAttributes struct {
-	SessionAttributeList []ResponseTacacsProfileGetTacacsProfileByNameTacacsProfileSessionAttributesSessionAttributeList `json:"sessionAttributeList,omitempty"` //
+	SessionAttributeList *[]ResponseTacacsProfileGetTacacsProfileByNameTacacsProfileSessionAttributesSessionAttributeList `json:"sessionAttributeList,omitempty"` //
 }
 
 type ResponseTacacsProfileGetTacacsProfileByNameTacacsProfileSessionAttributesSessionAttributeList struct {
@@ -44,19 +44,19 @@ type ResponseTacacsProfileGetTacacsProfileByNameTacacsProfileLink struct {
 }
 
 type ResponseTacacsProfileGetTacacsProfileByID struct {
-	TacacsProfile ResponseTacacsProfileGetTacacsProfileByIDTacacsProfile `json:"TacacsProfile,omitempty"` //
+	TacacsProfile *ResponseTacacsProfileGetTacacsProfileByIDTacacsProfile `json:"TacacsProfile,omitempty"` //
 }
 
 type ResponseTacacsProfileGetTacacsProfileByIDTacacsProfile struct {
-	ID                string                                                                  `json:"id,omitempty"`                //
-	Name              string                                                                  `json:"name,omitempty"`              //
-	Description       string                                                                  `json:"description,omitempty"`       //
-	SessionAttributes ResponseTacacsProfileGetTacacsProfileByIDTacacsProfileSessionAttributes `json:"sessionAttributes,omitempty"` // Holds list of session attributes. View type for GUI is Shell by default
-	Link              ResponseTacacsProfileGetTacacsProfileByIDTacacsProfileLink              `json:"link,omitempty"`              //
+	ID                string                                                                   `json:"id,omitempty"`                //
+	Name              string                                                                   `json:"name,omitempty"`              //
+	Description       string                                                                   `json:"description,omitempty"`       //
+	SessionAttributes *ResponseTacacsProfileGetTacacsProfileByIDTacacsProfileSessionAttributes `json:"sessionAttributes,omitempty"` // Holds list of session attributes. View type for GUI is Shell by default
+	Link              *ResponseTacacsProfileGetTacacsProfileByIDTacacsProfileLink              `json:"link,omitempty"`              //
 }
 
 type ResponseTacacsProfileGetTacacsProfileByIDTacacsProfileSessionAttributes struct {
-	SessionAttributeList []ResponseTacacsProfileGetTacacsProfileByIDTacacsProfileSessionAttributesSessionAttributeList `json:"sessionAttributeList,omitempty"` //
+	SessionAttributeList *[]ResponseTacacsProfileGetTacacsProfileByIDTacacsProfileSessionAttributesSessionAttributeList `json:"sessionAttributeList,omitempty"` //
 }
 
 type ResponseTacacsProfileGetTacacsProfileByIDTacacsProfileSessionAttributesSessionAttributeList struct {
@@ -72,14 +72,14 @@ type ResponseTacacsProfileGetTacacsProfileByIDTacacsProfileLink struct {
 }
 
 type ResponseTacacsProfileUpdateTacacsProfileByID struct {
-	UpdatedFieldsList ResponseTacacsProfileUpdateTacacsProfileByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseTacacsProfileUpdateTacacsProfileByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseTacacsProfileUpdateTacacsProfileByIDUpdatedFieldsList struct {
-	UpdatedField ResponseTacacsProfileUpdateTacacsProfileByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                    `json:"field,omitempty"`        //
-	OldValue     string                                                                    `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                    `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseTacacsProfileUpdateTacacsProfileByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                       `json:"field,omitempty"`        //
+	OldValue     string                                                                       `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                       `json:"newValue,omitempty"`     //
 }
 
 type ResponseTacacsProfileUpdateTacacsProfileByIDUpdatedFieldsListUpdatedField struct {
@@ -89,21 +89,21 @@ type ResponseTacacsProfileUpdateTacacsProfileByIDUpdatedFieldsListUpdatedField s
 }
 
 type ResponseTacacsProfileGetTacacsProfile struct {
-	SearchResult ResponseTacacsProfileGetTacacsProfileSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseTacacsProfileGetTacacsProfileSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseTacacsProfileGetTacacsProfileSearchResult struct {
-	Total        int                                                           `json:"total,omitempty"`        //
-	Resources    []ResponseTacacsProfileGetTacacsProfileSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseTacacsProfileGetTacacsProfileSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseTacacsProfileGetTacacsProfileSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                           `json:"total,omitempty"`        //
+	Resources    *[]ResponseTacacsProfileGetTacacsProfileSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseTacacsProfileGetTacacsProfileSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseTacacsProfileGetTacacsProfileSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseTacacsProfileGetTacacsProfileSearchResultResources struct {
-	ID          string                                                         `json:"id,omitempty"`          //
-	Name        string                                                         `json:"name,omitempty"`        //
-	Description string                                                         `json:"description,omitempty"` //
-	Link        ResponseTacacsProfileGetTacacsProfileSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                          `json:"id,omitempty"`          //
+	Name        string                                                          `json:"name,omitempty"`        //
+	Description string                                                          `json:"description,omitempty"` //
+	Link        *ResponseTacacsProfileGetTacacsProfileSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseTacacsProfileGetTacacsProfileSearchResultResourcesLink struct {
@@ -125,13 +125,13 @@ type ResponseTacacsProfileGetTacacsProfileSearchResultPreviousPage struct {
 }
 
 type ResponseTacacsProfileGetVersion struct {
-	VersionInfo ResponseTacacsProfileGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseTacacsProfileGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseTacacsProfileGetVersionVersionInfo struct {
-	CurrentServerVersion string                                         `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                         `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseTacacsProfileGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                          `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                          `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseTacacsProfileGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseTacacsProfileGetVersionVersionInfoLink struct {

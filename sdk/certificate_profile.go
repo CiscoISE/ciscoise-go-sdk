@@ -16,19 +16,19 @@ type GetCertificateProfileQueryParams struct {
 }
 
 type ResponseCertificateProfileGetCertificateProfileByName struct {
-	CertificateProfile ResponseCertificateProfileGetCertificateProfileByNameCertificateProfile `json:"CertificateProfile,omitempty"` //
+	CertificateProfile *ResponseCertificateProfileGetCertificateProfileByNameCertificateProfile `json:"CertificateProfile,omitempty"` //
 }
 
 type ResponseCertificateProfileGetCertificateProfileByNameCertificateProfile struct {
-	ID                        string                                                                      `json:"id,omitempty"`                        //
-	Name                      string                                                                      `json:"name,omitempty"`                      //
-	Description               string                                                                      `json:"description,omitempty"`               //
-	ExternalIDentityStoreName string                                                                      `json:"externalIdentityStoreName,omitempty"` //
-	CertificateAttributeName  string                                                                      `json:"certificateAttributeName,omitempty"`  //
-	AllowedAsUserName         bool                                                                        `json:"allowedAsUserName,omitempty"`         //
-	MatchMode                 string                                                                      `json:"matchMode,omitempty"`                 //
-	UsernameFrom              string                                                                      `json:"usernameFrom,omitempty"`              //
-	Link                      ResponseCertificateProfileGetCertificateProfileByNameCertificateProfileLink `json:"link,omitempty"`                      //
+	ID                        string                                                                       `json:"id,omitempty"`                        //
+	Name                      string                                                                       `json:"name,omitempty"`                      //
+	Description               string                                                                       `json:"description,omitempty"`               //
+	ExternalIDentityStoreName string                                                                       `json:"externalIdentityStoreName,omitempty"` //
+	CertificateAttributeName  string                                                                       `json:"certificateAttributeName,omitempty"`  //
+	AllowedAsUserName         *bool                                                                        `json:"allowedAsUserName,omitempty"`         //
+	MatchMode                 string                                                                       `json:"matchMode,omitempty"`                 //
+	UsernameFrom              string                                                                       `json:"usernameFrom,omitempty"`              //
+	Link                      *ResponseCertificateProfileGetCertificateProfileByNameCertificateProfileLink `json:"link,omitempty"`                      //
 }
 
 type ResponseCertificateProfileGetCertificateProfileByNameCertificateProfileLink struct {
@@ -38,19 +38,19 @@ type ResponseCertificateProfileGetCertificateProfileByNameCertificateProfileLink
 }
 
 type ResponseCertificateProfileGetCertificateProfileByID struct {
-	CertificateProfile ResponseCertificateProfileGetCertificateProfileByIDCertificateProfile `json:"CertificateProfile,omitempty"` //
+	CertificateProfile *ResponseCertificateProfileGetCertificateProfileByIDCertificateProfile `json:"CertificateProfile,omitempty"` //
 }
 
 type ResponseCertificateProfileGetCertificateProfileByIDCertificateProfile struct {
-	ID                        string                                                                    `json:"id,omitempty"`                        //
-	Name                      string                                                                    `json:"name,omitempty"`                      //
-	Description               string                                                                    `json:"description,omitempty"`               //
-	ExternalIDentityStoreName string                                                                    `json:"externalIdentityStoreName,omitempty"` //
-	CertificateAttributeName  string                                                                    `json:"certificateAttributeName,omitempty"`  //
-	AllowedAsUserName         bool                                                                      `json:"allowedAsUserName,omitempty"`         //
-	MatchMode                 string                                                                    `json:"matchMode,omitempty"`                 //
-	UsernameFrom              string                                                                    `json:"usernameFrom,omitempty"`              //
-	Link                      ResponseCertificateProfileGetCertificateProfileByIDCertificateProfileLink `json:"link,omitempty"`                      //
+	ID                        string                                                                     `json:"id,omitempty"`                        //
+	Name                      string                                                                     `json:"name,omitempty"`                      //
+	Description               string                                                                     `json:"description,omitempty"`               //
+	ExternalIDentityStoreName string                                                                     `json:"externalIdentityStoreName,omitempty"` //
+	CertificateAttributeName  string                                                                     `json:"certificateAttributeName,omitempty"`  //
+	AllowedAsUserName         *bool                                                                      `json:"allowedAsUserName,omitempty"`         //
+	MatchMode                 string                                                                     `json:"matchMode,omitempty"`                 //
+	UsernameFrom              string                                                                     `json:"usernameFrom,omitempty"`              //
+	Link                      *ResponseCertificateProfileGetCertificateProfileByIDCertificateProfileLink `json:"link,omitempty"`                      //
 }
 
 type ResponseCertificateProfileGetCertificateProfileByIDCertificateProfileLink struct {
@@ -60,11 +60,11 @@ type ResponseCertificateProfileGetCertificateProfileByIDCertificateProfileLink s
 }
 
 type ResponseCertificateProfileUpdateCertificateProfileByID struct {
-	UpdatedFieldsList ResponseCertificateProfileUpdateCertificateProfileByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseCertificateProfileUpdateCertificateProfileByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseCertificateProfileUpdateCertificateProfileByIDUpdatedFieldsList struct {
-	UpdatedField []ResponseCertificateProfileUpdateCertificateProfileByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	UpdatedField *[]ResponseCertificateProfileUpdateCertificateProfileByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
 }
 
 type ResponseCertificateProfileUpdateCertificateProfileByIDUpdatedFieldsListUpdatedField struct {
@@ -74,21 +74,21 @@ type ResponseCertificateProfileUpdateCertificateProfileByIDUpdatedFieldsListUpda
 }
 
 type ResponseCertificateProfileGetCertificateProfile struct {
-	SearchResult ResponseCertificateProfileGetCertificateProfileSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseCertificateProfileGetCertificateProfileSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseCertificateProfileGetCertificateProfileSearchResult struct {
-	Total        int                                                                     `json:"total,omitempty"`        //
-	Resources    []ResponseCertificateProfileGetCertificateProfileSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseCertificateProfileGetCertificateProfileSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseCertificateProfileGetCertificateProfileSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                     `json:"total,omitempty"`        //
+	Resources    *[]ResponseCertificateProfileGetCertificateProfileSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseCertificateProfileGetCertificateProfileSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseCertificateProfileGetCertificateProfileSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseCertificateProfileGetCertificateProfileSearchResultResources struct {
-	ID          string                                                                   `json:"id,omitempty"`          //
-	Name        string                                                                   `json:"name,omitempty"`        //
-	Description string                                                                   `json:"description,omitempty"` //
-	Link        ResponseCertificateProfileGetCertificateProfileSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                                    `json:"id,omitempty"`          //
+	Name        string                                                                    `json:"name,omitempty"`        //
+	Description string                                                                    `json:"description,omitempty"` //
+	Link        *ResponseCertificateProfileGetCertificateProfileSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseCertificateProfileGetCertificateProfileSearchResultResourcesLink struct {
@@ -110,13 +110,13 @@ type ResponseCertificateProfileGetCertificateProfileSearchResultPreviousPage str
 }
 
 type ResponseCertificateProfileGetVersion struct {
-	VersionInfo ResponseCertificateProfileGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseCertificateProfileGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseCertificateProfileGetVersionVersionInfo struct {
-	CurrentServerVersion string                                              `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                              `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseCertificateProfileGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                               `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                               `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseCertificateProfileGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseCertificateProfileGetVersionVersionInfoLink struct {

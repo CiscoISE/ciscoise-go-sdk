@@ -16,47 +16,47 @@ type GetCertificateTemplateQueryParams struct {
 }
 
 type ResponseCertificateTemplateGetCertificateTemplateByName struct {
-	ERSCertificateTemplate ResponseCertificateTemplateGetCertificateTemplateByNameERSCertificateTemplate `json:"ERSCertificateTemplate,omitempty"` //
+	ERSCertificateTemplate *ResponseCertificateTemplateGetCertificateTemplateByNameERSCertificateTemplate `json:"ERSCertificateTemplate,omitempty"` //
 }
 
 type ResponseCertificateTemplateGetCertificateTemplateByNameERSCertificateTemplate struct {
 	ID             string `json:"id,omitempty"`             //
 	Name           string `json:"name,omitempty"`           //
 	Description    string `json:"description,omitempty"`    //
-	KeySize        int    `json:"keySize,omitempty"`        // Key Size of the Certificate Template
-	ValidityPeriod int    `json:"validityPeriod,omitempty"` // Validity period of the Certificate Template: Valid Range 21 - 3652
+	KeySize        *int   `json:"keySize,omitempty"`        // Key Size of the Certificate Template
+	ValidityPeriod *int   `json:"validityPeriod,omitempty"` // Validity period of the Certificate Template: Valid Range 21 - 3652
 	Raprofile      string `json:"raprofile,omitempty"`      // RA profile for the Certificate template
 }
 
 type ResponseCertificateTemplateGetCertificateTemplateByID struct {
-	ERSCertificateTemplate ResponseCertificateTemplateGetCertificateTemplateByIDERSCertificateTemplate `json:"ERSCertificateTemplate,omitempty"` //
+	ERSCertificateTemplate *ResponseCertificateTemplateGetCertificateTemplateByIDERSCertificateTemplate `json:"ERSCertificateTemplate,omitempty"` //
 }
 
 type ResponseCertificateTemplateGetCertificateTemplateByIDERSCertificateTemplate struct {
 	ID             string `json:"id,omitempty"`             //
 	Name           string `json:"name,omitempty"`           //
 	Description    string `json:"description,omitempty"`    //
-	KeySize        int    `json:"keySize,omitempty"`        // Key Size of the Certificate Template
-	ValidityPeriod int    `json:"validityPeriod,omitempty"` // Validity period of the Certificate Template: Valid Range 21 - 3652
+	KeySize        *int   `json:"keySize,omitempty"`        // Key Size of the Certificate Template
+	ValidityPeriod *int   `json:"validityPeriod,omitempty"` // Validity period of the Certificate Template: Valid Range 21 - 3652
 	Raprofile      string `json:"raprofile,omitempty"`      // RA profile for the Certificate template
 }
 
 type ResponseCertificateTemplateGetCertificateTemplate struct {
-	SearchResult ResponseCertificateTemplateGetCertificateTemplateSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseCertificateTemplateGetCertificateTemplateSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseCertificateTemplateGetCertificateTemplateSearchResult struct {
-	Total        int                                                                       `json:"total,omitempty"`        //
-	Resources    []ResponseCertificateTemplateGetCertificateTemplateSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseCertificateTemplateGetCertificateTemplateSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseCertificateTemplateGetCertificateTemplateSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                       `json:"total,omitempty"`        //
+	Resources    *[]ResponseCertificateTemplateGetCertificateTemplateSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseCertificateTemplateGetCertificateTemplateSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseCertificateTemplateGetCertificateTemplateSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseCertificateTemplateGetCertificateTemplateSearchResultResources struct {
-	ID          string                                                                     `json:"id,omitempty"`          //
-	Name        string                                                                     `json:"name,omitempty"`        //
-	Description string                                                                     `json:"description,omitempty"` //
-	Link        ResponseCertificateTemplateGetCertificateTemplateSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                                      `json:"id,omitempty"`          //
+	Name        string                                                                      `json:"name,omitempty"`        //
+	Description string                                                                      `json:"description,omitempty"` //
+	Link        *ResponseCertificateTemplateGetCertificateTemplateSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseCertificateTemplateGetCertificateTemplateSearchResultResourcesLink struct {
@@ -78,13 +78,13 @@ type ResponseCertificateTemplateGetCertificateTemplateSearchResultPreviousPage s
 }
 
 type ResponseCertificateTemplateGetVersion struct {
-	VersionInfo ResponseCertificateTemplateGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseCertificateTemplateGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseCertificateTemplateGetVersionVersionInfo struct {
-	CurrentServerVersion string                                               `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                               `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseCertificateTemplateGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseCertificateTemplateGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseCertificateTemplateGetVersionVersionInfoLink struct {

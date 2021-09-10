@@ -16,23 +16,23 @@ type GetIDentitySequenceQueryParams struct {
 }
 
 type ResponseIDentitySequenceGetIDentitySequenceByName struct {
-	IDStoreSequence ResponseIDentitySequenceGetIDentitySequenceByNameIDStoreSequence `json:"IdStoreSequence,omitempty"` //
+	IDStoreSequence *ResponseIDentitySequenceGetIDentitySequenceByNameIDStoreSequence `json:"IdStoreSequence,omitempty"` //
 }
 
 type ResponseIDentitySequenceGetIDentitySequenceByNameIDStoreSequence struct {
-	ID                               string                                                                      `json:"id,omitempty"`                               //
-	Name                             string                                                                      `json:"name,omitempty"`                             //
-	Description                      string                                                                      `json:"description,omitempty"`                      //
-	Parent                           string                                                                      `json:"parent,omitempty"`                           //
-	IDSeqItem                        []ResponseIDentitySequenceGetIDentitySequenceByNameIDStoreSequenceIDSeqItem `json:"idSeqItem,omitempty"`                        //
-	CertificateAuthenticationProfile string                                                                      `json:"certificateAuthenticationProfile,omitempty"` //
-	BreakOnStoreFail                 bool                                                                        `json:"breakOnStoreFail,omitempty"`                 //
-	Link                             ResponseIDentitySequenceGetIDentitySequenceByNameIDStoreSequenceLink        `json:"link,omitempty"`                             //
+	ID                               string                                                                       `json:"id,omitempty"`                               //
+	Name                             string                                                                       `json:"name,omitempty"`                             //
+	Description                      string                                                                       `json:"description,omitempty"`                      //
+	Parent                           string                                                                       `json:"parent,omitempty"`                           //
+	IDSeqItem                        *[]ResponseIDentitySequenceGetIDentitySequenceByNameIDStoreSequenceIDSeqItem `json:"idSeqItem,omitempty"`                        //
+	CertificateAuthenticationProfile string                                                                       `json:"certificateAuthenticationProfile,omitempty"` //
+	BreakOnStoreFail                 *bool                                                                        `json:"breakOnStoreFail,omitempty"`                 //
+	Link                             *ResponseIDentitySequenceGetIDentitySequenceByNameIDStoreSequenceLink        `json:"link,omitempty"`                             //
 }
 
 type ResponseIDentitySequenceGetIDentitySequenceByNameIDStoreSequenceIDSeqItem struct {
 	IDstore string `json:"idstore,omitempty"` //
-	Order   int    `json:"order,omitempty"`   //
+	Order   *int   `json:"order,omitempty"`   //
 }
 
 type ResponseIDentitySequenceGetIDentitySequenceByNameIDStoreSequenceLink struct {
@@ -42,23 +42,23 @@ type ResponseIDentitySequenceGetIDentitySequenceByNameIDStoreSequenceLink struct
 }
 
 type ResponseIDentitySequenceGetIDentitySequenceByID struct {
-	IDStoreSequence ResponseIDentitySequenceGetIDentitySequenceByIDIDStoreSequence `json:"IdStoreSequence,omitempty"` //
+	IDStoreSequence *ResponseIDentitySequenceGetIDentitySequenceByIDIDStoreSequence `json:"IdStoreSequence,omitempty"` //
 }
 
 type ResponseIDentitySequenceGetIDentitySequenceByIDIDStoreSequence struct {
-	ID                               string                                                                    `json:"id,omitempty"`                               //
-	Name                             string                                                                    `json:"name,omitempty"`                             //
-	Description                      string                                                                    `json:"description,omitempty"`                      //
-	Parent                           string                                                                    `json:"parent,omitempty"`                           //
-	IDSeqItem                        []ResponseIDentitySequenceGetIDentitySequenceByIDIDStoreSequenceIDSeqItem `json:"idSeqItem,omitempty"`                        //
-	CertificateAuthenticationProfile string                                                                    `json:"certificateAuthenticationProfile,omitempty"` //
-	BreakOnStoreFail                 bool                                                                      `json:"breakOnStoreFail,omitempty"`                 //
-	Link                             ResponseIDentitySequenceGetIDentitySequenceByIDIDStoreSequenceLink        `json:"link,omitempty"`                             //
+	ID                               string                                                                     `json:"id,omitempty"`                               //
+	Name                             string                                                                     `json:"name,omitempty"`                             //
+	Description                      string                                                                     `json:"description,omitempty"`                      //
+	Parent                           string                                                                     `json:"parent,omitempty"`                           //
+	IDSeqItem                        *[]ResponseIDentitySequenceGetIDentitySequenceByIDIDStoreSequenceIDSeqItem `json:"idSeqItem,omitempty"`                        //
+	CertificateAuthenticationProfile string                                                                     `json:"certificateAuthenticationProfile,omitempty"` //
+	BreakOnStoreFail                 *bool                                                                      `json:"breakOnStoreFail,omitempty"`                 //
+	Link                             *ResponseIDentitySequenceGetIDentitySequenceByIDIDStoreSequenceLink        `json:"link,omitempty"`                             //
 }
 
 type ResponseIDentitySequenceGetIDentitySequenceByIDIDStoreSequenceIDSeqItem struct {
 	IDstore string `json:"idstore,omitempty"` //
-	Order   int    `json:"order,omitempty"`   //
+	Order   *int   `json:"order,omitempty"`   //
 }
 
 type ResponseIDentitySequenceGetIDentitySequenceByIDIDStoreSequenceLink struct {
@@ -68,14 +68,14 @@ type ResponseIDentitySequenceGetIDentitySequenceByIDIDStoreSequenceLink struct {
 }
 
 type ResponseIDentitySequenceUpdateIDentitySequenceByID struct {
-	UpdatedFieldsList ResponseIDentitySequenceUpdateIDentitySequenceByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseIDentitySequenceUpdateIDentitySequenceByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseIDentitySequenceUpdateIDentitySequenceByIDUpdatedFieldsList struct {
-	UpdatedField ResponseIDentitySequenceUpdateIDentitySequenceByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                          `json:"field,omitempty"`        //
-	OldValue     string                                                                          `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                          `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseIDentitySequenceUpdateIDentitySequenceByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                             `json:"field,omitempty"`        //
+	OldValue     string                                                                             `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                             `json:"newValue,omitempty"`     //
 }
 
 type ResponseIDentitySequenceUpdateIDentitySequenceByIDUpdatedFieldsListUpdatedField struct {
@@ -85,21 +85,21 @@ type ResponseIDentitySequenceUpdateIDentitySequenceByIDUpdatedFieldsListUpdatedF
 }
 
 type ResponseIDentitySequenceGetIDentitySequence struct {
-	SearchResult ResponseIDentitySequenceGetIDentitySequenceSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseIDentitySequenceGetIDentitySequenceSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseIDentitySequenceGetIDentitySequenceSearchResult struct {
-	Total        int                                                                 `json:"total,omitempty"`        //
-	Resources    []ResponseIDentitySequenceGetIDentitySequenceSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseIDentitySequenceGetIDentitySequenceSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseIDentitySequenceGetIDentitySequenceSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                 `json:"total,omitempty"`        //
+	Resources    *[]ResponseIDentitySequenceGetIDentitySequenceSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseIDentitySequenceGetIDentitySequenceSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseIDentitySequenceGetIDentitySequenceSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseIDentitySequenceGetIDentitySequenceSearchResultResources struct {
-	ID          string                                                               `json:"id,omitempty"`          //
-	Name        string                                                               `json:"name,omitempty"`        //
-	Description string                                                               `json:"description,omitempty"` //
-	Link        ResponseIDentitySequenceGetIDentitySequenceSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                                `json:"id,omitempty"`          //
+	Name        string                                                                `json:"name,omitempty"`        //
+	Description string                                                                `json:"description,omitempty"` //
+	Link        *ResponseIDentitySequenceGetIDentitySequenceSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseIDentitySequenceGetIDentitySequenceSearchResultResourcesLink struct {
@@ -121,13 +121,13 @@ type ResponseIDentitySequenceGetIDentitySequenceSearchResultPreviousPage struct 
 }
 
 type ResponseIDentitySequenceGetVersion struct {
-	VersionInfo ResponseIDentitySequenceGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseIDentitySequenceGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseIDentitySequenceGetVersionVersionInfo struct {
-	CurrentServerVersion string                                            `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                            `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseIDentitySequenceGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                             `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                             `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseIDentitySequenceGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseIDentitySequenceGetVersionVersionInfoLink struct {

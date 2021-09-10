@@ -20,20 +20,20 @@ type GetSxpConnectionsQueryParams struct {
 }
 
 type ResponseSxpConnectionsGetSxpConnectionsByID struct {
-	ERSSxpConnection ResponseSxpConnectionsGetSxpConnectionsByIDERSSxpConnection `json:"ERSSxpConnection,omitempty"` //
+	ERSSxpConnection *ResponseSxpConnectionsGetSxpConnectionsByIDERSSxpConnection `json:"ERSSxpConnection,omitempty"` //
 }
 
 type ResponseSxpConnectionsGetSxpConnectionsByIDERSSxpConnection struct {
-	ID          string                                                          `json:"id,omitempty"`          //
-	Description string                                                          `json:"description,omitempty"` //
-	SxpPeer     string                                                          `json:"sxpPeer,omitempty"`     //
-	SxpVpn      string                                                          `json:"sxpVpn,omitempty"`      //
-	SxpNode     string                                                          `json:"sxpNode,omitempty"`     //
-	IPAddress   string                                                          `json:"ipAddress,omitempty"`   //
-	SxpMode     string                                                          `json:"sxpMode,omitempty"`     //
-	SxpVersion  string                                                          `json:"sxpVersion,omitempty"`  //
-	Enabled     bool                                                            `json:"enabled,omitempty"`     //
-	Link        ResponseSxpConnectionsGetSxpConnectionsByIDERSSxpConnectionLink `json:"link,omitempty"`        //
+	ID          string                                                           `json:"id,omitempty"`          //
+	Description string                                                           `json:"description,omitempty"` //
+	SxpPeer     string                                                           `json:"sxpPeer,omitempty"`     //
+	SxpVpn      string                                                           `json:"sxpVpn,omitempty"`      //
+	SxpNode     string                                                           `json:"sxpNode,omitempty"`     //
+	IPAddress   string                                                           `json:"ipAddress,omitempty"`   //
+	SxpMode     string                                                           `json:"sxpMode,omitempty"`     //
+	SxpVersion  string                                                           `json:"sxpVersion,omitempty"`  //
+	Enabled     *bool                                                            `json:"enabled,omitempty"`     //
+	Link        *ResponseSxpConnectionsGetSxpConnectionsByIDERSSxpConnectionLink `json:"link,omitempty"`        //
 }
 
 type ResponseSxpConnectionsGetSxpConnectionsByIDERSSxpConnectionLink struct {
@@ -43,14 +43,14 @@ type ResponseSxpConnectionsGetSxpConnectionsByIDERSSxpConnectionLink struct {
 }
 
 type ResponseSxpConnectionsUpdateSxpConnectionsByID struct {
-	UpdatedFieldsList ResponseSxpConnectionsUpdateSxpConnectionsByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseSxpConnectionsUpdateSxpConnectionsByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseSxpConnectionsUpdateSxpConnectionsByIDUpdatedFieldsList struct {
-	UpdatedField ResponseSxpConnectionsUpdateSxpConnectionsByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                      `json:"field,omitempty"`        //
-	OldValue     string                                                                      `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                      `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseSxpConnectionsUpdateSxpConnectionsByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                         `json:"field,omitempty"`        //
+	OldValue     string                                                                         `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                         `json:"newValue,omitempty"`     //
 }
 
 type ResponseSxpConnectionsUpdateSxpConnectionsByIDUpdatedFieldsListUpdatedField struct {
@@ -60,19 +60,19 @@ type ResponseSxpConnectionsUpdateSxpConnectionsByIDUpdatedFieldsListUpdatedField
 }
 
 type ResponseSxpConnectionsGetSxpConnections struct {
-	SearchResult ResponseSxpConnectionsGetSxpConnectionsSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseSxpConnectionsGetSxpConnectionsSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseSxpConnectionsGetSxpConnectionsSearchResult struct {
-	Total        int                                                             `json:"total,omitempty"`        //
-	Resources    []ResponseSxpConnectionsGetSxpConnectionsSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseSxpConnectionsGetSxpConnectionsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseSxpConnectionsGetSxpConnectionsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                             `json:"total,omitempty"`        //
+	Resources    *[]ResponseSxpConnectionsGetSxpConnectionsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseSxpConnectionsGetSxpConnectionsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseSxpConnectionsGetSxpConnectionsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSxpConnectionsGetSxpConnectionsSearchResultResources struct {
-	ID   string                                                           `json:"id,omitempty"`   //
-	Link ResponseSxpConnectionsGetSxpConnectionsSearchResultResourcesLink `json:"link,omitempty"` //
+	ID   string                                                            `json:"id,omitempty"`   //
+	Link *ResponseSxpConnectionsGetSxpConnectionsSearchResultResourcesLink `json:"link,omitempty"` //
 }
 
 type ResponseSxpConnectionsGetSxpConnectionsSearchResultResourcesLink struct {
@@ -94,13 +94,13 @@ type ResponseSxpConnectionsGetSxpConnectionsSearchResultPreviousPage struct {
 }
 
 type ResponseSxpConnectionsGetVersion struct {
-	VersionInfo ResponseSxpConnectionsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseSxpConnectionsGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseSxpConnectionsGetVersionVersionInfo struct {
-	CurrentServerVersion string                                          `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                          `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseSxpConnectionsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                           `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                           `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseSxpConnectionsGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseSxpConnectionsGetVersionVersionInfoLink struct {
@@ -110,19 +110,19 @@ type ResponseSxpConnectionsGetVersionVersionInfoLink struct {
 }
 
 type ResponseSxpConnectionsMonitorBulkStatusSxpConnections struct {
-	BulkStatus ResponseSxpConnectionsMonitorBulkStatusSxpConnectionsBulkStatus `json:"BulkStatus,omitempty"` //
+	BulkStatus *ResponseSxpConnectionsMonitorBulkStatusSxpConnectionsBulkStatus `json:"BulkStatus,omitempty"` //
 }
 
 type ResponseSxpConnectionsMonitorBulkStatusSxpConnectionsBulkStatus struct {
-	BulkID          string                                                                           `json:"bulkId,omitempty"`          //
-	MediaType       string                                                                           `json:"mediaType,omitempty"`       //
-	ExecutionStatus string                                                                           `json:"executionStatus,omitempty"` //
-	OperationType   string                                                                           `json:"operationType,omitempty"`   //
-	StartTime       string                                                                           `json:"startTime,omitempty"`       //
-	ResourcesCount  int                                                                              `json:"resourcesCount,omitempty"`  //
-	SuccessCount    int                                                                              `json:"successCount,omitempty"`    //
-	FailCount       int                                                                              `json:"failCount,omitempty"`       //
-	ResourcesStatus []ResponseSxpConnectionsMonitorBulkStatusSxpConnectionsBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
+	BulkID          string                                                                            `json:"bulkId,omitempty"`          //
+	MediaType       string                                                                            `json:"mediaType,omitempty"`       //
+	ExecutionStatus string                                                                            `json:"executionStatus,omitempty"` //
+	OperationType   string                                                                            `json:"operationType,omitempty"`   //
+	StartTime       string                                                                            `json:"startTime,omitempty"`       //
+	ResourcesCount  *int                                                                              `json:"resourcesCount,omitempty"`  //
+	SuccessCount    *int                                                                              `json:"successCount,omitempty"`    //
+	FailCount       *int                                                                              `json:"failCount,omitempty"`       //
+	ResourcesStatus *[]ResponseSxpConnectionsMonitorBulkStatusSxpConnectionsBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
 }
 
 type ResponseSxpConnectionsMonitorBulkStatusSxpConnectionsBulkStatusResourcesStatus struct {

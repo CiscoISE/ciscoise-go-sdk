@@ -20,22 +20,22 @@ type GetAdminUsersQueryParams struct {
 }
 
 type ResponseAdminUserGetAdminUserByID struct {
-	AdminUser ResponseAdminUserGetAdminUserByIDAdminUser `json:"AdminUser,omitempty"` //
+	AdminUser *ResponseAdminUserGetAdminUserByIDAdminUser `json:"AdminUser,omitempty"` //
 }
 
 type ResponseAdminUserGetAdminUserByIDAdminUser struct {
-	Name                         string                                         `json:"name,omitempty"`                         //
-	ID                           string                                         `json:"id,omitempty"`                           //
-	Description                  string                                         `json:"description,omitempty"`                  //
-	Enabled                      bool                                           `json:"enabled,omitempty"`                      //
-	Password                     string                                         `json:"password,omitempty"`                     //
-	ChangePassword               bool                                           `json:"changePassword,omitempty"`               //
-	IncludeSystemAlarmsInEmail   bool                                           `json:"includeSystemAlarmsInEmail,omitempty"`   //
-	ExternalUser                 bool                                           `json:"externalUser,omitempty"`                 //
-	InactiveAccountNeverDisabled bool                                           `json:"inactiveAccountNeverDisabled,omitempty"` //
-	AdminGroups                  string                                         `json:"adminGroups,omitempty"`                  //
-	CustomAttributes             map[string]interface{}                         `json:"customAttributes,omitempty"`             //
-	Link                         ResponseAdminUserGetAdminUserByIDAdminUserLink `json:"link,omitempty"`                         //
+	Name                         string                                          `json:"name,omitempty"`                         //
+	ID                           string                                          `json:"id,omitempty"`                           //
+	Description                  string                                          `json:"description,omitempty"`                  //
+	Enabled                      *bool                                           `json:"enabled,omitempty"`                      //
+	Password                     string                                          `json:"password,omitempty"`                     //
+	ChangePassword               *bool                                           `json:"changePassword,omitempty"`               //
+	IncludeSystemAlarmsInEmail   *bool                                           `json:"includeSystemAlarmsInEmail,omitempty"`   //
+	ExternalUser                 *bool                                           `json:"externalUser,omitempty"`                 //
+	InactiveAccountNeverDisabled *bool                                           `json:"inactiveAccountNeverDisabled,omitempty"` //
+	AdminGroups                  string                                          `json:"adminGroups,omitempty"`                  //
+	CustomAttributes             *map[string]interface{}                         `json:"customAttributes,omitempty"`             //
+	Link                         *ResponseAdminUserGetAdminUserByIDAdminUserLink `json:"link,omitempty"`                         //
 }
 
 type ResponseAdminUserGetAdminUserByIDAdminUserLink struct {
@@ -45,21 +45,21 @@ type ResponseAdminUserGetAdminUserByIDAdminUserLink struct {
 }
 
 type ResponseAdminUserGetAdminUsers struct {
-	SearchResult ResponseAdminUserGetAdminUsersSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseAdminUserGetAdminUsersSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseAdminUserGetAdminUsersSearchResult struct {
-	Total        int                                                    `json:"total,omitempty"`        //
-	Resources    []ResponseAdminUserGetAdminUsersSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseAdminUserGetAdminUsersSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseAdminUserGetAdminUsersSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                    `json:"total,omitempty"`        //
+	Resources    *[]ResponseAdminUserGetAdminUsersSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseAdminUserGetAdminUsersSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseAdminUserGetAdminUsersSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseAdminUserGetAdminUsersSearchResultResources struct {
-	ID          string                                                  `json:"id,omitempty"`          //
-	Name        string                                                  `json:"name,omitempty"`        //
-	Description string                                                  `json:"description,omitempty"` //
-	Link        ResponseAdminUserGetAdminUsersSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                   `json:"id,omitempty"`          //
+	Name        string                                                   `json:"name,omitempty"`        //
+	Description string                                                   `json:"description,omitempty"` //
+	Link        *ResponseAdminUserGetAdminUsersSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseAdminUserGetAdminUsersSearchResultResourcesLink struct {
@@ -81,13 +81,13 @@ type ResponseAdminUserGetAdminUsersSearchResultPreviousPage struct {
 }
 
 type ResponseAdminUserGetVersion struct {
-	VersionInfo ResponseAdminUserGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseAdminUserGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseAdminUserGetVersionVersionInfo struct {
-	CurrentServerVersion string                                     `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                     `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseAdminUserGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                      `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                      `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseAdminUserGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseAdminUserGetVersionVersionInfoLink struct {

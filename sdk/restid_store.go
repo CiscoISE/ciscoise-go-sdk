@@ -20,22 +20,22 @@ type GetRestIDStoreQueryParams struct {
 }
 
 type ResponseRestidStoreGetRestIDStoreByName struct {
-	ERSRestIDStore ResponseRestidStoreGetRestIDStoreByNameERSRestIDStore `json:"ERSRestIDStore,omitempty"` //
+	ERSRestIDStore *ResponseRestidStoreGetRestIDStoreByNameERSRestIDStore `json:"ERSRestIDStore,omitempty"` //
 }
 
 type ResponseRestidStoreGetRestIDStoreByNameERSRestIDStore struct {
-	ID                       string                                                                        `json:"id,omitempty"`                       //
-	Name                     string                                                                        `json:"name,omitempty"`                     //
-	Description              string                                                                        `json:"description,omitempty"`              //
-	ErsRestIDStoreAttributes ResponseRestidStoreGetRestIDStoreByNameERSRestIDStoreErsRestIDStoreAttributes `json:"ersRestIDStoreAttributes,omitempty"` //
-	Link                     ResponseRestidStoreGetRestIDStoreByNameERSRestIDStoreLink                     `json:"link,omitempty"`                     //
+	ID                       string                                                                         `json:"id,omitempty"`                       //
+	Name                     string                                                                         `json:"name,omitempty"`                     //
+	Description              string                                                                         `json:"description,omitempty"`              //
+	ErsRestIDStoreAttributes *ResponseRestidStoreGetRestIDStoreByNameERSRestIDStoreErsRestIDStoreAttributes `json:"ersRestIDStoreAttributes,omitempty"` //
+	Link                     *ResponseRestidStoreGetRestIDStoreByNameERSRestIDStoreLink                     `json:"link,omitempty"`                     //
 }
 
 type ResponseRestidStoreGetRestIDStoreByNameERSRestIDStoreErsRestIDStoreAttributes struct {
-	UsernameSuffix string                                                                                 `json:"usernameSuffix,omitempty"` // Suffix of the username domain
-	RootURL        string                                                                                 `json:"rootUrl,omitempty"`        // url of the root of the RestIDStore
-	Predefined     string                                                                                 `json:"predefined,omitempty"`     // The cloud provider connected to of the RestIDStore. Options are: - Azure, - Okta, -
-	Headers        []ResponseRestidStoreGetRestIDStoreByNameERSRestIDStoreErsRestIDStoreAttributesHeaders `json:"headers,omitempty"`        //
+	UsernameSuffix string                                                                                  `json:"usernameSuffix,omitempty"` // Suffix of the username domain
+	RootURL        string                                                                                  `json:"rootUrl,omitempty"`        // url of the root of the RestIDStore
+	Predefined     string                                                                                  `json:"predefined,omitempty"`     // The cloud provider connected to of the RestIDStore. Options are: - Azure, - Okta, -
+	Headers        *[]ResponseRestidStoreGetRestIDStoreByNameERSRestIDStoreErsRestIDStoreAttributesHeaders `json:"headers,omitempty"`        //
 }
 
 type ResponseRestidStoreGetRestIDStoreByNameERSRestIDStoreErsRestIDStoreAttributesHeaders struct {
@@ -50,14 +50,14 @@ type ResponseRestidStoreGetRestIDStoreByNameERSRestIDStoreLink struct {
 }
 
 type ResponseRestidStoreUpdateRestIDStoreByName struct {
-	UpdatedFieldsList ResponseRestidStoreUpdateRestIDStoreByNameUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseRestidStoreUpdateRestIDStoreByNameUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseRestidStoreUpdateRestIDStoreByNameUpdatedFieldsList struct {
-	UpdatedField ResponseRestidStoreUpdateRestIDStoreByNameUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                  `json:"field,omitempty"`        //
-	OldValue     string                                                                  `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                  `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseRestidStoreUpdateRestIDStoreByNameUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                     `json:"field,omitempty"`        //
+	OldValue     string                                                                     `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                     `json:"newValue,omitempty"`     //
 }
 
 type ResponseRestidStoreUpdateRestIDStoreByNameUpdatedFieldsListUpdatedField struct {
@@ -67,22 +67,22 @@ type ResponseRestidStoreUpdateRestIDStoreByNameUpdatedFieldsListUpdatedField str
 }
 
 type ResponseRestidStoreGetRestIDStoreByID struct {
-	ERSRestIDStore ResponseRestidStoreGetRestIDStoreByIDERSRestIDStore `json:"ERSRestIDStore,omitempty"` //
+	ERSRestIDStore *ResponseRestidStoreGetRestIDStoreByIDERSRestIDStore `json:"ERSRestIDStore,omitempty"` //
 }
 
 type ResponseRestidStoreGetRestIDStoreByIDERSRestIDStore struct {
-	ID                       string                                                                      `json:"id,omitempty"`                       //
-	Name                     string                                                                      `json:"name,omitempty"`                     //
-	Description              string                                                                      `json:"description,omitempty"`              //
-	ErsRestIDStoreAttributes ResponseRestidStoreGetRestIDStoreByIDERSRestIDStoreErsRestIDStoreAttributes `json:"ersRestIDStoreAttributes,omitempty"` //
-	Link                     ResponseRestidStoreGetRestIDStoreByIDERSRestIDStoreLink                     `json:"link,omitempty"`                     //
+	ID                       string                                                                       `json:"id,omitempty"`                       //
+	Name                     string                                                                       `json:"name,omitempty"`                     //
+	Description              string                                                                       `json:"description,omitempty"`              //
+	ErsRestIDStoreAttributes *ResponseRestidStoreGetRestIDStoreByIDERSRestIDStoreErsRestIDStoreAttributes `json:"ersRestIDStoreAttributes,omitempty"` //
+	Link                     *ResponseRestidStoreGetRestIDStoreByIDERSRestIDStoreLink                     `json:"link,omitempty"`                     //
 }
 
 type ResponseRestidStoreGetRestIDStoreByIDERSRestIDStoreErsRestIDStoreAttributes struct {
-	UsernameSuffix string                                                                               `json:"usernameSuffix,omitempty"` // Suffix of the username domain
-	RootURL        string                                                                               `json:"rootUrl,omitempty"`        // url of the root of the RestIDStore
-	Predefined     string                                                                               `json:"predefined,omitempty"`     // The cloud provider connected to of the RestIDStore. Options are: - Azure, - Okta, -
-	Headers        []ResponseRestidStoreGetRestIDStoreByIDERSRestIDStoreErsRestIDStoreAttributesHeaders `json:"headers,omitempty"`        //
+	UsernameSuffix string                                                                                `json:"usernameSuffix,omitempty"` // Suffix of the username domain
+	RootURL        string                                                                                `json:"rootUrl,omitempty"`        // url of the root of the RestIDStore
+	Predefined     string                                                                                `json:"predefined,omitempty"`     // The cloud provider connected to of the RestIDStore. Options are: - Azure, - Okta, -
+	Headers        *[]ResponseRestidStoreGetRestIDStoreByIDERSRestIDStoreErsRestIDStoreAttributesHeaders `json:"headers,omitempty"`        //
 }
 
 type ResponseRestidStoreGetRestIDStoreByIDERSRestIDStoreErsRestIDStoreAttributesHeaders struct {
@@ -97,14 +97,14 @@ type ResponseRestidStoreGetRestIDStoreByIDERSRestIDStoreLink struct {
 }
 
 type ResponseRestidStoreUpdateRestIDStoreByID struct {
-	UpdatedFieldsList ResponseRestidStoreUpdateRestIDStoreByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseRestidStoreUpdateRestIDStoreByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseRestidStoreUpdateRestIDStoreByIDUpdatedFieldsList struct {
-	UpdatedField ResponseRestidStoreUpdateRestIDStoreByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                `json:"field,omitempty"`        //
-	OldValue     string                                                                `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseRestidStoreUpdateRestIDStoreByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                   `json:"field,omitempty"`        //
+	OldValue     string                                                                   `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                   `json:"newValue,omitempty"`     //
 }
 
 type ResponseRestidStoreUpdateRestIDStoreByIDUpdatedFieldsListUpdatedField struct {
@@ -114,21 +114,21 @@ type ResponseRestidStoreUpdateRestIDStoreByIDUpdatedFieldsListUpdatedField struc
 }
 
 type ResponseRestidStoreGetRestIDStore struct {
-	SearchResult ResponseRestidStoreGetRestIDStoreSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseRestidStoreGetRestIDStoreSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseRestidStoreGetRestIDStoreSearchResult struct {
-	Total        int                                                       `json:"total,omitempty"`        //
-	Resources    []ResponseRestidStoreGetRestIDStoreSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseRestidStoreGetRestIDStoreSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseRestidStoreGetRestIDStoreSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                       `json:"total,omitempty"`        //
+	Resources    *[]ResponseRestidStoreGetRestIDStoreSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseRestidStoreGetRestIDStoreSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseRestidStoreGetRestIDStoreSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseRestidStoreGetRestIDStoreSearchResultResources struct {
-	ID          string                                                     `json:"id,omitempty"`          //
-	Name        string                                                     `json:"name,omitempty"`        //
-	Description string                                                     `json:"description,omitempty"` //
-	Link        ResponseRestidStoreGetRestIDStoreSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                      `json:"id,omitempty"`          //
+	Name        string                                                      `json:"name,omitempty"`        //
+	Description string                                                      `json:"description,omitempty"` //
+	Link        *ResponseRestidStoreGetRestIDStoreSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseRestidStoreGetRestIDStoreSearchResultResourcesLink struct {
@@ -150,13 +150,13 @@ type ResponseRestidStoreGetRestIDStoreSearchResultPreviousPage struct {
 }
 
 type ResponseRestidStoreGetVersion struct {
-	VersionInfo ResponseRestidStoreGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseRestidStoreGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseRestidStoreGetVersionVersionInfo struct {
-	CurrentServerVersion string                                       `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                       `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseRestidStoreGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                        `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                        `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseRestidStoreGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseRestidStoreGetVersionVersionInfoLink struct {

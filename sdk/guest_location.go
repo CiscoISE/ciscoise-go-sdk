@@ -20,13 +20,13 @@ type GetGuestLocationQueryParams struct {
 }
 
 type ResponseGuestLocationGetGuestLocationByID struct {
-	LocationIDentification ResponseGuestLocationGetGuestLocationByIDLocationIDentification `json:"LocationIdentification,omitempty"` //
+	LocationIDentification *ResponseGuestLocationGetGuestLocationByIDLocationIDentification `json:"LocationIdentification,omitempty"` //
 }
 
 type ResponseGuestLocationGetGuestLocationByIDLocationIDentification struct {
-	ID   string                                                              `json:"id,omitempty"`   //
-	Name string                                                              `json:"name,omitempty"` //
-	Link ResponseGuestLocationGetGuestLocationByIDLocationIDentificationLink `json:"link,omitempty"` //
+	ID   string                                                               `json:"id,omitempty"`   //
+	Name string                                                               `json:"name,omitempty"` //
+	Link *ResponseGuestLocationGetGuestLocationByIDLocationIDentificationLink `json:"link,omitempty"` //
 }
 
 type ResponseGuestLocationGetGuestLocationByIDLocationIDentificationLink struct {
@@ -36,21 +36,21 @@ type ResponseGuestLocationGetGuestLocationByIDLocationIDentificationLink struct 
 }
 
 type ResponseGuestLocationGetGuestLocation struct {
-	SearchResult ResponseGuestLocationGetGuestLocationSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseGuestLocationGetGuestLocationSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseGuestLocationGetGuestLocationSearchResult struct {
-	Total        int                                                           `json:"total,omitempty"`        //
-	Resources    []ResponseGuestLocationGetGuestLocationSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseGuestLocationGetGuestLocationSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseGuestLocationGetGuestLocationSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                           `json:"total,omitempty"`        //
+	Resources    *[]ResponseGuestLocationGetGuestLocationSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseGuestLocationGetGuestLocationSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseGuestLocationGetGuestLocationSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseGuestLocationGetGuestLocationSearchResultResources struct {
-	ID          string                                                         `json:"id,omitempty"`          //
-	Name        string                                                         `json:"name,omitempty"`        //
-	Description string                                                         `json:"description,omitempty"` //
-	Link        ResponseGuestLocationGetGuestLocationSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                          `json:"id,omitempty"`          //
+	Name        string                                                          `json:"name,omitempty"`        //
+	Description string                                                          `json:"description,omitempty"` //
+	Link        *ResponseGuestLocationGetGuestLocationSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseGuestLocationGetGuestLocationSearchResultResourcesLink struct {
@@ -72,13 +72,13 @@ type ResponseGuestLocationGetGuestLocationSearchResultPreviousPage struct {
 }
 
 type ResponseGuestLocationGetVersion struct {
-	VersionInfo ResponseGuestLocationGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseGuestLocationGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseGuestLocationGetVersionVersionInfo struct {
-	CurrentServerVersion string                                         `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                         `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseGuestLocationGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                          `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                          `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseGuestLocationGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseGuestLocationGetVersionVersionInfoLink struct {

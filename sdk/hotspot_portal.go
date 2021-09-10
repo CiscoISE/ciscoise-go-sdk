@@ -20,31 +20,31 @@ type GetHotspotPortalQueryParams struct {
 }
 
 type ResponseHotspotPortalGetHotspotPortalByID struct {
-	HotspotPortal ResponseHotspotPortalGetHotspotPortalByIDHotspotPortal `json:"HotspotPortal,omitempty"` //
+	HotspotPortal *ResponseHotspotPortalGetHotspotPortalByIDHotspotPortal `json:"HotspotPortal,omitempty"` //
 }
 
 type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortal struct {
-	ID             string                                                               `json:"id,omitempty"`             //
-	Name           string                                                               `json:"name,omitempty"`           //
-	Description    string                                                               `json:"description,omitempty"`    //
-	PortalType     string                                                               `json:"portalType,omitempty"`     // Allowed values: - BYOD, - HOTSPOTGUEST, - MYDEVICE, - SELFREGGUEST, - SPONSOR, - SPONSOREDGUEST
-	PortalTestURL  string                                                               `json:"portalTestUrl,omitempty"`  // URL to bring up a test page for this portal
-	Settings       ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettings       `json:"settings,omitempty"`       // Defines all of the settings groups available for a BYOD
-	Customizations ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizations `json:"customizations,omitempty"` // Defines all of the Portal Customizations available
-	Link           ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalLink           `json:"link,omitempty"`           //
+	ID             string                                                                `json:"id,omitempty"`             //
+	Name           string                                                                `json:"name,omitempty"`           //
+	Description    string                                                                `json:"description,omitempty"`    //
+	PortalType     string                                                                `json:"portalType,omitempty"`     // Allowed values: - BYOD, - HOTSPOTGUEST, - MYDEVICE, - SELFREGGUEST, - SPONSOR, - SPONSOREDGUEST
+	PortalTestURL  string                                                                `json:"portalTestUrl,omitempty"`  // URL to bring up a test page for this portal
+	Settings       *ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettings       `json:"settings,omitempty"`       // Defines all of the settings groups available for a BYOD
+	Customizations *ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizations `json:"customizations,omitempty"` // Defines all of the Portal Customizations available
+	Link           *ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalLink           `json:"link,omitempty"`           //
 }
 
 type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettings struct {
-	PortalSettings           ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsPortalSettings           `json:"portalSettings,omitempty"`           // The port, interface, certificate, and other basic settings of a portal
-	AupSettings              ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsAupSettings              `json:"aupSettings,omitempty"`              // Configuration of the Acceptable Use Policy (AUP) for a portal
-	PostAccessBannerSettings ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsPostAccessBannerSettings `json:"postAccessBannerSettings,omitempty"` //
-	AuthSuccessSettings      ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsAuthSuccessSettings      `json:"authSuccessSettings,omitempty"`      //
-	PostLoginBannerSettings  ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsPostLoginBannerSettings  `json:"postLoginBannerSettings,omitempty"`  //
-	SupportInfoSettings      ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsSupportInfoSettings      `json:"supportInfoSettings,omitempty"`      // Portal Support Information Settings
+	PortalSettings           *ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsPortalSettings           `json:"portalSettings,omitempty"`           // The port, interface, certificate, and other basic settings of a portal
+	AupSettings              *ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsAupSettings              `json:"aupSettings,omitempty"`              // Configuration of the Acceptable Use Policy (AUP) for a portal
+	PostAccessBannerSettings *ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsPostAccessBannerSettings `json:"postAccessBannerSettings,omitempty"` //
+	AuthSuccessSettings      *ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsAuthSuccessSettings      `json:"authSuccessSettings,omitempty"`      //
+	PostLoginBannerSettings  *ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsPostLoginBannerSettings  `json:"postLoginBannerSettings,omitempty"`  //
+	SupportInfoSettings      *ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsSupportInfoSettings      `json:"supportInfoSettings,omitempty"`      // Portal Support Information Settings
 }
 
 type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsPortalSettings struct {
-	HTTPSPort             int    `json:"httpsPort,omitempty"`             // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
+	HTTPSPort             *int   `json:"httpsPort,omitempty"`             // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
 	AllowedInterfaces     string `json:"allowedInterfaces,omitempty"`     // Interfaces that the portal will be reachable on. Allowed values: - eth0 - eth1 - eth2 - eth3 - eth4 - eth5 - bond0 - bond1 - bond2
 	CertificateGroupTag   string `json:"certificateGroupTag,omitempty"`   // Logical name of the x.509 server certificate that will be used for the portal
 	EndpointIDentityGroup string `json:"endpointIdentityGroup,omitempty"` // Unique Id of the endpoint identity group where user's devices will be added. Used only in Hotspot Portal
@@ -55,14 +55,14 @@ type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsPortalSetting
 }
 
 type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsAupSettings struct {
-	RequireAccessCode bool   `json:"requireAccessCode,omitempty"` // Require the portal user to enter an access code. Only used in Hotspot portal
+	RequireAccessCode *bool  `json:"requireAccessCode,omitempty"` // Require the portal user to enter an access code. Only used in Hotspot portal
 	AccessCode        string `json:"accessCode,omitempty"`        // Access code that must be entered by the portal user (only valid if requireAccessCode = true)
-	IncludeAup        bool   `json:"includeAup,omitempty"`        // Require the portal user to read and accept an AUP
-	RequireScrolling  bool   `json:"requireScrolling,omitempty"`  // Require the portal user to scroll to the end of the AUP. Only valid if requireAupAcceptance = true
+	IncludeAup        *bool  `json:"includeAup,omitempty"`        // Require the portal user to read and accept an AUP
+	RequireScrolling  *bool  `json:"requireScrolling,omitempty"`  // Require the portal user to scroll to the end of the AUP. Only valid if requireAupAcceptance = true
 }
 
 type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsPostAccessBannerSettings struct {
-	IncludePostAccessBanner bool `json:"includePostAccessBanner,omitempty"` //
+	IncludePostAccessBanner *bool `json:"includePostAccessBanner,omitempty"` //
 }
 
 type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsAuthSuccessSettings struct {
@@ -71,26 +71,26 @@ type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsAuthSuccessSe
 }
 
 type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsPostLoginBannerSettings struct {
-	IncludePostAccessBanner bool `json:"includePostAccessBanner,omitempty"` // Include a Post-Login Banner page
+	IncludePostAccessBanner *bool `json:"includePostAccessBanner,omitempty"` // Include a Post-Login Banner page
 }
 
 type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsSupportInfoSettings struct {
-	IncludeSupportInfoPage  bool   `json:"includeSupportInfoPage,omitempty"`  //
-	IncludeMacAddr          bool   `json:"includeMacAddr,omitempty"`          //
-	IncludeIPAddress        bool   `json:"includeIpAddress,omitempty"`        //
-	IncludeBrowserUserAgent bool   `json:"includeBrowserUserAgent,omitempty"` //
-	IncludePolicyServer     bool   `json:"includePolicyServer,omitempty"`     //
-	IncludeFailureCode      bool   `json:"includeFailureCode,omitempty"`      //
+	IncludeSupportInfoPage  *bool  `json:"includeSupportInfoPage,omitempty"`  //
+	IncludeMacAddr          *bool  `json:"includeMacAddr,omitempty"`          //
+	IncludeIPAddress        *bool  `json:"includeIpAddress,omitempty"`        //
+	IncludeBrowserUserAgent *bool  `json:"includeBrowserUserAgent,omitempty"` //
+	IncludePolicyServer     *bool  `json:"includePolicyServer,omitempty"`     //
+	IncludeFailureCode      *bool  `json:"includeFailureCode,omitempty"`      //
 	EmptyFieldDisplay       string `json:"emptyFieldDisplay,omitempty"`       // Specifies how empty fields are handled on the Support Information Page. Allowed values: - HIDE, - DISPLAYWITHNOVALUE, - DISPLAYWITHDEFAULTVALUE
 	DefaultEmptyFieldValue  string `json:"defaultEmptyFieldValue,omitempty"`  // The default value displayed for an empty field. Only valid when emptyFieldDisplay = DISPLAYWITHDEFAULTVALUE
 }
 
 type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizations struct {
-	PortalTheme          ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsPortalTheme          `json:"portalTheme,omitempty"`          // Defines the configuration for portal theme
-	PortalTweakSettings  ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsPortalTweakSettings  `json:"portalTweakSettings,omitempty"`  // The Tweak Settings are a customization of the Portal Theme that has been selected for the portal. When the Portal Theme selection is changed, the Tweak Settings are overwritten to match the values in the theme. The Tweak Settings can subsequently be changed by the user
-	Language             ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsLanguage             `json:"language,omitempty"`             // This property is supported only for Read operation and it allows to show the customizations in English. Other languages are not supported
-	GlobalCustomizations ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsGlobalCustomizations `json:"globalCustomizations,omitempty"` //
-	PageCustomizations   ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsPageCustomizations   `json:"pageCustomizations,omitempty"`   //
+	PortalTheme          *ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsPortalTheme          `json:"portalTheme,omitempty"`          // Defines the configuration for portal theme
+	PortalTweakSettings  *ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsPortalTweakSettings  `json:"portalTweakSettings,omitempty"`  // The Tweak Settings are a customization of the Portal Theme that has been selected for the portal. When the Portal Theme selection is changed, the Tweak Settings are overwritten to match the values in the theme. The Tweak Settings can subsequently be changed by the user
+	Language             *ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsLanguage             `json:"language,omitempty"`             // This property is supported only for Read operation and it allows to show the customizations in English. Other languages are not supported
+	GlobalCustomizations *ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsGlobalCustomizations `json:"globalCustomizations,omitempty"` //
+	PageCustomizations   *ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsPageCustomizations   `json:"pageCustomizations,omitempty"`   //
 }
 
 type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsPortalTheme struct {
@@ -111,13 +111,13 @@ type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsLanguag
 }
 
 type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsGlobalCustomizations struct {
-	MobileLogoImage  ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsGlobalCustomizationsMobileLogoImage  `json:"mobileLogoImage,omitempty"`  //
-	DesktopLogoImage ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsGlobalCustomizationsDesktopLogoImage `json:"desktopLogoImage,omitempty"` //
-	BackgroundImage  ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsGlobalCustomizationsBackgroundImage  `json:"backgroundImage,omitempty"`  //
-	BannerImage      ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsGlobalCustomizationsBannerImage      `json:"bannerImage,omitempty"`      //
-	BannerTitle      string                                                                                                   `json:"bannerTitle,omitempty"`      //
-	ContactText      string                                                                                                   `json:"contactText,omitempty"`      //
-	FooterElement    string                                                                                                   `json:"footerElement,omitempty"`    //
+	MobileLogoImage  *ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsGlobalCustomizationsMobileLogoImage  `json:"mobileLogoImage,omitempty"`  //
+	DesktopLogoImage *ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsGlobalCustomizationsDesktopLogoImage `json:"desktopLogoImage,omitempty"` //
+	BackgroundImage  *ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsGlobalCustomizationsBackgroundImage  `json:"backgroundImage,omitempty"`  //
+	BannerImage      *ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsGlobalCustomizationsBannerImage      `json:"bannerImage,omitempty"`      //
+	BannerTitle      string                                                                                                    `json:"bannerTitle,omitempty"`      //
+	ContactText      string                                                                                                    `json:"contactText,omitempty"`      //
+	FooterElement    string                                                                                                    `json:"footerElement,omitempty"`    //
 }
 
 type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsGlobalCustomizationsMobileLogoImage struct {
@@ -137,7 +137,7 @@ type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsGlobalC
 }
 
 type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsPageCustomizations struct {
-	Data []ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsPageCustomizationsData `json:"data,omitempty"` //
+	Data *[]ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsPageCustomizationsData `json:"data,omitempty"` //
 }
 
 type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalCustomizationsPageCustomizationsData struct {
@@ -152,14 +152,14 @@ type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalLink struct {
 }
 
 type ResponseHotspotPortalUpdateHotspotPortalByID struct {
-	UpdatedFieldsList ResponseHotspotPortalUpdateHotspotPortalByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseHotspotPortalUpdateHotspotPortalByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseHotspotPortalUpdateHotspotPortalByIDUpdatedFieldsList struct {
-	UpdatedField ResponseHotspotPortalUpdateHotspotPortalByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                    `json:"field,omitempty"`        //
-	OldValue     string                                                                    `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                    `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseHotspotPortalUpdateHotspotPortalByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                       `json:"field,omitempty"`        //
+	OldValue     string                                                                       `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                       `json:"newValue,omitempty"`     //
 }
 
 type ResponseHotspotPortalUpdateHotspotPortalByIDUpdatedFieldsListUpdatedField struct {
@@ -169,21 +169,21 @@ type ResponseHotspotPortalUpdateHotspotPortalByIDUpdatedFieldsListUpdatedField s
 }
 
 type ResponseHotspotPortalGetHotspotPortal struct {
-	SearchResult ResponseHotspotPortalGetHotspotPortalSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseHotspotPortalGetHotspotPortalSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseHotspotPortalGetHotspotPortalSearchResult struct {
-	Total        int                                                           `json:"total,omitempty"`        //
-	Resources    []ResponseHotspotPortalGetHotspotPortalSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseHotspotPortalGetHotspotPortalSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseHotspotPortalGetHotspotPortalSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                           `json:"total,omitempty"`        //
+	Resources    *[]ResponseHotspotPortalGetHotspotPortalSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseHotspotPortalGetHotspotPortalSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseHotspotPortalGetHotspotPortalSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseHotspotPortalGetHotspotPortalSearchResultResources struct {
-	ID          string                                                         `json:"id,omitempty"`          //
-	Name        string                                                         `json:"name,omitempty"`        //
-	Description string                                                         `json:"description,omitempty"` //
-	Link        ResponseHotspotPortalGetHotspotPortalSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                          `json:"id,omitempty"`          //
+	Name        string                                                          `json:"name,omitempty"`        //
+	Description string                                                          `json:"description,omitempty"` //
+	Link        *ResponseHotspotPortalGetHotspotPortalSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseHotspotPortalGetHotspotPortalSearchResultResourcesLink struct {
@@ -205,13 +205,13 @@ type ResponseHotspotPortalGetHotspotPortalSearchResultPreviousPage struct {
 }
 
 type ResponseHotspotPortalGetVersion struct {
-	VersionInfo ResponseHotspotPortalGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseHotspotPortalGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseHotspotPortalGetVersionVersionInfo struct {
-	CurrentServerVersion string                                         `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                         `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseHotspotPortalGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                          `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                          `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseHotspotPortalGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseHotspotPortalGetVersionVersionInfoLink struct {

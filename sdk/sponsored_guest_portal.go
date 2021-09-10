@@ -20,35 +20,35 @@ type GetSponsoredGuestPortalsQueryParams struct {
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByID struct {
-	SponsoredGuestPortal ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortal `json:"SponsoredGuestPortal,omitempty"` //
+	SponsoredGuestPortal *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortal `json:"SponsoredGuestPortal,omitempty"` //
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortal struct {
-	ID             string                                                                                    `json:"id,omitempty"`             //
-	Name           string                                                                                    `json:"name,omitempty"`           //
-	Description    string                                                                                    `json:"description,omitempty"`    //
-	PortalType     string                                                                                    `json:"portalType,omitempty"`     // Allowed values: - BYOD, - HOTSPOTGUEST, - MYDEVICE, - SELFREGGUEST, - SPONSOR, - SPONSOREDGUEST
-	PortalTestURL  string                                                                                    `json:"portalTestUrl,omitempty"`  // URL to bring up a test page for this portal
-	Settings       ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettings       `json:"settings,omitempty"`       // Defines all of the settings groups available for a portal
-	Customizations ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizations `json:"customizations,omitempty"` // Defines all of the Portal Customizations available
-	Link           ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalLink           `json:"link,omitempty"`           //
+	ID             string                                                                                     `json:"id,omitempty"`             //
+	Name           string                                                                                     `json:"name,omitempty"`           //
+	Description    string                                                                                     `json:"description,omitempty"`    //
+	PortalType     string                                                                                     `json:"portalType,omitempty"`     // Allowed values: - BYOD, - HOTSPOTGUEST, - MYDEVICE, - SELFREGGUEST, - SPONSOR, - SPONSOREDGUEST
+	PortalTestURL  string                                                                                     `json:"portalTestUrl,omitempty"`  // URL to bring up a test page for this portal
+	Settings       *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettings       `json:"settings,omitempty"`       // Defines all of the settings groups available for a portal
+	Customizations *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizations `json:"customizations,omitempty"` // Defines all of the Portal Customizations available
+	Link           *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalLink           `json:"link,omitempty"`           //
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettings struct {
-	PortalSettings                  ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsPortalSettings                  `json:"portalSettings,omitempty"`                  // The port, interface, certificate, and other basic settings of a portal
-	LoginPageSettings               ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsLoginPageSettings               `json:"loginPageSettings,omitempty"`               // Portal Login Page settings groups follow
-	AupSettings                     ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsAupSettings                     `json:"aupSettings,omitempty"`                     //
-	GuestChangePasswordSettings     ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsGuestChangePasswordSettings     `json:"guestChangePasswordSettings,omitempty"`     //
-	GuestDeviceRegistrationSettings ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsGuestDeviceRegistrationSettings `json:"guestDeviceRegistrationSettings,omitempty"` //
-	ByodSettings                    ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsByodSettings                    `json:"byodSettings,omitempty"`                    //
-	PostAccessBannerSettings        ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsPostAccessBannerSettings        `json:"postAccessBannerSettings,omitempty"`        //
-	AuthSuccessSettings             ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsAuthSuccessSettings             `json:"authSuccessSettings,omitempty"`             //
-	PostLoginBannerSettings         ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsPostLoginBannerSettings         `json:"postLoginBannerSettings,omitempty"`         //
-	SupportInfoSettings             ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsSupportInfoSettings             `json:"supportInfoSettings,omitempty"`             //
+	PortalSettings                  *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsPortalSettings                  `json:"portalSettings,omitempty"`                  // The port, interface, certificate, and other basic settings of a portal
+	LoginPageSettings               *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsLoginPageSettings               `json:"loginPageSettings,omitempty"`               // Portal Login Page settings groups follow
+	AupSettings                     *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsAupSettings                     `json:"aupSettings,omitempty"`                     //
+	GuestChangePasswordSettings     *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsGuestChangePasswordSettings     `json:"guestChangePasswordSettings,omitempty"`     //
+	GuestDeviceRegistrationSettings *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsGuestDeviceRegistrationSettings `json:"guestDeviceRegistrationSettings,omitempty"` //
+	ByodSettings                    *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsByodSettings                    `json:"byodSettings,omitempty"`                    //
+	PostAccessBannerSettings        *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsPostAccessBannerSettings        `json:"postAccessBannerSettings,omitempty"`        //
+	AuthSuccessSettings             *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsAuthSuccessSettings             `json:"authSuccessSettings,omitempty"`             //
+	PostLoginBannerSettings         *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsPostLoginBannerSettings         `json:"postLoginBannerSettings,omitempty"`         //
+	SupportInfoSettings             *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsSupportInfoSettings             `json:"supportInfoSettings,omitempty"`             //
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsPortalSettings struct {
-	HTTPSPort                    int    `json:"httpsPort,omitempty"`                    // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
+	HTTPSPort                    *int   `json:"httpsPort,omitempty"`                    // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
 	AllowedInterfaces            string `json:"allowedInterfaces,omitempty"`            // Interfaces that the portal will be reachable on. Allowed values: - eth0, - eth1, - eth2, - eth3, - eth4, - eth5, - bond0, - bond1, - bond2
 	CertificateGroupTag          string `json:"certificateGroupTag,omitempty"`          // Logical name of the x.509 server certificate that will be used for the portal
 	AuthenticationMethod         string `json:"authenticationMethod,omitempty"`         // Unique Id of the identity source sequence
@@ -59,18 +59,18 @@ type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortal
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsLoginPageSettings struct {
-	RequireAccessCode                bool                                                                                                                `json:"requireAccessCode,omitempty"`                //
-	MaxFailedAttemptsBeforeRateLimit int                                                                                                                 `json:"maxFailedAttemptsBeforeRateLimit,omitempty"` // Maximum failed login attempts before rate limiting
-	TimeBetweenLoginsDuringRateLimit int                                                                                                                 `json:"timeBetweenLoginsDuringRateLimit,omitempty"` // Time between login attempts when rate limiting
-	IncludeAup                       bool                                                                                                                `json:"includeAup,omitempty"`                       // Include an Acceptable Use Policy (AUP) that should be displayed during login
-	AupDisplay                       string                                                                                                              `json:"aupDisplay,omitempty"`                       // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed values: -  ONPAGE, - ASLINK
-	RequireAupAcceptance             bool                                                                                                                `json:"requireAupAcceptance,omitempty"`             // Require the portal user to accept the AUP. Only valid if includeAup = true
-	AccessCode                       string                                                                                                              `json:"accessCode,omitempty"`                       // Access code that must be entered by the portal user (only valid if requireAccessCode = true)
-	AllowGuestToCreateAccounts       bool                                                                                                                `json:"allowGuestToCreateAccounts,omitempty"`       //
-	AllowForgotPassword              bool                                                                                                                `json:"allowForgotPassword,omitempty"`              //
-	AllowGuestToChangePassword       bool                                                                                                                `json:"allowGuestToChangePassword,omitempty"`       // Require the portal user to enter an access code
-	AllowAlternateGuestPortal        bool                                                                                                                `json:"allowAlternateGuestPortal,omitempty"`        //
-	SocialConfigs                    []ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsLoginPageSettingsSocialConfigs `json:"socialConfigs,omitempty"`                    //
+	RequireAccessCode                *bool                                                                                                                `json:"requireAccessCode,omitempty"`                //
+	MaxFailedAttemptsBeforeRateLimit *int                                                                                                                 `json:"maxFailedAttemptsBeforeRateLimit,omitempty"` // Maximum failed login attempts before rate limiting
+	TimeBetweenLoginsDuringRateLimit *int                                                                                                                 `json:"timeBetweenLoginsDuringRateLimit,omitempty"` // Time between login attempts when rate limiting
+	IncludeAup                       *bool                                                                                                                `json:"includeAup,omitempty"`                       // Include an Acceptable Use Policy (AUP) that should be displayed during login
+	AupDisplay                       string                                                                                                               `json:"aupDisplay,omitempty"`                       // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed values: -  ONPAGE, - ASLINK
+	RequireAupAcceptance             *bool                                                                                                                `json:"requireAupAcceptance,omitempty"`             // Require the portal user to accept the AUP. Only valid if includeAup = true
+	AccessCode                       string                                                                                                               `json:"accessCode,omitempty"`                       // Access code that must be entered by the portal user (only valid if requireAccessCode = true)
+	AllowGuestToCreateAccounts       *bool                                                                                                                `json:"allowGuestToCreateAccounts,omitempty"`       //
+	AllowForgotPassword              *bool                                                                                                                `json:"allowForgotPassword,omitempty"`              //
+	AllowGuestToChangePassword       *bool                                                                                                                `json:"allowGuestToChangePassword,omitempty"`       // Require the portal user to enter an access code
+	AllowAlternateGuestPortal        *bool                                                                                                                `json:"allowAlternateGuestPortal,omitempty"`        //
+	SocialConfigs                    *[]ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsLoginPageSettingsSocialConfigs `json:"socialConfigs,omitempty"`                    //
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsLoginPageSettingsSocialConfigs struct {
@@ -79,42 +79,42 @@ type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortal
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsAupSettings struct {
-	IncludeAup                   bool   `json:"includeAup,omitempty"`                   //
-	RequireAupScrolling          bool   `json:"requireAupScrolling,omitempty"`          // Require the portal user to scroll to the end of the AUP. Only valid if requireAupAcceptance = true
-	UseDiffAupForEmployees       bool   `json:"useDiffAupForEmployees,omitempty"`       // Only valid if requireAupAcceptance = true
-	SkipAupForEmployees          bool   `json:"skipAupForEmployees,omitempty"`          // Only valid if requireAupAcceptance = true
-	DisplayFrequencyIntervalDays int    `json:"displayFrequencyIntervalDays,omitempty"` // Number of days between AUP confirmations (when displayFrequency = recurring)
-	RequireScrolling             bool   `json:"requireScrolling,omitempty"`             //
+	IncludeAup                   *bool  `json:"includeAup,omitempty"`                   //
+	RequireAupScrolling          *bool  `json:"requireAupScrolling,omitempty"`          // Require the portal user to scroll to the end of the AUP. Only valid if requireAupAcceptance = true
+	UseDiffAupForEmployees       *bool  `json:"useDiffAupForEmployees,omitempty"`       // Only valid if requireAupAcceptance = true
+	SkipAupForEmployees          *bool  `json:"skipAupForEmployees,omitempty"`          // Only valid if requireAupAcceptance = true
+	DisplayFrequencyIntervalDays *int   `json:"displayFrequencyIntervalDays,omitempty"` // Number of days between AUP confirmations (when displayFrequency = recurring)
+	RequireScrolling             *bool  `json:"requireScrolling,omitempty"`             //
 	DisplayFrequency             string `json:"displayFrequency,omitempty"`             // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed Values: - FIRSTLOGIN, - EVERYLOGIN, - RECURRING
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsGuestChangePasswordSettings struct {
-	AllowChangePasswdAtFirstLogin bool `json:"allowChangePasswdAtFirstLogin,omitempty"` // Allow guest to change their own passwords
+	AllowChangePasswdAtFirstLogin *bool `json:"allowChangePasswdAtFirstLogin,omitempty"` // Allow guest to change their own passwords
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsGuestDeviceRegistrationSettings struct {
-	AutoRegisterGuestDevices     bool `json:"autoRegisterGuestDevices,omitempty"`     // Automatically register guest devices
-	AllowGuestsToRegisterDevices bool `json:"allowGuestsToRegisterDevices,omitempty"` // Allow guests to register devices
+	AutoRegisterGuestDevices     *bool `json:"autoRegisterGuestDevices,omitempty"`     // Automatically register guest devices
+	AllowGuestsToRegisterDevices *bool `json:"allowGuestsToRegisterDevices,omitempty"` // Allow guests to register devices
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsByodSettings struct {
-	ByodWelcomeSettings             ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsByodSettingsByodWelcomeSettings             `json:"byodWelcomeSettings,omitempty"`             //
-	ByodRegistrationSettings        ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsByodSettingsByodRegistrationSettings        `json:"byodRegistrationSettings,omitempty"`        // Configuration of BYOD endpoint Registration step configuration
-	ByodRegistrationSuccessSettings ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsByodSettingsByodRegistrationSuccessSettings `json:"byodRegistrationSuccessSettings,omitempty"` //
+	ByodWelcomeSettings             *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsByodSettingsByodWelcomeSettings             `json:"byodWelcomeSettings,omitempty"`             //
+	ByodRegistrationSettings        *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsByodSettingsByodRegistrationSettings        `json:"byodRegistrationSettings,omitempty"`        // Configuration of BYOD endpoint Registration step configuration
+	ByodRegistrationSuccessSettings *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsByodSettingsByodRegistrationSuccessSettings `json:"byodRegistrationSuccessSettings,omitempty"` //
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsByodSettingsByodWelcomeSettings struct {
-	EnableByod           bool   `json:"enableBYOD,omitempty"`           //
-	EnableGuestAccess    bool   `json:"enableGuestAccess,omitempty"`    //
-	RequireMdm           bool   `json:"requireMDM,omitempty"`           //
-	IncludeAup           bool   `json:"includeAup,omitempty"`           //
+	EnableByod           *bool  `json:"enableBYOD,omitempty"`           //
+	EnableGuestAccess    *bool  `json:"enableGuestAccess,omitempty"`    //
+	RequireMdm           *bool  `json:"requireMDM,omitempty"`           //
+	IncludeAup           *bool  `json:"includeAup,omitempty"`           //
 	AupDisplay           string `json:"aupDisplay,omitempty"`           // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed values: - ONPAGE, - ASLINK
-	RequireAupAcceptance bool   `json:"requireAupAcceptance,omitempty"` //
-	RequireScrolling     bool   `json:"requireScrolling,omitempty"`     // Require BYOD devices to scroll down to the bottom of the AUP. Only valid if includeAup = true
+	RequireAupAcceptance *bool  `json:"requireAupAcceptance,omitempty"` //
+	RequireScrolling     *bool  `json:"requireScrolling,omitempty"`     // Require BYOD devices to scroll down to the bottom of the AUP. Only valid if includeAup = true
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsByodSettingsByodRegistrationSettings struct {
-	ShowDeviceID            bool   `json:"showDeviceID,omitempty"`            // Display Device ID field during registration
+	ShowDeviceID            *bool  `json:"showDeviceID,omitempty"`            // Display Device ID field during registration
 	EndPointIDentityGroupID string `json:"endPointIdentityGroupId,omitempty"` // Identity group id for which endpoint belongs
 }
 
@@ -124,7 +124,7 @@ type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortal
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsPostAccessBannerSettings struct {
-	IncludePostAccessBanner bool `json:"includePostAccessBanner,omitempty"` //
+	IncludePostAccessBanner *bool `json:"includePostAccessBanner,omitempty"` //
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsAuthSuccessSettings struct {
@@ -133,26 +133,26 @@ type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortal
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsPostLoginBannerSettings struct {
-	IncludePostAccessBanner bool `json:"includePostAccessBanner,omitempty"` // Include a Post-Login Banner page
+	IncludePostAccessBanner *bool `json:"includePostAccessBanner,omitempty"` // Include a Post-Login Banner page
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalSettingsSupportInfoSettings struct {
-	IncludeSupportInfoPage  bool   `json:"includeSupportInfoPage,omitempty"`  //
-	IncludeMacAddr          bool   `json:"includeMacAddr,omitempty"`          //
-	IncludeIPAddress        bool   `json:"includeIpAddress,omitempty"`        //
-	IncludeBrowserUserAgent bool   `json:"includeBrowserUserAgent,omitempty"` //
-	IncludePolicyServer     bool   `json:"includePolicyServer,omitempty"`     //
-	IncludeFailureCode      bool   `json:"includeFailureCode,omitempty"`      //
+	IncludeSupportInfoPage  *bool  `json:"includeSupportInfoPage,omitempty"`  //
+	IncludeMacAddr          *bool  `json:"includeMacAddr,omitempty"`          //
+	IncludeIPAddress        *bool  `json:"includeIpAddress,omitempty"`        //
+	IncludeBrowserUserAgent *bool  `json:"includeBrowserUserAgent,omitempty"` //
+	IncludePolicyServer     *bool  `json:"includePolicyServer,omitempty"`     //
+	IncludeFailureCode      *bool  `json:"includeFailureCode,omitempty"`      //
 	EmptyFieldDisplay       string `json:"emptyFieldDisplay,omitempty"`       // Specifies how empty fields are handled on the Support Information Page. Allowed values: - HIDE, - DISPLAYWITHNOVALUE, - DISPLAYWITHDEFAULTVALUE
 	DefaultEmptyFieldValue  string `json:"defaultEmptyFieldValue,omitempty"`  // The default value displayed for an empty field. Only valid when emptyFieldDisplay = DISPLAYWITHDEFAULTVALUE
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizations struct {
-	PortalTheme          ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsPortalTheme          `json:"portalTheme,omitempty"`          //
-	PortalTweakSettings  ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsPortalTweakSettings  `json:"portalTweakSettings,omitempty"`  // The Tweak Settings are a customization of the Portal Theme that has been selected for the portal. When the Portal Theme selection is changed, the Tweak Settings are overwritten to match the values in the theme. The Tweak Settings can subsequently be changed by the user
-	Language             ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsLanguage             `json:"language,omitempty"`             // This property is supported only for Read operation and it allows to show the customizations in English. Other languages are not supported
-	GlobalCustomizations ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsGlobalCustomizations `json:"globalCustomizations,omitempty"` //
-	PageCustomizations   ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsPageCustomizations   `json:"pageCustomizations,omitempty"`   // Represent the entire page customization as a giant dictionary
+	PortalTheme          *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsPortalTheme          `json:"portalTheme,omitempty"`          //
+	PortalTweakSettings  *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsPortalTweakSettings  `json:"portalTweakSettings,omitempty"`  // The Tweak Settings are a customization of the Portal Theme that has been selected for the portal. When the Portal Theme selection is changed, the Tweak Settings are overwritten to match the values in the theme. The Tweak Settings can subsequently be changed by the user
+	Language             *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsLanguage             `json:"language,omitempty"`             // This property is supported only for Read operation and it allows to show the customizations in English. Other languages are not supported
+	GlobalCustomizations *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsGlobalCustomizations `json:"globalCustomizations,omitempty"` //
+	PageCustomizations   *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsPageCustomizations   `json:"pageCustomizations,omitempty"`   // Represent the entire page customization as a giant dictionary
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsPortalTheme struct {
@@ -173,13 +173,13 @@ type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortal
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsGlobalCustomizations struct {
-	MobileLogoImage  ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsGlobalCustomizationsMobileLogoImage  `json:"mobileLogoImage,omitempty"`  //
-	DesktopLogoImage ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsGlobalCustomizationsDesktopLogoImage `json:"desktopLogoImage,omitempty"` //
-	BannerImage      ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsGlobalCustomizationsBannerImage      `json:"bannerImage,omitempty"`      //
-	BackgroundImage  ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsGlobalCustomizationsBackgroundImage  `json:"backgroundImage,omitempty"`  //
-	BannerTitle      string                                                                                                                        `json:"bannerTitle,omitempty"`      //
-	ContactText      string                                                                                                                        `json:"contactText,omitempty"`      //
-	FooterElement    string                                                                                                                        `json:"footerElement,omitempty"`    //
+	MobileLogoImage  *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsGlobalCustomizationsMobileLogoImage  `json:"mobileLogoImage,omitempty"`  //
+	DesktopLogoImage *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsGlobalCustomizationsDesktopLogoImage `json:"desktopLogoImage,omitempty"` //
+	BannerImage      *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsGlobalCustomizationsBannerImage      `json:"bannerImage,omitempty"`      //
+	BackgroundImage  *ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsGlobalCustomizationsBackgroundImage  `json:"backgroundImage,omitempty"`  //
+	BannerTitle      string                                                                                                                         `json:"bannerTitle,omitempty"`      //
+	ContactText      string                                                                                                                         `json:"contactText,omitempty"`      //
+	FooterElement    string                                                                                                                         `json:"footerElement,omitempty"`    //
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsGlobalCustomizationsMobileLogoImage struct {
@@ -199,7 +199,7 @@ type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortal
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsPageCustomizations struct {
-	Data []ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsPageCustomizationsData `json:"data,omitempty"` // The Dictionary will be exposed here as key value pair
+	Data *[]ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsPageCustomizationsData `json:"data,omitempty"` // The Dictionary will be exposed here as key value pair
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortalCustomizationsPageCustomizationsData struct {
@@ -214,14 +214,14 @@ type ResponseSponsoredGuestPortalGetSponsoredGuestPortalByIDSponsoredGuestPortal
 }
 
 type ResponseSponsoredGuestPortalUpdateSponsoredGuestPortalByID struct {
-	UpdatedFieldsList ResponseSponsoredGuestPortalUpdateSponsoredGuestPortalByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
+	UpdatedFieldsList *ResponseSponsoredGuestPortalUpdateSponsoredGuestPortalByIDUpdatedFieldsList `json:"UpdatedFieldsList,omitempty"` //
 }
 
 type ResponseSponsoredGuestPortalUpdateSponsoredGuestPortalByIDUpdatedFieldsList struct {
-	UpdatedField ResponseSponsoredGuestPortalUpdateSponsoredGuestPortalByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
-	Field        string                                                                                  `json:"field,omitempty"`        //
-	OldValue     string                                                                                  `json:"oldValue,omitempty"`     //
-	NewValue     string                                                                                  `json:"newValue,omitempty"`     //
+	UpdatedField *[]ResponseSponsoredGuestPortalUpdateSponsoredGuestPortalByIDUpdatedFieldsListUpdatedField `json:"updatedField,omitempty"` //
+	Field        string                                                                                     `json:"field,omitempty"`        //
+	OldValue     string                                                                                     `json:"oldValue,omitempty"`     //
+	NewValue     string                                                                                     `json:"newValue,omitempty"`     //
 }
 
 type ResponseSponsoredGuestPortalUpdateSponsoredGuestPortalByIDUpdatedFieldsListUpdatedField struct {
@@ -231,21 +231,21 @@ type ResponseSponsoredGuestPortalUpdateSponsoredGuestPortalByIDUpdatedFieldsList
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortals struct {
-	SearchResult ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResult struct {
-	Total        int                                                                          `json:"total,omitempty"`        //
-	Resources    []ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                          `json:"total,omitempty"`        //
+	Resources    *[]ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResultResources struct {
-	ID          string                                                                        `json:"id,omitempty"`          //
-	Name        string                                                                        `json:"name,omitempty"`        //
-	Description string                                                                        `json:"description,omitempty"` //
-	Link        ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                                         `json:"id,omitempty"`          //
+	Name        string                                                                         `json:"name,omitempty"`        //
+	Description string                                                                         `json:"description,omitempty"` //
+	Link        *ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResultResourcesLink struct {
@@ -267,13 +267,13 @@ type ResponseSponsoredGuestPortalGetSponsoredGuestPortalsSearchResultPreviousPag
 }
 
 type ResponseSponsoredGuestPortalGetVersion struct {
-	VersionInfo ResponseSponsoredGuestPortalGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseSponsoredGuestPortalGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseSponsoredGuestPortalGetVersionVersionInfo struct {
-	CurrentServerVersion string                                                `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                                `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseSponsoredGuestPortalGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                 `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                 `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseSponsoredGuestPortalGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseSponsoredGuestPortalGetVersionVersionInfoLink struct {

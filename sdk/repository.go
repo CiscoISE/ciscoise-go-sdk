@@ -10,8 +10,8 @@ import (
 type RepositoryService service
 
 type ResponseRepositoryGetRepositories struct {
-	Response []ResponseRepositoryGetRepositoriesResponse `json:"response,omitempty"` //
-	Version  string                                      `json:"version,omitempty"`  //
+	Response *[]ResponseRepositoryGetRepositoriesResponse `json:"response,omitempty"` //
+	Version  string                                       `json:"version,omitempty"`  //
 }
 
 type ResponseRepositoryGetRepositoriesResponse struct {
@@ -21,12 +21,12 @@ type ResponseRepositoryGetRepositoriesResponse struct {
 	Password   string `json:"password,omitempty"`   // Password can contain alphanumeric and/or special characters.
 	ServerName string `json:"serverName,omitempty"` //
 	UserName   string `json:"userName,omitempty"`   // Username can contain alphanumeric characters.
-	EnablePki  bool   `json:"enablePki,omitempty"`  //
+	EnablePki  *bool  `json:"enablePki,omitempty"`  //
 }
 
 type ResponseRepositoryCreateRepository struct {
-	Success ResponseRepositoryCreateRepositorySuccess `json:"success,omitempty"` //
-	Version string                                    `json:"version,omitempty"` //
+	Success *ResponseRepositoryCreateRepositorySuccess `json:"success,omitempty"` //
+	Version string                                     `json:"version,omitempty"` //
 }
 
 type ResponseRepositoryCreateRepositorySuccess struct {
@@ -34,8 +34,8 @@ type ResponseRepositoryCreateRepositorySuccess struct {
 }
 
 type ResponseRepositoryGetRepository struct {
-	Response ResponseRepositoryGetRepositoryResponse `json:"response,omitempty"` //
-	Version  string                                  `json:"version,omitempty"`  //
+	Response *ResponseRepositoryGetRepositoryResponse `json:"response,omitempty"` //
+	Version  string                                   `json:"version,omitempty"`  //
 }
 
 type ResponseRepositoryGetRepositoryResponse struct {
@@ -45,12 +45,12 @@ type ResponseRepositoryGetRepositoryResponse struct {
 	Password   string `json:"password,omitempty"`   // Password can contain alphanumeric and/or special characters.
 	ServerName string `json:"serverName,omitempty"` //
 	UserName   string `json:"userName,omitempty"`   // Username can contain alphanumeric characters.
-	EnablePki  bool   `json:"enablePki,omitempty"`  //
+	EnablePki  *bool  `json:"enablePki,omitempty"`  //
 }
 
 type ResponseRepositoryUpdateRepository struct {
-	Success ResponseRepositoryUpdateRepositorySuccess `json:"success,omitempty"` //
-	Version string                                    `json:"version,omitempty"` //
+	Success *ResponseRepositoryUpdateRepositorySuccess `json:"success,omitempty"` //
+	Version string                                     `json:"version,omitempty"` //
 }
 
 type ResponseRepositoryUpdateRepositorySuccess struct {
@@ -58,8 +58,8 @@ type ResponseRepositoryUpdateRepositorySuccess struct {
 }
 
 type ResponseRepositoryDeleteRepository struct {
-	Success ResponseRepositoryDeleteRepositorySuccess `json:"success,omitempty"` //
-	Version string                                    `json:"version,omitempty"` //
+	Success *ResponseRepositoryDeleteRepositorySuccess `json:"success,omitempty"` //
+	Version string                                     `json:"version,omitempty"` //
 }
 
 type ResponseRepositoryDeleteRepositorySuccess struct {

@@ -20,14 +20,14 @@ type GetAncEndpointQueryParams struct {
 }
 
 type ResponseAncEndpointGetAncEndpointByID struct {
-	ErsAncEndpoint ResponseAncEndpointGetAncEndpointByIDErsAncEndpoint `json:"ErsAncEndpoint,omitempty"` //
+	ErsAncEndpoint *ResponseAncEndpointGetAncEndpointByIDErsAncEndpoint `json:"ErsAncEndpoint,omitempty"` //
 }
 
 type ResponseAncEndpointGetAncEndpointByIDErsAncEndpoint struct {
-	ID         string                                                  `json:"id,omitempty"`         //
-	MacAddress string                                                  `json:"macAddress,omitempty"` //
-	PolicyName string                                                  `json:"policyName,omitempty"` //
-	Link       ResponseAncEndpointGetAncEndpointByIDErsAncEndpointLink `json:"link,omitempty"`       //
+	ID         string                                                   `json:"id,omitempty"`         //
+	MacAddress string                                                   `json:"macAddress,omitempty"` //
+	PolicyName string                                                   `json:"policyName,omitempty"` //
+	Link       *ResponseAncEndpointGetAncEndpointByIDErsAncEndpointLink `json:"link,omitempty"`       //
 }
 
 type ResponseAncEndpointGetAncEndpointByIDErsAncEndpointLink struct {
@@ -37,19 +37,19 @@ type ResponseAncEndpointGetAncEndpointByIDErsAncEndpointLink struct {
 }
 
 type ResponseAncEndpointGetAncEndpoint struct {
-	SearchResult ResponseAncEndpointGetAncEndpointSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseAncEndpointGetAncEndpointSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseAncEndpointGetAncEndpointSearchResult struct {
-	Total        int                                                       `json:"total,omitempty"`        //
-	Resources    []ResponseAncEndpointGetAncEndpointSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseAncEndpointGetAncEndpointSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseAncEndpointGetAncEndpointSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                       `json:"total,omitempty"`        //
+	Resources    *[]ResponseAncEndpointGetAncEndpointSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseAncEndpointGetAncEndpointSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseAncEndpointGetAncEndpointSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseAncEndpointGetAncEndpointSearchResultResources struct {
-	ID   string                                                     `json:"id,omitempty"`   //
-	Link ResponseAncEndpointGetAncEndpointSearchResultResourcesLink `json:"link,omitempty"` //
+	ID   string                                                      `json:"id,omitempty"`   //
+	Link *ResponseAncEndpointGetAncEndpointSearchResultResourcesLink `json:"link,omitempty"` //
 }
 
 type ResponseAncEndpointGetAncEndpointSearchResultResourcesLink struct {
@@ -71,13 +71,13 @@ type ResponseAncEndpointGetAncEndpointSearchResultPreviousPage struct {
 }
 
 type ResponseAncEndpointGetVersion struct {
-	VersionInfo ResponseAncEndpointGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseAncEndpointGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseAncEndpointGetVersionVersionInfo struct {
-	CurrentServerVersion string                                       `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                       `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseAncEndpointGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                        `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                        `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseAncEndpointGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseAncEndpointGetVersionVersionInfoLink struct {
@@ -87,18 +87,18 @@ type ResponseAncEndpointGetVersionVersionInfoLink struct {
 }
 
 type ResponseAncEndpointMonitorBulkStatusAncEndpoint struct {
-	BulkStatus ResponseAncEndpointMonitorBulkStatusAncEndpointBulkStatus `json:"BulkStatus,omitempty"` //
+	BulkStatus *ResponseAncEndpointMonitorBulkStatusAncEndpointBulkStatus `json:"BulkStatus,omitempty"` //
 }
 
 type ResponseAncEndpointMonitorBulkStatusAncEndpointBulkStatus struct {
-	BulkID          string                                                                     `json:"bulkID,omitempty"`          //
-	ExecutionStatus string                                                                     `json:"executionStatus,omitempty"` //
-	OperationType   string                                                                     `json:"operationType,omitempty"`   //
-	StartTime       string                                                                     `json:"startTime,omitempty"`       //
-	ResourcesCount  int                                                                        `json:"resourcesCount,omitempty"`  //
-	SuccessCount    int                                                                        `json:"successCount,omitempty"`    //
-	FailCount       int                                                                        `json:"failCount,omitempty"`       //
-	ResourcesStatus []ResponseAncEndpointMonitorBulkStatusAncEndpointBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
+	BulkID          string                                                                      `json:"bulkID,omitempty"`          //
+	ExecutionStatus string                                                                      `json:"executionStatus,omitempty"` //
+	OperationType   string                                                                      `json:"operationType,omitempty"`   //
+	StartTime       string                                                                      `json:"startTime,omitempty"`       //
+	ResourcesCount  *int                                                                        `json:"resourcesCount,omitempty"`  //
+	SuccessCount    *int                                                                        `json:"successCount,omitempty"`    //
+	FailCount       *int                                                                        `json:"failCount,omitempty"`       //
+	ResourcesStatus *[]ResponseAncEndpointMonitorBulkStatusAncEndpointBulkStatusResourcesStatus `json:"resourcesStatus,omitempty"` //
 }
 
 type ResponseAncEndpointMonitorBulkStatusAncEndpointBulkStatusResourcesStatus struct {

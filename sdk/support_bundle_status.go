@@ -16,20 +16,20 @@ type GetSupportBundleStatusQueryParams struct {
 }
 
 type ResponseSupportBundleStatusGetSupportBundleStatusByID struct {
-	SBStatus ResponseSupportBundleStatusGetSupportBundleStatusByIDSBStatus `json:"SBStatus,omitempty"` //
+	SBStatus *ResponseSupportBundleStatusGetSupportBundleStatusByIDSBStatus `json:"SBStatus,omitempty"` //
 }
 
 type ResponseSupportBundleStatusGetSupportBundleStatusByIDSBStatus struct {
-	ID          string                                                            `json:"id,omitempty"`          //
-	Name        string                                                            `json:"name,omitempty"`        //
-	Description string                                                            `json:"description,omitempty"` //
-	FileName    string                                                            `json:"fileName,omitempty"`    //
-	FileSize    string                                                            `json:"fileSize,omitempty"`    //
-	HostName    string                                                            `json:"hostName,omitempty"`    //
-	Message     string                                                            `json:"message,omitempty"`     //
-	StartTime   string                                                            `json:"startTime,omitempty"`   //
-	Status      string                                                            `json:"status,omitempty"`      //
-	Link        ResponseSupportBundleStatusGetSupportBundleStatusByIDSBStatusLink `json:"link,omitempty"`        //
+	ID          string                                                             `json:"id,omitempty"`          //
+	Name        string                                                             `json:"name,omitempty"`        //
+	Description string                                                             `json:"description,omitempty"` //
+	FileName    string                                                             `json:"fileName,omitempty"`    //
+	FileSize    string                                                             `json:"fileSize,omitempty"`    //
+	HostName    string                                                             `json:"hostName,omitempty"`    //
+	Message     string                                                             `json:"message,omitempty"`     //
+	StartTime   string                                                             `json:"startTime,omitempty"`   //
+	Status      string                                                             `json:"status,omitempty"`      //
+	Link        *ResponseSupportBundleStatusGetSupportBundleStatusByIDSBStatusLink `json:"link,omitempty"`        //
 }
 
 type ResponseSupportBundleStatusGetSupportBundleStatusByIDSBStatusLink struct {
@@ -39,21 +39,21 @@ type ResponseSupportBundleStatusGetSupportBundleStatusByIDSBStatusLink struct {
 }
 
 type ResponseSupportBundleStatusGetSupportBundleStatus struct {
-	SearchResult ResponseSupportBundleStatusGetSupportBundleStatusSearchResult `json:"SearchResult,omitempty"` //
+	SearchResult *ResponseSupportBundleStatusGetSupportBundleStatusSearchResult `json:"SearchResult,omitempty"` //
 }
 
 type ResponseSupportBundleStatusGetSupportBundleStatusSearchResult struct {
-	Total        int                                                                       `json:"total,omitempty"`        //
-	Resources    []ResponseSupportBundleStatusGetSupportBundleStatusSearchResultResources  `json:"resources,omitempty"`    //
-	NextPage     ResponseSupportBundleStatusGetSupportBundleStatusSearchResultNextPage     `json:"nextPage,omitempty"`     //
-	PreviousPage ResponseSupportBundleStatusGetSupportBundleStatusSearchResultPreviousPage `json:"previousPage,omitempty"` //
+	Total        *int                                                                       `json:"total,omitempty"`        //
+	Resources    *[]ResponseSupportBundleStatusGetSupportBundleStatusSearchResultResources  `json:"resources,omitempty"`    //
+	NextPage     *ResponseSupportBundleStatusGetSupportBundleStatusSearchResultNextPage     `json:"nextPage,omitempty"`     //
+	PreviousPage *ResponseSupportBundleStatusGetSupportBundleStatusSearchResultPreviousPage `json:"previousPage,omitempty"` //
 }
 
 type ResponseSupportBundleStatusGetSupportBundleStatusSearchResultResources struct {
-	ID          string                                                                     `json:"id,omitempty"`          //
-	Name        string                                                                     `json:"name,omitempty"`        //
-	Description string                                                                     `json:"description,omitempty"` //
-	Link        ResponseSupportBundleStatusGetSupportBundleStatusSearchResultResourcesLink `json:"link,omitempty"`        //
+	ID          string                                                                      `json:"id,omitempty"`          //
+	Name        string                                                                      `json:"name,omitempty"`        //
+	Description string                                                                      `json:"description,omitempty"` //
+	Link        *ResponseSupportBundleStatusGetSupportBundleStatusSearchResultResourcesLink `json:"link,omitempty"`        //
 }
 
 type ResponseSupportBundleStatusGetSupportBundleStatusSearchResultResourcesLink struct {
@@ -75,13 +75,13 @@ type ResponseSupportBundleStatusGetSupportBundleStatusSearchResultPreviousPage s
 }
 
 type ResponseSupportBundleStatusGetVersion struct {
-	VersionInfo ResponseSupportBundleStatusGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
+	VersionInfo *ResponseSupportBundleStatusGetVersionVersionInfo `json:"VersionInfo,omitempty"` //
 }
 
 type ResponseSupportBundleStatusGetVersionVersionInfo struct {
-	CurrentServerVersion string                                               `json:"currentServerVersion,omitempty"` //
-	SupportedVersions    string                                               `json:"supportedVersions,omitempty"`    //
-	Link                 ResponseSupportBundleStatusGetVersionVersionInfoLink `json:"link,omitempty"`                 //
+	CurrentServerVersion string                                                `json:"currentServerVersion,omitempty"` //
+	SupportedVersions    string                                                `json:"supportedVersions,omitempty"`    //
+	Link                 *ResponseSupportBundleStatusGetVersionVersionInfoLink `json:"link,omitempty"`                 //
 }
 
 type ResponseSupportBundleStatusGetVersionVersionInfoLink struct {

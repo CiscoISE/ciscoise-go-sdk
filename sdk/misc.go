@@ -3,7 +3,6 @@ package isegosdk
 import (
 	"fmt"
 	"strings"
-
 	"encoding/xml"
 	"github.com/go-resty/resty/v2"
 )
@@ -11,30 +10,30 @@ import (
 type MiscService service
 
 type ResponseMiscGetActiveCount struct {
-	Count int `xml:"count,omitempty"` //
+	Count *int `xml:"count,omitempty"` //
 }
 
 type ResponseMiscGetActiveList struct {
-	NoOfActiveSession int `xml:"noOfActiveSession,omitempty"` //
+	NoOfActiveSession *int `xml:"noOfActiveSession,omitempty"` //
 }
 
 type ResponseMiscGetSessionAuthList struct {
-	NoOfActiveSession int `xml:"noOfActiveSession,omitempty"` //
+	NoOfActiveSession *int `xml:"noOfActiveSession,omitempty"` //
 }
 
 type ResponseMiscGetPostureCount struct {
-	Count int `xml:"count,omitempty"` //
+	Count *int `xml:"count,omitempty"` //
 }
 
 type ResponseMiscGetProfilerCount struct {
-	Count int `xml:"count,omitempty"` //
+	Count *int `xml:"count,omitempty"` //
 }
 
 type ResponseMiscGetMntVersion struct {
 	XMLName    xml.Name `xml:"product"`
-	Name       string   `xml:"name,attr,omitempty"`
-	Version    string   `xml:"version,omitempty"`
-	TypeOfNode string   `xml:"type_of_node,omitempty"`
+	Name       string   `xml:"name,omitempty"`         //
+	Version    string   `xml:"version,omitempty"`      //
+	TypeOfNode *int     `xml:"type_of_node,omitempty"` //
 }
 
 //GetActiveCount ActiveCount

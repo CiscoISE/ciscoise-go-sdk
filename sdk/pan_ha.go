@@ -9,25 +9,25 @@ import (
 type PanHaService service
 
 type ResponsePanHaGetPanHaStatus struct {
-	Response []ResponsePanHaGetPanHaStatusResponse `json:"response,omitempty"` //
+	Response *[]ResponsePanHaGetPanHaStatusResponse `json:"response,omitempty"` //
 }
 
 type ResponsePanHaGetPanHaStatusResponse struct {
-	IsEnabled                bool   `json:"isEnabled,omitempty"`                //
+	IsEnabled                *bool  `json:"isEnabled,omitempty"`                //
 	PrimaryHealthCheckNode   string `json:"primaryHealthCheckNode,omitempty"`   //
 	SecondaryHealthCheckNode string `json:"secondaryHealthCheckNode,omitempty"` //
-	PollingInterval          int    `json:"pollingInterval,omitempty"`          //
-	FailedAttempts           int    `json:"failedAttempts,omitempty"`           //
+	PollingInterval          *int   `json:"pollingInterval,omitempty"`          //
+	FailedAttempts           *int   `json:"failedAttempts,omitempty"`           //
 }
 
 type ResponsePanHaEnablePanHa struct {
-	Code      int    `json:"code,omitempty"`      //
+	Code      *int   `json:"code,omitempty"`      //
 	Message   string `json:"message,omitempty"`   //
 	RootCause string `json:"rootCause,omitempty"` //
 }
 
 type ResponsePanHaDisablePanHa struct {
-	Code      int    `json:"code,omitempty"`      //
+	Code      *int   `json:"code,omitempty"`      //
 	Message   string `json:"message,omitempty"`   //
 	RootCause string `json:"rootCause,omitempty"` //
 }

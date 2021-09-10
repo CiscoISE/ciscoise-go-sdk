@@ -9,12 +9,34 @@ import (
 type NetworkAccessDictionaryAttributesListService service
 
 type ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesAuthentication struct {
-	Response []ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesAuthenticationResponse `json:"response,omitempty"` //
-	Version  string                                                                                            `json:"version,omitempty"`  //
+	Response *[]ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesAuthenticationResponse `json:"response,omitempty"` //
+	Version  string                                                                                             `json:"version,omitempty"`  //
 }
 
 type ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesAuthenticationResponse struct {
-	AllowedValues  []ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesAuthenticationResponseAllowedValues `json:"allowedValues,omitempty"`  // all of the allowed values for the dictionary attribute
+	AllowedValues  *[]ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesAuthenticationResponseAllowedValues `json:"allowedValues,omitempty"`  // all of the allowed values for the dictionary attribute
+	DataType       string                                                                                                          `json:"dataType,omitempty"`       // the data type for the dictionary attribute
+	Description    string                                                                                                          `json:"description,omitempty"`    // The description of the Dictionary attribute
+	DictionaryName string                                                                                                          `json:"dictionaryName,omitempty"` // the name of the dictionary which the dictionary attribute belongs to
+	DirectionType  string                                                                                                          `json:"directionType,omitempty"`  // the direction for the useage of the dictionary attribute
+	ID             string                                                                                                          `json:"id,omitempty"`             // Identifier for the dictionary attribute
+	InternalName   string                                                                                                          `json:"internalName,omitempty"`   // the internal name of the dictionary attribute
+	Name           string                                                                                                          `json:"name,omitempty"`           // The dictionary attribute's name
+}
+
+type ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesAuthenticationResponseAllowedValues struct {
+	IsDefault *bool  `json:"isDefault,omitempty"` // true if this key value is the default between the allowed values of the dictionary attribute
+	Key       string `json:"key,omitempty"`       //
+	Value     string `json:"value,omitempty"`     //
+}
+
+type ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesAuthorization struct {
+	Response *[]ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesAuthorizationResponse `json:"response,omitempty"` //
+	Version  string                                                                                            `json:"version,omitempty"`  //
+}
+
+type ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesAuthorizationResponse struct {
+	AllowedValues  *[]ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesAuthorizationResponseAllowedValues `json:"allowedValues,omitempty"`  // all of the allowed values for the dictionary attribute
 	DataType       string                                                                                                         `json:"dataType,omitempty"`       // the data type for the dictionary attribute
 	Description    string                                                                                                         `json:"description,omitempty"`    // The description of the Dictionary attribute
 	DictionaryName string                                                                                                         `json:"dictionaryName,omitempty"` // the name of the dictionary which the dictionary attribute belongs to
@@ -24,52 +46,30 @@ type ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesAu
 	Name           string                                                                                                         `json:"name,omitempty"`           // The dictionary attribute's name
 }
 
-type ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesAuthenticationResponseAllowedValues struct {
-	IsDefault bool   `json:"isDefault,omitempty"` // true if this key value is the default between the allowed values of the dictionary attribute
-	Key       string `json:"key,omitempty"`       //
-	Value     string `json:"value,omitempty"`     //
-}
-
-type ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesAuthorization struct {
-	Response []ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesAuthorizationResponse `json:"response,omitempty"` //
-	Version  string                                                                                           `json:"version,omitempty"`  //
-}
-
-type ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesAuthorizationResponse struct {
-	AllowedValues  []ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesAuthorizationResponseAllowedValues `json:"allowedValues,omitempty"`  // all of the allowed values for the dictionary attribute
-	DataType       string                                                                                                        `json:"dataType,omitempty"`       // the data type for the dictionary attribute
-	Description    string                                                                                                        `json:"description,omitempty"`    // The description of the Dictionary attribute
-	DictionaryName string                                                                                                        `json:"dictionaryName,omitempty"` // the name of the dictionary which the dictionary attribute belongs to
-	DirectionType  string                                                                                                        `json:"directionType,omitempty"`  // the direction for the useage of the dictionary attribute
-	ID             string                                                                                                        `json:"id,omitempty"`             // Identifier for the dictionary attribute
-	InternalName   string                                                                                                        `json:"internalName,omitempty"`   // the internal name of the dictionary attribute
-	Name           string                                                                                                        `json:"name,omitempty"`           // The dictionary attribute's name
-}
-
 type ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesAuthorizationResponseAllowedValues struct {
-	IsDefault bool   `json:"isDefault,omitempty"` // true if this key value is the default between the allowed values of the dictionary attribute
+	IsDefault *bool  `json:"isDefault,omitempty"` // true if this key value is the default between the allowed values of the dictionary attribute
 	Key       string `json:"key,omitempty"`       //
 	Value     string `json:"value,omitempty"`     //
 }
 
 type ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesPolicySet struct {
-	Response []ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesPolicySetResponse `json:"response,omitempty"` //
-	Version  string                                                                                       `json:"version,omitempty"`  //
+	Response *[]ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesPolicySetResponse `json:"response,omitempty"` //
+	Version  string                                                                                        `json:"version,omitempty"`  //
 }
 
 type ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesPolicySetResponse struct {
-	AllowedValues  []ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesPolicySetResponseAllowedValues `json:"allowedValues,omitempty"`  // all of the allowed values for the dictionary attribute
-	DataType       string                                                                                                    `json:"dataType,omitempty"`       // the data type for the dictionary attribute
-	Description    string                                                                                                    `json:"description,omitempty"`    // The description of the Dictionary attribute
-	DictionaryName string                                                                                                    `json:"dictionaryName,omitempty"` // the name of the dictionary which the dictionary attribute belongs to
-	DirectionType  string                                                                                                    `json:"directionType,omitempty"`  // the direction for the useage of the dictionary attribute
-	ID             string                                                                                                    `json:"id,omitempty"`             // Identifier for the dictionary attribute
-	InternalName   string                                                                                                    `json:"internalName,omitempty"`   // the internal name of the dictionary attribute
-	Name           string                                                                                                    `json:"name,omitempty"`           // The dictionary attribute's name
+	AllowedValues  *[]ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesPolicySetResponseAllowedValues `json:"allowedValues,omitempty"`  // all of the allowed values for the dictionary attribute
+	DataType       string                                                                                                     `json:"dataType,omitempty"`       // the data type for the dictionary attribute
+	Description    string                                                                                                     `json:"description,omitempty"`    // The description of the Dictionary attribute
+	DictionaryName string                                                                                                     `json:"dictionaryName,omitempty"` // the name of the dictionary which the dictionary attribute belongs to
+	DirectionType  string                                                                                                     `json:"directionType,omitempty"`  // the direction for the useage of the dictionary attribute
+	ID             string                                                                                                     `json:"id,omitempty"`             // Identifier for the dictionary attribute
+	InternalName   string                                                                                                     `json:"internalName,omitempty"`   // the internal name of the dictionary attribute
+	Name           string                                                                                                     `json:"name,omitempty"`           // The dictionary attribute's name
 }
 
 type ResponseNetworkAccessDictionaryAttributesListGetNetworkAccessDictionariesPolicySetResponseAllowedValues struct {
-	IsDefault bool   `json:"isDefault,omitempty"` // true if this key value is the default between the allowed values of the dictionary attribute
+	IsDefault *bool  `json:"isDefault,omitempty"` // true if this key value is the default between the allowed values of the dictionary attribute
 	Key       string `json:"key,omitempty"`       //
 	Value     string `json:"value,omitempty"`     //
 }
