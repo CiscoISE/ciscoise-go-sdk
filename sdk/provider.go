@@ -16,7 +16,7 @@ type RequestProfilerProfileRegisterService struct {
 /* 🚧 ServiceRegister
 
  */
-func (s *ProviderService) RegisterService() (*resty.Response, error) {
+func (s *ProviderService) RegisterService(requestProfilerProfileRegisterService *RequestProfilerProfileRegisterService) (*resty.Response, error) {
 	setHost(s.client, "_px_grid")
 	path := "/pxgrid/ise/radius/control/ServiceRegister"
 
@@ -24,6 +24,7 @@ func (s *ProviderService) RegisterService() (*resty.Response, error) {
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
+		SetBody(requestProfilerProfileRegisterService).
 		SetError(&Error).
 		Post(path)
 

@@ -24,11 +24,12 @@ type RequestClearThreatsAndVulnerabilitiesAccessSecret struct {
 	PeerNodeName string `json:"peerNodeName,omitempty"` //
 }
 
+
 //CreateAccount 🚧 AccountCreate
 /* 🚧 AccountCreate
 
  */
-func (s *ConsumerService) CreateAccount() (*resty.Response, error) {
+func (s *ConsumerService) CreateAccount(requestClearThreatsAndVulnerabilitiesCreateAccount *RequestClearThreatsAndVulnerabilitiesCreateAccount) (*resty.Response, error) {
 	setHost(s.client, "_px_grid")
 	path := "/pxgrid/ise/radius/control/AccountCreate"
 
@@ -36,6 +37,7 @@ func (s *ConsumerService) CreateAccount() (*resty.Response, error) {
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
+		SetBody(requestClearThreatsAndVulnerabilitiesCreateAccount).
 		SetError(&Error).
 		Post(path)
 
@@ -57,7 +59,7 @@ func (s *ConsumerService) CreateAccount() (*resty.Response, error) {
 /* 🚧 AccountActivate
 
  */
-func (s *ConsumerService) ActivateAccount() (*resty.Response, error) {
+func (s *ConsumerService) ActivateAccount(requestClearThreatsAndVulnerabilitiesActivateAccount *RequestClearThreatsAndVulnerabilitiesActivateAccount) (*resty.Response, error) {
 	setHost(s.client, "_px_grid")
 	path := "/pxgrid/ise/radius/control/AccountActivate"
 
@@ -65,6 +67,7 @@ func (s *ConsumerService) ActivateAccount() (*resty.Response, error) {
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
+		SetBody(requestClearThreatsAndVulnerabilitiesActivateAccount).
 		SetError(&Error).
 		Post(path)
 
@@ -86,7 +89,7 @@ func (s *ConsumerService) ActivateAccount() (*resty.Response, error) {
 /* 🚧 ServiceLookup
 
  */
-func (s *ConsumerService) LookupService() (*resty.Response, error) {
+func (s *ConsumerService) LookupService(requestClearThreatsAndVulnerabilitiesLookupService *RequestClearThreatsAndVulnerabilitiesLookupService) (*resty.Response, error) {
 	setHost(s.client, "_px_grid")
 	path := "/pxgrid/ise/radius/control/ServiceLookup"
 
@@ -94,6 +97,7 @@ func (s *ConsumerService) LookupService() (*resty.Response, error) {
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
+		SetBody(requestClearThreatsAndVulnerabilitiesLookupService).
 		SetError(&Error).
 		Post(path)
 
@@ -115,7 +119,7 @@ func (s *ConsumerService) LookupService() (*resty.Response, error) {
 /* 🚧 AccessSecret
 
  */
-func (s *ConsumerService) AccessSecret() (*resty.Response, error) {
+func (s *ConsumerService) AccessSecret(requestClearThreatsAndVulnerabilitiesAccessSecret *RequestClearThreatsAndVulnerabilitiesAccessSecret) (*resty.Response, error) {
 	setHost(s.client, "_px_grid")
 	path := "/pxgrid/ise/radius/control/AccessSecret"
 
@@ -123,6 +127,7 @@ func (s *ConsumerService) AccessSecret() (*resty.Response, error) {
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
+		SetBody(requestClearThreatsAndVulnerabilitiesAccessSecret).
 		SetError(&Error).
 		Post(path)
 
