@@ -50,14 +50,14 @@ type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSetting
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsPortalSettings struct {
-	HTTPSPort                    *int   `json:"httpsPort,omitempty"`                    // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
-	AllowedInterfaces            string `json:"allowedInterfaces,omitempty"`            // Interfaces that the portal will be reachable on. Allowed values: - eth0, - eth1, - eth2, - eth3, - eth4, - eth5, - bond0, - bond1, - bond2
-	CertificateGroupTag          string `json:"certificateGroupTag,omitempty"`          // Logical name of the x.509 server certificate that will be used for the portal
-	AuthenticationMethod         string `json:"authenticationMethod,omitempty"`         // Unique Id of the identity source sequence
-	AssignedGuestTypeForEmployee string `json:"assignedGuestTypeForEmployee,omitempty"` // Unique Id of a guest type. Employees using this portal as a guest inherit login options from the guest type
-	DisplayLang                  string `json:"displayLang,omitempty"`                  // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
-	FallbackLanguage             string `json:"fallbackLanguage,omitempty"`             // Used when displayLang = USEBROWSERLOCALE
-	AlwaysUsedLanguage           string `json:"alwaysUsedLanguage,omitempty"`           //
+	HTTPSPort                    *int     `json:"httpsPort,omitempty"`                    // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
+	AllowedInterfaces            []string `json:"allowedInterfaces,omitempty"`            // Interfaces that the portal will be reachable on. Allowed values: - eth0, - eth1, - eth2, - eth3, - eth4, - eth5, - bond0, - bond1, - bond2
+	CertificateGroupTag          string   `json:"certificateGroupTag,omitempty"`          // Logical name of the x.509 server certificate that will be used for the portal
+	AuthenticationMethod         string   `json:"authenticationMethod,omitempty"`         // Unique Id of the identity source sequence
+	AssignedGuestTypeForEmployee string   `json:"assignedGuestTypeForEmployee,omitempty"` // Unique Id of a guest type. Employees using this portal as a guest inherit login options from the guest type
+	DisplayLang                  string   `json:"displayLang,omitempty"`                  // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
+	FallbackLanguage             string   `json:"fallbackLanguage,omitempty"`             // Used when displayLang = USEBROWSERLOCALE
+	AlwaysUsedLanguage           string   `json:"alwaysUsedLanguage,omitempty"`           //
 }
 
 type ResponseSelfRegisteredPortalGetSelfRegisteredPortalByIDSelfRegPortalSettingsLoginPageSettings struct {
@@ -433,14 +433,14 @@ type RequestSelfRegisteredPortalUpdateSelfRegisteredPortalByIDSelfRegPortalSetti
 }
 
 type RequestSelfRegisteredPortalUpdateSelfRegisteredPortalByIDSelfRegPortalSettingsPortalSettings struct {
-	HTTPSPort                    *int   `json:"httpsPort,omitempty"`                    // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
-	AllowedInterfaces            string `json:"allowedInterfaces,omitempty"`            // Interfaces that the portal will be reachable on. Allowed values: - eth0, - eth1, - eth2, - eth3, - eth4, - eth5, - bond0, - bond1, - bond2
-	CertificateGroupTag          string `json:"certificateGroupTag,omitempty"`          // Logical name of the x.509 server certificate that will be used for the portal
-	AuthenticationMethod         string `json:"authenticationMethod,omitempty"`         // Unique Id of the identity source sequence
-	AssignedGuestTypeForEmployee string `json:"assignedGuestTypeForEmployee,omitempty"` // Unique Id of a guest type. Employees using this portal as a guest inherit login options from the guest type
-	DisplayLang                  string `json:"displayLang,omitempty"`                  // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
-	FallbackLanguage             string `json:"fallbackLanguage,omitempty"`             // Used when displayLang = USEBROWSERLOCALE
-	AlwaysUsedLanguage           string `json:"alwaysUsedLanguage,omitempty"`           //
+	HTTPSPort                    *int     `json:"httpsPort,omitempty"`                    // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
+	AllowedInterfaces            []string `json:"allowedInterfaces,omitempty"`            // Interfaces that the portal will be reachable on. Allowed values: - eth0, - eth1, - eth2, - eth3, - eth4, - eth5, - bond0, - bond1, - bond2
+	CertificateGroupTag          string   `json:"certificateGroupTag,omitempty"`          // Logical name of the x.509 server certificate that will be used for the portal
+	AuthenticationMethod         string   `json:"authenticationMethod,omitempty"`         // Unique Id of the identity source sequence
+	AssignedGuestTypeForEmployee string   `json:"assignedGuestTypeForEmployee,omitempty"` // Unique Id of a guest type. Employees using this portal as a guest inherit login options from the guest type
+	DisplayLang                  string   `json:"displayLang,omitempty"`                  // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
+	FallbackLanguage             string   `json:"fallbackLanguage,omitempty"`             // Used when displayLang = USEBROWSERLOCALE
+	AlwaysUsedLanguage           string   `json:"alwaysUsedLanguage,omitempty"`           //
 }
 
 type RequestSelfRegisteredPortalUpdateSelfRegisteredPortalByIDSelfRegPortalSettingsLoginPageSettings struct {
@@ -740,14 +740,14 @@ type RequestSelfRegisteredPortalCreateSelfRegisteredPortalSelfRegPortalSettings 
 }
 
 type RequestSelfRegisteredPortalCreateSelfRegisteredPortalSelfRegPortalSettingsPortalSettings struct {
-	HTTPSPort                    *int   `json:"httpsPort,omitempty"`                    // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
-	AllowedInterfaces            string `json:"allowedInterfaces,omitempty"`            // Interfaces that the portal will be reachable on. Allowed values: - eth0, - eth1, - eth2, - eth3, - eth4, - eth5, - bond0, - bond1, - bond2
-	CertificateGroupTag          string `json:"certificateGroupTag,omitempty"`          // Logical name of the x.509 server certificate that will be used for the portal
-	AuthenticationMethod         string `json:"authenticationMethod,omitempty"`         // Unique Id of the identity source sequence
-	AssignedGuestTypeForEmployee string `json:"assignedGuestTypeForEmployee,omitempty"` // Unique Id of a guest type. Employees using this portal as a guest inherit login options from the guest type
-	DisplayLang                  string `json:"displayLang,omitempty"`                  // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
-	FallbackLanguage             string `json:"fallbackLanguage,omitempty"`             // Used when displayLang = USEBROWSERLOCALE
-	AlwaysUsedLanguage           string `json:"alwaysUsedLanguage,omitempty"`           //
+	HTTPSPort                    *int     `json:"httpsPort,omitempty"`                    // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
+	AllowedInterfaces            []string `json:"allowedInterfaces,omitempty"`            // Interfaces that the portal will be reachable on. Allowed values: - eth0, - eth1, - eth2, - eth3, - eth4, - eth5, - bond0, - bond1, - bond2
+	CertificateGroupTag          string   `json:"certificateGroupTag,omitempty"`          // Logical name of the x.509 server certificate that will be used for the portal
+	AuthenticationMethod         string   `json:"authenticationMethod,omitempty"`         // Unique Id of the identity source sequence
+	AssignedGuestTypeForEmployee string   `json:"assignedGuestTypeForEmployee,omitempty"` // Unique Id of a guest type. Employees using this portal as a guest inherit login options from the guest type
+	DisplayLang                  string   `json:"displayLang,omitempty"`                  // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
+	FallbackLanguage             string   `json:"fallbackLanguage,omitempty"`             // Used when displayLang = USEBROWSERLOCALE
+	AlwaysUsedLanguage           string   `json:"alwaysUsedLanguage,omitempty"`           //
 }
 
 type RequestSelfRegisteredPortalCreateSelfRegisteredPortalSelfRegPortalSettingsLoginPageSettings struct {

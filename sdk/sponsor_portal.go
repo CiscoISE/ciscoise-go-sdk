@@ -45,15 +45,15 @@ type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettings struct {
 }
 
 type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsPortalSettings struct {
-	HTTPSPort            *int   `json:"httpsPort,omitempty"`            // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
-	AllowedInterfaces    string `json:"allowedInterfaces,omitempty"`    // Interfaces that the portal will be reachable on. Allowed values: - eth0, - eth1, - eth2, - eth3, - eth4, - eth5, - bond0, - bond1, - bond2
-	CertificateGroupTag  string `json:"certificateGroupTag,omitempty"`  // Logical name of the x.509 server certificate that will be used for the portal
-	Fqdn                 string `json:"fqdn,omitempty"`                 // The fully-qualified domain name (FQDN) that end-users will use to access this portal. Used only in Sponsor portal
-	AuthenticationMethod string `json:"authenticationMethod,omitempty"` // Unique Id of the identity source sequence
-	IDleTimeout          *int   `json:"idleTimeout,omitempty"`          //
-	DisplayLang          string `json:"displayLang,omitempty"`          // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
-	FallbackLanguage     string `json:"fallbackLanguage,omitempty"`     // Used when displayLang = USEBROWSERLOCALE
-	AvailableSSIDs       string `json:"availableSsids,omitempty"`       // Names of the SSIDs available for assignment to guest users by sponsors
+	HTTPSPort            *int     `json:"httpsPort,omitempty"`            // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
+	AllowedInterfaces    []string `json:"allowedInterfaces,omitempty"`    // Interfaces that the portal will be reachable on. Allowed values: - eth0, - eth1, - eth2, - eth3, - eth4, - eth5, - bond0, - bond1, - bond2
+	CertificateGroupTag  string   `json:"certificateGroupTag,omitempty"`  // Logical name of the x.509 server certificate that will be used for the portal
+	Fqdn                 string   `json:"fqdn,omitempty"`                 // The fully-qualified domain name (FQDN) that end-users will use to access this portal. Used only in Sponsor portal
+	AuthenticationMethod string   `json:"authenticationMethod,omitempty"` // Unique Id of the identity source sequence
+	IDleTimeout          *int     `json:"idleTimeout,omitempty"`          //
+	DisplayLang          string   `json:"displayLang,omitempty"`          // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
+	FallbackLanguage     string   `json:"fallbackLanguage,omitempty"`     // Used when displayLang = USEBROWSERLOCALE
+	AvailableSSIDs       string   `json:"availableSsids,omitempty"`       // Names of the SSIDs available for assignment to guest users by sponsors
 }
 
 type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsLoginPageSettings struct {
@@ -256,15 +256,15 @@ type RequestSponsorPortalUpdateSponsorPortalByIDSponsorPortalSettings struct {
 }
 
 type RequestSponsorPortalUpdateSponsorPortalByIDSponsorPortalSettingsPortalSettings struct {
-	HTTPSPort            *int   `json:"httpsPort,omitempty"`            // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
-	AllowedInterfaces    string `json:"allowedInterfaces,omitempty"`    // Interfaces that the portal will be reachable on. Allowed values: - eth0, - eth1, - eth2, - eth3, - eth4, - eth5, - bond0, - bond1, - bond2
-	CertificateGroupTag  string `json:"certificateGroupTag,omitempty"`  // Logical name of the x.509 server certificate that will be used for the portal
-	Fqdn                 string `json:"fqdn,omitempty"`                 // The fully-qualified domain name (FQDN) that end-users will use to access this portal. Used only in Sponsor portal
-	AuthenticationMethod string `json:"authenticationMethod,omitempty"` // Unique Id of the identity source sequence
-	IDleTimeout          *int   `json:"idleTimeout,omitempty"`          //
-	DisplayLang          string `json:"displayLang,omitempty"`          // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
-	FallbackLanguage     string `json:"fallbackLanguage,omitempty"`     // Used when displayLang = USEBROWSERLOCALE
-	AvailableSSIDs       string `json:"availableSsids,omitempty"`       // Names of the SSIDs available for assignment to guest users by sponsors
+	HTTPSPort            *int     `json:"httpsPort,omitempty"`            // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
+	AllowedInterfaces    []string `json:"allowedInterfaces,omitempty"`    // Interfaces that the portal will be reachable on. Allowed values: - eth0, - eth1, - eth2, - eth3, - eth4, - eth5, - bond0, - bond1, - bond2
+	CertificateGroupTag  string   `json:"certificateGroupTag,omitempty"`  // Logical name of the x.509 server certificate that will be used for the portal
+	Fqdn                 string   `json:"fqdn,omitempty"`                 // The fully-qualified domain name (FQDN) that end-users will use to access this portal. Used only in Sponsor portal
+	AuthenticationMethod string   `json:"authenticationMethod,omitempty"` // Unique Id of the identity source sequence
+	IDleTimeout          *int     `json:"idleTimeout,omitempty"`          //
+	DisplayLang          string   `json:"displayLang,omitempty"`          // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
+	FallbackLanguage     string   `json:"fallbackLanguage,omitempty"`     // Used when displayLang = USEBROWSERLOCALE
+	AvailableSSIDs       string   `json:"availableSsids,omitempty"`       // Names of the SSIDs available for assignment to guest users by sponsors
 }
 
 type RequestSponsorPortalUpdateSponsorPortalByIDSponsorPortalSettingsLoginPageSettings struct {
@@ -391,15 +391,15 @@ type RequestSponsorPortalCreateSponsorPortalSponsorPortalSettings struct {
 }
 
 type RequestSponsorPortalCreateSponsorPortalSponsorPortalSettingsPortalSettings struct {
-	HTTPSPort            *int   `json:"httpsPort,omitempty"`            // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
-	AllowedInterfaces    string `json:"allowedInterfaces,omitempty"`    // Interfaces that the portal will be reachable on. Allowed values: - eth0, - eth1, - eth2, - eth3, - eth4, - eth5, - bond0, - bond1, - bond2
-	CertificateGroupTag  string `json:"certificateGroupTag,omitempty"`  // Logical name of the x.509 server certificate that will be used for the portal
-	Fqdn                 string `json:"fqdn,omitempty"`                 // The fully-qualified domain name (FQDN) that end-users will use to access this portal. Used only in Sponsor portal
-	AuthenticationMethod string `json:"authenticationMethod,omitempty"` // Unique Id of the identity source sequence
-	IDleTimeout          *int   `json:"idleTimeout,omitempty"`          //
-	DisplayLang          string `json:"displayLang,omitempty"`          // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
-	FallbackLanguage     string `json:"fallbackLanguage,omitempty"`     // Used when displayLang = USEBROWSERLOCALE
-	AvailableSSIDs       string `json:"availableSsids,omitempty"`       // Names of the SSIDs available for assignment to guest users by sponsors
+	HTTPSPort            *int     `json:"httpsPort,omitempty"`            // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
+	AllowedInterfaces    []string `json:"allowedInterfaces,omitempty"`    // Interfaces that the portal will be reachable on. Allowed values: - eth0, - eth1, - eth2, - eth3, - eth4, - eth5, - bond0, - bond1, - bond2
+	CertificateGroupTag  string   `json:"certificateGroupTag,omitempty"`  // Logical name of the x.509 server certificate that will be used for the portal
+	Fqdn                 string   `json:"fqdn,omitempty"`                 // The fully-qualified domain name (FQDN) that end-users will use to access this portal. Used only in Sponsor portal
+	AuthenticationMethod string   `json:"authenticationMethod,omitempty"` // Unique Id of the identity source sequence
+	IDleTimeout          *int     `json:"idleTimeout,omitempty"`          //
+	DisplayLang          string   `json:"displayLang,omitempty"`          // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
+	FallbackLanguage     string   `json:"fallbackLanguage,omitempty"`     // Used when displayLang = USEBROWSERLOCALE
+	AvailableSSIDs       string   `json:"availableSsids,omitempty"`       // Names of the SSIDs available for assignment to guest users by sponsors
 }
 
 type RequestSponsorPortalCreateSponsorPortalSponsorPortalSettingsLoginPageSettings struct {
