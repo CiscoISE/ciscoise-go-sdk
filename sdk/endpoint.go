@@ -37,20 +37,24 @@ type ResponseEndpointGetEndpointByName struct {
 }
 
 type ResponseEndpointGetEndpointByNameERSEndPoint struct {
-	ID                      string                                                     `json:"id,omitempty"`                      //
-	Name                    string                                                     `json:"name,omitempty"`                    //
-	Description             string                                                     `json:"description,omitempty"`             //
-	Mac                     string                                                     `json:"mac,omitempty"`                     //
-	ProfileID               string                                                     `json:"profileId,omitempty"`               //
-	StaticProfileAssignment *bool                                                      `json:"staticProfileAssignment,omitempty"` //
-	GroupID                 string                                                     `json:"groupId,omitempty"`                 //
-	StaticGroupAssignment   *bool                                                      `json:"staticGroupAssignment,omitempty"`   //
-	PortalUser              string                                                     `json:"portalUser,omitempty"`              //
-	IDentityStore           string                                                     `json:"identityStore,omitempty"`           //
-	IDentityStoreID         string                                                     `json:"identityStoreId,omitempty"`         //
-	MdmAttributes           *ResponseEndpointGetEndpointByNameERSEndPointMdmAttributes `json:"mdmAttributes,omitempty"`           //
-	CustomAttributes        *map[string]interface{}                                    `json:"customAttributes,omitempty"`        //
-	Link                    *ResponseEndpointGetEndpointByNameERSEndPointLink          `json:"link,omitempty"`                    //
+	ID                      string                                                        `json:"id,omitempty"`                      //
+	Name                    string                                                        `json:"name,omitempty"`                    //
+	Description             string                                                        `json:"description,omitempty"`             //
+	Mac                     string                                                        `json:"mac,omitempty"`                     //
+	ProfileID               string                                                        `json:"profileId,omitempty"`               //
+	StaticProfileAssignment *bool                                                         `json:"staticProfileAssignment,omitempty"` //
+	GroupID                 string                                                        `json:"groupId,omitempty"`                 //
+	StaticGroupAssignment   *bool                                                         `json:"staticGroupAssignment,omitempty"`   //
+	PortalUser              string                                                        `json:"portalUser,omitempty"`              //
+	IDentityStore           string                                                        `json:"identityStore,omitempty"`           //
+	IDentityStoreID         string                                                        `json:"identityStoreId,omitempty"`         //
+	MdmAttributes           *ResponseEndpointGetEndpointByNameERSEndPointMdmAttributes    `json:"mdmAttributes,omitempty"`           //
+	CustomAttributes        *ResponseEndpointGetEndpointByNameERSEndPointCustomAttributes `json:"customAttributes,omitempty"`        //
+	Link                    *ResponseEndpointGetEndpointByNameERSEndPointLink             `json:"link,omitempty"`                    //
+}
+
+type ResponseEndpointGetEndpointByNameERSEndPointCustomAttributes struct {
+	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` //
 }
 
 type ResponseEndpointGetEndpointByNameERSEndPointMdmAttributes struct {
@@ -80,20 +84,24 @@ type ResponseEndpointGetEndpointByID struct {
 }
 
 type ResponseEndpointGetEndpointByIDERSEndPoint struct {
-	ID                      string                                                   `json:"id,omitempty"`                      //
-	Name                    string                                                   `json:"name,omitempty"`                    //
-	Description             string                                                   `json:"description,omitempty"`             //
-	Mac                     string                                                   `json:"mac,omitempty"`                     //
-	ProfileID               string                                                   `json:"profileId,omitempty"`               //
-	StaticProfileAssignment *bool                                                    `json:"staticProfileAssignment,omitempty"` //
-	GroupID                 string                                                   `json:"groupId,omitempty"`                 //
-	StaticGroupAssignment   *bool                                                    `json:"staticGroupAssignment,omitempty"`   //
-	PortalUser              string                                                   `json:"portalUser,omitempty"`              //
-	IDentityStore           string                                                   `json:"identityStore,omitempty"`           //
-	IDentityStoreID         string                                                   `json:"identityStoreId,omitempty"`         //
-	MdmAttributes           *ResponseEndpointGetEndpointByIDERSEndPointMdmAttributes `json:"mdmAttributes,omitempty"`           //
-	CustomAttributes        *map[string]interface{}                                  `json:"customAttributes,omitempty"`        //
-	Link                    *ResponseEndpointGetEndpointByIDERSEndPointLink          `json:"link,omitempty"`                    //
+	ID                      string                                                      `json:"id,omitempty"`                      //
+	Name                    string                                                      `json:"name,omitempty"`                    //
+	Description             string                                                      `json:"description,omitempty"`             //
+	Mac                     string                                                      `json:"mac,omitempty"`                     //
+	ProfileID               string                                                      `json:"profileId,omitempty"`               //
+	StaticProfileAssignment *bool                                                       `json:"staticProfileAssignment,omitempty"` //
+	GroupID                 string                                                      `json:"groupId,omitempty"`                 //
+	StaticGroupAssignment   *bool                                                       `json:"staticGroupAssignment,omitempty"`   //
+	PortalUser              string                                                      `json:"portalUser,omitempty"`              //
+	IDentityStore           string                                                      `json:"identityStore,omitempty"`           //
+	IDentityStoreID         string                                                      `json:"identityStoreId,omitempty"`         //
+	MdmAttributes           *ResponseEndpointGetEndpointByIDERSEndPointMdmAttributes    `json:"mdmAttributes,omitempty"`           //
+	CustomAttributes        *ResponseEndpointGetEndpointByIDERSEndPointCustomAttributes `json:"customAttributes,omitempty"`        //
+	Link                    *ResponseEndpointGetEndpointByIDERSEndPointLink             `json:"link,omitempty"`                    //
+}
+
+type ResponseEndpointGetEndpointByIDERSEndPointCustomAttributes struct {
+	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` //
 }
 
 type ResponseEndpointGetEndpointByIDERSEndPointMdmAttributes struct {
@@ -216,19 +224,23 @@ type RequestEndpointUpdateEndpointByID struct {
 }
 
 type RequestEndpointUpdateEndpointByIDERSEndPoint struct {
-	ID                      string                                                     `json:"id,omitempty"`                      //
-	Name                    string                                                     `json:"name,omitempty"`                    //
-	Description             string                                                     `json:"description,omitempty"`             //
-	Mac                     string                                                     `json:"mac,omitempty"`                     //
-	ProfileID               string                                                     `json:"profileId,omitempty"`               //
-	StaticProfileAssignment *bool                                                      `json:"staticProfileAssignment,omitempty"` //
-	GroupID                 string                                                     `json:"groupId,omitempty"`                 //
-	StaticGroupAssignment   *bool                                                      `json:"staticGroupAssignment,omitempty"`   //
-	PortalUser              string                                                     `json:"portalUser,omitempty"`              //
-	IDentityStore           string                                                     `json:"identityStore,omitempty"`           //
-	IDentityStoreID         string                                                     `json:"identityStoreId,omitempty"`         //
-	MdmAttributes           *RequestEndpointUpdateEndpointByIDERSEndPointMdmAttributes `json:"mdmAttributes,omitempty"`           //
-	CustomAttributes        *map[string]interface{}                                    `json:"customAttributes,omitempty"`        //
+	ID                      string                                                        `json:"id,omitempty"`                      //
+	Name                    string                                                        `json:"name,omitempty"`                    //
+	Description             string                                                        `json:"description,omitempty"`             //
+	Mac                     string                                                        `json:"mac,omitempty"`                     //
+	ProfileID               string                                                        `json:"profileId,omitempty"`               //
+	StaticProfileAssignment *bool                                                         `json:"staticProfileAssignment,omitempty"` //
+	GroupID                 string                                                        `json:"groupId,omitempty"`                 //
+	StaticGroupAssignment   *bool                                                         `json:"staticGroupAssignment,omitempty"`   //
+	PortalUser              string                                                        `json:"portalUser,omitempty"`              //
+	IDentityStore           string                                                        `json:"identityStore,omitempty"`           //
+	IDentityStoreID         string                                                        `json:"identityStoreId,omitempty"`         //
+	MdmAttributes           *RequestEndpointUpdateEndpointByIDERSEndPointMdmAttributes    `json:"mdmAttributes,omitempty"`           //
+	CustomAttributes        *RequestEndpointUpdateEndpointByIDERSEndPointCustomAttributes `json:"customAttributes,omitempty"`        //
+}
+
+type RequestEndpointUpdateEndpointByIDERSEndPointCustomAttributes struct {
+	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` //
 }
 
 type RequestEndpointUpdateEndpointByIDERSEndPointMdmAttributes struct {
@@ -252,19 +264,23 @@ type RequestEndpointRegisterEndpoint struct {
 }
 
 type RequestEndpointRegisterEndpointERSEndPoint struct {
-	ID                      string                                                   `json:"id,omitempty"`                      //
-	Name                    string                                                   `json:"name,omitempty"`                    //
-	Description             string                                                   `json:"description,omitempty"`             //
-	Mac                     string                                                   `json:"mac,omitempty"`                     //
-	ProfileID               string                                                   `json:"profileId,omitempty"`               //
-	StaticProfileAssignment *bool                                                    `json:"staticProfileAssignment,omitempty"` //
-	GroupID                 string                                                   `json:"groupId,omitempty"`                 //
-	StaticGroupAssignment   *bool                                                    `json:"staticGroupAssignment,omitempty"`   //
-	PortalUser              string                                                   `json:"portalUser,omitempty"`              //
-	IDentityStore           string                                                   `json:"identityStore,omitempty"`           //
-	IDentityStoreID         string                                                   `json:"identityStoreId,omitempty"`         //
-	MdmAttributes           *RequestEndpointRegisterEndpointERSEndPointMdmAttributes `json:"mdmAttributes,omitempty"`           //
-	CustomAttributes        *map[string]interface{}                                  `json:"customAttributes,omitempty"`        //
+	ID                      string                                                      `json:"id,omitempty"`                      //
+	Name                    string                                                      `json:"name,omitempty"`                    //
+	Description             string                                                      `json:"description,omitempty"`             //
+	Mac                     string                                                      `json:"mac,omitempty"`                     //
+	ProfileID               string                                                      `json:"profileId,omitempty"`               //
+	StaticProfileAssignment *bool                                                       `json:"staticProfileAssignment,omitempty"` //
+	GroupID                 string                                                      `json:"groupId,omitempty"`                 //
+	StaticGroupAssignment   *bool                                                       `json:"staticGroupAssignment,omitempty"`   //
+	PortalUser              string                                                      `json:"portalUser,omitempty"`              //
+	IDentityStore           string                                                      `json:"identityStore,omitempty"`           //
+	IDentityStoreID         string                                                      `json:"identityStoreId,omitempty"`         //
+	MdmAttributes           *RequestEndpointRegisterEndpointERSEndPointMdmAttributes    `json:"mdmAttributes,omitempty"`           //
+	CustomAttributes        *RequestEndpointRegisterEndpointERSEndPointCustomAttributes `json:"customAttributes,omitempty"`        //
+}
+
+type RequestEndpointRegisterEndpointERSEndPointCustomAttributes struct {
+	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` //
 }
 
 type RequestEndpointRegisterEndpointERSEndPointMdmAttributes struct {
@@ -288,18 +304,22 @@ type RequestEndpointCreateEndpoint struct {
 }
 
 type RequestEndpointCreateEndpointERSEndPoint struct {
-	Name                    string                                                 `json:"name,omitempty"`                    //
-	Description             string                                                 `json:"description,omitempty"`             //
-	Mac                     string                                                 `json:"mac,omitempty"`                     //
-	ProfileID               string                                                 `json:"profileId,omitempty"`               //
-	StaticProfileAssignment *bool                                                  `json:"staticProfileAssignment,omitempty"` //
-	GroupID                 string                                                 `json:"groupId,omitempty"`                 //
-	StaticGroupAssignment   *bool                                                  `json:"staticGroupAssignment,omitempty"`   //
-	PortalUser              string                                                 `json:"portalUser,omitempty"`              //
-	IDentityStore           string                                                 `json:"identityStore,omitempty"`           //
-	IDentityStoreID         string                                                 `json:"identityStoreId,omitempty"`         //
-	MdmAttributes           *RequestEndpointCreateEndpointERSEndPointMdmAttributes `json:"mdmAttributes,omitempty"`           //
-	CustomAttributes        *map[string]interface{}                                `json:"customAttributes,omitempty"`        //
+	Name                    string                                                    `json:"name,omitempty"`                    //
+	Description             string                                                    `json:"description,omitempty"`             //
+	Mac                     string                                                    `json:"mac,omitempty"`                     //
+	ProfileID               string                                                    `json:"profileId,omitempty"`               //
+	StaticProfileAssignment *bool                                                     `json:"staticProfileAssignment,omitempty"` //
+	GroupID                 string                                                    `json:"groupId,omitempty"`                 //
+	StaticGroupAssignment   *bool                                                     `json:"staticGroupAssignment,omitempty"`   //
+	PortalUser              string                                                    `json:"portalUser,omitempty"`              //
+	IDentityStore           string                                                    `json:"identityStore,omitempty"`           //
+	IDentityStoreID         string                                                    `json:"identityStoreId,omitempty"`         //
+	MdmAttributes           *RequestEndpointCreateEndpointERSEndPointMdmAttributes    `json:"mdmAttributes,omitempty"`           //
+	CustomAttributes        *RequestEndpointCreateEndpointERSEndPointCustomAttributes `json:"customAttributes,omitempty"`        //
+}
+
+type RequestEndpointCreateEndpointERSEndPointCustomAttributes struct {
+	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` //
 }
 
 type RequestEndpointCreateEndpointERSEndPointMdmAttributes struct {
