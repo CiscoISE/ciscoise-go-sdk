@@ -44,14 +44,14 @@ type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettings struct {
 }
 
 type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsPortalSettings struct {
-	HTTPSPort             *int   `json:"httpsPort,omitempty"`             // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
-	AllowedInterfaces     string `json:"allowedInterfaces,omitempty"`     // Interfaces that the portal will be reachable on. Allowed values: - eth0 - eth1 - eth2 - eth3 - eth4 - eth5 - bond0 - bond1 - bond2
-	CertificateGroupTag   string `json:"certificateGroupTag,omitempty"`   // Logical name of the x.509 server certificate that will be used for the portal
-	EndpointIDentityGroup string `json:"endpointIdentityGroup,omitempty"` // Unique Id of the endpoint identity group where user's devices will be added. Used only in Hotspot Portal
-	CoaType               string `json:"coaType,omitempty"`               // Allowed Values: - COAREAUTHENTICATE, - COATERMINATE
-	DisplayLang           string `json:"displayLang,omitempty"`           // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
-	FallbackLanguage      string `json:"fallbackLanguage,omitempty"`      // Used when displayLang = USEBROWSERLOCALE
-	AlwaysUsedLanguage    string `json:"alwaysUsedLanguage,omitempty"`    // Used when displayLang = ALWAYSUSE
+	HTTPSPort             *int     `json:"httpsPort,omitempty"`             // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
+	AllowedInterfaces     []string `json:"allowedInterfaces,omitempty"`     // Interfaces that the portal will be reachable on. Allowed values: - eth0 - eth1 - eth2 - eth3 - eth4 - eth5 - bond0 - bond1 - bond2
+	CertificateGroupTag   string   `json:"certificateGroupTag,omitempty"`   // Logical name of the x.509 server certificate that will be used for the portal
+	EndpointIDentityGroup string   `json:"endpointIdentityGroup,omitempty"` // Unique Id of the endpoint identity group where user's devices will be added. Used only in Hotspot Portal
+	CoaType               string   `json:"coaType,omitempty"`               // Allowed Values: - COAREAUTHENTICATE, - COATERMINATE
+	DisplayLang           string   `json:"displayLang,omitempty"`           // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
+	FallbackLanguage      string   `json:"fallbackLanguage,omitempty"`      // Used when displayLang = USEBROWSERLOCALE
+	AlwaysUsedLanguage    string   `json:"alwaysUsedLanguage,omitempty"`    // Used when displayLang = ALWAYSUSE
 }
 
 type ResponseHotspotPortalGetHotspotPortalByIDHotspotPortalSettingsAupSettings struct {
@@ -244,14 +244,14 @@ type RequestHotspotPortalUpdateHotspotPortalByIDHotspotPortalSettings struct {
 }
 
 type RequestHotspotPortalUpdateHotspotPortalByIDHotspotPortalSettingsPortalSettings struct {
-	HTTPSPort             *int   `json:"httpsPort,omitempty"`             // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
-	AllowedInterfaces     string `json:"allowedInterfaces,omitempty"`     // Interfaces that the portal will be reachable on. Allowed values: - eth0 - eth1 - eth2 - eth3 - eth4 - eth5 - bond0 - bond1 - bond2
-	CertificateGroupTag   string `json:"certificateGroupTag,omitempty"`   // Logical name of the x.509 server certificate that will be used for the portal
-	EndpointIDentityGroup string `json:"endpointIdentityGroup,omitempty"` // Unique Id of the endpoint identity group where user's devices will be added. Used only in Hotspot Portal
-	CoaType               string `json:"coaType,omitempty"`               // Allowed Values: - COAREAUTHENTICATE, - COATERMINATE
-	DisplayLang           string `json:"displayLang,omitempty"`           // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
-	FallbackLanguage      string `json:"fallbackLanguage,omitempty"`      // Used when displayLang = USEBROWSERLOCALE
-	AlwaysUsedLanguage    string `json:"alwaysUsedLanguage,omitempty"`    // Used when displayLang = ALWAYSUSE
+	HTTPSPort             *int     `json:"httpsPort,omitempty"`             // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
+	AllowedInterfaces     []string `json:"allowedInterfaces,omitempty"`     // Interfaces that the portal will be reachable on. Allowed values: - eth0 - eth1 - eth2 - eth3 - eth4 - eth5 - bond0 - bond1 - bond2
+	CertificateGroupTag   string   `json:"certificateGroupTag,omitempty"`   // Logical name of the x.509 server certificate that will be used for the portal
+	EndpointIDentityGroup string   `json:"endpointIdentityGroup,omitempty"` // Unique Id of the endpoint identity group where user's devices will be added. Used only in Hotspot Portal
+	CoaType               string   `json:"coaType,omitempty"`               // Allowed Values: - COAREAUTHENTICATE, - COATERMINATE
+	DisplayLang           string   `json:"displayLang,omitempty"`           // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
+	FallbackLanguage      string   `json:"fallbackLanguage,omitempty"`      // Used when displayLang = USEBROWSERLOCALE
+	AlwaysUsedLanguage    string   `json:"alwaysUsedLanguage,omitempty"`    // Used when displayLang = ALWAYSUSE
 }
 
 type RequestHotspotPortalUpdateHotspotPortalByIDHotspotPortalSettingsAupSettings struct {
@@ -368,14 +368,14 @@ type RequestHotspotPortalCreateHotspotPortalHotspotPortalSettings struct {
 }
 
 type RequestHotspotPortalCreateHotspotPortalHotspotPortalSettingsPortalSettings struct {
-	HTTPSPort             *int   `json:"httpsPort,omitempty"`             // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
-	AllowedInterfaces     string `json:"allowedInterfaces,omitempty"`     // Interfaces that the portal will be reachable on. Allowed values: - eth0 - eth1 - eth2 - eth3 - eth4 - eth5 - bond0 - bond1 - bond2
-	CertificateGroupTag   string `json:"certificateGroupTag,omitempty"`   // Logical name of the x.509 server certificate that will be used for the portal
-	EndpointIDentityGroup string `json:"endpointIdentityGroup,omitempty"` // Unique Id of the endpoint identity group where user's devices will be added. Used only in Hotspot Portal
-	CoaType               string `json:"coaType,omitempty"`               // Allowed Values: - COAREAUTHENTICATE, - COATERMINATE
-	DisplayLang           string `json:"displayLang,omitempty"`           // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
-	FallbackLanguage      string `json:"fallbackLanguage,omitempty"`      // Used when displayLang = USEBROWSERLOCALE
-	AlwaysUsedLanguage    string `json:"alwaysUsedLanguage,omitempty"`    // Used when displayLang = ALWAYSUSE
+	HTTPSPort             *int     `json:"httpsPort,omitempty"`             // The port number that the allowed interfaces will listen on. Range from 8000 to 8999
+	AllowedInterfaces     []string `json:"allowedInterfaces,omitempty"`     // Interfaces that the portal will be reachable on. Allowed values: - eth0 - eth1 - eth2 - eth3 - eth4 - eth5 - bond0 - bond1 - bond2
+	CertificateGroupTag   string   `json:"certificateGroupTag,omitempty"`   // Logical name of the x.509 server certificate that will be used for the portal
+	EndpointIDentityGroup string   `json:"endpointIdentityGroup,omitempty"` // Unique Id of the endpoint identity group where user's devices will be added. Used only in Hotspot Portal
+	CoaType               string   `json:"coaType,omitempty"`               // Allowed Values: - COAREAUTHENTICATE, - COATERMINATE
+	DisplayLang           string   `json:"displayLang,omitempty"`           // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
+	FallbackLanguage      string   `json:"fallbackLanguage,omitempty"`      // Used when displayLang = USEBROWSERLOCALE
+	AlwaysUsedLanguage    string   `json:"alwaysUsedLanguage,omitempty"`    // Used when displayLang = ALWAYSUSE
 }
 
 type RequestHotspotPortalCreateHotspotPortalHotspotPortalSettingsAupSettings struct {
