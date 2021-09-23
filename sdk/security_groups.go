@@ -28,7 +28,7 @@ type ResponseSecurityGroupsGetSecurityGroupByIDSgt struct {
 	Name            string                                             `json:"name,omitempty"`            //
 	Description     string                                             `json:"description,omitempty"`     //
 	Value           *int                                               `json:"value,omitempty"`           // Value range: 2 ot 65519 or -1 to auto-generate
-	GenerationID    *int                                               `json:"generationId,omitempty"`    //
+	GenerationID    string                                             `json:"generationId,omitempty"`    //
 	IsReadOnly      *bool                                              `json:"isReadOnly,omitempty"`      //
 	PropogateToAPIc *bool                                              `json:"propogateToApic,omitempty"` //
 	DefaultSgACLs   *[]interface{}                                     `json:"defaultSGACLs,omitempty"`   //
@@ -143,7 +143,7 @@ type RequestSecurityGroupsUpdateSecurityGroupByIDSgt struct {
 	Name            string         `json:"name,omitempty"`            //
 	Description     string         `json:"description,omitempty"`     //
 	Value           *int           `json:"value,omitempty"`           // Value range: 2 ot 65519 or -1 to auto-generate
-	GenerationID    *int           `json:"generationId,omitempty"`    //
+	GenerationID    string         `json:"generationId,omitempty"`    //
 	IsReadOnly      *bool          `json:"isReadOnly,omitempty"`      //
 	PropogateToAPIc *bool          `json:"propogateToApic,omitempty"` //
 	DefaultSgACLs   *[]interface{} `json:"defaultSGACLs,omitempty"`   //
@@ -157,7 +157,7 @@ type RequestSecurityGroupsCreateSecurityGroupSgt struct {
 	Name            string         `json:"name,omitempty"`            //
 	Description     string         `json:"description,omitempty"`     //
 	Value           *int           `json:"value,omitempty"`           // Value range: 2 ot 65519 or -1 to auto-generate
-	GenerationID    *int           `json:"generationId,omitempty"`    //
+	GenerationID    string         `json:"generationId,omitempty"`    //
 	IsReadOnly      *bool          `json:"isReadOnly,omitempty"`      //
 	PropogateToAPIc *bool          `json:"propogateToApic,omitempty"` //
 	DefaultSgACLs   *[]interface{} `json:"defaultSGACLs,omitempty"`   //
