@@ -53,7 +53,7 @@ type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsPortalSetting
 	IDleTimeout          *int     `json:"idleTimeout,omitempty"`          //
 	DisplayLang          string   `json:"displayLang,omitempty"`          // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
 	FallbackLanguage     string   `json:"fallbackLanguage,omitempty"`     // Used when displayLang = USEBROWSERLOCALE
-	AvailableSSIDs       string   `json:"availableSsids,omitempty"`       // Names of the SSIDs available for assignment to guest users by sponsors
+	AvailableSSIDs       []string `json:"availableSsids,omitempty"`       // Names of the SSIDs available for assignment to guest users by sponsors
 }
 
 type ResponseSponsorPortalGetSponsorPortalByIDSponsorPortalSettingsLoginPageSettings struct {
@@ -264,7 +264,7 @@ type RequestSponsorPortalUpdateSponsorPortalByIDSponsorPortalSettingsPortalSetti
 	IDleTimeout          *int     `json:"idleTimeout,omitempty"`          //
 	DisplayLang          string   `json:"displayLang,omitempty"`          // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
 	FallbackLanguage     string   `json:"fallbackLanguage,omitempty"`     // Used when displayLang = USEBROWSERLOCALE
-	AvailableSSIDs       string   `json:"availableSsids,omitempty"`       // Names of the SSIDs available for assignment to guest users by sponsors
+	AvailableSSIDs       []string `json:"availableSsids,omitempty"`       // Names of the SSIDs available for assignment to guest users by sponsors
 }
 
 type RequestSponsorPortalUpdateSponsorPortalByIDSponsorPortalSettingsLoginPageSettings struct {
@@ -399,7 +399,7 @@ type RequestSponsorPortalCreateSponsorPortalSponsorPortalSettingsPortalSettings 
 	IDleTimeout          *int     `json:"idleTimeout,omitempty"`          //
 	DisplayLang          string   `json:"displayLang,omitempty"`          // Allowed values: - USEBROWSERLOCALE, - ALWAYSUSE
 	FallbackLanguage     string   `json:"fallbackLanguage,omitempty"`     // Used when displayLang = USEBROWSERLOCALE
-	AvailableSSIDs       string   `json:"availableSsids,omitempty"`       // Names of the SSIDs available for assignment to guest users by sponsors
+	AvailableSSIDs       []string `json:"availableSsids,omitempty"`       // Names of the SSIDs available for assignment to guest users by sponsors
 }
 
 type RequestSponsorPortalCreateSponsorPortalSponsorPortalSettingsLoginPageSettings struct {
