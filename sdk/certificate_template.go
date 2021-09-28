@@ -100,7 +100,7 @@ type ResponseCertificateTemplateGetVersionVersionInfoLink struct {
 */
 func (s *CertificateTemplateService) GetCertificateTemplateByName(name string) (*ResponseCertificateTemplateGetCertificateTemplateByName, *resty.Response, error) {
 	setHost(s.client, "_ers")
-	path := "/ers/config/certificatetemplate/{name}"
+	path := "/ers/config/certificatetemplate/name/{name}"
 	path = strings.Replace(path, "{name}", fmt.Sprintf("%v", name), -1)
 
 	setCSRFToken(s.client)
