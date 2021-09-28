@@ -1,10 +1,10 @@
 package isegosdk
 
 import (
-	"fmt"
-	"strings"
 	"encoding/xml"
+	"fmt"
 	"github.com/go-resty/resty/v2"
+	"strings"
 )
 
 type MiscService service
