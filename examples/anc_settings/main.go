@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/CiscoISE/ciscoise-go-sdk/sdk"
 	"os"
+
+	isegosdk "github.com/CiscoISE/ciscoise-go-sdk/sdk"
 )
 
 func main() {
@@ -24,27 +25,29 @@ func main() {
 		fmt.Println(err)
 	}
 
-	fmt.Println("-----------------------")
-	fmt.Println("ID: ", ACIbstt.AciSettings.ID)
-	fmt.Println("EnableAci: ", ACIbstt.AciSettings.EnableAci)
-	fmt.Println("IPAddressHostName: ", ACIbstt.AciSettings.IPAddressHostName)
-	fmt.Println("AdminName: ", ACIbstt.AciSettings.AdminName)
-	fmt.Println("AdminPassword: ", ACIbstt.AciSettings.AdminPassword)
-	fmt.Println("Aciipaddress: ", ACIbstt.AciSettings.Aciipaddress)
-	fmt.Println("AciuserName: ", ACIbstt.AciSettings.AciuserName)
-	fmt.Println("Acipassword: ", ACIbstt.AciSettings.Acipassword)
-	fmt.Println("TenantName: ", ACIbstt.AciSettings.TenantName)
-	fmt.Println("L3RouteNetwork: ", ACIbstt.AciSettings.L3RouteNetwork)
-	fmt.Println("SuffixToEpg: ", ACIbstt.AciSettings.SuffixToEpg)
-	fmt.Println("SuffixToSgt: ", ACIbstt.AciSettings.SuffixToSgt)
-	fmt.Println("AllSxpDomain: ", ACIbstt.AciSettings.AllSxpDomain)
-	fmt.Println("SpecificSxpDomain: ", ACIbstt.AciSettings.SpecificSxpDomain)
-	fmt.Println("SpecifixSxpDomainList: ", ACIbstt.AciSettings.SpecifixSxpDomainList)
-	fmt.Println("EnableDataPlane: ", ACIbstt.AciSettings.EnableDataPlane)
-	fmt.Println("UntaggedPacketIepgName: ", ACIbstt.AciSettings.UntaggedPacketIepgName)
-	fmt.Println("DefaultSgtName: ", ACIbstt.AciSettings.DefaultSgtName)
-	fmt.Println("EnableElementsLimit: ", ACIbstt.AciSettings.EnableElementsLimit)
-	fmt.Println("MaxNumIepgFromAci: ", ACIbstt.AciSettings.MaxNumIepgFromAci)
-	fmt.Println("Aci50: ", ACIbstt.AciSettings.Aci50)
-	fmt.Println("Aci51: ", ACIbstt.AciSettings.Aci51)
+	if ACIbstt != nil && ACIbstt.AciSettings != nil {
+		fmt.Println("-----------------------")
+		fmt.Println("ID: ", ACIbstt.AciSettings.ID)
+		fmt.Println("EnableAci: ", ACIbstt.AciSettings.EnableAci)
+		fmt.Println("IPAddressHostName: ", ACIbstt.AciSettings.IPAddressHostName)
+		fmt.Println("AdminName: ", ACIbstt.AciSettings.AdminName)
+		fmt.Println("AdminPassword: ", ACIbstt.AciSettings.AdminPassword)
+		fmt.Println("Aciipaddress: ", ACIbstt.AciSettings.Aciipaddress)
+		fmt.Println("AciuserName: ", ACIbstt.AciSettings.AciuserName)
+		fmt.Println("Acipassword: ", ACIbstt.AciSettings.Acipassword)
+		fmt.Println("TenantName: ", ACIbstt.AciSettings.TenantName)
+		fmt.Println("L3RouteNetwork: ", ACIbstt.AciSettings.L3RouteNetwork)
+		fmt.Println("SuffixToEpg: ", ACIbstt.AciSettings.SuffixToEpg)
+		fmt.Println("SuffixToSgt: ", ACIbstt.AciSettings.SuffixToSgt)
+		fmt.Println("AllSxpDomain: ", ACIbstt.AciSettings.AllSxpDomain)
+		fmt.Println("SpecificSxpDomain: ", ACIbstt.AciSettings.SpecificSxpDomain)
+		fmt.Println("SpecifixSxpDomainList: ", ACIbstt.AciSettings.SpecifixSxpDomainList)
+		fmt.Println("EnableDataPlane: ", ACIbstt.AciSettings.EnableDataPlane)
+		fmt.Println("UntaggedPacketIepgName: ", ACIbstt.AciSettings.UntaggedPacketIepgName)
+		fmt.Println("DefaultSgtName: ", ACIbstt.AciSettings.DefaultSgtName)
+		fmt.Println("EnableElementsLimit: ", ACIbstt.AciSettings.EnableElementsLimit)
+		fmt.Println("MaxNumIepgFromAci: ", ACIbstt.AciSettings.MaxNumIepgFromAci)
+		fmt.Println("Aci50: ", ACIbstt.AciSettings.Aci50)
+		fmt.Println("Aci51: ", ACIbstt.AciSettings.Aci51)
+	}
 }

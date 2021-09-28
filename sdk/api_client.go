@@ -374,12 +374,34 @@ func NewClient() (*Client, error) {
 
 //NewClientWithOptions is the client with options passed with parameters
 func NewClientWithOptions(baseURL string, username string, password string, debug string, sslVerify string, useAPIGateway string, useCSRFToken string) (*Client, error) {
-	os.Setenv(ISE_BASE_URL, baseURL)
-	os.Setenv(ISE_USERNAME, username)
-	os.Setenv(ISE_PASSWORD, password)
-	os.Setenv(ISE_DEBUG, debug)
-	os.Setenv(ISE_SSL_VERIFY, sslVerify)
-	os.Setenv(ISE_USE_API_GATEWAY, useAPIGateway)
-	os.Setenv(ISE_USE_CSRF_TOKEN, useCSRFToken)
+	var err error
+	err = os.Setenv(ISE_BASE_URL, baseURL)
+	if err != nil {
+		return nil, err
+	}
+	err = os.Setenv(ISE_USERNAME, username)
+	if err != nil {
+		return nil, err
+	}
+	err = os.Setenv(ISE_PASSWORD, password)
+	if err != nil {
+		return nil, err
+	}
+	err = os.Setenv(ISE_DEBUG, debug)
+	if err != nil {
+		return nil, err
+	}
+	err = os.Setenv(ISE_SSL_VERIFY, sslVerify)
+	if err != nil {
+		return nil, err
+	}
+	err = os.Setenv(ISE_USE_API_GATEWAY, useAPIGateway)
+	if err != nil {
+		return nil, err
+	}
+	err = os.Setenv(ISE_USE_CSRF_TOKEN, useCSRFToken)
+	if err != nil {
+		return nil, err
+	}
 	return NewClient()
 }

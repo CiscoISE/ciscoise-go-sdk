@@ -24,7 +24,6 @@ type RequestClearThreatsAndVulnerabilitiesAccessSecret struct {
 	PeerNodeName string `json:"peerNodeName,omitempty"` //
 }
 
-
 //CreateAccount 🚧 AccountCreate
 /* 🚧 AccountCreate
 
