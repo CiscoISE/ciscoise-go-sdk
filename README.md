@@ -98,9 +98,11 @@ pols, _, err := Client.AncPolicy.GetAncPolicy(params)
 if err != nil {
 	fmt.Println(err)
 }
-for _, pol := range pols.SearchResult.Resources {
-	fmt.Printf("Policy ID: %s \n", pol.ID)
-	fmt.Printf("Policy Name: %s \n", pol.Name)
+if pols != nil && pols.SearchResult != nil && pols.SearchResult.Resources != nil {
+	for _, pol := range *pols.SearchResult.Resources {
+		fmt.Printf("Policy ID: %s \n", pol.ID)
+		fmt.Printf("Policy Name: %s \n", pol.Name)
+	}
 }
 
 // Delete policy by ID
