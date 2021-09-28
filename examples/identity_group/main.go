@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/CiscoISE/ciscoise-go-sdk/sdk"
 	"os"
+
+	isegosdk "github.com/CiscoISE/ciscoise-go-sdk/sdk"
 )
 
 func main() {
@@ -31,15 +32,17 @@ func main() {
 			os.Exit(1)
 		}
 
-		for ix, row := range result.SearchResult.Resources {
-			fmt.Printf("\n\telement [%d], page [%d]", ix+1, currentPage)
-			fmt.Println("\tID: ", row.ID)
-			fmt.Println("\tName: ", row.Name)
-			fmt.Println("\tDescription: ", row.Description)
-			fmt.Println("\t********************")
+		if result != nil && result.SearchResult != nil && result.SearchResult.Resources != nil {
+			for ix, row := range *result.SearchResult.Resources {
+				fmt.Printf("\n\telement [%d], page [%d]", ix+1, currentPage)
+				fmt.Println("\tID: ", row.ID)
+				fmt.Println("\tName: ", row.Name)
+				fmt.Println("\tDescription: ", row.Description)
+				fmt.Println("\t********************")
+			}
 		}
 
-		if result.SearchResult.NextPage == (isegosdk.ResponseIDentityGroupsGetIDentityGroupsSearchResultNextPage{}) {
+		if result == nil || result.SearchResult == nil || result.SearchResult.NextPage == nil || result.SearchResult.NextPage.Rel != "next" {
 			break
 		}
 		currentPage++

@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/CiscoISE/ciscoise-go-sdk/sdk"
 	"os"
+
+	isegosdk "github.com/CiscoISE/ciscoise-go-sdk/sdk"
 )
 
 func main() {
@@ -24,10 +25,12 @@ func main() {
 		fmt.Println(err)
 	}
 
-	for _, row := range version.OperationResult.ResultValue {
-		fmt.Println("-------------")
-		fmt.Println("Name: ", row.Name)
-		fmt.Println("Value: ", row.Value)
-		fmt.Println("-------------")
+	if version != nil && version.OperationResult != nil && version.OperationResult.ResultValue != nil {
+		for _, row := range *version.OperationResult.ResultValue {
+			fmt.Println("-------------")
+			fmt.Println("Name: ", row.Name)
+			fmt.Println("Value: ", row.Value)
+			fmt.Println("-------------")
+		}
 	}
 }

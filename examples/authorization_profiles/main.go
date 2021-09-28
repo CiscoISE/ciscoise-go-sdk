@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/CiscoISE/ciscoise-go-sdk/sdk"
 	"os"
+
+	isegosdk "github.com/CiscoISE/ciscoise-go-sdk/sdk"
 )
 
 func main() {
@@ -28,11 +29,13 @@ func main() {
 		fmt.Println(err)
 	}
 
-	for _, row := range profiles.SearchResult.Resources {
-		fmt.Println("-------------")
-		fmt.Println("ID: ", row.ID)
-		fmt.Println("Name: ", row.Name)
-		fmt.Println("Description: ", row.Description)
+	if profiles != nil && profiles.SearchResult != nil && profiles.SearchResult.Resources != nil {
+		for _, row := range *profiles.SearchResult.Resources {
+			fmt.Println("-------------")
+			fmt.Println("ID: ", row.ID)
+			fmt.Println("Name: ", row.Name)
+			fmt.Println("Description: ", row.Description)
+		}
 	}
 	fmt.Println("-------------")
 	falseVal := false
@@ -66,34 +69,35 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	newProfileID := profByID.AuthorizationProfile.ID
-	fmt.Println("-------------")
-	fmt.Println("ID: ", profByID.AuthorizationProfile.ID)
-	fmt.Println("Name: ", profByID.AuthorizationProfile.Name)
-	fmt.Println("Description: ", profByID.AuthorizationProfile.Description)
-	fmt.Println("AdvancedAttributes: ", profByID.AuthorizationProfile.AdvancedAttributes)
-	fmt.Println("AccessType: ", profByID.AuthorizationProfile.AccessType)
-	fmt.Println("AuthzProfileType: ", profByID.AuthorizationProfile.AuthzProfileType)
-	fmt.Println("VLAN: ", profByID.AuthorizationProfile.VLAN)
-	fmt.Println("Reauth: ", profByID.AuthorizationProfile.Reauth)
-	fmt.Println("WebRedirection: ", profByID.AuthorizationProfile.WebRedirection)
-	fmt.Println("TrackMovement: ", profByID.AuthorizationProfile.TrackMovement)
-	fmt.Println("AgentlessPosture: ", profByID.AuthorizationProfile.AgentlessPosture)
-	fmt.Println("ServiceTemplate: ", profByID.AuthorizationProfile.ServiceTemplate)
-	fmt.Println("EasywiredSessionCandidate: ", profByID.AuthorizationProfile.EasywiredSessionCandidate)
-	fmt.Println("DaclName: ", profByID.AuthorizationProfile.DaclName)
-	fmt.Println("VoiceDomainPermission: ", profByID.AuthorizationProfile.VoiceDomainPermission)
-	fmt.Println("Neat: ", profByID.AuthorizationProfile.Neat)
-	fmt.Println("WebAuth: ", profByID.AuthorizationProfile.WebAuth)
-	fmt.Println("ProfileName: ", profByID.AuthorizationProfile.ProfileName)
-	fmt.Println("Link: ", profByID.AuthorizationProfile.Link)
-	fmt.Println("-------------")
+	if profByID != nil && profByID.AuthorizationProfile != nil {
+		newProfileID := profByID.AuthorizationProfile.ID
+		fmt.Println("-------------")
+		fmt.Println("ID: ", profByID.AuthorizationProfile.ID)
+		fmt.Println("Name: ", profByID.AuthorizationProfile.Name)
+		fmt.Println("Description: ", profByID.AuthorizationProfile.Description)
+		fmt.Println("AdvancedAttributes: ", profByID.AuthorizationProfile.AdvancedAttributes)
+		fmt.Println("AccessType: ", profByID.AuthorizationProfile.AccessType)
+		fmt.Println("AuthzProfileType: ", profByID.AuthorizationProfile.AuthzProfileType)
+		fmt.Println("VLAN: ", profByID.AuthorizationProfile.VLAN)
+		fmt.Println("Reauth: ", profByID.AuthorizationProfile.Reauth)
+		fmt.Println("WebRedirection: ", profByID.AuthorizationProfile.WebRedirection)
+		fmt.Println("TrackMovement: ", profByID.AuthorizationProfile.TrackMovement)
+		fmt.Println("AgentlessPosture: ", profByID.AuthorizationProfile.AgentlessPosture)
+		fmt.Println("ServiceTemplate: ", profByID.AuthorizationProfile.ServiceTemplate)
+		fmt.Println("EasywiredSessionCandidate: ", profByID.AuthorizationProfile.EasywiredSessionCandidate)
+		fmt.Println("DaclName: ", profByID.AuthorizationProfile.DaclName)
+		fmt.Println("VoiceDomainPermission: ", profByID.AuthorizationProfile.VoiceDomainPermission)
+		fmt.Println("Neat: ", profByID.AuthorizationProfile.Neat)
+		fmt.Println("WebAuth: ", profByID.AuthorizationProfile.WebAuth)
+		fmt.Println("ProfileName: ", profByID.AuthorizationProfile.ProfileName)
+		fmt.Println("Link: ", profByID.AuthorizationProfile.Link)
+		fmt.Println("-------------")
 
-	fmt.Println("executing DeleteAuthorizationProfileByID...")
-	_, err = Client.AuthorizationProfile.DeleteAuthorizationProfileByID(newProfileID)
+		fmt.Println("executing DeleteAuthorizationProfileByID...")
+		_, err = Client.AuthorizationProfile.DeleteAuthorizationProfileByID(newProfileID)
 
-	if err != nil {
-		fmt.Println(err)
+		if err != nil {
+			fmt.Println(err)
+		}
 	}
-
 }

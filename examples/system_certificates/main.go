@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/CiscoISE/ciscoise-go-sdk/sdk"
 	"os"
+
+	isegosdk "github.com/CiscoISE/ciscoise-go-sdk/sdk"
 )
 
 func main() {
@@ -31,19 +32,21 @@ func main() {
 		Export: "CERTIFICATE",
 	}
 
-	for _, row := range result.Response {
-		fmt.Println("---------------")
-		data.ID = row.ID
-		fmt.Println("executing ExportSystemCertificate... ", row.ID)
-		cert, _, err := Client.Certificates.ExportSystemCertificate(data)
-		if err != nil {
-			fmt.Println(err)
-			os.Exit(1)
-		}
-		path := "/home/carguello/Desktop/" //path to save the certificate e.g., "/home/user/foo". Setting empty "" will save the certificate in the current directory.
-		err = cert.SaveDownload(path)
-		if err != nil {
-			fmt.Println(err)
+	if result != nil && result.Response != nil {
+		for _, row := range *result.Response {
+			fmt.Println("---------------")
+			data.ID = row.ID
+			fmt.Println("executing ExportSystemCertificate... ", row.ID)
+			cert, _, err := Client.Certificates.ExportSystemCertificate(data)
+			if err != nil {
+				fmt.Println(err)
+				os.Exit(1)
+			}
+			path := "/tmp" //path to save the certificate e.g., "/home/user/foo". Setting empty "" will save the certificate in the current directory.
+			err = cert.SaveDownload(path)
+			if err != nil {
+				fmt.Println(err)
+			}
 		}
 	}
 }

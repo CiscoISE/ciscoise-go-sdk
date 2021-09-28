@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/CiscoISE/ciscoise-go-sdk/sdk"
 	"os"
+
+	isegosdk "github.com/CiscoISE/ciscoise-go-sdk/sdk"
 )
 
 func main() {
@@ -46,11 +47,13 @@ func main() {
 		fmt.Println(err)
 	}
 
-	for _, pol := range pols.SearchResult.Resources {
-		fmt.Println("-------------")
-		fmt.Printf("Policy ID: %s \n", pol.ID)
-		fmt.Printf("Policy Name: %s \n", pol.Name)
-		fmt.Println("-------------")
+	if pols != nil && pols.SearchResult != nil && pols.SearchResult.Resources != nil {
+		for _, pol := range *pols.SearchResult.Resources {
+			fmt.Println("-------------")
+			fmt.Printf("Policy ID: %s \n", pol.ID)
+			fmt.Printf("Policy Name: %s \n", pol.Name)
+			fmt.Println("-------------")
+		}
 	}
 
 	// Update policy by ID
@@ -70,12 +73,14 @@ func main() {
 		fmt.Println(err)
 	}
 	fmt.Println("changes")
-	for _, row := range updateResult.UpdatedFieldsList.UpdatedField {
-		fmt.Println("-------------")
-		fmt.Println("Field:", row.Field)
-		fmt.Println("OldValue:", row.OldValue)
-		fmt.Println("NewValue:", row.NewValue)
-		fmt.Println("-------------")
+	if updateResult != nil && updateResult.UpdatedFieldsList != nil && updateResult.UpdatedFieldsList.UpdatedField != nil {
+		for _, row := range *updateResult.UpdatedFieldsList.UpdatedField {
+			fmt.Println("-------------")
+			fmt.Println("Field:", row.Field)
+			fmt.Println("OldValue:", row.OldValue)
+			fmt.Println("NewValue:", row.NewValue)
+			fmt.Println("-------------")
+		}
 	}
 
 	// Delete policy by ID
