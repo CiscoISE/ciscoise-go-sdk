@@ -142,13 +142,37 @@ type ResponseCertificatesDeleteCsrByIDResponse struct {
 }
 
 type ResponseCertificatesRegenerateIseRootCa struct {
-	Message string `json:"message,omitempty"` //
-	Status  string `json:"status,omitempty"`  //
+	Response *ResponseCertificatesRegenerateIseRootCaResponse `json:"response,omitempty"` //
+	Version  string                                           `json:"version,omitempty"`  //
+}
+
+type ResponseCertificatesRegenerateIseRootCaResponse struct {
+	ID      string                                               `json:"id,omitempty"`      // Id which can be used to track status of ISE root CA chain regeneration
+	Link    *ResponseCertificatesRegenerateIseRootCaResponseLink `json:"link,omitempty"`    //
+	Message string                                               `json:"message,omitempty"` //
+}
+
+type ResponseCertificatesRegenerateIseRootCaResponseLink struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
 }
 
 type ResponseCertificatesRenewCertificates struct {
-	Message string `json:"message,omitempty"` //
-	Status  string `json:"status,omitempty"`  //
+	Response *ResponseCertificatesRenewCertificatesResponse `json:"response,omitempty"` //
+	Version  string                                         `json:"version,omitempty"`  //
+}
+
+type ResponseCertificatesRenewCertificatesResponse struct {
+	ID      string                                             `json:"id,omitempty"`      // Id which can be used to track status of certificate regeneration
+	Link    *ResponseCertificatesRenewCertificatesResponseLink `json:"link,omitempty"`    //
+	Message string                                             `json:"message,omitempty"` //
+}
+
+type ResponseCertificatesRenewCertificatesResponseLink struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
 }
 
 type ResponseCertificatesBindCsr struct {

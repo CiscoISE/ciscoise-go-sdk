@@ -24,7 +24,7 @@ type ResponseSupportBundleStatusGetSupportBundleStatusByIDSBStatus struct {
 	Name        string                                                             `json:"name,omitempty"`        //
 	Description string                                                             `json:"description,omitempty"` //
 	FileName    string                                                             `json:"fileName,omitempty"`    //
-	FileSize    string                                                             `json:"fileSize,omitempty"`    //
+	FileSize    *int                                                               `json:"fileSize,omitempty"`    //
 	HostName    string                                                             `json:"hostName,omitempty"`    //
 	Message     string                                                             `json:"message,omitempty"`     //
 	StartTime   string                                                             `json:"startTime,omitempty"`   //
