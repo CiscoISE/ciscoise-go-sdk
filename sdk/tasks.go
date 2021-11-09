@@ -10,25 +10,25 @@ import (
 type TasksService service
 
 type ResponseTasksGetTaskStatus struct {
-	ID              string         `json:"id,omitempty"`              //
-	ExecutionStatus string         `json:"executionStatus,omitempty"` //
-	ModuleType      string         `json:"moduleType,omitempty"`      //
-	StartTime       string         `json:"startTime,omitempty"`       //
-	ResourcesCount  *int           `json:"resourcesCount,omitempty"`  //
-	SuccessCount    *int           `json:"successCount,omitempty"`    //
-	FailCount       *int           `json:"failCount,omitempty"`       //
 	DetailStatus    *[]interface{} `json:"detailStatus,omitempty"`    //
+	ExecutionStatus string         `json:"executionStatus,omitempty"` //
+	FailCount       *int           `json:"failCount,omitempty"`       //
+	ID              string         `json:"id,omitempty"`              //
+	ModuleType      string         `json:"moduleType,omitempty"`      //
+	ResourcesCount  *int           `json:"resourcesCount,omitempty"`  //
+	StartTime       string         `json:"startTime,omitempty"`       //
+	SuccessCount    *int           `json:"successCount,omitempty"`    //
 }
 
 type ResponseTasksGetTaskStatusByID struct {
-	ID              string         `json:"id,omitempty"`              //
-	ExecutionStatus string         `json:"executionStatus,omitempty"` //
-	ModuleType      string         `json:"moduleType,omitempty"`      //
-	StartTime       string         `json:"startTime,omitempty"`       //
-	ResourcesCount  *int           `json:"resourcesCount,omitempty"`  //
-	SuccessCount    *int           `json:"successCount,omitempty"`    //
-	FailCount       *int           `json:"failCount,omitempty"`       //
 	DetailStatus    *[]interface{} `json:"detailStatus,omitempty"`    //
+	ExecutionStatus string         `json:"executionStatus,omitempty"` //
+	FailCount       *int           `json:"failCount,omitempty"`       //
+	ID              string         `json:"id,omitempty"`              //
+	ModuleType      string         `json:"moduleType,omitempty"`      //
+	ResourcesCount  *int           `json:"resourcesCount,omitempty"`  //
+	StartTime       string         `json:"startTime,omitempty"`       //
+	SuccessCount    *int           `json:"successCount,omitempty"`    //
 }
 
 //GetTaskStatus get all task status

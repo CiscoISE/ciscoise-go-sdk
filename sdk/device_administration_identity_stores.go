@@ -15,7 +15,7 @@ type ResponseDeviceAdministrationIDentityStoresGetDeviceAdminIDentityStores stru
 
 //GetDeviceAdminIDentityStores Device Admin - Return list of identity stores for authentication.
 /* Device Admin Return list of identity stores for authentication.
-(Other CRUD APIs available throught ERS)
+(Other CRUD APIs available through ERS)
 
 */
 func (s *DeviceAdministrationIDentityStoresService) GetDeviceAdminIDentityStores() (*[]ResponseDeviceAdministrationIDentityStoresGetDeviceAdminIDentityStores, *resty.Response, error) {

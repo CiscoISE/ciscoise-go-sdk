@@ -53,10 +53,6 @@ type ResponseEndpointGetEndpointByNameERSEndPoint struct {
 	Link                    *ResponseEndpointGetEndpointByNameERSEndPointLink             `json:"link,omitempty"`                    //
 }
 
-type ResponseEndpointGetEndpointByNameERSEndPointCustomAttributes struct {
-	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` //
-}
-
 type ResponseEndpointGetEndpointByNameERSEndPointMdmAttributes struct {
 	MdmServerName       string `json:"mdmServerName,omitempty"`       //
 	MdmReachable        *bool  `json:"mdmReachable,omitempty"`        //
@@ -71,6 +67,10 @@ type ResponseEndpointGetEndpointByNameERSEndPointMdmAttributes struct {
 	MdmJailBroken       *bool  `json:"mdmJailBroken,omitempty"`       //
 	MdmIMEI             string `json:"mdmIMEI,omitempty"`             //
 	MdmPhoneNumber      string `json:"mdmPhoneNumber,omitempty"`      //
+}
+
+type ResponseEndpointGetEndpointByNameERSEndPointCustomAttributes struct {
+	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` // Key value map
 }
 
 type ResponseEndpointGetEndpointByNameERSEndPointLink struct {
@@ -100,10 +100,6 @@ type ResponseEndpointGetEndpointByIDERSEndPoint struct {
 	Link                    *ResponseEndpointGetEndpointByIDERSEndPointLink             `json:"link,omitempty"`                    //
 }
 
-type ResponseEndpointGetEndpointByIDERSEndPointCustomAttributes struct {
-	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` //
-}
-
 type ResponseEndpointGetEndpointByIDERSEndPointMdmAttributes struct {
 	MdmServerName       string `json:"mdmServerName,omitempty"`       //
 	MdmReachable        *bool  `json:"mdmReachable,omitempty"`        //
@@ -118,6 +114,10 @@ type ResponseEndpointGetEndpointByIDERSEndPointMdmAttributes struct {
 	MdmJailBroken       *bool  `json:"mdmJailBroken,omitempty"`       //
 	MdmIMEI             string `json:"mdmIMEI,omitempty"`             //
 	MdmPhoneNumber      string `json:"mdmPhoneNumber,omitempty"`      //
+}
+
+type ResponseEndpointGetEndpointByIDERSEndPointCustomAttributes struct {
+	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` // Key value map
 }
 
 type ResponseEndpointGetEndpointByIDERSEndPointLink struct {
@@ -239,10 +239,6 @@ type RequestEndpointUpdateEndpointByIDERSEndPoint struct {
 	CustomAttributes        *RequestEndpointUpdateEndpointByIDERSEndPointCustomAttributes `json:"customAttributes,omitempty"`        //
 }
 
-type RequestEndpointUpdateEndpointByIDERSEndPointCustomAttributes struct {
-	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` //
-}
-
 type RequestEndpointUpdateEndpointByIDERSEndPointMdmAttributes struct {
 	MdmServerName       string `json:"mdmServerName,omitempty"`       //
 	MdmReachable        *bool  `json:"mdmReachable,omitempty"`        //
@@ -257,6 +253,10 @@ type RequestEndpointUpdateEndpointByIDERSEndPointMdmAttributes struct {
 	MdmJailBroken       *bool  `json:"mdmJailBroken,omitempty"`       //
 	MdmIMEI             string `json:"mdmIMEI,omitempty"`             //
 	MdmPhoneNumber      string `json:"mdmPhoneNumber,omitempty"`      //
+}
+
+type RequestEndpointUpdateEndpointByIDERSEndPointCustomAttributes struct {
+	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` // Key value map
 }
 
 type RequestEndpointRegisterEndpoint struct {
@@ -279,10 +279,6 @@ type RequestEndpointRegisterEndpointERSEndPoint struct {
 	CustomAttributes        *RequestEndpointRegisterEndpointERSEndPointCustomAttributes `json:"customAttributes,omitempty"`        //
 }
 
-type RequestEndpointRegisterEndpointERSEndPointCustomAttributes struct {
-	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` //
-}
-
 type RequestEndpointRegisterEndpointERSEndPointMdmAttributes struct {
 	MdmServerName       string `json:"mdmServerName,omitempty"`       //
 	MdmReachable        *bool  `json:"mdmReachable,omitempty"`        //
@@ -297,6 +293,10 @@ type RequestEndpointRegisterEndpointERSEndPointMdmAttributes struct {
 	MdmJailBroken       *bool  `json:"mdmJailBroken,omitempty"`       //
 	MdmIMEI             string `json:"mdmIMEI,omitempty"`             //
 	MdmPhoneNumber      string `json:"mdmPhoneNumber,omitempty"`      //
+}
+
+type RequestEndpointRegisterEndpointERSEndPointCustomAttributes struct {
+	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` // Key value map
 }
 
 type RequestEndpointCreateEndpoint struct {
@@ -318,10 +318,6 @@ type RequestEndpointCreateEndpointERSEndPoint struct {
 	CustomAttributes        *RequestEndpointCreateEndpointERSEndPointCustomAttributes `json:"customAttributes,omitempty"`        //
 }
 
-type RequestEndpointCreateEndpointERSEndPointCustomAttributes struct {
-	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` //
-}
-
 type RequestEndpointCreateEndpointERSEndPointMdmAttributes struct {
 	MdmServerName       string `json:"mdmServerName,omitempty"`       //
 	MdmReachable        *bool  `json:"mdmReachable,omitempty"`        //
@@ -336,6 +332,10 @@ type RequestEndpointCreateEndpointERSEndPointMdmAttributes struct {
 	MdmJailBroken       *bool  `json:"mdmJailBroken,omitempty"`       //
 	MdmIMEI             string `json:"mdmIMEI,omitempty"`             //
 	MdmPhoneNumber      string `json:"mdmPhoneNumber,omitempty"`      //
+}
+
+type RequestEndpointCreateEndpointERSEndPointCustomAttributes struct {
+	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` // Key value map
 }
 
 type RequestEndpointBulkRequestForEndpoint struct {

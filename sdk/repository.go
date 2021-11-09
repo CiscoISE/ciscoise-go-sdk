@@ -20,7 +20,7 @@ type ResponseRepositoryGetRepositoriesResponse struct {
 	Path       string `json:"path,omitempty"`       // Path should always start with "/" and can contain alphanumeric, underscore, hyphen and dot characters.
 	Password   string `json:"password,omitempty"`   // Password can contain alphanumeric and/or special characters.
 	ServerName string `json:"serverName,omitempty"` //
-	UserName   string `json:"userName,omitempty"`   // Username can contain alphanumeric characters.
+	UserName   string `json:"userName,omitempty"`   // Username may contain alphanumeric and _-./@\\$ characters.
 	EnablePki  *bool  `json:"enablePki,omitempty"`  //
 }
 
@@ -44,7 +44,7 @@ type ResponseRepositoryGetRepositoryResponse struct {
 	Path       string `json:"path,omitempty"`       // Path should always start with "/" and can contain alphanumeric, underscore, hyphen and dot characters.
 	Password   string `json:"password,omitempty"`   // Password can contain alphanumeric and/or special characters.
 	ServerName string `json:"serverName,omitempty"` //
-	UserName   string `json:"userName,omitempty"`   // Username can contain alphanumeric characters.
+	UserName   string `json:"userName,omitempty"`   // Username may contain alphanumeric and _-./@\\$ characters.
 	EnablePki  *bool  `json:"enablePki,omitempty"`  //
 }
 
@@ -77,7 +77,7 @@ type RequestRepositoryCreateRepository struct {
 	Path       string `json:"path,omitempty"`       // Path should always start with "/" and can contain alphanumeric, underscore, hyphen and dot characters.
 	Password   string `json:"password,omitempty"`   // Password can contain alphanumeric and/or special characters.
 	ServerName string `json:"serverName,omitempty"` //
-	UserName   string `json:"userName,omitempty"`   // Username can contain alphanumeric characters.
+	UserName   string `json:"userName,omitempty"`   // Username may contain alphanumeric and _-./@\\$ characters.
 	EnablePki  *bool  `json:"enablePki,omitempty"`  //
 }
 
@@ -87,13 +87,12 @@ type RequestRepositoryUpdateRepository struct {
 	Path       string `json:"path,omitempty"`       // Path should always start with "/" and can contain alphanumeric, underscore, hyphen and dot characters.
 	Password   string `json:"password,omitempty"`   // Password can contain alphanumeric and/or special characters.
 	ServerName string `json:"serverName,omitempty"` //
-	UserName   string `json:"userName,omitempty"`   // Username can contain alphanumeric characters.
+	UserName   string `json:"userName,omitempty"`   // Username may contain alphanumeric and _-./@\\$ characters.
 	EnablePki  *bool  `json:"enablePki,omitempty"`  //
 }
 
 //GetRepositories Get list of repositories
 /* This will get the full list of repository definitions on the system.
-
 
  */
 func (s *RepositoryService) GetRepositories() (*ResponseRepositoryGetRepositories, *resty.Response, error) {
@@ -126,7 +125,6 @@ func (s *RepositoryService) GetRepositories() (*ResponseRepositoryGetRepositorie
 
 //GetRepository Get a specific repository
 /* Get a specific repository identified by the name passed in the URL.
-
 
 @param name name path parameter. Unique name for a repository
 */
@@ -162,7 +160,6 @@ func (s *RepositoryService) GetRepository(name string) (*ResponseRepositoryGetRe
 //GetRepositoryFiles Get list of files in a repository
 /* This will get the full list of files present in the named repository.
 
-
 @param name name path parameter. Unique name for a repository
 */
 func (s *RepositoryService) GetRepositoryFiles(name string) (*ResponseRepositoryGetRepositoryFiles, *resty.Response, error) {
@@ -195,11 +192,9 @@ func (s *RepositoryService) GetRepositoryFiles(name string) (*ResponseRepository
 }
 
 //CreateRepository Create a new repository
-/* Create a new repository in the system. The name provided for the
-repository must be unique.
+/* Create a new repository in the system. The name provided for the repository must be unique.
 
-
-*/
+ */
 func (s *RepositoryService) CreateRepository(requestRepositoryCreateRepository *RequestRepositoryCreateRepository) (*ResponseRepositoryCreateRepository, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/repository"
@@ -230,7 +225,6 @@ func (s *RepositoryService) CreateRepository(requestRepositoryCreateRepository *
 
 //UpdateRepository Update the definition of a specific repository
 /* Update the definition of a specific repository, providing ALL parameters for the repository.
-
 
 @param name name path parameter. Unique name for a repository
 */
@@ -266,7 +260,6 @@ func (s *RepositoryService) UpdateRepository(name string, requestRepositoryUpdat
 
 //DeleteRepository Delete a specific repository
 /* Long description TBD
-
 
 @param name name path parameter. Unique name for a repository
 */

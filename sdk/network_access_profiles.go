@@ -13,14 +13,14 @@ type ResponseNetworkAccessProfilesGetNetworkAccessProfiles struct {
 	Name string `json:"name,omitempty"` //
 }
 
-//GetNetworkAccessProfiles Network Access - Returns list of profiles.
-/* Network Access Returns list of profiles.
+//GetNetworkAccessProfiles Network Access - Returns list of authorization profiles.
+/* Network Access Returns list of authorization profiles.
 (Other CRUD APIs available throught ERS)
 
 */
 func (s *NetworkAccessProfilesService) GetNetworkAccessProfiles() (*[]ResponseNetworkAccessProfilesGetNetworkAccessProfiles, *resty.Response, error) {
 	setHost(s.client, "_ui")
-	path := "/api/v1/policy/network-access/profiles"
+	path := "/api/v1/policy/network-access/authorization-profiles"
 
 	setCSRFToken(s.client)
 	response, err := s.client.R().
