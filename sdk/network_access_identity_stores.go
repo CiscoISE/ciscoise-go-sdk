@@ -8,7 +8,9 @@ import (
 
 type NetworkAccessIDentityStoresService service
 
-type ResponseNetworkAccessIDentityStoresGetNetworkAccessIDentityStores struct {
+type ResponseNetworkAccessIDentityStoresGetNetworkAccessIDentityStores []ResponseItemNetworkAccessIDentityStoresGetNetworkAccessIDentityStores // Array of ResponseNetworkAccessIDentityStoresGetNetworkAccessIdentityStores
+
+type ResponseItemNetworkAccessIDentityStoresGetNetworkAccessIDentityStores struct {
 	ID   string `json:"id,omitempty"`   //
 	Name string `json:"name,omitempty"` //
 }
@@ -18,7 +20,7 @@ type ResponseNetworkAccessIDentityStoresGetNetworkAccessIDentityStores struct {
 (Other CRUD APIs available throught ERS)
 
 */
-func (s *NetworkAccessIDentityStoresService) GetNetworkAccessIDentityStores() (*[]ResponseNetworkAccessIDentityStoresGetNetworkAccessIDentityStores, *resty.Response, error) {
+func (s *NetworkAccessIDentityStoresService) GetNetworkAccessIDentityStores() (*ResponseNetworkAccessIDentityStoresGetNetworkAccessIDentityStores, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/policy/network-access/identity-stores"
 
@@ -26,7 +28,7 @@ func (s *NetworkAccessIDentityStoresService) GetNetworkAccessIDentityStores() (*
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetResult(&[]ResponseNetworkAccessIDentityStoresGetNetworkAccessIDentityStores{}).
+		SetResult(&ResponseNetworkAccessIDentityStoresGetNetworkAccessIDentityStores{}).
 		SetError(&Error).
 		Get(path)
 
@@ -41,7 +43,7 @@ func (s *NetworkAccessIDentityStoresService) GetNetworkAccessIDentityStores() (*
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*[]ResponseNetworkAccessIDentityStoresGetNetworkAccessIDentityStores)
+	result := response.Result().(*ResponseNetworkAccessIDentityStoresGetNetworkAccessIDentityStores)
 	return result, response, err
 
 }

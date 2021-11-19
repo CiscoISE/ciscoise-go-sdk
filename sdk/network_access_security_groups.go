@@ -8,7 +8,9 @@ import (
 
 type NetworkAccessSecurityGroupsService service
 
-type ResponseNetworkAccessSecurityGroupsGetNetworkAccessSecurityGroups struct {
+type ResponseNetworkAccessSecurityGroupsGetNetworkAccessSecurityGroups []ResponseItemNetworkAccessSecurityGroupsGetNetworkAccessSecurityGroups // Array of ResponseNetworkAccessSecurityGroupsGetNetworkAccessSecurityGroups
+
+type ResponseItemNetworkAccessSecurityGroupsGetNetworkAccessSecurityGroups struct {
 	ID   string `json:"id,omitempty"`   //
 	Name string `json:"name,omitempty"` //
 }
@@ -18,7 +20,7 @@ type ResponseNetworkAccessSecurityGroupsGetNetworkAccessSecurityGroups struct {
 (Other CRUD APIs available throught ERS)
 
 */
-func (s *NetworkAccessSecurityGroupsService) GetNetworkAccessSecurityGroups() (*[]ResponseNetworkAccessSecurityGroupsGetNetworkAccessSecurityGroups, *resty.Response, error) {
+func (s *NetworkAccessSecurityGroupsService) GetNetworkAccessSecurityGroups() (*ResponseNetworkAccessSecurityGroupsGetNetworkAccessSecurityGroups, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/policy/network-access/security-groups"
 
@@ -26,7 +28,7 @@ func (s *NetworkAccessSecurityGroupsService) GetNetworkAccessSecurityGroups() (*
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetResult(&[]ResponseNetworkAccessSecurityGroupsGetNetworkAccessSecurityGroups{}).
+		SetResult(&ResponseNetworkAccessSecurityGroupsGetNetworkAccessSecurityGroups{}).
 		SetError(&Error).
 		Get(path)
 
@@ -41,7 +43,7 @@ func (s *NetworkAccessSecurityGroupsService) GetNetworkAccessSecurityGroups() (*
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*[]ResponseNetworkAccessSecurityGroupsGetNetworkAccessSecurityGroups)
+	result := response.Result().(*ResponseNetworkAccessSecurityGroupsGetNetworkAccessSecurityGroups)
 	return result, response, err
 
 }

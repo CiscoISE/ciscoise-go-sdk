@@ -85,7 +85,8 @@ type RequestVnVLANMappingCreateVnVLANMapping struct {
 	VnID          string `json:"vnId,omitempty"`          // Identifier for the associated Virtual Network which is required unless its name is provided
 	VnName        string `json:"vnName,omitempty"`        // Name of the associated Virtual Network to be used for identity if id is not provided
 }
-type RequestVnVLANMappingBulkCreateVnVLANMappings *[]RequestItemVnVLANMappingBulkCreateVnVLANMappings // Array of RequestVnVLANMappingBulkCreateVnVlanMappings
+
+type RequestVnVLANMappingBulkCreateVnVLANMappings []RequestItemVnVLANMappingBulkCreateVnVLANMappings // Array of RequestVnVLANMappingBulkCreateVnVlanMappings
 
 type RequestItemVnVLANMappingBulkCreateVnVLANMappings struct {
 	ID            string `json:"id,omitempty"`            // Identifier of the VN-Vlan Mapping
@@ -97,7 +98,10 @@ type RequestItemVnVLANMappingBulkCreateVnVLANMappings struct {
 	VnID          string `json:"vnId,omitempty"`          // Identifier for the associated Virtual Network which is required unless its name is provided
 	VnName        string `json:"vnName,omitempty"`        // Name of the associated Virtual Network to be used for identity if id is not provided
 }
-type RequestVnVLANMappingBulkUpdateVnVLANMappings *[]RequestItemVnVLANMappingBulkUpdateVnVLANMappings // Array of RequestVnVLANMappingBulkUpdateVnVlanMappings
+
+type RequestVnVLANMappingBulkDeleteVnVLANMappings []string // Array of RequestVnVLANMappingBulkDeleteVnVlanMappings
+
+type RequestVnVLANMappingBulkUpdateVnVLANMappings []RequestItemVnVLANMappingBulkUpdateVnVLANMappings // Array of RequestVnVLANMappingBulkUpdateVnVlanMappings
 
 type RequestItemVnVLANMappingBulkUpdateVnVLANMappings struct {
 	ID            string `json:"id,omitempty"`            // Identifier of the VN-Vlan Mapping
@@ -258,7 +262,7 @@ func (s *VnVLANMappingService) BulkCreateVnVLANMappings(requestVnVLANMappingBulk
 /* Delete VN-Vlan Mappings in bulk
 
  */
-func (s *VnVLANMappingService) BulkDeleteVnVLANMappings() (*ResponseVnVLANMappingBulkDeleteVnVLANMappings, *resty.Response, error) {
+func (s *VnVLANMappingService) BulkDeleteVnVLANMappings(requestVnVLANMappingBulkDeleteVnVlanMappings *RequestVnVLANMappingBulkDeleteVnVLANMappings) (*ResponseVnVLANMappingBulkDeleteVnVLANMappings, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/trustsec/vnvlanmapping/bulk/delete"
 
@@ -266,6 +270,7 @@ func (s *VnVLANMappingService) BulkDeleteVnVLANMappings() (*ResponseVnVLANMappin
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
+		SetBody(requestVnVLANMappingBulkDeleteVnVlanMappings).
 		SetResult(&ResponseVnVLANMappingBulkDeleteVnVLANMappings{}).
 		SetError(&Error).
 		Post(path)

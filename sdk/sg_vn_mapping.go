@@ -79,7 +79,8 @@ type RequestSgVnMappingCreateSgVnMapping struct {
 	VnID       string `json:"vnId,omitempty"`       // Identifier for the associated Virtual Network which is required unless its name is provided
 	VnName     string `json:"vnName,omitempty"`     // Name of the associated Virtual Network to be used for identity if id is not provided
 }
-type RequestSgVnMappingBulkCreateSgVnMappings *[]RequestItemSgVnMappingBulkCreateSgVnMappings // Array of RequestSgVnMappingBulkCreateSgVnMappings
+
+type RequestSgVnMappingBulkCreateSgVnMappings []RequestItemSgVnMappingBulkCreateSgVnMappings // Array of RequestSgVnMappingBulkCreateSgVnMappings
 
 type RequestItemSgVnMappingBulkCreateSgVnMappings struct {
 	ID         string `json:"id,omitempty"`         // Identifier of the SG-VN mapping
@@ -89,7 +90,10 @@ type RequestItemSgVnMappingBulkCreateSgVnMappings struct {
 	VnID       string `json:"vnId,omitempty"`       // Identifier for the associated Virtual Network which is required unless its name is provided
 	VnName     string `json:"vnName,omitempty"`     // Name of the associated Virtual Network to be used for identity if id is not provided
 }
-type RequestSgVnMappingBulkUpdateSgVnMappings *[]RequestItemSgVnMappingBulkUpdateSgVnMappings // Array of RequestSgVnMappingBulkUpdateSgVnMappings
+
+type RequestSgVnMappingBulkDeleteSgVnMappings []string // Array of RequestSgVnMappingBulkDeleteSgVnMappings
+
+type RequestSgVnMappingBulkUpdateSgVnMappings []RequestItemSgVnMappingBulkUpdateSgVnMappings // Array of RequestSgVnMappingBulkUpdateSgVnMappings
 
 type RequestItemSgVnMappingBulkUpdateSgVnMappings struct {
 	ID         string `json:"id,omitempty"`         // Identifier of the SG-VN mapping
@@ -246,7 +250,7 @@ func (s *SgVnMappingService) BulkCreateSgVnMappings(requestSgVnMappingBulkCreate
 /* Delete SG-VN Mappings in bulk
 
  */
-func (s *SgVnMappingService) BulkDeleteSgVnMappings() (*ResponseSgVnMappingBulkDeleteSgVnMappings, *resty.Response, error) {
+func (s *SgVnMappingService) BulkDeleteSgVnMappings(requestSgVnMappingBulkDeleteSgVnMappings *RequestSgVnMappingBulkDeleteSgVnMappings) (*ResponseSgVnMappingBulkDeleteSgVnMappings, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/trustsec/sgvnmapping/bulk/delete"
 
@@ -254,6 +258,7 @@ func (s *SgVnMappingService) BulkDeleteSgVnMappings() (*ResponseSgVnMappingBulkD
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
+		SetBody(requestSgVnMappingBulkDeleteSgVnMappings).
 		SetResult(&ResponseSgVnMappingBulkDeleteSgVnMappings{}).
 		SetError(&Error).
 		Post(path)

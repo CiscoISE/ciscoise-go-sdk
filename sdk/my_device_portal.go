@@ -55,14 +55,16 @@ type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsPortalSett
 }
 
 type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsLoginPageSettings struct {
-	MaxFailedAttemptsBeforeRateLimit *int           `json:"maxFailedAttemptsBeforeRateLimit,omitempty"` // Maximum failed login attempts before rate limiting
-	TimeBetweenLoginsDuringRateLimit *int           `json:"timeBetweenLoginsDuringRateLimit,omitempty"` // Time between login attempts when rate limiting
-	IncludeAup                       *bool          `json:"includeAup,omitempty"`                       // Include an Acceptable Use Policy (AUP) that should be displayed during login
-	AupDisplay                       string         `json:"aupDisplay,omitempty"`                       // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed values: -  ONPAGE, - ASLINK
-	RequireAupAcceptance             *bool          `json:"requireAupAcceptance,omitempty"`             // Require the portal user to accept the AUP. Only valid if includeAup = true
-	RequireScrolling                 *bool          `json:"requireScrolling,omitempty"`                 // Require the portal user to scroll to the end of the AUP. Only valid if requireAupAcceptance = true
-	SocialConfigs                    *[]interface{} `json:"socialConfigs,omitempty"`                    //
+	MaxFailedAttemptsBeforeRateLimit *int                                                                                               `json:"maxFailedAttemptsBeforeRateLimit,omitempty"` // Maximum failed login attempts before rate limiting
+	TimeBetweenLoginsDuringRateLimit *int                                                                                               `json:"timeBetweenLoginsDuringRateLimit,omitempty"` // Time between login attempts when rate limiting
+	IncludeAup                       *bool                                                                                              `json:"includeAup,omitempty"`                       // Include an Acceptable Use Policy (AUP) that should be displayed during login
+	AupDisplay                       string                                                                                             `json:"aupDisplay,omitempty"`                       // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed values: -  ONPAGE, - ASLINK
+	RequireAupAcceptance             *bool                                                                                              `json:"requireAupAcceptance,omitempty"`             // Require the portal user to accept the AUP. Only valid if includeAup = true
+	RequireScrolling                 *bool                                                                                              `json:"requireScrolling,omitempty"`                 // Require the portal user to scroll to the end of the AUP. Only valid if requireAupAcceptance = true
+	SocialConfigs                    *[]ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsLoginPageSettingsSocialConfigs `json:"socialConfigs,omitempty"`                    //
 }
+
+type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsLoginPageSettingsSocialConfigs interface{}
 
 type ResponseMyDevicePortalGetMyDevicePortalByIDMyDevicePortalSettingsAupSettings struct {
 	DisplayFrequencyIntervalDays *int   `json:"displayFrequencyIntervalDays,omitempty"` // Number of days between AUP confirmations (when displayFrequency = recurring)
@@ -264,14 +266,16 @@ type RequestMyDevicePortalUpdateMyDevicePortalByIDMyDevicePortalSettingsPortalSe
 }
 
 type RequestMyDevicePortalUpdateMyDevicePortalByIDMyDevicePortalSettingsLoginPageSettings struct {
-	MaxFailedAttemptsBeforeRateLimit *int           `json:"maxFailedAttemptsBeforeRateLimit,omitempty"` // Maximum failed login attempts before rate limiting
-	TimeBetweenLoginsDuringRateLimit *int           `json:"timeBetweenLoginsDuringRateLimit,omitempty"` // Time between login attempts when rate limiting
-	IncludeAup                       *bool          `json:"includeAup,omitempty"`                       // Include an Acceptable Use Policy (AUP) that should be displayed during login
-	AupDisplay                       string         `json:"aupDisplay,omitempty"`                       // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed values: -  ONPAGE, - ASLINK
-	RequireAupAcceptance             *bool          `json:"requireAupAcceptance,omitempty"`             // Require the portal user to accept the AUP. Only valid if includeAup = true
-	RequireScrolling                 *bool          `json:"requireScrolling,omitempty"`                 // Require the portal user to scroll to the end of the AUP. Only valid if requireAupAcceptance = true
-	SocialConfigs                    *[]interface{} `json:"socialConfigs,omitempty"`                    //
+	MaxFailedAttemptsBeforeRateLimit *int                                                                                                 `json:"maxFailedAttemptsBeforeRateLimit,omitempty"` // Maximum failed login attempts before rate limiting
+	TimeBetweenLoginsDuringRateLimit *int                                                                                                 `json:"timeBetweenLoginsDuringRateLimit,omitempty"` // Time between login attempts when rate limiting
+	IncludeAup                       *bool                                                                                                `json:"includeAup,omitempty"`                       // Include an Acceptable Use Policy (AUP) that should be displayed during login
+	AupDisplay                       string                                                                                               `json:"aupDisplay,omitempty"`                       // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed values: -  ONPAGE, - ASLINK
+	RequireAupAcceptance             *bool                                                                                                `json:"requireAupAcceptance,omitempty"`             // Require the portal user to accept the AUP. Only valid if includeAup = true
+	RequireScrolling                 *bool                                                                                                `json:"requireScrolling,omitempty"`                 // Require the portal user to scroll to the end of the AUP. Only valid if requireAupAcceptance = true
+	SocialConfigs                    *[]RequestMyDevicePortalUpdateMyDevicePortalByIDMyDevicePortalSettingsLoginPageSettingsSocialConfigs `json:"socialConfigs,omitempty"`                    //
 }
+
+type RequestMyDevicePortalUpdateMyDevicePortalByIDMyDevicePortalSettingsLoginPageSettingsSocialConfigs interface{}
 
 type RequestMyDevicePortalUpdateMyDevicePortalByIDMyDevicePortalSettingsAupSettings struct {
 	DisplayFrequencyIntervalDays *int   `json:"displayFrequencyIntervalDays,omitempty"` // Number of days between AUP confirmations (when displayFrequency = recurring)
@@ -397,14 +401,16 @@ type RequestMyDevicePortalCreateMyDevicePortalMyDevicePortalSettingsPortalSettin
 }
 
 type RequestMyDevicePortalCreateMyDevicePortalMyDevicePortalSettingsLoginPageSettings struct {
-	MaxFailedAttemptsBeforeRateLimit *int           `json:"maxFailedAttemptsBeforeRateLimit,omitempty"` // Maximum failed login attempts before rate limiting
-	TimeBetweenLoginsDuringRateLimit *int           `json:"timeBetweenLoginsDuringRateLimit,omitempty"` // Time between login attempts when rate limiting
-	IncludeAup                       *bool          `json:"includeAup,omitempty"`                       // Include an Acceptable Use Policy (AUP) that should be displayed during login
-	AupDisplay                       string         `json:"aupDisplay,omitempty"`                       // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed values: -  ONPAGE, - ASLINK
-	RequireAupAcceptance             *bool          `json:"requireAupAcceptance,omitempty"`             // Require the portal user to accept the AUP. Only valid if includeAup = true
-	RequireScrolling                 *bool          `json:"requireScrolling,omitempty"`                 // Require the portal user to scroll to the end of the AUP. Only valid if requireAupAcceptance = true
-	SocialConfigs                    *[]interface{} `json:"socialConfigs,omitempty"`                    //
+	MaxFailedAttemptsBeforeRateLimit *int                                                                                             `json:"maxFailedAttemptsBeforeRateLimit,omitempty"` // Maximum failed login attempts before rate limiting
+	TimeBetweenLoginsDuringRateLimit *int                                                                                             `json:"timeBetweenLoginsDuringRateLimit,omitempty"` // Time between login attempts when rate limiting
+	IncludeAup                       *bool                                                                                            `json:"includeAup,omitempty"`                       // Include an Acceptable Use Policy (AUP) that should be displayed during login
+	AupDisplay                       string                                                                                           `json:"aupDisplay,omitempty"`                       // How the AUP should be displayed, either on page or as a link. Only valid if includeAup = true. Allowed values: -  ONPAGE, - ASLINK
+	RequireAupAcceptance             *bool                                                                                            `json:"requireAupAcceptance,omitempty"`             // Require the portal user to accept the AUP. Only valid if includeAup = true
+	RequireScrolling                 *bool                                                                                            `json:"requireScrolling,omitempty"`                 // Require the portal user to scroll to the end of the AUP. Only valid if requireAupAcceptance = true
+	SocialConfigs                    *[]RequestMyDevicePortalCreateMyDevicePortalMyDevicePortalSettingsLoginPageSettingsSocialConfigs `json:"socialConfigs,omitempty"`                    //
 }
+
+type RequestMyDevicePortalCreateMyDevicePortalMyDevicePortalSettingsLoginPageSettingsSocialConfigs interface{}
 
 type RequestMyDevicePortalCreateMyDevicePortalMyDevicePortalSettingsAupSettings struct {
 	DisplayFrequencyIntervalDays *int   `json:"displayFrequencyIntervalDays,omitempty"` // Number of days between AUP confirmations (when displayFrequency = recurring)

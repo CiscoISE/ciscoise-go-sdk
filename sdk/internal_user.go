@@ -24,23 +24,25 @@ type ResponseInternalUserGetInternalUserByName struct {
 }
 
 type ResponseInternalUserGetInternalUserByNameInternalUser struct {
-	ID                string                                                     `json:"id,omitempty"`                //
-	Name              string                                                     `json:"name,omitempty"`              //
-	Description       string                                                     `json:"description,omitempty"`       //
-	Enabled           *bool                                                      `json:"enabled,omitempty"`           // Whether the user is enabled/disabled. To use it as filter, the values should be 'Enabled' or 'Disabled'. The values are case sensitive. For example, '[ERSObjectURL]?filter=enabled.EQ.Enabled'
-	Email             string                                                     `json:"email,omitempty"`             //
-	Password          string                                                     `json:"password,omitempty"`          //
-	FirstName         string                                                     `json:"firstName,omitempty"`         //
-	LastName          string                                                     `json:"lastName,omitempty"`          //
-	ChangePassword    *bool                                                      `json:"changePassword,omitempty"`    //
-	IDentityGroups    string                                                     `json:"identityGroups,omitempty"`    // CSV of identity group IDs
-	ExpiryDateEnabled *bool                                                      `json:"expiryDateEnabled,omitempty"` //
-	ExpiryDate        string                                                     `json:"expiryDate,omitempty"`        // To store the internal user's expiry date information. It's format is = 'YYYY-MM-DD'
-	EnablePassword    string                                                     `json:"enablePassword,omitempty"`    //
-	CustomAttributes  *map[string]interface{}                                    `json:"customAttributes,omitempty"`  // Key value map
-	PasswordIDStore   string                                                     `json:"passwordIDStore,omitempty"`   // The id store where the internal user's password is kept
-	Link              *ResponseInternalUserGetInternalUserByNameInternalUserLink `json:"link,omitempty"`              //
+	ID                string                                                                 `json:"id,omitempty"`                //
+	Name              string                                                                 `json:"name,omitempty"`              //
+	Description       string                                                                 `json:"description,omitempty"`       //
+	Enabled           *bool                                                                  `json:"enabled,omitempty"`           // Whether the user is enabled/disabled. To use it as filter, the values should be 'Enabled' or 'Disabled'. The values are case sensitive. For example, '[ERSObjectURL]?filter=enabled.EQ.Enabled'
+	Email             string                                                                 `json:"email,omitempty"`             //
+	Password          string                                                                 `json:"password,omitempty"`          //
+	FirstName         string                                                                 `json:"firstName,omitempty"`         //
+	LastName          string                                                                 `json:"lastName,omitempty"`          //
+	ChangePassword    *bool                                                                  `json:"changePassword,omitempty"`    //
+	IDentityGroups    string                                                                 `json:"identityGroups,omitempty"`    // CSV of identity group IDs
+	ExpiryDateEnabled *bool                                                                  `json:"expiryDateEnabled,omitempty"` //
+	ExpiryDate        string                                                                 `json:"expiryDate,omitempty"`        // To store the internal user's expiry date information. It's format is = 'YYYY-MM-DD'
+	EnablePassword    string                                                                 `json:"enablePassword,omitempty"`    //
+	CustomAttributes  *ResponseInternalUserGetInternalUserByNameInternalUserCustomAttributes `json:"customAttributes,omitempty"`  // Key value map
+	PasswordIDStore   string                                                                 `json:"passwordIDStore,omitempty"`   // The id store where the internal user's password is kept
+	Link              *ResponseInternalUserGetInternalUserByNameInternalUserLink             `json:"link,omitempty"`              //
 }
+
+type ResponseInternalUserGetInternalUserByNameInternalUserCustomAttributes interface{}
 
 type ResponseInternalUserGetInternalUserByNameInternalUserLink struct {
 	Rel  string `json:"rel,omitempty"`  //
@@ -70,23 +72,25 @@ type ResponseInternalUserGetInternalUserByID struct {
 }
 
 type ResponseInternalUserGetInternalUserByIDInternalUser struct {
-	ID                string                                                   `json:"id,omitempty"`                //
-	Name              string                                                   `json:"name,omitempty"`              //
-	Description       string                                                   `json:"description,omitempty"`       //
-	Enabled           *bool                                                    `json:"enabled,omitempty"`           // Whether the user is enabled/disabled. To use it as filter, the values should be 'Enabled' or 'Disabled'. The values are case sensitive. For example, '[ERSObjectURL]?filter=enabled.EQ.Enabled'
-	Email             string                                                   `json:"email,omitempty"`             //
-	Password          string                                                   `json:"password,omitempty"`          //
-	FirstName         string                                                   `json:"firstName,omitempty"`         //
-	LastName          string                                                   `json:"lastName,omitempty"`          //
-	ChangePassword    *bool                                                    `json:"changePassword,omitempty"`    //
-	IDentityGroups    string                                                   `json:"identityGroups,omitempty"`    // CSV of identity group IDs
-	ExpiryDateEnabled *bool                                                    `json:"expiryDateEnabled,omitempty"` //
-	ExpiryDate        string                                                   `json:"expiryDate,omitempty"`        // To store the internal user's expiry date information. It's format is = 'YYYY-MM-DD'
-	EnablePassword    string                                                   `json:"enablePassword,omitempty"`    //
-	CustomAttributes  *map[string]interface{}                                  `json:"customAttributes,omitempty"`  // Key value map
-	PasswordIDStore   string                                                   `json:"passwordIDStore,omitempty"`   // The id store where the internal user's password is kept
-	Link              *ResponseInternalUserGetInternalUserByIDInternalUserLink `json:"link,omitempty"`              //
+	ID                string                                                               `json:"id,omitempty"`                //
+	Name              string                                                               `json:"name,omitempty"`              //
+	Description       string                                                               `json:"description,omitempty"`       //
+	Enabled           *bool                                                                `json:"enabled,omitempty"`           // Whether the user is enabled/disabled. To use it as filter, the values should be 'Enabled' or 'Disabled'. The values are case sensitive. For example, '[ERSObjectURL]?filter=enabled.EQ.Enabled'
+	Email             string                                                               `json:"email,omitempty"`             //
+	Password          string                                                               `json:"password,omitempty"`          //
+	FirstName         string                                                               `json:"firstName,omitempty"`         //
+	LastName          string                                                               `json:"lastName,omitempty"`          //
+	ChangePassword    *bool                                                                `json:"changePassword,omitempty"`    //
+	IDentityGroups    string                                                               `json:"identityGroups,omitempty"`    // CSV of identity group IDs
+	ExpiryDateEnabled *bool                                                                `json:"expiryDateEnabled,omitempty"` //
+	ExpiryDate        string                                                               `json:"expiryDate,omitempty"`        // To store the internal user's expiry date information. It's format is = 'YYYY-MM-DD'
+	EnablePassword    string                                                               `json:"enablePassword,omitempty"`    //
+	CustomAttributes  *ResponseInternalUserGetInternalUserByIDInternalUserCustomAttributes `json:"customAttributes,omitempty"`  // Key value map
+	PasswordIDStore   string                                                               `json:"passwordIDStore,omitempty"`   // The id store where the internal user's password is kept
+	Link              *ResponseInternalUserGetInternalUserByIDInternalUserLink             `json:"link,omitempty"`              //
 }
+
+type ResponseInternalUserGetInternalUserByIDInternalUserCustomAttributes interface{}
 
 type ResponseInternalUserGetInternalUserByIDInternalUserLink struct {
 	Rel  string `json:"rel,omitempty"`  //
@@ -168,65 +172,71 @@ type RequestInternalUserUpdateInternalUserByName struct {
 }
 
 type RequestInternalUserUpdateInternalUserByNameInternalUser struct {
-	ID                string                  `json:"id,omitempty"`                //
-	Name              string                  `json:"name,omitempty"`              //
-	Description       string                  `json:"description,omitempty"`       //
-	Enabled           *bool                   `json:"enabled,omitempty"`           // Whether the user is enabled/disabled. To use it as filter, the values should be 'Enabled' or 'Disabled'. The values are case sensitive. For example, '[ERSObjectURL]?filter=enabled.EQ.Enabled'
-	Email             string                  `json:"email,omitempty"`             //
-	Password          string                  `json:"password,omitempty"`          //
-	FirstName         string                  `json:"firstName,omitempty"`         //
-	LastName          string                  `json:"lastName,omitempty"`          //
-	ChangePassword    *bool                   `json:"changePassword,omitempty"`    //
-	IDentityGroups    string                  `json:"identityGroups,omitempty"`    // CSV of identity group IDs
-	ExpiryDateEnabled *bool                   `json:"expiryDateEnabled,omitempty"` //
-	ExpiryDate        string                  `json:"expiryDate,omitempty"`        // To store the internal user's expiry date information. It's format is = 'YYYY-MM-DD'
-	EnablePassword    string                  `json:"enablePassword,omitempty"`    //
-	CustomAttributes  *map[string]interface{} `json:"customAttributes,omitempty"`  // Key value map
-	PasswordIDStore   string                  `json:"passwordIDStore,omitempty"`   // The id store where the internal user's password is kept
+	ID                string                                                                   `json:"id,omitempty"`                //
+	Name              string                                                                   `json:"name,omitempty"`              //
+	Description       string                                                                   `json:"description,omitempty"`       //
+	Enabled           *bool                                                                    `json:"enabled,omitempty"`           // Whether the user is enabled/disabled. To use it as filter, the values should be 'Enabled' or 'Disabled'. The values are case sensitive. For example, '[ERSObjectURL]?filter=enabled.EQ.Enabled'
+	Email             string                                                                   `json:"email,omitempty"`             //
+	Password          string                                                                   `json:"password,omitempty"`          //
+	FirstName         string                                                                   `json:"firstName,omitempty"`         //
+	LastName          string                                                                   `json:"lastName,omitempty"`          //
+	ChangePassword    *bool                                                                    `json:"changePassword,omitempty"`    //
+	IDentityGroups    string                                                                   `json:"identityGroups,omitempty"`    // CSV of identity group IDs
+	ExpiryDateEnabled *bool                                                                    `json:"expiryDateEnabled,omitempty"` //
+	ExpiryDate        string                                                                   `json:"expiryDate,omitempty"`        // To store the internal user's expiry date information. It's format is = 'YYYY-MM-DD'
+	EnablePassword    string                                                                   `json:"enablePassword,omitempty"`    //
+	CustomAttributes  *RequestInternalUserUpdateInternalUserByNameInternalUserCustomAttributes `json:"customAttributes,omitempty"`  // Key value map
+	PasswordIDStore   string                                                                   `json:"passwordIDStore,omitempty"`   // The id store where the internal user's password is kept
 }
+
+type RequestInternalUserUpdateInternalUserByNameInternalUserCustomAttributes interface{}
 
 type RequestInternalUserUpdateInternalUserByID struct {
 	InternalUser *RequestInternalUserUpdateInternalUserByIDInternalUser `json:"InternalUser,omitempty"` //
 }
 
 type RequestInternalUserUpdateInternalUserByIDInternalUser struct {
-	ID                string                  `json:"id,omitempty"`                //
-	Name              string                  `json:"name,omitempty"`              //
-	Description       string                  `json:"description,omitempty"`       //
-	Enabled           *bool                   `json:"enabled,omitempty"`           // Whether the user is enabled/disabled. To use it as filter, the values should be 'Enabled' or 'Disabled'. The values are case sensitive. For example, '[ERSObjectURL]?filter=enabled.EQ.Enabled'
-	Email             string                  `json:"email,omitempty"`             //
-	Password          string                  `json:"password,omitempty"`          //
-	FirstName         string                  `json:"firstName,omitempty"`         //
-	LastName          string                  `json:"lastName,omitempty"`          //
-	ChangePassword    *bool                   `json:"changePassword,omitempty"`    //
-	IDentityGroups    string                  `json:"identityGroups,omitempty"`    // CSV of identity group IDs
-	ExpiryDateEnabled *bool                   `json:"expiryDateEnabled,omitempty"` //
-	ExpiryDate        string                  `json:"expiryDate,omitempty"`        // To store the internal user's expiry date information. It's format is = 'YYYY-MM-DD'
-	EnablePassword    string                  `json:"enablePassword,omitempty"`    //
-	CustomAttributes  *map[string]interface{} `json:"customAttributes,omitempty"`  // Key value map
-	PasswordIDStore   string                  `json:"passwordIDStore,omitempty"`   // The id store where the internal user's password is kept
+	ID                string                                                                 `json:"id,omitempty"`                //
+	Name              string                                                                 `json:"name,omitempty"`              //
+	Description       string                                                                 `json:"description,omitempty"`       //
+	Enabled           *bool                                                                  `json:"enabled,omitempty"`           // Whether the user is enabled/disabled. To use it as filter, the values should be 'Enabled' or 'Disabled'. The values are case sensitive. For example, '[ERSObjectURL]?filter=enabled.EQ.Enabled'
+	Email             string                                                                 `json:"email,omitempty"`             //
+	Password          string                                                                 `json:"password,omitempty"`          //
+	FirstName         string                                                                 `json:"firstName,omitempty"`         //
+	LastName          string                                                                 `json:"lastName,omitempty"`          //
+	ChangePassword    *bool                                                                  `json:"changePassword,omitempty"`    //
+	IDentityGroups    string                                                                 `json:"identityGroups,omitempty"`    // CSV of identity group IDs
+	ExpiryDateEnabled *bool                                                                  `json:"expiryDateEnabled,omitempty"` //
+	ExpiryDate        string                                                                 `json:"expiryDate,omitempty"`        // To store the internal user's expiry date information. It's format is = 'YYYY-MM-DD'
+	EnablePassword    string                                                                 `json:"enablePassword,omitempty"`    //
+	CustomAttributes  *RequestInternalUserUpdateInternalUserByIDInternalUserCustomAttributes `json:"customAttributes,omitempty"`  // Key value map
+	PasswordIDStore   string                                                                 `json:"passwordIDStore,omitempty"`   // The id store where the internal user's password is kept
 }
+
+type RequestInternalUserUpdateInternalUserByIDInternalUserCustomAttributes interface{}
 
 type RequestInternalUserCreateInternalUser struct {
 	InternalUser *RequestInternalUserCreateInternalUserInternalUser `json:"InternalUser,omitempty"` //
 }
 
 type RequestInternalUserCreateInternalUserInternalUser struct {
-	Name              string                  `json:"name,omitempty"`              //
-	Description       string                  `json:"description,omitempty"`       //
-	Enabled           *bool                   `json:"enabled,omitempty"`           // Whether the user is enabled/disabled. To use it as filter, the values should be 'Enabled' or 'Disabled'. The values are case sensitive. For example, '[ERSObjectURL]?filter=enabled.EQ.Enabled'
-	Email             string                  `json:"email,omitempty"`             //
-	Password          string                  `json:"password,omitempty"`          //
-	FirstName         string                  `json:"firstName,omitempty"`         //
-	LastName          string                  `json:"lastName,omitempty"`          //
-	ChangePassword    *bool                   `json:"changePassword,omitempty"`    //
-	IDentityGroups    string                  `json:"identityGroups,omitempty"`    // CSV of identity group IDs
-	ExpiryDateEnabled *bool                   `json:"expiryDateEnabled,omitempty"` //
-	ExpiryDate        string                  `json:"expiryDate,omitempty"`        // To store the internal user's expiry date information. It's format is = 'YYYY-MM-DD'
-	EnablePassword    string                  `json:"enablePassword,omitempty"`    //
-	CustomAttributes  *map[string]interface{} `json:"customAttributes,omitempty"`  // Key value map
-	PasswordIDStore   string                  `json:"passwordIDStore,omitempty"`   // The id store where the internal user's password is kept
+	Name              string                                                             `json:"name,omitempty"`              //
+	Description       string                                                             `json:"description,omitempty"`       //
+	Enabled           *bool                                                              `json:"enabled,omitempty"`           // Whether the user is enabled/disabled. To use it as filter, the values should be 'Enabled' or 'Disabled'. The values are case sensitive. For example, '[ERSObjectURL]?filter=enabled.EQ.Enabled'
+	Email             string                                                             `json:"email,omitempty"`             //
+	Password          string                                                             `json:"password,omitempty"`          //
+	FirstName         string                                                             `json:"firstName,omitempty"`         //
+	LastName          string                                                             `json:"lastName,omitempty"`          //
+	ChangePassword    *bool                                                              `json:"changePassword,omitempty"`    //
+	IDentityGroups    string                                                             `json:"identityGroups,omitempty"`    // CSV of identity group IDs
+	ExpiryDateEnabled *bool                                                              `json:"expiryDateEnabled,omitempty"` //
+	ExpiryDate        string                                                             `json:"expiryDate,omitempty"`        // To store the internal user's expiry date information. It's format is = 'YYYY-MM-DD'
+	EnablePassword    string                                                             `json:"enablePassword,omitempty"`    //
+	CustomAttributes  *RequestInternalUserCreateInternalUserInternalUserCustomAttributes `json:"customAttributes,omitempty"`  // Key value map
+	PasswordIDStore   string                                                             `json:"passwordIDStore,omitempty"`   // The id store where the internal user's password is kept
 }
+
+type RequestInternalUserCreateInternalUserInternalUserCustomAttributes interface{}
 
 //GetInternalUserByName Get internal user by name
 /* This API allows the client to get an internal user by name.

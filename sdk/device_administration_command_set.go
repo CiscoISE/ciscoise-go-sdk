@@ -8,7 +8,9 @@ import (
 
 type DeviceAdministrationCommandSetService service
 
-type ResponseDeviceAdministrationCommandSetGetDeviceAdminCommandSets struct {
+type ResponseDeviceAdministrationCommandSetGetDeviceAdminCommandSets []ResponseItemDeviceAdministrationCommandSetGetDeviceAdminCommandSets // Array of ResponseDeviceAdministrationCommandSetGetDeviceAdminCommandSets
+
+type ResponseItemDeviceAdministrationCommandSetGetDeviceAdminCommandSets struct {
 	ID   string `json:"id,omitempty"`   //
 	Name string `json:"name,omitempty"` // Command used in Device Admin authorization policies
 }
@@ -18,7 +20,7 @@ type ResponseDeviceAdministrationCommandSetGetDeviceAdminCommandSets struct {
 (Other CRUD APIs available through ERS)
 
 */
-func (s *DeviceAdministrationCommandSetService) GetDeviceAdminCommandSets() (*[]ResponseDeviceAdministrationCommandSetGetDeviceAdminCommandSets, *resty.Response, error) {
+func (s *DeviceAdministrationCommandSetService) GetDeviceAdminCommandSets() (*ResponseDeviceAdministrationCommandSetGetDeviceAdminCommandSets, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/policy/device-admin/command-sets"
 
@@ -26,7 +28,7 @@ func (s *DeviceAdministrationCommandSetService) GetDeviceAdminCommandSets() (*[]
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetResult(&[]ResponseDeviceAdministrationCommandSetGetDeviceAdminCommandSets{}).
+		SetResult(&ResponseDeviceAdministrationCommandSetGetDeviceAdminCommandSets{}).
 		SetError(&Error).
 		Get(path)
 
@@ -41,7 +43,7 @@ func (s *DeviceAdministrationCommandSetService) GetDeviceAdminCommandSets() (*[]
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*[]ResponseDeviceAdministrationCommandSetGetDeviceAdminCommandSets)
+	result := response.Result().(*ResponseDeviceAdministrationCommandSetGetDeviceAdminCommandSets)
 	return result, response, err
 
 }

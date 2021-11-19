@@ -8,7 +8,9 @@ import (
 
 type DeviceAdministrationIDentityStoresService service
 
-type ResponseDeviceAdministrationIDentityStoresGetDeviceAdminIDentityStores struct {
+type ResponseDeviceAdministrationIDentityStoresGetDeviceAdminIDentityStores []ResponseItemDeviceAdministrationIDentityStoresGetDeviceAdminIDentityStores // Array of ResponseDeviceAdministrationIDentityStoresGetDeviceAdminIdentityStores
+
+type ResponseItemDeviceAdministrationIDentityStoresGetDeviceAdminIDentityStores struct {
 	ID   string `json:"id,omitempty"`   //
 	Name string `json:"name,omitempty"` //
 }
@@ -18,7 +20,7 @@ type ResponseDeviceAdministrationIDentityStoresGetDeviceAdminIDentityStores stru
 (Other CRUD APIs available through ERS)
 
 */
-func (s *DeviceAdministrationIDentityStoresService) GetDeviceAdminIDentityStores() (*[]ResponseDeviceAdministrationIDentityStoresGetDeviceAdminIDentityStores, *resty.Response, error) {
+func (s *DeviceAdministrationIDentityStoresService) GetDeviceAdminIDentityStores() (*ResponseDeviceAdministrationIDentityStoresGetDeviceAdminIDentityStores, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/policy/device-admin/identity-stores"
 
@@ -26,7 +28,7 @@ func (s *DeviceAdministrationIDentityStoresService) GetDeviceAdminIDentityStores
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetResult(&[]ResponseDeviceAdministrationIDentityStoresGetDeviceAdminIDentityStores{}).
+		SetResult(&ResponseDeviceAdministrationIDentityStoresGetDeviceAdminIDentityStores{}).
 		SetError(&Error).
 		Get(path)
 
@@ -41,7 +43,7 @@ func (s *DeviceAdministrationIDentityStoresService) GetDeviceAdminIDentityStores
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*[]ResponseDeviceAdministrationIDentityStoresGetDeviceAdminIDentityStores)
+	result := response.Result().(*ResponseDeviceAdministrationIDentityStoresGetDeviceAdminIDentityStores)
 	return result, response, err
 
 }

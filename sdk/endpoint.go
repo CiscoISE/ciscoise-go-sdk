@@ -70,8 +70,10 @@ type ResponseEndpointGetEndpointByNameERSEndPointMdmAttributes struct {
 }
 
 type ResponseEndpointGetEndpointByNameERSEndPointCustomAttributes struct {
-	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` // Key value map
+	CustomAttributes *ResponseEndpointGetEndpointByNameERSEndPointCustomAttributesCustomAttributes `json:"customAttributes,omitempty"` // Key value map
 }
+
+type ResponseEndpointGetEndpointByNameERSEndPointCustomAttributesCustomAttributes interface{}
 
 type ResponseEndpointGetEndpointByNameERSEndPointLink struct {
 	Rel  string `json:"rel,omitempty"`  //
@@ -117,8 +119,10 @@ type ResponseEndpointGetEndpointByIDERSEndPointMdmAttributes struct {
 }
 
 type ResponseEndpointGetEndpointByIDERSEndPointCustomAttributes struct {
-	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` // Key value map
+	CustomAttributes *ResponseEndpointGetEndpointByIDERSEndPointCustomAttributesCustomAttributes `json:"customAttributes,omitempty"` // Key value map
 }
+
+type ResponseEndpointGetEndpointByIDERSEndPointCustomAttributesCustomAttributes interface{}
 
 type ResponseEndpointGetEndpointByIDERSEndPointLink struct {
 	Rel  string `json:"rel,omitempty"`  //
@@ -256,8 +260,10 @@ type RequestEndpointUpdateEndpointByIDERSEndPointMdmAttributes struct {
 }
 
 type RequestEndpointUpdateEndpointByIDERSEndPointCustomAttributes struct {
-	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` // Key value map
+	CustomAttributes *RequestEndpointUpdateEndpointByIDERSEndPointCustomAttributesCustomAttributes `json:"customAttributes,omitempty"` // Key value map
 }
+
+type RequestEndpointUpdateEndpointByIDERSEndPointCustomAttributesCustomAttributes interface{}
 
 type RequestEndpointRegisterEndpoint struct {
 	ERSEndPoint *RequestEndpointRegisterEndpointERSEndPoint `json:"ERSEndPoint,omitempty"` //
@@ -296,8 +302,10 @@ type RequestEndpointRegisterEndpointERSEndPointMdmAttributes struct {
 }
 
 type RequestEndpointRegisterEndpointERSEndPointCustomAttributes struct {
-	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` // Key value map
+	CustomAttributes *RequestEndpointRegisterEndpointERSEndPointCustomAttributesCustomAttributes `json:"customAttributes,omitempty"` // Key value map
 }
+
+type RequestEndpointRegisterEndpointERSEndPointCustomAttributesCustomAttributes interface{}
 
 type RequestEndpointCreateEndpoint struct {
 	ERSEndPoint *RequestEndpointCreateEndpointERSEndPoint `json:"ERSEndPoint,omitempty"` //
@@ -335,8 +343,10 @@ type RequestEndpointCreateEndpointERSEndPointMdmAttributes struct {
 }
 
 type RequestEndpointCreateEndpointERSEndPointCustomAttributes struct {
-	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` // Key value map
+	CustomAttributes *RequestEndpointCreateEndpointERSEndPointCustomAttributesCustomAttributes `json:"customAttributes,omitempty"` // Key value map
 }
+
+type RequestEndpointCreateEndpointERSEndPointCustomAttributesCustomAttributes interface{}
 
 type RequestEndpointBulkRequestForEndpoint struct {
 	EndpointBulkRequest *RequestEndpointBulkRequestForEndpointEndpointBulkRequest `json:"EndpointBulkRequest,omitempty"` //

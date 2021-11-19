@@ -73,7 +73,8 @@ type RequestVirtualNetworkCreateVirtualNetwork struct {
 	LastUpdate           string `json:"lastUpdate,omitempty"`           // Timestamp for the last update of the Virtual Network
 	Name                 string `json:"name,omitempty"`                 // Name of the Virtual Network
 }
-type RequestVirtualNetworkBulkCreateVirtualNetworks *[]RequestItemVirtualNetworkBulkCreateVirtualNetworks // Array of RequestVirtualNetworkBulkCreateVirtualNetworks
+
+type RequestVirtualNetworkBulkCreateVirtualNetworks []RequestItemVirtualNetworkBulkCreateVirtualNetworks // Array of RequestVirtualNetworkBulkCreateVirtualNetworks
 
 type RequestItemVirtualNetworkBulkCreateVirtualNetworks struct {
 	AdditionalAttributes string `json:"additionalAttributes,omitempty"` // JSON String of additional attributes for the Virtual Network
@@ -81,7 +82,10 @@ type RequestItemVirtualNetworkBulkCreateVirtualNetworks struct {
 	LastUpdate           string `json:"lastUpdate,omitempty"`           // Timestamp for the last update of the Virtual Network
 	Name                 string `json:"name,omitempty"`                 // Name of the Virtual Network
 }
-type RequestVirtualNetworkBulkUpdateVirtualNetworks *[]RequestItemVirtualNetworkBulkUpdateVirtualNetworks // Array of RequestVirtualNetworkBulkUpdateVirtualNetworks
+
+type RequestVirtualNetworkBulkDeleteVirtualNetworks []string // Array of RequestVirtualNetworkBulkDeleteVirtualNetworks
+
+type RequestVirtualNetworkBulkUpdateVirtualNetworks []RequestItemVirtualNetworkBulkUpdateVirtualNetworks // Array of RequestVirtualNetworkBulkUpdateVirtualNetworks
 
 type RequestItemVirtualNetworkBulkUpdateVirtualNetworks struct {
 	AdditionalAttributes string `json:"additionalAttributes,omitempty"` // JSON String of additional attributes for the Virtual Network
@@ -234,7 +238,7 @@ func (s *VirtualNetworkService) BulkCreateVirtualNetworks(requestVirtualNetworkB
 /* Delete Virtual Network in bulk
 
  */
-func (s *VirtualNetworkService) BulkDeleteVirtualNetworks() (*ResponseVirtualNetworkBulkDeleteVirtualNetworks, *resty.Response, error) {
+func (s *VirtualNetworkService) BulkDeleteVirtualNetworks(requestVirtualNetworkBulkDeleteVirtualNetworks *RequestVirtualNetworkBulkDeleteVirtualNetworks) (*ResponseVirtualNetworkBulkDeleteVirtualNetworks, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/trustsec/virtualnetwork/bulk/delete"
 
@@ -242,6 +246,7 @@ func (s *VirtualNetworkService) BulkDeleteVirtualNetworks() (*ResponseVirtualNet
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
+		SetBody(requestVirtualNetworkBulkDeleteVirtualNetworks).
 		SetResult(&ResponseVirtualNetworkBulkDeleteVirtualNetworks{}).
 		SetError(&Error).
 		Post(path)

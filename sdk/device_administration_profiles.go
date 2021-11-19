@@ -8,7 +8,9 @@ import (
 
 type DeviceAdministrationProfilesService service
 
-type ResponseDeviceAdministrationProfilesGetDeviceAdminProfiles struct {
+type ResponseDeviceAdministrationProfilesGetDeviceAdminProfiles []ResponseItemDeviceAdministrationProfilesGetDeviceAdminProfiles // Array of ResponseDeviceAdministrationProfilesGetDeviceAdminProfiles
+
+type ResponseItemDeviceAdministrationProfilesGetDeviceAdminProfiles struct {
 	ID   string `json:"id,omitempty"`   //
 	Name string `json:"name,omitempty"` //
 }
@@ -18,7 +20,7 @@ type ResponseDeviceAdministrationProfilesGetDeviceAdminProfiles struct {
 (Other CRUD APIs available through ERS)
 
 */
-func (s *DeviceAdministrationProfilesService) GetDeviceAdminProfiles() (*[]ResponseDeviceAdministrationProfilesGetDeviceAdminProfiles, *resty.Response, error) {
+func (s *DeviceAdministrationProfilesService) GetDeviceAdminProfiles() (*ResponseDeviceAdministrationProfilesGetDeviceAdminProfiles, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/policy/device-admin/shell-profiles"
 
@@ -26,7 +28,7 @@ func (s *DeviceAdministrationProfilesService) GetDeviceAdminProfiles() (*[]Respo
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetResult(&[]ResponseDeviceAdministrationProfilesGetDeviceAdminProfiles{}).
+		SetResult(&ResponseDeviceAdministrationProfilesGetDeviceAdminProfiles{}).
 		SetError(&Error).
 		Get(path)
 
@@ -41,7 +43,7 @@ func (s *DeviceAdministrationProfilesService) GetDeviceAdminProfiles() (*[]Respo
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*[]ResponseDeviceAdministrationProfilesGetDeviceAdminProfiles)
+	result := response.Result().(*ResponseDeviceAdministrationProfilesGetDeviceAdminProfiles)
 	return result, response, err
 
 }

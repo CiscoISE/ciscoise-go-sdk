@@ -24,19 +24,21 @@ type ResponseAdminUserGetAdminUserByID struct {
 }
 
 type ResponseAdminUserGetAdminUserByIDAdminUser struct {
-	Name                         string                                          `json:"name,omitempty"`                         //
-	ID                           string                                          `json:"id,omitempty"`                           //
-	Description                  string                                          `json:"description,omitempty"`                  //
-	Enabled                      *bool                                           `json:"enabled,omitempty"`                      //
-	Password                     string                                          `json:"password,omitempty"`                     //
-	ChangePassword               *bool                                           `json:"changePassword,omitempty"`               //
-	IncludeSystemAlarmsInEmail   *bool                                           `json:"includeSystemAlarmsInEmail,omitempty"`   //
-	ExternalUser                 *bool                                           `json:"externalUser,omitempty"`                 //
-	InactiveAccountNeverDisabled *bool                                           `json:"inactiveAccountNeverDisabled,omitempty"` //
-	AdminGroups                  string                                          `json:"adminGroups,omitempty"`                  //
-	CustomAttributes             *map[string]interface{}                         `json:"customAttributes,omitempty"`             //
-	Link                         *ResponseAdminUserGetAdminUserByIDAdminUserLink `json:"link,omitempty"`                         //
+	Name                         string                                                      `json:"name,omitempty"`                         //
+	ID                           string                                                      `json:"id,omitempty"`                           //
+	Description                  string                                                      `json:"description,omitempty"`                  //
+	Enabled                      *bool                                                       `json:"enabled,omitempty"`                      //
+	Password                     string                                                      `json:"password,omitempty"`                     //
+	ChangePassword               *bool                                                       `json:"changePassword,omitempty"`               //
+	IncludeSystemAlarmsInEmail   *bool                                                       `json:"includeSystemAlarmsInEmail,omitempty"`   //
+	ExternalUser                 *bool                                                       `json:"externalUser,omitempty"`                 //
+	InactiveAccountNeverDisabled *bool                                                       `json:"inactiveAccountNeverDisabled,omitempty"` //
+	AdminGroups                  string                                                      `json:"adminGroups,omitempty"`                  //
+	CustomAttributes             *ResponseAdminUserGetAdminUserByIDAdminUserCustomAttributes `json:"customAttributes,omitempty"`             //
+	Link                         *ResponseAdminUserGetAdminUserByIDAdminUserLink             `json:"link,omitempty"`                         //
 }
+
+type ResponseAdminUserGetAdminUserByIDAdminUserCustomAttributes interface{}
 
 type ResponseAdminUserGetAdminUserByIDAdminUserLink struct {
 	Rel  string `json:"rel,omitempty"`  //
