@@ -38,7 +38,7 @@ type ResponseAdminUserGetAdminUserByIDAdminUser struct {
 	Link                         *ResponseAdminUserGetAdminUserByIDAdminUserLink             `json:"link,omitempty"`                         //
 }
 
-type ResponseAdminUserGetAdminUserByIDAdminUserCustomAttributes interface{}
+type ResponseAdminUserGetAdminUserByIDAdminUserCustomAttributes map[string]interface{}
 
 type ResponseAdminUserGetAdminUserByIDAdminUserLink struct {
 	Rel  string `json:"rel,omitempty"`  //

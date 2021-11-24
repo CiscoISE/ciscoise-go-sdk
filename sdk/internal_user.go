@@ -42,7 +42,7 @@ type ResponseInternalUserGetInternalUserByNameInternalUser struct {
 	Link              *ResponseInternalUserGetInternalUserByNameInternalUserLink             `json:"link,omitempty"`              //
 }
 
-type ResponseInternalUserGetInternalUserByNameInternalUserCustomAttributes interface{}
+type ResponseInternalUserGetInternalUserByNameInternalUserCustomAttributes map[string]interface{}
 
 type ResponseInternalUserGetInternalUserByNameInternalUserLink struct {
 	Rel  string `json:"rel,omitempty"`  //
@@ -90,7 +90,7 @@ type ResponseInternalUserGetInternalUserByIDInternalUser struct {
 	Link              *ResponseInternalUserGetInternalUserByIDInternalUserLink             `json:"link,omitempty"`              //
 }
 
-type ResponseInternalUserGetInternalUserByIDInternalUserCustomAttributes interface{}
+type ResponseInternalUserGetInternalUserByIDInternalUserCustomAttributes map[string]interface{}
 
 type ResponseInternalUserGetInternalUserByIDInternalUserLink struct {
 	Rel  string `json:"rel,omitempty"`  //
@@ -189,7 +189,7 @@ type RequestInternalUserUpdateInternalUserByNameInternalUser struct {
 	PasswordIDStore   string                                                                   `json:"passwordIDStore,omitempty"`   // The id store where the internal user's password is kept
 }
 
-type RequestInternalUserUpdateInternalUserByNameInternalUserCustomAttributes interface{}
+type RequestInternalUserUpdateInternalUserByNameInternalUserCustomAttributes map[string]interface{}
 
 type RequestInternalUserUpdateInternalUserByID struct {
 	InternalUser *RequestInternalUserUpdateInternalUserByIDInternalUser `json:"InternalUser,omitempty"` //
@@ -213,7 +213,7 @@ type RequestInternalUserUpdateInternalUserByIDInternalUser struct {
 	PasswordIDStore   string                                                                 `json:"passwordIDStore,omitempty"`   // The id store where the internal user's password is kept
 }
 
-type RequestInternalUserUpdateInternalUserByIDInternalUserCustomAttributes interface{}
+type RequestInternalUserUpdateInternalUserByIDInternalUserCustomAttributes map[string]interface{}
 
 type RequestInternalUserCreateInternalUser struct {
 	InternalUser *RequestInternalUserCreateInternalUserInternalUser `json:"InternalUser,omitempty"` //
@@ -236,7 +236,7 @@ type RequestInternalUserCreateInternalUserInternalUser struct {
 	PasswordIDStore   string                                                             `json:"passwordIDStore,omitempty"`   // The id store where the internal user's password is kept
 }
 
-type RequestInternalUserCreateInternalUserInternalUserCustomAttributes interface{}
+type RequestInternalUserCreateInternalUserInternalUserCustomAttributes map[string]interface{}
 
 //GetInternalUserByName Get internal user by name
 /* This API allows the client to get an internal user by name.
