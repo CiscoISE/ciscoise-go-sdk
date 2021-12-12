@@ -84,6 +84,7 @@ type Client struct {
 	IDentityGroups                                        *IDentityGroupsService
 	IDentitySequence                                      *IDentitySequenceService
 	InternalUser                                          *InternalUserService
+	Licensing                                             *LicensingService
 	Mdm                                                   *MdmService
 	Misc                                                  *MiscService
 	MyDevicePortal                                        *MyDevicePortalService
@@ -107,8 +108,10 @@ type Client struct {
 	NetworkDeviceGroup                                    *NetworkDeviceGroupService
 	NodeDeployment                                        *NodeDeploymentService
 	NodeGroup                                             *NodeGroupService
+	NodeServices                                          *NodeServicesService
 	NodeDetails                                           *NodeDetailsService
 	PanHa                                                 *PanHaService
+	Patching                                              *PatchingService
 	PortalGlobalSetting                                   *PortalGlobalSettingService
 	PortalTheme                                           *PortalThemeService
 	Profiler                                              *ProfilerService
@@ -120,7 +123,6 @@ type Client struct {
 	RadiusFailure                                         *RadiusFailureService
 	RadiusServerSequence                                  *RadiusServerSequenceService
 	RestidStore                                           *RestidStoreService
-	ReplicationStatus                                     *ReplicationStatusService
 	Repository                                            *RepositoryService
 	SmsProvider                                           *SmsProviderService
 	SxpConnections                                        *SxpConnectionsService
@@ -138,7 +140,6 @@ type Client struct {
 	SupportBundleDownload                                 *SupportBundleDownloadService
 	SupportBundleStatus                                   *SupportBundleStatusService
 	SupportBundleTriggerConfiguration                     *SupportBundleTriggerConfigurationService
-	SyncIseNode                                           *SyncIseNodeService
 	SystemHealth                                          *SystemHealthService
 	SystemCertificate                                     *SystemCertificateService
 	TacacsCommandSets                                     *TacacsCommandSetsService
@@ -153,11 +154,11 @@ type Client struct {
 	Endpoint                                              *EndpointService
 	NbarApp                                               *NbarAppService
 	Portal                                                *PortalService
+	Proxy                                                 *ProxyService
 	PxGridNode                                            *PxGridNodeService
-	SgVnMapping                                           *SgVnMappingService
 	Tasks                                                 *TasksService
+	Telemetry                                             *TelemetryService
 	VirtualNetwork                                        *VirtualNetworkService
-	VnVLANMapping                                         *VnVLANMappingService
 }
 
 type service struct {
@@ -301,6 +302,7 @@ func NewClient() (*Client, error) {
 	c.IDentityGroups = (*IDentityGroupsService)(&c.common)
 	c.IDentitySequence = (*IDentitySequenceService)(&c.common)
 	c.InternalUser = (*InternalUserService)(&c.common)
+	c.Licensing = (*LicensingService)(&c.common)
 	c.Mdm = (*MdmService)(&c.common)
 	c.Misc = (*MiscService)(&c.common)
 	c.MyDevicePortal = (*MyDevicePortalService)(&c.common)
@@ -324,8 +326,10 @@ func NewClient() (*Client, error) {
 	c.NetworkDeviceGroup = (*NetworkDeviceGroupService)(&c.common)
 	c.NodeDeployment = (*NodeDeploymentService)(&c.common)
 	c.NodeGroup = (*NodeGroupService)(&c.common)
+	c.NodeServices = (*NodeServicesService)(&c.common)
 	c.NodeDetails = (*NodeDetailsService)(&c.common)
 	c.PanHa = (*PanHaService)(&c.common)
+	c.Patching = (*PatchingService)(&c.common)
 	c.PortalGlobalSetting = (*PortalGlobalSettingService)(&c.common)
 	c.PortalTheme = (*PortalThemeService)(&c.common)
 	c.Profiler = (*ProfilerService)(&c.common)
@@ -337,7 +341,6 @@ func NewClient() (*Client, error) {
 	c.RadiusFailure = (*RadiusFailureService)(&c.common)
 	c.RadiusServerSequence = (*RadiusServerSequenceService)(&c.common)
 	c.RestidStore = (*RestidStoreService)(&c.common)
-	c.ReplicationStatus = (*ReplicationStatusService)(&c.common)
 	c.Repository = (*RepositoryService)(&c.common)
 	c.SmsProvider = (*SmsProviderService)(&c.common)
 	c.SxpConnections = (*SxpConnectionsService)(&c.common)
@@ -355,7 +358,6 @@ func NewClient() (*Client, error) {
 	c.SupportBundleDownload = (*SupportBundleDownloadService)(&c.common)
 	c.SupportBundleStatus = (*SupportBundleStatusService)(&c.common)
 	c.SupportBundleTriggerConfiguration = (*SupportBundleTriggerConfigurationService)(&c.common)
-	c.SyncIseNode = (*SyncIseNodeService)(&c.common)
 	c.SystemHealth = (*SystemHealthService)(&c.common)
 	c.SystemCertificate = (*SystemCertificateService)(&c.common)
 	c.TacacsCommandSets = (*TacacsCommandSetsService)(&c.common)
@@ -370,11 +372,11 @@ func NewClient() (*Client, error) {
 	c.Endpoint = (*EndpointService)(&c.common)
 	c.NbarApp = (*NbarAppService)(&c.common)
 	c.Portal = (*PortalService)(&c.common)
+	c.Proxy = (*ProxyService)(&c.common)
 	c.PxGridNode = (*PxGridNodeService)(&c.common)
-	c.SgVnMapping = (*SgVnMappingService)(&c.common)
 	c.Tasks = (*TasksService)(&c.common)
+	c.Telemetry = (*TelemetryService)(&c.common)
 	c.VirtualNetwork = (*VirtualNetworkService)(&c.common)
-	c.VnVLANMapping = (*VnVLANMappingService)(&c.common)
 
 	client.SetBasicAuth(username, password)
 	return c, nil

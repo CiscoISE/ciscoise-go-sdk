@@ -126,12 +126,12 @@ func (s *RepositoryService) GetRepositories() (*ResponseRepositoryGetRepositorie
 //GetRepository Get a specific repository
 /* Get a specific repository identified by the name passed in the URL.
 
-@param name name path parameter. Unique name for a repository
+@param repositoryName repositoryName path parameter. Unique name for a repository
 */
-func (s *RepositoryService) GetRepository(name string) (*ResponseRepositoryGetRepository, *resty.Response, error) {
+func (s *RepositoryService) GetRepository(repositoryName string) (*ResponseRepositoryGetRepository, *resty.Response, error) {
 	setHost(s.client, "_ui")
-	path := "/api/v1/repository/{name}"
-	path = strings.Replace(path, "{name}", fmt.Sprintf("%v", name), -1)
+	path := "/api/v1/repository/{repositoryName}"
+	path = strings.Replace(path, "{repositoryName}", fmt.Sprintf("%v", repositoryName), -1)
 
 	setCSRFToken(s.client)
 	response, err := s.client.R().
@@ -160,12 +160,12 @@ func (s *RepositoryService) GetRepository(name string) (*ResponseRepositoryGetRe
 //GetRepositoryFiles Get list of files in a repository
 /* This will get the full list of files present in the named repository.
 
-@param name name path parameter. Unique name for a repository
+@param repositoryName repositoryName path parameter. Unique name for a repository
 */
-func (s *RepositoryService) GetRepositoryFiles(name string) (*ResponseRepositoryGetRepositoryFiles, *resty.Response, error) {
+func (s *RepositoryService) GetRepositoryFiles(repositoryName string) (*ResponseRepositoryGetRepositoryFiles, *resty.Response, error) {
 	setHost(s.client, "_ui")
-	path := "/api/v1/repository/{name}/files"
-	path = strings.Replace(path, "{name}", fmt.Sprintf("%v", name), -1)
+	path := "/api/v1/repository/{repositoryName}/files"
+	path = strings.Replace(path, "{repositoryName}", fmt.Sprintf("%v", repositoryName), -1)
 
 	setCSRFToken(s.client)
 	response, err := s.client.R().
@@ -226,12 +226,12 @@ func (s *RepositoryService) CreateRepository(requestRepositoryCreateRepository *
 //UpdateRepository Update the definition of a specific repository
 /* Update the definition of a specific repository, providing ALL parameters for the repository.
 
-@param name name path parameter. Unique name for a repository
+@param repositoryName repositoryName path parameter. Unique name for a repository
 */
-func (s *RepositoryService) UpdateRepository(name string, requestRepositoryUpdateRepository *RequestRepositoryUpdateRepository) (*ResponseRepositoryUpdateRepository, *resty.Response, error) {
+func (s *RepositoryService) UpdateRepository(repositoryName string, requestRepositoryUpdateRepository *RequestRepositoryUpdateRepository) (*ResponseRepositoryUpdateRepository, *resty.Response, error) {
 	setHost(s.client, "_ui")
-	path := "/api/v1/repository/{name}"
-	path = strings.Replace(path, "{name}", fmt.Sprintf("%v", name), -1)
+	path := "/api/v1/repository/{repositoryName}"
+	path = strings.Replace(path, "{repositoryName}", fmt.Sprintf("%v", repositoryName), -1)
 
 	setCSRFToken(s.client)
 	response, err := s.client.R().
@@ -261,12 +261,12 @@ func (s *RepositoryService) UpdateRepository(name string, requestRepositoryUpdat
 //DeleteRepository Delete a specific repository
 /* Long description TBD
 
-@param name name path parameter. Unique name for a repository
+@param repositoryName repositoryName path parameter. Unique name for a repository
 */
-func (s *RepositoryService) DeleteRepository(name string) (*ResponseRepositoryDeleteRepository, *resty.Response, error) {
+func (s *RepositoryService) DeleteRepository(repositoryName string) (*ResponseRepositoryDeleteRepository, *resty.Response, error) {
 	setHost(s.client, "_ui")
-	path := "/api/v1/repository/{name}"
-	path = strings.Replace(path, "{name}", fmt.Sprintf("%v", name), -1)
+	path := "/api/v1/repository/{repositoryName}"
+	path = strings.Replace(path, "{repositoryName}", fmt.Sprintf("%v", repositoryName), -1)
 
 	setCSRFToken(s.client)
 	response, err := s.client.R().
