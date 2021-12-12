@@ -28,7 +28,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	data := &isegosdk.RequestCertificatesExportSystemCertificate{
+	data := &isegosdk.RequestCertificatesExportSystemCert{
 		Export: "CERTIFICATE",
 	}
 
@@ -37,7 +37,7 @@ func main() {
 			fmt.Println("---------------")
 			data.ID = row.ID
 			fmt.Println("executing ExportSystemCertificate... ", row.ID)
-			cert, _, err := Client.Certificates.ExportSystemCertificate(data)
+			cert, _, err := Client.Certificates.ExportSystemCert(data)
 			if err != nil {
 				fmt.Println(err)
 				os.Exit(1)
