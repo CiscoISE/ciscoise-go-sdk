@@ -413,3 +413,8 @@ func NewClientWithOptions(baseURL string, username string, password string, debu
 	}
 	return NewClient()
 }
+
+// RestyClient returns the resty.Client used by the sdk
+func (s *Client) RestyClient() *resty.Client {
+	return s.common.client
+}
