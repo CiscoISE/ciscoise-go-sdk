@@ -10,7 +10,7 @@ import (
 
 type NbarAppService service
 
-type GetNbarAppListQueryParams struct {
+type GetNbarAppsQueryParams struct {
 	Page       int      `url:"page,omitempty"`       //Page number
 	Size       int      `url:"size,omitempty"`       //Number of objects returned per page
 	Sort       string   `url:"sort,omitempty"`       //sort type - asc or desc
@@ -19,24 +19,24 @@ type GetNbarAppListQueryParams struct {
 	FilterType string   `url:"filterType,omitempty"` //The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the parameter
 }
 
-type ResponseNbarAppGetNbarAppList struct {
-	Response *[]ResponseNbarAppGetNbarAppListResponse `json:"response,omitempty"` //
+type ResponseNbarAppGetNbarApps struct {
+	Response *[]ResponseNbarAppGetNbarAppsResponse `json:"response,omitempty"` //
 }
 
-type ResponseNbarAppGetNbarAppListResponse struct {
-	Description       string                                                    `json:"description,omitempty"`       //
-	ID                string                                                    `json:"id,omitempty"`                //
-	Name              string                                                    `json:"name,omitempty"`              //
-	NetworkIDentities *[]ResponseNbarAppGetNbarAppListResponseNetworkIDentities `json:"networkIdentities,omitempty"` // Array of NIs
+type ResponseNbarAppGetNbarAppsResponse struct {
+	Description       string                                                 `json:"description,omitempty"`       //
+	ID                string                                                 `json:"id,omitempty"`                //
+	Name              string                                                 `json:"name,omitempty"`              //
+	NetworkIDentities *[]ResponseNbarAppGetNbarAppsResponseNetworkIDentities `json:"networkIdentities,omitempty"` // Array of NIs
 }
 
-type ResponseNbarAppGetNbarAppListResponseNetworkIDentities struct {
+type ResponseNbarAppGetNbarAppsResponseNetworkIDentities struct {
 	Ports    string `json:"ports,omitempty"`    //
 	Protocol string `json:"protocol,omitempty"` //
 }
 
 type ResponseNbarAppCreateNbarApp struct {
-	ID string `json:"id,omitempty"` // resource id
+	ID string `json:"id,omitempty"` // ID of the newly created object
 }
 
 type ResponseNbarAppGetNbarAppByID struct {
@@ -55,13 +55,14 @@ type ResponseNbarAppGetNbarAppByIDResponseNetworkIDentities struct {
 	Protocol string `json:"protocol,omitempty"` //
 }
 
-type ResponseNbarAppUpdateNbarApp struct {
+type ResponseNbarAppUpdateNbarAppByID struct {
 	Code    *int   `json:"code,omitempty"`    //
 	Message string `json:"message,omitempty"` //
 }
 
-type ResponseNbarAppDeleteNbarApp struct {
-	ID string `json:"id,omitempty"` // resource id
+type ResponseNbarAppDeleteNbarAppByID struct {
+	Code    *int   `json:"code,omitempty"`    //
+	Message string `json:"message,omitempty"` //
 }
 
 type RequestNbarAppCreateNbarApp struct {
@@ -76,34 +77,34 @@ type RequestNbarAppCreateNbarAppNetworkIDentities struct {
 	Protocol string `json:"protocol,omitempty"` //
 }
 
-type RequestNbarAppUpdateNbarApp struct {
-	Description       string                                          `json:"description,omitempty"`       //
-	ID                string                                          `json:"id,omitempty"`                //
-	Name              string                                          `json:"name,omitempty"`              //
-	NetworkIDentities *[]RequestNbarAppUpdateNbarAppNetworkIDentities `json:"networkIdentities,omitempty"` // Array of NIs
+type RequestNbarAppUpdateNbarAppByID struct {
+	Description       string                                              `json:"description,omitempty"`       //
+	ID                string                                              `json:"id,omitempty"`                //
+	Name              string                                              `json:"name,omitempty"`              //
+	NetworkIDentities *[]RequestNbarAppUpdateNbarAppByIDNetworkIDentities `json:"networkIdentities,omitempty"` // Array of NIs
 }
 
-type RequestNbarAppUpdateNbarAppNetworkIDentities struct {
+type RequestNbarAppUpdateNbarAppByIDNetworkIDentities struct {
 	Ports    string `json:"ports,omitempty"`    //
 	Protocol string `json:"protocol,omitempty"` //
 }
 
-//GetNbarAppList Get all NBAR Applications
+//GetNbarApps Get all NBAR Applications
 /* Get all NBAR Applications
 
-@param getNBARAppListQueryParams Filtering parameter
+@param getNBARAppsQueryParams Filtering parameter
 */
-func (s *NbarAppService) GetNbarAppList(getNBARAppListQueryParams *GetNbarAppListQueryParams) (*ResponseNbarAppGetNbarAppList, *resty.Response, error) {
+func (s *NbarAppService) GetNbarApps(getNBARAppsQueryParams *GetNbarAppsQueryParams) (*ResponseNbarAppGetNbarApps, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/trustsec/sgacl/nbarapp"
 
-	queryString, _ := query.Values(getNBARAppListQueryParams)
+	queryString, _ := query.Values(getNBARAppsQueryParams)
 
 	setCSRFToken(s.client)
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetQueryString(queryString.Encode()).SetResult(&ResponseNbarAppGetNbarAppList{}).
+		SetQueryString(queryString.Encode()).SetResult(&ResponseNbarAppGetNbarApps{}).
 		SetError(&Error).
 		Get(path)
 
@@ -113,12 +114,12 @@ func (s *NbarAppService) GetNbarAppList(getNBARAppListQueryParams *GetNbarAppLis
 	}
 
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation GetNbarAppList")
+		return nil, response, fmt.Errorf("error with operation GetNbarApps")
 	}
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*ResponseNbarAppGetNbarAppList)
+	result := response.Result().(*ResponseNbarAppGetNbarApps)
 	return result, response, err
 
 }
@@ -189,12 +190,12 @@ func (s *NbarAppService) CreateNbarApp(requestNbarAppCreateNBARApp *RequestNbarA
 
 }
 
-//UpdateNbarApp Update NBAR Application
+//UpdateNbarAppByID Update NBAR Application
 /* Update NBAR Application
 
 @param id id path parameter.
 */
-func (s *NbarAppService) UpdateNbarApp(id string, requestNbarAppUpdateNBARApp *RequestNbarAppUpdateNbarApp) (*ResponseNbarAppUpdateNbarApp, *resty.Response, error) {
+func (s *NbarAppService) UpdateNbarAppByID(id string, requestNbarAppUpdateNBARAppById *RequestNbarAppUpdateNbarAppByID) (*ResponseNbarAppUpdateNbarAppByID, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/trustsec/sgacl/nbarapp/{id}"
 	path = strings.Replace(path, "{id}", fmt.Sprintf("%v", id), -1)
@@ -203,8 +204,8 @@ func (s *NbarAppService) UpdateNbarApp(id string, requestNbarAppUpdateNBARApp *R
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetBody(requestNbarAppUpdateNBARApp).
-		SetResult(&ResponseNbarAppUpdateNbarApp{}).
+		SetBody(requestNbarAppUpdateNBARAppById).
+		SetResult(&ResponseNbarAppUpdateNbarAppByID{}).
 		SetError(&Error).
 		Put(path)
 
@@ -214,22 +215,22 @@ func (s *NbarAppService) UpdateNbarApp(id string, requestNbarAppUpdateNBARApp *R
 	}
 
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation UpdateNbarApp")
+		return nil, response, fmt.Errorf("error with operation UpdateNbarAppById")
 	}
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*ResponseNbarAppUpdateNbarApp)
+	result := response.Result().(*ResponseNbarAppUpdateNbarAppByID)
 	return result, response, err
 
 }
 
-//DeleteNbarApp Delete NBAR Application
+//DeleteNbarAppByID Delete NBAR Application
 /* Delete NBAR Application
 
 @param id id path parameter.
 */
-func (s *NbarAppService) DeleteNbarApp(id string) (*ResponseNbarAppDeleteNbarApp, *resty.Response, error) {
+func (s *NbarAppService) DeleteNbarAppByID(id string) (*ResponseNbarAppDeleteNbarAppByID, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/trustsec/sgacl/nbarapp/{id}"
 	path = strings.Replace(path, "{id}", fmt.Sprintf("%v", id), -1)
@@ -238,7 +239,7 @@ func (s *NbarAppService) DeleteNbarApp(id string) (*ResponseNbarAppDeleteNbarApp
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetResult(&ResponseNbarAppDeleteNbarApp{}).
+		SetResult(&ResponseNbarAppDeleteNbarAppByID{}).
 		SetError(&Error).
 		Delete(path)
 
@@ -248,12 +249,12 @@ func (s *NbarAppService) DeleteNbarApp(id string) (*ResponseNbarAppDeleteNbarApp
 	}
 
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation DeleteNbarApp")
+		return nil, response, fmt.Errorf("error with operation DeleteNbarAppById")
 	}
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*ResponseNbarAppDeleteNbarApp)
+	result := response.Result().(*ResponseNbarAppDeleteNbarAppByID)
 	return result, response, err
 
 }

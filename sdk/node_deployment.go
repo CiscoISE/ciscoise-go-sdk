@@ -15,10 +15,16 @@ type GetDeploymentNodesQueryParams struct {
 	FilterType string   `url:"filterType,omitempty"` //The logical operator common to all filter criteria is AND by default, and can be changed by using this parameter.
 }
 
+// GetNodesQueryParams is deprecated, please use GetDeploymentNodesQueryParams
+type GetNodesQueryParams = GetDeploymentNodesQueryParams
+
 type ResponseNodeDeploymentGetDeploymentNodes struct {
 	Response *[]ResponseNodeDeploymentGetDeploymentNodesResponse `json:"response,omitempty"` //
 	Version  string                                              `json:"version,omitempty"`  //
 }
+
+// ResponseNodeDeploymentGetNodes is deprecated, please use ResponseNodeDeploymentGetDeploymentNodes
+type ResponseNodeDeploymentGetNodes = ResponseNodeDeploymentGetDeploymentNodes
 
 type ResponseNodeDeploymentGetDeploymentNodesResponse struct {
 	Fqdn       string   `json:"fqdn,omitempty"`       //
@@ -28,6 +34,9 @@ type ResponseNodeDeploymentGetDeploymentNodesResponse struct {
 	Roles      []string `json:"roles,omitempty"`      // Roles can be empty or have many values for a node.
 	Services   []string `json:"services,omitempty"`   // Services can be empty or have many values for a node.
 }
+
+// ResponseNodeDeploymentGetNodesResponse is deprecated, please use ResponseNodeDeploymentGetDeploymentNodesResponse
+type ResponseNodeDeploymentGetNodesResponse = ResponseNodeDeploymentGetDeploymentNodesResponse
 
 type ResponseNodeDeploymentRegisterNode struct {
 	Success *ResponseNodeDeploymentRegisterNodeSuccess `json:"success,omitempty"` //
@@ -57,18 +66,30 @@ type ResponseNodeDeploymentUpdateDeploymentNode struct {
 	Version string                                             `json:"version,omitempty"` //
 }
 
+// ResponseNodeDeploymentUpdateNode is deprecated, please use ResponseNodeDeploymentUpdateDeploymentNode
+type ResponseNodeDeploymentUpdateNode = ResponseNodeDeploymentUpdateDeploymentNode
+
 type ResponseNodeDeploymentUpdateDeploymentNodeSuccess struct {
 	Message string `json:"message,omitempty"` //
 }
+
+// ResponseNodeDeploymentUpdateNodeSuccess is deprecated, please use ResponseNodeDeploymentUpdateDeploymentNodeSuccess
+type ResponseNodeDeploymentUpdateNodeSuccess = ResponseNodeDeploymentUpdateDeploymentNodeSuccess
 
 type ResponseNodeDeploymentDeleteDeploymentNode struct {
 	Success *ResponseNodeDeploymentDeleteDeploymentNodeSuccess `json:"success,omitempty"` //
 	Version string                                             `json:"version,omitempty"` //
 }
 
+// ResponseNodeDeploymentDeleteNode is deprecated, please use ResponseNodeDeploymentDeleteDeploymentNode
+type ResponseNodeDeploymentDeleteNode = ResponseNodeDeploymentDeleteDeploymentNode
+
 type ResponseNodeDeploymentDeleteDeploymentNodeSuccess struct {
 	Message string `json:"message,omitempty"` //
 }
+
+// ResponseNodeDeploymentDeleteNodeSuccess is deprecated, please use ResponseNodeDeploymentDeleteDeploymentNodeSuccess
+type ResponseNodeDeploymentDeleteNodeSuccess = ResponseNodeDeploymentDeleteDeploymentNodeSuccess
 
 type ResponseNodeDeploymentMakePrimary struct {
 	Success *ResponseNodeDeploymentMakePrimarySuccess `json:"success,omitempty"` //
@@ -121,6 +142,9 @@ type RequestNodeDeploymentUpdateDeploymentNode struct {
 	Services []string `json:"services,omitempty"` // Services can be empty or have many values for a node.
 }
 
+// RequestNodeDeploymentUpdateNode is deprecated, please use RequestNodeDeploymentUpdateDeploymentNode
+type RequestNodeDeploymentUpdateNode = RequestNodeDeploymentUpdateDeploymentNode
+
 //GetDeploymentNodes Retrieve the list of all the nodes that are deployed in the cluster.
 /* The API lists all the nodes that are deployed in the cluster.
  Returns basic information about each of the deployed nodes in the cluster like hostname, status, roles, and services.
@@ -156,6 +180,11 @@ func (s *NodeDeploymentService) GetDeploymentNodes(getDeploymentNodesQueryParams
 	result := response.Result().(*ResponseNodeDeploymentGetDeploymentNodes)
 	return result, response, err
 
+}
+
+//Alias of GetDeploymentNodes Retrieve the list of all the nodes that are deployed in the cluster.
+func (s *NodeDeploymentService) GetNodes(getDeploymentNodesQueryParams *GetDeploymentNodesQueryParams) (*ResponseNodeDeploymentGetDeploymentNodes, *resty.Response, error) {
+	return s.GetDeploymentNodes(getDeploymentNodesQueryParams)
 }
 
 //GetNodeDetails Retrieve details of a deployed node.
@@ -389,6 +418,11 @@ func (s *NodeDeploymentService) UpdateDeploymentNode(hostname string, requestNod
 
 }
 
+//Alias of UpdateDeploymentNode Replace the existing configuration of the Cisco ISE node with the configuration provided.
+func (s *NodeDeploymentService) UpdateNode(hostname string, requestNodeDeploymentUpdateDeploymentNode *RequestNodeDeploymentUpdateDeploymentNode) (*ResponseNodeDeploymentUpdateDeploymentNode, *resty.Response, error) {
+	return s.UpdateDeploymentNode(hostname, requestNodeDeploymentUpdateDeploymentNode)
+}
+
 //DeleteDeploymentNode Remove a deployed node from a cluster.
 /* The deregistered node becomes a standalone Cisco ISE node.
  It retains the last configuration that it received from the primary PAN and assumes the default roles and services of a standalone node.
@@ -423,4 +457,9 @@ func (s *NodeDeploymentService) DeleteDeploymentNode(hostname string) (*Response
 	result := response.Result().(*ResponseNodeDeploymentDeleteDeploymentNode)
 	return result, response, err
 
+}
+
+//Alias of DeleteDeploymentNode Remove a deployed node from a cluster.
+func (s *NodeDeploymentService) DeleteNode(hostname string) (*ResponseNodeDeploymentDeleteDeploymentNode, *resty.Response, error) {
+	return s.DeleteDeploymentNode(hostname)
 }

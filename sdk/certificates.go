@@ -139,9 +139,15 @@ type ResponseCertificatesDeleteCsr struct {
 	Version  string                                 `json:"version,omitempty"`  //
 }
 
+// ResponseCertificatesDeleteCsrByID is deprecated, please use ResponseCertificatesDeleteCsr
+type ResponseCertificatesDeleteCsrByID = ResponseCertificatesDeleteCsr
+
 type ResponseCertificatesDeleteCsrResponse struct {
 	Message string `json:"message,omitempty"` //
 }
+
+// ResponseCertificatesDeleteCsrByIDResponse is deprecated, please use ResponseCertificatesDeleteCsrResponse
+type ResponseCertificatesDeleteCsrByIDResponse = ResponseCertificatesDeleteCsrResponse
 
 type ResponseCertificatesRegenerateIseRootCa struct {
 	Response *ResponseCertificatesRegenerateIseRootCaResponse `json:"response,omitempty"` //
@@ -165,17 +171,26 @@ type ResponseCertificatesRenewCerts struct {
 	Version  string                                  `json:"version,omitempty"`  //
 }
 
+// ResponseCertificatesRenewCertificates is deprecated, please use ResponseCertificatesRenewCerts
+type ResponseCertificatesRenewCertificates = ResponseCertificatesRenewCerts
+
 type ResponseCertificatesRenewCertsResponse struct {
 	ID      string                                      `json:"id,omitempty"`      // ID which can be used to track status of certificate regeneration
 	Link    *ResponseCertificatesRenewCertsResponseLink `json:"link,omitempty"`    //
 	Message string                                      `json:"message,omitempty"` //
 }
 
+// ResponseCertificatesRenewCertificatesResponse is deprecated, please use ResponseCertificatesRenewCertsResponse
+type ResponseCertificatesRenewCertificatesResponse = ResponseCertificatesRenewCertsResponse
+
 type ResponseCertificatesRenewCertsResponseLink struct {
 	Href string `json:"href,omitempty"` //
 	Rel  string `json:"rel,omitempty"`  //
 	Type string `json:"type,omitempty"` //
 }
+
+// ResponseCertificatesRenewCertificatesResponseLink is deprecated, please use ResponseCertificatesRenewCertsResponseLink
+type ResponseCertificatesRenewCertificatesResponseLink = ResponseCertificatesRenewCertsResponseLink
 
 type ResponseCertificatesBindCsr struct {
 	Response *ResponseCertificatesBindCsrResponse `json:"response,omitempty"` //
@@ -203,11 +218,17 @@ type ResponseCertificatesImportSystemCert struct {
 	Version  string                                        `json:"version,omitempty"`  //
 }
 
+// ResponseCertificatesImportSystemCertificate is deprecated, please use ResponseCertificatesImportSystemCert
+type ResponseCertificatesImportSystemCertificate = ResponseCertificatesImportSystemCert
+
 type ResponseCertificatesImportSystemCertResponse struct {
 	ID      string `json:"id,omitempty"`      // ID of the imported trust certificate
 	Message string `json:"message,omitempty"` // Response message on import of system or trust certificate
 	Status  string `json:"status,omitempty"`  // HTTP response status after import
 }
+
+// ResponseCertificatesImportSystemCertificateResponse is deprecated, please use ResponseCertificatesImportSystemCertResponse
+type ResponseCertificatesImportSystemCertificateResponse = ResponseCertificatesImportSystemCertResponse
 
 type ResponseCertificatesGetSystemCertificates struct {
 	NextPage     *ResponseCertificatesGetSystemCertificatesNextPage     `json:"nextPage,omitempty"`     //
@@ -286,6 +307,9 @@ type ResponseCertificatesUpdateSystemCert struct {
 	Version  string                                        `json:"version,omitempty"`  //
 }
 
+// ResponseCertificatesUpdateSystemCertificate is deprecated, please use ResponseCertificatesUpdateSystemCert
+type ResponseCertificatesUpdateSystemCertificate = ResponseCertificatesUpdateSystemCert
+
 type ResponseCertificatesUpdateSystemCertResponse struct {
 	ID      string                                            `json:"id,omitempty"`      // ID of the imported trust certificate
 	Link    *ResponseCertificatesUpdateSystemCertResponseLink `json:"link,omitempty"`    //
@@ -293,11 +317,17 @@ type ResponseCertificatesUpdateSystemCertResponse struct {
 	Status  string                                            `json:"status,omitempty"`  // HTTP response status after import
 }
 
+// ResponseCertificatesUpdateSystemCertificateResponse is deprecated, please use ResponseCertificatesUpdateSystemCertResponse
+type ResponseCertificatesUpdateSystemCertificateResponse = ResponseCertificatesUpdateSystemCertResponse
+
 type ResponseCertificatesUpdateSystemCertResponseLink struct {
 	Href string `json:"href,omitempty"` //
 	Rel  string `json:"rel,omitempty"`  //
 	Type string `json:"type,omitempty"` //
 }
+
+// ResponseCertificatesUpdateSystemCertificateResponseLink is deprecated, please use ResponseCertificatesUpdateSystemCertResponseLink
+type ResponseCertificatesUpdateSystemCertificateResponseLink = ResponseCertificatesUpdateSystemCertResponseLink
 
 type ResponseCertificatesDeleteSystemCertificateByID struct {
 	Response *ResponseCertificatesDeleteSystemCertificateByIDResponse `json:"response,omitempty"` //
@@ -373,11 +403,17 @@ type ResponseCertificatesImportTrustCert struct {
 	Version  string                                       `json:"version,omitempty"`  //
 }
 
+// ResponseCertificatesImportTrustCertificate is deprecated, please use ResponseCertificatesImportTrustCert
+type ResponseCertificatesImportTrustCertificate = ResponseCertificatesImportTrustCert
+
 type ResponseCertificatesImportTrustCertResponse struct {
 	ID      string `json:"id,omitempty"`      // ID of the imported trust certificate
 	Message string `json:"message,omitempty"` // Response message on import of system or trust certificate
 	Status  string `json:"status,omitempty"`  // HTTP response status after import
 }
+
+// ResponseCertificatesImportTrustCertificateResponse is deprecated, please use ResponseCertificatesImportTrustCertResponse
+type ResponseCertificatesImportTrustCertificateResponse = ResponseCertificatesImportTrustCertResponse
 
 type ResponseCertificatesGetTrustedCertificateByID struct {
 	Response *ResponseCertificatesGetTrustedCertificateByIDResponse `json:"response,omitempty"` //
@@ -481,6 +517,9 @@ type RequestCertificatesRenewCerts struct {
 	CertType string `json:"certType,omitempty"` //
 }
 
+// RequestCertificatesRenewCertificates is deprecated, please use RequestCertificatesRenewCerts
+type RequestCertificatesRenewCertificates = RequestCertificatesRenewCerts
+
 type RequestCertificatesBindCsr struct {
 	Admin                            *bool  `json:"admin,omitempty"`                            //  Use certificate to authenticate the Cisco ISE Admin Portal
 	AllowExtendedValidity            *bool  `json:"allowExtendedValidity,omitempty"`            // Allow import of certificates with validity greater than 398 days (required)
@@ -506,6 +545,9 @@ type RequestCertificatesExportSystemCert struct {
 	ID       string `json:"id,omitempty"`       //
 	Password string `json:"password,omitempty"` //
 }
+
+// RequestCertificatesExportSystemCertificate is deprecated, please use RequestCertificatesExportSystemCert
+type RequestCertificatesExportSystemCertificate = RequestCertificatesExportSystemCert
 
 type RequestCertificatesGenerateSelfSignedCertificate struct {
 	Admin                                *bool    `json:"admin,omitempty"`                                // Use certificate to authenticate the Cisco ISE Admin Portal
@@ -566,6 +608,9 @@ type RequestCertificatesImportSystemCert struct {
 	ValidateCertificateExtensions        *bool  `json:"validateCertificateExtensions,omitempty"`        // Validate certificate extensions
 }
 
+// RequestCertificatesImportSystemCertificate is deprecated, please use RequestCertificatesImportSystemCert
+type RequestCertificatesImportSystemCertificate = RequestCertificatesImportSystemCert
+
 type RequestCertificatesUpdateSystemCert struct {
 	Admin                                *bool  `json:"admin,omitempty"`                                // Use certificate to authenticate the Cisco ISE Admin Portal
 	AllowPortalTagTransferForSameSubject *bool  `json:"allowPortalTagTransferForSameSubject,omitempty"` // Allow overwriting the portal tag from matching certificate of same subject
@@ -585,6 +630,9 @@ type RequestCertificatesUpdateSystemCert struct {
 	Saml                                 *bool  `json:"saml,omitempty"`                                 // Use certificate for SAML Signing
 }
 
+// RequestCertificatesUpdateSystemCertificate is deprecated, please use RequestCertificatesUpdateSystemCert
+type RequestCertificatesUpdateSystemCertificate = RequestCertificatesUpdateSystemCert
+
 type RequestCertificatesImportTrustCert struct {
 	AllowBasicConstraintCaFalse       *bool  `json:"allowBasicConstraintCAFalse,omitempty"`       // Allow certificates with Basic Constraints CA Field as False (required)
 	AllowOutOfDateCert                *bool  `json:"allowOutOfDateCert,omitempty"`                // Allow out of date certificates (required)
@@ -598,6 +646,9 @@ type RequestCertificatesImportTrustCert struct {
 	TrustForIseAuth                   *bool  `json:"trustForIseAuth,omitempty"`                   // Trust for authentication within Cisco ISE
 	ValidateCertificateExtensions     *bool  `json:"validateCertificateExtensions,omitempty"`     // Validate trust certificate extension
 }
+
+// RequestCertificatesImportTrustCertificate is deprecated, please use RequestCertificatesImportTrustCert
+type RequestCertificatesImportTrustCertificate = RequestCertificatesImportTrustCert
 
 type RequestCertificatesUpdateTrustedCertificate struct {
 	AuthenticateBeforeCRLReceived     *bool  `json:"authenticateBeforeCRLReceived,omitempty"`     // Switch to enable or disable CRL verification if CRL is not received
@@ -959,6 +1010,11 @@ func (s *CertificatesService) ExportTrustedCert(id string) (FileDownload, *resty
 
 }
 
+//Alias of ExportTrustedCert Export a trust certificate given a certificate id.
+func (s *CertificatesService) ExportTrustedCertificate(id string) (FileDownload, *resty.Response, error) {
+	return s.ExportTrustedCert(id)
+}
+
 //GetTrustedCertificateByID Get Trust Certificate By ID
 /* This API can displays details of a Trust Certificate based on a given ID.
 
@@ -1291,6 +1347,11 @@ func (s *CertificatesService) RenewCerts(requestCertificatesRenewCerts *RequestC
 	result := response.Result().(*ResponseCertificatesRenewCerts)
 	return result, response, err
 
+}
+
+//Alias of RenewCerts Renew certificates of OCSP responder and Cisco ISE Messaging Service.
+func (s *CertificatesService) RenewCertificates(requestCertificatesRenewCerts *RequestCertificatesRenewCerts) (*ResponseCertificatesRenewCerts, *resty.Response, error) {
+	return s.RenewCerts(requestCertificatesRenewCerts)
 }
 
 //BindCsr Bind CA Signed Certificate.
@@ -1655,6 +1716,11 @@ func (s *CertificatesService) ExportSystemCert(requestCertificatesExportSystemCe
 	getCSFRToken(response.Header())
 	return fdownload, response, err
 
+}
+
+//Alias of ExportSystemCert Export a system certificate given a certificate ID.
+func (s *CertificatesService) ExportSystemCertificate(requestCertificatesExportSystemCert *RequestCertificatesExportSystemCert) (FileDownload, *resty.Response, error) {
+	return s.ExportSystemCert(requestCertificatesExportSystemCert)
 }
 
 //GenerateSelfSignedCertificate Generate self-signed certificate in Cisco ISE.
@@ -2349,6 +2415,11 @@ func (s *CertificatesService) ImportSystemCert(requestCertificatesImportSystemCe
 
 }
 
+//Alias of ImportSystemCert Import system certificate into Cisco ISE.
+func (s *CertificatesService) ImportSystemCertificate(requestCertificatesImportSystemCert *RequestCertificatesImportSystemCert) (*ResponseCertificatesImportSystemCert, *resty.Response, error) {
+	return s.ImportSystemCert(requestCertificatesImportSystemCert)
+}
+
 //ImportTrustCert Add root certificate to the Cisco ISE truststore.
 /*
 
@@ -2570,6 +2641,11 @@ func (s *CertificatesService) ImportTrustCert(requestCertificatesImportTrustCert
 	result := response.Result().(*ResponseCertificatesImportTrustCert)
 	return result, response, err
 
+}
+
+//Alias of ImportTrustCert Add root certificate to the Cisco ISE truststore.
+func (s *CertificatesService) ImportTrustCertificate(requestCertificatesImportTrustCert *RequestCertificatesImportTrustCert) (*ResponseCertificatesImportTrustCert, *resty.Response, error) {
+	return s.ImportTrustCert(requestCertificatesImportTrustCert)
 }
 
 //UpdateSystemCert Update data for existing system certificate.
@@ -2825,6 +2901,11 @@ func (s *CertificatesService) UpdateSystemCert(id string, hostName string, reque
 	result := response.Result().(*ResponseCertificatesUpdateSystemCert)
 	return result, response, err
 
+}
+
+//Alias of UpdateSystemCert Update data for existing system certificate.
+func (s *CertificatesService) UpdateSystemCertificate(id string, hostName string, requestCertificatesUpdateSystemCert *RequestCertificatesUpdateSystemCert) (*ResponseCertificatesUpdateSystemCert, *resty.Response, error) {
+	return s.UpdateSystemCert(id, hostName, requestCertificatesUpdateSystemCert)
 }
 
 //UpdateTrustedCertificate Update trust certificate already present in Cisco ISE trust store.
@@ -3288,6 +3369,11 @@ func (s *CertificatesService) DeleteCsr(hostName string, id string) (*ResponseCe
 	result := response.Result().(*ResponseCertificatesDeleteCsr)
 	return result, response, err
 
+}
+
+//Alias of DeleteCsr Delete Certificate Signing Request (CSR) by ID
+func (s *CertificatesService) DeleteCsrByID(hostName string, id string) (*ResponseCertificatesDeleteCsr, *resty.Response, error) {
+	return s.DeleteCsr(hostName, id)
 }
 
 //DeleteSystemCertificateByID Delete System Certificate by ID and hostname

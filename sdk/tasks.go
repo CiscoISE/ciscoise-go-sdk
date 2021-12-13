@@ -10,6 +10,8 @@ import (
 type TasksService service
 
 type ResponseTasksGetAllTaskStatus []ResponseItemTasksGetAllTaskStatus // Array of ResponseTasksGetAllTaskStatus
+// ResponseTasksGetTaskStatus is deprecated and does not have valid alias
+// type ResponseTasksGetTaskStatus = ResponseTasksGetAllTaskStatus
 
 type ResponseItemTasksGetAllTaskStatus struct {
 	DetailStatus    *[]ResponseItemTasksGetAllTaskStatusDetailStatus `json:"detailStatus,omitempty"`    //
@@ -22,7 +24,13 @@ type ResponseItemTasksGetAllTaskStatus struct {
 	SuccessCount    *int                                             `json:"successCount,omitempty"`    //
 }
 
+// ResponseItemTasksGetTaskStatus is deprecated, please use ResponseItemTasksGetAllTaskStatus
+type ResponseItemTasksGetTaskStatus = ResponseItemTasksGetAllTaskStatus
+
 type ResponseItemTasksGetAllTaskStatusDetailStatus interface{}
+
+// ResponseItemTasksGetTaskStatusDetailStatus is deprecated, please use ResponseItemTasksGetAllTaskStatusDetailStatus
+type ResponseItemTasksGetTaskStatusDetailStatus = ResponseItemTasksGetAllTaskStatusDetailStatus
 
 type ResponseTasksGetTaskStatus struct {
 	DetailStatus    *[]ResponseTasksGetTaskStatusDetailStatus `json:"detailStatus,omitempty"`    //
@@ -35,7 +43,13 @@ type ResponseTasksGetTaskStatus struct {
 	SuccessCount    *int                                      `json:"successCount,omitempty"`    //
 }
 
+// ResponseTasksGetTaskStatusByID is deprecated, please use ResponseTasksGetTaskStatus
+type ResponseTasksGetTaskStatusByID = ResponseTasksGetTaskStatus
+
 type ResponseTasksGetTaskStatusDetailStatus interface{}
+
+// ResponseTasksGetTaskStatusByIDDetailStatus is deprecated, please use ResponseTasksGetTaskStatusDetailStatus
+type ResponseTasksGetTaskStatusByIDDetailStatus = ResponseTasksGetTaskStatusDetailStatus
 
 //GetAllTaskStatus get all task status
 /* get all task status
@@ -101,4 +115,9 @@ func (s *TasksService) GetTaskStatus(taskID string) (*ResponseTasksGetTaskStatus
 	result := response.Result().(*ResponseTasksGetTaskStatus)
 	return result, response, err
 
+}
+
+//Alias of GetTaskStatus Monitor task status
+func (s *TasksService) GetTaskStatusByID(taskID string) (*ResponseTasksGetTaskStatus, *resty.Response, error) {
+	return s.GetTaskStatus(taskID)
 }

@@ -156,9 +156,11 @@ type Client struct {
 	Portal                                                *PortalService
 	Proxy                                                 *ProxyService
 	PxGridNode                                            *PxGridNodeService
+	SgVnMapping                                           *SgVnMappingService
 	Tasks                                                 *TasksService
 	Telemetry                                             *TelemetryService
 	VirtualNetwork                                        *VirtualNetworkService
+	VnVLANMapping                                         *VnVLANMappingService
 }
 
 type service struct {
@@ -374,9 +376,11 @@ func NewClient() (*Client, error) {
 	c.Portal = (*PortalService)(&c.common)
 	c.Proxy = (*ProxyService)(&c.common)
 	c.PxGridNode = (*PxGridNodeService)(&c.common)
+	c.SgVnMapping = (*SgVnMappingService)(&c.common)
 	c.Tasks = (*TasksService)(&c.common)
 	c.Telemetry = (*TelemetryService)(&c.common)
 	c.VirtualNetwork = (*VirtualNetworkService)(&c.common)
+	c.VnVLANMapping = (*VnVLANMappingService)(&c.common)
 
 	client.SetBasicAuth(username, password)
 	return c, nil

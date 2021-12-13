@@ -10,7 +10,7 @@ import (
 
 type VirtualNetworkService service
 
-type GetVirtualNetworkListQueryParams struct {
+type GetVirtualNetworksQueryParams struct {
 	Page       int      `url:"page,omitempty"`       //Page number
 	Size       int      `url:"size,omitempty"`       //Number of objects returned per page
 	Sort       string   `url:"sort,omitempty"`       //sort type - asc or desc
@@ -19,11 +19,11 @@ type GetVirtualNetworkListQueryParams struct {
 	FilterType string   `url:"filterType,omitempty"` //The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the parameter
 }
 
-type ResponseVirtualNetworkGetVirtualNetworkList struct {
-	Response *[]ResponseVirtualNetworkGetVirtualNetworkListResponse `json:"response,omitempty"` // Array of Virtual Network
+type ResponseVirtualNetworkGetVirtualNetworks struct {
+	Response *[]ResponseVirtualNetworkGetVirtualNetworksResponse `json:"response,omitempty"` // Array of Virtual Network
 }
 
-type ResponseVirtualNetworkGetVirtualNetworkListResponse struct {
+type ResponseVirtualNetworkGetVirtualNetworksResponse struct {
 	AdditionalAttributes string `json:"additionalAttributes,omitempty"` // JSON String of additional attributes for the Virtual Network
 	ID                   string `json:"id,omitempty"`                   // Identifier of the Virtual Network
 	LastUpdate           string `json:"lastUpdate,omitempty"`           // Timestamp for the last update of the Virtual Network
@@ -31,7 +31,7 @@ type ResponseVirtualNetworkGetVirtualNetworkListResponse struct {
 }
 
 type ResponseVirtualNetworkCreateVirtualNetwork struct {
-	ID string `json:"id,omitempty"` // resource id
+	ID string `json:"id,omitempty"` // ID of the newly created object
 }
 
 type ResponseVirtualNetworkBulkCreateVirtualNetworks struct {
@@ -57,13 +57,14 @@ type ResponseVirtualNetworkGetVirtualNetworkByIDResponse struct {
 	Name                 string `json:"name,omitempty"`                 // Name of the Virtual Network
 }
 
-type ResponseVirtualNetworkUpdateVirtualNetwork struct {
+type ResponseVirtualNetworkUpdateVirtualNetworkByID struct {
 	Code    *int   `json:"code,omitempty"`    //
 	Message string `json:"message,omitempty"` //
 }
 
-type ResponseVirtualNetworkDeleteVirtualNetwork struct {
-	ID string `json:"id,omitempty"` // resource id
+type ResponseVirtualNetworkDeleteVirtualNetworkByID struct {
+	Code    *int   `json:"code,omitempty"`    //
+	Message string `json:"message,omitempty"` //
 }
 
 type RequestVirtualNetworkCreateVirtualNetwork struct {
@@ -93,29 +94,29 @@ type RequestItemVirtualNetworkBulkUpdateVirtualNetworks struct {
 	Name                 string `json:"name,omitempty"`                 // Name of the Virtual Network
 }
 
-type RequestVirtualNetworkUpdateVirtualNetwork struct {
+type RequestVirtualNetworkUpdateVirtualNetworkByID struct {
 	AdditionalAttributes string `json:"additionalAttributes,omitempty"` // JSON String of additional attributes for the Virtual Network
 	ID                   string `json:"id,omitempty"`                   // Identifier of the Virtual Network
 	LastUpdate           string `json:"lastUpdate,omitempty"`           // Timestamp for the last update of the Virtual Network
 	Name                 string `json:"name,omitempty"`                 // Name of the Virtual Network
 }
 
-//GetVirtualNetworkList Get all Virtual Networks
+//GetVirtualNetworks Get all Virtual Networks
 /* Get all Virtual Networks
 
-@param getVirtualNetworkListQueryParams Filtering parameter
+@param getVirtualNetworksQueryParams Filtering parameter
 */
-func (s *VirtualNetworkService) GetVirtualNetworkList(getVirtualNetworkListQueryParams *GetVirtualNetworkListQueryParams) (*ResponseVirtualNetworkGetVirtualNetworkList, *resty.Response, error) {
+func (s *VirtualNetworkService) GetVirtualNetworks(getVirtualNetworksQueryParams *GetVirtualNetworksQueryParams) (*ResponseVirtualNetworkGetVirtualNetworks, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/trustsec/virtualnetwork"
 
-	queryString, _ := query.Values(getVirtualNetworkListQueryParams)
+	queryString, _ := query.Values(getVirtualNetworksQueryParams)
 
 	setCSRFToken(s.client)
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetQueryString(queryString.Encode()).SetResult(&ResponseVirtualNetworkGetVirtualNetworkList{}).
+		SetQueryString(queryString.Encode()).SetResult(&ResponseVirtualNetworkGetVirtualNetworks{}).
 		SetError(&Error).
 		Get(path)
 
@@ -125,12 +126,12 @@ func (s *VirtualNetworkService) GetVirtualNetworkList(getVirtualNetworkListQuery
 	}
 
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation GetVirtualNetworkList")
+		return nil, response, fmt.Errorf("error with operation GetVirtualNetworks")
 	}
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*ResponseVirtualNetworkGetVirtualNetworkList)
+	result := response.Result().(*ResponseVirtualNetworkGetVirtualNetworks)
 	return result, response, err
 
 }
@@ -297,12 +298,12 @@ func (s *VirtualNetworkService) BulkUpdateVirtualNetworks(requestVirtualNetworkB
 
 }
 
-//UpdateVirtualNetwork Update Virtual Network
+//UpdateVirtualNetworkByID Update Virtual Network
 /* Update Virtual Network
 
 @param id id path parameter.
 */
-func (s *VirtualNetworkService) UpdateVirtualNetwork(id string, requestVirtualNetworkUpdateVirtualNetwork *RequestVirtualNetworkUpdateVirtualNetwork) (*ResponseVirtualNetworkUpdateVirtualNetwork, *resty.Response, error) {
+func (s *VirtualNetworkService) UpdateVirtualNetworkByID(id string, requestVirtualNetworkUpdateVirtualNetworkById *RequestVirtualNetworkUpdateVirtualNetworkByID) (*ResponseVirtualNetworkUpdateVirtualNetworkByID, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/trustsec/virtualnetwork/{id}"
 	path = strings.Replace(path, "{id}", fmt.Sprintf("%v", id), -1)
@@ -311,8 +312,8 @@ func (s *VirtualNetworkService) UpdateVirtualNetwork(id string, requestVirtualNe
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetBody(requestVirtualNetworkUpdateVirtualNetwork).
-		SetResult(&ResponseVirtualNetworkUpdateVirtualNetwork{}).
+		SetBody(requestVirtualNetworkUpdateVirtualNetworkById).
+		SetResult(&ResponseVirtualNetworkUpdateVirtualNetworkByID{}).
 		SetError(&Error).
 		Put(path)
 
@@ -322,22 +323,22 @@ func (s *VirtualNetworkService) UpdateVirtualNetwork(id string, requestVirtualNe
 	}
 
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation UpdateVirtualNetwork")
+		return nil, response, fmt.Errorf("error with operation UpdateVirtualNetworkById")
 	}
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*ResponseVirtualNetworkUpdateVirtualNetwork)
+	result := response.Result().(*ResponseVirtualNetworkUpdateVirtualNetworkByID)
 	return result, response, err
 
 }
 
-//DeleteVirtualNetwork Delete Virtual Network
+//DeleteVirtualNetworkByID Delete Virtual Network
 /* Delete Virtual Network
 
 @param id id path parameter.
 */
-func (s *VirtualNetworkService) DeleteVirtualNetwork(id string) (*ResponseVirtualNetworkDeleteVirtualNetwork, *resty.Response, error) {
+func (s *VirtualNetworkService) DeleteVirtualNetworkByID(id string) (*ResponseVirtualNetworkDeleteVirtualNetworkByID, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/trustsec/virtualnetwork/{id}"
 	path = strings.Replace(path, "{id}", fmt.Sprintf("%v", id), -1)
@@ -346,7 +347,7 @@ func (s *VirtualNetworkService) DeleteVirtualNetwork(id string) (*ResponseVirtua
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetResult(&ResponseVirtualNetworkDeleteVirtualNetwork{}).
+		SetResult(&ResponseVirtualNetworkDeleteVirtualNetworkByID{}).
 		SetError(&Error).
 		Delete(path)
 
@@ -356,12 +357,12 @@ func (s *VirtualNetworkService) DeleteVirtualNetwork(id string) (*ResponseVirtua
 	}
 
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation DeleteVirtualNetwork")
+		return nil, response, fmt.Errorf("error with operation DeleteVirtualNetworkById")
 	}
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*ResponseVirtualNetworkDeleteVirtualNetwork)
+	result := response.Result().(*ResponseVirtualNetworkDeleteVirtualNetworkByID)
 	return result, response, err
 
 }
