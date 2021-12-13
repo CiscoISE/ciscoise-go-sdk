@@ -31,11 +31,11 @@ type ResponseBackupAndRestoreCancelBackup struct {
 }
 
 type ResponseBackupAndRestoreCancelBackupResponse struct {
-	Action          string `json:"action,omitempty"`          // Whether backup job or restore job
+	Action          string `json:"action,omitempty"`          //
 	Details         string `json:"details,omitempty"`         // Details of the job
 	Error           string `json:"error,omitempty"`           // Error message. False in case of no error
 	HostName        string `json:"hostName,omitempty"`        // Hostname where the job has executed
-	InitiatedFrom   string `json:"initiatedFrom,omitempty"`   // Whether the job was triggered from CLI / ADMIN UI / OPEN API
+	InitiatedFrom   string `json:"initiatedFrom,omitempty"`   //
 	JustComplete    string `json:"justComplete,omitempty"`    // Whether the job completed now. Possible values - Yes, No
 	Message         string `json:"message,omitempty"`         // detail message in case of exception
 	Name            string `json:"name,omitempty"`            // Backup name given at the time of scheduling the job.
@@ -43,8 +43,8 @@ type ResponseBackupAndRestoreCancelBackupResponse struct {
 	Repository      string `json:"repository,omitempty"`      // configured repository selected for the backup / restore job
 	Scheduled       string `json:"scheduled,omitempty"`       // last action performed with respect to backup job. Possible values- BACKUP , CANCEL
 	StartDate       string `json:"startDate,omitempty"`       // Start date of the backup job
-	Status          string `json:"status,omitempty"`          // status of the job - in_progress, complete
-	Type            string `json:"type,omitempty"`            // Whether the job is for OPERATIONAL_DB or CONFIGURATION_DB
+	Status          string `json:"status,omitempty"`          //
+	Type            string `json:"type,omitempty"`            //
 }
 
 type ResponseBackupAndRestoreGetLastConfigBackupStatus struct {
@@ -53,11 +53,11 @@ type ResponseBackupAndRestoreGetLastConfigBackupStatus struct {
 }
 
 type ResponseBackupAndRestoreGetLastConfigBackupStatusResponse struct {
-	Action          string `json:"action,omitempty"`          // Whether backup job or restore job
+	Action          string `json:"action,omitempty"`          //
 	Details         string `json:"details,omitempty"`         // Details of the job
 	Error           string `json:"error,omitempty"`           // Error message. False in case of no error
 	HostName        string `json:"hostName,omitempty"`        // Hostname where the job has executed
-	InitiatedFrom   string `json:"initiatedFrom,omitempty"`   // Whether the job was triggered from CLI / ADMIN UI / OPEN API
+	InitiatedFrom   string `json:"initiatedFrom,omitempty"`   //
 	JustComplete    string `json:"justComplete,omitempty"`    // Whether the job completed now. Possible values - Yes, No
 	Message         string `json:"message,omitempty"`         // detail message in case of exception
 	Name            string `json:"name,omitempty"`            // Backup name given at the time of scheduling the job.
@@ -65,8 +65,8 @@ type ResponseBackupAndRestoreGetLastConfigBackupStatusResponse struct {
 	Repository      string `json:"repository,omitempty"`      // configured repository selected for the backup / restore job
 	Scheduled       string `json:"scheduled,omitempty"`       // last action performed with respect to backup job. Possible values- BACKUP , CANCEL
 	StartDate       string `json:"startDate,omitempty"`       // Start date of the backup job
-	Status          string `json:"status,omitempty"`          // status of the job - in_progress, complete
-	Type            string `json:"type,omitempty"`            // Whether the job is for OPERATIONAL_DB or CONFIGURATION_DB
+	Status          string `json:"status,omitempty"`          //
+	Type            string `json:"type,omitempty"`            //
 }
 
 type ResponseBackupAndRestoreRestoreConfigBackup struct {
@@ -136,13 +136,13 @@ type RequestBackupAndRestoreUpdateScheduledConfigBackup struct {
 	BackupEncryptionKey string `json:"backupEncryptionKey,omitempty"` // The encyption key for the backed up file. Encryption key must satisfy the following criteria - Contains at least one uppercase letter [A-Z], Contains at least one lowercase letter [a-z], Contains at least one digit [0-9], Contain only [A-Z][a-z][0-9]_#, Has at least 8 characters, Has not more than 15 characters, Must not contain 'CcIiSsCco', Must not begin with
 	BackupName          string `json:"backupName,omitempty"`          // The backup file will get saved with this name.
 	EndDate             string `json:"endDate,omitempty"`             // End date of the scheduled backup job. Allowed format MM/DD/YYYY. End date is not required in case of ONE_TIME frequency.
-	Frequency           string `json:"frequency,omitempty"`           // Frequency with which the backup will get scheduled in the ISE node.
+	Frequency           string `json:"frequency,omitempty"`           //
 	MonthDay            string `json:"monthDay,omitempty"`            // Day of month you want backup to be performed on when scheduled frequency is MONTHLY. Allowed values - from 1 to 28.
 	RepositoryName      string `json:"repositoryName,omitempty"`      // Name of the configured repository where the generated backup file will get copied.
 	StartDate           string `json:"startDate,omitempty"`           // Start date for scheduling the backup job. Allowed format MM/DD/YYYY.
-	Status              string `json:"status,omitempty"`              // Enable or disable scheduled backup.
+	Status              string `json:"status,omitempty"`              //
 	Time                string `json:"time,omitempty"`                // Time at which backup job get scheduled. example- 12:00 AM
-	WeekDay             string `json:"weekDay,omitempty"`             // Day of week you want backup to be performed on when scheduled frequency is WEEKLY
+	WeekDay             string `json:"weekDay,omitempty"`             //
 }
 
 type RequestBackupAndRestoreCreateScheduledConfigBackup struct {
@@ -150,13 +150,13 @@ type RequestBackupAndRestoreCreateScheduledConfigBackup struct {
 	BackupEncryptionKey string `json:"backupEncryptionKey,omitempty"` // The encyption key for the backed up file. Encryption key must satisfy the following criteria - Contains at least one uppercase letter [A-Z], Contains at least one lowercase letter [a-z], Contains at least one digit [0-9], Contain only [A-Z][a-z][0-9]_#, Has at least 8 characters, Has not more than 15 characters, Must not contain 'CcIiSsCco', Must not begin with
 	BackupName          string `json:"backupName,omitempty"`          // The backup file will get saved with this name.
 	EndDate             string `json:"endDate,omitempty"`             // End date of the scheduled backup job. Allowed format MM/DD/YYYY. End date is not required in case of ONE_TIME frequency.
-	Frequency           string `json:"frequency,omitempty"`           // Frequency with which the backup will get scheduled in the ISE node.
+	Frequency           string `json:"frequency,omitempty"`           //
 	MonthDay            string `json:"monthDay,omitempty"`            // Day of month you want backup to be performed on when scheduled frequency is MONTHLY. Allowed values - from 1 to 28.
 	RepositoryName      string `json:"repositoryName,omitempty"`      // Name of the configured repository where the generated backup file will get copied.
 	StartDate           string `json:"startDate,omitempty"`           // Start date for scheduling the backup job. Allowed format MM/DD/YYYY.
-	Status              string `json:"status,omitempty"`              // Enable or disable scheduled backup.
+	Status              string `json:"status,omitempty"`              //
 	Time                string `json:"time,omitempty"`                // Time at which backup job get scheduled. example- 12:00 AM
-	WeekDay             string `json:"weekDay,omitempty"`             // Day of week you want backup to be performed on when scheduled frequency is WEEKLY
+	WeekDay             string `json:"weekDay,omitempty"`             //
 }
 
 //GetLastConfigBackupStatus Gives the last backup status

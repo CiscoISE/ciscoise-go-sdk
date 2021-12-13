@@ -9,43 +9,53 @@ import (
 type PanHaService service
 
 type ResponsePanHaGetPanHaStatus struct {
-	Response *[]ResponsePanHaGetPanHaStatusResponse `json:"response,omitempty"` //
+	Response *ResponsePanHaGetPanHaStatusResponse `json:"response,omitempty"` //
+	Version  string                               `json:"version,omitempty"`  //
 }
 
 type ResponsePanHaGetPanHaStatusResponse struct {
-	IsEnabled                *bool  `json:"isEnabled,omitempty"`                //
-	PrimaryHealthCheckNode   string `json:"primaryHealthCheckNode,omitempty"`   //
-	SecondaryHealthCheckNode string `json:"secondaryHealthCheckNode,omitempty"` //
-	PollingInterval          *int   `json:"pollingInterval,omitempty"`          //
-	FailedAttempts           *int   `json:"failedAttempts,omitempty"`           //
+	FailedAttempts           *int                                                         `json:"failedAttempts,omitempty"`           // Failover occurs if the primary PAN is down for the specified number of failure polls. Count (2 - 60).<br> The default value is 5.
+	IsEnabled                *bool                                                        `json:"isEnabled,omitempty"`                //
+	PollingInterval          *int                                                         `json:"pollingInterval,omitempty"`          // Administration nodes are checked after each interval. Seconds (30 - 300) <br> The default value is 120.
+	PrimaryHealthCheckNode   *ResponsePanHaGetPanHaStatusResponsePrimaryHealthCheckNode   `json:"primaryHealthCheckNode,omitempty"`   //
+	SecondaryHealthCheckNode *ResponsePanHaGetPanHaStatusResponseSecondaryHealthCheckNode `json:"secondaryHealthCheckNode,omitempty"` //
 }
 
-type ResponsePanHaEnablePanHa struct {
-	Code      *int   `json:"code,omitempty"`      //
-	Message   string `json:"message,omitempty"`   //
-	RootCause string `json:"rootCause,omitempty"` //
+type ResponsePanHaGetPanHaStatusResponsePrimaryHealthCheckNode struct {
+	Hostname string `json:"hostname,omitempty"` //
 }
 
-type ResponsePanHaDisablePanHa struct {
-	Code      *int   `json:"code,omitempty"`      //
-	Message   string `json:"message,omitempty"`   //
-	RootCause string `json:"rootCause,omitempty"` //
+type ResponsePanHaGetPanHaStatusResponseSecondaryHealthCheckNode struct {
+	Hostname string `json:"hostname,omitempty"` //
 }
 
-type RequestPanHaEnablePanHa struct {
-	Request *RequestPanHaEnablePanHaRequest `json:"request,omitempty"` //
+type ResponsePanHaUpdatePanHa struct {
+	Success *ResponsePanHaUpdatePanHaSuccess `json:"success,omitempty"` //
+	Version string                           `json:"version,omitempty"` //
 }
 
-type RequestPanHaEnablePanHaRequest struct {
-	IsEnabled                *bool  `json:"isEnabled,omitempty"`                //
-	PrimaryHealthCheckNode   string `json:"primaryHealthCheckNode,omitempty"`   //
-	SecondaryHealthCheckNode string `json:"secondaryHealthCheckNode,omitempty"` //
-	PollingInterval          *int   `json:"pollingInterval,omitempty"`          //
-	FailedAttempts           *int   `json:"failedAttempts,omitempty"`           //
+type ResponsePanHaUpdatePanHaSuccess struct {
+	Message string `json:"message,omitempty"` //
 }
 
-//GetPanHaStatus Get current status of the PAN HA.
-/* In a high availability configuration, the Primary Administration Node (PAN) is in the active state. The Secondary PAN (backup PAN) is in the standby state, which means it receives all configuration updates from the Primary PAN, but is not active in the ISE network. You can configure ISE to automatically the promote the secondary PAN when the primary PAN becomes unavailable.
+type RequestPanHaUpdatePanHa struct {
+	FailedAttempts           *int                                             `json:"failedAttempts,omitempty"`           // Failover occurs if the primary PAN is down for the specified number of failure polls. Count (2 - 60).<br> The default value is 5.
+	IsEnabled                *bool                                            `json:"isEnabled,omitempty"`                //
+	PollingInterval          *int                                             `json:"pollingInterval,omitempty"`          // Administration nodes are checked after each interval. Seconds (30 - 300) <br> The default value is 120.
+	PrimaryHealthCheckNode   *RequestPanHaUpdatePanHaPrimaryHealthCheckNode   `json:"primaryHealthCheckNode,omitempty"`   //
+	SecondaryHealthCheckNode *RequestPanHaUpdatePanHaSecondaryHealthCheckNode `json:"secondaryHealthCheckNode,omitempty"` //
+}
+
+type RequestPanHaUpdatePanHaPrimaryHealthCheckNode struct {
+	Hostname string `json:"hostname,omitempty"` //
+}
+
+type RequestPanHaUpdatePanHaSecondaryHealthCheckNode struct {
+	Hostname string `json:"hostname,omitempty"` //
+}
+
+//GetPanHaStatus Get the current configuration of the PAN HA.
+/* In a high availability configuration, the primary PAN is in active state. The secondary PAN (backup PAN) is in standby state, which means that it receives all the configuration updates from the primary PAN, but is not active in the Cisco ISE cluster. You can configure Cisco ISE to automatically promote the secondary PAN when the primary PAN becomes unavailable.
 
  */
 func (s *PanHaService) GetPanHaStatus() (*ResponsePanHaGetPanHaStatus, *resty.Response, error) {
@@ -76,11 +86,13 @@ func (s *PanHaService) GetPanHaStatus() (*ResponsePanHaGetPanHaStatus, *resty.Re
 
 }
 
-//EnablePanHa API to enable/update PAN failover..
-/* To deploy the auto-failover feature, you must have at least three nodes, where two of the nodes assume the Administration persona, and one node acts as the health check node. A health check node is a non-administration node and can be a Policy Service, Monitoring, or pxGrid node, or a combination of these. If the PANs are in different data centers, you must have a health check node for each PAN.
+//UpdatePanHa Enable, update or disable PAN failover configuration.
+/* To deploy the auto-failover feature, you must have at least three nodes, where two of the nodes assume the Administration persona, and one node acts as the health check node. A health check node is a non-administration node and can be a Policy Service, Monitoring, or pxGrid node, or any combination of these. If the PANs are in different data centers, you must have a health check node for each PAN.
+All the fields are mandatory to enable PanHA.
+Values of failedAttempts, pollingInterval, primaryHealthCheckNode, and secondaryHealthCheckNode are not considered when the isEnable value is "false" in the request body.
 
- */
-func (s *PanHaService) EnablePanHa(requestPanHaEnablePanHA *RequestPanHaEnablePanHa) (*ResponsePanHaEnablePanHa, *resty.Response, error) {
+*/
+func (s *PanHaService) UpdatePanHa(requestPanHaUpdatePanHA *RequestPanHaUpdatePanHa) (*ResponsePanHaUpdatePanHa, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/deployment/pan-ha"
 
@@ -88,41 +100,10 @@ func (s *PanHaService) EnablePanHa(requestPanHaEnablePanHA *RequestPanHaEnablePa
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetBody(requestPanHaEnablePanHA).
-		SetResult(&ResponsePanHaEnablePanHa{}).
+		SetBody(requestPanHaUpdatePanHA).
+		SetResult(&ResponsePanHaUpdatePanHa{}).
 		SetError(&Error).
-		Post(path)
-
-	if err != nil {
-		return nil, nil, err
-
-	}
-
-	getCSFRToken(response.Header())
-	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation EnablePanHa")
-	}
-
-	result := response.Result().(*ResponsePanHaEnablePanHa)
-	return result, response, err
-
-}
-
-//DisablePanHa Disable PAN failover..
-/* Disable the automatic PAN failover
-
- */
-func (s *PanHaService) DisablePanHa() (*ResponsePanHaDisablePanHa, *resty.Response, error) {
-	setHost(s.client, "_ui")
-	path := "/api/v1/deployment/pan-ha"
-
-	setCSRFToken(s.client)
-	response, err := s.client.R().
-		SetHeader("Content-Type", "application/json").
-		SetHeader("Accept", "application/json").
-		SetResult(&ResponsePanHaDisablePanHa{}).
-		SetError(&Error).
-		Delete(path)
+		Put(path)
 
 	if err != nil {
 		return nil, nil, err
@@ -130,12 +111,12 @@ func (s *PanHaService) DisablePanHa() (*ResponsePanHaDisablePanHa, *resty.Respon
 	}
 
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation DisablePanHa")
+		return nil, response, fmt.Errorf("error with operation UpdatePanHa")
 	}
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*ResponsePanHaDisablePanHa)
+	result := response.Result().(*ResponsePanHaUpdatePanHa)
 	return result, response, err
 
 }

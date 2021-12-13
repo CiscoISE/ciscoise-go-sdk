@@ -59,14 +59,14 @@ type ResponseCertificatesGetCsrsPreviousPage struct {
 type ResponseCertificatesGetCsrsResponse struct {
 	FriendlyName       string                                   `json:"friendlyName,omitempty"`       // Friendly name of the certificate.
 	GroupTag           string                                   `json:"groupTag,omitempty"`           // GroupTag of the certificate.
-	HostName           string                                   `json:"hostName,omitempty"`           // Hostname or IP address of the ISE node.
+	HostName           string                                   `json:"hostName,omitempty"`           // Hostname or IP address of the Cisco ISE node.
 	ID                 string                                   `json:"id,omitempty"`                 // ID of the certificate.
 	KeySize            string                                   `json:"keySize,omitempty"`            // Size of the cryptographic key used.
 	Link               *ResponseCertificatesGetCsrsResponseLink `json:"link,omitempty"`               //
 	SignatureAlgorithm string                                   `json:"signatureAlgorithm,omitempty"` // Algorithm used for encrypting CSR
 	Subject            string                                   `json:"subject,omitempty"`            // Subject of the certificate. Includes Common Name (CN), Organizational Unit (OU), etc.
 	TimeStamp          string                                   `json:"timeStamp,omitempty"`          // Timestamp of the certificate generation.
-	UsedFor            string                                   `json:"usedFor,omitempty"`            // Services for which the certificate is used for(for eg- MGMT, GENERIC).
+	UsedFor            string                                   `json:"usedFor,omitempty"`            // Services for which the certificate is used for (for eg- MGMT, GENERIC).
 }
 
 type ResponseCertificatesGetCsrsResponseLink struct {
@@ -118,14 +118,14 @@ type ResponseCertificatesGetCsrByIDResponse struct {
 	CsrContents        string                                      `json:"csrContents,omitempty"`        // Contents of the certificate file.
 	FriendlyName       string                                      `json:"friendlyName,omitempty"`       // Friendly name of the certificate.
 	GroupTag           string                                      `json:"groupTag,omitempty"`           // GroupTag of the certificate.
-	HostName           string                                      `json:"hostName,omitempty"`           // Hostname or IP address of the ISE node.
+	HostName           string                                      `json:"hostName,omitempty"`           // Hostname or IP address of the Cisco ISE node.
 	ID                 string                                      `json:"id,omitempty"`                 // ID of the certificate.
 	KeySize            string                                      `json:"keySize,omitempty"`            // Size of the cryptographic key used.
 	Link               *ResponseCertificatesGetCsrByIDResponseLink `json:"link,omitempty"`               //
 	SignatureAlgorithm string                                      `json:"signatureAlgorithm,omitempty"` // Algorithm used for encrypting CSR
 	Subject            string                                      `json:"subject,omitempty"`            // Subject of the certificate. Includes Common Name (CN), Organizational Unit (OU), etc.
 	TimeStamp          string                                      `json:"timeStamp,omitempty"`          // Timestamp of the certificate generation.
-	UsedFor            string                                      `json:"usedFor,omitempty"`            // Services for which the certificate is used for(for eg- MGMT, GENERIC).
+	UsedFor            string                                      `json:"usedFor,omitempty"`            // Services for which the certificate is used for (for eg- MGMT, GENERIC).
 }
 
 type ResponseCertificatesGetCsrByIDResponseLink struct {
@@ -134,14 +134,20 @@ type ResponseCertificatesGetCsrByIDResponseLink struct {
 	Type string `json:"type,omitempty"` //
 }
 
-type ResponseCertificatesDeleteCsrByID struct {
-	Response *ResponseCertificatesDeleteCsrByIDResponse `json:"response,omitempty"` //
-	Version  string                                     `json:"version,omitempty"`  //
+type ResponseCertificatesDeleteCsr struct {
+	Response *ResponseCertificatesDeleteCsrResponse `json:"response,omitempty"` //
+	Version  string                                 `json:"version,omitempty"`  //
 }
 
-type ResponseCertificatesDeleteCsrByIDResponse struct {
+// ResponseCertificatesDeleteCsrByID is deprecated, please use ResponseCertificatesDeleteCsr
+type ResponseCertificatesDeleteCsrByID = ResponseCertificatesDeleteCsr
+
+type ResponseCertificatesDeleteCsrResponse struct {
 	Message string `json:"message,omitempty"` //
 }
+
+// ResponseCertificatesDeleteCsrByIDResponse is deprecated, please use ResponseCertificatesDeleteCsrResponse
+type ResponseCertificatesDeleteCsrByIDResponse = ResponseCertificatesDeleteCsrResponse
 
 type ResponseCertificatesRegenerateIseRootCa struct {
 	Response *ResponseCertificatesRegenerateIseRootCaResponse `json:"response,omitempty"` //
@@ -149,7 +155,7 @@ type ResponseCertificatesRegenerateIseRootCa struct {
 }
 
 type ResponseCertificatesRegenerateIseRootCaResponse struct {
-	ID      string                                               `json:"id,omitempty"`      // Id which can be used to track status of ISE root CA chain regeneration
+	ID      string                                               `json:"id,omitempty"`      // ID which can be used to track status of Cisco ISE root CA chain regeneration
 	Link    *ResponseCertificatesRegenerateIseRootCaResponseLink `json:"link,omitempty"`    //
 	Message string                                               `json:"message,omitempty"` //
 }
@@ -160,22 +166,31 @@ type ResponseCertificatesRegenerateIseRootCaResponseLink struct {
 	Type string `json:"type,omitempty"` //
 }
 
-type ResponseCertificatesRenewCertificates struct {
-	Response *ResponseCertificatesRenewCertificatesResponse `json:"response,omitempty"` //
-	Version  string                                         `json:"version,omitempty"`  //
+type ResponseCertificatesRenewCerts struct {
+	Response *ResponseCertificatesRenewCertsResponse `json:"response,omitempty"` //
+	Version  string                                  `json:"version,omitempty"`  //
 }
 
-type ResponseCertificatesRenewCertificatesResponse struct {
-	ID      string                                             `json:"id,omitempty"`      // Id which can be used to track status of certificate regeneration
-	Link    *ResponseCertificatesRenewCertificatesResponseLink `json:"link,omitempty"`    //
-	Message string                                             `json:"message,omitempty"` //
+// ResponseCertificatesRenewCertificates is deprecated, please use ResponseCertificatesRenewCerts
+type ResponseCertificatesRenewCertificates = ResponseCertificatesRenewCerts
+
+type ResponseCertificatesRenewCertsResponse struct {
+	ID      string                                      `json:"id,omitempty"`      // ID which can be used to track status of certificate regeneration
+	Link    *ResponseCertificatesRenewCertsResponseLink `json:"link,omitempty"`    //
+	Message string                                      `json:"message,omitempty"` //
 }
 
-type ResponseCertificatesRenewCertificatesResponseLink struct {
+// ResponseCertificatesRenewCertificatesResponse is deprecated, please use ResponseCertificatesRenewCertsResponse
+type ResponseCertificatesRenewCertificatesResponse = ResponseCertificatesRenewCertsResponse
+
+type ResponseCertificatesRenewCertsResponseLink struct {
 	Href string `json:"href,omitempty"` //
 	Rel  string `json:"rel,omitempty"`  //
 	Type string `json:"type,omitempty"` //
 }
+
+// ResponseCertificatesRenewCertificatesResponseLink is deprecated, please use ResponseCertificatesRenewCertsResponseLink
+type ResponseCertificatesRenewCertificatesResponseLink = ResponseCertificatesRenewCertsResponseLink
 
 type ResponseCertificatesBindCsr struct {
 	Response *ResponseCertificatesBindCsrResponse `json:"response,omitempty"` //
@@ -187,16 +202,33 @@ type ResponseCertificatesBindCsrResponse struct {
 	Status  string `json:"status,omitempty"`  // Response status after import
 }
 
-type ResponseCertificatesImportSystemCertificate struct {
-	Response *ResponseCertificatesImportSystemCertificateResponse `json:"response,omitempty"` //
-	Version  string                                               `json:"version,omitempty"`  //
+type ResponseCertificatesGenerateSelfSignedCertificate struct {
+	Response *ResponseCertificatesGenerateSelfSignedCertificateResponse `json:"response,omitempty"` //
+	Version  string                                                     `json:"version,omitempty"`  //
 }
 
-type ResponseCertificatesImportSystemCertificateResponse struct {
+type ResponseCertificatesGenerateSelfSignedCertificateResponse struct {
+	ID      string `json:"id,omitempty"`      // ID of the generated sefl signed system certificate
+	Message string `json:"message,omitempty"` // Response message on generation of self-signed system certificate
+	Status  string `json:"status,omitempty"`  // HTTP response status after import
+}
+
+type ResponseCertificatesImportSystemCert struct {
+	Response *ResponseCertificatesImportSystemCertResponse `json:"response,omitempty"` //
+	Version  string                                        `json:"version,omitempty"`  //
+}
+
+// ResponseCertificatesImportSystemCertificate is deprecated, please use ResponseCertificatesImportSystemCert
+type ResponseCertificatesImportSystemCertificate = ResponseCertificatesImportSystemCert
+
+type ResponseCertificatesImportSystemCertResponse struct {
 	ID      string `json:"id,omitempty"`      // ID of the imported trust certificate
 	Message string `json:"message,omitempty"` // Response message on import of system or trust certificate
 	Status  string `json:"status,omitempty"`  // HTTP response status after import
 }
+
+// ResponseCertificatesImportSystemCertificateResponse is deprecated, please use ResponseCertificatesImportSystemCertResponse
+type ResponseCertificatesImportSystemCertificateResponse = ResponseCertificatesImportSystemCertResponse
 
 type ResponseCertificatesGetSystemCertificates struct {
 	NextPage     *ResponseCertificatesGetSystemCertificatesNextPage     `json:"nextPage,omitempty"`     //
@@ -218,13 +250,13 @@ type ResponseCertificatesGetSystemCertificatesPreviousPage struct {
 }
 
 type ResponseCertificatesGetSystemCertificatesResponse struct {
-	ExpirationDate            string                                                 `json:"expirationDate,omitempty"`            // The time and date past which the certificate is no longer valid
+	ExpirationDate            string                                                 `json:"expirationDate,omitempty"`            // Time and date past which the certificate is no longer valid
 	FriendlyName              string                                                 `json:"friendlyName,omitempty"`              // Friendly name of system certificate
 	GroupTag                  string                                                 `json:"groupTag,omitempty"`                  //
 	ID                        string                                                 `json:"id,omitempty"`                        // ID of system certificate
 	IssuedBy                  string                                                 `json:"issuedBy,omitempty"`                  // Common Name of the certificate issuer
 	IssuedTo                  string                                                 `json:"issuedTo,omitempty"`                  // Common Name of the certificate subject
-	KeySize                   *int                                                   `json:"keySize,omitempty"`                   // The length of key used for encrypting system certificate
+	KeySize                   *int                                                   `json:"keySize,omitempty"`                   // Length of key used for encrypting system certificate
 	Link                      *ResponseCertificatesGetSystemCertificatesResponseLink `json:"link,omitempty"`                      //
 	PortalsUsingTheTag        string                                                 `json:"portalsUsingTheTag,omitempty"`        //
 	SelfSigned                *bool                                                  `json:"selfSigned,omitempty"`                //
@@ -232,7 +264,7 @@ type ResponseCertificatesGetSystemCertificatesResponse struct {
 	Sha256Fingerprint         string                                                 `json:"sha256Fingerprint,omitempty"`         //
 	SignatureAlgorithm        string                                                 `json:"signatureAlgorithm,omitempty"`        //
 	UsedBy                    string                                                 `json:"usedBy,omitempty"`                    //
-	ValidFrom                 string                                                 `json:"validFrom,omitempty"`                 // The time and date on which the certificate was created, also known as the Not Before certificate attribute
+	ValidFrom                 string                                                 `json:"validFrom,omitempty"`                 // Time and date on which the certificate was created, also known as the Not Before certificate attribute
 }
 
 type ResponseCertificatesGetSystemCertificatesResponseLink struct {
@@ -247,13 +279,13 @@ type ResponseCertificatesGetSystemCertificateByID struct {
 }
 
 type ResponseCertificatesGetSystemCertificateByIDResponse struct {
-	ExpirationDate            string                                                    `json:"expirationDate,omitempty"`            // The time and date past which the certificate is no longer valid
+	ExpirationDate            string                                                    `json:"expirationDate,omitempty"`            // Time and date past which the certificate is no longer valid
 	FriendlyName              string                                                    `json:"friendlyName,omitempty"`              // Friendly name of system certificate
 	GroupTag                  string                                                    `json:"groupTag,omitempty"`                  //
 	ID                        string                                                    `json:"id,omitempty"`                        // ID of system certificate
 	IssuedBy                  string                                                    `json:"issuedBy,omitempty"`                  // Common Name of the certificate issuer
 	IssuedTo                  string                                                    `json:"issuedTo,omitempty"`                  // Common Name of the certificate subject
-	KeySize                   *int                                                      `json:"keySize,omitempty"`                   // The length of key used for encrypting system certificate
+	KeySize                   *int                                                      `json:"keySize,omitempty"`                   // Length of key used for encrypting system certificate
 	Link                      *ResponseCertificatesGetSystemCertificateByIDResponseLink `json:"link,omitempty"`                      //
 	PortalsUsingTheTag        string                                                    `json:"portalsUsingTheTag,omitempty"`        //
 	SelfSigned                *bool                                                     `json:"selfSigned,omitempty"`                //
@@ -261,7 +293,7 @@ type ResponseCertificatesGetSystemCertificateByIDResponse struct {
 	Sha256Fingerprint         string                                                    `json:"sha256Fingerprint,omitempty"`         //
 	SignatureAlgorithm        string                                                    `json:"signatureAlgorithm,omitempty"`        //
 	UsedBy                    string                                                    `json:"usedBy,omitempty"`                    //
-	ValidFrom                 string                                                    `json:"validFrom,omitempty"`                 // The time and date on which the certificate was created, also known as the Not Before certificate attribute
+	ValidFrom                 string                                                    `json:"validFrom,omitempty"`                 // Time and date on which the certificate was created, also known as the Not Before certificate attribute
 }
 
 type ResponseCertificatesGetSystemCertificateByIDResponseLink struct {
@@ -270,23 +302,32 @@ type ResponseCertificatesGetSystemCertificateByIDResponseLink struct {
 	Type string `json:"type,omitempty"` //
 }
 
-type ResponseCertificatesUpdateSystemCertificate struct {
-	Response *ResponseCertificatesUpdateSystemCertificateResponse `json:"response,omitempty"` //
-	Version  string                                               `json:"version,omitempty"`  //
+type ResponseCertificatesUpdateSystemCert struct {
+	Response *ResponseCertificatesUpdateSystemCertResponse `json:"response,omitempty"` //
+	Version  string                                        `json:"version,omitempty"`  //
 }
 
-type ResponseCertificatesUpdateSystemCertificateResponse struct {
-	ID      string                                                   `json:"id,omitempty"`      // ID of the imported trust certificate
-	Link    *ResponseCertificatesUpdateSystemCertificateResponseLink `json:"link,omitempty"`    //
-	Message string                                                   `json:"message,omitempty"` // Response message on import of system or trust certificate
-	Status  string                                                   `json:"status,omitempty"`  // HTTP response status after import
+// ResponseCertificatesUpdateSystemCertificate is deprecated, please use ResponseCertificatesUpdateSystemCert
+type ResponseCertificatesUpdateSystemCertificate = ResponseCertificatesUpdateSystemCert
+
+type ResponseCertificatesUpdateSystemCertResponse struct {
+	ID      string                                            `json:"id,omitempty"`      // ID of the imported trust certificate
+	Link    *ResponseCertificatesUpdateSystemCertResponseLink `json:"link,omitempty"`    //
+	Message string                                            `json:"message,omitempty"` // Response message on import of system or trust certificate
+	Status  string                                            `json:"status,omitempty"`  // HTTP response status after import
 }
 
-type ResponseCertificatesUpdateSystemCertificateResponseLink struct {
+// ResponseCertificatesUpdateSystemCertificateResponse is deprecated, please use ResponseCertificatesUpdateSystemCertResponse
+type ResponseCertificatesUpdateSystemCertificateResponse = ResponseCertificatesUpdateSystemCertResponse
+
+type ResponseCertificatesUpdateSystemCertResponseLink struct {
 	Href string `json:"href,omitempty"` //
 	Rel  string `json:"rel,omitempty"`  //
 	Type string `json:"type,omitempty"` //
 }
+
+// ResponseCertificatesUpdateSystemCertificateResponseLink is deprecated, please use ResponseCertificatesUpdateSystemCertResponseLink
+type ResponseCertificatesUpdateSystemCertificateResponseLink = ResponseCertificatesUpdateSystemCertResponseLink
 
 type ResponseCertificatesDeleteSystemCertificateByID struct {
 	Response *ResponseCertificatesDeleteSystemCertificateByIDResponse `json:"response,omitempty"` //
@@ -317,21 +358,21 @@ type ResponseCertificatesGetTrustedCertificatesPreviousPage struct {
 }
 
 type ResponseCertificatesGetTrustedCertificatesResponse struct {
-	AuthenticateBeforeCRLReceived  string                                                  `json:"authenticateBeforeCRLReceived,omitempty"`  // Switch to enable/disable authentication before receiving CRL
-	AutomaticCRLUpdate             string                                                  `json:"automaticCRLUpdate,omitempty"`             // Switch to enable/disable automatic CRL update
+	AuthenticateBeforeCRLReceived  string                                                  `json:"authenticateBeforeCRLReceived,omitempty"`  // Switch to enable or disable authentication before receiving CRL
+	AutomaticCRLUpdate             string                                                  `json:"automaticCRLUpdate,omitempty"`             // Switch to enable or disable automatic CRL update
 	AutomaticCRLUpdatePeriod       string                                                  `json:"automaticCRLUpdatePeriod,omitempty"`       // Automatic CRL update period
 	AutomaticCRLUpdateUnits        string                                                  `json:"automaticCRLUpdateUnits,omitempty"`        // Unit of time of automatic CRL update
 	CrlDistributionURL             string                                                  `json:"crlDistributionUrl,omitempty"`             // CRL Distribution URL
 	CrlDownloadFailureRetries      string                                                  `json:"crlDownloadFailureRetries,omitempty"`      // If CRL download fails, wait time before retry
 	CrlDownloadFailureRetriesUnits string                                                  `json:"crlDownloadFailureRetriesUnits,omitempty"` // Unit of time before retry if CRL download fails
 	Description                    string                                                  `json:"description,omitempty"`                    // Description of trust certificate
-	DownloadCRL                    string                                                  `json:"downloadCRL,omitempty"`                    // Switch to enable/disable download of CRL
-	EnableOCSpValidation           string                                                  `json:"enableOCSPValidation,omitempty"`           // Switch to enable/disable OCSP Validation
-	EnableServerIDentityCheck      string                                                  `json:"enableServerIdentityCheck,omitempty"`      // Switch to enable/disable Server Identity Check
+	DownloadCRL                    string                                                  `json:"downloadCRL,omitempty"`                    // Switch to enable or disable download of CRL
+	EnableOCSpValidation           string                                                  `json:"enableOCSPValidation,omitempty"`           // Switch to enable or disable OCSP Validation
+	EnableServerIDentityCheck      string                                                  `json:"enableServerIdentityCheck,omitempty"`      // Switch to enable or disable Server Identity Check
 	ExpirationDate                 string                                                  `json:"expirationDate,omitempty"`                 // The time and date past which the certificate is no longer valid
 	FriendlyName                   string                                                  `json:"friendlyName,omitempty"`                   // Friendly name of trust certificate
 	ID                             string                                                  `json:"id,omitempty"`                             // ID of trust certificate
-	IgnoreCRLExpiration            string                                                  `json:"ignoreCRLExpiration,omitempty"`            // Switch to enable/disable ignore CRL Expiration
+	IgnoreCRLExpiration            string                                                  `json:"ignoreCRLExpiration,omitempty"`            // Switch to enable or disable ignore CRL Expiration
 	InternalCa                     *bool                                                   `json:"internalCA,omitempty"`                     //
 	IssuedBy                       string                                                  `json:"issuedBy,omitempty"`                       // The entity that verified the information and signed the certificate
 	IssuedTo                       string                                                  `json:"issuedTo,omitempty"`                       // Entity to which trust certificate is issued
@@ -357,16 +398,22 @@ type ResponseCertificatesGetTrustedCertificatesResponseLink struct {
 	Type string `json:"type,omitempty"` //
 }
 
-type ResponseCertificatesImportTrustCertificate struct {
-	Response *ResponseCertificatesImportTrustCertificateResponse `json:"response,omitempty"` //
-	Version  string                                              `json:"version,omitempty"`  //
+type ResponseCertificatesImportTrustCert struct {
+	Response *ResponseCertificatesImportTrustCertResponse `json:"response,omitempty"` //
+	Version  string                                       `json:"version,omitempty"`  //
 }
 
-type ResponseCertificatesImportTrustCertificateResponse struct {
+// ResponseCertificatesImportTrustCertificate is deprecated, please use ResponseCertificatesImportTrustCert
+type ResponseCertificatesImportTrustCertificate = ResponseCertificatesImportTrustCert
+
+type ResponseCertificatesImportTrustCertResponse struct {
 	ID      string `json:"id,omitempty"`      // ID of the imported trust certificate
 	Message string `json:"message,omitempty"` // Response message on import of system or trust certificate
 	Status  string `json:"status,omitempty"`  // HTTP response status after import
 }
+
+// ResponseCertificatesImportTrustCertificateResponse is deprecated, please use ResponseCertificatesImportTrustCertResponse
+type ResponseCertificatesImportTrustCertificateResponse = ResponseCertificatesImportTrustCertResponse
 
 type ResponseCertificatesGetTrustedCertificateByID struct {
 	Response *ResponseCertificatesGetTrustedCertificateByIDResponse `json:"response,omitempty"` //
@@ -374,21 +421,21 @@ type ResponseCertificatesGetTrustedCertificateByID struct {
 }
 
 type ResponseCertificatesGetTrustedCertificateByIDResponse struct {
-	AuthenticateBeforeCRLReceived  string                                                     `json:"authenticateBeforeCRLReceived,omitempty"`  // Switch to enable/disable authentication before receiving CRL
-	AutomaticCRLUpdate             string                                                     `json:"automaticCRLUpdate,omitempty"`             // Switch to enable/disable automatic CRL update
+	AuthenticateBeforeCRLReceived  string                                                     `json:"authenticateBeforeCRLReceived,omitempty"`  // Switch to enable or disable authentication before receiving CRL
+	AutomaticCRLUpdate             string                                                     `json:"automaticCRLUpdate,omitempty"`             // Switch to enable or disable automatic CRL update
 	AutomaticCRLUpdatePeriod       string                                                     `json:"automaticCRLUpdatePeriod,omitempty"`       // Automatic CRL update period
 	AutomaticCRLUpdateUnits        string                                                     `json:"automaticCRLUpdateUnits,omitempty"`        // Unit of time of automatic CRL update
 	CrlDistributionURL             string                                                     `json:"crlDistributionUrl,omitempty"`             // CRL Distribution URL
 	CrlDownloadFailureRetries      string                                                     `json:"crlDownloadFailureRetries,omitempty"`      // If CRL download fails, wait time before retry
 	CrlDownloadFailureRetriesUnits string                                                     `json:"crlDownloadFailureRetriesUnits,omitempty"` // Unit of time before retry if CRL download fails
 	Description                    string                                                     `json:"description,omitempty"`                    // Description of trust certificate
-	DownloadCRL                    string                                                     `json:"downloadCRL,omitempty"`                    // Switch to enable/disable download of CRL
-	EnableOCSpValidation           string                                                     `json:"enableOCSPValidation,omitempty"`           // Switch to enable/disable OCSP Validation
-	EnableServerIDentityCheck      string                                                     `json:"enableServerIdentityCheck,omitempty"`      // Switch to enable/disable Server Identity Check
+	DownloadCRL                    string                                                     `json:"downloadCRL,omitempty"`                    // Switch to enable or disable download of CRL
+	EnableOCSpValidation           string                                                     `json:"enableOCSPValidation,omitempty"`           // Switch to enable or disable OCSP Validation
+	EnableServerIDentityCheck      string                                                     `json:"enableServerIdentityCheck,omitempty"`      // Switch to enable or disable Server Identity Check
 	ExpirationDate                 string                                                     `json:"expirationDate,omitempty"`                 // The time and date past which the certificate is no longer valid
 	FriendlyName                   string                                                     `json:"friendlyName,omitempty"`                   // Friendly name of trust certificate
 	ID                             string                                                     `json:"id,omitempty"`                             // ID of trust certificate
-	IgnoreCRLExpiration            string                                                     `json:"ignoreCRLExpiration,omitempty"`            // Switch to enable/disable ignore CRL Expiration
+	IgnoreCRLExpiration            string                                                     `json:"ignoreCRLExpiration,omitempty"`            // Switch to enable or disable ignore CRL Expiration
 	InternalCa                     *bool                                                      `json:"internalCA,omitempty"`                     //
 	IsReferredInPolicy             *bool                                                      `json:"isReferredInPolicy,omitempty"`             //
 	IssuedBy                       string                                                     `json:"issuedBy,omitempty"`                       // The entity that verified the information and signed the certificate
@@ -463,24 +510,27 @@ type RequestCertificatesGenerateCsr struct {
 }
 
 type RequestCertificatesRegenerateIseRootCa struct {
-	RemoveExistingIseIntermediateCsr *bool `json:"removeExistingISEIntermediateCSR,omitempty"` // Setting this attribute to true will remove existing ISE Intermediate CSR
+	RemoveExistingIseIntermediateCsr *bool `json:"removeExistingISEIntermediateCSR,omitempty"` // Setting this attribute to true removes existing Cisco ISE Intermediate CSR
 }
 
-type RequestCertificatesRenewCertificates struct {
+type RequestCertificatesRenewCerts struct {
 	CertType string `json:"certType,omitempty"` //
 }
 
+// RequestCertificatesRenewCertificates is deprecated, please use RequestCertificatesRenewCerts
+type RequestCertificatesRenewCertificates = RequestCertificatesRenewCerts
+
 type RequestCertificatesBindCsr struct {
-	Admin                            *bool  `json:"admin,omitempty"`                            //  Use certificate to authenticate the ISE Admin Portal
+	Admin                            *bool  `json:"admin,omitempty"`                            //  Use certificate to authenticate the Cisco ISE Admin Portal
 	AllowExtendedValidity            *bool  `json:"allowExtendedValidity,omitempty"`            // Allow import of certificates with validity greater than 398 days (required)
 	AllowOutOfDateCert               *bool  `json:"allowOutOfDateCert,omitempty"`               // Allow out of date certificates (required)
 	AllowReplacementOfCertificates   *bool  `json:"allowReplacementOfCertificates,omitempty"`   // Allow Replacement of certificates (required)
 	AllowReplacementOfPortalGroupTag *bool  `json:"allowReplacementOfPortalGroupTag,omitempty"` // Allow Replacement of Portal Group Tag (required)
-	Data                             string `json:"data,omitempty"`                             // Signed Certificate data (required)
+	Data                             string `json:"data,omitempty"`                             // Signed certificate data (required)
 	Eap                              *bool  `json:"eap,omitempty"`                              // Use certificate for EAP protocols that use SSL/TLS tunneling
 	HostName                         string `json:"hostName,omitempty"`                         // Name of Host whose CSR ID has been provided (required)
 	ID                               string `json:"id,omitempty"`                               // ID of the generated CSR (required)
-	Ims                              *bool  `json:"ims,omitempty"`                              // Use certificate for the ISE Messaging Service
+	Ims                              *bool  `json:"ims,omitempty"`                              // Use certificate for the Cisco ISE Messaging Service
 	Name                             string `json:"name,omitempty"`                             // Friendly Name of the certificate
 	Portal                           *bool  `json:"portal,omitempty"`                           // Use for portal
 	PortalGroupTag                   string `json:"portalGroupTag,omitempty"`                   // Set Group tag
@@ -490,57 +540,101 @@ type RequestCertificatesBindCsr struct {
 	ValidateCertificateExtensions    *bool  `json:"validateCertificateExtensions,omitempty"`    // Validate Certificate Extensions
 }
 
-type RequestCertificatesExportSystemCertificate struct {
+type RequestCertificatesExportSystemCert struct {
 	Export   string `json:"export,omitempty"`   //
 	ID       string `json:"id,omitempty"`       //
 	Password string `json:"password,omitempty"` //
 }
 
-type RequestCertificatesImportSystemCertificate struct {
-	Admin                            *bool  `json:"admin,omitempty"`                            // Use certificate to authenticate the ISE Admin Portal
-	AllowExtendedValidity            *bool  `json:"allowExtendedValidity,omitempty"`            // Allow import of certificates with validity greater than 398 days (required)
-	AllowOutOfDateCert               *bool  `json:"allowOutOfDateCert,omitempty"`               // Allow out of date certificates (required)
-	AllowReplacementOfCertificates   *bool  `json:"allowReplacementOfCertificates,omitempty"`   // Allow Replacement of certificates (required)
-	AllowReplacementOfPortalGroupTag *bool  `json:"allowReplacementOfPortalGroupTag,omitempty"` // Allow Replacement of Portal Group Tag (required)
-	AllowSHA1Certificates            *bool  `json:"allowSHA1Certificates,omitempty"`            // Allow SHA1 based certificates (required)
-	AllowWildCardCertificates        *bool  `json:"allowWildCardCertificates,omitempty"`        // Allow Wildcard Certificates
-	Data                             string `json:"data,omitempty"`                             // Certificate Content (required)
-	Eap                              *bool  `json:"eap,omitempty"`                              // Use certificate for EAP protocols that use SSL/TLS tunneling
-	Ims                              *bool  `json:"ims,omitempty"`                              // Use certificate for the ISE Messaging Service
-	Name                             string `json:"name,omitempty"`                             // Name of the certificate
-	Password                         string `json:"password,omitempty"`                         // Certificate Password (required).
-	Portal                           *bool  `json:"portal,omitempty"`                           // Use for portal
-	PortalGroupTag                   string `json:"portalGroupTag,omitempty"`                   // Set Group tag
-	PortalTagTransferForSameSubject  *bool  `json:"portalTagTransferForSameSubject,omitempty"`  // Allow overwriting the portal tag from matching certificate of same subject
-	PrivateKeyData                   string `json:"privateKeyData,omitempty"`                   // Private Key data (required)
-	Pxgrid                           *bool  `json:"pxgrid,omitempty"`                           // Use certificate for the pxGrid Controller
-	Radius                           *bool  `json:"radius,omitempty"`                           // Use certificate for the RADSec server
-	RoleTransferForSameSubject       *bool  `json:"roleTransferForSameSubject,omitempty"`       // Allow transfer of roles for certificate with matching subject
-	Saml                             *bool  `json:"saml,omitempty"`                             // Use certificate for SAML Signing
-	ValidateCertificateExtensions    *bool  `json:"validateCertificateExtensions,omitempty"`    // Validate Certificate Extensions
+// RequestCertificatesExportSystemCertificate is deprecated, please use RequestCertificatesExportSystemCert
+type RequestCertificatesExportSystemCertificate = RequestCertificatesExportSystemCert
+
+type RequestCertificatesGenerateSelfSignedCertificate struct {
+	Admin                                *bool    `json:"admin,omitempty"`                                // Use certificate to authenticate the Cisco ISE Admin Portal
+	AllowExtendedValidity                *bool    `json:"allowExtendedValidity,omitempty"`                // Allow generation of self-signed certificate with validity greater than 398 days
+	AllowPortalTagTransferForSameSubject *bool    `json:"allowPortalTagTransferForSameSubject,omitempty"` // Allow overwriting the portal tag from matching certificate of same subject
+	AllowReplacementOfCertificates       *bool    `json:"allowReplacementOfCertificates,omitempty"`       // Allow Replacement of certificates
+	AllowReplacementOfPortalGroupTag     *bool    `json:"allowReplacementOfPortalGroupTag,omitempty"`     // Allow Replacement of Portal Group Tag
+	AllowRoleTransferForSameSubject      *bool    `json:"allowRoleTransferForSameSubject,omitempty"`      // Allow transfer of roles for certificate with matching subject
+	AllowSanDNSBadName                   *bool    `json:"allowSanDnsBadName,omitempty"`                   // Allow usage of SAN DNS Bad name
+	AllowSanDNSNonResolvable             *bool    `json:"allowSanDnsNonResolvable,omitempty"`             // Allow use of non resolvable Common Name or SAN Values
+	AllowWildCardCertificates            *bool    `json:"allowWildCardCertificates,omitempty"`            // Allow Wildcard Certificates
+	CertificatePolicies                  string   `json:"certificatePolicies,omitempty"`                  // Certificate Policies
+	DigestType                           string   `json:"digestType,omitempty"`                           // Digest to sign with
+	Eap                                  *bool    `json:"eap,omitempty"`                                  // Use certificate for EAP protocols that use SSL/TLS tunneling
+	ExpirationTTL                        *int     `json:"expirationTTL,omitempty"`                        // Certificate expiration value
+	ExpirationTTLUnit                    string   `json:"expirationTTLUnit,omitempty"`                    // Certificate expiration unit
+	HostName                             string   `json:"hostName,omitempty"`                             // Hostname of the Cisco ISE node in which self-signed certificate should be generated.
+	KeyLength                            string   `json:"keyLength,omitempty"`                            // Bit size of public key
+	KeyType                              string   `json:"keyType,omitempty"`                              // Algorithm to use for certificate public key creation
+	Name                                 string   `json:"name,omitempty"`                                 // Friendly name of the certificate.
+	Portal                               *bool    `json:"portal,omitempty"`                               // Use for portal
+	PortalGroupTag                       string   `json:"portalGroupTag,omitempty"`                       // Set Group tag
+	Pxgrid                               *bool    `json:"pxgrid,omitempty"`                               // Use certificate for the pxGrid Controller
+	Radius                               *bool    `json:"radius,omitempty"`                               // Use certificate for the RADSec server
+	Saml                                 *bool    `json:"saml,omitempty"`                                 // Use certificate for SAML Signing
+	SanDNS                               []string `json:"sanDNS,omitempty"`                               // Array of SAN (Subject Alternative Name) DNS entries
+	SanIP                                []string `json:"sanIP,omitempty"`                                // Array of SAN IP entries
+	SanURI                               []string `json:"sanURI,omitempty"`                               // Array of SAN URI entries
+	SubjectCity                          string   `json:"subjectCity,omitempty"`                          // Certificate city or locality (L)
+	SubjectCommonName                    string   `json:"subjectCommonName,omitempty"`                    // Certificate common name (CN)
+	SubjectCountry                       string   `json:"subjectCountry,omitempty"`                       // Certificate country (C)
+	SubjectOrg                           string   `json:"subjectOrg,omitempty"`                           // Certificate organization (O)
+	SubjectOrgUnit                       string   `json:"subjectOrgUnit,omitempty"`                       // Certificate organizational unit (OU)
+	SubjectState                         string   `json:"subjectState,omitempty"`                         // Certificate state (ST)
 }
 
-type RequestCertificatesUpdateSystemCertificate struct {
-	Admin                            *bool  `json:"admin,omitempty"`                            // Use certificate to authenticate the ISE Admin Portal
-	AllowReplacementOfPortalGroupTag *bool  `json:"allowReplacementOfPortalGroupTag,omitempty"` // Allow Replacement of Portal Group Tag (required)
-	Description                      string `json:"description,omitempty"`                      // Description of System Certificate
-	Eap                              *bool  `json:"eap,omitempty"`                              // Use certificate for EAP protocols that use SSL/TLS tunneling
-	ExpirationTTLPeriod              *int   `json:"expirationTTLPeriod,omitempty"`              //
-	ExpirationTTLUnits               string `json:"expirationTTLUnits,omitempty"`               //
-	Ims                              *bool  `json:"ims,omitempty"`                              // Use certificate for the ISE Messaging Service
-	Name                             string `json:"name,omitempty"`                             // Name of the certificate
-	Portal                           *bool  `json:"portal,omitempty"`                           // Use for portal
-	PortalGroupTag                   string `json:"portalGroupTag,omitempty"`                   // Set Group tag
-	PortalTagTransferForSameSubject  *bool  `json:"portalTagTransferForSameSubject,omitempty"`  // Allow overwriting the portal tag from matching certificate of same subject
-	Pxgrid                           *bool  `json:"pxgrid,omitempty"`                           // Use certificate for the pxGrid Controller
-	Radius                           *bool  `json:"radius,omitempty"`                           // Use certificate for the RADSec server
-	RenewSelfSignedCertificate       *bool  `json:"renewSelfSignedCertificate,omitempty"`       // Renew Self Signed Certificate
-	RoleTransferForSameSubject       *bool  `json:"roleTransferForSameSubject,omitempty"`       // Allow transfer of roles for certificate with matching subject
-	Saml                             *bool  `json:"saml,omitempty"`                             // Use certificate for SAML Signing
+type RequestCertificatesImportSystemCert struct {
+	Admin                                *bool  `json:"admin,omitempty"`                                // Use certificate to authenticate the Cisco ISE Admin Portal
+	AllowExtendedValidity                *bool  `json:"allowExtendedValidity,omitempty"`                // Allow import of certificates with validity greater than 398 days (required)
+	AllowOutOfDateCert                   *bool  `json:"allowOutOfDateCert,omitempty"`                   // Allow out of date certificates (required)
+	AllowPortalTagTransferForSameSubject *bool  `json:"allowPortalTagTransferForSameSubject,omitempty"` // Allow overwriting the portal tag from matching certificate of same subject
+	AllowReplacementOfCertificates       *bool  `json:"allowReplacementOfCertificates,omitempty"`       // Allow Replacement of certificates (required)
+	AllowReplacementOfPortalGroupTag     *bool  `json:"allowReplacementOfPortalGroupTag,omitempty"`     // Allow Replacement of Portal Group Tag (required)
+	AllowRoleTransferForSameSubject      *bool  `json:"allowRoleTransferForSameSubject,omitempty"`      // Allow transfer of roles for certificate with matching subject
+	AllowSHA1Certificates                *bool  `json:"allowSHA1Certificates,omitempty"`                // Allow SHA1 based certificates (required)
+	AllowWildCardCertificates            *bool  `json:"allowWildCardCertificates,omitempty"`            // Allow Wildcard certificates
+	Data                                 string `json:"data,omitempty"`                                 // Certificate Content (required)
+	Eap                                  *bool  `json:"eap,omitempty"`                                  // Use certificate for EAP protocols that use SSL/TLS tunneling
+	Ims                                  *bool  `json:"ims,omitempty"`                                  // Use certificate for the Cisco ISE Messaging Service
+	Name                                 string `json:"name,omitempty"`                                 // Name of the certificate
+	Password                             string `json:"password,omitempty"`                             // Certificate Password (required).
+	Portal                               *bool  `json:"portal,omitempty"`                               // Use for portal
+	PortalGroupTag                       string `json:"portalGroupTag,omitempty"`                       // Set Group tag
+	PrivateKeyData                       string `json:"privateKeyData,omitempty"`                       // Private Key data (required)
+	Pxgrid                               *bool  `json:"pxgrid,omitempty"`                               // Use certificate for the pxGrid Controller
+	Radius                               *bool  `json:"radius,omitempty"`                               // Use certificate for the RADSec server
+	Saml                                 *bool  `json:"saml,omitempty"`                                 // Use certificate for SAML Signing
+	ValidateCertificateExtensions        *bool  `json:"validateCertificateExtensions,omitempty"`        // Validate certificate extensions
 }
 
-type RequestCertificatesImportTrustCertificate struct {
-	AllowBasicConstraintCaFalse       *bool  `json:"allowBasicConstraintCAFalse,omitempty"`       // Allow Certificates with Basic Constraints CA Field as False (required)
+// RequestCertificatesImportSystemCertificate is deprecated, please use RequestCertificatesImportSystemCert
+type RequestCertificatesImportSystemCertificate = RequestCertificatesImportSystemCert
+
+type RequestCertificatesUpdateSystemCert struct {
+	Admin                                *bool  `json:"admin,omitempty"`                                // Use certificate to authenticate the Cisco ISE Admin Portal
+	AllowPortalTagTransferForSameSubject *bool  `json:"allowPortalTagTransferForSameSubject,omitempty"` // Allow overwriting the portal tag from matching certificate of same subject
+	AllowReplacementOfPortalGroupTag     *bool  `json:"allowReplacementOfPortalGroupTag,omitempty"`     // Allow Replacement of Portal Group Tag (required)
+	AllowRoleTransferForSameSubject      *bool  `json:"allowRoleTransferForSameSubject,omitempty"`      // Allow transfer of roles for certificate with matching subject
+	Description                          string `json:"description,omitempty"`                          // Description of System Certificate
+	Eap                                  *bool  `json:"eap,omitempty"`                                  // Use certificate for EAP protocols that use SSL/TLS tunneling
+	ExpirationTTLPeriod                  *int   `json:"expirationTTLPeriod,omitempty"`                  //
+	ExpirationTTLUnits                   string `json:"expirationTTLUnits,omitempty"`                   //
+	Ims                                  *bool  `json:"ims,omitempty"`                                  // Use certificate for the Cisco ISE Messaging Service
+	Name                                 string `json:"name,omitempty"`                                 // Name of the certificate
+	Portal                               *bool  `json:"portal,omitempty"`                               // Use for portal
+	PortalGroupTag                       string `json:"portalGroupTag,omitempty"`                       // Set Group tag
+	Pxgrid                               *bool  `json:"pxgrid,omitempty"`                               // Use certificate for the pxGrid Controller
+	Radius                               *bool  `json:"radius,omitempty"`                               // Use certificate for the RADSec server
+	RenewSelfSignedCertificate           *bool  `json:"renewSelfSignedCertificate,omitempty"`           // Renew Self-signed Certificate
+	Saml                                 *bool  `json:"saml,omitempty"`                                 // Use certificate for SAML Signing
+}
+
+// RequestCertificatesUpdateSystemCertificate is deprecated, please use RequestCertificatesUpdateSystemCert
+type RequestCertificatesUpdateSystemCertificate = RequestCertificatesUpdateSystemCert
+
+type RequestCertificatesImportTrustCert struct {
+	AllowBasicConstraintCaFalse       *bool  `json:"allowBasicConstraintCAFalse,omitempty"`       // Allow certificates with Basic Constraints CA Field as False (required)
 	AllowOutOfDateCert                *bool  `json:"allowOutOfDateCert,omitempty"`                // Allow out of date certificates (required)
 	AllowSHA1Certificates             *bool  `json:"allowSHA1Certificates,omitempty"`             // Allow SHA1 based certificates (required)
 	Data                              string `json:"data,omitempty"`                              // Certificate content (required)
@@ -549,23 +643,26 @@ type RequestCertificatesImportTrustCertificate struct {
 	TrustForCertificateBasedAdminAuth *bool  `json:"trustForCertificateBasedAdminAuth,omitempty"` // Trust for Certificate based Admin authentication
 	TrustForCiscoServicesAuth         *bool  `json:"trustForCiscoServicesAuth,omitempty"`         // Trust for authentication of Cisco Services
 	TrustForClientAuth                *bool  `json:"trustForClientAuth,omitempty"`                // Trust for client authentication and Syslog
-	TrustForIseAuth                   *bool  `json:"trustForIseAuth,omitempty"`                   // Trust for authentication within ISE
+	TrustForIseAuth                   *bool  `json:"trustForIseAuth,omitempty"`                   // Trust for authentication within Cisco ISE
 	ValidateCertificateExtensions     *bool  `json:"validateCertificateExtensions,omitempty"`     // Validate trust certificate extension
 }
 
+// RequestCertificatesImportTrustCertificate is deprecated, please use RequestCertificatesImportTrustCert
+type RequestCertificatesImportTrustCertificate = RequestCertificatesImportTrustCert
+
 type RequestCertificatesUpdateTrustedCertificate struct {
-	AuthenticateBeforeCRLReceived     *bool  `json:"authenticateBeforeCRLReceived,omitempty"`     // Switch to enable/disable CRL Verification if CRL is not Received
-	AutomaticCRLUpdate                *bool  `json:"automaticCRLUpdate,omitempty"`                // Switch to enable/disable automatic CRL update
+	AuthenticateBeforeCRLReceived     *bool  `json:"authenticateBeforeCRLReceived,omitempty"`     // Switch to enable or disable CRL verification if CRL is not received
+	AutomaticCRLUpdate                *bool  `json:"automaticCRLUpdate,omitempty"`                // Switch to enable or disable automatic CRL update
 	AutomaticCRLUpdatePeriod          *int   `json:"automaticCRLUpdatePeriod,omitempty"`          // Automatic CRL update period
 	AutomaticCRLUpdateUnits           string `json:"automaticCRLUpdateUnits,omitempty"`           // Unit of time for automatic CRL update
 	CrlDistributionURL                string `json:"crlDistributionUrl,omitempty"`                // CRL Distribution URL
 	CrlDownloadFailureRetries         *int   `json:"crlDownloadFailureRetries,omitempty"`         // If CRL download fails, wait time before retry
 	CrlDownloadFailureRetriesUnits    string `json:"crlDownloadFailureRetriesUnits,omitempty"`    // Unit of time before retry if CRL download fails
 	Description                       string `json:"description,omitempty"`                       // Description for trust certificate
-	DownloadCRL                       *bool  `json:"downloadCRL,omitempty"`                       // Switch to enable/disable download of CRL
-	EnableOCSpValidation              *bool  `json:"enableOCSPValidation,omitempty"`              // Switch to enable/disable OCSP Validation
-	EnableServerIDentityCheck         *bool  `json:"enableServerIdentityCheck,omitempty"`         // Switch to enable/disable verification if HTTPS or LDAP server certificate name fits the configured server URL
-	IgnoreCRLExpiration               *bool  `json:"ignoreCRLExpiration,omitempty"`               // Switch to enable/disable ignore CRL Expiration
+	DownloadCRL                       *bool  `json:"downloadCRL,omitempty"`                       // Switch to enable or disable download of CRL
+	EnableOCSpValidation              *bool  `json:"enableOCSPValidation,omitempty"`              // Switch to enable or disable OCSP Validation
+	EnableServerIDentityCheck         *bool  `json:"enableServerIdentityCheck,omitempty"`         // Switch to enable or disable verification if HTTPS or LDAP server certificate name fits the configured server URL
+	IgnoreCRLExpiration               *bool  `json:"ignoreCRLExpiration,omitempty"`               // Switch to enable or disable ignore CRL expiration
 	Name                              string `json:"name,omitempty"`                              // Friendly name of the certificate
 	NonAutomaticCRLUpdatePeriod       *int   `json:"nonAutomaticCRLUpdatePeriod,omitempty"`       // Non automatic CRL update period
 	NonAutomaticCRLUpdateUnits        string `json:"nonAutomaticCRLUpdateUnits,omitempty"`        // Unit of time of non automatic CRL update
@@ -576,10 +673,10 @@ type RequestCertificatesUpdateTrustedCertificate struct {
 	TrustForCertificateBasedAdminAuth *bool  `json:"trustForCertificateBasedAdminAuth,omitempty"` // Trust for Certificate based Admin authentication
 	TrustForCiscoServicesAuth         *bool  `json:"trustForCiscoServicesAuth,omitempty"`         // Trust for authentication of Cisco Services
 	TrustForClientAuth                *bool  `json:"trustForClientAuth,omitempty"`                // Trust for client authentication and Syslog
-	TrustForIseAuth                   *bool  `json:"trustForIseAuth,omitempty"`                   // Trust for authentication within ISE
+	TrustForIseAuth                   *bool  `json:"trustForIseAuth,omitempty"`                   // Trust for authentication within Cisco ISE
 }
 
-//GetCsrs Purpose of the API is to get all Certificate Signing Requests from PAN.
+//GetCsrs Get all Certificate Signing Requests from PAN.
 /*  This API supports Filtering, Sorting and Pagination.
 
 Filtering and Sorting supported on below mentioned attributes:
@@ -631,11 +728,11 @@ func (s *CertificatesService) GetCsrs(getCSRsQueryParams *GetCsrsQueryParams) (*
 
 }
 
-//ExportCsr Purpose of the API is to export a CSR, given a CSR id and a hostname.
-/* The response of this API carries a CSR corresponding to the requested ID
+//ExportCsr Export a CSR, given a CSR ID and a hostname.
+/* Response of this API carries a CSR corresponding to the requested ID
 
-@param hostname hostname path parameter. The hostname to which the CSR belongs.
-@param id id path parameter. The ID of the CSR to be exported.
+@param hostname hostname path parameter. Hostname to which the CSR belongs.
+@param id id path parameter. ID of the CSR to be exported.
 */
 func (s *CertificatesService) ExportCsr(hostname string, id string) (FileDownload, *resty.Response, error) {
 	setHost(s.client, "_ui")
@@ -669,11 +766,11 @@ func (s *CertificatesService) ExportCsr(hostname string, id string) (FileDownloa
 
 }
 
-//GetCsrByID Purpose of the API is to get Certificate Signing Request(CSR) by ID
-/* This API displays details of a Certificate Signing Request of a particular node based on a given HostName and ID.
+//GetCsrByID Get Certificate Signing Request (CSR) by ID
+/* This API displays details of a Certificate Signing Request of a particular node for given HostName and ID.
 
 @param hostName hostName path parameter. Name of the host of which CSR's should be returned
-@param id id path parameter. The ID of the Certificate Signing Request returned
+@param id id path parameter. ID of the Certificate Signing Request returned
 */
 func (s *CertificatesService) GetCsrByID(hostName string, id string) (*ResponseCertificatesGetCsrByID, *resty.Response, error) {
 	setHost(s.client, "_ui")
@@ -705,7 +802,7 @@ func (s *CertificatesService) GetCsrByID(hostName string, id string) (*ResponseC
 
 }
 
-//GetSystemCertificates Purpose of this API is to get all system certificates of a particular node
+//GetSystemCertificates Get all system certificates of a particular node
 /*  This API supports Filtering, Sorting and Pagination.
 
 Filtering and Sorting supported on below mentioned attributes:
@@ -769,11 +866,11 @@ func (s *CertificatesService) GetSystemCertificates(hostName string, getSystemCe
 
 }
 
-//GetSystemCertificateByID Purpose of this API is to get system certificate of a particular node by Id
-/* This API displays details of a System Certificate of a particular node based on a given HostName and ID.
+//GetSystemCertificateByID Get system certificate of a particular node by ID
+/* This API provides details of a System Certificate of a particular node based on given HostName and ID.
 
 @param hostName hostName path parameter. Name of the host of which system certificates should be returned
-@param id id path parameter. The id of the system certificate
+@param id id path parameter. ID of the system certificate
 */
 func (s *CertificatesService) GetSystemCertificateByID(hostName string, id string) (*ResponseCertificatesGetSystemCertificateByID, *resty.Response, error) {
 	setHost(s.client, "_ui")
@@ -805,7 +902,7 @@ func (s *CertificatesService) GetSystemCertificateByID(hostName string, id strin
 
 }
 
-//GetTrustedCertificates Purpose of this API is to get list of all trusted certificates
+//GetTrustedCertificates Get list of all trusted certificates
 /*  This API supports Filtering, Sorting and Pagination.
 
 Filtering and Sorting supported on below mentioned attributes:
@@ -877,12 +974,12 @@ func (s *CertificatesService) GetTrustedCertificates(getTrustedCertificatesQuery
 
 }
 
-//ExportTrustedCertificate Purpose of the API is to export a trust certificate given a certificate id.
-/* The response of this API carries a trusted certificate file mapped to the requested id
+//ExportTrustedCert Export a trust certificate given a certificate id.
+/* The response of this API carries a trusted certificate file mapped to the requested ID
 
-@param id id path parameter. The ID of the Trusted Certificate to be exported.
+@param id id path parameter. ID of the Trusted Certificate to be exported.
 */
-func (s *CertificatesService) ExportTrustedCertificate(id string) (FileDownload, *resty.Response, error) {
+func (s *CertificatesService) ExportTrustedCert(id string) (FileDownload, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/certs/trusted-certificate/export/{id}"
 	path = strings.Replace(path, "{id}", fmt.Sprintf("%v", id), -1)
@@ -913,10 +1010,15 @@ func (s *CertificatesService) ExportTrustedCertificate(id string) (FileDownload,
 
 }
 
-//GetTrustedCertificateByID Purpose of this API is to get Trust Certificate By Id
+//Alias of ExportTrustedCert Export a trust certificate given a certificate id.
+func (s *CertificatesService) ExportTrustedCertificate(id string) (FileDownload, *resty.Response, error) {
+	return s.ExportTrustedCert(id)
+}
+
+//GetTrustedCertificateByID Get Trust Certificate By ID
 /* This API can displays details of a Trust Certificate based on a given ID.
 
-@param id id path parameter. The id of the trust certificate
+@param id id path parameter. ID of the trust certificate
 */
 func (s *CertificatesService) GetTrustedCertificateByID(id string) (*ResponseCertificatesGetTrustedCertificateByID, *resty.Response, error) {
 	setHost(s.client, "_ui")
@@ -947,12 +1049,12 @@ func (s *CertificatesService) GetTrustedCertificateByID(id string) (*ResponseCer
 
 }
 
-//GenerateCsr Purpose of this API is to generate a Certificate Signing Request (CSR).
+//GenerateCsr Generate a Certificate Signing Request (CSR).
 /*
 
 Generate a certificate signing request for Multi-Use, Admin, EAP Authentication, RADIUS DTLS, PxGrid, SAML, Portal and IMS Services.
 
-Following Parameters are present in POST request body
+Following parameters are present in POST request body
 
 
 
@@ -969,9 +1071,9 @@ EXAMPLE
 
 hostnames
 
-List of ise node hostnames for which CSRs should be generated
+List of Cisco ISE node hostnames for which CSRs should be generated
 
-[ise-host1, ise-host2]
+"hostnames": ["ise-host1", "ise-host2"]
 
 
 
@@ -979,115 +1081,128 @@ allowWildCardCert
 
 Allow use of WildCards in certificates
 
-false
+"allowWildCardCert": false
 
 
 
 keyLength
+* required
 
-Length of the Key used for CSR generation (required)
+Length of the key used for CSR generation (required).
 
-512
+"keyLength": "512"
 
 
 
 keyType
+* required
 
-Type of key used for CSR generation either RSA or ECDSA(required)
+Type of key used for CSR generation either RSA or ECDSA (required).
 
-RSA
+"keyType": "RSA"
 
 
 
 digestType
+* required
 
-Hash algorithm used for signing CSR(required)
+Hash algorithm used for signing CSR (required).
 
-SHA-256
+"digestType": "SHA-256"
 
 
 
 usedFor
+* required
 
-Certificate Usage(required)
+Certificate usage (required).
 
-MULTI-USE
+"usedFor": "MULTI-USE"
+
+
+
+certificatePolicies
+
+Certificate policy OID or list of OIDs that the certificate should conform to. Use comma or space to separate the OIDs.
+
+"certificatePolicies": "Certificate Policies"
 
 
 
 subjectCommonName
+* required
 
-Certificate common name(CN)(required)
+Certificate common name (CN) (required).
 
-$FQDN$
+"subjectCommonName": "$FQDN$"
 
 
 
 subjectOrgUnit
 
-Certificate organizational unit(OU)
+Certificate organizational unit (OU).
 
-Engineering
+"subjectOrgUnit": "Engineering"
 
 
 
 subjectOrg
 
-Certificate organization (O)
+Certificate organization (O).
 
-Cisco
+"subjectOrg": "Cisco"
 
 
 
 subjectCity
 
-Certificate city or locality (L)
+Certificate city or locality (L).
 
-San Jose
+"subjectCity": "San Jose"
 
 
 subjectState
 
-Certificate state (ST)
+Certificate state (ST).
 
-California
+"subjectState": "California"
 
 
 subjectCountry
 
-Certificate country ( C)
+Certificate country (C).
 
-US
+"subjectCountry": "US"
 
 
 
 sanDNS
 
-Array of SAN(Subject Alternative Name) DNS entries(optional)
+Array of SAN (Subject Alternative Name) DNS entries (optional).
 
-[ise.example.com]
+"sanDNS": ["ise.example.com"]
 
 
 sanIP
 
-Array of SAN IP entries(optional)
+Array of SAN IP entries (optional).
 
-[1.1.1.1]
+"sanIP": ["1.1.1.1"]
 
 
 sanURI
 
-Array of SAN URI entries(optional)
+Array of SAN URI entries (optional).
 
-[https://1.1.1.1]
+"sanURI": ["https://1.1.1.1"]
 
 
 
 sanDir
 
-Array of SAN DIR entries(optional)
+Array of SAN DIR entries (optional).
 
-[CN=AAA,DC=COM,C=IL]
+"sanDir": ["CN=AAA,DC=COM,C=IL"]
 
 
 
@@ -1095,7 +1210,7 @@ portalGroupTag
 
 Portal Group Tag when using certificate for PORTAL service
 
-Default Portal Certificate Group
+"portalGroupTag": "Default Portal Certificate Group"
 
 
 
@@ -1104,7 +1219,7 @@ NOTE:
 For allowWildCardCert to be false, the below mentioned parameter is mandatory:
 hostnames
 
-When Certificate is selected to be used for Portal Service, the below mentioned parameter is mandatory:
+When certificate is selected to be used for Portal Service, the below mentioned parameter is mandatory:
 portalGroupTag
 
 
@@ -1138,7 +1253,7 @@ func (s *CertificatesService) GenerateCsr(requestCertificatesGenerateCSR *Reques
 
 }
 
-//GenerateIntermediateCaCsr Purpose of this API is to generate a Intermediate CA Certificate Signing Request (CSR).
+//GenerateIntermediateCaCsr Generate a Intermediate CA Certificate Signing Request (CSR).
 /* CSR Generation for Intermediate Certificates.
 
  */
@@ -1169,9 +1284,9 @@ func (s *CertificatesService) GenerateIntermediateCaCsr() (*ResponseCertificates
 
 }
 
-//RegenerateIseRootCa Purpose of this API is to regenerate the entire internal CA certificate chain including the root CA on the Primary PAN and subordinate CAs on the PSNs(Applicable only for the internal CA service ).
-/* This API will initiate regeneration of ISE root CA certificate chain. Response contains id which can be used to track the status.
-Setting "removeExistingISEIntermediateCSR" to true will remove existing ISE Intermediate CSR
+//RegenerateIseRootCa Regenerate entire internal CA certificate chain including root CA on the Primary PAN and subordinate CAs on the PSNs (Applicable only for internal CA service).
+/* This API initiates regeneration of Cisco ISE root CA certificate chain. Response contains ID which can be used to track the status.
+Setting "removeExistingISEIntermediateCSR" to true removes existing Cisco ISE Intermediate CSR
 
 */
 func (s *CertificatesService) RegenerateIseRootCa(requestCertificatesRegenerateISERootCA *RequestCertificatesRegenerateIseRootCa) (*ResponseCertificatesRegenerateIseRootCa, *resty.Response, error) {
@@ -1202,11 +1317,11 @@ func (s *CertificatesService) RegenerateIseRootCa(requestCertificatesRegenerateI
 
 }
 
-//RenewCertificates Purpose of this API is to renew certificates of OCSP responder and ISE Messaging Service.
-/* This API will initiate regeneration of certificates. Response contains id which can be used to track the status
+//RenewCerts Renew certificates of OCSP responder and Cisco ISE Messaging Service.
+/* This API initiates regeneration of certificates. Response contains ID which can be used to track the status
 
  */
-func (s *CertificatesService) RenewCertificates(requestCertificatesRenewCertificates *RequestCertificatesRenewCertificates) (*ResponseCertificatesRenewCertificates, *resty.Response, error) {
+func (s *CertificatesService) RenewCerts(requestCertificatesRenewCerts *RequestCertificatesRenewCerts) (*ResponseCertificatesRenewCerts, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/certs/renew-certificate"
 
@@ -1214,8 +1329,8 @@ func (s *CertificatesService) RenewCertificates(requestCertificatesRenewCertific
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetBody(requestCertificatesRenewCertificates).
-		SetResult(&ResponseCertificatesRenewCertificates{}).
+		SetBody(requestCertificatesRenewCerts).
+		SetResult(&ResponseCertificatesRenewCerts{}).
 		SetError(&Error).
 		Post(path)
 
@@ -1226,15 +1341,20 @@ func (s *CertificatesService) RenewCertificates(requestCertificatesRenewCertific
 
 	getCSFRToken(response.Header())
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation RenewCertificates")
+		return nil, response, fmt.Errorf("error with operation RenewCerts")
 	}
 
-	result := response.Result().(*ResponseCertificatesRenewCertificates)
+	result := response.Result().(*ResponseCertificatesRenewCerts)
 	return result, response, err
 
 }
 
-//BindCsr Purpose of the API is to Bind CA Signed Certificate.
+//Alias of RenewCerts Renew certificates of OCSP responder and Cisco ISE Messaging Service.
+func (s *CertificatesService) RenewCertificates(requestCertificatesRenewCerts *RequestCertificatesRenewCerts) (*ResponseCertificatesRenewCerts, *resty.Response, error) {
+	return s.RenewCerts(requestCertificatesRenewCerts)
+}
+
+//BindCsr Bind CA Signed Certificate.
 /*
 
 Bind CA Signed Certificate.
@@ -1246,9 +1366,9 @@ NOTE:
 The certificate may have a validity period longer than 398 days. It may be untrusted by many browsers.
 
 NOTE:
-Request Parameters accepting True and False as input can be replaced by 1 and 0 respectively.
+Request parameters accepting True and False as input can be replaced by 1 and 0 respectively.
 
-Following Parameters are used in POST body
+Following parameters are used in POST body
 
 
 
@@ -1267,61 +1387,74 @@ name
 
 Friendly name of the certificate.
 
-Signed Certificate
+"name": "CA Signed Certificate"
 
 
 
 data
+* required
 
-Plain-text contents of the certificate file. Every space needs to be replaced with newline escape sequence (\n) (required).
-
+ Plain-text contents of the certificate file. Every space needs to be replaced with newline escape sequence (\n) (required).
+ Use
 awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' <<your .pem file>>
+ to extract data from certificate file.
+
+"data": "Plain-text contents of the certificate file."
 
 
 
 allowExtendedValidity
+* required
 
-Allow the certificates greater than validity of 398 days (required)
+Allow the certificates greater than validity of 398 days (required).
 
-false
+"allowExtendedValidity": true
 
 
 
 allowOutOfDateCert
+* required
 
-Allow out of date certificates (required)
+ Allow out of date certificates (required).
+SECURITY ALERT:
+It is recommended to use
+"allowOutOfDateCert": false
+ to avoid binding of expired certificates (not Secure).
 
-false
+
+"allowOutOfDateCert": true
 
 
 
 allowReplacementOfCertificates
+* required
 
-Allow Replacement of certificates (required)
+Allow Replacement of certificates (required).
 
-false
+"allowReplacementOfCertificates": true
 
 
 
 allowReplacementOfPortalGroupTag
+* required
 
-Allow Replacement of Portal Group Tag (required)
+Allow Replacement of Portal Group Tag (required).
 
-false
+"allowReplacementOfPortalGroupTag": true
 
 
 admin
 
-Use certificate to authenticate the ISE Admin Portal
+Use certificate to authenticate the Cisco ISE Admin Portal
 
-false
+"admin": false
 
 
 eap
 
 Use certificate for EAP protocols that use SSL/TLS tunneling
 
-false
+"eap": false
 
 
 
@@ -1329,7 +1462,7 @@ radius
 
 Use certificate for RADSec server
 
-false
+"radius": false
 
 
 
@@ -1337,15 +1470,15 @@ pxgrid
 
 Use certificate for the pxGrid Controller
 
-false
+"pxgrid": false
 
 
 
 ims
 
-Use certificate for the ISE Messaging Service
+Use certificate for the Cisco ISE Messaging Service
 
-false
+"ims": false
 
 
 
@@ -1353,7 +1486,7 @@ saml
 
 Use certificate for SAML Signing
 
-false
+"saml": false
 
 
 
@@ -1361,7 +1494,7 @@ portal
 
 Use certificate for portal
 
-false
+"portal": false
 
 
 
@@ -1369,7 +1502,7 @@ portalGroupTag
 
 Portal Group Tag for using certificate with portal role
 
-Default Portal Certificate Group
+"portalGroupTag": "Default Portal Certificate Group"
 
 
 
@@ -1377,13 +1510,13 @@ validateCertificateExtensions
 
 Validate Certificate Extensions
 
-false
+"validateCertificateExtensions": false
 
 
 
 
 
-Following Roles can be used in any combinations
+Following roles can be used in any combinations
 
 
 
@@ -1402,7 +1535,7 @@ Admin
 
 False
 
-Enabling Admin role for this certificate will cause an application server restart on the selected node.
+Enabling Admin role for this certificate causes an application server restart on the selected node.
 Note:
  Make sure required Certificate Chain is imported under Trusted Certificates
 
@@ -1412,7 +1545,7 @@ EAP Authentication
 
 False
 
-Only one system certificate can be used for EAP. Assigning EAP to this certificate will remove the assignment from another certificate.
+Only one system certificate can be used for EAP. Assigning EAP to this certificate removes the assignment from another certificate.
 Note:
  Make sure required Certificate Chain is imported under Trusted Certificates
 
@@ -1422,7 +1555,7 @@ RADIUS DTLS
 
 False
 
-Only one system certificate can be used for DTLS. Assigning DTLS to this certificate will remove the assignment from another certificate.
+Only one system certificate can be used for DTLS. Assigning DTLS to this certificate removes the assignment from another certificate.
 Note:
  Make sure required Certificate Chain is imported under Trusted Certificates
 
@@ -1432,7 +1565,7 @@ SAML
 
 False
 
-SAML cannot be used with other Usage. Enabling SAML will uncheck all other Usage.
+SAML cannot be used with other Usage. Enabling SAML unchecks all other Usage.
 Note:
  Make sure required Certificate Chain is imported under Trusted Certificates
 
@@ -1469,12 +1602,12 @@ func (s *CertificatesService) BindCsr(requestCertificatesBindCSR *RequestCertifi
 
 }
 
-//ExportSystemCertificate Purpose of the API is to export a system certificate given a certificate id.
+//ExportSystemCert Export a system certificate given a certificate ID.
 /*
 
 Export System Certificate.
 
-Following Parameters are used in POST body
+Following parameters are used in POST body
 
 
 
@@ -1490,10 +1623,11 @@ EXAMPLE
 
 
 id
+* required
 
-ID of a System Certificate(required)
+ID of a System Certificate (required).
 
-< SYSTEM_CERT_ID >
+"id": "CERT-ID"
 
 
 
@@ -1502,25 +1636,26 @@ export
  One of the below option is required
 
 "CERTIFICATE" :
-Export only Certificate without Private Key
+Export only certificate without private key
 
 "CERTIFICATE_WITH_PRIVATE_KEY" :
-Export both Certificate and Private Key(
+Export both certificate and private key (
 "certificatePassword"
- is required)
+ is required).
 
 
 
-CERTIFICATE_WITH_PRIVATE_KEY
+"export": "CERTIFICATE_WITH_PRIVATE_KEY"
 
 
 
 password
+* required
 
-Certificate Password (required if
+Certificate password (required if
 "export" : CERTIFICATE_WITH_PRIVATE_KEY
-)
-Password Constraints:
+).
+Password constraints:
 
 
 Alphanumeric
@@ -1531,7 +1666,7 @@ Maximum of 100 Characters
 
 
 
-Passw***
+"password": "certificate password"
 
 
 
@@ -1552,7 +1687,7 @@ Exporting a private key is not a secure operation. It could lead to possible exp
 
 
 */
-func (s *CertificatesService) ExportSystemCertificate(requestCertificatesExportSystemCertificate *RequestCertificatesExportSystemCertificate) (FileDownload, *resty.Response, error) {
+func (s *CertificatesService) ExportSystemCert(requestCertificatesExportSystemCert *RequestCertificatesExportSystemCert) (FileDownload, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/certs/system-certificate/export"
 
@@ -1560,7 +1695,7 @@ func (s *CertificatesService) ExportSystemCertificate(requestCertificatesExportS
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetBody(requestCertificatesExportSystemCertificate).
+		SetBody(requestCertificatesExportSystemCert).
 		SetError(&Error).
 		Post(path)
 
@@ -1583,18 +1718,27 @@ func (s *CertificatesService) ExportSystemCertificate(requestCertificatesExportS
 
 }
 
-//ImportSystemCertificate Purpose of the API is to import system certificate into ISE.
+//Alias of ExportSystemCert Export a system certificate given a certificate ID.
+func (s *CertificatesService) ExportSystemCertificate(requestCertificatesExportSystemCert *RequestCertificatesExportSystemCert) (FileDownload, *resty.Response, error) {
+	return s.ExportSystemCert(requestCertificatesExportSystemCert)
+}
+
+//GenerateSelfSignedCertificate Generate self-signed certificate in Cisco ISE.
 /*
 
-Import an X509 certificate as a system certificate.
+Generate Self-signed Certificate
 
 NOTE:
 The certificate may have a validity period longer than 398 days. It may be untrusted by many browsers.
 
 NOTE:
-Request Parameters accepting True and False as input can be replaced by 1 and 0 respectively.
+Request parameters accepting True and False as input can be replaced by 1 and 0 respectively.
 
-Following Parameters are used in POST body
+NOTE:
+Wildcard certificate and SAML certificate can be generated only on PPAN or Standalone
+
+
+Following parameters are used in POST body
 
 
 
@@ -1609,83 +1753,166 @@ EXAMPLE
 
 
 
+hostName
+* required
+
+Hostname or FQDN of the node in which certificate needs to be created (required).
+
+"hostName": "ise-node-001"
+
+
+
 name
 
 Friendly name of the certificate.
 
-System Certificate
+"name": "Self-signed System Certificate"
 
 
 
-password
+subjectCommonName
 
-Password of the certificate to be imported (required).
+ Certificate common name (CN)
 
-Passw***
+NOTE:
+1. CN is Mandatory if SAN not configured.
+             2. Subject can contain a multi-valued CN. For multi-valued RDNs, follow the format "CN=value1, CN=value2"
 
-
-
-data
-
-Plain-text contents of the certificate file. Every space needs to be replaced with newline escape sequence (\n) (required).
-
-awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' <<your .pem file>>
+"subjectCommonName": "$FQDN$"
 
 
 
-privateKeyData
+subjectOrgUnit
 
-Plain-text contents of the private key file. Every space needs to be replaced with newline escape sequence (\n) (required).
+ Certificate organizational unit (OU)
 
-awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' <<your .pem file>>
+NOTE:
+Subject can contain a multi-valued OU. For multi-valued RDNs, follow the format "OU=value1, OU=value2"
 
-
-
-allowOutOfDateCert
-
-Allow out of date certificates (required)
-
-false
+"subjectOrgUnit": "Engineering"
 
 
 
-allowSHA1Certificates
+subjectOrg
 
-Allow SHA1 based certificates (required)
+ Certificate organization (O)
 
-false
+NOTE:
+Subject can contain a multi-valued O fields. For multi-valued RDNs, follow the format "O=value1, O=value2"
 
-
-
-allowExtendedValidity
-
-Allow the certificates greater than validity of 398 days (required)
-
-false
+"subjectOrg": "Cisco"
 
 
 
-roleTransferForSameSubject
+subjectCity
 
-Allow the transfer of roles to certificates with same subject
+Certificate city or locality (L)
 
-false
+"subjectCity": "San Jose"
 
 
 
-portalTagTransferForSameSubject
+subjectState
 
-Acquire the group tag of the matching certificate
+Certificate state (ST)
 
-false
+"subjectState": "California"
+
+
+
+subjectCountry
+
+Certificate country (C)
+
+"subjectCountry": "US"
+
+
+
+sanDNS
+
+Array of SAN (Subject Alternative Name) DNS entries
+
+"sanDNS": ["ise.example.com"]
+
+
+
+sanIP
+
+Array of SAN IP entries
+
+"sanIP": ["1.1.1.1"]
+
+
+
+sanURI
+
+Array of SAN URI entries
+
+"sanURI": ["https://1.1.1.1"]
+
+
+
+keyType
+* required
+
+Algorithm to use for certificate public key creation (required).
+
+"keyType": "RSA"
+
+
+
+keyLength
+* required
+
+Bit size of the public key (required).
+
+"keyLength": "4096"
+
+
+
+digestType
+* required
+
+Digest to sign with (required).
+
+"digestType": "SHA-384"
+
+
+
+certificatePolicies
+
+Certificate policy OID or list of OIDs that the certificate should conform to. Use comma or space to separate the OIDs.
+
+"certificatePolicies": "Certificate Policies"
+
+
+
+expirationTTL
+* required
+
+ Certificate expiration value (required).
+
+NOTE:
+Expiration TTL should be within Unix time limit
+
+"expirationTTL": 2
+
+
+
+expirationTTLUnit
+* required
+
+Certificate expiration unit (required).
+
+"expirationTTLUnit": "years"
 
 
 
 admin
 
-Use certificate to authenticate the ISE Admin Portal
+Use certificate to authenticate the Cisco ISE Admin Portal
 
-false
+"admin": false
 
 
 
@@ -1693,7 +1920,7 @@ eap
 
 Use certificate for EAP protocols that use SSL/TLS tunneling
 
-false
+"eap": false
 
 
 
@@ -1701,7 +1928,7 @@ radius
 
 Use certificate for RADSec server
 
-false
+"radius": false
 
 
 
@@ -1709,15 +1936,7 @@ pxgrid
 
 Use certificate for the pxGrid Controller
 
-false
-
-
-
-ims
-
-Use certificate for the ISE Messaging Service
-
-false
+"pxgrid": false
 
 
 
@@ -1725,7 +1944,7 @@ saml
 
 Use certificate for SAML Signing
 
-false
+"saml": false
 
 
 
@@ -1733,7 +1952,7 @@ portal
 
 Use certificate for portal
 
-false
+"portal": false
 
 
 
@@ -1741,15 +1960,16 @@ portalGroupTag
 
 Portal Group Tag for using certificate with portal role
 
-Default Portal Certificate Group
+"portalGroupTag": "Default Portal Certificate Group"
 
 
 
 allowReplacementOfPortalGroupTag
+* required
 
-Allow Replacement of Portal Group Tag (required)
+Allow Replacement of Portal Group Tag (required).
 
-false
+"allowReplacementOfPortalGroupTag": true
 
 
 
@@ -1757,21 +1977,71 @@ allowWildCardCertificates
 
 Allow use of WildCards in certificates
 
-false
+"allowWildCardCertificates": false
 
 
 
-validateCertificateExtensions
+allowReplacementOfCertificates
+* required
 
-Validate Certificate Extensions
+Allow replacement of certificates (required).
 
-false
-
-
-
+"allowReplacementOfCertificates": true
 
 
-Following Roles can be used in any combinations
+
+allowExtendedValidity
+* required
+
+Allow generation of self-signed certificate with validity greater than 398 days (required).
+
+"allowExtendedValidity": true
+
+
+
+allowRoleTransferForSameSubject
+* required
+
+Allow the transfer of roles to certificates with same subject (required).
+ If the matching certificate on Cisco ISE has either admin or portal role and if request has admin or portal role selected along with allowRoleTransferForSameSubject parameter as true, self-signed certificate would be generated with both admin and portal role enabled
+
+"allowRoleTransferForSameSubject": true
+
+
+
+allowPortalTagTransferForSameSubject
+* required
+
+Acquire the group tag of the matching certificate (required). If the request portal groug tag is different from the group tag of matching certificate (If matching certificate in Cisco ISE has portal role enabled), self-signed certificate would be generated by acquiring the group tag of matching certificate if allowPortalTagTransferForSameSubject parameter is true
+
+"allowPortalTagTransferForSameSubject": true
+
+
+
+allowSanDnsBadName
+* required
+
+ Allow generation of self-signed certificate with bad Common Name & SAN Values [like "example.org.","invalid.","test.","localhost" ,etc.] (required).
+SECURITY ALERT:
+It is recommended to use
+"allowSanDnsBadName": false
+ to avoid generation of certificates with bad Common Name & SAN Values which are not secure
+
+
+"allowSanDnsBadName": true
+
+
+
+allowSanDnsNonResolvable
+* required
+
+Allow generation of self-signed certificate with non resolvable Common Name or SAN Values (required).
+
+"allowSanDnsNonResolvable": true
+
+
+
+
 
 
 
@@ -1790,9 +2060,7 @@ Admin
 
 False
 
-Enabling Admin role for this certificate will cause an application server restart on the selected node.
-Note:
- Make sure required Certificate Chain is imported under Trusted Certificates
+Enabling Admin role for this certificate causes an application server restart on the selected node.
 
 
 
@@ -1800,9 +2068,7 @@ EAP Authentication
 
 False
 
-Only one system certificate can be used for EAP. Assigning EAP to this certificate will remove the assignment from another certificate.
-Note:
- Make sure required Certificate Chain is imported under Trusted Certificates
+Only one system certificate can be used for EAP. Assigning EAP to this certificate removes the assignment from another certificate.
 
 
 
@@ -1810,9 +2076,7 @@ RADIUS DTLS
 
 False
 
-Only one system certificate can be used for DTLS. Assigning DTLS to this certificate will remove the assignment from another certificate.
-Note:
- Make sure required Certificate Chain is imported under Trusted Certificates
+Only one system certificate can be used for DTLS. Assigning DTLS to this certificate removes the assignment from another certificate.
 
 
 
@@ -1820,25 +2084,23 @@ SAML
 
 False
 
-SAML cannot be used with other Usage. Enabling SAML will uncheck all other Usage.
-Note:
- Make sure required Certificate Chain is imported under Trusted Certificates
+SAML cannot be used with other Usage.
 
 
 
 
 
 */
-func (s *CertificatesService) ImportSystemCertificate(requestCertificatesImportSystemCertificate *RequestCertificatesImportSystemCertificate) (*ResponseCertificatesImportSystemCertificate, *resty.Response, error) {
+func (s *CertificatesService) GenerateSelfSignedCertificate(requestCertificatesGenerateSelfSignedCertificate *RequestCertificatesGenerateSelfSignedCertificate) (*ResponseCertificatesGenerateSelfSignedCertificate, *resty.Response, error) {
 	setHost(s.client, "_ui")
-	path := "/api/v1/certs/system-certificate/import"
+	path := "/api/v1/certs/system-certificate/generate-selfsigned-certificate"
 
 	setCSRFToken(s.client)
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetBody(requestCertificatesImportSystemCertificate).
-		SetResult(&ResponseCertificatesImportSystemCertificate{}).
+		SetBody(requestCertificatesGenerateSelfSignedCertificate).
+		SetResult(&ResponseCertificatesGenerateSelfSignedCertificate{}).
 		SetError(&Error).
 		Post(path)
 
@@ -1849,23 +2111,324 @@ func (s *CertificatesService) ImportSystemCertificate(requestCertificatesImportS
 
 	getCSFRToken(response.Header())
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation ImportSystemCertificate")
+		return nil, response, fmt.Errorf("error with operation GenerateSelfSignedCertificate")
 	}
 
-	result := response.Result().(*ResponseCertificatesImportSystemCertificate)
+	result := response.Result().(*ResponseCertificatesGenerateSelfSignedCertificate)
 	return result, response, err
 
 }
 
-//ImportTrustCertificate Purpose of the API is to add root certificate to the ISE truststore.
+//ImportSystemCert Import system certificate into Cisco ISE.
+/*
+
+Import an X509 certificate as a system certificate.
+
+NOTE:
+The certificate may have a validity period longer than 398 days. It may be untrusted by many browsers.
+
+NOTE:
+Request parameters accepting True and False as input can be replaced by 1 and 0 respectively.
+
+Following parameters are used in POST body
+
+
+
+
+PARAMETER
+
+DESCRIPTION
+
+EXAMPLE
+
+
+
+
+
+name
+
+Friendly name of the certificate.
+
+"name": "System certificate"
+
+
+
+password
+* required
+
+Password of the certificate to be imported (required).
+
+"password": "certificate password"
+
+
+
+data
+* required
+
+ Plain-text contents of the certificate file. Every space needs to be replaced with newline escape sequence (\n) (required).
+ Use
+awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' <<your .pem file>>
+ to extract data from certificate file.
+
+"data": "Plain-text contents of the certificate file."
+
+
+
+privateKeyData
+* required
+
+ Plain-text contents of the private key file. Every space needs to be replaced with newline escape sequence (\n) (required). Use
+awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' <<your .pem file>>
+ to extract privateKeyData from private key file.
+
+"data": "Plain-text contents of the private key file."
+
+
+
+allowOutOfDateCert
+* required
+
+ Allow out of date certificates (required).
+SECURITY ALERT:
+It is recommended to use
+"allowOutOfDateCert": false
+ to avoid import of expired certificates (not Secure).
+
+
+"allowOutOfDateCert": true
+
+
+
+allowSHA1certificates
+* required
+
+ Allow import of certificate with signature that uses the SHA-1 hashing algorithm and is considered less secure (required).
+SECURITY ALERT:
+It is recommended to use
+"allowSHA1certificates": false
+ to avoid import of SHA1 based certificates (less secure).
+
+
+"allowSHA1certificates": true
+
+
+
+allowExtendedValidity
+* required
+
+Allow the certificates greater than validity of 398 days (required).
+
+"allowExtendedValidity": true
+
+
+
+allowRoleTransferForSameSubject
+
+Allow the transfer of roles to certificates with same subject
+
+"allowRoleTransferForSameSubject": true
+
+
+
+allowPortalTagTransferForSameSubject
+
+Acquire the group tag of the matching certificate
+
+"allowPortalTagTransferForSameSubject": true
+
+
+
+admin
+
+Use certificate to authenticate the Cisco ISE Admin Portal
+
+"admin": false
+
+
+
+eap
+
+Use certificate for EAP protocols that use SSL/TLS tunneling
+
+"eap": false
+
+
+
+radius
+
+Use certificate for RADSec server
+
+"radius": false
+
+
+
+pxgrid
+
+Use certificate for the pxGrid Controller
+
+"pxgrid": false
+
+
+
+ims
+
+Use certificate for the Cisco ISE Messaging Service
+
+"ims": false
+
+
+
+saml
+
+Use certificate for SAML Signing
+
+"saml": false
+
+
+
+portal
+
+Use certificate for portal
+
+"portal": false
+
+
+
+portalGroupTag
+
+Portal Group Tag for using certificate with portal role
+
+"portalGroupTag": "Default Portal certificate Group"
+
+
+
+allowReplacementOfPortalGroupTag
+* required
+
+Allow Replacement of Portal Group Tag (required).
+
+"allowReplacementOfPortalGroupTag": true
+
+
+
+allowWildCardcertificates
+
+Allow use of WildCards in certificates
+
+"allowWildCardcertificates": false
+
+
+
+validatecertificateExtensions
+
+Validate certificate extensions
+
+"validatecertificateExtensions": false
+
+
+
+
+
+Following roles can be used in any combinations
+
+
+
+
+ROLE
+
+DEFAULT
+
+WARNING
+
+
+
+
+
+Admin
+
+False
+
+Enabling Admin role for this certificate causes an application server restart on the selected node.
+Note:
+ Make sure required Certificate Chain is imported under Trusted Certificates
+
+
+
+EAP Authentication
+
+False
+
+Only one system certificate can be used for EAP. Assigning EAP to this certificate removes the assignment from another certificate.
+Note:
+ Make sure required Certificate Chain is imported under Trusted Certificates
+
+
+
+RADIUS DTLS
+
+False
+
+Only one system certificate can be used for DTLS. Assigning DTLS to this certificate removes the assignment from another certificate.
+Note:
+ Make sure required Certificate Chain is imported under Trusted Certificates
+
+
+
+SAML
+
+False
+
+SAML cannot be used with other Usage. Enabling SAML unchecks all other Usage.
+Note:
+ Make sure required Certificate Chain is imported under Trusted Certificates
+
+
+
+
+
+*/
+func (s *CertificatesService) ImportSystemCert(requestCertificatesImportSystemCert *RequestCertificatesImportSystemCert) (*ResponseCertificatesImportSystemCert, *resty.Response, error) {
+	setHost(s.client, "_ui")
+	path := "/api/v1/certs/system-certificate/import"
+
+	setCSRFToken(s.client)
+	response, err := s.client.R().
+		SetHeader("Content-Type", "application/json").
+		SetHeader("Accept", "application/json").
+		SetBody(requestCertificatesImportSystemCert).
+		SetResult(&ResponseCertificatesImportSystemCert{}).
+		SetError(&Error).
+		Post(path)
+
+	if err != nil {
+		return nil, nil, err
+
+	}
+
+	getCSFRToken(response.Header())
+	if response.IsError() {
+		return nil, response, fmt.Errorf("error with operation ImportSystemCert")
+	}
+
+	result := response.Result().(*ResponseCertificatesImportSystemCert)
+	return result, response, err
+
+}
+
+//Alias of ImportSystemCert Import system certificate into Cisco ISE.
+func (s *CertificatesService) ImportSystemCertificate(requestCertificatesImportSystemCert *RequestCertificatesImportSystemCert) (*ResponseCertificatesImportSystemCert, *resty.Response, error) {
+	return s.ImportSystemCert(requestCertificatesImportSystemCert)
+}
+
+//ImportTrustCert Add root certificate to the Cisco ISE truststore.
 /*
 
 Import an X509 certificate as a trust certificate.
 
 NOTE:
-Request Parameters accepting True and False as input can be replaced by 1 and 0 respectively.
+Request parameters accepting True and False as input can be replaced by 1 and 0 respectively.
 
-Following Parameters are used in POST body
+Following parameters are used in POST body
 
 
 
@@ -1884,7 +2447,7 @@ name
 
 Friendly name of the certificate
 
-Trust Certificate
+"name": "Trust Certificate"
 
 
 
@@ -1892,39 +2455,69 @@ description
 
 Description of the certificate
 
-Passw***
+"description": "Imported Trust Certificate"
 
 
 
 data
+* required
 
-Plain-text contents of the certificate file. Every space needs to be replaced with newline escape sequence (\n) (required).
-
+ Plain-text contents of the certificate file. Every space needs to be replaced with newline escape sequence (\n) (required).
+ Use
 awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' <<your .pem file>>
+ to extract data from certificate file.
+
+"data": "Plain-text contents of the certificate file."
 
 
 
 allowOutOfDateCert
+* required
 
-Allow out of date certificates (required)
+ Allow out of date certificates (required).
+SECURITY ALERT:
+It is recommended to use
+"allowOutOfDateCert": false
+ to avoid import of expired certificates (not Secure).
 
-false
+
+"allowOutOfDateCert": true
 
 
 
 allowSHA1Certificates
+* required
 
-Allow SHA1 based certificates (required)
+ Allow import of certificate with signature that uses SHA-1 hashing algorithm and is considered less secure (required).
+SECURITY ALERT:
+It is recommended to use
+"allowSHA1Certificates": false
+ to avoid import of SHA1 based certificates (less secure).
 
-false
+
+"allowSHA1Certificates": true
+
+
+
+allowBasicConstraintCAFalse
+* required
+
+ Allow certificates with Basic Constraints CA Field as False (required).
+SECURITY ALERT:
+It is recommended to use
+"allowBasicConstraintCAFalse": false
+ to avoid import of certificates with Basic Constraints CA Field as False (not Secure).
+
+
+"allowBasicConstraintCAFalse": true
 
 
 
 trustForIseAuth
 
-Trust for authentication within ISE
+Trust for authentication within Cisco ISE
 
-false
+"trustForIseAuth": false
 
 
 
@@ -1932,15 +2525,15 @@ trustForClientAuth
 
 Trust for client authentication and Syslog
 
-false
+"trustForClientAuth": false
 
 
 
 trustForCertificateBasedAdminAuth
 
-Trust for Certificate based Admin authentication
+Trust for certificate based Admin authentication
 
-false
+"trustForCertificateBasedAdminAuth": false
 
 
 
@@ -1948,7 +2541,7 @@ trustForCiscoServicesAuth
 
 Trust for authentication of Cisco Services
 
-false
+"trustForCiscoServicesAuth": false
 
 
 
@@ -1956,13 +2549,13 @@ validateCertificateExtensions
 
 Validate extensions for trust certificate
 
-false
+"validateCertificateExtensions": false
 
 
 
 
 NOTE:
-If name is not set, a default name of the following format will be generated:
+If name is not set, a default name with the following format is used:
 common-name#issuer#nnnnn
 
     where
@@ -1970,7 +2563,7 @@ common-name#issuer#nnnnn
  is a unique number. You can always change the friendly name later by editing the certificate.
 
 
-    You must choose how this certificate will be trusted in ISE. The objective here is to distinguish between certificates that are used for trust within an ISE deployment and public certificates that are used to trust Cisco services. Typically, you will not want to use a given certificate for both purposes.
+    You must choose how this certificate is trusted in Cisco ISE. The objective here is to distinguish between certificates that are used for trust within an Cisco ISE deployment and public certificates that are used to trust Cisco services. Typically, you do not want to use a given certificate for both purposes.
 
 
 
@@ -1983,11 +2576,11 @@ Usage
 
 
 
-Authentication within ISE
+Authentication within Cisco ISE
 
 Use
 "trustForIseAuth":true
- if the certificate is used for trust within ISE, such as for secure communication between ISE nodes
+ if the certificate is used for trust within Cisco ISE, such as for secure communication between Cisco ISE nodes
 
 
 
@@ -1995,7 +2588,7 @@ Client authentication and Syslog
 
 Use
 "trustForClientAuth":true
- if the certificate is to be used for authentication of endpoints that contact ISE over the EAP protocol. Also check this box if certificate is used to trust a Syslog server. Make sure to have keyCertSign bit asserted under KeyUsage extension for this certificate.
+ if the certificate is to be used for authentication of endpoints that contact Cisco ISE over the EAP protocol. Also check this box if certificate is used to trust a Syslog server. Make sure to have keyCertSign bit asserted under KeyUsage extension for this certificate.
 Note:
  "" can be set true only if the "trustForIseAuth" has been set true.
 
@@ -2005,7 +2598,7 @@ Certificate based admin authentication
 
 Use
 "trustForCertificateBasedAdminAuth":true
- if the certificate is used for trust within ISE, such as for secure communication between ISE nodes
+ if the certificate is used for trust within Cisco ISE, such as for secure communication between Cisco ISE nodes
 Note:
  "trustForCertificateBasedAdminAuth" can be set true only if "trustForIseAuth" and "trustForClientAuth" are true.
 
@@ -2022,7 +2615,7 @@ Authentication of Cisco Services
 
 
 */
-func (s *CertificatesService) ImportTrustCertificate(requestCertificatesImportTrustCertificate *RequestCertificatesImportTrustCertificate) (*ResponseCertificatesImportTrustCertificate, *resty.Response, error) {
+func (s *CertificatesService) ImportTrustCert(requestCertificatesImportTrustCert *RequestCertificatesImportTrustCert) (*ResponseCertificatesImportTrustCert, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/certs/trusted-certificate/import"
 
@@ -2030,8 +2623,8 @@ func (s *CertificatesService) ImportTrustCertificate(requestCertificatesImportTr
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetBody(requestCertificatesImportTrustCertificate).
-		SetResult(&ResponseCertificatesImportTrustCertificate{}).
+		SetBody(requestCertificatesImportTrustCert).
+		SetResult(&ResponseCertificatesImportTrustCert{}).
 		SetError(&Error).
 		Post(path)
 
@@ -2042,26 +2635,31 @@ func (s *CertificatesService) ImportTrustCertificate(requestCertificatesImportTr
 
 	getCSFRToken(response.Header())
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation ImportTrustCertificate")
+		return nil, response, fmt.Errorf("error with operation ImportTrustCert")
 	}
 
-	result := response.Result().(*ResponseCertificatesImportTrustCertificate)
+	result := response.Result().(*ResponseCertificatesImportTrustCert)
 	return result, response, err
 
 }
 
-//UpdateSystemCertificate Purpose of the API is to update data for existing system certificate.
+//Alias of ImportTrustCert Add root certificate to the Cisco ISE truststore.
+func (s *CertificatesService) ImportTrustCertificate(requestCertificatesImportTrustCert *RequestCertificatesImportTrustCert) (*ResponseCertificatesImportTrustCert, *resty.Response, error) {
+	return s.ImportTrustCert(requestCertificatesImportTrustCert)
+}
+
+//UpdateSystemCert Update data for existing system certificate.
 /*
 
 Update a System Certificate.
 
 NOTE:
-Renewing a certificate will cause an application server restart on the selected node.
+Renewing a certificate causes an application server restart on the selected node.
 
 NOTE:
-Request Parameters accepting True and False as input can be replaced by 1 and 0 respectively.
+Request parameters accepting True and False as input can be replaced by 1 and 0 respectively.
 
-Following Parameters are used in POST body
+Following parameters are used in POST body
 
 
 
@@ -2080,20 +2678,23 @@ name
 
 Friendly name of the certificate.
 
-System Certificate
+"name": "System Certificate"
 
 
 
 description
-Description of the Certificate
-Default Description
+
+Description of the certificate
+
+"description": "Description of certificate"
+
 
 
 admin
 
-Use certificate to authenticate the ISE Admin Portal
+Use certificate to authenticate the Cisco ISE Admin Portal
 
-false
+"admin": false
 
 
 
@@ -2101,7 +2702,7 @@ eap
 
 Use certificate for EAP protocols that use SSL/TLS tunneling
 
-false
+"eap": false
 
 
 
@@ -2109,7 +2710,7 @@ radius
 
 Use certificate for RADSec server
 
-false
+"radius": false
 
 
 
@@ -2117,15 +2718,15 @@ pxgrid
 
 Use certificate for the pxGrid Controller
 
-false
+"pxgrid": false
 
 
 
 ims
 
-Use certificate for the ISE Messaging Service
+Use certificate for the Cisco ISE Messaging Service
 
-false
+"ims": false
 
 
 
@@ -2133,7 +2734,7 @@ saml
 
 Use certificate for SAML Signing
 
-false
+"saml": false
 
 
 
@@ -2141,7 +2742,7 @@ portal
 
 Use certificate for portal
 
-false
+"portal": false
 
 
 
@@ -2149,39 +2750,43 @@ portalGroupTag
 
 Portal Group Tag for using certificate with portal role
 
-Default Portal Certificate Group
+"portalGroupTag": "Default Portal Certificate Group"
 
 
 
 allowReplacementOfPortalGroupTag
+* required
 
-Allow Replacement of Portal Group Tag (required)
+Allow Replacement of Portal Group Tag (required).
 
-false
-
-
-
-roleTransferForSameSubject
-
-Allow the transfer of roles to certificates with same subject
-
-false
+"allowReplacementOfPortalGroupTag": true
 
 
 
-portalTagTransferForSameSubject
+allowRoleTransferForSameSubjec
+* required
+t
 
-Acquire the group tag of the matching certificate
+Allow transfer of roles to certificates with same subject (required).
 
-false
+"allowRoleTransferForSameSubject": true
+
+
+
+allowPortalTagTransferForSameSubject
+* required
+
+Acquire group tag of the matching certificate (required).
+
+"allowPortalTagTransferForSameSubject": true
 
 
 
 renewSelfSignedCertificate
 
-Renew Self Signed Certificate
+Renew Self-signed Certificate
 
-false
+"renewSelfSignedCertificate": false
 
 
 
@@ -2189,7 +2794,7 @@ expirationTTLPeriod
 
 Expiration Period
 
-365
+"expirationTTLPeriod": 365
 
 
 
@@ -2201,13 +2806,13 @@ days / weeks / months / years
 
 
 
-days
+"expirationTTLUnits": "days"
 
 
 
 
 
-Following Roles can be used in any combinations
+Following roles can be used in any combinations
 
 
 
@@ -2226,7 +2831,7 @@ Admin
 
 False
 
-Enabling Admin role for this certificate will cause an application server restart on the selected node.
+Enabling Admin role for this certificate causes an application server restart on the selected node.
 Note:
  Make sure required Certificate Chain is imported under Trusted Certificates
 
@@ -2236,7 +2841,7 @@ EAP Authentication
 
 False
 
-Only one system certificate can be used for EAP. Assigning EAP to this certificate will remove the assignment from another certificate.
+Only one system certificate can be used for EAP. Assigning EAP to this certificate removes the assignment from another certificate.
 Note:
  Make sure required Certificate Chain is imported under Trusted Certificates
 
@@ -2246,7 +2851,7 @@ RADIUS DTLS
 
 False
 
-Only one system certificate can be used for DTLS. Assigning DTLS to this certificate will remove the assignment from another certificate.
+Only one system certificate can be used for DTLS. Assigning DTLS to this certificate removes the assignment from another certificate.
 Note:
  Make sure required Certificate Chain is imported under Trusted Certificates
 
@@ -2256,7 +2861,7 @@ SAML
 
 False
 
-SAML cannot be used with other Usage. Enabling SAML will uncheck all other Usage.
+SAML cannot be used with other Usage. Enabling SAML unchecks all other Usage.
 Note:
  Make sure required Certificate Chain is imported under Trusted Certificates
 
@@ -2264,10 +2869,10 @@ Note:
 
 
 
-@param id id path parameter. The ID of the System Certificate to be updated
+@param id id path parameter. ID of the System Certificate to be updated
 @param hostName hostName path parameter. Name of Host whose certificate needs to be updated
 */
-func (s *CertificatesService) UpdateSystemCertificate(id string, hostName string, requestCertificatesUpdateSystemCertificate *RequestCertificatesUpdateSystemCertificate) (*ResponseCertificatesUpdateSystemCertificate, *resty.Response, error) {
+func (s *CertificatesService) UpdateSystemCert(id string, hostName string, requestCertificatesUpdateSystemCert *RequestCertificatesUpdateSystemCert) (*ResponseCertificatesUpdateSystemCert, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/certs/system-certificate/{hostName}/{id}"
 	path = strings.Replace(path, "{id}", fmt.Sprintf("%v", id), -1)
@@ -2277,8 +2882,8 @@ func (s *CertificatesService) UpdateSystemCertificate(id string, hostName string
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetBody(requestCertificatesUpdateSystemCertificate).
-		SetResult(&ResponseCertificatesUpdateSystemCertificate{}).
+		SetBody(requestCertificatesUpdateSystemCert).
+		SetResult(&ResponseCertificatesUpdateSystemCert{}).
 		SetError(&Error).
 		Put(path)
 
@@ -2288,22 +2893,27 @@ func (s *CertificatesService) UpdateSystemCertificate(id string, hostName string
 	}
 
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation UpdateSystemCertificate")
+		return nil, response, fmt.Errorf("error with operation UpdateSystemCert")
 	}
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*ResponseCertificatesUpdateSystemCertificate)
+	result := response.Result().(*ResponseCertificatesUpdateSystemCert)
 	return result, response, err
 
 }
 
-//UpdateTrustedCertificate Purpose of the API is to update trust certificate already present in ISE trust store.
+//Alias of UpdateSystemCert Update data for existing system certificate.
+func (s *CertificatesService) UpdateSystemCertificate(id string, hostName string, requestCertificatesUpdateSystemCert *RequestCertificatesUpdateSystemCert) (*ResponseCertificatesUpdateSystemCert, *resty.Response, error) {
+	return s.UpdateSystemCert(id, hostName, requestCertificatesUpdateSystemCert)
+}
+
+//UpdateTrustedCertificate Update trust certificate already present in Cisco ISE trust store.
 /*
 
-Update a trusted certificate present in ISE trust store.
+Update a trusted certificate present in Cisco ISE trust store.
 
-Following Parameters are used in PUT request body
+Following parameters are used in PUT request body
 
 
 
@@ -2319,10 +2929,11 @@ EXAMPLE
 
 
 name
+* required
 
-Friendly name of the certificate(required)
+Friendly name of the certificate (required).
 
-Trust Certificate
+"name": "Trust Certificate"
 
 
 
@@ -2330,7 +2941,7 @@ status
 
 Status of the certificate
 
-Enabled
+"status": "Enabled"
 
 
 
@@ -2338,15 +2949,15 @@ description
 
 Description of the certificate
 
-Certificate for secure connection to cisco.com
+"description": "Certificate for secure connection to cisco.com"
 
 
 
 trustForIseAuth
 
-Trust for authentication within ISE
+Trust for authentication within Cisco ISE
 
-false
+"trustForIseAuth": false
 
 
 
@@ -2354,15 +2965,15 @@ trustForClientAuth
 
 Trust for client authentication and Syslog
 
-false
+"trustForClientAuth": false
 
 
 
 trustForCertificateBasedAdminAuth
 
-Trust for Certificate based Admin authentication
+Trust for certificate based Admin authentication
 
-false
+"trustForCertificateBasedAdminAuth": false
 
 
 
@@ -2370,15 +2981,15 @@ trustForCiscoServicesAuth
 
 Trust for authentication of Cisco Services
 
-false
+"trustForCiscoServicesAuth": false
 
 
 
 enableOCSPValidation
 
-Switch to enable/disable OCSP Validation
+Switch to enable or disable OCSP Validation
 
-false
+"enableOCSPValidation": false
 
 
 
@@ -2386,7 +2997,7 @@ selectedOCSPService
 
 Name of selected OCSP Service
 
-INTERNAL_OCSP_SERVICE
+"selectedOCSPService": "INTERNAL_OCSP_SERVICE"
 
 
 
@@ -2394,7 +3005,7 @@ rejectIfNoStatusFromOCSP
 
 Switch to reject certificate if there is no status from OCSP
 
-false
+"rejectIfNoStatusFromOCSP": false
 
 
 
@@ -2402,15 +3013,15 @@ rejectIfUnreachableFromOCSP
 
 Switch to reject certificate if unreachable from OCSP
 
-false
+"rejectIfUnreachableFromOCSP": false
 
 
 
 downloadCRL
 
-Switch to enable/disable download of CRL
+Switch to enable or disable download of CRL
 
-false
+"downloadCRL": false
 
 
 
@@ -2418,14 +3029,15 @@ crlDistributionUrl
 
 Certificate Revocation List Distribution URL
 
+"crlDistributionUrl": "CRL distribution URL"
 
 
 
 automaticCRLUpdate
 
-Switch to enable/disable automatic CRL update
+Switch to enable or disable automatic CRL update
 
-false
+"automaticCRLUpdate": false
 
 
 
@@ -2433,7 +3045,7 @@ automaticCRLUpdatePeriod
 
 Automatic CRL update period
 
-5
+"automaticCRLUpdatePeriod": 5
 
 
 
@@ -2441,7 +3053,7 @@ automaticCRLUpdateUnits
 
 Unit of time for automatic CRL update
 
-Minutes
+"automaticCRLUpdateUnits": "Minutes"
 
 
 
@@ -2449,7 +3061,7 @@ nonAutomaticCRLUpdatePeriod
 
 Non automatic CRL update period
 
-1
+"nonAutomaticCRLUpdatePeriod": 1
 
 
 
@@ -2457,7 +3069,7 @@ nonAutomaticCRLUpdateUnits
 
 Unit of time of non automatic CRL update
 
-Hours
+"nonAutomaticCRLUpdateUnits": "Hours"
 
 
 
@@ -2465,7 +3077,7 @@ crlDownloadFailureRetries
 
 If CRL download fails, wait time before retry
 
-10
+"crlDownloadFailureRetries": 10
 
 
 
@@ -2473,31 +3085,31 @@ crlDownloadFailureRetriesUnits
 
 Unit of time before retry if CRL download fails
 
-Minutes
+"crlDownloadFailureRetriesUnits": "Minutes"
 
 
 
 enableServerIdentityCheck
 
-Switch to enable/disable verification if HTTPS or LDAP server certificate name fits the configured server URL
+Switch to enable or disable verification if HTTPS or LDAP server certificate name fits the configured server URL
 
-false
+"enableServerIdentityCheck": false
 
 
 
 authenticateBeforeCRLReceived
 
-Switch to enable/disable CRL Verification if CRL is not Received
+Switch to enable or disable CRL Verification if CRL is not Received
 
-false
+"authenticateBeforeCRLReceived": false
 
 
 
 ignoreCRLExpiration
 
-Switch to enable/disable ignore CRL Expiration
+Switch to enable or disable ignore CRL Expiration
 
-false
+"ignoreCRLExpiration": false
 
 
 
@@ -2514,11 +3126,11 @@ Usage
 
 
 
-Authentication within ISE
+Authentication within Cisco ISE
 
 Use
 "trustForIseAuth":true
- if the certificate is used for trust within ISE, such as for secure communication between ISE nodes
+ if the certificate is used for trust within Cisco ISE, such as for secure communication between Cisco ISE nodes
 
 
 
@@ -2526,7 +3138,7 @@ Client authentication and Syslog
 
 Use
 "trustForClientAuth":true
- if the certificate is to be used for authentication of endpoints that contact ISE over the EAP protocol. Also check this box if certificate is used to trust a Syslog server. Make sure to have keyCertSign bit asserted under KeyUsage extension for this certificate.
+ if the certificate is to be used for authentication of endpoints that contact Cisco ISE over the EAP protocol. Also check this box if certificate is used to trust a Syslog server. Make sure to have keyCertSign bit asserted under KeyUsage extension for this certificate.
 Note:
  "trustForClientAuth" can be set true only if the "trustForIseAuth" has been set true.
 
@@ -2536,7 +3148,7 @@ Certificate based admin authentication
 
 Use
 "trustForCertificateBasedAdminAuth":true
- if the certificate is used for trust within ISE, such as for secure communication between ISE nodes
+ if the certificate is used for trust within Cisco ISE, such as for secure communication between Cisco ISE nodes
 Note:
  "trustForCertificateBasedAdminAuth" can be set true only if "trustForIseAuth" and "trustForClientAuth" are true.
 
@@ -2577,7 +3189,7 @@ Use
 "selectedOCSPService":"Name of OCSP Service"
  Name of the OCSP service against which the certificate should be validated
 Note:
- "selectedOCSPService" value will on be used if "enableOCSPValidation" has been set true.
+ "selectedOCSPService" value is used if "enableOCSPValidation" has been set true.
 
 
 
@@ -2628,7 +3240,7 @@ Use
 "crlDistributionUrl"
  to specify the URL from where the CRL should be downloaded
 Note:
- "crlDistributionUrl" value will only be used if "downloadCRL" has been set true.
+ "crlDistributionUrl" value is used if "downloadCRL" has been set true.
 
 
 
@@ -2691,7 +3303,7 @@ Note:
 boolean properties accept integers values as well, with 0 considered as false and other values being considered as true
 
 
-@param id id path parameter. The id of the trust certificate
+@param id id path parameter. ID of the trust certificate
 */
 func (s *CertificatesService) UpdateTrustedCertificate(id string, requestCertificatesUpdateTrustedCertificate *RequestCertificatesUpdateTrustedCertificate) (*ResponseCertificatesUpdateTrustedCertificate, *resty.Response, error) {
 	setHost(s.client, "_ui")
@@ -2723,13 +3335,13 @@ func (s *CertificatesService) UpdateTrustedCertificate(id string, requestCertifi
 
 }
 
-//DeleteCsrByID Purpose of the API is to delete Certificate Signing Request(CSR) by ID
-/* This API deletes a Certificate Signing Request of a particular node based on a given HostName and ID.
+//DeleteCsr Delete Certificate Signing Request (CSR) by ID
+/* This API deletes a Certificate Signing Request of a particular node based on given HostName and ID.
 
 @param hostName hostName path parameter. Name of the host of which CSR's should be deleted
-@param id id path parameter. The ID of the Certificate Signing Request to be deleted
+@param id id path parameter. ID of the Certificate Signing Request to be deleted
 */
-func (s *CertificatesService) DeleteCsrByID(hostName string, id string) (*ResponseCertificatesDeleteCsrByID, *resty.Response, error) {
+func (s *CertificatesService) DeleteCsr(hostName string, id string) (*ResponseCertificatesDeleteCsr, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/certs/certificate-signing-request/{hostName}/{id}"
 	path = strings.Replace(path, "{hostName}", fmt.Sprintf("%v", hostName), -1)
@@ -2739,7 +3351,7 @@ func (s *CertificatesService) DeleteCsrByID(hostName string, id string) (*Respon
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetResult(&ResponseCertificatesDeleteCsrByID{}).
+		SetResult(&ResponseCertificatesDeleteCsr{}).
 		SetError(&Error).
 		Delete(path)
 
@@ -2749,21 +3361,26 @@ func (s *CertificatesService) DeleteCsrByID(hostName string, id string) (*Respon
 	}
 
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation DeleteCsrById")
+		return nil, response, fmt.Errorf("error with operation DeleteCsr")
 	}
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*ResponseCertificatesDeleteCsrByID)
+	result := response.Result().(*ResponseCertificatesDeleteCsr)
 	return result, response, err
 
 }
 
-//DeleteSystemCertificateByID Purpose of the API is to delete System Certificate by ID and hostname
-/* This API deletes a System Certificate of a particular node based on a given HostName and ID.
+//Alias of DeleteCsr Delete Certificate Signing Request (CSR) by ID
+func (s *CertificatesService) DeleteCsrByID(hostName string, id string) (*ResponseCertificatesDeleteCsr, *resty.Response, error) {
+	return s.DeleteCsr(hostName, id)
+}
 
-@param hostName hostName path parameter. Name of the host from which the System Certificate needs to be deleted
-@param id id path parameter. The ID of the System Certificate to be deleted
+//DeleteSystemCertificateByID Delete System Certificate by ID and hostname
+/* This API deletes a System Certificate of a particular node based on given HostName and ID.
+
+@param hostName hostName path parameter. Name of the host from which System Certificate needs to be deleted
+@param id id path parameter. ID of the System Certificate to be deleted
 */
 func (s *CertificatesService) DeleteSystemCertificateByID(hostName string, id string) (*ResponseCertificatesDeleteSystemCertificateByID, *resty.Response, error) {
 	setHost(s.client, "_ui")
@@ -2795,10 +3412,10 @@ func (s *CertificatesService) DeleteSystemCertificateByID(hostName string, id st
 
 }
 
-//DeleteTrustedCertificateByID Purpose of the API is to delete Trusted Certificate by ID
+//DeleteTrustedCertificateByID Delete Trusted Certificate by ID
 /* This API deletes a Trust Certificate from Trusted Certificate Store based on a given ID.
 
-@param id id path parameter. The ID of the Trusted Certificate to be deleted
+@param id id path parameter. ID of the Trusted Certificate to be deleted
 */
 func (s *CertificatesService) DeleteTrustedCertificateByID(id string) (*ResponseCertificatesDeleteTrustedCertificateByID, *resty.Response, error) {
 	setHost(s.client, "_ui")

@@ -5,452 +5,164 @@ import (
 	"strings"
 
 	"github.com/go-resty/resty/v2"
+	"github.com/google/go-querystring/query"
 )
 
 type NodeDeploymentService service
 
-type ResponseNodeDeploymentGetNodes struct {
-	Response *[]ResponseNodeDeploymentGetNodesResponse `json:"response,omitempty"` //
+type GetDeploymentNodesQueryParams struct {
+	Filter     []string `url:"filter,omitempty"`     //<div> <style type="text/css" scoped> .apiServiceTable td, .apiServiceTable th { padding: 5px 10px !important; text-align: left; } </style> <span> <b>Simple filtering</b> is available through the filter query string parameter. The structure of a filter is a triplet of field operator and value, separated by dots. More than one filter can be sent. The logical operator common to all filter criteria is AND by default, and can be changed by using the <i>"filterType=or"</i> query string parameter. Each resource Data model description should specify if an attribute is a filtered field. </span> <br /> <table class="apiServiceTable"> <thead> <tr> <th>OPERATOR</th> <th>DESCRIPTION</th> </tr> </thead> <tbody> <tr> <td>EQ</td> <td>Equals</td> </tr> <tr> <td>NEQ</td> <td>Not Equals</td> </tr> <tr> <td>STARTSW</td> <td>Starts With</td> </tr> <tr> <td>NSTARTSW</td> <td>Not Starts With</td> </tr> <tr> <td>ENDSW</td> <td>Ends With</td> </tr> <tr> <td>NENDSW</td> <td>Not Ends With</td> </tr> <tr> <td>CONTAINS</td> <td>Contains</td> </tr> <tr> <td>NCONTAINS</td> <td>Not Contains</td> </tr> </tbody> </table> </div>
+	FilterType string   `url:"filterType,omitempty"` //The logical operator common to all filter criteria is AND by default, and can be changed by using this parameter.
 }
 
-type ResponseNodeDeploymentGetNodesResponse struct {
-	Hostname    string   `json:"hostname,omitempty"`    //
-	PersonaType []string `json:"personaType,omitempty"` //
-	Roles       []string `json:"roles,omitempty"`       //
-	Services    []string `json:"services,omitempty"`    //
-	NodeStatus  string   `json:"nodeStatus,omitempty"`  //
+// GetNodesQueryParams is deprecated, please use GetDeploymentNodesQueryParams
+type GetNodesQueryParams = GetDeploymentNodesQueryParams
+
+type ResponseNodeDeploymentGetDeploymentNodes struct {
+	Response *[]ResponseNodeDeploymentGetDeploymentNodesResponse `json:"response,omitempty"` //
+	Version  string                                              `json:"version,omitempty"`  //
 }
+
+// ResponseNodeDeploymentGetNodes is deprecated, please use ResponseNodeDeploymentGetDeploymentNodes
+type ResponseNodeDeploymentGetNodes = ResponseNodeDeploymentGetDeploymentNodes
+
+type ResponseNodeDeploymentGetDeploymentNodesResponse struct {
+	Fqdn       string   `json:"fqdn,omitempty"`       //
+	Hostname   string   `json:"hostname,omitempty"`   //
+	IPAddress  string   `json:"ipAddress,omitempty"`  //
+	NodeStatus string   `json:"nodeStatus,omitempty"` //
+	Roles      []string `json:"roles,omitempty"`      // Roles can be empty or have many values for a node.
+	Services   []string `json:"services,omitempty"`   // Services can be empty or have many values for a node.
+}
+
+// ResponseNodeDeploymentGetNodesResponse is deprecated, please use ResponseNodeDeploymentGetDeploymentNodesResponse
+type ResponseNodeDeploymentGetNodesResponse = ResponseNodeDeploymentGetDeploymentNodesResponse
 
 type ResponseNodeDeploymentRegisterNode struct {
-	Code      *int   `json:"code,omitempty"`      //
-	Message   string `json:"message,omitempty"`   //
-	RootCause string `json:"rootCause,omitempty"` //
+	Success *ResponseNodeDeploymentRegisterNodeSuccess `json:"success,omitempty"` //
+	Version string                                     `json:"version,omitempty"` //
 }
 
-type ResponseNodeDeploymentPromoteNode struct {
-	Code      *int   `json:"code,omitempty"`      //
-	Message   string `json:"message,omitempty"`   //
-	RootCause string `json:"rootCause,omitempty"` //
+type ResponseNodeDeploymentRegisterNodeSuccess struct {
+	Message string `json:"message,omitempty"` //
 }
 
 type ResponseNodeDeploymentGetNodeDetails struct {
 	Response *ResponseNodeDeploymentGetNodeDetailsResponse `json:"response,omitempty"` //
+	Version  string                                        `json:"version,omitempty"`  //
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponse struct {
-	Hostname               string                                                              `json:"hostname,omitempty"`               //
-	Fqdn                   string                                                              `json:"fqdn,omitempty"`                   //
-	IPAddress              string                                                              `json:"ipAddress,omitempty"`              //
-	NodeType               string                                                              `json:"nodeType,omitempty"`               //
-	Administration         *ResponseNodeDeploymentGetNodeDetailsResponseAdministration         `json:"administration,omitempty"`         //
-	GeneralSettings        *ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettings        `json:"generalSettings,omitempty"`        //
-	ProfilingConfiguration *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfiguration `json:"profilingConfiguration,omitempty"` //
+	Fqdn       string   `json:"fqdn,omitempty"`       //
+	Hostname   string   `json:"hostname,omitempty"`   //
+	IPAddress  string   `json:"ipAddress,omitempty"`  //
+	NodeStatus string   `json:"nodeStatus,omitempty"` //
+	Roles      []string `json:"roles,omitempty"`      // Roles can be empty or have many values for a node.
+	Services   []string `json:"services,omitempty"`   // Services can be empty or have many values for a node.
 }
 
-type ResponseNodeDeploymentGetNodeDetailsResponseAdministration struct {
-	IsEnabled *bool  `json:"isEnabled,omitempty"` //
-	Role      string `json:"role,omitempty"`      //
+type ResponseNodeDeploymentUpdateDeploymentNode struct {
+	Success *ResponseNodeDeploymentUpdateDeploymentNodeSuccess `json:"success,omitempty"` //
+	Version string                                             `json:"version,omitempty"` //
 }
 
-type ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettings struct {
-	Monitoring *ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoring `json:"monitoring,omitempty"` //
+// ResponseNodeDeploymentUpdateNode is deprecated, please use ResponseNodeDeploymentUpdateDeploymentNode
+type ResponseNodeDeploymentUpdateNode = ResponseNodeDeploymentUpdateDeploymentNode
+
+type ResponseNodeDeploymentUpdateDeploymentNodeSuccess struct {
+	Message string `json:"message,omitempty"` //
 }
 
-type ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoring struct {
-	IsEnabled           *bool                                                                               `json:"isEnabled,omitempty"`           //
-	Role                string                                                                              `json:"role,omitempty"`                //
-	OtherMonitoringNode string                                                                              `json:"otherMonitoringNode,omitempty"` //
-	IsMntDedicated      *bool                                                                               `json:"isMntDedicated,omitempty"`      //
-	Policyservice       *ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoringPolicyservice `json:"policyservice,omitempty"`       //
-	EnablePXGrid        *bool                                                                               `json:"enablePXGrid,omitempty"`        //
+// ResponseNodeDeploymentUpdateNodeSuccess is deprecated, please use ResponseNodeDeploymentUpdateDeploymentNodeSuccess
+type ResponseNodeDeploymentUpdateNodeSuccess = ResponseNodeDeploymentUpdateDeploymentNodeSuccess
+
+type ResponseNodeDeploymentDeleteDeploymentNode struct {
+	Success *ResponseNodeDeploymentDeleteDeploymentNodeSuccess `json:"success,omitempty"` //
+	Version string                                             `json:"version,omitempty"` //
 }
 
-type ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoringPolicyservice struct {
-	Enabled                      *bool                                                                                             `json:"enabled,omitempty"`                      //
-	SessionService               *ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoringPolicyserviceSessionService `json:"sessionService,omitempty"`               //
-	EnableProfilingService       *bool                                                                                             `json:"enableProfilingService,omitempty"`       //
-	EnableNACService             *bool                                                                                             `json:"enableNACService,omitempty"`             //
-	Sxpservice                   *ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoringPolicyserviceSxpservice     `json:"sxpservice,omitempty"`                   //
-	EnableDeviceAdminService     *bool                                                                                             `json:"enableDeviceAdminService,omitempty"`     //
-	EnablePassiveIDentityService *bool                                                                                             `json:"enablePassiveIdentityService,omitempty"` //
+// ResponseNodeDeploymentDeleteNode is deprecated, please use ResponseNodeDeploymentDeleteDeploymentNode
+type ResponseNodeDeploymentDeleteNode = ResponseNodeDeploymentDeleteDeploymentNode
+
+type ResponseNodeDeploymentDeleteDeploymentNodeSuccess struct {
+	Message string `json:"message,omitempty"` //
 }
 
-type ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoringPolicyserviceSessionService struct {
-	IsEnabled *bool  `json:"isEnabled,omitempty"` //
-	Nodegroup string `json:"nodegroup,omitempty"` //
+// ResponseNodeDeploymentDeleteNodeSuccess is deprecated, please use ResponseNodeDeploymentDeleteDeploymentNodeSuccess
+type ResponseNodeDeploymentDeleteNodeSuccess = ResponseNodeDeploymentDeleteDeploymentNodeSuccess
+
+type ResponseNodeDeploymentMakePrimary struct {
+	Success *ResponseNodeDeploymentMakePrimarySuccess `json:"success,omitempty"` //
+	Version string                                    `json:"version,omitempty"` //
 }
 
-type ResponseNodeDeploymentGetNodeDetailsResponseGeneralSettingsMonitoringPolicyserviceSxpservice struct {
-	IsEnabled     *bool  `json:"isEnabled,omitempty"`     //
-	UserInterface string `json:"userInterface,omitempty"` //
+type ResponseNodeDeploymentMakePrimarySuccess struct {
+	Message string `json:"message,omitempty"` //
 }
 
-type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfiguration struct {
-	Netflow         *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationNetflow         `json:"netflow,omitempty"`         //
-	Dhcp            *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationDhcp            `json:"dhcp,omitempty"`            //
-	DhcpSpan        *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationDhcpSpan        `json:"dhcpSpan,omitempty"`        //
-	HTTP            *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationHTTP            `json:"http,omitempty"`            //
-	Radius          *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationRadius          `json:"radius,omitempty"`          //
-	Nmap            *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationNmap            `json:"nmap,omitempty"`            //
-	DNS             *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationDNS             `json:"dns,omitempty"`             //
-	SNMPQuery       *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationSNMPQuery       `json:"snmpQuery,omitempty"`       //
-	SNMPTrap        *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationSNMPTrap        `json:"snmpTrap,omitempty"`        //
-	ActiveDirectory *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationActiveDirectory `json:"activeDirectory,omitempty"` //
-	Pxgrid          *ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationPxgrid          `json:"pxgrid,omitempty"`          //
+type ResponseNodeDeploymentPromoteNode struct {
+	Success *ResponseNodeDeploymentPromoteNodeSuccess `json:"success,omitempty"` //
+	Version string                                    `json:"version,omitempty"` //
 }
 
-type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationNetflow struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Interface   string `json:"interface,omitempty"`   //
-	Port        *int   `json:"port,omitempty"`        //
-	Description string `json:"description,omitempty"` //
+type ResponseNodeDeploymentPromoteNodeSuccess struct {
+	Message string `json:"message,omitempty"` //
 }
 
-type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationDhcp struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Interface   string `json:"interface,omitempty"`   //
-	Port        *int   `json:"port,omitempty"`        //
-	Description string `json:"description,omitempty"` //
+type ResponseNodeDeploymentMakeStandalone struct {
+	Success *ResponseNodeDeploymentMakeStandaloneSuccess `json:"success,omitempty"` //
+	Version string                                       `json:"version,omitempty"` //
 }
 
-type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationDhcpSpan struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Interface   string `json:"interface,omitempty"`   //
-	Description string `json:"description,omitempty"` //
+type ResponseNodeDeploymentMakeStandaloneSuccess struct {
+	Message string `json:"message,omitempty"` //
 }
 
-type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationHTTP struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Interface   string `json:"interface,omitempty"`   //
-	Description string `json:"description,omitempty"` //
+type ResponseNodeDeploymentSyncNode struct {
+	Response *ResponseNodeDeploymentSyncNodeResponse `json:"response,omitempty"` //
+	Version  string                                  `json:"version,omitempty"`  //
 }
 
-type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationRadius struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Description string `json:"description,omitempty"` //
-}
-
-type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationNmap struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Description string `json:"description,omitempty"` //
-}
-
-type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationDNS struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Description string `json:"description,omitempty"` //
-}
-
-type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationSNMPQuery struct {
-	Enabled      *bool  `json:"enabled,omitempty"`      //
-	Description  string `json:"description,omitempty"`  //
-	Retries      *int   `json:"retries,omitempty"`      //
-	Timeout      *int   `json:"timeout,omitempty"`      //
-	EventTimeout *int   `json:"eventTimeout,omitempty"` //
-}
-
-type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationSNMPTrap struct {
-	LinkTrapQuery *bool  `json:"linkTrapQuery,omitempty"` //
-	MacTrapQuery  *bool  `json:"macTrapQuery,omitempty"`  //
-	Interface     string `json:"interface,omitempty"`     //
-	Port          *int   `json:"port,omitempty"`          //
-	Description   string `json:"description,omitempty"`   //
-}
-
-type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationActiveDirectory struct {
-	Enabled          *bool  `json:"enabled,omitempty"`          //
-	DaysBeforeRescan *int   `json:"daysBeforeRescan,omitempty"` //
-	Description      string `json:"description,omitempty"`      //
-}
-
-type ResponseNodeDeploymentGetNodeDetailsResponseProfilingConfigurationPxgrid struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Description string `json:"description,omitempty"` //
-}
-
-type ResponseNodeDeploymentUpdateNode struct {
-	Code      *int   `json:"code,omitempty"`      //
-	Message   string `json:"message,omitempty"`   //
-	RootCause string `json:"rootCause,omitempty"` //
-}
-
-type ResponseNodeDeploymentDeleteNode struct {
-	Code      *int   `json:"code,omitempty"`      //
-	Message   string `json:"message,omitempty"`   //
-	RootCause string `json:"rootCause,omitempty"` //
+type ResponseNodeDeploymentSyncNodeResponse struct {
+	ID      string `json:"id,omitempty"`      // ID which can be used to track the status of the deployment task using the Task Service API.
+	Message string `json:"message,omitempty"` //
 }
 
 type RequestNodeDeploymentRegisterNode struct {
-	Fdqn                 string                                                 `json:"fdqn,omitempty"`                 //
-	UserName             string                                                 `json:"userName,omitempty"`             //
-	Password             string                                                 `json:"password,omitempty"`             //
-	Administration       *RequestNodeDeploymentRegisterNodeAdministration       `json:"administration,omitempty"`       //
-	GeneralSettings      *RequestNodeDeploymentRegisterNodeGeneralSettings      `json:"generalSettings,omitempty"`      //
-	ProfileConfiguration *RequestNodeDeploymentRegisterNodeProfileConfiguration `json:"profileConfiguration,omitempty"` //
+	AllowCertImport *bool    `json:"allowCertImport,omitempty"` // Consent to import the self-signed certificate of the registering node.
+	Fqdn            string   `json:"fqdn,omitempty"`            //
+	Password        string   `json:"password,omitempty"`        //
+	Roles           []string `json:"roles,omitempty"`           // Roles can be empty or have many values for a node.
+	Services        []string `json:"services,omitempty"`        // Services can be empty or have many values for a node.
+	UserName        string   `json:"userName,omitempty"`        //
 }
 
-type RequestNodeDeploymentRegisterNodeAdministration struct {
-	IsEnabled *bool  `json:"isEnabled,omitempty"` //
-	Role      string `json:"role,omitempty"`      //
+type RequestNodeDeploymentUpdateDeploymentNode struct {
+	Roles    []string `json:"roles,omitempty"`    // Roles can be empty or have many values for a node.
+	Services []string `json:"services,omitempty"` // Services can be empty or have many values for a node.
 }
 
-type RequestNodeDeploymentRegisterNodeGeneralSettings struct {
-	Monitoring *RequestNodeDeploymentRegisterNodeGeneralSettingsMonitoring `json:"monitoring,omitempty"` //
-}
+// RequestNodeDeploymentUpdateNode is deprecated, please use RequestNodeDeploymentUpdateDeploymentNode
+type RequestNodeDeploymentUpdateNode = RequestNodeDeploymentUpdateDeploymentNode
 
-type RequestNodeDeploymentRegisterNodeGeneralSettingsMonitoring struct {
-	IsEnabled           *bool                                                                    `json:"isEnabled,omitempty"`           //
-	Role                string                                                                   `json:"role,omitempty"`                //
-	OtherMonitoringNode string                                                                   `json:"otherMonitoringNode,omitempty"` //
-	IsMntDedicated      *bool                                                                    `json:"isMntDedicated,omitempty"`      //
-	Policyservice       *RequestNodeDeploymentRegisterNodeGeneralSettingsMonitoringPolicyservice `json:"policyservice,omitempty"`       //
-	EnablePXGrid        *bool                                                                    `json:"enablePXGrid,omitempty"`        //
-}
+//GetDeploymentNodes Retrieve the list of all the nodes that are deployed in the cluster.
+/* The API lists all the nodes that are deployed in the cluster.
+ Returns basic information about each of the deployed nodes in the cluster like hostname, status, roles, and services.
+ Supports filtering on FQDN, hostname, IP address, roles, services and node status.
 
-type RequestNodeDeploymentRegisterNodeGeneralSettingsMonitoringPolicyservice struct {
-	Enabled                      *bool                                                                                  `json:"enabled,omitempty"`                      //
-	SessionService               *RequestNodeDeploymentRegisterNodeGeneralSettingsMonitoringPolicyserviceSessionService `json:"sessionService,omitempty"`               //
-	EnableProfilingService       *bool                                                                                  `json:"enableProfilingService,omitempty"`       //
-	EnableNACService             *bool                                                                                  `json:"enableNACService,omitempty"`             //
-	Sxpservice                   *RequestNodeDeploymentRegisterNodeGeneralSettingsMonitoringPolicyserviceSxpservice     `json:"sxpservice,omitempty"`                   //
-	EnableDeviceAdminService     *bool                                                                                  `json:"enableDeviceAdminService,omitempty"`     //
-	EnablePassiveIDentityService *bool                                                                                  `json:"enablePassiveIdentityService,omitempty"` //
-}
-
-type RequestNodeDeploymentRegisterNodeGeneralSettingsMonitoringPolicyserviceSessionService struct {
-	IsEnabled *bool  `json:"isEnabled,omitempty"` //
-	Nodegroup string `json:"nodegroup,omitempty"` //
-}
-
-type RequestNodeDeploymentRegisterNodeGeneralSettingsMonitoringPolicyserviceSxpservice struct {
-	IsEnabled     *bool  `json:"isEnabled,omitempty"`     //
-	UserInterface string `json:"userInterface,omitempty"` //
-}
-
-type RequestNodeDeploymentRegisterNodeProfileConfiguration struct {
-	Netflow         *RequestNodeDeploymentRegisterNodeProfileConfigurationNetflow         `json:"netflow,omitempty"`         //
-	Dhcp            *RequestNodeDeploymentRegisterNodeProfileConfigurationDhcp            `json:"dhcp,omitempty"`            //
-	DhcpSpan        *RequestNodeDeploymentRegisterNodeProfileConfigurationDhcpSpan        `json:"dhcpSpan,omitempty"`        //
-	HTTP            *RequestNodeDeploymentRegisterNodeProfileConfigurationHTTP            `json:"http,omitempty"`            //
-	Radius          *RequestNodeDeploymentRegisterNodeProfileConfigurationRadius          `json:"radius,omitempty"`          //
-	Nmap            *RequestNodeDeploymentRegisterNodeProfileConfigurationNmap            `json:"nmap,omitempty"`            //
-	DNS             *RequestNodeDeploymentRegisterNodeProfileConfigurationDNS             `json:"dns,omitempty"`             //
-	SNMPQuery       *RequestNodeDeploymentRegisterNodeProfileConfigurationSNMPQuery       `json:"snmpQuery,omitempty"`       //
-	SNMPTrap        *RequestNodeDeploymentRegisterNodeProfileConfigurationSNMPTrap        `json:"snmpTrap,omitempty"`        //
-	ActiveDirectory *RequestNodeDeploymentRegisterNodeProfileConfigurationActiveDirectory `json:"activeDirectory,omitempty"` //
-	Pxgrid          *RequestNodeDeploymentRegisterNodeProfileConfigurationPxgrid          `json:"pxgrid,omitempty"`          //
-}
-
-type RequestNodeDeploymentRegisterNodeProfileConfigurationNetflow struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Interface   string `json:"interface,omitempty"`   //
-	Port        *int   `json:"port,omitempty"`        //
-	Description string `json:"description,omitempty"` //
-}
-
-type RequestNodeDeploymentRegisterNodeProfileConfigurationDhcp struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Interface   string `json:"interface,omitempty"`   //
-	Port        *int   `json:"port,omitempty"`        //
-	Description string `json:"description,omitempty"` //
-}
-
-type RequestNodeDeploymentRegisterNodeProfileConfigurationDhcpSpan struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Interface   string `json:"interface,omitempty"`   //
-	Description string `json:"description,omitempty"` //
-}
-
-type RequestNodeDeploymentRegisterNodeProfileConfigurationHTTP struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Interface   string `json:"interface,omitempty"`   //
-	Description string `json:"description,omitempty"` //
-}
-
-type RequestNodeDeploymentRegisterNodeProfileConfigurationRadius struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Description string `json:"description,omitempty"` //
-}
-
-type RequestNodeDeploymentRegisterNodeProfileConfigurationNmap struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Description string `json:"description,omitempty"` //
-}
-
-type RequestNodeDeploymentRegisterNodeProfileConfigurationDNS struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Description string `json:"description,omitempty"` //
-}
-
-type RequestNodeDeploymentRegisterNodeProfileConfigurationSNMPQuery struct {
-	Enabled      *bool  `json:"enabled,omitempty"`      //
-	Description  string `json:"description,omitempty"`  //
-	Retries      *int   `json:"retries,omitempty"`      //
-	Timeout      *int   `json:"timeout,omitempty"`      //
-	EventTimeout *int   `json:"eventTimeout,omitempty"` //
-}
-
-type RequestNodeDeploymentRegisterNodeProfileConfigurationSNMPTrap struct {
-	LinkTrapQuery *bool  `json:"linkTrapQuery,omitempty"` //
-	MacTrapQuery  *bool  `json:"macTrapQuery,omitempty"`  //
-	Interface     string `json:"interface,omitempty"`     //
-	Port          *int   `json:"port,omitempty"`          //
-	Description   string `json:"description,omitempty"`   //
-}
-
-type RequestNodeDeploymentRegisterNodeProfileConfigurationActiveDirectory struct {
-	Enabled          *bool  `json:"enabled,omitempty"`          //
-	DaysBeforeRescan *int   `json:"daysBeforeRescan,omitempty"` //
-	Description      string `json:"description,omitempty"`      //
-}
-
-type RequestNodeDeploymentRegisterNodeProfileConfigurationPxgrid struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Description string `json:"description,omitempty"` //
-}
-
-type RequestNodeDeploymentPromoteNode struct {
-	PromotionType string `json:"promotionType,omitempty"` //
-}
-
-type RequestNodeDeploymentUpdateNode struct {
-	Response *RequestNodeDeploymentUpdateNodeResponse `json:"response,omitempty"` //
-}
-
-type RequestNodeDeploymentUpdateNodeResponse struct {
-	GeneralSettings      *RequestNodeDeploymentUpdateNodeResponseGeneralSettings      `json:"generalSettings,omitempty"`      //
-	ProfileConfiguration *RequestNodeDeploymentUpdateNodeResponseProfileConfiguration `json:"profileConfiguration,omitempty"` //
-}
-
-type RequestNodeDeploymentUpdateNodeResponseGeneralSettings struct {
-	Monitoring *RequestNodeDeploymentUpdateNodeResponseGeneralSettingsMonitoring `json:"monitoring,omitempty"` //
-}
-
-type RequestNodeDeploymentUpdateNodeResponseGeneralSettingsMonitoring struct {
-	IsEnabled           *bool                                                                          `json:"isEnabled,omitempty"`           //
-	Role                string                                                                         `json:"role,omitempty"`                //
-	OtherMonitoringNode string                                                                         `json:"otherMonitoringNode,omitempty"` //
-	IsMntDedicated      *bool                                                                          `json:"isMntDedicated,omitempty"`      //
-	Policyservice       *RequestNodeDeploymentUpdateNodeResponseGeneralSettingsMonitoringPolicyservice `json:"policyservice,omitempty"`       //
-	EnablePXGrid        *bool                                                                          `json:"enablePXGrid,omitempty"`        //
-}
-
-type RequestNodeDeploymentUpdateNodeResponseGeneralSettingsMonitoringPolicyservice struct {
-	Enabled                      *bool                                                                                        `json:"enabled,omitempty"`                      //
-	SessionService               *RequestNodeDeploymentUpdateNodeResponseGeneralSettingsMonitoringPolicyserviceSessionService `json:"sessionService,omitempty"`               //
-	EnableProfilingService       *bool                                                                                        `json:"enableProfilingService,omitempty"`       //
-	EnableNACService             *bool                                                                                        `json:"enableNACService,omitempty"`             //
-	Sxpservice                   *RequestNodeDeploymentUpdateNodeResponseGeneralSettingsMonitoringPolicyserviceSxpservice     `json:"sxpservice,omitempty"`                   //
-	EnableDeviceAdminService     *bool                                                                                        `json:"enableDeviceAdminService,omitempty"`     //
-	EnablePassiveIDentityService *bool                                                                                        `json:"enablePassiveIdentityService,omitempty"` //
-}
-
-type RequestNodeDeploymentUpdateNodeResponseGeneralSettingsMonitoringPolicyserviceSessionService struct {
-	IsEnabled *bool  `json:"isEnabled,omitempty"` //
-	Nodegroup string `json:"nodegroup,omitempty"` //
-}
-
-type RequestNodeDeploymentUpdateNodeResponseGeneralSettingsMonitoringPolicyserviceSxpservice struct {
-	IsEnabled     *bool  `json:"isEnabled,omitempty"`     //
-	UserInterface string `json:"userInterface,omitempty"` //
-}
-
-type RequestNodeDeploymentUpdateNodeResponseProfileConfiguration struct {
-	Netflow         *RequestNodeDeploymentUpdateNodeResponseProfileConfigurationNetflow         `json:"netflow,omitempty"`         //
-	Dhcp            *RequestNodeDeploymentUpdateNodeResponseProfileConfigurationDhcp            `json:"dhcp,omitempty"`            //
-	DhcpSpan        *RequestNodeDeploymentUpdateNodeResponseProfileConfigurationDhcpSpan        `json:"dhcpSpan,omitempty"`        //
-	HTTP            *RequestNodeDeploymentUpdateNodeResponseProfileConfigurationHTTP            `json:"http,omitempty"`            //
-	Radius          *RequestNodeDeploymentUpdateNodeResponseProfileConfigurationRadius          `json:"radius,omitempty"`          //
-	Nmap            *RequestNodeDeploymentUpdateNodeResponseProfileConfigurationNmap            `json:"nmap,omitempty"`            //
-	DNS             *RequestNodeDeploymentUpdateNodeResponseProfileConfigurationDNS             `json:"dns,omitempty"`             //
-	SNMPQuery       *RequestNodeDeploymentUpdateNodeResponseProfileConfigurationSNMPQuery       `json:"snmpQuery,omitempty"`       //
-	SNMPTrap        *RequestNodeDeploymentUpdateNodeResponseProfileConfigurationSNMPTrap        `json:"snmpTrap,omitempty"`        //
-	ActiveDirectory *RequestNodeDeploymentUpdateNodeResponseProfileConfigurationActiveDirectory `json:"activeDirectory,omitempty"` //
-	Pxgrid          *RequestNodeDeploymentUpdateNodeResponseProfileConfigurationPxgrid          `json:"pxgrid,omitempty"`          //
-}
-
-type RequestNodeDeploymentUpdateNodeResponseProfileConfigurationNetflow struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Interface   string `json:"interface,omitempty"`   //
-	Port        *int   `json:"port,omitempty"`        //
-	Description string `json:"description,omitempty"` //
-}
-
-type RequestNodeDeploymentUpdateNodeResponseProfileConfigurationDhcp struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Interface   string `json:"interface,omitempty"`   //
-	Port        *int   `json:"port,omitempty"`        //
-	Description string `json:"description,omitempty"` //
-}
-
-type RequestNodeDeploymentUpdateNodeResponseProfileConfigurationDhcpSpan struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Interface   string `json:"interface,omitempty"`   //
-	Description string `json:"description,omitempty"` //
-}
-
-type RequestNodeDeploymentUpdateNodeResponseProfileConfigurationHTTP struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Interface   string `json:"interface,omitempty"`   //
-	Description string `json:"description,omitempty"` //
-}
-
-type RequestNodeDeploymentUpdateNodeResponseProfileConfigurationRadius struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Description string `json:"description,omitempty"` //
-}
-
-type RequestNodeDeploymentUpdateNodeResponseProfileConfigurationNmap struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Description string `json:"description,omitempty"` //
-}
-
-type RequestNodeDeploymentUpdateNodeResponseProfileConfigurationDNS struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Description string `json:"description,omitempty"` //
-}
-
-type RequestNodeDeploymentUpdateNodeResponseProfileConfigurationSNMPQuery struct {
-	Enabled      *bool  `json:"enabled,omitempty"`      //
-	Description  string `json:"description,omitempty"`  //
-	Retries      *int   `json:"retries,omitempty"`      //
-	Timeout      *int   `json:"timeout,omitempty"`      //
-	EventTimeout *int   `json:"eventTimeout,omitempty"` //
-}
-
-type RequestNodeDeploymentUpdateNodeResponseProfileConfigurationSNMPTrap struct {
-	LinkTrapQuery *bool  `json:"linkTrapQuery,omitempty"` //
-	MacTrapQuery  *bool  `json:"macTrapQuery,omitempty"`  //
-	Interface     string `json:"interface,omitempty"`     //
-	Port          *int   `json:"port,omitempty"`          //
-	Description   string `json:"description,omitempty"`   //
-}
-
-type RequestNodeDeploymentUpdateNodeResponseProfileConfigurationActiveDirectory struct {
-	Enabled          *bool  `json:"enabled,omitempty"`          //
-	DaysBeforeRescan *int   `json:"daysBeforeRescan,omitempty"` //
-	Description      string `json:"description,omitempty"`      //
-}
-
-type RequestNodeDeploymentUpdateNodeResponseProfileConfigurationPxgrid struct {
-	Enabled     *bool  `json:"enabled,omitempty"`     //
-	Description string `json:"description,omitempty"` //
-}
-
-//GetNodes Retreives the list of all deployed nodes in the cluster.
-/* Discovers all deployment nodes in the cluster.
-It provides basic information about each of deployed nodes in the cluster like Hostname, personas, status, roles and services.
-
-
+@param getDeploymentNodesQueryParams Filtering parameter
 */
-func (s *NodeDeploymentService) GetNodes() (*ResponseNodeDeploymentGetNodes, *resty.Response, error) {
+func (s *NodeDeploymentService) GetDeploymentNodes(getDeploymentNodesQueryParams *GetDeploymentNodesQueryParams) (*ResponseNodeDeploymentGetDeploymentNodes, *resty.Response, error) {
 	setHost(s.client, "_ui")
-	path := "/api/v1/deployment/node/"
+	path := "/api/v1/deployment/node"
+
+	queryString, _ := query.Values(getDeploymentNodesQueryParams)
 
 	setCSRFToken(s.client)
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetResult(&ResponseNodeDeploymentGetNodes{}).
+		SetQueryString(queryString.Encode()).SetResult(&ResponseNodeDeploymentGetDeploymentNodes{}).
 		SetError(&Error).
 		Get(path)
 
@@ -460,21 +172,25 @@ func (s *NodeDeploymentService) GetNodes() (*ResponseNodeDeploymentGetNodes, *re
 	}
 
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation GetNodes")
+		return nil, response, fmt.Errorf("error with operation GetDeploymentNodes")
 	}
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*ResponseNodeDeploymentGetNodes)
+	result := response.Result().(*ResponseNodeDeploymentGetDeploymentNodes)
 	return result, response, err
 
 }
 
-//GetNodeDetails Retreives details of a deployed node.
-/* It provides detailed information of the deployed node in the cluster.
+//Alias of GetDeploymentNodes Retrieve the list of all the nodes that are deployed in the cluster.
+func (s *NodeDeploymentService) GetNodes(getDeploymentNodesQueryParams *GetDeploymentNodesQueryParams) (*ResponseNodeDeploymentGetDeploymentNodes, *resty.Response, error) {
+	return s.GetDeploymentNodes(getDeploymentNodesQueryParams)
+}
 
+//GetNodeDetails Retrieve details of a deployed node.
+/* This API retrieves detailed information of the deployed node.
 
-@param hostname hostname path parameter. ID of the existing deployed node.
+@param hostname hostname path parameter. Hostname of the deployed node.
 */
 func (s *NodeDeploymentService) GetNodeDetails(hostname string) (*ResponseNodeDeploymentGetNodeDetails, *resty.Response, error) {
 	setHost(s.client, "_ui")
@@ -505,14 +221,14 @@ func (s *NodeDeploymentService) GetNodeDetails(hostname string) (*ResponseNodeDe
 
 }
 
-//RegisterNode Registers a standalone node in the cluster
-/* Register ISE node to form a multi-node deployment
+//RegisterNode Register a standalone node to the cluster
+/* This API registers a Cisco ISE node to form a multi-node deployment.
+Approximate execution time 300 seconds.
 
-
- */
+*/
 func (s *NodeDeploymentService) RegisterNode(requestNodeDeploymentRegisterNode *RequestNodeDeploymentRegisterNode) (*ResponseNodeDeploymentRegisterNode, *resty.Response, error) {
 	setHost(s.client, "_ui")
-	path := "/api/v1/deployment/node/"
+	path := "/api/v1/deployment/node"
 
 	setCSRFToken(s.client)
 	response, err := s.client.R().
@@ -538,48 +254,141 @@ func (s *NodeDeploymentService) RegisterNode(requestNodeDeploymentRegisterNode *
 
 }
 
-//PromoteNode Promotes a secondary or standalone node to primary node
-/* Changes the cluster setting by promoting a node to primary when exceuted on standalone or secondary node.
-It could also be used to convert a deployment node to standalone node.
+//MakePrimary Promote a standalone node to a primary PAN.
+/* This API promotes the standalone node on which the API is invoked to the primary Policy Administration node (PAN).
 
-
-*/
-func (s *NodeDeploymentService) PromoteNode(requestNodeDeploymentPromoteNode *RequestNodeDeploymentPromoteNode) (*ResponseNodeDeploymentPromoteNode, *resty.Response, error) {
+ */
+func (s *NodeDeploymentService) MakePrimary() (*ResponseNodeDeploymentMakePrimary, *resty.Response, error) {
 	setHost(s.client, "_ui")
-	path := "/api/v1/deployment/node-promotion/"
+	path := "/api/v1/deployment/primary"
 
 	setCSRFToken(s.client)
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetBody(requestNodeDeploymentPromoteNode).
-		SetResult(&ResponseNodeDeploymentPromoteNode{}).
+		SetResult(&ResponseNodeDeploymentMakePrimary{}).
 		SetError(&Error).
-		Put(path)
+		Post(path)
 
 	if err != nil {
 		return nil, nil, err
 
 	}
 
+	getCSFRToken(response.Header())
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation PromoteNode")
+		return nil, response, fmt.Errorf("error with operation MakePrimary")
+	}
+
+	result := response.Result().(*ResponseNodeDeploymentMakePrimary)
+	return result, response, err
+
+}
+
+//PromoteNode Promote the secondary PAN in a multi-node cluster to the role of primary PAN.
+/* Execute this API in the secondary PAN in the cluster to promote the node to primary PAN.  Ensure that the API Gateway setting is enabled in the secondary PAN.
+Approximate execution time 300 seconds.
+
+*/
+func (s *NodeDeploymentService) PromoteNode() (*ResponseNodeDeploymentPromoteNode, *resty.Response, error) {
+	setHost(s.client, "_ui")
+	path := "/api/v1/deployment/promote"
+
+	setCSRFToken(s.client)
+	response, err := s.client.R().
+		SetHeader("Content-Type", "application/json").
+		SetHeader("Accept", "application/json").
+		SetResult(&ResponseNodeDeploymentPromoteNode{}).
+		SetError(&Error).
+		Post(path)
+
+	if err != nil {
+		return nil, nil, err
+
 	}
 
 	getCSFRToken(response.Header())
+	if response.IsError() {
+		return nil, response, fmt.Errorf("error with operation PromoteNode")
+	}
 
 	result := response.Result().(*ResponseNodeDeploymentPromoteNode)
 	return result, response, err
 
 }
 
-//UpdateNode Replaces the existing configuration of the ISE node with the one provided.
-/* Updates the deployed ISE node with the information provided
+//MakeStandalone Change a primary PAN to a standalone node.
+/* This API changes the primary PAN in a single node cluster on which the API is invoked, to a standalone node.
 
+ */
+func (s *NodeDeploymentService) MakeStandalone() (*ResponseNodeDeploymentMakeStandalone, *resty.Response, error) {
+	setHost(s.client, "_ui")
+	path := "/api/v1/deployment/standalone"
 
-@param hostname hostname path parameter. ID of the existing deployed node.
+	setCSRFToken(s.client)
+	response, err := s.client.R().
+		SetHeader("Content-Type", "application/json").
+		SetHeader("Accept", "application/json").
+		SetResult(&ResponseNodeDeploymentMakeStandalone{}).
+		SetError(&Error).
+		Post(path)
+
+	if err != nil {
+		return nil, nil, err
+
+	}
+
+	getCSFRToken(response.Header())
+	if response.IsError() {
+		return nil, response, fmt.Errorf("error with operation MakeStandalone")
+	}
+
+	result := response.Result().(*ResponseNodeDeploymentMakeStandalone)
+	return result, response, err
+
+}
+
+//SyncNode Trigger manual synchronization of the node.
+/* Performing a manual synchronization involves a reload of the target node, but not the primary PAN.
+ Approximate execution time 300 seconds.
+
+@param hostname hostname path parameter. Hostname of the node.
 */
-func (s *NodeDeploymentService) UpdateNode(hostname string, requestNodeDeploymentUpdateNode *RequestNodeDeploymentUpdateNode) (*ResponseNodeDeploymentUpdateNode, *resty.Response, error) {
+func (s *NodeDeploymentService) SyncNode(hostname string) (*ResponseNodeDeploymentSyncNode, *resty.Response, error) {
+	setHost(s.client, "_ui")
+	path := "/api/v1/deployment/sync-node/{hostname}"
+	path = strings.Replace(path, "{hostname}", fmt.Sprintf("%v", hostname), -1)
+
+	setCSRFToken(s.client)
+	response, err := s.client.R().
+		SetHeader("Content-Type", "application/json").
+		SetHeader("Accept", "application/json").
+		SetResult(&ResponseNodeDeploymentSyncNode{}).
+		SetError(&Error).
+		Post(path)
+
+	if err != nil {
+		return nil, nil, err
+
+	}
+
+	getCSFRToken(response.Header())
+	if response.IsError() {
+		return nil, response, fmt.Errorf("error with operation SyncNode")
+	}
+
+	result := response.Result().(*ResponseNodeDeploymentSyncNode)
+	return result, response, err
+
+}
+
+//UpdateDeploymentNode Replace the existing configuration of the Cisco ISE node with the configuration provided.
+/* This API updates the configuration of the Cisco ISE node with the configuration provided.
+ Approximate execution time 300 seconds.
+
+@param hostname hostname path parameter. Hostname of the deployed node.
+*/
+func (s *NodeDeploymentService) UpdateDeploymentNode(hostname string, requestNodeDeploymentUpdateDeploymentNode *RequestNodeDeploymentUpdateDeploymentNode) (*ResponseNodeDeploymentUpdateDeploymentNode, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/deployment/node/{hostname}"
 	path = strings.Replace(path, "{hostname}", fmt.Sprintf("%v", hostname), -1)
@@ -588,8 +397,8 @@ func (s *NodeDeploymentService) UpdateNode(hostname string, requestNodeDeploymen
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetBody(requestNodeDeploymentUpdateNode).
-		SetResult(&ResponseNodeDeploymentUpdateNode{}).
+		SetBody(requestNodeDeploymentUpdateDeploymentNode).
+		SetResult(&ResponseNodeDeploymentUpdateDeploymentNode{}).
 		SetError(&Error).
 		Put(path)
 
@@ -599,25 +408,29 @@ func (s *NodeDeploymentService) UpdateNode(hostname string, requestNodeDeploymen
 	}
 
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation UpdateNode")
+		return nil, response, fmt.Errorf("error with operation UpdateDeploymentNode")
 	}
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*ResponseNodeDeploymentUpdateNode)
+	result := response.Result().(*ResponseNodeDeploymentUpdateDeploymentNode)
 	return result, response, err
 
 }
 
-//DeleteNode Remove a deployed node from a cluster.
-/* The de-register ednode becomes a standalone Cisco ISE node.
-It retains the last configuration that it received rom the PrimaryPAN and assumes the default personas of a standalone node
-that are Administration, PolicyService, and Monitoring.
+//Alias of UpdateDeploymentNode Replace the existing configuration of the Cisco ISE node with the configuration provided.
+func (s *NodeDeploymentService) UpdateNode(hostname string, requestNodeDeploymentUpdateDeploymentNode *RequestNodeDeploymentUpdateDeploymentNode) (*ResponseNodeDeploymentUpdateDeploymentNode, *resty.Response, error) {
+	return s.UpdateDeploymentNode(hostname, requestNodeDeploymentUpdateDeploymentNode)
+}
 
+//DeleteDeploymentNode Remove a deployed node from a cluster.
+/* The deregistered node becomes a standalone Cisco ISE node.
+ It retains the last configuration that it received from the primary PAN and assumes the default roles and services of a standalone node.
+ Approximate execution time 300 seconds.
 
-@param hostname hostname path parameter. node name of the existing deployed node.
+@param hostname hostname path parameter. The hostname of the node in the deployment to be deregistered.
 */
-func (s *NodeDeploymentService) DeleteNode(hostname string) (*ResponseNodeDeploymentDeleteNode, *resty.Response, error) {
+func (s *NodeDeploymentService) DeleteDeploymentNode(hostname string) (*ResponseNodeDeploymentDeleteDeploymentNode, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/deployment/node/{hostname}"
 	path = strings.Replace(path, "{hostname}", fmt.Sprintf("%v", hostname), -1)
@@ -626,7 +439,7 @@ func (s *NodeDeploymentService) DeleteNode(hostname string) (*ResponseNodeDeploy
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetResult(&ResponseNodeDeploymentDeleteNode{}).
+		SetResult(&ResponseNodeDeploymentDeleteDeploymentNode{}).
 		SetError(&Error).
 		Delete(path)
 
@@ -636,12 +449,17 @@ func (s *NodeDeploymentService) DeleteNode(hostname string) (*ResponseNodeDeploy
 	}
 
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation DeleteNode")
+		return nil, response, fmt.Errorf("error with operation DeleteDeploymentNode")
 	}
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*ResponseNodeDeploymentDeleteNode)
+	result := response.Result().(*ResponseNodeDeploymentDeleteDeploymentNode)
 	return result, response, err
 
+}
+
+//Alias of DeleteDeploymentNode Remove a deployed node from a cluster.
+func (s *NodeDeploymentService) DeleteNode(hostname string) (*ResponseNodeDeploymentDeleteDeploymentNode, *resty.Response, error) {
+	return s.DeleteDeploymentNode(hostname)
 }
