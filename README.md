@@ -127,7 +127,7 @@ https://pkg.go.dev/github.com/CiscoISE/ciscoise-go-sdk
 
 All notable changes to this project will be documented in the [CHANGELOG](https://github.com/CiscoISE/ciscoise-go-sdk/blob/main/CHANGELOG.md) file.
 
-The development team may make additional name changes as the library evolves with the Cisco DNA Center APIs.
+The development team may make additional name changes as the library evolves with the Cisco ISE APIs.
 
 ## License
 
