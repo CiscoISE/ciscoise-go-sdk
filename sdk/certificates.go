@@ -18,6 +18,7 @@ type GetCsrsQueryParams struct {
 	Filter     []string `url:"filter,omitempty"`     //<div> <style type="text/css" scoped> .apiServiceTable td, .apiServiceTable th { padding: 5px 10px !important; text-align: left; } </style> <span> <b>Simple filtering</b> should be available through the filter query string parameter. The structure of a filter is a triplet of field operator and value separated with dots. More than one filter can be sent. The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the <i>"filterType=or"</i> query string parameter. Each resource Data model description should specify if an attribute is a filtered field. </span> <br /> <table class="apiServiceTable"> <thead> <tr> <th>OPERATOR</th> <th>DESCRIPTION</th> </tr> </thead> <tbody> <tr> <td>EQ</td> <td>Equals</td> </tr> <tr> <td>NEQ</td> <td>Not Equals</td> </tr> <tr> <td>GT</td> <td>Greater Than</td> </tr> <tr> <td>LT</td> <td>Less Then</td> </tr> <tr> <td>STARTSW</td> <td>Starts With</td> </tr> <tr> <td>NSTARTSW</td> <td>Not Starts With</td> </tr> <tr> <td>ENDSW</td> <td>Ends With</td> </tr> <tr> <td>NENDSW</td> <td>Not Ends With</td> </tr> <tr> <td>CONTAINS</td> <td>Contains</td> </tr> <tr> <td>NCONTAINS</td> <td>Not Contains</td> </tr> </tbody> </table> </div>
 	FilterType string   `url:"filterType,omitempty"` //The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the parameter
 }
+
 type GetSystemCertificatesQueryParams struct {
 	Page       int      `url:"page,omitempty"`       //Page number
 	Size       int      `url:"size,omitempty"`       //Number of objects returned per page
@@ -26,6 +27,7 @@ type GetSystemCertificatesQueryParams struct {
 	Filter     []string `url:"filter,omitempty"`     //<div> <style type="text/css" scoped> .apiServiceTable td, .apiServiceTable th { padding: 5px 10px !important; text-align: left; } </style> <span> <b>Simple filtering</b> should be available through the filter query string parameter. The structure of a filter is a triplet of field operator and value separated with dots. More than one filter can be sent. The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the <i>"filterType=or"</i> query string parameter. Each resource Data model description should specify if an attribute is a filtered field. </span> <br /> <table class="apiServiceTable"> <thead> <tr> <th>OPERATOR</th> <th>DESCRIPTION</th> </tr> </thead> <tbody> <tr> <td>EQ</td> <td>Equals</td> </tr> <tr> <td>NEQ</td> <td>Not Equals</td> </tr> <tr> <td>GT</td> <td>Greater Than</td> </tr> <tr> <td>LT</td> <td>Less Then</td> </tr> <tr> <td>STARTSW</td> <td>Starts With</td> </tr> <tr> <td>NSTARTSW</td> <td>Not Starts With</td> </tr> <tr> <td>ENDSW</td> <td>Ends With</td> </tr> <tr> <td>NENDSW</td> <td>Not Ends With</td> </tr> <tr> <td>CONTAINS</td> <td>Contains</td> </tr> <tr> <td>NCONTAINS</td> <td>Not Contains</td> </tr> </tbody> </table> </div>
 	FilterType string   `url:"filterType,omitempty"` //The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the parameter
 }
+
 type GetTrustedCertificatesQueryParams struct {
 	Page       int      `url:"page,omitempty"`       //Page number
 	Size       int      `url:"size,omitempty"`       //Number of objects returned per page
@@ -36,10 +38,22 @@ type GetTrustedCertificatesQueryParams struct {
 }
 
 type ResponseCertificatesGetCsrs struct {
-	Response     *[]ResponseCertificatesGetCsrsResponse   `json:"response,omitempty"`     //
 	NextPage     *ResponseCertificatesGetCsrsNextPage     `json:"nextPage,omitempty"`     //
 	PreviousPage *ResponseCertificatesGetCsrsPreviousPage `json:"previousPage,omitempty"` //
+	Response     *[]ResponseCertificatesGetCsrsResponse   `json:"response,omitempty"`     //
 	Version      string                                   `json:"version,omitempty"`      //
+}
+
+type ResponseCertificatesGetCsrsNextPage struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
+}
+
+type ResponseCertificatesGetCsrsPreviousPage struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
 }
 
 type ResponseCertificatesGetCsrsResponse struct {
@@ -56,18 +70,6 @@ type ResponseCertificatesGetCsrsResponse struct {
 }
 
 type ResponseCertificatesGetCsrsResponseLink struct {
-	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
-}
-
-type ResponseCertificatesGetCsrsNextPage struct {
-	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
-}
-
-type ResponseCertificatesGetCsrsPreviousPage struct {
 	Href string `json:"href,omitempty"` //
 	Rel  string `json:"rel,omitempty"`  //
 	Type string `json:"type,omitempty"` //
@@ -197,10 +199,22 @@ type ResponseCertificatesImportSystemCertificateResponse struct {
 }
 
 type ResponseCertificatesGetSystemCertificates struct {
-	Response     *[]ResponseCertificatesGetSystemCertificatesResponse   `json:"response,omitempty"`     //
 	NextPage     *ResponseCertificatesGetSystemCertificatesNextPage     `json:"nextPage,omitempty"`     //
 	PreviousPage *ResponseCertificatesGetSystemCertificatesPreviousPage `json:"previousPage,omitempty"` //
+	Response     *[]ResponseCertificatesGetSystemCertificatesResponse   `json:"response,omitempty"`     //
 	Version      string                                                 `json:"version,omitempty"`      //
+}
+
+type ResponseCertificatesGetSystemCertificatesNextPage struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
+}
+
+type ResponseCertificatesGetSystemCertificatesPreviousPage struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
 }
 
 type ResponseCertificatesGetSystemCertificatesResponse struct {
@@ -222,18 +236,6 @@ type ResponseCertificatesGetSystemCertificatesResponse struct {
 }
 
 type ResponseCertificatesGetSystemCertificatesResponseLink struct {
-	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
-}
-
-type ResponseCertificatesGetSystemCertificatesNextPage struct {
-	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
-}
-
-type ResponseCertificatesGetSystemCertificatesPreviousPage struct {
 	Href string `json:"href,omitempty"` //
 	Rel  string `json:"rel,omitempty"`  //
 	Type string `json:"type,omitempty"` //
@@ -296,10 +298,22 @@ type ResponseCertificatesDeleteSystemCertificateByIDResponse struct {
 }
 
 type ResponseCertificatesGetTrustedCertificates struct {
-	Response     *[]ResponseCertificatesGetTrustedCertificatesResponse   `json:"response,omitempty"`     //
 	NextPage     *ResponseCertificatesGetTrustedCertificatesNextPage     `json:"nextPage,omitempty"`     //
 	PreviousPage *ResponseCertificatesGetTrustedCertificatesPreviousPage `json:"previousPage,omitempty"` //
+	Response     *[]ResponseCertificatesGetTrustedCertificatesResponse   `json:"response,omitempty"`     //
 	Version      string                                                  `json:"version,omitempty"`      //
+}
+
+type ResponseCertificatesGetTrustedCertificatesNextPage struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
+}
+
+type ResponseCertificatesGetTrustedCertificatesPreviousPage struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
 }
 
 type ResponseCertificatesGetTrustedCertificatesResponse struct {
@@ -319,7 +333,6 @@ type ResponseCertificatesGetTrustedCertificatesResponse struct {
 	ID                             string                                                  `json:"id,omitempty"`                             // ID of trust certificate
 	IgnoreCRLExpiration            string                                                  `json:"ignoreCRLExpiration,omitempty"`            // Switch to enable/disable ignore CRL Expiration
 	InternalCa                     *bool                                                   `json:"internalCA,omitempty"`                     //
-	IsReferredInPolicy             *bool                                                   `json:"isReferredInPolicy,omitempty"`             //
 	IssuedBy                       string                                                  `json:"issuedBy,omitempty"`                       // The entity that verified the information and signed the certificate
 	IssuedTo                       string                                                  `json:"issuedTo,omitempty"`                       // Entity to which trust certificate is issued
 	KeySize                        string                                                  `json:"keySize,omitempty"`                        // The length of key used for encrypting trust certificate
@@ -339,18 +352,6 @@ type ResponseCertificatesGetTrustedCertificatesResponse struct {
 }
 
 type ResponseCertificatesGetTrustedCertificatesResponseLink struct {
-	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
-}
-
-type ResponseCertificatesGetTrustedCertificatesNextPage struct {
-	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
-}
-
-type ResponseCertificatesGetTrustedCertificatesPreviousPage struct {
 	Href string `json:"href,omitempty"` //
 	Rel  string `json:"rel,omitempty"`  //
 	Type string `json:"type,omitempty"` //
@@ -471,14 +472,14 @@ type RequestCertificatesRenewCertificates struct {
 
 type RequestCertificatesBindCsr struct {
 	Admin                            *bool  `json:"admin,omitempty"`                            //  Use certificate to authenticate the ISE Admin Portal
-	AllowExtendedValidity            *bool  `json:"allowExtendedValidity,omitempty"`            // Allow import of certificates with validity greater than 398 days
+	AllowExtendedValidity            *bool  `json:"allowExtendedValidity,omitempty"`            // Allow import of certificates with validity greater than 398 days (required)
 	AllowOutOfDateCert               *bool  `json:"allowOutOfDateCert,omitempty"`               // Allow out of date certificates (required)
 	AllowReplacementOfCertificates   *bool  `json:"allowReplacementOfCertificates,omitempty"`   // Allow Replacement of certificates (required)
 	AllowReplacementOfPortalGroupTag *bool  `json:"allowReplacementOfPortalGroupTag,omitempty"` // Allow Replacement of Portal Group Tag (required)
-	Data                             string `json:"data,omitempty"`                             // Signed Certificate in escaped format
+	Data                             string `json:"data,omitempty"`                             // Signed Certificate data (required)
 	Eap                              *bool  `json:"eap,omitempty"`                              // Use certificate for EAP protocols that use SSL/TLS tunneling
-	HostName                         string `json:"hostName,omitempty"`                         // Name of Host whose CSR ID has been provided
-	ID                               string `json:"id,omitempty"`                               // ID of the generated CSR
+	HostName                         string `json:"hostName,omitempty"`                         // Name of Host whose CSR ID has been provided (required)
+	ID                               string `json:"id,omitempty"`                               // ID of the generated CSR (required)
 	Ims                              *bool  `json:"ims,omitempty"`                              // Use certificate for the ISE Messaging Service
 	Name                             string `json:"name,omitempty"`                             // Friendly Name of the certificate
 	Portal                           *bool  `json:"portal,omitempty"`                           // Use for portal
@@ -497,7 +498,7 @@ type RequestCertificatesExportSystemCertificate struct {
 
 type RequestCertificatesImportSystemCertificate struct {
 	Admin                            *bool  `json:"admin,omitempty"`                            // Use certificate to authenticate the ISE Admin Portal
-	AllowExtendedValidity            *bool  `json:"allowExtendedValidity,omitempty"`            // Allow import of certificates with validity greater than 398 days
+	AllowExtendedValidity            *bool  `json:"allowExtendedValidity,omitempty"`            // Allow import of certificates with validity greater than 398 days (required)
 	AllowOutOfDateCert               *bool  `json:"allowOutOfDateCert,omitempty"`               // Allow out of date certificates (required)
 	AllowReplacementOfCertificates   *bool  `json:"allowReplacementOfCertificates,omitempty"`   // Allow Replacement of certificates (required)
 	AllowReplacementOfPortalGroupTag *bool  `json:"allowReplacementOfPortalGroupTag,omitempty"` // Allow Replacement of Portal Group Tag (required)
@@ -510,9 +511,11 @@ type RequestCertificatesImportSystemCertificate struct {
 	Password                         string `json:"password,omitempty"`                         // Certificate Password (required).
 	Portal                           *bool  `json:"portal,omitempty"`                           // Use for portal
 	PortalGroupTag                   string `json:"portalGroupTag,omitempty"`                   // Set Group tag
+	PortalTagTransferForSameSubject  *bool  `json:"portalTagTransferForSameSubject,omitempty"`  // Allow overwriting the portal tag from matching certificate of same subject
 	PrivateKeyData                   string `json:"privateKeyData,omitempty"`                   // Private Key data (required)
 	Pxgrid                           *bool  `json:"pxgrid,omitempty"`                           // Use certificate for the pxGrid Controller
 	Radius                           *bool  `json:"radius,omitempty"`                           // Use certificate for the RADSec server
+	RoleTransferForSameSubject       *bool  `json:"roleTransferForSameSubject,omitempty"`       // Allow transfer of roles for certificate with matching subject
 	Saml                             *bool  `json:"saml,omitempty"`                             // Use certificate for SAML Signing
 	ValidateCertificateExtensions    *bool  `json:"validateCertificateExtensions,omitempty"`    // Validate Certificate Extensions
 }
@@ -528,9 +531,11 @@ type RequestCertificatesUpdateSystemCertificate struct {
 	Name                             string `json:"name,omitempty"`                             // Name of the certificate
 	Portal                           *bool  `json:"portal,omitempty"`                           // Use for portal
 	PortalGroupTag                   string `json:"portalGroupTag,omitempty"`                   // Set Group tag
+	PortalTagTransferForSameSubject  *bool  `json:"portalTagTransferForSameSubject,omitempty"`  // Allow overwriting the portal tag from matching certificate of same subject
 	Pxgrid                           *bool  `json:"pxgrid,omitempty"`                           // Use certificate for the pxGrid Controller
 	Radius                           *bool  `json:"radius,omitempty"`                           // Use certificate for the RADSec server
 	RenewSelfSignedCertificate       *bool  `json:"renewSelfSignedCertificate,omitempty"`       // Renew Self Signed Certificate
+	RoleTransferForSameSubject       *bool  `json:"roleTransferForSameSubject,omitempty"`       // Allow transfer of roles for certificate with matching subject
 	Saml                             *bool  `json:"saml,omitempty"`                             // Use certificate for SAML Signing
 }
 
@@ -541,11 +546,11 @@ type RequestCertificatesImportTrustCertificate struct {
 	Data                              string `json:"data,omitempty"`                              // Certificate content (required)
 	Description                       string `json:"description,omitempty"`                       // Description of the certificate
 	Name                              string `json:"name,omitempty"`                              // Name of the certificate
-	ValidateCertificateExtensions     *bool  `json:"validateCertificateExtensions,omitempty"`     // Validate trust certificate extension
 	TrustForCertificateBasedAdminAuth *bool  `json:"trustForCertificateBasedAdminAuth,omitempty"` // Trust for Certificate based Admin authentication
 	TrustForCiscoServicesAuth         *bool  `json:"trustForCiscoServicesAuth,omitempty"`         // Trust for authentication of Cisco Services
 	TrustForClientAuth                *bool  `json:"trustForClientAuth,omitempty"`                // Trust for client authentication and Syslog
 	TrustForIseAuth                   *bool  `json:"trustForIseAuth,omitempty"`                   // Trust for authentication within ISE
+	ValidateCertificateExtensions     *bool  `json:"validateCertificateExtensions,omitempty"`     // Validate trust certificate extension
 }
 
 type RequestCertificatesUpdateTrustedCertificate struct {
@@ -577,30 +582,19 @@ type RequestCertificatesUpdateTrustedCertificate struct {
 //GetCsrs Purpose of the API is to get all Certificate Signing Requests from PAN.
 /*  This API supports Filtering, Sorting and Pagination.
 
-
 Filtering and Sorting supported on below mentioned attributes:
-
-
 
 
 friendlyName
 
-
 subject
-
 
 timeStamp
 
 
-
-
 Supported Date Format: yyyy-MM-dd HH:mm:ss.SSS
 
-
 Supported Operators: EQ, NEQ, GT and LT
-
-
-
 
 
 
@@ -714,46 +708,29 @@ func (s *CertificatesService) GetCsrByID(hostName string, id string) (*ResponseC
 //GetSystemCertificates Purpose of this API is to get all system certificates of a particular node
 /*  This API supports Filtering, Sorting and Pagination.
 
-
 Filtering and Sorting supported on below mentioned attributes:
-
-
 
 
 friendlyName
 
-
 issuedTo
 
-
 issuedBy
-
 
 validFrom
 
 
-
-
 Supported Date Format: yyyy-MM-dd HH:mm:ss
 
-
 Supported Operators: EQ, NEQ, GT and LT
-
-
 
 
 expirationDate
 
 
-
-
 Supported Date Format: yyyy-MM-dd HH:mm:ss
 
-
 Supported Operators: EQ, NEQ, GT and LT
-
-
-
 
 
 
@@ -831,62 +808,39 @@ func (s *CertificatesService) GetSystemCertificateByID(hostName string, id strin
 //GetTrustedCertificates Purpose of this API is to get list of all trusted certificates
 /*  This API supports Filtering, Sorting and Pagination.
 
-
 Filtering and Sorting supported on below mentioned attributes:
-
-
 
 
 friendlyName
 
-
 subject
-
 
 issuedTo
 
-
 issuedBy
-
 
 validFrom
 
 
-
-
 Supported Date Format: yyyy-MM-dd HH:mm:ss
 
-
 Supported Operators: EQ, NEQ, GT and LT
-
-
 
 
 expirationDate
 
 
-
-
 Supported Date Format: yyyy-MM-dd HH:mm:ss
 
-
 Supported Operators: EQ, NEQ, GT and LT
-
-
 
 
 status
 
 
-
-
 Allowed values: enabled, disabled
 
-
 Supported Operators: EQ, NEQ
-
-
-
 
 
 
@@ -1294,7 +1248,6 @@ The certificate may have a validity period longer than 398 days. It may be untru
 NOTE:
 Request Parameters accepting True and False as input can be replaced by 1 and 0 respectively.
 
-
 Following Parameters are used in POST body
 
 
@@ -1320,9 +1273,9 @@ Signed Certificate
 
 data
 
-Plain-text contents of the certificate file (required)
+Plain-text contents of the certificate file. Every space needs to be replaced with newline escape sequence (\n) (required).
 
-Signed Certificate in escaped format
+awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' <<your .pem file>>
 
 
 
@@ -1674,17 +1627,17 @@ Passw***
 
 data
 
-Plain-text contents of the certificate file (required)
+Plain-text contents of the certificate file. Every space needs to be replaced with newline escape sequence (\n) (required).
 
-System Certificate in escaped format
+awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' <<your .pem file>>
 
 
 
 privateKeyData
 
-Plain-text contents of the private key file (required)
+Plain-text contents of the private key file. Every space needs to be replaced with newline escape sequence (\n) (required).
 
-System Certificate Private Key in escaped format
+awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' <<your .pem file>>
 
 
 
@@ -1707,6 +1660,22 @@ false
 allowExtendedValidity
 
 Allow the certificates greater than validity of 398 days (required)
+
+false
+
+
+
+roleTransferForSameSubject
+
+Allow the transfer of roles to certificates with same subject
+
+false
+
+
+
+portalTagTransferForSameSubject
+
+Acquire the group tag of the matching certificate
 
 false
 
@@ -1929,9 +1898,9 @@ Passw***
 
 data
 
-Plain-text contents of the certificate file (required)
+Plain-text contents of the certificate file. Every space needs to be replaced with newline escape sequence (\n) (required).
 
-Trust Certificate in escaped format
+awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' <<your .pem file>>
 
 
 
@@ -1948,7 +1917,6 @@ allowSHA1Certificates
 Allow SHA1 based certificates (required)
 
 false
-
 
 
 
@@ -2188,6 +2156,22 @@ Default Portal Certificate Group
 allowReplacementOfPortalGroupTag
 
 Allow Replacement of Portal Group Tag (required)
+
+false
+
+
+
+roleTransferForSameSubject
+
+Allow the transfer of roles to certificates with same subject
+
+false
+
+
+
+portalTagTransferForSameSubject
+
+Acquire the group tag of the matching certificate
 
 false
 
@@ -2522,7 +2506,6 @@ false
 
 
 
-
 Trusted For
 
 Usage
@@ -2564,7 +2547,6 @@ Authentication of Cisco Services
  Use
 "trustForCiscoServicesAuth":true
  if the certificate is to be used for trusting external Cisco services, such as Feed Service.
-
 
 
 
@@ -2616,7 +2598,6 @@ Reject the request if OCSP Responder is unreachable
  to reject the certificate if the OCSP service is unreachable.
 Note:
  "rejectIfUnreachableFromOCSP:true" can be used only if "enableOCSPValidation" has been set true.
-
 
 
 

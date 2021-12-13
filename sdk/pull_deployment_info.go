@@ -33,8 +33,10 @@ type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoNetworkAccessIn
 }
 
 type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoNetworkAccessInfoNodeList struct {
-	NodeAndScope *[]interface{} `json:"nodeAndScope,omitempty"` //
+	NodeAndScope *[]ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoNetworkAccessInfoNodeListNodeAndScope `json:"nodeAndScope,omitempty"` //
 }
+
+type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoNetworkAccessInfoNodeListNodeAndScope interface{}
 
 type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoProfilerInfo struct {
 	DeploymentID string                                                                            `json:"deploymentID,omitempty"` // Deployment ID
@@ -46,11 +48,13 @@ type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoProfilerInfoNod
 }
 
 type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoProfilerInfoNodeListNode struct {
-	OnlineSubscriptionEnabled *bool        `json:"onlineSubscriptionEnabled,omitempty"` //
-	LastAppliedFeedDateTime   string       `json:"lastAppliedFeedDateTime,omitempty"`   //
-	Scope                     string       `json:"scope,omitempty"`                     //
-	Profiles                  *interface{} `json:"profiles,omitempty"`                  //
+	OnlineSubscriptionEnabled *bool                                                                                         `json:"onlineSubscriptionEnabled,omitempty"` //
+	LastAppliedFeedDateTime   string                                                                                        `json:"lastAppliedFeedDateTime,omitempty"`   //
+	Scope                     string                                                                                        `json:"scope,omitempty"`                     //
+	Profiles                  *ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoProfilerInfoNodeListNodeProfiles `json:"profiles,omitempty"`                  //
 }
+
+type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoProfilerInfoNodeListNodeProfiles interface{}
 
 type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoDeploymentInfo struct {
 	DeploymentID       string                                                                                          `json:"deploymentID,omitempty"`       //
@@ -70,14 +74,16 @@ type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoDeploymentInfoN
 }
 
 type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoDeploymentInfoNodeListNodeAndNodeCountAndCountInfo struct {
-	Name            string       `json:"name,omitempty"`            //
-	Value           *interface{} `json:"value,omitempty"`           // It varies type
-	DeclaredType    string       `json:"declaredType,omitempty"`    //
-	Scope           string       `json:"scope,omitempty"`           //
-	Nil             *bool        `json:"nil,omitempty"`             //
-	GlobalScope     *bool        `json:"globalScope,omitempty"`     //
-	TypeSubstituted *bool        `json:"typeSubstituted,omitempty"` //
+	Name            string                                                                                                               `json:"name,omitempty"`            //
+	Value           *ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoDeploymentInfoNodeListNodeAndNodeCountAndCountInfoValue `json:"value,omitempty"`           // It varies type
+	DeclaredType    string                                                                                                               `json:"declaredType,omitempty"`    //
+	Scope           string                                                                                                               `json:"scope,omitempty"`           //
+	Nil             *bool                                                                                                                `json:"nil,omitempty"`             //
+	GlobalScope     *bool                                                                                                                `json:"globalScope,omitempty"`     //
+	TypeSubstituted *bool                                                                                                                `json:"typeSubstituted,omitempty"` //
 }
+
+type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoDeploymentInfoNodeListNodeAndNodeCountAndCountInfoValue interface{}
 
 type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoNadInfo struct {
 	NodeList     *ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoNadInfoNodeList     `json:"nodeList,omitempty"`     //
@@ -85,8 +91,10 @@ type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoNadInfo struct 
 }
 
 type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoNadInfoNodeList struct {
-	NodeAndScope *[]interface{} `json:"nodeAndScope,omitempty"` //
+	NodeAndScope *[]ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoNadInfoNodeListNodeAndScope `json:"nodeAndScope,omitempty"` //
 }
+
+type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoNadInfoNodeListNodeAndScope interface{}
 
 type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoNadInfoNadcountInfo struct {
 	TotalActiveNADCount *int `json:"totalActiveNADCount,omitempty"` //
@@ -101,8 +109,10 @@ type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoMdmInfo struct 
 }
 
 type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoMdmInfoNodeList struct {
-	NodeAndScope *[]interface{} `json:"nodeAndScope,omitempty"` //
+	NodeAndScope *[]ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoMdmInfoNodeListNodeAndScope `json:"nodeAndScope,omitempty"` //
 }
+
+type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoMdmInfoNodeListNodeAndScope interface{}
 
 type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoLicensesInfo struct {
 	DeploymentID string                                                                            `json:"deploymentID,omitempty"` //
@@ -110,22 +120,26 @@ type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoLicensesInfo st
 }
 
 type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoLicensesInfoNodeList struct {
-	Node *[]interface{} `json:"node,omitempty"` //
+	Node *[]ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoLicensesInfoNodeListNode `json:"node,omitempty"` //
 }
+
+type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoLicensesInfoNodeListNode interface{}
 
 type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoPostureInfo struct {
 	Content *[]ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoPostureInfoContent `json:"content,omitempty"` //
 }
 
 type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoPostureInfoContent struct {
-	Name            string       `json:"name,omitempty"`            //
-	Value           *interface{} `json:"value,omitempty"`           // It varies type
-	DeclaredType    string       `json:"declaredType,omitempty"`    //
-	Scope           string       `json:"scope,omitempty"`           //
-	Nil             *bool        `json:"nil,omitempty"`             //
-	GlobalScope     *bool        `json:"globalScope,omitempty"`     //
-	TypeSubstituted *bool        `json:"typeSubstituted,omitempty"` //
+	Name            string                                                                               `json:"name,omitempty"`            //
+	Value           *ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoPostureInfoContentValue `json:"value,omitempty"`           // It varies type
+	DeclaredType    string                                                                               `json:"declaredType,omitempty"`    //
+	Scope           string                                                                               `json:"scope,omitempty"`           //
+	Nil             *bool                                                                                `json:"nil,omitempty"`             //
+	GlobalScope     *bool                                                                                `json:"globalScope,omitempty"`     //
+	TypeSubstituted *bool                                                                                `json:"typeSubstituted,omitempty"` //
 }
+
+type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoPostureInfoContentValue interface{}
 
 type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoKongInfo struct {
 	DeploymentID string                                                                        `json:"deploymentID,omitempty"` //
@@ -147,11 +161,17 @@ type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoKongInfoNodeLis
 }
 
 type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoKongInfoNodeListNodeServiceRoute struct {
-	RouteName    string       `json:"routeName,omitempty"`    //
-	HTTPCount    *interface{} `json:"httpCount,omitempty"`    //
-	LatencyCount *interface{} `json:"latencyCount,omitempty"` //
-	LatencySum   *interface{} `json:"latencySum,omitempty"`   //
+	RouteName    string                                                                                                    `json:"routeName,omitempty"`    //
+	HTTPCount    *ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoKongInfoNodeListNodeServiceRouteHTTPCount    `json:"httpCount,omitempty"`    //
+	LatencyCount *ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoKongInfoNodeListNodeServiceRouteLatencyCount `json:"latencyCount,omitempty"` //
+	LatencySum   *ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoKongInfoNodeListNodeServiceRouteLatencySum   `json:"latencySum,omitempty"`   //
 }
+
+type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoKongInfoNodeListNodeServiceRouteHTTPCount interface{}
+
+type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoKongInfoNodeListNodeServiceRouteLatencyCount interface{}
+
+type ResponsePullDeploymentInfoGetDeploymentInfoERSDeploymentInfoKongInfoNodeListNodeServiceRouteLatencySum interface{}
 
 type ResponsePullDeploymentInfoGetVersion struct {
 	VersionInfo *ResponsePullDeploymentInfoGetVersionVersionInfo `json:"VersionInfo,omitempty"` //

@@ -24,16 +24,18 @@ type ResponseSecurityGroupsGetSecurityGroupByID struct {
 }
 
 type ResponseSecurityGroupsGetSecurityGroupByIDSgt struct {
-	ID              string                                             `json:"id,omitempty"`              //
-	Name            string                                             `json:"name,omitempty"`            //
-	Description     string                                             `json:"description,omitempty"`     //
-	Value           *int                                               `json:"value,omitempty"`           // Value range: 2 ot 65519 or -1 to auto-generate
-	GenerationID    string                                             `json:"generationId,omitempty"`    //
-	IsReadOnly      *bool                                              `json:"isReadOnly,omitempty"`      //
-	PropogateToAPIc *bool                                              `json:"propogateToApic,omitempty"` //
-	DefaultSgACLs   *[]interface{}                                     `json:"defaultSGACLs,omitempty"`   //
-	Link            *ResponseSecurityGroupsGetSecurityGroupByIDSgtLink `json:"link,omitempty"`            //
+	ID              string                                                        `json:"id,omitempty"`              //
+	Name            string                                                        `json:"name,omitempty"`            //
+	Description     string                                                        `json:"description,omitempty"`     //
+	Value           *int                                                          `json:"value,omitempty"`           // Value range: 2 ot 65519 or -1 to auto-generate
+	GenerationID    string                                                        `json:"generationId,omitempty"`    //
+	IsReadOnly      *bool                                                         `json:"isReadOnly,omitempty"`      //
+	PropogateToAPIc *bool                                                         `json:"propogateToApic,omitempty"` //
+	DefaultSgACLs   *[]ResponseSecurityGroupsGetSecurityGroupByIDSgtDefaultSgACLs `json:"defaultSGACLs,omitempty"`   //
+	Link            *ResponseSecurityGroupsGetSecurityGroupByIDSgtLink            `json:"link,omitempty"`            //
 }
+
+type ResponseSecurityGroupsGetSecurityGroupByIDSgtDefaultSgACLs interface{}
 
 type ResponseSecurityGroupsGetSecurityGroupByIDSgtLink struct {
 	Rel  string `json:"rel,omitempty"`  //
@@ -139,29 +141,33 @@ type RequestSecurityGroupsUpdateSecurityGroupByID struct {
 }
 
 type RequestSecurityGroupsUpdateSecurityGroupByIDSgt struct {
-	ID              string         `json:"id,omitempty"`              //
-	Name            string         `json:"name,omitempty"`            //
-	Description     string         `json:"description,omitempty"`     //
-	Value           *int           `json:"value,omitempty"`           // Value range: 2 ot 65519 or -1 to auto-generate
-	GenerationID    string         `json:"generationId,omitempty"`    //
-	IsReadOnly      *bool          `json:"isReadOnly,omitempty"`      //
-	PropogateToAPIc *bool          `json:"propogateToApic,omitempty"` //
-	DefaultSgACLs   *[]interface{} `json:"defaultSGACLs,omitempty"`   //
+	ID              string                                                          `json:"id,omitempty"`              //
+	Name            string                                                          `json:"name,omitempty"`            //
+	Description     string                                                          `json:"description,omitempty"`     //
+	Value           *int                                                            `json:"value,omitempty"`           // Value range: 2 ot 65519 or -1 to auto-generate
+	GenerationID    string                                                          `json:"generationId,omitempty"`    //
+	IsReadOnly      *bool                                                           `json:"isReadOnly,omitempty"`      //
+	PropogateToAPIc *bool                                                           `json:"propogateToApic,omitempty"` //
+	DefaultSgACLs   *[]RequestSecurityGroupsUpdateSecurityGroupByIDSgtDefaultSgACLs `json:"defaultSGACLs,omitempty"`   //
 }
+
+type RequestSecurityGroupsUpdateSecurityGroupByIDSgtDefaultSgACLs interface{}
 
 type RequestSecurityGroupsCreateSecurityGroup struct {
 	Sgt *RequestSecurityGroupsCreateSecurityGroupSgt `json:"Sgt,omitempty"` //
 }
 
 type RequestSecurityGroupsCreateSecurityGroupSgt struct {
-	Name            string         `json:"name,omitempty"`            //
-	Description     string         `json:"description,omitempty"`     //
-	Value           *int           `json:"value,omitempty"`           // Value range: 2 ot 65519 or -1 to auto-generate
-	GenerationID    string         `json:"generationId,omitempty"`    //
-	IsReadOnly      *bool          `json:"isReadOnly,omitempty"`      //
-	PropogateToAPIc *bool          `json:"propogateToApic,omitempty"` //
-	DefaultSgACLs   *[]interface{} `json:"defaultSGACLs,omitempty"`   //
+	Name            string                                                      `json:"name,omitempty"`            //
+	Description     string                                                      `json:"description,omitempty"`     //
+	Value           *int                                                        `json:"value,omitempty"`           // Value range: 2 ot 65519 or -1 to auto-generate
+	GenerationID    string                                                      `json:"generationId,omitempty"`    //
+	IsReadOnly      *bool                                                       `json:"isReadOnly,omitempty"`      //
+	PropogateToAPIc *bool                                                       `json:"propogateToApic,omitempty"` //
+	DefaultSgACLs   *[]RequestSecurityGroupsCreateSecurityGroupSgtDefaultSgACLs `json:"defaultSGACLs,omitempty"`   //
 }
+
+type RequestSecurityGroupsCreateSecurityGroupSgtDefaultSgACLs interface{}
 
 type RequestSecurityGroupsBulkRequestForSecurityGroup struct {
 	SgtBulkRequest *RequestSecurityGroupsBulkRequestForSecurityGroupSgtBulkRequest `json:"SgtBulkRequest,omitempty"` //

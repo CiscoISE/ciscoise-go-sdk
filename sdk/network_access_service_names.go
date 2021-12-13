@@ -8,7 +8,9 @@ import (
 
 type NetworkAccessServiceNamesService service
 
-type ResponseNetworkAccessServiceNamesGetNetworkAccessServiceNames struct {
+type ResponseNetworkAccessServiceNamesGetNetworkAccessServiceNames []ResponseItemNetworkAccessServiceNamesGetNetworkAccessServiceNames // Array of ResponseNetworkAccessServiceNamesGetNetworkAccessServiceNames
+
+type ResponseItemNetworkAccessServiceNamesGetNetworkAccessServiceNames struct {
 	ID                   string `json:"id,omitempty"`                   //
 	IsLocalAuthorization *bool  `json:"isLocalAuthorization,omitempty"` //
 	Name                 string `json:"name,omitempty"`                 //
@@ -21,7 +23,7 @@ type ResponseNetworkAccessServiceNamesGetNetworkAccessServiceNames struct {
 (Other CRUD APIs available throught ERS)
 
 */
-func (s *NetworkAccessServiceNamesService) GetNetworkAccessServiceNames() (*[]ResponseNetworkAccessServiceNamesGetNetworkAccessServiceNames, *resty.Response, error) {
+func (s *NetworkAccessServiceNamesService) GetNetworkAccessServiceNames() (*ResponseNetworkAccessServiceNamesGetNetworkAccessServiceNames, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/policy/network-access/service-names"
 
@@ -29,7 +31,7 @@ func (s *NetworkAccessServiceNamesService) GetNetworkAccessServiceNames() (*[]Re
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetResult(&[]ResponseNetworkAccessServiceNamesGetNetworkAccessServiceNames{}).
+		SetResult(&ResponseNetworkAccessServiceNamesGetNetworkAccessServiceNames{}).
 		SetError(&Error).
 		Get(path)
 
@@ -44,7 +46,7 @@ func (s *NetworkAccessServiceNamesService) GetNetworkAccessServiceNames() (*[]Re
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*[]ResponseNetworkAccessServiceNamesGetNetworkAccessServiceNames)
+	result := response.Result().(*ResponseNetworkAccessServiceNamesGetNetworkAccessServiceNames)
 	return result, response, err
 
 }

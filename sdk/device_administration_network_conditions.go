@@ -30,11 +30,22 @@ type ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkCondition
 }
 
 type ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionsResponseConditions struct {
-	CliDnisList     []string `json:"cliDnisList,omitempty"`     // <p>This field should contain a Caller ID (CLI), comma, and Called ID (DNIS).<br> Line format -  Caller ID (CLI), Called ID (DNIS)</p>
-	IPAddrList      []string `json:"ipAddrList,omitempty"`      // <p>This field should contain IP-address-or-subnet,port number<br> IP address can be IPV4 format (n.n.n.n) or IPV6 format (n:n:n:n:n:n:n:n).<br> IP subnet can be IPV4 format (n.n.n.n/m) or IPV6 format (n:n:n:n:n:n:n:n/m).<br> Line format - IP Address or subnet,Port</p>
-	MacAddrList     []string `json:"macAddrList,omitempty"`     // <p>This field should contain Endstation MAC address, comma, and Destination MAC addresses.<br> Each Max address must include twelve hexadecimal digits using formats nn:nn:nn:nn:nn:nn or nn-nn-nn-nn-nn-nn or nnnn.nnnn.nnnn or nnnnnnnnnnnn.<br> Line format - Endstation MAC,Destination MAC </p>
-	DeviceGroupList []string `json:"deviceGroupList,omitempty"` // <p>This field should contain a tuple with NDG Root, comma, and an NDG (that it under the root).<br> Line format - NDG Root Name, NDG, Port</p>
-	DeviceList      []string `json:"deviceList,omitempty"`      // <p>This field should contain Device-Name,port-number. The device name must be the same as the name field in a Network Device object.<br> Line format - Device Name,Port</p>
+	CliDnisList     []string                                                                                            `json:"cliDnisList,omitempty"`     // <p>This field should contain a Caller ID (CLI), comma, and Called ID (DNIS).<br> Line format -  Caller ID (CLI), Called ID (DNIS)</p>
+	ConditionType   string                                                                                              `json:"conditionType,omitempty"`   // This field determines the content of the conditions field
+	Description     string                                                                                              `json:"description,omitempty"`     //
+	ID              string                                                                                              `json:"id,omitempty"`              //
+	IPAddrList      []string                                                                                            `json:"ipAddrList,omitempty"`      // <p>This field should contain IP-address-or-subnet,port number<br> IP address can be IPV4 format (n.n.n.n) or IPV6 format (n:n:n:n:n:n:n:n).<br> IP subnet can be IPV4 format (n.n.n.n/m) or IPV6 format (n:n:n:n:n:n:n:n/m).<br> Line format - IP Address or subnet,Port</p>
+	Link            *ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionsResponseConditionsLink `json:"link,omitempty"`            //
+	MacAddrList     []string                                                                                            `json:"macAddrList,omitempty"`     // <p>This field should contain Endstation MAC address, comma, and Destination MAC addresses.<br> Each Max address must include twelve hexadecimal digits using formats nn:nn:nn:nn:nn:nn or nn-nn-nn-nn-nn-nn or nnnn.nnnn.nnnn or nnnnnnnnnnnn.<br> Line format - Endstation MAC,Destination MAC </p>
+	Name            string                                                                                              `json:"name,omitempty"`            // Network Condition name
+	DeviceGroupList []string                                                                                            `json:"deviceGroupList,omitempty"` // <p>This field should contain a tuple with NDG Root, comma, and an NDG (that it under the root).<br> Line format - NDG Root Name, NDG, Port</p>
+	DeviceList      []string                                                                                            `json:"deviceList,omitempty"`      // <p>This field should contain Device-Name,port-number. The device name must be the same as the name field in a Network Device object.<br> Line format - Device Name,Port</p>
+}
+
+type ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionsResponseConditionsLink struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
 }
 
 type ResponseDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkCondition struct {
@@ -58,11 +69,22 @@ type ResponseDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkCondit
 }
 
 type ResponseDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkConditionResponseConditions struct {
-	CliDnisList     []string `json:"cliDnisList,omitempty"`     // <p>This field should contain a Caller ID (CLI), comma, and Called ID (DNIS).<br> Line format -  Caller ID (CLI), Called ID (DNIS)</p>
-	IPAddrList      []string `json:"ipAddrList,omitempty"`      // <p>This field should contain IP-address-or-subnet,port number<br> IP address can be IPV4 format (n.n.n.n) or IPV6 format (n:n:n:n:n:n:n:n).<br> IP subnet can be IPV4 format (n.n.n.n/m) or IPV6 format (n:n:n:n:n:n:n:n/m).<br> Line format - IP Address or subnet,Port</p>
-	MacAddrList     []string `json:"macAddrList,omitempty"`     // <p>This field should contain Endstation MAC address, comma, and Destination MAC addresses.<br> Each Max address must include twelve hexadecimal digits using formats nn:nn:nn:nn:nn:nn or nn-nn-nn-nn-nn-nn or nnnn.nnnn.nnnn or nnnnnnnnnnnn.<br> Line format - Endstation MAC,Destination MAC </p>
-	DeviceGroupList []string `json:"deviceGroupList,omitempty"` // <p>This field should contain a tuple with NDG Root, comma, and an NDG (that it under the root).<br> Line format - NDG Root Name, NDG, Port</p>
-	DeviceList      []string `json:"deviceList,omitempty"`      // <p>This field should contain Device-Name,port-number. The device name must be the same as the name field in a Network Device object.<br> Line format - Device Name,Port</p>
+	CliDnisList     []string                                                                                              `json:"cliDnisList,omitempty"`     // <p>This field should contain a Caller ID (CLI), comma, and Called ID (DNIS).<br> Line format -  Caller ID (CLI), Called ID (DNIS)</p>
+	ConditionType   string                                                                                                `json:"conditionType,omitempty"`   // This field determines the content of the conditions field
+	Description     string                                                                                                `json:"description,omitempty"`     //
+	ID              string                                                                                                `json:"id,omitempty"`              //
+	IPAddrList      []string                                                                                              `json:"ipAddrList,omitempty"`      // <p>This field should contain IP-address-or-subnet,port number<br> IP address can be IPV4 format (n.n.n.n) or IPV6 format (n:n:n:n:n:n:n:n).<br> IP subnet can be IPV4 format (n.n.n.n/m) or IPV6 format (n:n:n:n:n:n:n:n/m).<br> Line format - IP Address or subnet,Port</p>
+	Link            *ResponseDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkConditionResponseConditionsLink `json:"link,omitempty"`            //
+	MacAddrList     []string                                                                                              `json:"macAddrList,omitempty"`     // <p>This field should contain Endstation MAC address, comma, and Destination MAC addresses.<br> Each Max address must include twelve hexadecimal digits using formats nn:nn:nn:nn:nn:nn or nn-nn-nn-nn-nn-nn or nnnn.nnnn.nnnn or nnnnnnnnnnnn.<br> Line format - Endstation MAC,Destination MAC </p>
+	Name            string                                                                                                `json:"name,omitempty"`            // Network Condition name
+	DeviceGroupList []string                                                                                              `json:"deviceGroupList,omitempty"` // <p>This field should contain a tuple with NDG Root, comma, and an NDG (that it under the root).<br> Line format - NDG Root Name, NDG, Port</p>
+	DeviceList      []string                                                                                              `json:"deviceList,omitempty"`      // <p>This field should contain Device-Name,port-number. The device name must be the same as the name field in a Network Device object.<br> Line format - Device Name,Port</p>
+}
+
+type ResponseDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkConditionResponseConditionsLink struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
 }
 
 type ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionByID struct {
@@ -86,11 +108,22 @@ type ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkCondition
 }
 
 type ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionByIDResponseConditions struct {
-	CliDnisList     []string `json:"cliDnisList,omitempty"`     // <p>This field should contain a Caller ID (CLI), comma, and Called ID (DNIS).<br> Line format -  Caller ID (CLI), Called ID (DNIS)</p>
-	IPAddrList      []string `json:"ipAddrList,omitempty"`      // <p>This field should contain IP-address-or-subnet,port number<br> IP address can be IPV4 format (n.n.n.n) or IPV6 format (n:n:n:n:n:n:n:n).<br> IP subnet can be IPV4 format (n.n.n.n/m) or IPV6 format (n:n:n:n:n:n:n:n/m).<br> Line format - IP Address or subnet,Port</p>
-	MacAddrList     []string `json:"macAddrList,omitempty"`     // <p>This field should contain Endstation MAC address, comma, and Destination MAC addresses.<br> Each Max address must include twelve hexadecimal digits using formats nn:nn:nn:nn:nn:nn or nn-nn-nn-nn-nn-nn or nnnn.nnnn.nnnn or nnnnnnnnnnnn.<br> Line format - Endstation MAC,Destination MAC </p>
-	DeviceGroupList []string `json:"deviceGroupList,omitempty"` // <p>This field should contain a tuple with NDG Root, comma, and an NDG (that it under the root).<br> Line format - NDG Root Name, NDG, Port</p>
-	DeviceList      []string `json:"deviceList,omitempty"`      // <p>This field should contain Device-Name,port-number. The device name must be the same as the name field in a Network Device object.<br> Line format - Device Name,Port</p>
+	CliDnisList     []string                                                                                               `json:"cliDnisList,omitempty"`     // <p>This field should contain a Caller ID (CLI), comma, and Called ID (DNIS).<br> Line format -  Caller ID (CLI), Called ID (DNIS)</p>
+	ConditionType   string                                                                                                 `json:"conditionType,omitempty"`   // This field determines the content of the conditions field
+	Description     string                                                                                                 `json:"description,omitempty"`     //
+	ID              string                                                                                                 `json:"id,omitempty"`              //
+	IPAddrList      []string                                                                                               `json:"ipAddrList,omitempty"`      // <p>This field should contain IP-address-or-subnet,port number<br> IP address can be IPV4 format (n.n.n.n) or IPV6 format (n:n:n:n:n:n:n:n).<br> IP subnet can be IPV4 format (n.n.n.n/m) or IPV6 format (n:n:n:n:n:n:n:n/m).<br> Line format - IP Address or subnet,Port</p>
+	Link            *ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionByIDResponseConditionsLink `json:"link,omitempty"`            //
+	MacAddrList     []string                                                                                               `json:"macAddrList,omitempty"`     // <p>This field should contain Endstation MAC address, comma, and Destination MAC addresses.<br> Each Max address must include twelve hexadecimal digits using formats nn:nn:nn:nn:nn:nn or nn-nn-nn-nn-nn-nn or nnnn.nnnn.nnnn or nnnnnnnnnnnn.<br> Line format - Endstation MAC,Destination MAC </p>
+	Name            string                                                                                                 `json:"name,omitempty"`            // Network Condition name
+	DeviceGroupList []string                                                                                               `json:"deviceGroupList,omitempty"` // <p>This field should contain a tuple with NDG Root, comma, and an NDG (that it under the root).<br> Line format - NDG Root Name, NDG, Port</p>
+	DeviceList      []string                                                                                               `json:"deviceList,omitempty"`      // <p>This field should contain Device-Name,port-number. The device name must be the same as the name field in a Network Device object.<br> Line format - Device Name,Port</p>
+}
+
+type ResponseDeviceAdministrationNetworkConditionsGetDeviceAdminNetworkConditionByIDResponseConditionsLink struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
 }
 
 type ResponseDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkConditionByID struct {
@@ -114,11 +147,22 @@ type ResponseDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkCondit
 }
 
 type ResponseDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkConditionByIDResponseConditions struct {
-	CliDnisList     []string `json:"cliDnisList,omitempty"`     // <p>This field should contain a Caller ID (CLI), comma, and Called ID (DNIS).<br> Line format -  Caller ID (CLI), Called ID (DNIS)</p>
-	IPAddrList      []string `json:"ipAddrList,omitempty"`      // <p>This field should contain IP-address-or-subnet,port number<br> IP address can be IPV4 format (n.n.n.n) or IPV6 format (n:n:n:n:n:n:n:n).<br> IP subnet can be IPV4 format (n.n.n.n/m) or IPV6 format (n:n:n:n:n:n:n:n/m).<br> Line format - IP Address or subnet,Port</p>
-	MacAddrList     []string `json:"macAddrList,omitempty"`     // <p>This field should contain Endstation MAC address, comma, and Destination MAC addresses.<br> Each Max address must include twelve hexadecimal digits using formats nn:nn:nn:nn:nn:nn or nn-nn-nn-nn-nn-nn or nnnn.nnnn.nnnn or nnnnnnnnnnnn.<br> Line format - Endstation MAC,Destination MAC </p>
-	DeviceGroupList []string `json:"deviceGroupList,omitempty"` // <p>This field should contain a tuple with NDG Root, comma, and an NDG (that it under the root).<br> Line format - NDG Root Name, NDG, Port</p>
-	DeviceList      []string `json:"deviceList,omitempty"`      // <p>This field should contain Device-Name,port-number. The device name must be the same as the name field in a Network Device object.<br> Line format - Device Name,Port</p>
+	CliDnisList     []string                                                                                                  `json:"cliDnisList,omitempty"`     // <p>This field should contain a Caller ID (CLI), comma, and Called ID (DNIS).<br> Line format -  Caller ID (CLI), Called ID (DNIS)</p>
+	ConditionType   string                                                                                                    `json:"conditionType,omitempty"`   // This field determines the content of the conditions field
+	Description     string                                                                                                    `json:"description,omitempty"`     //
+	ID              string                                                                                                    `json:"id,omitempty"`              //
+	IPAddrList      []string                                                                                                  `json:"ipAddrList,omitempty"`      // <p>This field should contain IP-address-or-subnet,port number<br> IP address can be IPV4 format (n.n.n.n) or IPV6 format (n:n:n:n:n:n:n:n).<br> IP subnet can be IPV4 format (n.n.n.n/m) or IPV6 format (n:n:n:n:n:n:n:n/m).<br> Line format - IP Address or subnet,Port</p>
+	Link            *ResponseDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkConditionByIDResponseConditionsLink `json:"link,omitempty"`            //
+	MacAddrList     []string                                                                                                  `json:"macAddrList,omitempty"`     // <p>This field should contain Endstation MAC address, comma, and Destination MAC addresses.<br> Each Max address must include twelve hexadecimal digits using formats nn:nn:nn:nn:nn:nn or nn-nn-nn-nn-nn-nn or nnnn.nnnn.nnnn or nnnnnnnnnnnn.<br> Line format - Endstation MAC,Destination MAC </p>
+	Name            string                                                                                                    `json:"name,omitempty"`            // Network Condition name
+	DeviceGroupList []string                                                                                                  `json:"deviceGroupList,omitempty"` // <p>This field should contain a tuple with NDG Root, comma, and an NDG (that it under the root).<br> Line format - NDG Root Name, NDG, Port</p>
+	DeviceList      []string                                                                                                  `json:"deviceList,omitempty"`      // <p>This field should contain Device-Name,port-number. The device name must be the same as the name field in a Network Device object.<br> Line format - Device Name,Port</p>
+}
+
+type ResponseDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkConditionByIDResponseConditionsLink struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
 }
 
 type ResponseDeviceAdministrationNetworkConditionsDeleteDeviceAdminNetworkConditionByID struct {
@@ -141,11 +185,22 @@ type RequestDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkConditi
 }
 
 type RequestDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkConditionConditions struct {
-	CliDnisList     []string `json:"cliDnisList,omitempty"`     // <p>This field should contain a Caller ID (CLI), comma, and Called ID (DNIS).<br> Line format -  Caller ID (CLI), Called ID (DNIS)</p>
-	IPAddrList      []string `json:"ipAddrList,omitempty"`      // <p>This field should contain IP-address-or-subnet,port number<br> IP address can be IPV4 format (n.n.n.n) or IPV6 format (n:n:n:n:n:n:n:n).<br> IP subnet can be IPV4 format (n.n.n.n/m) or IPV6 format (n:n:n:n:n:n:n:n/m).<br> Line format - IP Address or subnet,Port</p>
-	MacAddrList     []string `json:"macAddrList,omitempty"`     // <p>This field should contain Endstation MAC address, comma, and Destination MAC addresses.<br> Each Max address must include twelve hexadecimal digits using formats nn:nn:nn:nn:nn:nn or nn-nn-nn-nn-nn-nn or nnnn.nnnn.nnnn or nnnnnnnnnnnn.<br> Line format - Endstation MAC,Destination MAC </p>
-	DeviceGroupList []string `json:"deviceGroupList,omitempty"` // <p>This field should contain a tuple with NDG Root, comma, and an NDG (that it under the root).<br> Line format - NDG Root Name, NDG, Port</p>
-	DeviceList      []string `json:"deviceList,omitempty"`      // <p>This field should contain Device-Name,port-number. The device name must be the same as the name field in a Network Device object.<br> Line format - Device Name,Port</p>
+	CliDnisList     []string                                                                                     `json:"cliDnisList,omitempty"`     // <p>This field should contain a Caller ID (CLI), comma, and Called ID (DNIS).<br> Line format -  Caller ID (CLI), Called ID (DNIS)</p>
+	ConditionType   string                                                                                       `json:"conditionType,omitempty"`   // This field determines the content of the conditions field
+	Description     string                                                                                       `json:"description,omitempty"`     //
+	ID              string                                                                                       `json:"id,omitempty"`              //
+	IPAddrList      []string                                                                                     `json:"ipAddrList,omitempty"`      // <p>This field should contain IP-address-or-subnet,port number<br> IP address can be IPV4 format (n.n.n.n) or IPV6 format (n:n:n:n:n:n:n:n).<br> IP subnet can be IPV4 format (n.n.n.n/m) or IPV6 format (n:n:n:n:n:n:n:n/m).<br> Line format - IP Address or subnet,Port</p>
+	Link            *RequestDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkConditionConditionsLink `json:"link,omitempty"`            //
+	MacAddrList     []string                                                                                     `json:"macAddrList,omitempty"`     // <p>This field should contain Endstation MAC address, comma, and Destination MAC addresses.<br> Each Max address must include twelve hexadecimal digits using formats nn:nn:nn:nn:nn:nn or nn-nn-nn-nn-nn-nn or nnnn.nnnn.nnnn or nnnnnnnnnnnn.<br> Line format - Endstation MAC,Destination MAC </p>
+	Name            string                                                                                       `json:"name,omitempty"`            // Network Condition name
+	DeviceGroupList []string                                                                                     `json:"deviceGroupList,omitempty"` // <p>This field should contain a tuple with NDG Root, comma, and an NDG (that it under the root).<br> Line format - NDG Root Name, NDG, Port</p>
+	DeviceList      []string                                                                                     `json:"deviceList,omitempty"`      // <p>This field should contain Device-Name,port-number. The device name must be the same as the name field in a Network Device object.<br> Line format - Device Name,Port</p>
+}
+
+type RequestDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkConditionConditionsLink struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
 }
 
 type RequestDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkConditionByID struct {
@@ -164,11 +219,22 @@ type RequestDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkConditi
 }
 
 type RequestDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkConditionByIDConditions struct {
-	CliDnisList     []string `json:"cliDnisList,omitempty"`     // <p>This field should contain a Caller ID (CLI), comma, and Called ID (DNIS).<br> Line format -  Caller ID (CLI), Called ID (DNIS)</p>
-	IPAddrList      []string `json:"ipAddrList,omitempty"`      // <p>This field should contain IP-address-or-subnet,port number<br> IP address can be IPV4 format (n.n.n.n) or IPV6 format (n:n:n:n:n:n:n:n).<br> IP subnet can be IPV4 format (n.n.n.n/m) or IPV6 format (n:n:n:n:n:n:n:n/m).<br> Line format - IP Address or subnet,Port</p>
-	MacAddrList     []string `json:"macAddrList,omitempty"`     // <p>This field should contain Endstation MAC address, comma, and Destination MAC addresses.<br> Each Max address must include twelve hexadecimal digits using formats nn:nn:nn:nn:nn:nn or nn-nn-nn-nn-nn-nn or nnnn.nnnn.nnnn or nnnnnnnnnnnn.<br> Line format - Endstation MAC,Destination MAC </p>
-	DeviceGroupList []string `json:"deviceGroupList,omitempty"` // <p>This field should contain a tuple with NDG Root, comma, and an NDG (that it under the root).<br> Line format - NDG Root Name, NDG, Port</p>
-	DeviceList      []string `json:"deviceList,omitempty"`      // <p>This field should contain Device-Name,port-number. The device name must be the same as the name field in a Network Device object.<br> Line format - Device Name,Port</p>
+	CliDnisList     []string                                                                                         `json:"cliDnisList,omitempty"`     // <p>This field should contain a Caller ID (CLI), comma, and Called ID (DNIS).<br> Line format -  Caller ID (CLI), Called ID (DNIS)</p>
+	ConditionType   string                                                                                           `json:"conditionType,omitempty"`   // This field determines the content of the conditions field
+	Description     string                                                                                           `json:"description,omitempty"`     //
+	ID              string                                                                                           `json:"id,omitempty"`              //
+	IPAddrList      []string                                                                                         `json:"ipAddrList,omitempty"`      // <p>This field should contain IP-address-or-subnet,port number<br> IP address can be IPV4 format (n.n.n.n) or IPV6 format (n:n:n:n:n:n:n:n).<br> IP subnet can be IPV4 format (n.n.n.n/m) or IPV6 format (n:n:n:n:n:n:n:n/m).<br> Line format - IP Address or subnet,Port</p>
+	Link            *RequestDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkConditionByIDConditionsLink `json:"link,omitempty"`            //
+	MacAddrList     []string                                                                                         `json:"macAddrList,omitempty"`     // <p>This field should contain Endstation MAC address, comma, and Destination MAC addresses.<br> Each Max address must include twelve hexadecimal digits using formats nn:nn:nn:nn:nn:nn or nn-nn-nn-nn-nn-nn or nnnn.nnnn.nnnn or nnnnnnnnnnnn.<br> Line format - Endstation MAC,Destination MAC </p>
+	Name            string                                                                                           `json:"name,omitempty"`            // Network Condition name
+	DeviceGroupList []string                                                                                         `json:"deviceGroupList,omitempty"` // <p>This field should contain a tuple with NDG Root, comma, and an NDG (that it under the root).<br> Line format - NDG Root Name, NDG, Port</p>
+	DeviceList      []string                                                                                         `json:"deviceList,omitempty"`      // <p>This field should contain Device-Name,port-number. The device name must be the same as the name field in a Network Device object.<br> Line format - Device Name,Port</p>
+}
+
+type RequestDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkConditionByIDConditionsLink struct {
+	Href string `json:"href,omitempty"` //
+	Rel  string `json:"rel,omitempty"`  //
+	Type string `json:"type,omitempty"` //
 }
 
 //GetDeviceAdminNetworkConditions Device Admin - Returns a list of network conditions.

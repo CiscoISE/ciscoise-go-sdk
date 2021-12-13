@@ -53,10 +53,6 @@ type ResponseEndpointGetEndpointByNameERSEndPoint struct {
 	Link                    *ResponseEndpointGetEndpointByNameERSEndPointLink             `json:"link,omitempty"`                    //
 }
 
-type ResponseEndpointGetEndpointByNameERSEndPointCustomAttributes struct {
-	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` //
-}
-
 type ResponseEndpointGetEndpointByNameERSEndPointMdmAttributes struct {
 	MdmServerName       string `json:"mdmServerName,omitempty"`       //
 	MdmReachable        *bool  `json:"mdmReachable,omitempty"`        //
@@ -72,6 +68,12 @@ type ResponseEndpointGetEndpointByNameERSEndPointMdmAttributes struct {
 	MdmIMEI             string `json:"mdmIMEI,omitempty"`             //
 	MdmPhoneNumber      string `json:"mdmPhoneNumber,omitempty"`      //
 }
+
+type ResponseEndpointGetEndpointByNameERSEndPointCustomAttributes struct {
+	CustomAttributes *ResponseEndpointGetEndpointByNameERSEndPointCustomAttributesCustomAttributes `json:"customAttributes,omitempty"` // Key value map
+}
+
+type ResponseEndpointGetEndpointByNameERSEndPointCustomAttributesCustomAttributes map[string]interface{}
 
 type ResponseEndpointGetEndpointByNameERSEndPointLink struct {
 	Rel  string `json:"rel,omitempty"`  //
@@ -100,10 +102,6 @@ type ResponseEndpointGetEndpointByIDERSEndPoint struct {
 	Link                    *ResponseEndpointGetEndpointByIDERSEndPointLink             `json:"link,omitempty"`                    //
 }
 
-type ResponseEndpointGetEndpointByIDERSEndPointCustomAttributes struct {
-	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` //
-}
-
 type ResponseEndpointGetEndpointByIDERSEndPointMdmAttributes struct {
 	MdmServerName       string `json:"mdmServerName,omitempty"`       //
 	MdmReachable        *bool  `json:"mdmReachable,omitempty"`        //
@@ -119,6 +117,12 @@ type ResponseEndpointGetEndpointByIDERSEndPointMdmAttributes struct {
 	MdmIMEI             string `json:"mdmIMEI,omitempty"`             //
 	MdmPhoneNumber      string `json:"mdmPhoneNumber,omitempty"`      //
 }
+
+type ResponseEndpointGetEndpointByIDERSEndPointCustomAttributes struct {
+	CustomAttributes *ResponseEndpointGetEndpointByIDERSEndPointCustomAttributesCustomAttributes `json:"customAttributes,omitempty"` // Key value map
+}
+
+type ResponseEndpointGetEndpointByIDERSEndPointCustomAttributesCustomAttributes map[string]interface{}
 
 type ResponseEndpointGetEndpointByIDERSEndPointLink struct {
 	Rel  string `json:"rel,omitempty"`  //
@@ -239,10 +243,6 @@ type RequestEndpointUpdateEndpointByIDERSEndPoint struct {
 	CustomAttributes        *RequestEndpointUpdateEndpointByIDERSEndPointCustomAttributes `json:"customAttributes,omitempty"`        //
 }
 
-type RequestEndpointUpdateEndpointByIDERSEndPointCustomAttributes struct {
-	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` //
-}
-
 type RequestEndpointUpdateEndpointByIDERSEndPointMdmAttributes struct {
 	MdmServerName       string `json:"mdmServerName,omitempty"`       //
 	MdmReachable        *bool  `json:"mdmReachable,omitempty"`        //
@@ -258,6 +258,12 @@ type RequestEndpointUpdateEndpointByIDERSEndPointMdmAttributes struct {
 	MdmIMEI             string `json:"mdmIMEI,omitempty"`             //
 	MdmPhoneNumber      string `json:"mdmPhoneNumber,omitempty"`      //
 }
+
+type RequestEndpointUpdateEndpointByIDERSEndPointCustomAttributes struct {
+	CustomAttributes *RequestEndpointUpdateEndpointByIDERSEndPointCustomAttributesCustomAttributes `json:"customAttributes,omitempty"` // Key value map
+}
+
+type RequestEndpointUpdateEndpointByIDERSEndPointCustomAttributesCustomAttributes map[string]interface{}
 
 type RequestEndpointRegisterEndpoint struct {
 	ERSEndPoint *RequestEndpointRegisterEndpointERSEndPoint `json:"ERSEndPoint,omitempty"` //
@@ -279,10 +285,6 @@ type RequestEndpointRegisterEndpointERSEndPoint struct {
 	CustomAttributes        *RequestEndpointRegisterEndpointERSEndPointCustomAttributes `json:"customAttributes,omitempty"`        //
 }
 
-type RequestEndpointRegisterEndpointERSEndPointCustomAttributes struct {
-	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` //
-}
-
 type RequestEndpointRegisterEndpointERSEndPointMdmAttributes struct {
 	MdmServerName       string `json:"mdmServerName,omitempty"`       //
 	MdmReachable        *bool  `json:"mdmReachable,omitempty"`        //
@@ -298,6 +300,12 @@ type RequestEndpointRegisterEndpointERSEndPointMdmAttributes struct {
 	MdmIMEI             string `json:"mdmIMEI,omitempty"`             //
 	MdmPhoneNumber      string `json:"mdmPhoneNumber,omitempty"`      //
 }
+
+type RequestEndpointRegisterEndpointERSEndPointCustomAttributes struct {
+	CustomAttributes *RequestEndpointRegisterEndpointERSEndPointCustomAttributesCustomAttributes `json:"customAttributes,omitempty"` // Key value map
+}
+
+type RequestEndpointRegisterEndpointERSEndPointCustomAttributesCustomAttributes map[string]interface{}
 
 type RequestEndpointCreateEndpoint struct {
 	ERSEndPoint *RequestEndpointCreateEndpointERSEndPoint `json:"ERSEndPoint,omitempty"` //
@@ -318,10 +326,6 @@ type RequestEndpointCreateEndpointERSEndPoint struct {
 	CustomAttributes        *RequestEndpointCreateEndpointERSEndPointCustomAttributes `json:"customAttributes,omitempty"`        //
 }
 
-type RequestEndpointCreateEndpointERSEndPointCustomAttributes struct {
-	CustomAttributes *map[string]interface{} `json:"customAttributes,omitempty"` //
-}
-
 type RequestEndpointCreateEndpointERSEndPointMdmAttributes struct {
 	MdmServerName       string `json:"mdmServerName,omitempty"`       //
 	MdmReachable        *bool  `json:"mdmReachable,omitempty"`        //
@@ -337,6 +341,12 @@ type RequestEndpointCreateEndpointERSEndPointMdmAttributes struct {
 	MdmIMEI             string `json:"mdmIMEI,omitempty"`             //
 	MdmPhoneNumber      string `json:"mdmPhoneNumber,omitempty"`      //
 }
+
+type RequestEndpointCreateEndpointERSEndPointCustomAttributes struct {
+	CustomAttributes *RequestEndpointCreateEndpointERSEndPointCustomAttributesCustomAttributes `json:"customAttributes,omitempty"` // Key value map
+}
+
+type RequestEndpointCreateEndpointERSEndPointCustomAttributesCustomAttributes map[string]interface{}
 
 type RequestEndpointBulkRequestForEndpoint struct {
 	EndpointBulkRequest *RequestEndpointBulkRequestForEndpointEndpointBulkRequest `json:"EndpointBulkRequest,omitempty"` //

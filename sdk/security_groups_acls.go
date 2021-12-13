@@ -24,16 +24,18 @@ type ResponseSecurityGroupsACLsGetSecurityGroupsACLByID struct {
 }
 
 type ResponseSecurityGroupsACLsGetSecurityGroupsACLByIDSgacl struct {
-	ID              string                                                       `json:"id,omitempty"`              //
-	Name            string                                                       `json:"name,omitempty"`            //
-	Description     string                                                       `json:"description,omitempty"`     //
-	GenerationID    string                                                       `json:"generationId,omitempty"`    //
-	ACLcontent      string                                                       `json:"aclcontent,omitempty"`      //
-	IsReadOnly      *bool                                                        `json:"isReadOnly,omitempty"`      //
-	ModelledContent *interface{}                                                 `json:"modelledContent,omitempty"` // Modelled content of contract
-	IPVersion       string                                                       `json:"ipVersion,omitempty"`       // Allowed values: - IPV4, - IPV6, - IP_AGNOSTIC
-	Link            *ResponseSecurityGroupsACLsGetSecurityGroupsACLByIDSgaclLink `json:"link,omitempty"`            //
+	ID              string                                                                  `json:"id,omitempty"`              //
+	Name            string                                                                  `json:"name,omitempty"`            //
+	Description     string                                                                  `json:"description,omitempty"`     //
+	GenerationID    string                                                                  `json:"generationId,omitempty"`    //
+	ACLcontent      string                                                                  `json:"aclcontent,omitempty"`      //
+	IsReadOnly      *bool                                                                   `json:"isReadOnly,omitempty"`      //
+	ModelledContent *ResponseSecurityGroupsACLsGetSecurityGroupsACLByIDSgaclModelledContent `json:"modelledContent,omitempty"` // Modelled content of contract
+	IPVersion       string                                                                  `json:"ipVersion,omitempty"`       // Allowed values: - IPV4, - IPV6, - IP_AGNOSTIC
+	Link            *ResponseSecurityGroupsACLsGetSecurityGroupsACLByIDSgaclLink            `json:"link,omitempty"`            //
 }
+
+type ResponseSecurityGroupsACLsGetSecurityGroupsACLByIDSgaclModelledContent interface{}
 
 type ResponseSecurityGroupsACLsGetSecurityGroupsACLByIDSgaclLink struct {
 	Rel  string `json:"rel,omitempty"`  //
@@ -139,29 +141,33 @@ type RequestSecurityGroupsACLsUpdateSecurityGroupsACLByID struct {
 }
 
 type RequestSecurityGroupsACLsUpdateSecurityGroupsACLByIDSgacl struct {
-	ID              string       `json:"id,omitempty"`              //
-	Name            string       `json:"name,omitempty"`            //
-	Description     string       `json:"description,omitempty"`     //
-	GenerationID    string       `json:"generationId,omitempty"`    //
-	ACLcontent      string       `json:"aclcontent,omitempty"`      //
-	IsReadOnly      *bool        `json:"isReadOnly,omitempty"`      //
-	ModelledContent *interface{} `json:"modelledContent,omitempty"` // Modelled content of contract
-	IPVersion       string       `json:"ipVersion,omitempty"`       // Allowed values: - IPV4, - IPV6, - IP_AGNOSTIC
+	ID              string                                                                    `json:"id,omitempty"`              //
+	Name            string                                                                    `json:"name,omitempty"`            //
+	Description     string                                                                    `json:"description,omitempty"`     //
+	GenerationID    string                                                                    `json:"generationId,omitempty"`    //
+	ACLcontent      string                                                                    `json:"aclcontent,omitempty"`      //
+	IsReadOnly      *bool                                                                     `json:"isReadOnly,omitempty"`      //
+	ModelledContent *RequestSecurityGroupsACLsUpdateSecurityGroupsACLByIDSgaclModelledContent `json:"modelledContent,omitempty"` // Modelled content of contract
+	IPVersion       string                                                                    `json:"ipVersion,omitempty"`       // Allowed values: - IPV4, - IPV6, - IP_AGNOSTIC
 }
+
+type RequestSecurityGroupsACLsUpdateSecurityGroupsACLByIDSgaclModelledContent interface{}
 
 type RequestSecurityGroupsACLsCreateSecurityGroupsACL struct {
 	Sgacl *RequestSecurityGroupsACLsCreateSecurityGroupsACLSgacl `json:"Sgacl,omitempty"` //
 }
 
 type RequestSecurityGroupsACLsCreateSecurityGroupsACLSgacl struct {
-	Name            string       `json:"name,omitempty"`            //
-	Description     string       `json:"description,omitempty"`     //
-	GenerationID    string       `json:"generationId,omitempty"`    //
-	ACLcontent      string       `json:"aclcontent,omitempty"`      //
-	IsReadOnly      *bool        `json:"isReadOnly,omitempty"`      //
-	ModelledContent *interface{} `json:"modelledContent,omitempty"` // Modelled content of contract
-	IPVersion       string       `json:"ipVersion,omitempty"`       // Allowed values: - IPV4, - IPV6, - IP_AGNOSTIC
+	Name            string                                                                `json:"name,omitempty"`            //
+	Description     string                                                                `json:"description,omitempty"`     //
+	GenerationID    string                                                                `json:"generationId,omitempty"`    //
+	ACLcontent      string                                                                `json:"aclcontent,omitempty"`      //
+	IsReadOnly      *bool                                                                 `json:"isReadOnly,omitempty"`      //
+	ModelledContent *RequestSecurityGroupsACLsCreateSecurityGroupsACLSgaclModelledContent `json:"modelledContent,omitempty"` // Modelled content of contract
+	IPVersion       string                                                                `json:"ipVersion,omitempty"`       // Allowed values: - IPV4, - IPV6, - IP_AGNOSTIC
 }
+
+type RequestSecurityGroupsACLsCreateSecurityGroupsACLSgaclModelledContent interface{}
 
 type RequestSecurityGroupsACLsBulkRequestForSecurityGroupsACL struct {
 	SgaclBulkRequest *RequestSecurityGroupsACLsBulkRequestForSecurityGroupsACLSgaclBulkRequest `json:"SgaclBulkRequest,omitempty"` //

@@ -9,33 +9,39 @@ import (
 
 type TasksService service
 
-type ResponseTasksGetTaskStatus struct {
-	ID              string         `json:"id,omitempty"`              //
-	ExecutionStatus string         `json:"executionStatus,omitempty"` //
-	ModuleType      string         `json:"moduleType,omitempty"`      //
-	StartTime       string         `json:"startTime,omitempty"`       //
-	ResourcesCount  *int           `json:"resourcesCount,omitempty"`  //
-	SuccessCount    *int           `json:"successCount,omitempty"`    //
-	FailCount       *int           `json:"failCount,omitempty"`       //
-	DetailStatus    *[]interface{} `json:"detailStatus,omitempty"`    //
+type ResponseTasksGetTaskStatus []ResponseItemTasksGetTaskStatus // Array of ResponseTasksGetTaskStatus
+
+type ResponseItemTasksGetTaskStatus struct {
+	DetailStatus    *[]ResponseItemTasksGetTaskStatusDetailStatus `json:"detailStatus,omitempty"`    //
+	ExecutionStatus string                                        `json:"executionStatus,omitempty"` //
+	FailCount       *int                                          `json:"failCount,omitempty"`       //
+	ID              string                                        `json:"id,omitempty"`              //
+	ModuleType      string                                        `json:"moduleType,omitempty"`      //
+	ResourcesCount  *int                                          `json:"resourcesCount,omitempty"`  //
+	StartTime       string                                        `json:"startTime,omitempty"`       //
+	SuccessCount    *int                                          `json:"successCount,omitempty"`    //
 }
 
+type ResponseItemTasksGetTaskStatusDetailStatus interface{}
+
 type ResponseTasksGetTaskStatusByID struct {
-	ID              string         `json:"id,omitempty"`              //
-	ExecutionStatus string         `json:"executionStatus,omitempty"` //
-	ModuleType      string         `json:"moduleType,omitempty"`      //
-	StartTime       string         `json:"startTime,omitempty"`       //
-	ResourcesCount  *int           `json:"resourcesCount,omitempty"`  //
-	SuccessCount    *int           `json:"successCount,omitempty"`    //
-	FailCount       *int           `json:"failCount,omitempty"`       //
-	DetailStatus    *[]interface{} `json:"detailStatus,omitempty"`    //
+	DetailStatus    *[]ResponseTasksGetTaskStatusByIDDetailStatus `json:"detailStatus,omitempty"`    //
+	ExecutionStatus string                                        `json:"executionStatus,omitempty"` //
+	FailCount       *int                                          `json:"failCount,omitempty"`       //
+	ID              string                                        `json:"id,omitempty"`              //
+	ModuleType      string                                        `json:"moduleType,omitempty"`      //
+	ResourcesCount  *int                                          `json:"resourcesCount,omitempty"`  //
+	StartTime       string                                        `json:"startTime,omitempty"`       //
+	SuccessCount    *int                                          `json:"successCount,omitempty"`    //
 }
+
+type ResponseTasksGetTaskStatusByIDDetailStatus interface{}
 
 //GetTaskStatus get all task status
 /* get all task status
 
  */
-func (s *TasksService) GetTaskStatus() (*[]ResponseTasksGetTaskStatus, *resty.Response, error) {
+func (s *TasksService) GetTaskStatus() (*ResponseTasksGetTaskStatus, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/task"
 
@@ -43,7 +49,7 @@ func (s *TasksService) GetTaskStatus() (*[]ResponseTasksGetTaskStatus, *resty.Re
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetResult(&[]ResponseTasksGetTaskStatus{}).
+		SetResult(&ResponseTasksGetTaskStatus{}).
 		SetError(&Error).
 		Get(path)
 
@@ -58,7 +64,7 @@ func (s *TasksService) GetTaskStatus() (*[]ResponseTasksGetTaskStatus, *resty.Re
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*[]ResponseTasksGetTaskStatus)
+	result := response.Result().(*ResponseTasksGetTaskStatus)
 	return result, response, err
 
 }

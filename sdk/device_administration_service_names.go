@@ -8,7 +8,9 @@ import (
 
 type DeviceAdministrationServiceNamesService service
 
-type ResponseDeviceAdministrationServiceNamesGetDeviceAdminServiceNames struct {
+type ResponseDeviceAdministrationServiceNamesGetDeviceAdminServiceNames []ResponseItemDeviceAdministrationServiceNamesGetDeviceAdminServiceNames // Array of ResponseDeviceAdministrationServiceNamesGetDeviceAdminServiceNames
+
+type ResponseItemDeviceAdministrationServiceNamesGetDeviceAdminServiceNames struct {
 	ID                   string `json:"id,omitempty"`                   //
 	IsLocalAuthorization *bool  `json:"isLocalAuthorization,omitempty"` //
 	Name                 string `json:"name,omitempty"`                 //
@@ -18,10 +20,10 @@ type ResponseDeviceAdministrationServiceNamesGetDeviceAdminServiceNames struct {
 //GetDeviceAdminServiceNames Device Admin - Returns list of allowed protocols and server sequences.
 /* Returns list of Allowed Protocols and Server Sequences for Device Admin Policy Set results.
 'isLocalAuthorization' property is available only for Network Access Policy Set results of type Server Sequence.
-(Other CRUD APIs available throught ERS)
+(Other CRUD APIs available through ERS)
 
 */
-func (s *DeviceAdministrationServiceNamesService) GetDeviceAdminServiceNames() (*[]ResponseDeviceAdministrationServiceNamesGetDeviceAdminServiceNames, *resty.Response, error) {
+func (s *DeviceAdministrationServiceNamesService) GetDeviceAdminServiceNames() (*ResponseDeviceAdministrationServiceNamesGetDeviceAdminServiceNames, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/policy/device-admin/service-names"
 
@@ -29,7 +31,7 @@ func (s *DeviceAdministrationServiceNamesService) GetDeviceAdminServiceNames() (
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetResult(&[]ResponseDeviceAdministrationServiceNamesGetDeviceAdminServiceNames{}).
+		SetResult(&ResponseDeviceAdministrationServiceNamesGetDeviceAdminServiceNames{}).
 		SetError(&Error).
 		Get(path)
 
@@ -44,7 +46,7 @@ func (s *DeviceAdministrationServiceNamesService) GetDeviceAdminServiceNames() (
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*[]ResponseDeviceAdministrationServiceNamesGetDeviceAdminServiceNames)
+	result := response.Result().(*ResponseDeviceAdministrationServiceNamesGetDeviceAdminServiceNames)
 	return result, response, err
 
 }

@@ -151,9 +151,13 @@ type Client struct {
 	VersionAndPatch                                       *VersionAndPatchService
 	VersionInfo                                           *VersionInfoService
 	Endpoint                                              *EndpointService
+	NbarApp                                               *NbarAppService
 	Portal                                                *PortalService
 	PxGridNode                                            *PxGridNodeService
+	SgVnMapping                                           *SgVnMappingService
 	Tasks                                                 *TasksService
+	VirtualNetwork                                        *VirtualNetworkService
+	VnVLANMapping                                         *VnVLANMappingService
 }
 
 type service struct {
@@ -364,9 +368,13 @@ func NewClient() (*Client, error) {
 	c.VersionAndPatch = (*VersionAndPatchService)(&c.common)
 	c.VersionInfo = (*VersionInfoService)(&c.common)
 	c.Endpoint = (*EndpointService)(&c.common)
+	c.NbarApp = (*NbarAppService)(&c.common)
 	c.Portal = (*PortalService)(&c.common)
 	c.PxGridNode = (*PxGridNodeService)(&c.common)
+	c.SgVnMapping = (*SgVnMappingService)(&c.common)
 	c.Tasks = (*TasksService)(&c.common)
+	c.VirtualNetwork = (*VirtualNetworkService)(&c.common)
+	c.VnVLANMapping = (*VnVLANMappingService)(&c.common)
 
 	client.SetBasicAuth(username, password)
 	return c, nil
@@ -404,4 +412,9 @@ func NewClientWithOptions(baseURL string, username string, password string, debu
 		return nil, err
 	}
 	return NewClient()
+}
+
+// RestyClient returns the resty.Client used by the sdk
+func (s *Client) RestyClient() *resty.Client {
+	return s.common.client
 }

@@ -36,7 +36,7 @@ type ResponseGuestUserGetGuestUserByNameGuestUser struct {
 	GuestInfo       *ResponseGuestUserGetGuestUserByNameGuestUserGuestInfo       `json:"guestInfo,omitempty"`       //
 	GuestAccessInfo *ResponseGuestUserGetGuestUserByNameGuestUserGuestAccessInfo `json:"guestAccessInfo,omitempty"` //
 	PortalID        string                                                       `json:"portalId,omitempty"`        //
-	CustomFields    *map[string]interface{}                                      `json:"customFields,omitempty"`    // Key value map
+	CustomFields    *ResponseGuestUserGetGuestUserByNameGuestUserCustomFields    `json:"customFields,omitempty"`    // Key value map
 	Link            *ResponseGuestUserGetGuestUserByNameGuestUserLink            `json:"link,omitempty"`            //
 }
 
@@ -62,6 +62,8 @@ type ResponseGuestUserGetGuestUserByNameGuestUserGuestAccessInfo struct {
 	SSID      string `json:"ssid,omitempty"`      //
 	GroupTag  string `json:"groupTag,omitempty"`  //
 }
+
+type ResponseGuestUserGetGuestUserByNameGuestUserCustomFields interface{}
 
 type ResponseGuestUserGetGuestUserByNameGuestUserLink struct {
 	Rel  string `json:"rel,omitempty"`  //
@@ -116,7 +118,7 @@ type ResponseGuestUserGetGuestUserByIDGuestUser struct {
 	GuestInfo       *ResponseGuestUserGetGuestUserByIDGuestUserGuestInfo       `json:"guestInfo,omitempty"`       //
 	GuestAccessInfo *ResponseGuestUserGetGuestUserByIDGuestUserGuestAccessInfo `json:"guestAccessInfo,omitempty"` //
 	PortalID        string                                                     `json:"portalId,omitempty"`        //
-	CustomFields    *map[string]interface{}                                    `json:"customFields,omitempty"`    // Key value map
+	CustomFields    *ResponseGuestUserGetGuestUserByIDGuestUserCustomFields    `json:"customFields,omitempty"`    // Key value map
 	Link            *ResponseGuestUserGetGuestUserByIDGuestUserLink            `json:"link,omitempty"`            //
 }
 
@@ -142,6 +144,8 @@ type ResponseGuestUserGetGuestUserByIDGuestUserGuestAccessInfo struct {
 	SSID      string `json:"ssid,omitempty"`      //
 	GroupTag  string `json:"groupTag,omitempty"`  //
 }
+
+type ResponseGuestUserGetGuestUserByIDGuestUserCustomFields interface{}
 
 type ResponseGuestUserGetGuestUserByIDGuestUserLink struct {
 	Rel  string `json:"rel,omitempty"`  //
@@ -272,7 +276,7 @@ type RequestGuestUserUpdateGuestUserByNameGuestUser struct {
 	GuestInfo       *RequestGuestUserUpdateGuestUserByNameGuestUserGuestInfo       `json:"guestInfo,omitempty"`       //
 	GuestAccessInfo *RequestGuestUserUpdateGuestUserByNameGuestUserGuestAccessInfo `json:"guestAccessInfo,omitempty"` //
 	PortalID        string                                                         `json:"portalId,omitempty"`        //
-	CustomFields    *map[string]interface{}                                        `json:"customFields,omitempty"`    // Key value map
+	CustomFields    *RequestGuestUserUpdateGuestUserByNameGuestUserCustomFields    `json:"customFields,omitempty"`    // Key value map
 }
 
 type RequestGuestUserUpdateGuestUserByNameGuestUserGuestInfo struct {
@@ -297,6 +301,8 @@ type RequestGuestUserUpdateGuestUserByNameGuestUserGuestAccessInfo struct {
 	SSID      string `json:"ssid,omitempty"`      //
 	GroupTag  string `json:"groupTag,omitempty"`  //
 }
+
+type RequestGuestUserUpdateGuestUserByNameGuestUserCustomFields interface{}
 
 type RequestGuestUserUpdateGuestUserEmail struct {
 	OperationAdditionalData *RequestGuestUserUpdateGuestUserEmailOperationAdditionalData `json:"OperationAdditionalData,omitempty"` //
@@ -328,7 +334,7 @@ type RequestGuestUserUpdateGuestUserByIDGuestUser struct {
 	GuestInfo       *RequestGuestUserUpdateGuestUserByIDGuestUserGuestInfo       `json:"guestInfo,omitempty"`       //
 	GuestAccessInfo *RequestGuestUserUpdateGuestUserByIDGuestUserGuestAccessInfo `json:"guestAccessInfo,omitempty"` //
 	PortalID        string                                                       `json:"portalId,omitempty"`        //
-	CustomFields    *map[string]interface{}                                      `json:"customFields,omitempty"`    // Key value map
+	CustomFields    *RequestGuestUserUpdateGuestUserByIDGuestUserCustomFields    `json:"customFields,omitempty"`    // Key value map
 }
 
 type RequestGuestUserUpdateGuestUserByIDGuestUserGuestInfo struct {
@@ -354,6 +360,8 @@ type RequestGuestUserUpdateGuestUserByIDGuestUserGuestAccessInfo struct {
 	GroupTag  string `json:"groupTag,omitempty"`  //
 }
 
+type RequestGuestUserUpdateGuestUserByIDGuestUserCustomFields interface{}
+
 type RequestGuestUserCreateGuestUser struct {
 	GuestUser *RequestGuestUserCreateGuestUserGuestUser `json:"GuestUser,omitempty"` //
 }
@@ -370,7 +378,7 @@ type RequestGuestUserCreateGuestUserGuestUser struct {
 	GuestInfo       *RequestGuestUserCreateGuestUserGuestUserGuestInfo       `json:"guestInfo,omitempty"`       //
 	GuestAccessInfo *RequestGuestUserCreateGuestUserGuestUserGuestAccessInfo `json:"guestAccessInfo,omitempty"` //
 	PortalID        string                                                   `json:"portalId,omitempty"`        //
-	CustomFields    *map[string]interface{}                                  `json:"customFields,omitempty"`    // Key value map
+	CustomFields    *RequestGuestUserCreateGuestUserGuestUserCustomFields    `json:"customFields,omitempty"`    // Key value map
 }
 
 type RequestGuestUserCreateGuestUserGuestUserGuestInfo struct {
@@ -395,6 +403,8 @@ type RequestGuestUserCreateGuestUserGuestUserGuestAccessInfo struct {
 	SSID      string `json:"ssid,omitempty"`      //
 	GroupTag  string `json:"groupTag,omitempty"`  //
 }
+
+type RequestGuestUserCreateGuestUserGuestUserCustomFields interface{}
 
 type RequestGuestUserSuspendGuestUserByID struct {
 	OperationAdditionalData *RequestGuestUserSuspendGuestUserByIDOperationAdditionalData `json:"OperationAdditionalData,omitempty"` //

@@ -115,6 +115,20 @@ if err != nil {
 ## Documentation
 https://pkg.go.dev/github.com/CiscoISE/ciscoise-go-sdk
 
+## Compatibility matrix
+
+| SDK versions | Cisco ISE version supported |
+|--------------|-----------------------------|
+| 0.y.z        |  3.1.0                      |
+| 1.0.z        |  3.1.0                      |
+| 1.1.z        |  3.1.1                      |
+
+## Changelog
+
+All notable changes to this project will be documented in the [CHANGELOG](https://github.com/CiscoISE/ciscoise-go-sdk/blob/main/CHANGELOG.md) file.
+
+The development team may make additional name changes as the library evolves with the Cisco ISE APIs.
+
 ## License
 
 This library is distributed under the MIT license found in the [LICENSE](./LICENSE) file.
