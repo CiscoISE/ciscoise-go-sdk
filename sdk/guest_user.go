@@ -63,7 +63,7 @@ type ResponseGuestUserGetGuestUserByNameGuestUserGuestAccessInfo struct {
 	GroupTag  string `json:"groupTag,omitempty"`  //
 }
 
-type ResponseGuestUserGetGuestUserByNameGuestUserCustomFields interface{}
+type ResponseGuestUserGetGuestUserByNameGuestUserCustomFields map[string]interface{}
 
 type ResponseGuestUserGetGuestUserByNameGuestUserLink struct {
 	Rel  string `json:"rel,omitempty"`  //
@@ -145,7 +145,7 @@ type ResponseGuestUserGetGuestUserByIDGuestUserGuestAccessInfo struct {
 	GroupTag  string `json:"groupTag,omitempty"`  //
 }
 
-type ResponseGuestUserGetGuestUserByIDGuestUserCustomFields interface{}
+type ResponseGuestUserGetGuestUserByIDGuestUserCustomFields map[string]interface{}
 
 type ResponseGuestUserGetGuestUserByIDGuestUserLink struct {
 	Rel  string `json:"rel,omitempty"`  //
@@ -302,7 +302,7 @@ type RequestGuestUserUpdateGuestUserByNameGuestUserGuestAccessInfo struct {
 	GroupTag  string `json:"groupTag,omitempty"`  //
 }
 
-type RequestGuestUserUpdateGuestUserByNameGuestUserCustomFields interface{}
+type RequestGuestUserUpdateGuestUserByNameGuestUserCustomFields map[string]interface{}
 
 type RequestGuestUserUpdateGuestUserEmail struct {
 	OperationAdditionalData *RequestGuestUserUpdateGuestUserEmailOperationAdditionalData `json:"OperationAdditionalData,omitempty"` //
@@ -360,7 +360,7 @@ type RequestGuestUserUpdateGuestUserByIDGuestUserGuestAccessInfo struct {
 	GroupTag  string `json:"groupTag,omitempty"`  //
 }
 
-type RequestGuestUserUpdateGuestUserByIDGuestUserCustomFields interface{}
+type RequestGuestUserUpdateGuestUserByIDGuestUserCustomFields map[string]interface{}
 
 type RequestGuestUserCreateGuestUser struct {
 	GuestUser *RequestGuestUserCreateGuestUserGuestUser `json:"GuestUser,omitempty"` //
@@ -404,7 +404,7 @@ type RequestGuestUserCreateGuestUserGuestUserGuestAccessInfo struct {
 	GroupTag  string `json:"groupTag,omitempty"`  //
 }
 
-type RequestGuestUserCreateGuestUserGuestUserCustomFields interface{}
+type RequestGuestUserCreateGuestUserGuestUserCustomFields map[string]interface{}
 
 type RequestGuestUserSuspendGuestUserByID struct {
 	OperationAdditionalData *RequestGuestUserSuspendGuestUserByIDOperationAdditionalData `json:"OperationAdditionalData,omitempty"` //
