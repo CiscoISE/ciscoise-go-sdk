@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2021-12-17
+### Fixed
+- Fix GuestUserCustomFields structs from interface{} to map[string]interface{}
+
 ## [1.1.0] - 2021-12-13
 
 ### Added
@@ -83,4 +87,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.0.8]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v0.0.7...v0.0.8
 [1.0.0]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v0.0.8...v1.0.0
 [1.1.0]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.0.0...v1.1.0
-[Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.0...main
+[1.1.1]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.0...v1.1.1
+[Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.1...main
