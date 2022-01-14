@@ -319,6 +319,9 @@ func (s *GuestSmtpNotificationConfigurationService) UpdateGuestSmtpNotificationS
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseGuestSmtpNotificationConfigurationUpdateGuestSmtpNotificationSettingsByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

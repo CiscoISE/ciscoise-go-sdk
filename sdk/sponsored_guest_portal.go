@@ -828,6 +828,9 @@ func (s *SponsoredGuestPortalService) UpdateSponsoredGuestPortalByID(id string, 
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseSponsoredGuestPortalUpdateSponsoredGuestPortalByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

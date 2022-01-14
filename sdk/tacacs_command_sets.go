@@ -370,6 +370,9 @@ func (s *TacacsCommandSetsService) UpdateTacacsCommandSetsByID(id string, reques
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseTacacsCommandSetsUpdateTacacsCommandSetsByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

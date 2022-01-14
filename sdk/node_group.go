@@ -348,6 +348,9 @@ func (s *NodeGroupService) CreateNodeGroup(requestNodeGroupCreateNodeGroup *Requ
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNodeGroupCreateNodeGroup{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -410,6 +413,9 @@ func (s *NodeGroupService) AddNode(nodeGroupName string, requestNodeGroupAddNode
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNodeGroupAddNode{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -472,6 +478,9 @@ func (s *NodeGroupService) RemoveNode(nodeGroupName string, requestNodeGroupRemo
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNodeGroupRemoveNode{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -604,6 +613,9 @@ func (s *NodeGroupService) UpdateNodeGroup(nodeGroupName string, requestNodeGrou
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNodeGroupUpdateNodeGroup{}, response, nil
+		}
 		return nil, nil, err
 
 	}

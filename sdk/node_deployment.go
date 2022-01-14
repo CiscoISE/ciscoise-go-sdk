@@ -240,6 +240,9 @@ func (s *NodeDeploymentService) RegisterNode(requestNodeDeploymentRegisterNode *
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNodeDeploymentRegisterNode{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -271,6 +274,9 @@ func (s *NodeDeploymentService) MakePrimary() (*ResponseNodeDeploymentMakePrimar
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNodeDeploymentMakePrimary{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -303,6 +309,9 @@ func (s *NodeDeploymentService) PromoteNode() (*ResponseNodeDeploymentPromoteNod
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNodeDeploymentPromoteNode{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -334,6 +343,9 @@ func (s *NodeDeploymentService) MakeStandalone() (*ResponseNodeDeploymentMakeSta
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNodeDeploymentMakeStandalone{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -368,6 +380,9 @@ func (s *NodeDeploymentService) SyncNode(hostname string) (*ResponseNodeDeployme
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNodeDeploymentSyncNode{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -403,6 +418,9 @@ func (s *NodeDeploymentService) UpdateDeploymentNode(hostname string, requestNod
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNodeDeploymentUpdateDeploymentNode{}, response, nil
+		}
 		return nil, nil, err
 
 	}

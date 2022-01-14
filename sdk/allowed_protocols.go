@@ -694,6 +694,9 @@ func (s *AllowedProtocolsService) UpdateAllowedProtocolByID(id string, requestAl
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseAllowedProtocolsUpdateAllowedProtocolByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

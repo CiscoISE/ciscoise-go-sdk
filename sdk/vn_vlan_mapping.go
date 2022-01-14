@@ -212,6 +212,9 @@ func (s *VnVLANMappingService) CreateVnVLANMapping(requestVnVLANMappingCreateVnV
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseVnVLANMappingCreateVnVLANMapping{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -244,6 +247,9 @@ func (s *VnVLANMappingService) BulkCreateVnVLANMappings(requestVnVLANMappingBulk
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseVnVLANMappingBulkCreateVnVLANMappings{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -276,6 +282,9 @@ func (s *VnVLANMappingService) BulkDeleteVnVLANMappings(requestVnVLANMappingBulk
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseVnVLANMappingBulkDeleteVnVLANMappings{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -308,6 +317,9 @@ func (s *VnVLANMappingService) BulkUpdateVnVLANMappings(requestVnVLANMappingBulk
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseVnVLANMappingBulkUpdateVnVLANMappings{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -342,6 +354,9 @@ func (s *VnVLANMappingService) UpdateVnVLANMappingByID(id string, requestVnVLANM
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseVnVLANMappingUpdateVnVLANMappingByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

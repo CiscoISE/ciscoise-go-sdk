@@ -506,6 +506,9 @@ func (s *GuestTypeService) UpdateGuestTypeByID(id string, requestGuestTypeUpdate
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseGuestTypeUpdateGuestTypeByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

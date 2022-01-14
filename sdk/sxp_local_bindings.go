@@ -375,6 +375,9 @@ func (s *SxpLocalBindingsService) UpdateSxpLocalBindingsByID(id string, requestS
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseSxpLocalBindingsUpdateSxpLocalBindingsByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

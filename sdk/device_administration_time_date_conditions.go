@@ -471,6 +471,9 @@ func (s *DeviceAdministrationTimeDateConditionsService) CreateDeviceAdminTimeCon
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseDeviceAdministrationTimeDateConditionsCreateDeviceAdminTimeCondition{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -505,6 +508,9 @@ func (s *DeviceAdministrationTimeDateConditionsService) UpdateDeviceAdminTimeCon
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseDeviceAdministrationTimeDateConditionsUpdateDeviceAdminTimeConditionByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

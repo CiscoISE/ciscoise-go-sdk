@@ -1191,6 +1191,9 @@ func (s *SelfRegisteredPortalService) UpdateSelfRegisteredPortalByID(id string, 
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseSelfRegisteredPortalUpdateSelfRegisteredPortalByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

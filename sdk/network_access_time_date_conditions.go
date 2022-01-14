@@ -471,6 +471,9 @@ func (s *NetworkAccessTimeDateConditionsService) CreateNetworkAccessTimeConditio
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkAccessTimeDateConditionsCreateNetworkAccessTimeCondition{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -505,6 +508,9 @@ func (s *NetworkAccessTimeDateConditionsService) UpdateNetworkAccessTimeConditio
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkAccessTimeDateConditionsUpdateNetworkAccessTimeConditionByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

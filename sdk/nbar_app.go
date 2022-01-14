@@ -176,6 +176,9 @@ func (s *NbarAppService) CreateNbarApp(requestNbarAppCreateNBARApp *RequestNbarA
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNbarAppCreateNbarApp{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -210,6 +213,9 @@ func (s *NbarAppService) UpdateNbarAppByID(id string, requestNbarAppUpdateNBARAp
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNbarAppUpdateNbarAppByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

@@ -798,6 +798,9 @@ func (s *GuestUserService) UpdateGuestUserByName(name string, requestGuestUserUp
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseGuestUserUpdateGuestUserByName{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -832,6 +835,9 @@ func (s *GuestUserService) ResetGuestUserPasswordByID(id string) (*ResponseGuest
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseGuestUserResetGuestUserPasswordByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -1000,6 +1006,9 @@ func (s *GuestUserService) UpdateGuestUserByID(id string, requestGuestUserUpdate
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseGuestUserUpdateGuestUserByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

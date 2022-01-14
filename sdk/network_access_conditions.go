@@ -1020,6 +1020,9 @@ func (s *NetworkAccessConditionsService) CreateNetworkAccessCondition(requestNet
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkAccessConditionsCreateNetworkAccessCondition{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -1054,6 +1057,9 @@ func (s *NetworkAccessConditionsService) UpdateNetworkAccessConditionByName(name
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkAccessConditionsUpdateNetworkAccessConditionByName{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -1089,6 +1095,9 @@ func (s *NetworkAccessConditionsService) UpdateNetworkAccessConditionByID(id str
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkAccessConditionsUpdateNetworkAccessConditionByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

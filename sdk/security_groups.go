@@ -385,6 +385,9 @@ func (s *SecurityGroupsService) UpdateSecurityGroupByID(id string, requestSecuri
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseSecurityGroupsUpdateSecurityGroupByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

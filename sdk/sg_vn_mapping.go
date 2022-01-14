@@ -200,6 +200,9 @@ func (s *SgVnMappingService) CreateSgVnMapping(requestSgVnMappingCreateSgVnMappi
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseSgVnMappingCreateSgVnMapping{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -232,6 +235,9 @@ func (s *SgVnMappingService) BulkCreateSgVnMappings(requestSgVnMappingBulkCreate
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseSgVnMappingBulkCreateSgVnMappings{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -264,6 +270,9 @@ func (s *SgVnMappingService) BulkDeleteSgVnMappings(requestSgVnMappingBulkDelete
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseSgVnMappingBulkDeleteSgVnMappings{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -296,6 +305,9 @@ func (s *SgVnMappingService) BulkUpdateSgVnMappings(requestSgVnMappingBulkUpdate
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseSgVnMappingBulkUpdateSgVnMappings{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -330,6 +342,9 @@ func (s *SgVnMappingService) UpdateSgVnMappingByID(id string, requestSgVnMapping
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseSgVnMappingUpdateSgVnMappingByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

@@ -366,6 +366,9 @@ func (s *TacacsProfileService) UpdateTacacsProfileByID(id string, requestTacacsP
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseTacacsProfileUpdateTacacsProfileByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

@@ -380,6 +380,9 @@ func (s *SxpConnectionsService) UpdateSxpConnectionsByID(id string, requestSxpCo
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseSxpConnectionsUpdateSxpConnectionsByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

@@ -385,6 +385,9 @@ func (s *SecurityGroupsACLsService) UpdateSecurityGroupsACLByID(id string, reque
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseSecurityGroupsACLsUpdateSecurityGroupsACLByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

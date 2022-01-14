@@ -707,6 +707,9 @@ func (s *EndpointService) UpdateEndpointByID(id string, requestEndpointUpdateEnd
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseEndpointUpdateEndpointByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}
