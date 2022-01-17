@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.2] - 2021-12-17
+### Fixed
+- Fix return values for POST/PUT operations in cases where the response is an empty string rather than the expected structure.
+
+
 ## [1.1.1] - 2021-12-17
 ### Fixed
 - Fix GuestUserCustomFields structs from interface{} to map[string]interface{}
@@ -88,4 +93,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.0.0]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v0.0.8...v1.0.0
 [1.1.0]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.0.0...v1.1.0
 [1.1.1]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.0...v1.1.1
+[1.1.2]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.1...v1.1.2
 [Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.1...main
