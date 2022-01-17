@@ -649,6 +649,9 @@ func (s *ByodPortalService) UpdateByodPortalByID(id string, requestByodPortalUpd
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseByodPortalUpdateByodPortalByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

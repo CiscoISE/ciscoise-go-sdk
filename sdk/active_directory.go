@@ -703,6 +703,9 @@ func (s *ActiveDirectoryService) GetUserGroups(id string, requestActiveDirectory
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseActiveDirectoryGetUserGroups{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -804,6 +807,9 @@ func (s *ActiveDirectoryService) IsUserMemberOfGroups(id string, requestActiveDi
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseActiveDirectoryIsUserMemberOfGroups{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -838,6 +844,9 @@ func (s *ActiveDirectoryService) GetTrustedDomains(id string) (*ResponseActiveDi
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseActiveDirectoryGetTrustedDomains{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -939,6 +948,9 @@ func (s *ActiveDirectoryService) GetGroupsByDomain(id string, requestActiveDirec
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseActiveDirectoryGetGroupsByDomain{}, response, nil
+		}
 		return nil, nil, err
 
 	}

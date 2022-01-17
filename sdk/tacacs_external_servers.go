@@ -342,6 +342,9 @@ func (s *TacacsExternalServersService) UpdateTacacsExternalServersByID(id string
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseTacacsExternalServersUpdateTacacsExternalServersByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

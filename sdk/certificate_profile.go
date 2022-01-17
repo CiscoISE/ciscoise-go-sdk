@@ -340,6 +340,9 @@ func (s *CertificateProfileService) UpdateCertificateProfileByID(id string, requ
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseCertificateProfileUpdateCertificateProfileByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

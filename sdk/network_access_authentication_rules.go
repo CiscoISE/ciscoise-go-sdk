@@ -643,6 +643,9 @@ func (s *NetworkAccessAuthenticationRulesService) CreateNetworkAccessAuthenticat
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRule{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -676,6 +679,9 @@ func (s *NetworkAccessAuthenticationRulesService) ResetHitCountsNetworkAccessAut
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkAccessAuthenticationRulesResetHitCountsNetworkAccessAuthenticationRules{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -712,6 +718,9 @@ func (s *NetworkAccessAuthenticationRulesService) UpdateNetworkAccessAuthenticat
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkAccessAuthenticationRulesUpdateNetworkAccessAuthenticationRuleByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

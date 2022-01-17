@@ -359,6 +359,9 @@ func (s *IDentitySequenceService) UpdateIDentitySequenceByID(id string, requestI
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseIDentitySequenceUpdateIDentitySequenceByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

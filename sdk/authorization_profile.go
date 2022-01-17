@@ -571,6 +571,9 @@ func (s *AuthorizationProfileService) UpdateAuthorizationProfileByID(id string, 
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseAuthorizationProfileUpdateAuthorizationProfileByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

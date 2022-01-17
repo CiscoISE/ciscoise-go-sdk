@@ -366,6 +366,9 @@ func (s *ExternalRadiusServerService) UpdateExternalRadiusServerByID(id string, 
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseExternalRadiusServerUpdateExternalRadiusServerByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

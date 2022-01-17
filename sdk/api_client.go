@@ -25,6 +25,8 @@ const ISE_SSL_VERIFY = "ISE_SSL_VERIFY"
 const ISE_USE_API_GATEWAY = "ISE_USE_API_GATEWAY"
 const ISE_USE_CSRF_TOKEN = "ISE_USE_CSRF_TOKEN"
 
+const emptyStringToJSONError = "unexpected end of JSON input"
+
 type FileDownload struct {
 	FileName string
 	FileData []byte

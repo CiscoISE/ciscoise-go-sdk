@@ -812,6 +812,9 @@ func (s *NetworkDeviceService) UpdateNetworkDeviceByName(name string, requestNet
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkDeviceUpdateNetworkDeviceByName{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -847,6 +850,9 @@ func (s *NetworkDeviceService) UpdateNetworkDeviceByID(id string, requestNetwork
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkDeviceUpdateNetworkDeviceByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

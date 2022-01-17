@@ -442,6 +442,9 @@ func (s *IPToSgtMappingGroupService) GetDeployStatusIPToSgtMappingGroup() (*Resp
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseIPToSgtMappingGroupGetDeployStatusIPToSgtMappingGroup{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -477,6 +480,9 @@ func (s *IPToSgtMappingGroupService) UpdateIPToSgtMappingGroupByID(id string, re
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseIPToSgtMappingGroupUpdateIPToSgtMappingGroupByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

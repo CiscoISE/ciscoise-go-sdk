@@ -1020,6 +1020,9 @@ func (s *DeviceAdministrationConditionsService) CreateDeviceAdminCondition(reque
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseDeviceAdministrationConditionsCreateDeviceAdminCondition{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -1054,6 +1057,9 @@ func (s *DeviceAdministrationConditionsService) UpdateDeviceAdminConditionByName
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseDeviceAdministrationConditionsUpdateDeviceAdminConditionByName{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -1089,6 +1095,9 @@ func (s *DeviceAdministrationConditionsService) UpdateDeviceAdminConditionByID(i
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseDeviceAdministrationConditionsUpdateDeviceAdminConditionByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

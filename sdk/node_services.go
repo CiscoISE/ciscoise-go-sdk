@@ -334,6 +334,9 @@ func (s *NodeServicesService) SetSxpInterface(hostname string, requestNodeServic
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNodeServicesSetSxpInterface{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -393,6 +396,9 @@ func (s *NodeServicesService) SetProfilerProbeConfig(hostname string, requestNod
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNodeServicesSetProfilerProbeConfig{}, response, nil
+		}
 		return nil, nil, err
 
 	}

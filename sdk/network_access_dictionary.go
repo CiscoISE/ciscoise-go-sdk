@@ -223,6 +223,9 @@ func (s *NetworkAccessDictionaryService) CreateNetworkAccessDictionaries(request
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkAccessDictionaryCreateNetworkAccessDictionaries{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -257,6 +260,9 @@ func (s *NetworkAccessDictionaryService) UpdateNetworkAccessDictionaryByName(nam
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkAccessDictionaryUpdateNetworkAccessDictionaryByName{}, response, nil
+		}
 		return nil, nil, err
 
 	}

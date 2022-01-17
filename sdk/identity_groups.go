@@ -352,6 +352,9 @@ func (s *IDentityGroupsService) UpdateIDentityGroupByID(id string, requestIDenti
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseIDentityGroupsUpdateIDentityGroupByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

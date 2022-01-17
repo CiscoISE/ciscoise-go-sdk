@@ -607,6 +607,9 @@ func (s *NetworkAccessPolicySetService) CreateNetworkAccessPolicySet(requestNetw
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkAccessPolicySetCreateNetworkAccessPolicySet{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -638,6 +641,9 @@ func (s *NetworkAccessPolicySetService) ResetHitCountsNetworkAccessPolicySets() 
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkAccessPolicySetResetHitCountsNetworkAccessPolicySets{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -672,6 +678,9 @@ func (s *NetworkAccessPolicySetService) UpdateNetworkAccessPolicySetByID(id stri
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkAccessPolicySetUpdateNetworkAccessPolicySetByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

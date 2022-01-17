@@ -188,6 +188,9 @@ func (s *VirtualNetworkService) CreateVirtualNetwork(requestVirtualNetworkCreate
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseVirtualNetworkCreateVirtualNetwork{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -220,6 +223,9 @@ func (s *VirtualNetworkService) BulkCreateVirtualNetworks(requestVirtualNetworkB
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseVirtualNetworkBulkCreateVirtualNetworks{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -252,6 +258,9 @@ func (s *VirtualNetworkService) BulkDeleteVirtualNetworks(requestVirtualNetworkB
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseVirtualNetworkBulkDeleteVirtualNetworks{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -284,6 +293,9 @@ func (s *VirtualNetworkService) BulkUpdateVirtualNetworks(requestVirtualNetworkB
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseVirtualNetworkBulkUpdateVirtualNetworks{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -318,6 +330,9 @@ func (s *VirtualNetworkService) UpdateVirtualNetworkByID(id string, requestVirtu
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseVirtualNetworkUpdateVirtualNetworkByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

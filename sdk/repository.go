@@ -209,6 +209,9 @@ func (s *RepositoryService) CreateRepository(requestRepositoryCreateRepository *
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseRepositoryCreateRepository{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -243,6 +246,9 @@ func (s *RepositoryService) UpdateRepository(repositoryName string, requestRepos
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseRepositoryUpdateRepository{}, response, nil
+		}
 		return nil, nil, err
 
 	}

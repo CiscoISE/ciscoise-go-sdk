@@ -625,6 +625,9 @@ func (s *DeviceAdministrationAuthorizationGlobalExceptionRulesService) CreateDev
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseDeviceAdministrationAuthorizationGlobalExceptionRulesCreateDeviceAdminPolicySetGlobalException{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -656,6 +659,9 @@ func (s *DeviceAdministrationAuthorizationGlobalExceptionRulesService) ResetHitC
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseDeviceAdministrationAuthorizationGlobalExceptionRulesResetHitCountsDeviceAdminGlobalExceptions{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -690,6 +696,9 @@ func (s *DeviceAdministrationAuthorizationGlobalExceptionRulesService) UpdateDev
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseDeviceAdministrationAuthorizationGlobalExceptionRulesUpdateDeviceAdminPolicySetGlobalExceptionByRuleID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

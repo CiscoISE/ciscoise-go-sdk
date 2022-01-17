@@ -168,6 +168,9 @@ func (s *PatchingService) InstallHotpatch(requestPatchingInstallHotpatch *Reques
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponsePatchingInstallHotpatch{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -200,6 +203,9 @@ func (s *PatchingService) RollbackHotpatch(requestPatchingRollbackHotpatch *Requ
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponsePatchingRollbackHotpatch{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -232,6 +238,9 @@ func (s *PatchingService) InstallPatch(requestPatchingInstallPatch *RequestPatch
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponsePatchingInstallPatch{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -264,6 +273,9 @@ func (s *PatchingService) RollbackPatch(requestPatchingRollbackPatch *RequestPat
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponsePatchingRollbackPatch{}, response, nil
+		}
 		return nil, nil, err
 
 	}

@@ -457,6 +457,9 @@ func (s *EgressMatrixCellService) CloneMatrixCell(id string, srcSgtID string, ds
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseEgressMatrixCellCloneMatrixCell{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -492,6 +495,9 @@ func (s *EgressMatrixCellService) UpdateEgressMatrixCellByID(id string, requestE
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseEgressMatrixCellUpdateEgressMatrixCellByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

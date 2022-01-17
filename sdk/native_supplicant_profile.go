@@ -250,6 +250,9 @@ func (s *NativeSupplicantProfileService) UpdateNativeSupplicantProfileByID(id st
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNativeSupplicantProfileUpdateNativeSupplicantProfileByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

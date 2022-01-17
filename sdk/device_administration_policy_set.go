@@ -607,6 +607,9 @@ func (s *DeviceAdministrationPolicySetService) CreateDeviceAdminPolicySet(reques
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseDeviceAdministrationPolicySetCreateDeviceAdminPolicySet{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -638,6 +641,9 @@ func (s *DeviceAdministrationPolicySetService) ResetHitCountsDeviceAdminPolicySe
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseDeviceAdministrationPolicySetResetHitCountsDeviceAdminPolicySets{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -672,6 +678,9 @@ func (s *DeviceAdministrationPolicySetService) UpdateDeviceAdminPolicySetByID(id
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

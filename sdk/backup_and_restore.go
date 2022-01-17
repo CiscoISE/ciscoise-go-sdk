@@ -209,6 +209,9 @@ func (s *BackupAndRestoreService) ConfigBackup(requestBackupAndRestoreConfigBack
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseBackupAndRestoreConfigBackup{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -240,6 +243,9 @@ func (s *BackupAndRestoreService) CancelBackup() (*ResponseBackupAndRestoreCance
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseBackupAndRestoreCancelBackup{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -272,6 +278,9 @@ func (s *BackupAndRestoreService) RestoreConfigBackup(requestBackupAndRestoreRes
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseBackupAndRestoreRestoreConfigBackup{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -304,6 +313,9 @@ func (s *BackupAndRestoreService) CreateScheduledConfigBackup(requestBackupAndRe
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseBackupAndRestoreCreateScheduledConfigBackup{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -336,6 +348,9 @@ func (s *BackupAndRestoreService) UpdateScheduledConfigBackup(requestBackupAndRe
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseBackupAndRestoreUpdateScheduledConfigBackup{}, response, nil
+		}
 		return nil, nil, err
 
 	}

@@ -1239,6 +1239,9 @@ func (s *CertificatesService) GenerateCsr(requestCertificatesGenerateCSR *Reques
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseCertificatesGenerateCsr{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -1270,6 +1273,9 @@ func (s *CertificatesService) GenerateIntermediateCaCsr() (*ResponseCertificates
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseCertificatesGenerateIntermediateCaCsr{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -1303,6 +1309,9 @@ func (s *CertificatesService) RegenerateIseRootCa(requestCertificatesRegenerateI
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseCertificatesRegenerateIseRootCa{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -1335,6 +1344,9 @@ func (s *CertificatesService) RenewCerts(requestCertificatesRenewCerts *RequestC
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseCertificatesRenewCerts{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -1588,6 +1600,9 @@ func (s *CertificatesService) BindCsr(requestCertificatesBindCSR *RequestCertifi
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseCertificatesBindCsr{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -2105,6 +2120,9 @@ func (s *CertificatesService) GenerateSelfSignedCertificate(requestCertificatesG
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseCertificatesGenerateSelfSignedCertificate{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -2401,6 +2419,9 @@ func (s *CertificatesService) ImportSystemCert(requestCertificatesImportSystemCe
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseCertificatesImportSystemCert{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -2629,6 +2650,9 @@ func (s *CertificatesService) ImportTrustCert(requestCertificatesImportTrustCert
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseCertificatesImportTrustCert{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -2888,6 +2912,9 @@ func (s *CertificatesService) UpdateSystemCert(id string, hostName string, reque
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseCertificatesUpdateSystemCert{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -3320,6 +3347,9 @@ func (s *CertificatesService) UpdateTrustedCertificate(id string, requestCertifi
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseCertificatesUpdateTrustedCertificate{}, response, nil
+		}
 		return nil, nil, err
 
 	}

@@ -675,6 +675,9 @@ func (s *SponsorPortalService) UpdateSponsorPortalByID(id string, requestSponsor
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseSponsorPortalUpdateSponsorPortalByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

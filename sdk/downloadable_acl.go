@@ -277,6 +277,9 @@ func (s *DownloadableACLService) UpdateDownloadableACLByID(id string, requestDow
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseDownloadableACLUpdateDownloadableACLByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

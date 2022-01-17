@@ -631,6 +631,9 @@ func (s *DeviceAdministrationAuthorizationExceptionRulesService) CreateDeviceAdm
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseDeviceAdministrationAuthorizationExceptionRulesCreateDeviceAdminLocalExceptionRule{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -664,6 +667,9 @@ func (s *DeviceAdministrationAuthorizationExceptionRulesService) ResetHitCountsD
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseDeviceAdministrationAuthorizationExceptionRulesResetHitCountsDeviceAdminLocalExceptions{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -700,6 +706,9 @@ func (s *DeviceAdministrationAuthorizationExceptionRulesService) UpdateDeviceAdm
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseDeviceAdministrationAuthorizationExceptionRulesUpdateDeviceAdminLocalExceptionRuleByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

@@ -625,6 +625,9 @@ func (s *NetworkAccessAuthorizationGlobalExceptionRulesService) CreateNetworkAcc
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkAccessAuthorizationGlobalExceptionRulesCreateNetworkAccessPolicySetGlobalExceptionRule{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -656,6 +659,9 @@ func (s *NetworkAccessAuthorizationGlobalExceptionRulesService) ResetHitCountsNe
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkAccessAuthorizationGlobalExceptionRulesResetHitCountsNetworkAccessGlobalExceptions{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -690,6 +696,9 @@ func (s *NetworkAccessAuthorizationGlobalExceptionRulesService) UpdateNetworkAcc
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkAccessAuthorizationGlobalExceptionRulesUpdateNetworkAccessPolicySetGlobalExceptionRuleByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

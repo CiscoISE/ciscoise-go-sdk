@@ -321,6 +321,9 @@ func (s *DeviceAdministrationNetworkConditionsService) CreateDeviceAdminNetworkC
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseDeviceAdministrationNetworkConditionsCreateDeviceAdminNetworkCondition{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -355,6 +358,9 @@ func (s *DeviceAdministrationNetworkConditionsService) UpdateDeviceAdminNetworkC
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseDeviceAdministrationNetworkConditionsUpdateDeviceAdminNetworkConditionByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

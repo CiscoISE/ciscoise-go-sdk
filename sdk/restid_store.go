@@ -440,6 +440,9 @@ func (s *RestidStoreService) UpdateRestIDStoreByName(name string, requestRestidS
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseRestidStoreUpdateRestIDStoreByName{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -475,6 +478,9 @@ func (s *RestidStoreService) UpdateRestIDStoreByID(id string, requestRestidStore
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseRestidStoreUpdateRestIDStoreByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

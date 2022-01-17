@@ -631,6 +631,9 @@ func (s *NetworkAccessAuthorizationExceptionRulesService) CreateNetworkAccessLoc
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkAccessAuthorizationExceptionRulesCreateNetworkAccessLocalExceptionRule{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -664,6 +667,9 @@ func (s *NetworkAccessAuthorizationExceptionRulesService) ResetHitCountsNetworkA
 		Post(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkAccessAuthorizationExceptionRulesResetHitCountsNetworkAccessLocalExceptions{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -700,6 +706,9 @@ func (s *NetworkAccessAuthorizationExceptionRulesService) UpdateNetworkAccessLoc
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNetworkAccessAuthorizationExceptionRulesUpdateNetworkAccessLocalExceptionRuleByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}

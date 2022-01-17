@@ -445,6 +445,9 @@ func (s *InternalUserService) UpdateInternalUserByName(name string, requestInter
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseInternalUserUpdateInternalUserByName{}, response, nil
+		}
 		return nil, nil, err
 
 	}
@@ -480,6 +483,9 @@ func (s *InternalUserService) UpdateInternalUserByID(id string, requestInternalU
 		Put(path)
 
 	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseInternalUserUpdateInternalUserByID{}, response, nil
+		}
 		return nil, nil, err
 
 	}
