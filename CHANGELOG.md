@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.3] - 2022-02-10
+
+## Changed
+- Update go-resty/resty/v2 from 2.6.0 to 2.7.0.
+
 ## [1.1.2] - 2021-12-17
 ### Fixed
 - Fix return values for POST/PUT operations in cases where the response is an empty string rather than the expected structure.
@@ -94,4 +99,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.1.0]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.0.0...v1.1.0
 [1.1.1]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.0...v1.1.1
 [1.1.2]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.1...v1.1.2
-[Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.1...main
+[1.1.3]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.2...v1.1.3
+[Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.3...main
