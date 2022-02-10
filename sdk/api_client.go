@@ -171,7 +171,7 @@ type service struct {
 
 func setHost(client *resty.Client, module string) {
 	port := getPort(module)
-	client.SetHostURL(host + port)
+	client.SetBaseURL(host + port)
 }
 
 func getCSFRToken(headers map[string][]string) {
