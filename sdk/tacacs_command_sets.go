@@ -159,9 +159,9 @@ type RequestTacacsCommandSetsUpdateTacacsCommandSetsByIDTacacsCommandSetsCommand
 }
 
 type RequestTacacsCommandSetsUpdateTacacsCommandSetsByIDTacacsCommandSetsCommandsCommandList struct {
-	Grant     string `json:"grant,omitempty"`     // Allowed values: PERMIT, DENY, DENY_ALWAYS
-	Command   string `json:"command,omitempty"`   //
-	Arguments string `json:"arguments,omitempty"` //
+	Grant     string `json:"grant,omitempty"`   // Allowed values: PERMIT, DENY, DENY_ALWAYS
+	Command   string `json:"command,omitempty"` //
+	Arguments string `json:"arguments"`         //
 }
 
 type RequestTacacsCommandSetsCreateTacacsCommandSets struct {
@@ -180,9 +180,9 @@ type RequestTacacsCommandSetsCreateTacacsCommandSetsTacacsCommandSetsCommands st
 }
 
 type RequestTacacsCommandSetsCreateTacacsCommandSetsTacacsCommandSetsCommandsCommandList struct {
-	Grant     string `json:"grant,omitempty"`     // Allowed values: PERMIT, DENY, DENY_ALWAYS
-	Command   string `json:"command,omitempty"`   //
-	Arguments string `json:"arguments,omitempty"` //
+	Grant     string `json:"grant,omitempty"`   // Allowed values: PERMIT, DENY, DENY_ALWAYS
+	Command   string `json:"command,omitempty"` //
+	Arguments string `json:"arguments"`         //
 }
 
 //GetTacacsCommandSetsByName Get TACACS command sets by name
