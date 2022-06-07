@@ -4,7 +4,7 @@ ciscoise-go-sdk is a go client library for [Cisco Identity Services Engine (ISE)
 ## Introduction
 The ciscoise-go-sdk makes it easier to work with the Cisco Identity Services Engine (ISE) RESTFul APIs from Go.
 
-It supports version 3.1.1, but it is backward compatible with other versions as long as those versions use the same URLs and options as version 3.1.1.
+It supports version 3.1_Patch_1, but it is backward compatible with other versions as long as those versions use the same URLs and options as version 3.1_Patch_1.
 
 ## Getting started
 
@@ -121,7 +121,7 @@ https://pkg.go.dev/github.com/CiscoISE/ciscoise-go-sdk
 |--------------|-----------------------------|
 | 0.y.z        |  3.1.0                      |
 | 1.0.z        |  3.1.0                      |
-| 1.1.z        |  3.1.1                      |
+| 1.1.z        |  3.1_Patch_1                |
 
 ## Changelog
 
