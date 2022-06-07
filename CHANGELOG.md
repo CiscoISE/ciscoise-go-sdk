@@ -5,13 +5,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.1.5] - 2022-06-07
+### Fixed
+- Fixed ISE version 3.1.1 to 3.1_Patch_1 which is the correct version name.
+
 ## [1.1.4] - 2022-05-11
 ## Changed
 -  Parameter `Arguments` of `RequestTacacsCommandSets` structs now can be empty.
 
 ## [1.1.3] - 2022-02-10
 
-## Changed
+### Changed
 - Update go-resty/resty/v2 from 2.6.0 to 2.7.0.
 
 ## [1.1.2] - 2021-12-17
@@ -104,4 +109,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.1.2]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.1...v1.1.2
 [1.1.3]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.2...v1.1.3
 [1.1.4]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.3...v1.1.4
-[Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.4...main
+[1.1.5]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.4...v1.1.5
+[Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.5...main
