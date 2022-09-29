@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.7] - 2022-09-29
+### Added 
+- Add parameters `ID` and `Name` to `RequestNetworkAccessPolicySetCreateNetworkAccessPolicySetCondition` struct on `NetworkAccessPolicySetService`.
+  
+## [1.1.6] - 2022-06-07
+### Fixed
+- Fixed `network_access_policy_set` functions.
+
 ## [1.1.5] - 2022-06-07
 ### Fixed
 - Fixed ISE version 3.1.1 to 3.1_Patch_1 which is the correct version name.
@@ -110,4 +118,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.1.3]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.2...v1.1.3
 [1.1.4]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.3...v1.1.4
 [1.1.5]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.4...v1.1.5
-[Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.5...main
+[1.1.6]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.5...v1.1.6
+[1.1.7]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.6...v1.1.7
+[Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.7...main
