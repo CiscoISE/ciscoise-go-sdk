@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.9] - 2022-10-03
+### Added 
+- Add parameter `description` to `RequestNetworkAccessPolicySetUpdateNetworkAccessPolicySetByIDCondition` struct on `NetworkAccessPolicySetService`.
+
 ## [1.1.8] - 2022-09-30
 ### Added 
 - Add parameter `description` to `RequestNetworkAccessPolicySetCreateNetworkAccessPolicySetCondition` struct on `NetworkAccessPolicySetService`.
