@@ -281,6 +281,9 @@ type RequestNetworkAccessPolicySetUpdateNetworkAccessPolicySetByID struct {
 
 type RequestNetworkAccessPolicySetUpdateNetworkAccessPolicySetByIDCondition struct {
 	ConditionType string                                                                            `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	ID            string                                                                            `json:"id,omitempty"`            // ID
+	Name          string                                                                            `json:"name,omitempty"`          // Name
+	Description   string                                                                            `json:"description,omitempty"`   // Description
 	IsNegate      *bool                                                                             `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
 	Link          *RequestNetworkAccessPolicySetUpdateNetworkAccessPolicySetByIDConditionLink       `json:"link,omitempty"`          //
 	Children      *[]RequestNetworkAccessPolicySetUpdateNetworkAccessPolicySetByIDConditionChildren `json:"children,omitempty"`      // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
