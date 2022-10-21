@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.11] - 2022-10-21
+### Added 
+- On `network_device` change `Othername` parameter to `Ndgtype`.
+
 ## [1.1.10] - 2022-10-21
 ### Added 
 - On `active_directory` change `GroupName` parameter to `Name`.
@@ -135,4 +139,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.1.8]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.7...v1.1.8
 [1.1.9]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.8...v1.1.9
 [1.1.10]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.9...v1.1.10
-[Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.10...main
+[1.1.11]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.10...v1.1.11
+[Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.11...main
