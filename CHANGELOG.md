@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.13] - 2022-10-26
+### Added
+Following parameters were added to `RequestDeviceAdministrationPolicySetUpdateDeviceAdminPolicySetByIDConditionChildren` struct: `DictionaryName`,`AttributeName`, `Operator`, `AttributeValue`.
+
 ## [1.1.12] - 2022-10-26
 ### Added
 Following parameters were added to `RequestNetworkAccessAuthenticationRulesCreateNetworkAccessAuthenticationRuleRuleCondition` struct: `DictionaryName`,`AttributeName`, `Operator`, `AttributeValue`.
@@ -145,4 +149,5 @@ Following parameters were added to `RequestNetworkAccessAuthenticationRulesCreat
 [1.1.10]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.9...v1.1.10
 [1.1.11]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.10...v1.1.11
 [1.1.12]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.11...v1.1.12
-[Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.12...main
+[1.1.13]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.11...v1.1.12
+[Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.13...main
