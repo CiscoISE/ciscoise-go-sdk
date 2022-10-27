@@ -5,6 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [1.1.14] - 2022-10-27
+### Added
+Following parameters were added: `DictionaryName`,`AttributeName`, `Operator`, `AttributeValue` in following services:
+- `device_administration_authentication_rules`
+- `device_administration_authorization_exception_rules`
+- `device_administration_authorization_global_exception_rules`
+- `device_administration_authorization_rules`
+- `network_access_authorization_rules`
+- `network_access_policy_set`
 
 ## [1.1.13] - 2022-10-26
 ### Added
@@ -150,4 +159,5 @@ Following parameters were added to `RequestNetworkAccessAuthenticationRulesCreat
 [1.1.11]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.10...v1.1.11
 [1.1.12]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.11...v1.1.12
 [1.1.13]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.11...v1.1.12
-[Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.13...main
+[1.1.14]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.11...v1.1.12
+[Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.14...main
