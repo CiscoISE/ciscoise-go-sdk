@@ -26,5 +26,8 @@ Please provide an screenshot of the successful API call with cuRL, Postman, etc.
 * SDK version:
 * OS version: 
 
+**Verify compatibility**
+* [https://github.com/cisco-en-programmability/dnacenter-go-sdk/tree/main#compatibility-matrix](https://github.com/CiscoISE/ciscoise-go-sdk#compatibility-matrix)
+
 **Additional context**
 Add any other context about the problem here.
