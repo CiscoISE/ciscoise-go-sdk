@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [1.1.16] - 2023-01-30
+### Added
+Following parameters were added: `ID` in following services:
+- `network_access_authentication_rules`
+- `network_access_authorization_rules`
+- `network_access_policy_set`
 
 ## [1.1.15] - 2023-01-30
 ### Added
