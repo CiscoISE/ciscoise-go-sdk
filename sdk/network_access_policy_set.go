@@ -63,6 +63,7 @@ type ResponseNetworkAccessPolicySetGetNetworkAccessPolicySetsResponseConditionCh
 	AttributeName  string                                                                                 `json:"attributeName,omitempty"`  // Atribute Name
 	Operator       string                                                                                 `json:"operator,omitempty"`       // Operator
 	AttributeValue string                                                                                 `json:"attributeValue,omitempty"` // Attibute Name
+	ID             string                                                                                 `json:"id,omitempty"`             // Attibute Name
 }
 
 type ResponseNetworkAccessPolicySetGetNetworkAccessPolicySetsResponseConditionChildrenLink struct {
