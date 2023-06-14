@@ -193,6 +193,11 @@ Following parameters were added to `RequestNetworkAccessAuthenticationRulesCreat
 [1.1.10]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.9...v1.1.10
 [1.1.11]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.10...v1.1.11
 [1.1.12]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.11...v1.1.12
-[1.1.13]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.11...v1.1.12
-[1.1.14]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.11...v1.1.12
-[Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.14...main
+[1.1.13]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.12...v1.1.13
+[1.1.14]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.13...v1.1.14
+[1.1.15]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.14...v1.1.15
+[1.1.16]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.15...v1.1.16
+[1.1.17]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.16...v1.1.17
+[1.1.18]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.17...v1.1.18
+[1.1.19]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.18...v1.1.19
+[Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.19...main
