@@ -5,6 +5,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.1.19] - 2023-06-14
+Condition Children struct adding follow attributes:
+- Description   
+- ID
+- Name
+- AttributeName
+- AttributeValue
+- DictionaryName
+- DictionaryValue
+- Operator
+
 ## [1.1.18] - 2023-02-10
 Parameter ID added to:
 - `ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRuleByIDResponseRuleConditionChildren`
