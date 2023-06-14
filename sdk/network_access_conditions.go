@@ -298,9 +298,17 @@ type ResponseNetworkAccessConditionsGetNetworkAccessConditionByNameResponseLink 
 }
 
 type ResponseNetworkAccessConditionsGetNetworkAccessConditionByNameResponseChildren struct {
-	ConditionType string                                                                              `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      *bool                                                                               `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          *ResponseNetworkAccessConditionsGetNetworkAccessConditionByNameResponseChildrenLink `json:"link,omitempty"`          //
+	ConditionType   string                                                                              `json:"conditionType,omitempty"`   // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate        *bool                                                                               `json:"isNegate,omitempty"`        // Indicates whereas this condition is in negate mode
+	Link            *ResponseNetworkAccessConditionsGetNetworkAccessConditionByNameResponseChildrenLink `json:"link,omitempty"`            //
+	Description     string                                                                              `json:"description,omitempty"`     // Condition description
+	ID              string                                                                              `json:"id,omitempty"`              //
+	Name            string                                                                              `json:"name,omitempty"`            // Condition name
+	AttributeName   string                                                                              `json:"attributeName,omitempty"`   // Dictionary attribute name
+	AttributeValue  string                                                                              `json:"attributeValue,omitempty"`  // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName  string                                                                              `json:"dictionaryName,omitempty"`  // Dictionary name
+	DictionaryValue string                                                                              `json:"dictionaryValue,omitempty"` // Dictionary value
+	Operator        string                                                                              `json:"operator,omitempty"`        // Equality operator
 }
 
 type ResponseNetworkAccessConditionsGetNetworkAccessConditionByNameResponseChildrenLink struct {
@@ -362,9 +370,17 @@ type ResponseNetworkAccessConditionsUpdateNetworkAccessConditionByNameResponseLi
 }
 
 type ResponseNetworkAccessConditionsUpdateNetworkAccessConditionByNameResponseChildren struct {
-	ConditionType string                                                                                 `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      *bool                                                                                  `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          *ResponseNetworkAccessConditionsUpdateNetworkAccessConditionByNameResponseChildrenLink `json:"link,omitempty"`          //
+	ConditionType   string                                                                                 `json:"conditionType,omitempty"`   // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate        *bool                                                                                  `json:"isNegate,omitempty"`        // Indicates whereas this condition is in negate mode
+	Link            *ResponseNetworkAccessConditionsUpdateNetworkAccessConditionByNameResponseChildrenLink `json:"link,omitempty"`            //
+	Description     string                                                                                 `json:"description,omitempty"`     // Condition description
+	ID              string                                                                                 `json:"id,omitempty"`              //
+	Name            string                                                                                 `json:"name,omitempty"`            // Condition name
+	AttributeName   string                                                                                 `json:"attributeName,omitempty"`   // Dictionary attribute name
+	AttributeValue  string                                                                                 `json:"attributeValue,omitempty"`  // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName  string                                                                                 `json:"dictionaryName,omitempty"`  // Dictionary name
+	DictionaryValue string                                                                                 `json:"dictionaryValue,omitempty"` // Dictionary value
+	Operator        string                                                                                 `json:"operator,omitempty"`        // Equality operator
 }
 
 type ResponseNetworkAccessConditionsUpdateNetworkAccessConditionByNameResponseChildrenLink struct {
@@ -430,9 +446,17 @@ type ResponseNetworkAccessConditionsGetNetworkAccessConditionsForPolicySetsRespo
 }
 
 type ResponseNetworkAccessConditionsGetNetworkAccessConditionsForPolicySetsResponseChildren struct {
-	ConditionType string                                                                                      `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      *bool                                                                                       `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          *ResponseNetworkAccessConditionsGetNetworkAccessConditionsForPolicySetsResponseChildrenLink `json:"link,omitempty"`          //
+	ConditionType   string                                                                                      `json:"conditionType,omitempty"`   // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate        *bool                                                                                       `json:"isNegate,omitempty"`        // Indicates whereas this condition is in negate mode
+	Link            *ResponseNetworkAccessConditionsGetNetworkAccessConditionsForPolicySetsResponseChildrenLink `json:"link,omitempty"`            //
+	Description     string                                                                                      `json:"description,omitempty"`     // Condition description
+	ID              string                                                                                      `json:"id,omitempty"`              //
+	Name            string                                                                                      `json:"name,omitempty"`            // Condition name
+	AttributeName   string                                                                                      `json:"attributeName,omitempty"`   // Dictionary attribute name
+	AttributeValue  string                                                                                      `json:"attributeValue,omitempty"`  // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName  string                                                                                      `json:"dictionaryName,omitempty"`  // Dictionary name
+	DictionaryValue string                                                                                      `json:"dictionaryValue,omitempty"` // Dictionary value
+	Operator        string                                                                                      `json:"operator,omitempty"`        // Equality operator
 }
 
 type ResponseNetworkAccessConditionsGetNetworkAccessConditionsForPolicySetsResponseChildrenLink struct {
@@ -494,9 +518,17 @@ type ResponseNetworkAccessConditionsGetNetworkAccessConditionByIDResponseLink st
 }
 
 type ResponseNetworkAccessConditionsGetNetworkAccessConditionByIDResponseChildren struct {
-	ConditionType string                                                                            `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      *bool                                                                             `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          *ResponseNetworkAccessConditionsGetNetworkAccessConditionByIDResponseChildrenLink `json:"link,omitempty"`          //
+	ConditionType   string                                                                            `json:"conditionType,omitempty"`   // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate        *bool                                                                             `json:"isNegate,omitempty"`        // Indicates whereas this condition is in negate mode
+	Link            *ResponseNetworkAccessConditionsGetNetworkAccessConditionByIDResponseChildrenLink `json:"link,omitempty"`            //
+	ID              string                                                                            `json:"id,omitempty"`              //
+	Name            string                                                                            `json:"name,omitempty"`            // Condition name
+	AttributeName   string                                                                            `json:"attributeName,omitempty"`   // Dictionary attribute name
+	AttributeValue  string                                                                            `json:"attributeValue,omitempty"`  // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName  string                                                                            `json:"dictionaryName,omitempty"`  // Dictionary name
+	DictionaryValue string                                                                            `json:"dictionaryValue,omitempty"` // Dictionary value
+	Operator        string                                                                            `json:"operator,omitempty"`        // Equality operator
+	Description     string                                                                            `json:"description,omitempty"`     // Condition description
 }
 
 type ResponseNetworkAccessConditionsGetNetworkAccessConditionByIDResponseChildrenLink struct {
@@ -558,9 +590,17 @@ type ResponseNetworkAccessConditionsUpdateNetworkAccessConditionByIDResponseLink
 }
 
 type ResponseNetworkAccessConditionsUpdateNetworkAccessConditionByIDResponseChildren struct {
-	ConditionType string                                                                               `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      *bool                                                                                `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          *ResponseNetworkAccessConditionsUpdateNetworkAccessConditionByIDResponseChildrenLink `json:"link,omitempty"`          //
+	ConditionType   string                                                                               `json:"conditionType,omitempty"`   // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate        *bool                                                                                `json:"isNegate,omitempty"`        // Indicates whereas this condition is in negate mode
+	Link            *ResponseNetworkAccessConditionsUpdateNetworkAccessConditionByIDResponseChildrenLink `json:"link,omitempty"`            //
+	Description     string                                                                               `json:"description,omitempty"`     // Condition description
+	ID              string                                                                               `json:"id,omitempty"`              //
+	Name            string                                                                               `json:"name,omitempty"`            // Condition name
+	AttributeName   string                                                                               `json:"attributeName,omitempty"`   // Dictionary attribute name
+	AttributeValue  string                                                                               `json:"attributeValue,omitempty"`  // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName  string                                                                               `json:"dictionaryName,omitempty"`  // Dictionary name
+	DictionaryValue string                                                                               `json:"dictionaryValue,omitempty"` // Dictionary value
+	Operator        string                                                                               `json:"operator,omitempty"`        // Equality operator
 }
 
 type ResponseNetworkAccessConditionsUpdateNetworkAccessConditionByIDResponseChildrenLink struct {
@@ -621,9 +661,17 @@ type RequestNetworkAccessConditionsCreateNetworkAccessConditionLink struct {
 }
 
 type RequestNetworkAccessConditionsCreateNetworkAccessConditionChildren struct {
-	ConditionType string                                                                  `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      *bool                                                                   `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          *RequestNetworkAccessConditionsCreateNetworkAccessConditionChildrenLink `json:"link,omitempty"`          //
+	ConditionType   string                                                                  `json:"conditionType,omitempty"`   // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate        *bool                                                                   `json:"isNegate,omitempty"`        // Indicates whereas this condition is in negate mode
+	Link            *RequestNetworkAccessConditionsCreateNetworkAccessConditionChildrenLink `json:"link,omitempty"`            //
+	Description     string                                                                  `json:"description,omitempty"`     // Condition description
+	ID              string                                                                  `json:"id,omitempty"`              //
+	Name            string                                                                  `json:"name,omitempty"`            // Condition name
+	AttributeName   string                                                                  `json:"attributeName,omitempty"`   // Dictionary attribute name
+	AttributeValue  string                                                                  `json:"attributeValue,omitempty"`  // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName  string                                                                  `json:"dictionaryName,omitempty"`  // Dictionary name
+	DictionaryValue string                                                                  `json:"dictionaryValue,omitempty"` // Dictionary value
+	Operator        string                                                                  `json:"operator,omitempty"`        // Equality operator
 }
 
 type RequestNetworkAccessConditionsCreateNetworkAccessConditionChildrenLink struct {
@@ -680,9 +728,17 @@ type RequestNetworkAccessConditionsUpdateNetworkAccessConditionByNameLink struct
 }
 
 type RequestNetworkAccessConditionsUpdateNetworkAccessConditionByNameChildren struct {
-	ConditionType string                                                                        `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      *bool                                                                         `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          *RequestNetworkAccessConditionsUpdateNetworkAccessConditionByNameChildrenLink `json:"link,omitempty"`          //
+	ConditionType   string                                                                        `json:"conditionType,omitempty"`   // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate        *bool                                                                         `json:"isNegate,omitempty"`        // Indicates whereas this condition is in negate mode
+	Link            *RequestNetworkAccessConditionsUpdateNetworkAccessConditionByNameChildrenLink `json:"link,omitempty"`            //
+	Description     string                                                                        `json:"description,omitempty"`     // Condition description
+	ID              string                                                                        `json:"id,omitempty"`              //
+	Name            string                                                                        `json:"name,omitempty"`            // Condition name
+	AttributeName   string                                                                        `json:"attributeName,omitempty"`   // Dictionary attribute name
+	AttributeValue  string                                                                        `json:"attributeValue,omitempty"`  // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName  string                                                                        `json:"dictionaryName,omitempty"`  // Dictionary name
+	DictionaryValue string                                                                        `json:"dictionaryValue,omitempty"` // Dictionary value
+	Operator        string                                                                        `json:"operator,omitempty"`        // Equality operator
 }
 
 type RequestNetworkAccessConditionsUpdateNetworkAccessConditionByNameChildrenLink struct {
@@ -739,9 +795,17 @@ type RequestNetworkAccessConditionsUpdateNetworkAccessConditionByIDLink struct {
 }
 
 type RequestNetworkAccessConditionsUpdateNetworkAccessConditionByIDChildren struct {
-	ConditionType string                                                                      `json:"conditionType,omitempty"` // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate      *bool                                                                       `json:"isNegate,omitempty"`      // Indicates whereas this condition is in negate mode
-	Link          *RequestNetworkAccessConditionsUpdateNetworkAccessConditionByIDChildrenLink `json:"link,omitempty"`          //
+	ConditionType   string                                                                      `json:"conditionType,omitempty"`   // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
+	IsNegate        *bool                                                                       `json:"isNegate,omitempty"`        // Indicates whereas this condition is in negate mode
+	Link            *RequestNetworkAccessConditionsUpdateNetworkAccessConditionByIDChildrenLink `json:"link,omitempty"`            //
+	Description     string                                                                      `json:"description,omitempty"`     // Condition description
+	ID              string                                                                      `json:"id,omitempty"`              //
+	Name            string                                                                      `json:"name,omitempty"`            // Condition name
+	AttributeName   string                                                                      `json:"attributeName,omitempty"`   // Dictionary attribute name
+	AttributeValue  string                                                                      `json:"attributeValue,omitempty"`  // <ul><li>Attribute value for condition</li> <li>Value type is specified in dictionary object</li> <li>if multiple values allowed is specified in dictionary object</li></ul>
+	DictionaryName  string                                                                      `json:"dictionaryName,omitempty"`  // Dictionary name
+	DictionaryValue string                                                                      `json:"dictionaryValue,omitempty"` // Dictionary value
+	Operator        string                                                                      `json:"operator,omitempty"`        // Equality operator
 }
 
 type RequestNetworkAccessConditionsUpdateNetworkAccessConditionByIDChildrenLink struct {
