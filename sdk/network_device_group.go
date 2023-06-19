@@ -142,7 +142,7 @@ type RequestNetworkDeviceGroupCreateNetworkDeviceGroup struct {
 type RequestNetworkDeviceGroupCreateNetworkDeviceGroupNetworkDeviceGroup struct {
 	Name        string `json:"name,omitempty"`        //
 	Description string `json:"description,omitempty"` //
-	Ndgtype     string `json:"ndgtype,omitempty"`     //
+	Othername   string `json:"othername,omitempty"`   //
 }
 
 //GetNetworkDeviceGroupByName Get network device group by name
