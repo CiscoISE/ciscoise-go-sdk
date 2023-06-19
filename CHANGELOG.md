@@ -7,8 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [1.1.20] - 2023-06-19
-Condition Children struct adding follow attributes:
 - `RequestNetworkDeviceGroupCreateNetworkDeviceGroupNetworkDeviceGroup` change Ndgtype TO Othername on network_device_group.go.
+- Adding `ParentID` parameter on `RequestEndpointIDentityGroupCreateEndpointGroupEndPointGroup` struct on endpoint_identity_group.
+
 
 ## [1.1.19] - 2023-06-14
 Condition Children struct adding follow attributes:
