@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.20] - 2023-06-19
+- `RequestNetworkDeviceGroupCreateNetworkDeviceGroupNetworkDeviceGroup` change Ndgtype TO Othername on network_device_group.go.
+- Adding `ParentID` parameter on `RequestEndpointIDentityGroupCreateEndpointGroupEndPointGroup` struct on endpoint_identity_group.
+
+
 ## [1.1.19] - 2023-06-14
 Condition Children struct adding follow attributes:
 - Description   
@@ -200,4 +205,5 @@ Following parameters were added to `RequestNetworkAccessAuthenticationRulesCreat
 [1.1.17]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.16...v1.1.17
 [1.1.18]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.17...v1.1.18
 [1.1.19]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.18...v1.1.19
-[Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.19...main
+[1.1.20]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.19...v1.1.20
+[Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.20...main

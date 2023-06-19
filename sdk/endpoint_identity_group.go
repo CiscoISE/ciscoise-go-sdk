@@ -143,6 +143,7 @@ type RequestEndpointIDentityGroupCreateEndpointGroupEndPointGroup struct {
 	Name          string `json:"name,omitempty"`          //
 	Description   string `json:"description,omitempty"`   //
 	SystemDefined *bool  `json:"systemDefined,omitempty"` //
+	ParentID      string `json:"parentId,omitempty"`      //
 }
 
 //GetEndpointGroupByName Get endpoint identity group by name
