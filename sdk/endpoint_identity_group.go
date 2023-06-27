@@ -29,6 +29,7 @@ type ResponseEndpointIDentityGroupGetEndpointGroupByNameEndPointGroup struct {
 	Description   string                                                                `json:"description,omitempty"`   //
 	SystemDefined *bool                                                                 `json:"systemDefined,omitempty"` //
 	Link          *ResponseEndpointIDentityGroupGetEndpointGroupByNameEndPointGroupLink `json:"link,omitempty"`          //
+	ParentID      string                                                                `json:"parentId,omitempty"`      //
 }
 
 type ResponseEndpointIDentityGroupGetEndpointGroupByNameEndPointGroupLink struct {
@@ -47,6 +48,7 @@ type ResponseEndpointIDentityGroupGetEndpointGroupByIDEndPointGroup struct {
 	Description   string                                                              `json:"description,omitempty"`   //
 	SystemDefined *bool                                                               `json:"systemDefined,omitempty"` //
 	Link          *ResponseEndpointIDentityGroupGetEndpointGroupByIDEndPointGroupLink `json:"link,omitempty"`          //
+	ParentID      string                                                              `json:"parentId,omitempty"`      //
 }
 
 type ResponseEndpointIDentityGroupGetEndpointGroupByIDEndPointGroupLink struct {
