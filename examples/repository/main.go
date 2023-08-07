@@ -9,8 +9,8 @@ import (
 
 func main() {
 	// New client definition
-	Client, err := isegosdk.NewClientWithOptions("https://198.18.133.27",
-		"admin", "C1sco12345",
+	Client, err := isegosdk.NewClientWithOptions("https://10.48.35.230",
+		"admin", "Devnet.12345",
 		"false", "false",
 		"false", "false")
 
