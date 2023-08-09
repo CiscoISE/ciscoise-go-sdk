@@ -507,6 +507,7 @@ type RequestAllowedProtocolsCreateAllowedProtocolAllowedProtocolsTeap struct {
 	AcceptClientCertDuringTunnelEst      *bool `json:"acceptClientCertDuringTunnelEst,omitempty"`      //
 	EnableEapChaining                    *bool `json:"enableEapChaining,omitempty"`                    //
 	AllowDowngradeMsk                    *bool `json:"allowDowngradeMsk,omitempty"`                    //
+	RequestBasicPwdAuth                  *bool `json:"requestBasicPwdAuth,omitempty"`                  //
 }
 
 //GetAllowedProtocolByName Get allowed protocol by name
