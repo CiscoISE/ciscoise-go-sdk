@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.1.22] - 2023-08-09
 - Support for nested children conditions was added.
-- Adding parameter `RequestBasicPwdAuth` to `RequestAllowedProtocolsCreateAllowedProtocolAllowedProtocolsTeap` struct.
+- Adding parameter `RequestBasicPwdAuth` to `RequestAllowedProtocolsCreateAllowedProtocolAllowedProtocolsTeap` and `RequestAllowedProtocolsUpdateAllowedProtocolByIDAllowedProtocolsTeap` struct.
 
 ## [1.1.21] - 2023-06-27
 - `ResponseNetworkDeviceGroupGetNetworkDeviceGroupByNameNetworkDeviceGroup`, `ResponseNetworkDeviceGroupGetNetworkDeviceGroupByIDNetworkDeviceGroup` and `RequestNetworkDeviceGroupUpdateNetworkDeviceGroupByIDNetworkDeviceGroup` change Ndgtype TO Othername on network_device_group.go.
