@@ -67,7 +67,7 @@ type ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettings st
 	DeviceAuthenticationSettings  *ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettingsDeviceAuthenticationSettings  `json:"deviceAuthenticationSettings,omitempty"`  //
 	SgaNotificationAndUpdates     *ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettingsSgaNotificationAndUpdates     `json:"sgaNotificationAndUpdates,omitempty"`     //
 	DeviceConfigurationDeployment *ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettingsDeviceConfigurationDeployment `json:"deviceConfigurationDeployment,omitempty"` //
-	PushIDSupport                 *bool                                                                                                  `json:"pushIdSupport,omitempty"`                 //
+	PushIDSupport                 string                                                                                                 `json:"pushIdSupport,omitempty"`                 //
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettingsDeviceAuthenticationSettings struct {
@@ -175,7 +175,7 @@ type ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTrustsecsettings stru
 	DeviceAuthenticationSettings  *ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTrustsecsettingsDeviceAuthenticationSettings  `json:"deviceAuthenticationSettings,omitempty"`  //
 	SgaNotificationAndUpdates     *ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTrustsecsettingsSgaNotificationAndUpdates     `json:"sgaNotificationAndUpdates,omitempty"`     //
 	DeviceConfigurationDeployment *ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTrustsecsettingsDeviceConfigurationDeployment `json:"deviceConfigurationDeployment,omitempty"` //
-	PushIDSupport                 *bool                                                                                                `json:"pushIdSupport,omitempty"`                 //
+	PushIDSupport                 string                                                                                               `json:"pushIdSupport,omitempty"`                 //
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceByIDNetworkDeviceTrustsecsettingsDeviceAuthenticationSettings struct {
@@ -358,7 +358,7 @@ type RequestNetworkDeviceUpdateNetworkDeviceByNameNetworkDeviceTrustsecsettings 
 	DeviceAuthenticationSettings  *RequestNetworkDeviceUpdateNetworkDeviceByNameNetworkDeviceTrustsecsettingsDeviceAuthenticationSettings  `json:"deviceAuthenticationSettings,omitempty"`  //
 	SgaNotificationAndUpdates     *RequestNetworkDeviceUpdateNetworkDeviceByNameNetworkDeviceTrustsecsettingsSgaNotificationAndUpdates     `json:"sgaNotificationAndUpdates,omitempty"`     //
 	DeviceConfigurationDeployment *RequestNetworkDeviceUpdateNetworkDeviceByNameNetworkDeviceTrustsecsettingsDeviceConfigurationDeployment `json:"deviceConfigurationDeployment,omitempty"` //
-	PushIDSupport                 *bool                                                                                                    `json:"pushIdSupport,omitempty"`                 //
+	PushIDSupport                 string                                                                                                   `json:"pushIdSupport,omitempty"`                 //
 }
 
 type RequestNetworkDeviceUpdateNetworkDeviceByNameNetworkDeviceTrustsecsettingsDeviceAuthenticationSettings struct {
@@ -442,7 +442,7 @@ type RequestNetworkDeviceUpdateNetworkDeviceByIDNetworkDeviceTrustsecsettings st
 	DeviceAuthenticationSettings  *RequestNetworkDeviceUpdateNetworkDeviceByIDNetworkDeviceTrustsecsettingsDeviceAuthenticationSettings  `json:"deviceAuthenticationSettings,omitempty"`  //
 	SgaNotificationAndUpdates     *RequestNetworkDeviceUpdateNetworkDeviceByIDNetworkDeviceTrustsecsettingsSgaNotificationAndUpdates     `json:"sgaNotificationAndUpdates,omitempty"`     //
 	DeviceConfigurationDeployment *RequestNetworkDeviceUpdateNetworkDeviceByIDNetworkDeviceTrustsecsettingsDeviceConfigurationDeployment `json:"deviceConfigurationDeployment,omitempty"` //
-	PushIDSupport                 *bool                                                                                                  `json:"pushIdSupport,omitempty"`                 //
+	PushIDSupport                 string                                                                                                 `json:"pushIdSupport,omitempty"`                 //
 }
 
 type RequestNetworkDeviceUpdateNetworkDeviceByIDNetworkDeviceTrustsecsettingsDeviceAuthenticationSettings struct {
@@ -525,7 +525,7 @@ type RequestNetworkDeviceCreateNetworkDeviceNetworkDeviceTrustsecsettings struct
 	DeviceAuthenticationSettings  *RequestNetworkDeviceCreateNetworkDeviceNetworkDeviceTrustsecsettingsDeviceAuthenticationSettings  `json:"deviceAuthenticationSettings,omitempty"`  //
 	SgaNotificationAndUpdates     *RequestNetworkDeviceCreateNetworkDeviceNetworkDeviceTrustsecsettingsSgaNotificationAndUpdates     `json:"sgaNotificationAndUpdates,omitempty"`     //
 	DeviceConfigurationDeployment *RequestNetworkDeviceCreateNetworkDeviceNetworkDeviceTrustsecsettingsDeviceConfigurationDeployment `json:"deviceConfigurationDeployment,omitempty"` //
-	PushIDSupport                 *bool                                                                                              `json:"pushIdSupport,omitempty"`                 //
+	PushIDSupport                 string                                                                                             `json:"pushIdSupport,omitempty"`                 //
 }
 
 type RequestNetworkDeviceCreateNetworkDeviceNetworkDeviceTrustsecsettingsDeviceAuthenticationSettings struct {
