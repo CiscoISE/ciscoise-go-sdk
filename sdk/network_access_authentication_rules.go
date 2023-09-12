@@ -60,7 +60,7 @@ type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRules
 	WeekDaysException   []string                                                                                                             `json:"weekDaysException,omitempty"`   // <p>Defines for which days this condition will NOT be matched<br> Days format - Arrays of WeekDay enums <br> Default - Not enabled</p>
 }
 
-type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleConditionChildrenLink struct {
+type ResponseNetworkAccessAuthenticationRulesGetNetworkAccessAuthenticationRulesResponseRuleConditionLink struct {
 	Href string `json:"href,omitempty"` //
 	Rel  string `json:"rel,omitempty"`  //
 	Type string `json:"type,omitempty"` //
