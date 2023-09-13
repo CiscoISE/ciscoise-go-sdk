@@ -49,7 +49,7 @@ type ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRulesRe
 	ID                  string                                                                                                             `json:"id,omitempty"`                  //
 	Name                string                                                                                                             `json:"name,omitempty"`                // Condition name
 	DictionaryValue     string                                                                                                             `json:"dictionaryValue,omitempty"`     // Dictionary value
-	Children            *[]ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRulesResponseRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	Children            *[]ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRulesResponseRuleCondition                  `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
 	DatesRange          *ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRulesResponseRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
 	DatesRangeException *ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRulesResponseRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
 	HoursRange          *ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRulesResponseRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched<br> Time format - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
@@ -59,22 +59,6 @@ type ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRulesRe
 }
 
 type ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRulesResponseRuleConditionLink struct {
-	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
-}
-
-type ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRulesResponseRuleConditionChildren struct {
-	ConditionType  string                                                                                                      `json:"conditionType,omitempty"`  // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate       *bool                                                                                                       `json:"isNegate,omitempty"`       // Indicates whereas this condition is in negate mode
-	Link           *ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRulesResponseRuleConditionChildrenLink `json:"link,omitempty"`           //
-	DictionaryName string                                                                                                      `json:"dictionaryName,omitempty"` // Dictionary Name
-	AttributeName  string                                                                                                      `json:"attributeName,omitempty"`  // Atribute Name
-	Operator       string                                                                                                      `json:"operator,omitempty"`       // Operator
-	AttributeValue string                                                                                                      `json:"attributeValue,omitempty"` // Attibute Name
-}
-
-type ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRulesResponseRuleConditionChildrenLink struct {
 	Href string `json:"href,omitempty"` //
 	Rel  string `json:"rel,omitempty"`  //
 	Type string `json:"type,omitempty"` //
@@ -140,7 +124,7 @@ type ResponseNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRule
 	ID                  string                                                                                                               `json:"id,omitempty"`                  //
 	Name                string                                                                                                               `json:"name,omitempty"`                // Condition name
 	DictionaryValue     string                                                                                                               `json:"dictionaryValue,omitempty"`     // Dictionary value
-	Children            *[]ResponseNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleResponseRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	Children            *[]ResponseNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleResponseRuleCondition                  `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
 	DatesRange          *ResponseNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleResponseRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
 	DatesRangeException *ResponseNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleResponseRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
 	HoursRange          *ResponseNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleResponseRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched<br> Time format - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
@@ -150,23 +134,6 @@ type ResponseNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRule
 }
 
 type ResponseNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleResponseRuleConditionLink struct {
-	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
-}
-
-type ResponseNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleResponseRuleConditionChildren struct {
-	ConditionType  string                                                                                                        `json:"conditionType,omitempty"`  // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate       *bool                                                                                                         `json:"isNegate,omitempty"`       // Indicates whereas this condition is in negate mode
-	Link           *ResponseNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleResponseRuleConditionChildrenLink `json:"link,omitempty"`           //
-	DictionaryName string                                                                                                        `json:"dictionaryName,omitempty"` // Dictionary Name
-	AttributeName  string                                                                                                        `json:"attributeName,omitempty"`  // Atribute Name
-	Operator       string                                                                                                        `json:"operator,omitempty"`       // Operator
-	AttributeValue string                                                                                                        `json:"attributeValue,omitempty"` // Attibute Name
-	ID             string                                                                                                        `json:"id,omitempty"`             // id
-}
-
-type ResponseNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleResponseRuleConditionChildrenLink struct {
 	Href string `json:"href,omitempty"` //
 	Rel  string `json:"rel,omitempty"`  //
 	Type string `json:"type,omitempty"` //
@@ -236,7 +203,7 @@ type ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRuleByI
 	ID                  string                                                                                                                `json:"id,omitempty"`                  //
 	Name                string                                                                                                                `json:"name,omitempty"`                // Condition name
 	DictionaryValue     string                                                                                                                `json:"dictionaryValue,omitempty"`     // Dictionary value
-	Children            *[]ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRuleByIDResponseRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	Children            *[]ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRuleByIDResponseRuleCondition                  `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
 	DatesRange          *ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRuleByIDResponseRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
 	DatesRangeException *ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRuleByIDResponseRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
 	HoursRange          *ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRuleByIDResponseRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched<br> Time format - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
@@ -246,23 +213,6 @@ type ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRuleByI
 }
 
 type ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRuleByIDResponseRuleConditionLink struct {
-	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
-}
-
-type ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRuleByIDResponseRuleConditionChildren struct {
-	ConditionType  string                                                                                                         `json:"conditionType,omitempty"`  // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate       *bool                                                                                                          `json:"isNegate,omitempty"`       // Indicates whereas this condition is in negate mode
-	Link           *ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRuleByIDResponseRuleConditionChildrenLink `json:"link,omitempty"`           //
-	DictionaryName string                                                                                                         `json:"dictionaryName,omitempty"` // Dictionary Name
-	AttributeName  string                                                                                                         `json:"attributeName,omitempty"`  // Atribute Name
-	Operator       string                                                                                                         `json:"operator,omitempty"`       // Operator
-	AttributeValue string                                                                                                         `json:"attributeValue,omitempty"` // Attibute Name
-	ID             string                                                                                                         `json:"id,omitempty"`             // ID
-}
-
-type ResponseNetworkAccessAuthorizationRulesGetNetworkAccessAuthorizationRuleByIDResponseRuleConditionChildrenLink struct {
 	Href string `json:"href,omitempty"` //
 	Rel  string `json:"rel,omitempty"`  //
 	Type string `json:"type,omitempty"` //
@@ -328,7 +278,7 @@ type ResponseNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRule
 	ID                  string                                                                                                                   `json:"id,omitempty"`                  //
 	Name                string                                                                                                                   `json:"name,omitempty"`                // Condition name
 	DictionaryValue     string                                                                                                                   `json:"dictionaryValue,omitempty"`     // Dictionary value
-	Children            *[]ResponseNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleByIDResponseRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	Children            *[]ResponseNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleByIDResponseRuleCondition                  `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
 	DatesRange          *ResponseNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleByIDResponseRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
 	DatesRangeException *ResponseNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleByIDResponseRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
 	HoursRange          *ResponseNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleByIDResponseRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched<br> Time format - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
@@ -338,22 +288,6 @@ type ResponseNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRule
 }
 
 type ResponseNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleByIDResponseRuleConditionLink struct {
-	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
-}
-
-type ResponseNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleByIDResponseRuleConditionChildren struct {
-	ConditionType  string                                                                                                            `json:"conditionType,omitempty"`  // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate       *bool                                                                                                             `json:"isNegate,omitempty"`       // Indicates whereas this condition is in negate mode
-	Link           *ResponseNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleByIDResponseRuleConditionChildrenLink `json:"link,omitempty"`           //
-	DictionaryName string                                                                                                            `json:"dictionaryName,omitempty"` // Dictionary Name
-	AttributeName  string                                                                                                            `json:"attributeName,omitempty"`  // Atribute Name
-	Operator       string                                                                                                            `json:"operator,omitempty"`       // Operator
-	AttributeValue string                                                                                                            `json:"attributeValue,omitempty"` // Attibute Name
-}
-
-type ResponseNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleByIDResponseRuleConditionChildrenLink struct {
 	Href string `json:"href,omitempty"` //
 	Rel  string `json:"rel,omitempty"`  //
 	Type string `json:"type,omitempty"` //
@@ -418,7 +352,7 @@ type RequestNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleR
 	ID                  string                                                                                                      `json:"id,omitempty"`                  //
 	Name                string                                                                                                      `json:"name,omitempty"`                // Condition name
 	DictionaryValue     string                                                                                                      `json:"dictionaryValue,omitempty"`     // Dictionary value
-	Children            *[]RequestNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	Children            *[]RequestNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleRuleCondition                  `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
 	DatesRange          *RequestNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
 	DatesRangeException *RequestNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
 	HoursRange          *RequestNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched<br> Time format - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
@@ -428,23 +362,6 @@ type RequestNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleR
 }
 
 type RequestNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleRuleConditionLink struct {
-	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
-}
-
-type RequestNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleRuleConditionChildren struct {
-	ConditionType  string                                                                                               `json:"conditionType,omitempty"`  // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate       *bool                                                                                                `json:"isNegate,omitempty"`       // Indicates whereas this condition is in negate mode
-	Link           *RequestNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleRuleConditionChildrenLink `json:"link,omitempty"`           //
-	DictionaryName string                                                                                               `json:"dictionaryName,omitempty"` // Dictionary Name
-	AttributeName  string                                                                                               `json:"attributeName,omitempty"`  // Atribute Name
-	Operator       string                                                                                               `json:"operator,omitempty"`       // Operator
-	AttributeValue string                                                                                               `json:"attributeValue,omitempty"` // Attibute Name
-	ID             string                                                                                               `json:"id,omitempty"`             // id
-}
-
-type RequestNetworkAccessAuthorizationRulesCreateNetworkAccessAuthorizationRuleRuleConditionChildrenLink struct {
 	Href string `json:"href,omitempty"` //
 	Rel  string `json:"rel,omitempty"`  //
 	Type string `json:"type,omitempty"` //
@@ -505,7 +422,7 @@ type RequestNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleB
 	ID                  string                                                                                                          `json:"id,omitempty"`                  //
 	Name                string                                                                                                          `json:"name,omitempty"`                // Condition name
 	DictionaryValue     string                                                                                                          `json:"dictionaryValue,omitempty"`     // Dictionary value
-	Children            *[]RequestNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleByIDRuleConditionChildren          `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
+	Children            *[]RequestNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleByIDRuleCondition                  `json:"children,omitempty"`            // In case type is andBlock or orBlock addtional conditions will be aggregated under this logical (OR/AND) condition
 	DatesRange          *RequestNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleByIDRuleConditionDatesRange          `json:"datesRange,omitempty"`          // <p>Defines for which date/s TimeAndDate condition will be matched<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
 	DatesRangeException *RequestNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleByIDRuleConditionDatesRangeException `json:"datesRangeException,omitempty"` // <p>Defines for which date/s TimeAndDate condition will be matched<br> Options are - Date range, for specific date, the same date should be used for start/end date <br> Default - no specific dates<br> In order to reset the dates to have no specific dates Date format - yyyy-mm-dd (MM = month, dd = day, yyyy = year)</p>
 	HoursRange          *RequestNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleByIDRuleConditionHoursRange          `json:"hoursRange,omitempty"`          // <p>Defines for which hours a TimeAndDate condition will be matched<br> Time format - hh:mm  ( h = hour , mm = minutes ) <br> Default - All Day </p>
@@ -515,23 +432,6 @@ type RequestNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleB
 }
 
 type RequestNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleByIDRuleConditionLink struct {
-	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
-}
-
-type RequestNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleByIDRuleConditionChildren struct {
-	ConditionType  string                                                                                                   `json:"conditionType,omitempty"`  // <ul><li>Inidicates whether the record is the condition itself(data) or a logical(or,and) aggregation</li> <li>Data type enum(reference,single) indicates than "conditonId" OR "ConditionAttrs" fields should contain condition data but not both</li> <li>Logical aggreation(and,or) enum indicates that additional conditions are present under the children field</li></ul>
-	IsNegate       *bool                                                                                                    `json:"isNegate,omitempty"`       // Indicates whereas this condition is in negate mode
-	Link           *RequestNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleByIDRuleConditionChildrenLink `json:"link,omitempty"`           //
-	DictionaryName string                                                                                                   `json:"dictionaryName,omitempty"` // Dictionary Name
-	AttributeName  string                                                                                                   `json:"attributeName,omitempty"`  // Atribute Name
-	Operator       string                                                                                                   `json:"operator,omitempty"`       // Operator
-	AttributeValue string                                                                                                   `json:"attributeValue,omitempty"` // Attibute Name
-	ID             string                                                                                                   `json:"id,omitempty"`             // ID
-}
-
-type RequestNetworkAccessAuthorizationRulesUpdateNetworkAccessAuthorizationRuleByIDRuleConditionChildrenLink struct {
 	Href string `json:"href,omitempty"` //
 	Rel  string `json:"rel,omitempty"`  //
 	Type string `json:"type,omitempty"` //
