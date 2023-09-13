@@ -369,3 +369,35 @@ func (s *IDentityGroupsService) UpdateIDentityGroupByID(id string, requestIDenti
 	return result, response, err
 
 }
+
+//DeleteIDentityGroupByID Delete endpoint identity group
+/* This API deletes an endpoint identity group.
+
+@param id id path parameter.
+*/
+func (s *IDentityGroupService) DeleteIDentityGroupByID(id string) (*resty.Response, error) {
+	setHost(s.client, "_ers")
+	path := "/ers/config/identitygroup/{id}"
+	path = strings.Replace(path, "{id}", fmt.Sprintf("%v", id), -1)
+
+	setCSRFToken(s.client)
+	response, err := s.client.R().
+		SetHeader("Content-Type", "application/json").
+		SetHeader("Accept", "application/json").
+		SetError(&Error).
+		Delete(path)
+
+	if err != nil {
+		return nil, err
+
+	}
+
+	if response.IsError() {
+		return response, fmt.Errorf("error with operation DeleteIDentityGroupById")
+	}
+
+	getCSFRToken(response.Header())
+
+	return response, err
+
+}
