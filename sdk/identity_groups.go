@@ -375,7 +375,7 @@ func (s *IDentityGroupsService) UpdateIDentityGroupByID(id string, requestIDenti
 
 @param id id path parameter.
 */
-func (s *IDentityGroupService) DeleteIDentityGroupByID(id string) (*resty.Response, error) {
+func (s *IDentityGroupsService) DeleteIDentityGroupByID(id string) (*resty.Response, error) {
 	setHost(s.client, "_ers")
 	path := "/ers/config/identitygroup/{id}"
 	path = strings.Replace(path, "{id}", fmt.Sprintf("%v", id), -1)
