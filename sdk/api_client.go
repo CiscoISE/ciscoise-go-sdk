@@ -55,7 +55,9 @@ type Client struct {
 	CertificateTemplate                                   *CertificateTemplateService
 	Certificates                                          *CertificatesService
 	ClearThreatsAndVulnerabilities                        *ClearThreatsAndVulnerabilitiesService
+	Configuration                                         *ConfigurationService
 	Consumer                                              *ConsumerService
+	DataconnectServices                                   *DataconnectServicesService
 	DeviceAdministrationAuthenticationRules               *DeviceAdministrationAuthenticationRulesService
 	DeviceAdministrationAuthorizationExceptionRules       *DeviceAdministrationAuthorizationExceptionRulesService
 	DeviceAdministrationAuthorizationGlobalExceptionRules *DeviceAdministrationAuthorizationGlobalExceptionRulesService
@@ -70,6 +72,7 @@ type Client struct {
 	DeviceAdministrationServiceNames                      *DeviceAdministrationServiceNamesService
 	DeviceAdministrationTimeDateConditions                *DeviceAdministrationTimeDateConditionsService
 	DownloadableACL                                       *DownloadableACLService
+	Edda                                                  *EddaService
 	EgressMatrixCell                                      *EgressMatrixCellService
 	EndpointCertificate                                   *EndpointCertificateService
 	EndpointIDentityGroup                                 *EndpointIDentityGroupService
@@ -139,6 +142,7 @@ type Client struct {
 	SponsorGroupMember                                    *SponsorGroupMemberService
 	SponsorPortal                                         *SponsorPortalService
 	SponsoredGuestPortal                                  *SponsoredGuestPortalService
+	Subscriber                                            *SubscriberService
 	SupportBundleDownload                                 *SupportBundleDownloadService
 	SupportBundleStatus                                   *SupportBundleStatusService
 	SupportBundleTriggerConfiguration                     *SupportBundleTriggerConfigurationService
@@ -151,18 +155,12 @@ type Client struct {
 	TelemetryInformation                                  *TelemetryInformationService
 	TrustSecConfiguration                                 *TrustSecConfigurationService
 	TrustSecSxp                                           *TrustSecSxpService
-	VersionAndPatch                                       *VersionAndPatchService
-	VersionInfo                                           *VersionInfoService
 	Endpoint                                              *EndpointService
-	NbarApp                                               *NbarAppService
 	Portal                                                *PortalService
 	Proxy                                                 *ProxyService
 	PxGridNode                                            *PxGridNodeService
-	SgVnMapping                                           *SgVnMappingService
 	Tasks                                                 *TasksService
 	Telemetry                                             *TelemetryService
-	VirtualNetwork                                        *VirtualNetworkService
-	VnVLANMapping                                         *VnVLANMappingService
 }
 
 type service struct {
@@ -275,7 +273,9 @@ func NewClient() (*Client, error) {
 	c.CertificateTemplate = (*CertificateTemplateService)(&c.common)
 	c.Certificates = (*CertificatesService)(&c.common)
 	c.ClearThreatsAndVulnerabilities = (*ClearThreatsAndVulnerabilitiesService)(&c.common)
+	c.Configuration = (*ConfigurationService)(&c.common)
 	c.Consumer = (*ConsumerService)(&c.common)
+	c.DataconnectServices = (*DataconnectServicesService)(&c.common)
 	c.DeviceAdministrationAuthenticationRules = (*DeviceAdministrationAuthenticationRulesService)(&c.common)
 	c.DeviceAdministrationAuthorizationExceptionRules = (*DeviceAdministrationAuthorizationExceptionRulesService)(&c.common)
 	c.DeviceAdministrationAuthorizationGlobalExceptionRules = (*DeviceAdministrationAuthorizationGlobalExceptionRulesService)(&c.common)
@@ -290,6 +290,7 @@ func NewClient() (*Client, error) {
 	c.DeviceAdministrationServiceNames = (*DeviceAdministrationServiceNamesService)(&c.common)
 	c.DeviceAdministrationTimeDateConditions = (*DeviceAdministrationTimeDateConditionsService)(&c.common)
 	c.DownloadableACL = (*DownloadableACLService)(&c.common)
+	c.Edda = (*EddaService)(&c.common)
 	c.EgressMatrixCell = (*EgressMatrixCellService)(&c.common)
 	c.EndpointCertificate = (*EndpointCertificateService)(&c.common)
 	c.EndpointIDentityGroup = (*EndpointIDentityGroupService)(&c.common)
@@ -359,6 +360,7 @@ func NewClient() (*Client, error) {
 	c.SponsorGroupMember = (*SponsorGroupMemberService)(&c.common)
 	c.SponsorPortal = (*SponsorPortalService)(&c.common)
 	c.SponsoredGuestPortal = (*SponsoredGuestPortalService)(&c.common)
+	c.Subscriber = (*SubscriberService)(&c.common)
 	c.SupportBundleDownload = (*SupportBundleDownloadService)(&c.common)
 	c.SupportBundleStatus = (*SupportBundleStatusService)(&c.common)
 	c.SupportBundleTriggerConfiguration = (*SupportBundleTriggerConfigurationService)(&c.common)
@@ -371,24 +373,18 @@ func NewClient() (*Client, error) {
 	c.TelemetryInformation = (*TelemetryInformationService)(&c.common)
 	c.TrustSecConfiguration = (*TrustSecConfigurationService)(&c.common)
 	c.TrustSecSxp = (*TrustSecSxpService)(&c.common)
-	c.VersionAndPatch = (*VersionAndPatchService)(&c.common)
-	c.VersionInfo = (*VersionInfoService)(&c.common)
 	c.Endpoint = (*EndpointService)(&c.common)
-	c.NbarApp = (*NbarAppService)(&c.common)
 	c.Portal = (*PortalService)(&c.common)
 	c.Proxy = (*ProxyService)(&c.common)
 	c.PxGridNode = (*PxGridNodeService)(&c.common)
-	c.SgVnMapping = (*SgVnMappingService)(&c.common)
 	c.Tasks = (*TasksService)(&c.common)
 	c.Telemetry = (*TelemetryService)(&c.common)
-	c.VirtualNetwork = (*VirtualNetworkService)(&c.common)
-	c.VnVLANMapping = (*VnVLANMappingService)(&c.common)
 
 	client.SetBasicAuth(username, password)
 	return c, nil
 }
 
-//NewClientWithOptions is the client with options passed with parameters
+// NewClientWithOptions is the client with options passed with parameters
 func NewClientWithOptions(baseURL string, username string, password string, debug string, sslVerify string, useAPIGateway string, useCSRFToken string) (*Client, error) {
 	var err error
 	err = os.Setenv(ISE_BASE_URL, baseURL)

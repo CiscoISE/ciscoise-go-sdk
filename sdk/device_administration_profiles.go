@@ -15,14 +15,14 @@ type ResponseItemDeviceAdministrationProfilesGetDeviceAdminProfiles struct {
 	Name string `json:"name,omitempty"` //
 }
 
-//GetDeviceAdminProfiles Device Admin - Returns list of shell profiles.
-/* Device Admin Returns list of shell profiles.
-(Other CRUD APIs available through ERS)
+//GetDeviceAdminProfiles Device Admin - Returns list of profiles.
+/* Device Admin Returns list of profiles.
+(Other CRUD APIs available throught ERS)
 
 */
 func (s *DeviceAdministrationProfilesService) GetDeviceAdminProfiles() (*ResponseDeviceAdministrationProfilesGetDeviceAdminProfiles, *resty.Response, error) {
 	setHost(s.client, "_ui")
-	path := "/api/v1/policy/device-admin/shell-profiles"
+	path := "/api/v1/policy/device-admin/profiles"
 
 	setCSRFToken(s.client)
 	response, err := s.client.R().

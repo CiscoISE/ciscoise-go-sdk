@@ -117,7 +117,7 @@ func (s *TasksService) GetTaskStatus(taskID string) (*ResponseTasksGetTaskStatus
 
 }
 
-//Alias of GetTaskStatus Monitor task status
+// Alias of GetTaskStatus Monitor task status
 func (s *TasksService) GetTaskStatusByID(taskID string) (*ResponseTasksGetTaskStatus, *resty.Response, error) {
 	return s.GetTaskStatus(taskID)
 }

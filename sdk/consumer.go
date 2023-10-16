@@ -8,19 +8,19 @@ import (
 
 type ConsumerService service
 
-type RequestClearThreatsAndVulnerabilitiesCreateAccount struct {
+type RequestConfigurationCreateAccount struct {
 	NodeName string `json:"nodeName,omitempty"` //
 }
 
-type RequestClearThreatsAndVulnerabilitiesActivateAccount struct {
+type RequestConfigurationActivateAccount struct {
 	Description string `json:"description,omitempty"` //
 }
 
-type RequestClearThreatsAndVulnerabilitiesLookupService struct {
+type RequestConfigurationLookupService struct {
 	Name string `json:"name,omitempty"` //
 }
 
-type RequestClearThreatsAndVulnerabilitiesAccessSecret struct {
+type RequestConfigurationAccessSecret struct {
 	PeerNodeName string `json:"peerNodeName,omitempty"` //
 }
 
@@ -28,7 +28,7 @@ type RequestClearThreatsAndVulnerabilitiesAccessSecret struct {
 /* 🚧 AccountCreate
 
  */
-func (s *ConsumerService) CreateAccount(requestClearThreatsAndVulnerabilitiesCreateAccount *RequestClearThreatsAndVulnerabilitiesCreateAccount) (*resty.Response, error) {
+func (s *ConsumerService) CreateAccount(requestConfigurationCreateAccount *RequestConfigurationCreateAccount) (*resty.Response, error) {
 	setHost(s.client, "_px_grid")
 	path := "/pxgrid/ise/radius/control/AccountCreate"
 
@@ -36,7 +36,7 @@ func (s *ConsumerService) CreateAccount(requestClearThreatsAndVulnerabilitiesCre
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetBody(requestClearThreatsAndVulnerabilitiesCreateAccount).
+		SetBody(requestConfigurationCreateAccount).
 		SetError(&Error).
 		Post(path)
 
@@ -58,7 +58,7 @@ func (s *ConsumerService) CreateAccount(requestClearThreatsAndVulnerabilitiesCre
 /* 🚧 AccountActivate
 
  */
-func (s *ConsumerService) ActivateAccount(requestClearThreatsAndVulnerabilitiesActivateAccount *RequestClearThreatsAndVulnerabilitiesActivateAccount) (*resty.Response, error) {
+func (s *ConsumerService) ActivateAccount(requestConfigurationActivateAccount *RequestConfigurationActivateAccount) (*resty.Response, error) {
 	setHost(s.client, "_px_grid")
 	path := "/pxgrid/ise/radius/control/AccountActivate"
 
@@ -66,7 +66,7 @@ func (s *ConsumerService) ActivateAccount(requestClearThreatsAndVulnerabilitiesA
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetBody(requestClearThreatsAndVulnerabilitiesActivateAccount).
+		SetBody(requestConfigurationActivateAccount).
 		SetError(&Error).
 		Post(path)
 
@@ -88,7 +88,7 @@ func (s *ConsumerService) ActivateAccount(requestClearThreatsAndVulnerabilitiesA
 /* 🚧 ServiceLookup
 
  */
-func (s *ConsumerService) LookupService(requestClearThreatsAndVulnerabilitiesLookupService *RequestClearThreatsAndVulnerabilitiesLookupService) (*resty.Response, error) {
+func (s *ConsumerService) LookupService(requestConfigurationLookupService *RequestConfigurationLookupService) (*resty.Response, error) {
 	setHost(s.client, "_px_grid")
 	path := "/pxgrid/ise/radius/control/ServiceLookup"
 
@@ -96,7 +96,7 @@ func (s *ConsumerService) LookupService(requestClearThreatsAndVulnerabilitiesLoo
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetBody(requestClearThreatsAndVulnerabilitiesLookupService).
+		SetBody(requestConfigurationLookupService).
 		SetError(&Error).
 		Post(path)
 
@@ -118,7 +118,7 @@ func (s *ConsumerService) LookupService(requestClearThreatsAndVulnerabilitiesLoo
 /* 🚧 AccessSecret
 
  */
-func (s *ConsumerService) AccessSecret(requestClearThreatsAndVulnerabilitiesAccessSecret *RequestClearThreatsAndVulnerabilitiesAccessSecret) (*resty.Response, error) {
+func (s *ConsumerService) AccessSecret(requestConfigurationAccessSecret *RequestConfigurationAccessSecret) (*resty.Response, error) {
 	setHost(s.client, "_px_grid")
 	path := "/pxgrid/ise/radius/control/AccessSecret"
 
@@ -126,7 +126,7 @@ func (s *ConsumerService) AccessSecret(requestClearThreatsAndVulnerabilitiesAcce
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetBody(requestClearThreatsAndVulnerabilitiesAccessSecret).
+		SetBody(requestConfigurationAccessSecret).
 		SetError(&Error).
 		Post(path)
 
