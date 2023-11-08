@@ -155,6 +155,8 @@ type Client struct {
 	TelemetryInformation                                  *TelemetryInformationService
 	TrustSecConfiguration                                 *TrustSecConfigurationService
 	TrustSecSxp                                           *TrustSecSxpService
+	VersionAndPatch                                       *VersionAndPatchService
+	VersionInfo                                           *VersionInfoService
 	Endpoint                                              *EndpointService
 	Portal                                                *PortalService
 	Proxy                                                 *ProxyService
