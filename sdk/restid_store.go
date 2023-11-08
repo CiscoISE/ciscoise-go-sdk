@@ -216,9 +216,10 @@ type RequestRestidStoreCreateRestIDStore struct {
 }
 
 type RequestRestidStoreCreateRestIDStoreERSRestIDStore struct {
-	Name                     string                                                                     `json:"name,omitempty"`                     //
-	Description              string                                                                     `json:"description,omitempty"`              //
-	ErsRestIDStoreAttributes *RequestRestidStoreCreateRestIDStoreERSRestIDStoreErsRestIDStoreAttributes `json:"ersRestIDStoreAttributes,omitempty"` //
+	Name                         string                                                                         `json:"name,omitempty"`                         //
+	Description                  string                                                                         `json:"description,omitempty"`                  //
+	ErsRestIDStoreAttributes     *RequestRestidStoreCreateRestIDStoreERSRestIDStoreErsRestIDStoreAttributes     `json:"ersRestIDStoreAttributes,omitempty"`     //
+	ErsRestIDStoreUserAttributes *RequestRestidStoreCreateRestIDStoreERSRestIDStoreErsRestIDStoreUserAttributes `json:"ersRestIDStoreUserAttributes,omitempty"` //
 }
 
 type RequestRestidStoreCreateRestIDStoreERSRestIDStoreErsRestIDStoreAttributes struct {
@@ -231,6 +232,10 @@ type RequestRestidStoreCreateRestIDStoreERSRestIDStoreErsRestIDStoreAttributes s
 type RequestRestidStoreCreateRestIDStoreERSRestIDStoreErsRestIDStoreAttributesHeaders struct {
 	Key   string `json:"key,omitempty"`   //
 	Value string `json:"value,omitempty"` //
+}
+
+type RequestRestidStoreCreateRestIDStoreERSRestIDStoreErsRestIDStoreUserAttributes struct {
+	Attributes []string `json:"attributes,omitempty"` //
 }
 
 //GetRestIDStoreByName Get REST ID store by name

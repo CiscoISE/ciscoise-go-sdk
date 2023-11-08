@@ -17,7 +17,7 @@ type ResponseItemDeviceAdministrationCommandSetGetDeviceAdminCommandSets struct 
 
 //GetDeviceAdminCommandSets Device Admin - Return list of command sets.
 /* Device Admin Return list of command sets.
-(Other CRUD APIs available through ERS)
+(Other CRUD APIs available throught ERS)
 
 */
 func (s *DeviceAdministrationCommandSetService) GetDeviceAdminCommandSets() (*ResponseDeviceAdministrationCommandSetGetDeviceAdminCommandSets, *resty.Response, error) {

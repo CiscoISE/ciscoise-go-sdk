@@ -403,7 +403,7 @@ func (s *EgressMatrixCellService) ClearAllMatrixCells() (*resty.Response, error)
 }
 
 //SetAllCellsStatus Set status of all egress matrix cells
-/* his API allows the client to set status of all the egress matrix cells.
+/* This API allows the client to set status of all the egress matrix cells.
 
 @param status status path parameter.
 */

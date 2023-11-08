@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2023-11-07
+### Added
+- `ciscoise-go-sdk` now supports ISE 3.2-Beta API.
+- New services included: `configuration, edda, dataconnect_services, subscriber`
+
 ## [1.1.22] - 2023-08-09
 - Support for nested children conditions was added.
 - Adding parameter `RequestBasicPwdAuth` to `RequestAllowedProtocolsCreateAllowedProtocolAllowedProtocolsTeap` and `RequestAllowedProtocolsUpdateAllowedProtocolByIDAllowedProtocolsTeap` struct.
@@ -216,4 +221,5 @@ Following parameters were added to `RequestNetworkAccessAuthenticationRulesCreat
 [1.1.20]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.19...v1.1.20
 [1.1.21]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.20...v1.1.21
 [1.1.22]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.21...v1.1.22
-[Unreleased]: https://github.com/cisco-en-programmability/dnacenter-go-sdk/compare/v1.1.22...main
+[1.2.0]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.22...v1.2.0
+[Unreleased]: https://github.com/cisco-en-programmability/ciscoise-go-sdk/compare/v1.2.0...main

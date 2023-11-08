@@ -104,7 +104,7 @@ type ResponseActiveDirectoryGetUserGroupsERSActiveDirectoryGroups struct {
 }
 
 type ResponseActiveDirectoryGetUserGroupsERSActiveDirectoryGroupsGroups struct {
-	Name string `json:"name,omitempty"` // ISSUE groupName => name
+	Name string `json:"name,omitempty"` //
 	Sid  string `json:"sid,omitempty"`  //
 	Type string `json:"type,omitempty"` //
 }
@@ -118,7 +118,7 @@ type ResponseActiveDirectoryIsUserMemberOfGroupsERSActiveDirectoryGroups struct 
 }
 
 type ResponseActiveDirectoryIsUserMemberOfGroupsERSActiveDirectoryGroupsGroups struct {
-	Name string `json:"name,omitempty"` // ISSUE groupName => name
+	Name string `json:"name,omitempty"` //
 	Sid  string `json:"sid,omitempty"`  //
 	Type string `json:"type,omitempty"` //
 }
@@ -146,7 +146,7 @@ type ResponseActiveDirectoryGetGroupsByDomainERSActiveDirectoryGroups struct {
 }
 
 type ResponseActiveDirectoryGetGroupsByDomainERSActiveDirectoryGroupsGroups struct {
-	Name string `json:"name,omitempty"` // Issue groupName => name
+	Name string `json:"name,omitempty"` //
 	Sid  string `json:"sid,omitempty"`  //
 	Type string `json:"type,omitempty"` //
 }
