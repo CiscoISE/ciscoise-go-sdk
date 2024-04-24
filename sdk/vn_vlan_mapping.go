@@ -10,20 +10,20 @@ import (
 
 type VnVLANMappingService service
 
-type GetVnVLANMappingsQueryParams struct {
-	Page       int      `url:"page,omitempty"`       //Page number
-	Size       int      `url:"size,omitempty"`       //Number of objects returned per page
-	Sort       string   `url:"sort,omitempty"`       //sort type - asc or desc
-	SortBy     string   `url:"sortBy,omitempty"`     //sort column by which objects needs to be sorted
-	Filter     []string `url:"filter,omitempty"`     //<div> <style type="text/css" scoped> .apiServiceTable td, .apiServiceTable th { padding: 5px 10px !important; text-align: left; } </style> <span> <b>Simple filtering</b> should be available through the filter query string parameter. The structure of a filter is a triplet of field operator and value separated with dots. More than one filter can be sent. The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the <i>"filterType=or"</i> query string parameter. Each resource Data model description should specify if an attribute is a filtered field. </span> <br /> <table class="apiServiceTable"> <thead> <tr> <th>OPERATOR</th> <th>DESCRIPTION</th> </tr> </thead> <tbody> <tr> <td>EQ</td> <td>Equals</td> </tr> <tr> <td>NEQ</td> <td>Not Equals</td> </tr> <tr> <td>GT</td> <td>Greater Than</td> </tr> <tr> <td>LT</td> <td>Less Then</td> </tr> <tr> <td>STARTSW</td> <td>Starts With</td> </tr> <tr> <td>NSTARTSW</td> <td>Not Starts With</td> </tr> <tr> <td>ENDSW</td> <td>Ends With</td> </tr> <tr> <td>NENDSW</td> <td>Not Ends With</td> </tr> <tr> <td>CONTAINS</td> <td>Contains</td> </tr> <tr> <td>NCONTAINS</td> <td>Not Contains</td> </tr> </tbody> </table> </div>
-	FilterType string   `url:"filterType,omitempty"` //The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the parameter
+type GetVnVLANMappingListQueryParams struct {
+	Page       int    `url:"page,omitempty"`       //Page number
+	Size       int    `url:"size,omitempty"`       //Number of objects returned per page
+	Sort       string `url:"sort,omitempty"`       //sort type - asc or desc
+	SortBy     string `url:"sortBy,omitempty"`     //sort column by which objects needs to be sorted
+	Filter     string `url:"filter,omitempty"`     //<div> <style type="text/css" scoped> .apiServiceTable td, .apiServiceTable th { padding: 5px 10px !important; text-align: left; } </style> <span> <b>Simple filtering</b> should be available through the filter query string parameter. The structure of a filter is a triplet of field operator and value separated with dots. More than one filter can be sent. The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the <i>"filterType=or"</i> query string parameter. Each resource Data model description should specify if an attribute is a filtered field. </span> <br /> <table class="apiServiceTable"> <thead> <tr> <th>OPERATOR</th> <th>DESCRIPTION</th> </tr> </thead> <tbody> <tr> <td>EQ</td> <td>Equals</td> </tr> <tr> <td>NEQ</td> <td>Not Equals</td> </tr> <tr> <td>GT</td> <td>Greater Than</td> </tr> <tr> <td>LT</td> <td>Less Then</td> </tr> <tr> <td>STARTSW</td> <td>Starts With</td> </tr> <tr> <td>NSTARTSW</td> <td>Not Starts With</td> </tr> <tr> <td>ENDSW</td> <td>Ends With</td> </tr> <tr> <td>NENDSW</td> <td>Not Ends With</td> </tr> <tr> <td>CONTAINS</td> <td>Contains</td> </tr> <tr> <td>NCONTAINS</td> <td>Not Contains</td> </tr> </tbody> </table> </div>
+	FilterType string `url:"filterType,omitempty"` //The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the parameter
 }
 
-type ResponseVnVLANMappingGetVnVLANMappings struct {
-	Response *[]ResponseVnVLANMappingGetVnVLANMappingsResponse `json:"response,omitempty"` // Array of VN-Vlan Mappings
+type ResponseVnVLANMappingGetVnVLANMappingList struct {
+	Response *[]ResponseVnVLANMappingGetVnVLANMappingListResponse `json:"response,omitempty"` // Array of VN-Vlan Mappings
 }
 
-type ResponseVnVLANMappingGetVnVLANMappingsResponse struct {
+type ResponseVnVLANMappingGetVnVLANMappingListResponse struct {
 	ID            string `json:"id,omitempty"`            // Identifier of the VN-Vlan Mapping
 	IsData        *bool  `json:"isData,omitempty"`        // Flag which indicates whether the Vlan is data or voice type
 	IsDefaultVLAN *bool  `json:"isDefaultVlan,omitempty"` // Flag which indicates if the Vlan is default
@@ -65,13 +65,11 @@ type ResponseVnVLANMappingGetVnVLANMappingByIDResponse struct {
 	VnName        string `json:"vnName,omitempty"`        // Name of the associated Virtual Network to be used for identity if id is not provided
 }
 
-type ResponseVnVLANMappingUpdateVnVLANMappingByID struct {
-	Code    *int   `json:"code,omitempty"`    //
+type ResponseVnVLANMappingUpdateVnVLANMapping struct {
 	Message string `json:"message,omitempty"` //
 }
 
-type ResponseVnVLANMappingDeleteVnVLANMappingByID struct {
-	Code    *int   `json:"code,omitempty"`    //
+type ResponseVnVLANMappingDeleteVnVLANMapping struct {
 	Message string `json:"message,omitempty"` //
 }
 
@@ -114,7 +112,7 @@ type RequestItemVnVLANMappingBulkUpdateVnVLANMappings struct {
 	VnName        string `json:"vnName,omitempty"`        // Name of the associated Virtual Network to be used for identity if id is not provided
 }
 
-type RequestVnVLANMappingUpdateVnVLANMappingByID struct {
+type RequestVnVLANMappingUpdateVnVLANMapping struct {
 	ID            string `json:"id,omitempty"`            // Identifier of the VN-Vlan Mapping
 	IsData        *bool  `json:"isData,omitempty"`        // Flag which indicates whether the Vlan is data or voice type
 	IsDefaultVLAN *bool  `json:"isDefaultVlan,omitempty"` // Flag which indicates if the Vlan is default
@@ -125,22 +123,22 @@ type RequestVnVLANMappingUpdateVnVLANMappingByID struct {
 	VnName        string `json:"vnName,omitempty"`        // Name of the associated Virtual Network to be used for identity if id is not provided
 }
 
-//GetVnVLANMappings Get all VN-Vlan Mappings
+//GetVnVLANMappingList Get all VN-Vlan Mappings
 /* Get all VN-Vlan Mappings
 
-@param getVnVlanMappingsQueryParams Filtering parameter
+@param getVnVlanMappingListQueryParams Filtering parameter
 */
-func (s *VnVLANMappingService) GetVnVLANMappings(getVnVlanMappingsQueryParams *GetVnVLANMappingsQueryParams) (*ResponseVnVLANMappingGetVnVLANMappings, *resty.Response, error) {
+func (s *VnVLANMappingService) GetVnVLANMappingList(getVnVlanMappingListQueryParams *GetVnVLANMappingListQueryParams) (*ResponseVnVLANMappingGetVnVLANMappingList, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/trustsec/vnvlanmapping"
 
-	queryString, _ := query.Values(getVnVlanMappingsQueryParams)
+	queryString, _ := query.Values(getVnVlanMappingListQueryParams)
 
 	setCSRFToken(s.client)
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetQueryString(queryString.Encode()).SetResult(&ResponseVnVLANMappingGetVnVLANMappings{}).
+		SetQueryString(queryString.Encode()).SetResult(&ResponseVnVLANMappingGetVnVLANMappingList{}).
 		SetError(&Error).
 		Get(path)
 
@@ -150,12 +148,12 @@ func (s *VnVLANMappingService) GetVnVLANMappings(getVnVlanMappingsQueryParams *G
 	}
 
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation GetVnVlanMappings")
+		return nil, response, fmt.Errorf("error with operation GetVnVlanMappingList")
 	}
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*ResponseVnVLANMappingGetVnVLANMappings)
+	result := response.Result().(*ResponseVnVLANMappingGetVnVLANMappingList)
 	return result, response, err
 
 }
@@ -334,12 +332,12 @@ func (s *VnVLANMappingService) BulkUpdateVnVLANMappings(requestVnVLANMappingBulk
 
 }
 
-//UpdateVnVLANMappingByID Update VN-Vlan Mapping
+//UpdateVnVLANMapping Update VN-Vlan Mapping
 /* Update VN-Vlan Mapping
 
 @param id id path parameter.
 */
-func (s *VnVLANMappingService) UpdateVnVLANMappingByID(id string, requestVnVLANMappingUpdateVnVlanMappingById *RequestVnVLANMappingUpdateVnVLANMappingByID) (*ResponseVnVLANMappingUpdateVnVLANMappingByID, *resty.Response, error) {
+func (s *VnVLANMappingService) UpdateVnVLANMapping(id string, requestVnVLANMappingUpdateVnVlanMapping *RequestVnVLANMappingUpdateVnVLANMapping) (*ResponseVnVLANMappingUpdateVnVLANMapping, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/trustsec/vnvlanmapping/{id}"
 	path = strings.Replace(path, "{id}", fmt.Sprintf("%v", id), -1)
@@ -348,36 +346,36 @@ func (s *VnVLANMappingService) UpdateVnVLANMappingByID(id string, requestVnVLANM
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetBody(requestVnVLANMappingUpdateVnVlanMappingById).
-		SetResult(&ResponseVnVLANMappingUpdateVnVLANMappingByID{}).
+		SetBody(requestVnVLANMappingUpdateVnVlanMapping).
+		SetResult(&ResponseVnVLANMappingUpdateVnVLANMapping{}).
 		SetError(&Error).
 		Put(path)
 
 	if err != nil {
 		if err.Error() == emptyStringToJSONError {
-			return &ResponseVnVLANMappingUpdateVnVLANMappingByID{}, response, nil
+			return &ResponseVnVLANMappingUpdateVnVLANMapping{}, response, nil
 		}
 		return nil, nil, err
 
 	}
 
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation UpdateVnVlanMappingById")
+		return nil, response, fmt.Errorf("error with operation UpdateVnVlanMapping")
 	}
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*ResponseVnVLANMappingUpdateVnVLANMappingByID)
+	result := response.Result().(*ResponseVnVLANMappingUpdateVnVLANMapping)
 	return result, response, err
 
 }
 
-//DeleteVnVLANMappingByID Delete VN-Vlan Mapping
+//DeleteVnVLANMapping Delete VN-Vlan Mapping
 /* Delete VN-Vlan Mapping
 
 @param id id path parameter.
 */
-func (s *VnVLANMappingService) DeleteVnVLANMappingByID(id string) (*ResponseVnVLANMappingDeleteVnVLANMappingByID, *resty.Response, error) {
+func (s *VnVLANMappingService) DeleteVnVLANMapping(id string) (*ResponseVnVLANMappingDeleteVnVLANMapping, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/trustsec/vnvlanmapping/{id}"
 	path = strings.Replace(path, "{id}", fmt.Sprintf("%v", id), -1)
@@ -386,7 +384,7 @@ func (s *VnVLANMappingService) DeleteVnVLANMappingByID(id string) (*ResponseVnVL
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetResult(&ResponseVnVLANMappingDeleteVnVLANMappingByID{}).
+		SetResult(&ResponseVnVLANMappingDeleteVnVLANMapping{}).
 		SetError(&Error).
 		Delete(path)
 
@@ -396,12 +394,12 @@ func (s *VnVLANMappingService) DeleteVnVLANMappingByID(id string) (*ResponseVnVL
 	}
 
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation DeleteVnVlanMappingById")
+		return nil, response, fmt.Errorf("error with operation DeleteVnVlanMapping")
 	}
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*ResponseVnVLANMappingDeleteVnVLANMappingByID)
+	result := response.Result().(*ResponseVnVLANMappingDeleteVnVLANMapping)
 	return result, response, err
 
 }

@@ -20,41 +20,41 @@ type GetAllSubscribersQueryParams struct {
 }
 
 type ResponseSubscriberGetAllSubscribers struct {
+	Response     *[]ResponseSubscriberGetAllSubscribersResponse   `json:"response,omitempty"`     //
 	NextPage     *ResponseSubscriberGetAllSubscribersNextPage     `json:"nextPage,omitempty"`     //
 	PreviousPage *ResponseSubscriberGetAllSubscribersPreviousPage `json:"previousPage,omitempty"` //
-	Response     *[]ResponseSubscriberGetAllSubscribersResponse   `json:"response,omitempty"`     //
 	Version      string                                           `json:"version,omitempty"`      //
 }
 
-type ResponseSubscriberGetAllSubscribersNextPage struct {
-	Href string `json:"href,omitempty"` //
+type ResponseSubscriberGetAllSubscribersResponse struct {
+	Enabled        *bool                                            `json:"enabled,omitempty"`        // Subscriber is enabled or not
+	FriendlyName   string                                           `json:"friendlyName,omitempty"`   // Friendly name for the subscriber
+	IDentityGroups string                                           `json:"identityGroups,omitempty"` // Identity Groups. If you add more than one identity group, they need to be comma separated.
+	Imeis          string                                           `json:"imeis,omitempty"`          // IMEI to be attached to the subscriber
+	Opc            string                                           `json:"opc,omitempty"`            // OPC
+	Ki             string                                           `json:"ki,omitempty"`             // KI
+	Imsi           string                                           `json:"imsi,omitempty"`           // IMSI for subscriber
+	CreateTime     string                                           `json:"createTime,omitempty"`     //
+	UpdateTime     string                                           `json:"updateTime,omitempty"`     //
+	ID             string                                           `json:"id,omitempty"`             //
+	Link           *ResponseSubscriberGetAllSubscribersResponseLink `json:"link,omitempty"`           //
+}
+
+type ResponseSubscriberGetAllSubscribersResponseLink struct {
 	Rel  string `json:"rel,omitempty"`  //
+	Href string `json:"href,omitempty"` //
+	Type string `json:"type,omitempty"` //
+}
+
+type ResponseSubscriberGetAllSubscribersNextPage struct {
+	Rel  string `json:"rel,omitempty"`  //
+	Href string `json:"href,omitempty"` //
 	Type string `json:"type,omitempty"` //
 }
 
 type ResponseSubscriberGetAllSubscribersPreviousPage struct {
-	Href string `json:"href,omitempty"` //
 	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
-}
-
-type ResponseSubscriberGetAllSubscribersResponse struct {
-	CreateTime     string                                           `json:"createTime,omitempty"`     //
-	Enabled        *bool                                            `json:"enabled,omitempty"`        // Subscriber is enabled or not
-	FriendlyName   string                                           `json:"friendlyName,omitempty"`   // Friendly name for the subscriber
-	ID             string                                           `json:"id,omitempty"`             //
-	IDentityGroups string                                           `json:"identityGroups,omitempty"` // Identity Group(s). With more than one idGroups it needs to be comma seperated
-	Imeis          string                                           `json:"imeis,omitempty"`          // IMEI to be attached to the subscriber
-	Imsi           string                                           `json:"imsi,omitempty"`           // IMSI for Subscriber
-	Ki             string                                           `json:"ki,omitempty"`             // KI
-	Link           *ResponseSubscriberGetAllSubscribersResponseLink `json:"link,omitempty"`           //
-	Opc            string                                           `json:"opc,omitempty"`            // OPC
-	UpdateTime     string                                           `json:"updateTime,omitempty"`     //
-}
-
-type ResponseSubscriberGetAllSubscribersResponseLink struct {
 	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
 	Type string `json:"type,omitempty"` //
 }
 
@@ -64,51 +64,22 @@ type ResponseSubscriberCreateSubscriber struct {
 }
 
 type ResponseSubscriberCreateSubscriberResponse struct {
-	CreateTime     string                                          `json:"createTime,omitempty"`     //
 	Enabled        *bool                                           `json:"enabled,omitempty"`        // Subscriber is enabled or not
 	FriendlyName   string                                          `json:"friendlyName,omitempty"`   // Friendly name for the subscriber
-	ID             string                                          `json:"id,omitempty"`             //
-	IDentityGroups string                                          `json:"identityGroups,omitempty"` // Identity Group(s). With more than one idGroups it needs to be comma seperated
+	IDentityGroups string                                          `json:"identityGroups,omitempty"` // Identity Groups. If you add more than one identity group, they need to be comma separated.
 	Imeis          string                                          `json:"imeis,omitempty"`          // IMEI to be attached to the subscriber
-	Imsi           string                                          `json:"imsi,omitempty"`           // IMSI for Subscriber
-	Ki             string                                          `json:"ki,omitempty"`             // KI
-	Link           *ResponseSubscriberCreateSubscriberResponseLink `json:"link,omitempty"`           //
 	Opc            string                                          `json:"opc,omitempty"`            // OPC
+	Ki             string                                          `json:"ki,omitempty"`             // KI
+	Imsi           string                                          `json:"imsi,omitempty"`           // IMSI for subscriber
+	CreateTime     string                                          `json:"createTime,omitempty"`     //
 	UpdateTime     string                                          `json:"updateTime,omitempty"`     //
+	ID             string                                          `json:"id,omitempty"`             //
+	Link           *ResponseSubscriberCreateSubscriberResponseLink `json:"link,omitempty"`           //
 }
 
 type ResponseSubscriberCreateSubscriberResponseLink struct {
-	Href string `json:"href,omitempty"` //
 	Rel  string `json:"rel,omitempty"`  //
-	Type string `json:"type,omitempty"` //
-}
-
-type ResponseSubscriberBulkSubscriberOperation struct {
-	ID string `json:"id,omitempty"` //
-}
-
-type ResponseSubscriberGetSubscriberByIMSI struct {
-	Response *ResponseSubscriberGetSubscriberByIMSIResponse `json:"response,omitempty"` //
-	Version  string                                         `json:"version,omitempty"`  //
-}
-
-type ResponseSubscriberGetSubscriberByIMSIResponse struct {
-	CreateTime     string                                             `json:"createTime,omitempty"`     //
-	Enabled        *bool                                              `json:"enabled,omitempty"`        // Subscriber is enabled or not
-	FriendlyName   string                                             `json:"friendlyName,omitempty"`   // Friendly name for the subscriber
-	ID             string                                             `json:"id,omitempty"`             //
-	IDentityGroups string                                             `json:"identityGroups,omitempty"` // Identity Group(s). With more than one idGroups it needs to be comma seperated
-	Imeis          string                                             `json:"imeis,omitempty"`          // IMEI to be attached to the subscriber
-	Imsi           string                                             `json:"imsi,omitempty"`           // IMSI for Subscriber
-	Ki             string                                             `json:"ki,omitempty"`             // KI
-	Link           *ResponseSubscriberGetSubscriberByIMSIResponseLink `json:"link,omitempty"`           //
-	Opc            string                                             `json:"opc,omitempty"`            // OPC
-	UpdateTime     string                                             `json:"updateTime,omitempty"`     //
-}
-
-type ResponseSubscriberGetSubscriberByIMSIResponseLink struct {
 	Href string `json:"href,omitempty"` //
-	Rel  string `json:"rel,omitempty"`  //
 	Type string `json:"type,omitempty"` //
 }
 
@@ -118,22 +89,22 @@ type ResponseSubscriberGetSubscriberByID struct {
 }
 
 type ResponseSubscriberGetSubscriberByIDResponse struct {
-	CreateTime     string                                           `json:"createTime,omitempty"`     //
 	Enabled        *bool                                            `json:"enabled,omitempty"`        // Subscriber is enabled or not
 	FriendlyName   string                                           `json:"friendlyName,omitempty"`   // Friendly name for the subscriber
-	ID             string                                           `json:"id,omitempty"`             //
-	IDentityGroups string                                           `json:"identityGroups,omitempty"` // Identity Group(s). With more than one idGroups it needs to be comma seperated
+	IDentityGroups string                                           `json:"identityGroups,omitempty"` // Identity Groups. If you add more than one identity group, they need to be comma separated.
 	Imeis          string                                           `json:"imeis,omitempty"`          // IMEI to be attached to the subscriber
-	Imsi           string                                           `json:"imsi,omitempty"`           // IMSI for Subscriber
-	Ki             string                                           `json:"ki,omitempty"`             // KI
-	Link           *ResponseSubscriberGetSubscriberByIDResponseLink `json:"link,omitempty"`           //
 	Opc            string                                           `json:"opc,omitempty"`            // OPC
+	Ki             string                                           `json:"ki,omitempty"`             // KI
+	Imsi           string                                           `json:"imsi,omitempty"`           // IMSI for subscriber
+	CreateTime     string                                           `json:"createTime,omitempty"`     //
 	UpdateTime     string                                           `json:"updateTime,omitempty"`     //
+	ID             string                                           `json:"id,omitempty"`             //
+	Link           *ResponseSubscriberGetSubscriberByIDResponseLink `json:"link,omitempty"`           //
 }
 
 type ResponseSubscriberGetSubscriberByIDResponseLink struct {
-	Href string `json:"href,omitempty"` //
 	Rel  string `json:"rel,omitempty"`  //
+	Href string `json:"href,omitempty"` //
 	Type string `json:"type,omitempty"` //
 }
 
@@ -143,22 +114,22 @@ type ResponseSubscriberUpdateSubscriber struct {
 }
 
 type ResponseSubscriberUpdateSubscriberResponse struct {
-	CreateTime     string                                          `json:"createTime,omitempty"`     //
 	Enabled        *bool                                           `json:"enabled,omitempty"`        // Subscriber is enabled or not
 	FriendlyName   string                                          `json:"friendlyName,omitempty"`   // Friendly name for the subscriber
-	ID             string                                          `json:"id,omitempty"`             //
-	IDentityGroups string                                          `json:"identityGroups,omitempty"` // Identity Group(s). With more than one idGroups it needs to be comma seperated
+	IDentityGroups string                                          `json:"identityGroups,omitempty"` // Identity Groups. If you add more than one identity group, they need to be comma separated.
 	Imeis          string                                          `json:"imeis,omitempty"`          // IMEI to be attached to the subscriber
-	Imsi           string                                          `json:"imsi,omitempty"`           // IMSI for Subscriber
-	Ki             string                                          `json:"ki,omitempty"`             // KI
-	Link           *ResponseSubscriberUpdateSubscriberResponseLink `json:"link,omitempty"`           //
 	Opc            string                                          `json:"opc,omitempty"`            // OPC
+	Ki             string                                          `json:"ki,omitempty"`             // KI
+	Imsi           string                                          `json:"imsi,omitempty"`           // IMSI for subscriber
+	CreateTime     string                                          `json:"createTime,omitempty"`     //
 	UpdateTime     string                                          `json:"updateTime,omitempty"`     //
+	ID             string                                          `json:"id,omitempty"`             //
+	Link           *ResponseSubscriberUpdateSubscriberResponseLink `json:"link,omitempty"`           //
 }
 
 type ResponseSubscriberUpdateSubscriberResponseLink struct {
-	Href string `json:"href,omitempty"` //
 	Rel  string `json:"rel,omitempty"`  //
+	Href string `json:"href,omitempty"` //
 	Type string `json:"type,omitempty"` //
 }
 
@@ -166,43 +137,72 @@ type ResponseSubscriberDeleteSubscriber struct {
 	Message string `json:"message,omitempty"` //
 }
 
+type ResponseSubscriberGetSubscriberByIMSI struct {
+	Response *ResponseSubscriberGetSubscriberByIMSIResponse `json:"response,omitempty"` //
+	Version  string                                         `json:"version,omitempty"`  //
+}
+
+type ResponseSubscriberGetSubscriberByIMSIResponse struct {
+	Enabled        *bool                                              `json:"enabled,omitempty"`        // Subscriber is enabled or not
+	FriendlyName   string                                             `json:"friendlyName,omitempty"`   // Friendly name for the subscriber
+	IDentityGroups string                                             `json:"identityGroups,omitempty"` // Identity Groups. If you add more than one identity group, they need to be comma separated.
+	Imeis          string                                             `json:"imeis,omitempty"`          // IMEI to be attached to the subscriber
+	Opc            string                                             `json:"opc,omitempty"`            // OPC
+	Ki             string                                             `json:"ki,omitempty"`             // KI
+	Imsi           string                                             `json:"imsi,omitempty"`           // IMSI for subscriber
+	CreateTime     string                                             `json:"createTime,omitempty"`     //
+	UpdateTime     string                                             `json:"updateTime,omitempty"`     //
+	ID             string                                             `json:"id,omitempty"`             //
+	Link           *ResponseSubscriberGetSubscriberByIMSIResponseLink `json:"link,omitempty"`           //
+}
+
+type ResponseSubscriberGetSubscriberByIMSIResponseLink struct {
+	Rel  string `json:"rel,omitempty"`  //
+	Href string `json:"href,omitempty"` //
+	Type string `json:"type,omitempty"` //
+}
+
+type ResponseSubscriberBulkSubscriberOperation struct {
+	ID string `json:"id,omitempty"` //
+}
+
 type RequestSubscriberCreateSubscriber struct {
 	Enabled        *bool  `json:"enabled,omitempty"`        // Subscriber is enabled or not
 	FriendlyName   string `json:"friendlyName,omitempty"`   // Friendly name for the subscriber
-	IDentityGroups string `json:"identityGroups,omitempty"` // Identity Group(s). With more than one idGroups it needs to be comma seperated
+	IDentityGroups string `json:"identityGroups,omitempty"` // Identity Groups. If you add more than one identity group, they need to be comma separated.
 	Imeis          string `json:"imeis,omitempty"`          // IMEI to be attached to the subscriber
-	Imsi           string `json:"imsi,omitempty"`           // IMSI for Subscriber
-	Ki             string `json:"ki,omitempty"`             // KI
 	Opc            string `json:"opc,omitempty"`            // OPC
-}
-
-type RequestSubscriberBulkSubscriberOperation struct {
-	ItemList  *[]RequestSubscriberBulkSubscriberOperationItemList `json:"ItemList,omitempty"`  //
-	Operation string                                              `json:"operation,omitempty"` //
-}
-
-type RequestSubscriberBulkSubscriberOperationItemList struct {
-	Enabled        *bool  `json:"enabled,omitempty"`        // Subscriber is enabled or not
-	FriendlyName   string `json:"friendlyName,omitempty"`   // Friendly name for the subscriber
-	ID             string `json:"id,omitempty"`             //
-	IDentityGroups string `json:"identityGroups,omitempty"` // Identity Group(s). With more than one idGroups it needs to be comma seperated
-	Imeis          string `json:"imeis,omitempty"`          // Comma separated IMEIs to be attached to the subscriber
-	Imsi           string `json:"imsi,omitempty"`           // IMSI for Subscriber
 	Ki             string `json:"ki,omitempty"`             // KI
-	Opc            string `json:"opc,omitempty"`            // OPC
+	Imsi           string `json:"imsi,omitempty"`           // IMSI for subscriber
 }
 
 type RequestSubscriberUpdateSubscriber struct {
 	Enabled        *bool  `json:"enabled,omitempty"`        // Subscriber is enabled or not
 	FriendlyName   string `json:"friendlyName,omitempty"`   // Friendly name for the subscriber
-	IDentityGroups string `json:"identityGroups,omitempty"` // Identity Group(s). With more than one idGroups it needs to be comma seperated
+	IDentityGroups string `json:"identityGroups,omitempty"` // Identity Groups. If you add more than one identity group, they need to be comma separated.
 	Imeis          string `json:"imeis,omitempty"`          // IMEI to be attached to the subscriber
-	Ki             string `json:"ki,omitempty"`             // KI
 	Opc            string `json:"opc,omitempty"`            // OPC
+	Ki             string `json:"ki,omitempty"`             // KI
 }
 
-//GetAllSubscribers Purpose of this API is to get all Subscribers.
-/* Purpose of this API is to get all Subscribers.
+type RequestSubscriberBulkSubscriberOperation struct {
+	Operation string                                              `json:"operation,omitempty"` //
+	ItemList  *[]RequestSubscriberBulkSubscriberOperationItemList `json:"ItemList,omitempty"`  //
+}
+
+type RequestSubscriberBulkSubscriberOperationItemList struct {
+	ID             string `json:"id,omitempty"`             //
+	Imsi           string `json:"imsi,omitempty"`           // IMSI for Subscriber
+	Enabled        *bool  `json:"enabled,omitempty"`        // Subscriber is enabled or not
+	FriendlyName   string `json:"friendlyName,omitempty"`   // Friendly name for the subscriber
+	IDentityGroups string `json:"identityGroups,omitempty"` // Identity Groups. If you add more than one identity group, they need to be comma separated
+	Imeis          string `json:"imeis,omitempty"`          // Comma separated IMEIs to be attached to the subscriber
+	Opc            string `json:"opc,omitempty"`            // OPC
+	Ki             string `json:"ki,omitempty"`             // KI
+}
+
+//GetAllSubscribers Get all subscribers
+/* Get all subscribers
 
 @param getAllSubscribersQueryParams Filtering parameter
 */
@@ -236,8 +236,42 @@ func (s *SubscriberService) GetAllSubscribers(getAllSubscribersQueryParams *GetA
 
 }
 
-//GetSubscriberByIMSI Purpose of this API is to get Subscriber by IMSI.
-/* Purpose of this API is to get Subscriber by IMSI.
+//GetSubscriberByID Get the subscriber for a given ID
+/* Get the subscriber for a given ID
+
+@param subscriberID subscriberId path parameter. Unique ID for a subscriber object
+*/
+func (s *SubscriberService) GetSubscriberByID(subscriberID string) (*ResponseSubscriberGetSubscriberByID, *resty.Response, error) {
+	setHost(s.client, "_ui")
+	path := "/api/v1/fiveg/subscriber/{subscriberId}"
+	path = strings.Replace(path, "{subscriberId}", fmt.Sprintf("%v", subscriberID), -1)
+
+	setCSRFToken(s.client)
+	response, err := s.client.R().
+		SetHeader("Content-Type", "application/json").
+		SetHeader("Accept", "application/json").
+		SetResult(&ResponseSubscriberGetSubscriberByID{}).
+		SetError(&Error).
+		Get(path)
+
+	if err != nil {
+		return nil, nil, err
+
+	}
+
+	if response.IsError() {
+		return nil, response, fmt.Errorf("error with operation GetSubscriberById")
+	}
+
+	getCSFRToken(response.Header())
+
+	result := response.Result().(*ResponseSubscriberGetSubscriberByID)
+	return result, response, err
+
+}
+
+//GetSubscriberByIMSI Get a subscriber by IMSI
+/* Get a subscriber by IMSI
 
 @param imsi imsi path parameter. IMSI parameter
 */
@@ -270,42 +304,8 @@ func (s *SubscriberService) GetSubscriberByIMSI(imsi string) (*ResponseSubscribe
 
 }
 
-//GetSubscriberByID Purpose of this API is to get Subscriber by ID.
-/* Purpose of this API is to get Subscriber by ID.
-
-@param subscriberID subscriberId path parameter. Unique id for a subscriber object
-*/
-func (s *SubscriberService) GetSubscriberByID(subscriberID string) (*ResponseSubscriberGetSubscriberByID, *resty.Response, error) {
-	setHost(s.client, "_ui")
-	path := "/api/v1/fiveg/subscriber/{subscriberId}"
-	path = strings.Replace(path, "{subscriberId}", fmt.Sprintf("%v", subscriberID), -1)
-
-	setCSRFToken(s.client)
-	response, err := s.client.R().
-		SetHeader("Content-Type", "application/json").
-		SetHeader("Accept", "application/json").
-		SetResult(&ResponseSubscriberGetSubscriberByID{}).
-		SetError(&Error).
-		Get(path)
-
-	if err != nil {
-		return nil, nil, err
-
-	}
-
-	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation GetSubscriberById")
-	}
-
-	getCSFRToken(response.Header())
-
-	result := response.Result().(*ResponseSubscriberGetSubscriberByID)
-	return result, response, err
-
-}
-
-//CreateSubscriber Purpose of this API is to create Subscriber holding the IMSI.
-/* Purpose of this API is to create Subscriber holding the IMSI.
+//CreateSubscriber Create subscriber holding the IMEI
+/* Create subscriber holding the IMEI
 
  */
 func (s *SubscriberService) CreateSubscriber(requestSubscriberCreateSubscriber *RequestSubscriberCreateSubscriber) (*ResponseSubscriberCreateSubscriber, *resty.Response, error) {
@@ -339,8 +339,8 @@ func (s *SubscriberService) CreateSubscriber(requestSubscriberCreateSubscriber *
 
 }
 
-//BulkSubscriberOperation Create/update/delete Subscribers in bulk.
-/* Create/update/delete Subscribers in bulk.
+//BulkSubscriberOperation Create, update and delete subscribers in bulk
+/* Create, update and delete subscribers in bulk
 
  */
 func (s *SubscriberService) BulkSubscriberOperation(requestSubscriberBulkSubscriberOperation *RequestSubscriberBulkSubscriberOperation) (*ResponseSubscriberBulkSubscriberOperation, *resty.Response, error) {
@@ -374,10 +374,10 @@ func (s *SubscriberService) BulkSubscriberOperation(requestSubscriberBulkSubscri
 
 }
 
-//UpdateSubscriber Purpose of this API is to update Subscriber given the Subscriber's Id and the request payload
-/* Purpose of this API is to update Subscriber given the Subscriber's Id and the request payload
+//UpdateSubscriber Update a subscriber for a given ID and the request payload
+/* Update a subscriber for a given ID and the request payload
 
-@param subscriberID subscriberId path parameter. Unique id for a subscriber object
+@param subscriberID subscriberId path parameter. Unique ID for a subscriber object
 */
 func (s *SubscriberService) UpdateSubscriber(subscriberID string, requestSubscriberUpdateSubscriber *RequestSubscriberUpdateSubscriber) (*ResponseSubscriberUpdateSubscriber, *resty.Response, error) {
 	setHost(s.client, "_ui")
@@ -412,10 +412,10 @@ func (s *SubscriberService) UpdateSubscriber(subscriberID string, requestSubscri
 
 }
 
-//DeleteSubscriber Purpose of this API is to delete the Subscriber given the Subscriber's Id
-/* Purpose of this API is to delete the Subscriber given the Subscriber's Id
+//DeleteSubscriber Delete the subscriber for a given ID
+/* Delete the subscriber for a given ID
 
-@param subscriberID subscriberId path parameter. Unique id for a subscriber object
+@param subscriberID subscriberId path parameter. Unique ID for a subscriber object
 */
 func (s *SubscriberService) DeleteSubscriber(subscriberID string) (*ResponseSubscriberDeleteSubscriber, *resty.Response, error) {
 	setHost(s.client, "_ui")

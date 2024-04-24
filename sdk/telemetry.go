@@ -33,8 +33,8 @@ type RequestTelemetryUpdateTransportGateway struct {
 	URL                    string `json:"url,omitempty"`                    // URL of transport gateway
 }
 
-//GetTransportGateway Returns ISE transport gateway settings
-/* Transport Gateway acts a proxy for the communication between the ISE servers in your network and the Telemetry servers in case of air-gapped network.
+//GetTransportGateway Return ISE transport gateway settings
+/* Transport Gateway acts a proxy for the communication between the ISE servers in your network and the telemetry servers in case of air-gapped network.
 
  */
 func (s *TelemetryService) GetTransportGateway() (*ResponseTelemetryGetTransportGateway, *resty.Response, error) {
@@ -66,7 +66,7 @@ func (s *TelemetryService) GetTransportGateway() (*ResponseTelemetryGetTransport
 }
 
 //UpdateTransportGateway Configure ISE transport gateway settings
-/* Transport Gateway acts a proxy for the communication between the ISE servers in your network and the Telemetry servers in case of air-gapped network.
+/* Transport Gateway acts a proxy for the communication between the ISE servers in your network and the telemetry servers in case of air-gapped network.
 
  */
 func (s *TelemetryService) UpdateTransportGateway(requestTelemetryUpdateTransportGateway *RequestTelemetryUpdateTransportGateway) (*ResponseTelemetryUpdateTransportGateway, *resty.Response, error) {

@@ -11,30 +11,30 @@ import (
 type CertificatesService service
 
 type GetCsrsQueryParams struct {
-	Page       int      `url:"page,omitempty"`       //Page number
-	Size       int      `url:"size,omitempty"`       //Number of objects returned per page
-	Sort       string   `url:"sort,omitempty"`       //sort type - asc or desc
-	SortBy     string   `url:"sortBy,omitempty"`     //sort column by which objects needs to be sorted
-	Filter     []string `url:"filter,omitempty"`     //<div> <style type="text/css" scoped> .apiServiceTable td, .apiServiceTable th { padding: 5px 10px !important; text-align: left; } </style> <span> <b>Simple filtering</b> should be available through the filter query string parameter. The structure of a filter is a triplet of field operator and value separated with dots. More than one filter can be sent. The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the <i>"filterType=or"</i> query string parameter. Each resource Data model description should specify if an attribute is a filtered field. </span> <br /> <table class="apiServiceTable"> <thead> <tr> <th>OPERATOR</th> <th>DESCRIPTION</th> </tr> </thead> <tbody> <tr> <td>EQ</td> <td>Equals</td> </tr> <tr> <td>NEQ</td> <td>Not Equals</td> </tr> <tr> <td>GT</td> <td>Greater Than</td> </tr> <tr> <td>LT</td> <td>Less Then</td> </tr> <tr> <td>STARTSW</td> <td>Starts With</td> </tr> <tr> <td>NSTARTSW</td> <td>Not Starts With</td> </tr> <tr> <td>ENDSW</td> <td>Ends With</td> </tr> <tr> <td>NENDSW</td> <td>Not Ends With</td> </tr> <tr> <td>CONTAINS</td> <td>Contains</td> </tr> <tr> <td>NCONTAINS</td> <td>Not Contains</td> </tr> </tbody> </table> </div>
-	FilterType string   `url:"filterType,omitempty"` //The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the parameter
+	Page       int    `url:"page,omitempty"`       //Page number
+	Size       int    `url:"size,omitempty"`       //Number of objects returned per page
+	Sort       string `url:"sort,omitempty"`       //sort type - asc or desc
+	SortBy     string `url:"sortBy,omitempty"`     //sort column by which objects needs to be sorted
+	Filter     string `url:"filter,omitempty"`     //<div> <style type="text/css" scoped> .apiServiceTable td, .apiServiceTable th { padding: 5px 10px !important; text-align: left; } </style> <span> <b>Simple filtering</b> should be available through the filter query string parameter. The structure of a filter is a triplet of field operator and value separated with dots. More than one filter can be sent. The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the <i>"filterType=or"</i> query string parameter. Each resource Data model description should specify if an attribute is a filtered field. </span> <br /> <table class="apiServiceTable"> <thead> <tr> <th>OPERATOR</th> <th>DESCRIPTION</th> </tr> </thead> <tbody> <tr> <td>EQ</td> <td>Equals</td> </tr> <tr> <td>NEQ</td> <td>Not Equals</td> </tr> <tr> <td>GT</td> <td>Greater Than</td> </tr> <tr> <td>LT</td> <td>Less Then</td> </tr> <tr> <td>STARTSW</td> <td>Starts With</td> </tr> <tr> <td>NSTARTSW</td> <td>Not Starts With</td> </tr> <tr> <td>ENDSW</td> <td>Ends With</td> </tr> <tr> <td>NENDSW</td> <td>Not Ends With</td> </tr> <tr> <td>CONTAINS</td> <td>Contains</td> </tr> <tr> <td>NCONTAINS</td> <td>Not Contains</td> </tr> </tbody> </table> </div>
+	FilterType string `url:"filterType,omitempty"` //The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the parameter
 }
 
 type GetSystemCertificatesQueryParams struct {
-	Page       int      `url:"page,omitempty"`       //Page number
-	Size       int      `url:"size,omitempty"`       //Number of objects returned per page
-	Sort       string   `url:"sort,omitempty"`       //sort type - asc or desc
-	SortBy     string   `url:"sortBy,omitempty"`     //sort column by which objects needs to be sorted
-	Filter     []string `url:"filter,omitempty"`     //<div> <style type="text/css" scoped> .apiServiceTable td, .apiServiceTable th { padding: 5px 10px !important; text-align: left; } </style> <span> <b>Simple filtering</b> should be available through the filter query string parameter. The structure of a filter is a triplet of field operator and value separated with dots. More than one filter can be sent. The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the <i>"filterType=or"</i> query string parameter. Each resource Data model description should specify if an attribute is a filtered field. </span> <br /> <table class="apiServiceTable"> <thead> <tr> <th>OPERATOR</th> <th>DESCRIPTION</th> </tr> </thead> <tbody> <tr> <td>EQ</td> <td>Equals</td> </tr> <tr> <td>NEQ</td> <td>Not Equals</td> </tr> <tr> <td>GT</td> <td>Greater Than</td> </tr> <tr> <td>LT</td> <td>Less Then</td> </tr> <tr> <td>STARTSW</td> <td>Starts With</td> </tr> <tr> <td>NSTARTSW</td> <td>Not Starts With</td> </tr> <tr> <td>ENDSW</td> <td>Ends With</td> </tr> <tr> <td>NENDSW</td> <td>Not Ends With</td> </tr> <tr> <td>CONTAINS</td> <td>Contains</td> </tr> <tr> <td>NCONTAINS</td> <td>Not Contains</td> </tr> </tbody> </table> </div>
-	FilterType string   `url:"filterType,omitempty"` //The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the parameter
+	Page       int    `url:"page,omitempty"`       //Page number
+	Size       int    `url:"size,omitempty"`       //Number of objects returned per page
+	Sort       string `url:"sort,omitempty"`       //sort type - asc or desc
+	SortBy     string `url:"sortBy,omitempty"`     //sort column by which objects needs to be sorted
+	Filter     string `url:"filter,omitempty"`     //<div> <style type="text/css" scoped> .apiServiceTable td, .apiServiceTable th { padding: 5px 10px !important; text-align: left; } </style> <span> <b>Simple filtering</b> should be available through the filter query string parameter. The structure of a filter is a triplet of field operator and value separated with dots. More than one filter can be sent. The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the <i>"filterType=or"</i> query string parameter. Each resource Data model description should specify if an attribute is a filtered field. </span> <br /> <table class="apiServiceTable"> <thead> <tr> <th>OPERATOR</th> <th>DESCRIPTION</th> </tr> </thead> <tbody> <tr> <td>EQ</td> <td>Equals</td> </tr> <tr> <td>NEQ</td> <td>Not Equals</td> </tr> <tr> <td>GT</td> <td>Greater Than</td> </tr> <tr> <td>LT</td> <td>Less Then</td> </tr> <tr> <td>STARTSW</td> <td>Starts With</td> </tr> <tr> <td>NSTARTSW</td> <td>Not Starts With</td> </tr> <tr> <td>ENDSW</td> <td>Ends With</td> </tr> <tr> <td>NENDSW</td> <td>Not Ends With</td> </tr> <tr> <td>CONTAINS</td> <td>Contains</td> </tr> <tr> <td>NCONTAINS</td> <td>Not Contains</td> </tr> </tbody> </table> </div>
+	FilterType string `url:"filterType,omitempty"` //The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the parameter
 }
 
 type GetTrustedCertificatesQueryParams struct {
-	Page       int      `url:"page,omitempty"`       //Page number
-	Size       int      `url:"size,omitempty"`       //Number of objects returned per page
-	Sort       string   `url:"sort,omitempty"`       //sort type - asc or desc
-	SortBy     string   `url:"sortBy,omitempty"`     //sort column by which objects needs to be sorted
-	Filter     []string `url:"filter,omitempty"`     //<div> <style type="text/css" scoped> .apiServiceTable td, .apiServiceTable th { padding: 5px 10px !important; text-align: left; } </style> <span> <b>Simple filtering</b> should be available through the filter query string parameter. The structure of a filter is a triplet of field operator and value separated with dots. More than one filter can be sent. The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the <i>"filterType=or"</i> query string parameter. Each resource Data model description should specify if an attribute is a filtered field. </span> <br /> <table class="apiServiceTable"> <thead> <tr> <th>OPERATOR</th> <th>DESCRIPTION</th> </tr> </thead> <tbody> <tr> <td>EQ</td> <td>Equals</td> </tr> <tr> <td>NEQ</td> <td>Not Equals</td> </tr> <tr> <td>GT</td> <td>Greater Than</td> </tr> <tr> <td>LT</td> <td>Less Then</td> </tr> <tr> <td>STARTSW</td> <td>Starts With</td> </tr> <tr> <td>NSTARTSW</td> <td>Not Starts With</td> </tr> <tr> <td>ENDSW</td> <td>Ends With</td> </tr> <tr> <td>NENDSW</td> <td>Not Ends With</td> </tr> <tr> <td>CONTAINS</td> <td>Contains</td> </tr> <tr> <td>NCONTAINS</td> <td>Not Contains</td> </tr> </tbody> </table> </div>
-	FilterType string   `url:"filterType,omitempty"` //The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the parameter
+	Page       int    `url:"page,omitempty"`       //Page number
+	Size       int    `url:"size,omitempty"`       //Number of objects returned per page
+	Sort       string `url:"sort,omitempty"`       //sort type - asc or desc
+	SortBy     string `url:"sortBy,omitempty"`     //sort column by which objects needs to be sorted
+	Filter     string `url:"filter,omitempty"`     //<div> <style type="text/css" scoped> .apiServiceTable td, .apiServiceTable th { padding: 5px 10px !important; text-align: left; } </style> <span> <b>Simple filtering</b> should be available through the filter query string parameter. The structure of a filter is a triplet of field operator and value separated with dots. More than one filter can be sent. The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the <i>"filterType=or"</i> query string parameter. Each resource Data model description should specify if an attribute is a filtered field. </span> <br /> <table class="apiServiceTable"> <thead> <tr> <th>OPERATOR</th> <th>DESCRIPTION</th> </tr> </thead> <tbody> <tr> <td>EQ</td> <td>Equals</td> </tr> <tr> <td>NEQ</td> <td>Not Equals</td> </tr> <tr> <td>GT</td> <td>Greater Than</td> </tr> <tr> <td>LT</td> <td>Less Then</td> </tr> <tr> <td>STARTSW</td> <td>Starts With</td> </tr> <tr> <td>NSTARTSW</td> <td>Not Starts With</td> </tr> <tr> <td>ENDSW</td> <td>Ends With</td> </tr> <tr> <td>NENDSW</td> <td>Not Ends With</td> </tr> <tr> <td>CONTAINS</td> <td>Contains</td> </tr> <tr> <td>NCONTAINS</td> <td>Not Contains</td> </tr> </tbody> </table> </div>
+	FilterType string `url:"filterType,omitempty"` //The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the parameter
 }
 
 type ResponseCertificatesGetCsrs struct {
@@ -63,6 +63,7 @@ type ResponseCertificatesGetCsrsResponse struct {
 	ID                 string                                   `json:"id,omitempty"`                 // ID of the certificate.
 	KeySize            string                                   `json:"keySize,omitempty"`            // Size of the cryptographic key used.
 	Link               *ResponseCertificatesGetCsrsResponseLink `json:"link,omitempty"`               //
+	SanNames           string                                   `json:"sanNames,omitempty"`           // String representation of subject alternative names.
 	SignatureAlgorithm string                                   `json:"signatureAlgorithm,omitempty"` // Algorithm used for encrypting CSR
 	Subject            string                                   `json:"subject,omitempty"`            // Subject of the certificate. Includes Common Name (CN), Organizational Unit (OU), etc.
 	TimeStamp          string                                   `json:"timeStamp,omitempty"`          // Timestamp of the certificate generation.
@@ -122,6 +123,7 @@ type ResponseCertificatesGetCsrByIDResponse struct {
 	ID                 string                                      `json:"id,omitempty"`                 // ID of the certificate.
 	KeySize            string                                      `json:"keySize,omitempty"`            // Size of the cryptographic key used.
 	Link               *ResponseCertificatesGetCsrByIDResponseLink `json:"link,omitempty"`               //
+	SanNames           string                                      `json:"sanNames,omitempty"`           // String representation of subject alternative names.
 	SignatureAlgorithm string                                      `json:"signatureAlgorithm,omitempty"` // Algorithm used for encrypting CSR
 	Subject            string                                      `json:"subject,omitempty"`            // Subject of the certificate. Includes Common Name (CN), Organizational Unit (OU), etc.
 	TimeStamp          string                                      `json:"timeStamp,omitempty"`          // Timestamp of the certificate generation.
@@ -155,7 +157,7 @@ type ResponseCertificatesRegenerateIseRootCa struct {
 }
 
 type ResponseCertificatesRegenerateIseRootCaResponse struct {
-	ID      string                                               `json:"id,omitempty"`      // ID which can be used to track status of Cisco ISE root CA chain regeneration
+	ID      string                                               `json:"id,omitempty"`      // ID which can be used to track the status of Cisco ISE root CA chain regeneration
 	Link    *ResponseCertificatesRegenerateIseRootCaResponseLink `json:"link,omitempty"`    //
 	Message string                                               `json:"message,omitempty"` //
 }
@@ -175,7 +177,7 @@ type ResponseCertificatesRenewCerts struct {
 type ResponseCertificatesRenewCertificates = ResponseCertificatesRenewCerts
 
 type ResponseCertificatesRenewCertsResponse struct {
-	ID      string                                      `json:"id,omitempty"`      // ID which can be used to track status of certificate regeneration
+	ID      string                                      `json:"id,omitempty"`      // ID which can be used to track the status of certificate regeneration
 	Link    *ResponseCertificatesRenewCertsResponseLink `json:"link,omitempty"`    //
 	Message string                                      `json:"message,omitempty"` //
 }
@@ -208,7 +210,7 @@ type ResponseCertificatesGenerateSelfSignedCertificate struct {
 }
 
 type ResponseCertificatesGenerateSelfSignedCertificateResponse struct {
-	ID      string `json:"id,omitempty"`      // ID of the generated sefl signed system certificate
+	ID      string `json:"id,omitempty"`      // ID of the generated self-signed system certificate
 	Message string `json:"message,omitempty"` // Response message on generation of self-signed system certificate
 	Status  string `json:"status,omitempty"`  // HTTP response status after import
 }
@@ -256,7 +258,7 @@ type ResponseCertificatesGetSystemCertificatesResponse struct {
 	ID                        string                                                 `json:"id,omitempty"`                        // ID of system certificate
 	IssuedBy                  string                                                 `json:"issuedBy,omitempty"`                  // Common Name of the certificate issuer
 	IssuedTo                  string                                                 `json:"issuedTo,omitempty"`                  // Common Name of the certificate subject
-	KeySize                   *int                                                   `json:"keySize,omitempty"`                   // Length of key used for encrypting system certificate
+	KeySize                   *int                                                   `json:"keySize,omitempty"`                   // Length of the key used for encrypting system certificate
 	Link                      *ResponseCertificatesGetSystemCertificatesResponseLink `json:"link,omitempty"`                      //
 	PortalsUsingTheTag        string                                                 `json:"portalsUsingTheTag,omitempty"`        //
 	SelfSigned                *bool                                                  `json:"selfSigned,omitempty"`                //
@@ -285,7 +287,7 @@ type ResponseCertificatesGetSystemCertificateByIDResponse struct {
 	ID                        string                                                    `json:"id,omitempty"`                        // ID of system certificate
 	IssuedBy                  string                                                    `json:"issuedBy,omitempty"`                  // Common Name of the certificate issuer
 	IssuedTo                  string                                                    `json:"issuedTo,omitempty"`                  // Common Name of the certificate subject
-	KeySize                   *int                                                      `json:"keySize,omitempty"`                   // Length of key used for encrypting system certificate
+	KeySize                   *int                                                      `json:"keySize,omitempty"`                   // Length of the key used for encrypting system certificate
 	Link                      *ResponseCertificatesGetSystemCertificateByIDResponseLink `json:"link,omitempty"`                      //
 	PortalsUsingTheTag        string                                                    `json:"portalsUsingTheTag,omitempty"`        //
 	SelfSigned                *bool                                                     `json:"selfSigned,omitempty"`                //
@@ -376,7 +378,7 @@ type ResponseCertificatesGetTrustedCertificatesResponse struct {
 	InternalCa                     *bool                                                   `json:"internalCA,omitempty"`                     //
 	IssuedBy                       string                                                  `json:"issuedBy,omitempty"`                       // The entity that verified the information and signed the certificate
 	IssuedTo                       string                                                  `json:"issuedTo,omitempty"`                       // Entity to which trust certificate is issued
-	KeySize                        string                                                  `json:"keySize,omitempty"`                        // The length of key used for encrypting trust certificate
+	KeySize                        string                                                  `json:"keySize,omitempty"`                        // Length of the key used for encrypting trust certificate
 	Link                           *ResponseCertificatesGetTrustedCertificatesResponseLink `json:"link,omitempty"`                           //
 	NonAutomaticCRLUpdatePeriod    string                                                  `json:"nonAutomaticCRLUpdatePeriod,omitempty"`    // Non automatic CRL update period
 	NonAutomaticCRLUpdateUnits     string                                                  `json:"nonAutomaticCRLUpdateUnits,omitempty"`     // Unit of time of non automatic CRL update
@@ -440,7 +442,7 @@ type ResponseCertificatesGetTrustedCertificateByIDResponse struct {
 	IsReferredInPolicy             *bool                                                      `json:"isReferredInPolicy,omitempty"`             //
 	IssuedBy                       string                                                     `json:"issuedBy,omitempty"`                       // The entity that verified the information and signed the certificate
 	IssuedTo                       string                                                     `json:"issuedTo,omitempty"`                       // Entity to which trust certificate is issued
-	KeySize                        string                                                     `json:"keySize,omitempty"`                        // The length of key used for encrypting trust certificate
+	KeySize                        string                                                     `json:"keySize,omitempty"`                        // Length of the key used for encrypting trust certificate
 	Link                           *ResponseCertificatesGetTrustedCertificateByIDResponseLink `json:"link,omitempty"`                           //
 	NonAutomaticCRLUpdatePeriod    string                                                     `json:"nonAutomaticCRLUpdatePeriod,omitempty"`    // Non automatic CRL update period
 	NonAutomaticCRLUpdateUnits     string                                                     `json:"nonAutomaticCRLUpdateUnits,omitempty"`     // Unit of time of non automatic CRL update
@@ -522,14 +524,14 @@ type RequestCertificatesRenewCertificates = RequestCertificatesRenewCerts
 
 type RequestCertificatesBindCsr struct {
 	Admin                            *bool  `json:"admin,omitempty"`                            //  Use certificate to authenticate the Cisco ISE Admin Portal
-	AllowExtendedValidity            *bool  `json:"allowExtendedValidity,omitempty"`            // Allow import of certificates with validity greater than 398 days (required)
-	AllowOutOfDateCert               *bool  `json:"allowOutOfDateCert,omitempty"`               // Allow out of date certificates (required)
-	AllowReplacementOfCertificates   *bool  `json:"allowReplacementOfCertificates,omitempty"`   // Allow Replacement of certificates (required)
-	AllowReplacementOfPortalGroupTag *bool  `json:"allowReplacementOfPortalGroupTag,omitempty"` // Allow Replacement of Portal Group Tag (required)
-	Data                             string `json:"data,omitempty"`                             // Signed certificate data (required)
+	AllowExtendedValidity            *bool  `json:"allowExtendedValidity,omitempty"`            // Allow import of certificates with validity greater than 398 days
+	AllowOutOfDateCert               *bool  `json:"allowOutOfDateCert,omitempty"`               // Allow out of date certificates
+	AllowReplacementOfCertificates   *bool  `json:"allowReplacementOfCertificates,omitempty"`   // Allow Replacement of certificates
+	AllowReplacementOfPortalGroupTag *bool  `json:"allowReplacementOfPortalGroupTag,omitempty"` // Allow Replacement of Portal Group Tag
+	Data                             string `json:"data,omitempty"`                             // Signed certificate data
 	Eap                              *bool  `json:"eap,omitempty"`                              // Use certificate for EAP protocols that use SSL/TLS tunneling
-	HostName                         string `json:"hostName,omitempty"`                         // Name of Host whose CSR ID has been provided (required)
-	ID                               string `json:"id,omitempty"`                               // ID of the generated CSR (required)
+	HostName                         string `json:"hostName,omitempty"`                         // Name of Host whose CSR ID has been provided
+	ID                               string `json:"id,omitempty"`                               // ID of the generated CSR
 	Ims                              *bool  `json:"ims,omitempty"`                              // Use certificate for the Cisco ISE Messaging Service
 	Name                             string `json:"name,omitempty"`                             // Friendly Name of the certificate
 	Portal                           *bool  `json:"portal,omitempty"`                           // Use for portal
@@ -542,6 +544,7 @@ type RequestCertificatesBindCsr struct {
 
 type RequestCertificatesExportSystemCert struct {
 	Export   string `json:"export,omitempty"`   //
+	HostName string `json:"hostName,omitempty"` // Hostname of the Cisco ISE node in which self-signed certificate should be generated.
 	ID       string `json:"id,omitempty"`       //
 	Password string `json:"password,omitempty"` //
 }
@@ -586,22 +589,22 @@ type RequestCertificatesGenerateSelfSignedCertificate struct {
 
 type RequestCertificatesImportSystemCert struct {
 	Admin                                *bool  `json:"admin,omitempty"`                                // Use certificate to authenticate the Cisco ISE Admin Portal
-	AllowExtendedValidity                *bool  `json:"allowExtendedValidity,omitempty"`                // Allow import of certificates with validity greater than 398 days (required)
-	AllowOutOfDateCert                   *bool  `json:"allowOutOfDateCert,omitempty"`                   // Allow out of date certificates (required)
+	AllowExtendedValidity                *bool  `json:"allowExtendedValidity,omitempty"`                // Allow import of certificates with validity greater than 398 days
+	AllowOutOfDateCert                   *bool  `json:"allowOutOfDateCert,omitempty"`                   // Allow out of date certificates
 	AllowPortalTagTransferForSameSubject *bool  `json:"allowPortalTagTransferForSameSubject,omitempty"` // Allow overwriting the portal tag from matching certificate of same subject
-	AllowReplacementOfCertificates       *bool  `json:"allowReplacementOfCertificates,omitempty"`       // Allow Replacement of certificates (required)
-	AllowReplacementOfPortalGroupTag     *bool  `json:"allowReplacementOfPortalGroupTag,omitempty"`     // Allow Replacement of Portal Group Tag (required)
+	AllowReplacementOfCertificates       *bool  `json:"allowReplacementOfCertificates,omitempty"`       // Allow Replacement of certificates
+	AllowReplacementOfPortalGroupTag     *bool  `json:"allowReplacementOfPortalGroupTag,omitempty"`     // Allow Replacement of Portal Group Tag
 	AllowRoleTransferForSameSubject      *bool  `json:"allowRoleTransferForSameSubject,omitempty"`      // Allow transfer of roles for certificate with matching subject
-	AllowSHA1Certificates                *bool  `json:"allowSHA1Certificates,omitempty"`                // Allow SHA1 based certificates (required)
+	AllowSHA1Certificates                *bool  `json:"allowSHA1Certificates,omitempty"`                // Allow SHA1 based certificates
 	AllowWildCardCertificates            *bool  `json:"allowWildCardCertificates,omitempty"`            // Allow Wildcard certificates
-	Data                                 string `json:"data,omitempty"`                                 // Certificate Content (required)
+	Data                                 string `json:"data,omitempty"`                                 // Certificate Content
 	Eap                                  *bool  `json:"eap,omitempty"`                                  // Use certificate for EAP protocols that use SSL/TLS tunneling
 	Ims                                  *bool  `json:"ims,omitempty"`                                  // Use certificate for the Cisco ISE Messaging Service
 	Name                                 string `json:"name,omitempty"`                                 // Name of the certificate
-	Password                             string `json:"password,omitempty"`                             // Certificate Password (required).
+	Password                             string `json:"password,omitempty"`                             // Certificate Password .
 	Portal                               *bool  `json:"portal,omitempty"`                               // Use for portal
 	PortalGroupTag                       string `json:"portalGroupTag,omitempty"`                       // Set Group tag
-	PrivateKeyData                       string `json:"privateKeyData,omitempty"`                       // Private Key data (required)
+	PrivateKeyData                       string `json:"privateKeyData,omitempty"`                       // Private Key data
 	Pxgrid                               *bool  `json:"pxgrid,omitempty"`                               // Use certificate for the pxGrid Controller
 	Radius                               *bool  `json:"radius,omitempty"`                               // Use certificate for the RADSec server
 	Saml                                 *bool  `json:"saml,omitempty"`                                 // Use certificate for SAML Signing
@@ -614,7 +617,7 @@ type RequestCertificatesImportSystemCertificate = RequestCertificatesImportSyste
 type RequestCertificatesUpdateSystemCert struct {
 	Admin                                *bool  `json:"admin,omitempty"`                                // Use certificate to authenticate the Cisco ISE Admin Portal
 	AllowPortalTagTransferForSameSubject *bool  `json:"allowPortalTagTransferForSameSubject,omitempty"` // Allow overwriting the portal tag from matching certificate of same subject
-	AllowReplacementOfPortalGroupTag     *bool  `json:"allowReplacementOfPortalGroupTag,omitempty"`     // Allow Replacement of Portal Group Tag (required)
+	AllowReplacementOfPortalGroupTag     *bool  `json:"allowReplacementOfPortalGroupTag,omitempty"`     // Allow Replacement of Portal Group Tag
 	AllowRoleTransferForSameSubject      *bool  `json:"allowRoleTransferForSameSubject,omitempty"`      // Allow transfer of roles for certificate with matching subject
 	Description                          string `json:"description,omitempty"`                          // Description of System Certificate
 	Eap                                  *bool  `json:"eap,omitempty"`                                  // Use certificate for EAP protocols that use SSL/TLS tunneling
@@ -634,10 +637,10 @@ type RequestCertificatesUpdateSystemCert struct {
 type RequestCertificatesUpdateSystemCertificate = RequestCertificatesUpdateSystemCert
 
 type RequestCertificatesImportTrustCert struct {
-	AllowBasicConstraintCaFalse       *bool  `json:"allowBasicConstraintCAFalse,omitempty"`       // Allow certificates with Basic Constraints CA Field as False (required)
-	AllowOutOfDateCert                *bool  `json:"allowOutOfDateCert,omitempty"`                // Allow out of date certificates (required)
-	AllowSHA1Certificates             *bool  `json:"allowSHA1Certificates,omitempty"`             // Allow SHA1 based certificates (required)
-	Data                              string `json:"data,omitempty"`                              // Certificate content (required)
+	AllowBasicConstraintCaFalse       *bool  `json:"allowBasicConstraintCAFalse,omitempty"`       // Allow certificates with Basic Constraints CA Field as False
+	AllowOutOfDateCert                *bool  `json:"allowOutOfDateCert,omitempty"`                // Allow out of date certificates
+	AllowSHA1Certificates             *bool  `json:"allowSHA1Certificates,omitempty"`             // Allow SHA1 based certificates
+	Data                              string `json:"data,omitempty"`                              // Certificate content
 	Description                       string `json:"description,omitempty"`                       // Description of the certificate
 	Name                              string `json:"name,omitempty"`                              // Name of the certificate
 	TrustForCertificateBasedAdminAuth *bool  `json:"trustForCertificateBasedAdminAuth,omitempty"` // Trust for Certificate based Admin authentication
@@ -676,10 +679,10 @@ type RequestCertificatesUpdateTrustedCertificate struct {
 	TrustForIseAuth                   *bool  `json:"trustForIseAuth,omitempty"`                   // Trust for authentication within Cisco ISE
 }
 
-//GetCsrs Get all Certificate Signing Requests from PAN.
-/*  This API supports Filtering, Sorting and Pagination.
+//GetCsrs Get all Certificate Signing Requests from PAN
+/*  This API supports filtering, sorting and pagination.
 
-Filtering and Sorting supported on below mentioned attributes:
+Filtering and sorting are supported for the following attributes:
 
 
 friendlyName
@@ -728,8 +731,8 @@ func (s *CertificatesService) GetCsrs(getCSRsQueryParams *GetCsrsQueryParams) (*
 
 }
 
-//ExportCsr Export a CSR, given a CSR ID and a hostname.
-/* Response of this API carries a CSR corresponding to the requested ID
+//ExportCsr Export a CSR for a given CSR ID and hostname
+/* Response of this API carries a CSR corresponding to the requested ID.
 
 @param hostname hostname path parameter. Hostname to which the CSR belongs.
 @param id id path parameter. ID of the CSR to be exported.
@@ -766,8 +769,8 @@ func (s *CertificatesService) ExportCsr(hostname string, id string) (FileDownloa
 
 }
 
-//GetCsrByID Get Certificate Signing Request (CSR) by ID
-/* This API displays details of a Certificate Signing Request of a particular node for given HostName and ID.
+//GetCsrByID Get the certificate signing request for a given ID
+/* This API displays details of a certificate signing request of a particular node for a given hostname and ID.
 
 @param hostName hostName path parameter. Name of the host of which CSR's should be returned
 @param id id path parameter. ID of the Certificate Signing Request returned
@@ -803,9 +806,9 @@ func (s *CertificatesService) GetCsrByID(hostName string, id string) (*ResponseC
 }
 
 //GetSystemCertificates Get all system certificates of a particular node
-/*  This API supports Filtering, Sorting and Pagination.
+/*  This API supports filtering, sorting and pagination.
 
-Filtering and Sorting supported on below mentioned attributes:
+Filtering and sorting supported for the following attributes:
 
 
 friendlyName
@@ -832,7 +835,7 @@ Supported Operators: EQ, NEQ, GT and LT
 
 
 
-@param hostName hostName path parameter. Name of the host of which system certificates should be returned
+@param hostName hostName path parameter. Name of the host for which the system certificates should be returned
 @param getSystemCertificatesQueryParams Filtering parameter
 */
 func (s *CertificatesService) GetSystemCertificates(hostName string, getSystemCertificatesQueryParams *GetSystemCertificatesQueryParams) (*ResponseCertificatesGetSystemCertificates, *resty.Response, error) {
@@ -867,7 +870,7 @@ func (s *CertificatesService) GetSystemCertificates(hostName string, getSystemCe
 }
 
 //GetSystemCertificateByID Get system certificate of a particular node by ID
-/* This API provides details of a System Certificate of a particular node based on given HostName and ID.
+/* This API provides details of a system certificate of a particular node based on given hostname and ID.
 
 @param hostName hostName path parameter. Name of the host of which system certificates should be returned
 @param id id path parameter. ID of the system certificate
@@ -905,7 +908,7 @@ func (s *CertificatesService) GetSystemCertificateByID(hostName string, id strin
 //GetTrustedCertificates Get list of all trusted certificates
 /*  This API supports Filtering, Sorting and Pagination.
 
-Filtering and Sorting supported on below mentioned attributes:
+Filtering and Sorting are supported for the following attributes:
 
 
 friendlyName
@@ -942,6 +945,9 @@ Supported Operators: EQ, NEQ
 
 
 
+Note:
+ ISE internal CA certificates will not be exported.
+
 @param getTrustedCertificatesQueryParams Filtering parameter
 */
 func (s *CertificatesService) GetTrustedCertificates(getTrustedCertificatesQueryParams *GetTrustedCertificatesQueryParams) (*ResponseCertificatesGetTrustedCertificates, *resty.Response, error) {
@@ -974,8 +980,8 @@ func (s *CertificatesService) GetTrustedCertificates(getTrustedCertificatesQuery
 
 }
 
-//ExportTrustedCert Export a trust certificate given a certificate id.
-/* The response of this API carries a trusted certificate file mapped to the requested ID
+//ExportTrustedCert Export a trust certificate by a given certificate ID
+/* The response of this API carries a trusted certificate file mapped to the requested ID.
 
 @param id id path parameter. ID of the Trusted Certificate to be exported.
 */
@@ -1010,7 +1016,7 @@ func (s *CertificatesService) ExportTrustedCert(id string) (FileDownload, *resty
 
 }
 
-//Alias of ExportTrustedCert Export a trust certificate given a certificate id.
+// Alias of ExportTrustedCert Export a trust certificate by a given certificate ID
 func (s *CertificatesService) ExportTrustedCertificate(id string) (FileDownload, *resty.Response, error) {
 	return s.ExportTrustedCert(id)
 }
@@ -1049,12 +1055,10 @@ func (s *CertificatesService) GetTrustedCertificateByID(id string) (*ResponseCer
 
 }
 
-//GenerateCsr Generate a Certificate Signing Request (CSR).
+//GenerateCsr Generate a Certificate Signing Request (CSR)
 /*
-
 Generate a certificate signing request for Multi-Use, Admin, EAP Authentication, RADIUS DTLS, PxGrid, SAML, Portal and IMS Services.
-
-Following parameters are present in POST request body
+ Following parameters are present in the POST request body
 
 
 
@@ -1079,43 +1083,43 @@ List of Cisco ISE node hostnames for which CSRs should be generated
 
 allowWildCardCert
 
-Allow use of WildCards in certificates
+Allow use of wildCards in certificates
 
 "allowWildCardCert": false
 
 
 
 keyLength
-* required
+*required
 
-Length of the key used for CSR generation (required).
+Length of the key used for CSR generation.
 
 "keyLength": "512"
 
 
 
 keyType
-* required
+*required
 
-Type of key used for CSR generation either RSA or ECDSA (required).
+Type of key used for CSR generation either RSA or ECDSA.
 
 "keyType": "RSA"
 
 
 
 digestType
-* required
+*required
 
-Hash algorithm used for signing CSR (required).
+Hash algorithm used for signing CSR.
 
 "digestType": "SHA-256"
 
 
 
 usedFor
-* required
+*required
 
-Certificate usage (required).
+Certificate usage.
 
 "usedFor": "MULTI-USE"
 
@@ -1130,9 +1134,9 @@ Certificate policy OID or list of OIDs that the certificate should conform to. U
 
 
 subjectCommonName
-* required
+*required
 
-Certificate common name (CN) (required).
+Certificate common name (CN).
 
 "subjectCommonName": "$FQDN$"
 
@@ -1216,10 +1220,12 @@ Portal Group Tag when using certificate for PORTAL service
 
 
 NOTE:
-For allowWildCardCert to be false, the below mentioned parameter is mandatory:
+For
+allowWildCardCert
+ to be false, the following parameter is mandatory:
 hostnames
 
-When certificate is selected to be used for Portal Service, the below mentioned parameter is mandatory:
+When certificate is selected to be used for Portal Service, the following parameter is mandatory:
 portalGroupTag
 
 
@@ -1256,8 +1262,8 @@ func (s *CertificatesService) GenerateCsr(requestCertificatesGenerateCSR *Reques
 
 }
 
-//GenerateIntermediateCaCsr Generate a Intermediate CA Certificate Signing Request (CSR).
-/* CSR Generation for Intermediate Certificates.
+//GenerateIntermediateCaCsr Generate an intermediate CA CSR (certificate signing request)
+/* CSR generation for Intermediate Certificates.
 
  */
 func (s *CertificatesService) GenerateIntermediateCaCsr() (*ResponseCertificatesGenerateIntermediateCaCsr, *resty.Response, error) {
@@ -1290,9 +1296,9 @@ func (s *CertificatesService) GenerateIntermediateCaCsr() (*ResponseCertificates
 
 }
 
-//RegenerateIseRootCa Regenerate entire internal CA certificate chain including root CA on the Primary PAN and subordinate CAs on the PSNs (Applicable only for internal CA service).
-/* This API initiates regeneration of Cisco ISE root CA certificate chain. Response contains ID which can be used to track the status.
-Setting "removeExistingISEIntermediateCSR" to true removes existing Cisco ISE Intermediate CSR
+//RegenerateIseRootCa Regenerate entire internal CA certificate chain including root CA on the primary PAN and subordinate CAs on the PSNs (Applicable only for internal CA service)
+/* This API initiates regeneration of Cisco ISE root CA certificate chain. The response contains an ID which can be used to track the status.
+Setting "removeExistingISEIntermediateCSR" to true removes existing Cisco ISE Intermediate CSR.
 
 */
 func (s *CertificatesService) RegenerateIseRootCa(requestCertificatesRegenerateISERootCA *RequestCertificatesRegenerateIseRootCa) (*ResponseCertificatesRegenerateIseRootCa, *resty.Response, error) {
@@ -1326,8 +1332,8 @@ func (s *CertificatesService) RegenerateIseRootCa(requestCertificatesRegenerateI
 
 }
 
-//RenewCerts Renew certificates of OCSP responder and Cisco ISE Messaging Service.
-/* This API initiates regeneration of certificates. Response contains ID which can be used to track the status
+//RenewCerts Renew certificates of OCSP responder and Cisco ISE Messaging Service
+/* This API initiates regeneration of certificates. The response contains an ID which can be used to track the status.
 
  */
 func (s *CertificatesService) RenewCerts(requestCertificatesRenewCerts *RequestCertificatesRenewCerts) (*ResponseCertificatesRenewCerts, *resty.Response, error) {
@@ -1361,26 +1367,25 @@ func (s *CertificatesService) RenewCerts(requestCertificatesRenewCerts *RequestC
 
 }
 
-//Alias of RenewCerts Renew certificates of OCSP responder and Cisco ISE Messaging Service.
+// Alias of RenewCerts Renew certificates of OCSP responder and Cisco ISE Messaging Service
 func (s *CertificatesService) RenewCertificates(requestCertificatesRenewCerts *RequestCertificatesRenewCerts) (*ResponseCertificatesRenewCerts, *resty.Response, error) {
 	return s.RenewCerts(requestCertificatesRenewCerts)
 }
 
-//BindCsr Bind CA Signed Certificate.
+//BindCsr Bind CA Signed Certificate
 /*
-
 Bind CA Signed Certificate.
 
 NOTE:
-This API requires an existing Certificate Signing Request, and the root certificate must already be trusted.
+This API requires an existing certificate signing request, and the root certificate must already be trusted.
 
 NOTE:
-The certificate may have a validity period longer than 398 days. It may be untrusted by many browsers.
+The certificate may have a validity period greater than 398 days. It may be untrusted by many browsers.
 
 NOTE:
 Request parameters accepting True and False as input can be replaced by 1 and 0 respectively.
 
-Following parameters are used in POST body
+Following parameters are used in the POST body
 
 
 
@@ -1404,10 +1409,10 @@ Friendly name of the certificate.
 
 
 data
-* required
+*required
 
- Plain-text contents of the certificate file. Every space needs to be replaced with newline escape sequence (\n) (required).
- Use
+ Plain-text contents of the certificate file. Every space needs to be replaced with a newline escape sequence (\n).
+ Use the command
 awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' <<your .pem file>>
  to extract data from certificate file.
 
@@ -1416,41 +1421,42 @@ awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' <<your .pem file>>
 
 
 allowExtendedValidity
-* required
+*required
 
-Allow the certificates greater than validity of 398 days (required).
+Allow the certificates with validity greater than 398 days.
 
 "allowExtendedValidity": true
 
 
 
 allowOutOfDateCert
-* required
+*required
 
- Allow out of date certificates (required).
+ Allow out of date certificates.
 SECURITY ALERT:
-It is recommended to use
-"allowOutOfDateCert": false
- to avoid binding of expired certificates (not Secure).
-
+We recommend to set the parameter the parameter
+allowOutOfDateCert
+ as
+false
+ to avoid binding of expired certificates (not secure).
 
 "allowOutOfDateCert": true
 
 
 
 allowReplacementOfCertificates
-* required
+*required
 
-Allow Replacement of certificates (required).
+Allow Replacement of certificates.
 
 "allowReplacementOfCertificates": true
 
 
 
 allowReplacementOfPortalGroupTag
-* required
+*required
 
-Allow Replacement of Portal Group Tag (required).
+Allow Replacement of Portal Group Tag.
 
 "allowReplacementOfPortalGroupTag": true
 
@@ -1547,9 +1553,9 @@ Admin
 
 False
 
-Enabling Admin role for this certificate causes an application server restart on the selected node.
+Enabling admin role for this certificate causes an application server restart on the selected node.
 Note:
- Make sure required Certificate Chain is imported under Trusted Certificates
+ Make sure that the required certificate chain is imported under Trusted Certificates.
 
 
 
@@ -1559,7 +1565,7 @@ False
 
 Only one system certificate can be used for EAP. Assigning EAP to this certificate removes the assignment from another certificate.
 Note:
- Make sure required Certificate Chain is imported under Trusted Certificates
+ Make sure that the required certificate chain is imported under Trusted Certificates.
 
 
 
@@ -1569,7 +1575,7 @@ False
 
 Only one system certificate can be used for DTLS. Assigning DTLS to this certificate removes the assignment from another certificate.
 Note:
- Make sure required Certificate Chain is imported under Trusted Certificates
+ Make sure that the required certificate chain is imported under Trusted Certificates
 
 
 
@@ -1579,7 +1585,7 @@ False
 
 SAML cannot be used with other Usage. Enabling SAML unchecks all other Usage.
 Note:
- Make sure required Certificate Chain is imported under Trusted Certificates
+ Make sure that the required certificate chain is imported under Trusted Certificates.
 
 
 
@@ -1617,13 +1623,10 @@ func (s *CertificatesService) BindCsr(requestCertificatesBindCSR *RequestCertifi
 
 }
 
-//ExportSystemCert Export a system certificate given a certificate ID.
+//ExportSystemCert Export a system certificate with a given a certificate ID
 /*
-
 Export System Certificate.
-
-Following parameters are used in POST body
-
+ Following parameters are used in the POST body
 
 
 
@@ -1638,17 +1641,26 @@ EXAMPLE
 
 
 id
-* required
+*required
 
-ID of a System Certificate (required).
+ID of a System Certificate.
 
 "id": "CERT-ID"
 
 
 
+hostName
+*required
+
+Name of the host for which the system certificate should be exported
+
+"hostName": "ise-node-001"
+
+
+
 export
 
- One of the below option is required
+ One of the following options is required:
 
 "CERTIFICATE" :
 Export only certificate without private key
@@ -1665,7 +1677,7 @@ Export both certificate and private key (
 
 
 password
-* required
+*required
 
 Certificate password (required if
 "export" : CERTIFICATE_WITH_PRIVATE_KEY
@@ -1686,19 +1698,15 @@ Maximum of 100 Characters
 
 
 
-
 NOTE:
-The response of this API carries a ZIP file containing the certificate and private key if
+The response of this API carries a ZIP file containing the certificate and private key if  the request contains
 "export" : "CERTIFICATE_WITH_PRIVATE_KEY"
- in the request. If
+. If the request body contains
 "export" : "CERTIFICATE"
- in request body, the response carries a ZIP file containing only the certificate.
-
-
+, the response carries a ZIP file containing only the certificate.
 
 WARNING:
 Exporting a private key is not a secure operation. It could lead to possible exposure of the private key.
-
 
 
 */
@@ -1733,27 +1741,26 @@ func (s *CertificatesService) ExportSystemCert(requestCertificatesExportSystemCe
 
 }
 
-//Alias of ExportSystemCert Export a system certificate given a certificate ID.
+// Alias of ExportSystemCert Export a system certificate with a given a certificate ID
 func (s *CertificatesService) ExportSystemCertificate(requestCertificatesExportSystemCert *RequestCertificatesExportSystemCert) (FileDownload, *resty.Response, error) {
 	return s.ExportSystemCert(requestCertificatesExportSystemCert)
 }
 
-//GenerateSelfSignedCertificate Generate self-signed certificate in Cisco ISE.
+//GenerateSelfSignedCertificate Generate self-signed certificate in Cisco ISE
 /*
-
 Generate Self-signed Certificate
 
 NOTE:
-The certificate may have a validity period longer than 398 days. It may be untrusted by many browsers.
+The certificate may have a validity period greater than 398 days. It may be untrusted by many browsers.
 
 NOTE:
 Request parameters accepting True and False as input can be replaced by 1 and 0 respectively.
 
 NOTE:
-Wildcard certificate and SAML certificate can be generated only on PPAN or Standalone
+Wildcard certificate and SAML certificate can be generated only on the primary PAN or a standalone node.
 
 
-Following parameters are used in POST body
+Following parameters are used in the POST body
 
 
 
@@ -1769,9 +1776,9 @@ EXAMPLE
 
 
 hostName
-* required
+*required
 
-Hostname or FQDN of the node in which certificate needs to be created (required).
+Hostname or FQDN of the node in which the certificate needs to be created.
 
 "hostName": "ise-node-001"
 
@@ -1790,8 +1797,9 @@ subjectCommonName
  Certificate common name (CN)
 
 NOTE:
-1. CN is Mandatory if SAN not configured.
-             2. Subject can contain a multi-valued CN. For multi-valued RDNs, follow the format "CN=value1, CN=value2"
+CN is Mandatory if SAN not configured.
+>Subject can contain a multi-valued CN. For multi-valued RDNs, follow the format "CN=value1, CN=value2"
+
 
 "subjectCommonName": "$FQDN$"
 
@@ -1813,7 +1821,7 @@ subjectOrg
  Certificate organization (O)
 
 NOTE:
-Subject can contain a multi-valued O fields. For multi-valued RDNs, follow the format "O=value1, O=value2"
+Subject can contain multi-valued O fields. For multi-valued RDNs, follow the format "O=value1, O=value2"
 
 "subjectOrg": "Cisco"
 
@@ -1853,7 +1861,7 @@ Array of SAN (Subject Alternative Name) DNS entries
 
 sanIP
 
-Array of SAN IP entries
+Array of SAN IP address entries
 
 "sanIP": ["1.1.1.1"]
 
@@ -1868,27 +1876,27 @@ Array of SAN URI entries
 
 
 keyType
-* required
+*required
 
-Algorithm to use for certificate public key creation (required).
+Algorithm to use for certificate public key creation.
 
 "keyType": "RSA"
 
 
 
 keyLength
-* required
+*required
 
-Bit size of the public key (required).
+Bit size of the public key.
 
 "keyLength": "4096"
 
 
 
 digestType
-* required
+*required
 
-Digest to sign with (required).
+Digest to sign with.
 
 "digestType": "SHA-384"
 
@@ -1903,9 +1911,9 @@ Certificate policy OID or list of OIDs that the certificate should conform to. U
 
 
 expirationTTL
-* required
+*required
 
- Certificate expiration value (required).
+ Certificate expiration value.
 
 NOTE:
 Expiration TTL should be within Unix time limit
@@ -1915,9 +1923,9 @@ Expiration TTL should be within Unix time limit
 
 
 expirationTTLUnit
-* required
+*required
 
-Certificate expiration unit (required).
+Certificate expiration unit.
 
 "expirationTTLUnit": "years"
 
@@ -1949,7 +1957,7 @@ Use certificate for RADSec server
 
 pxgrid
 
-Use certificate for the pxGrid Controller
+Use certificate for the pxGrid controller
 
 "pxgrid": false
 
@@ -1980,9 +1988,9 @@ Portal Group Tag for using certificate with portal role
 
 
 allowReplacementOfPortalGroupTag
-* required
+*required
 
-Allow Replacement of Portal Group Tag (required).
+Allow Replacement of Portal Group Tag.
 
 "allowReplacementOfPortalGroupTag": true
 
@@ -1997,60 +2005,65 @@ Allow use of WildCards in certificates
 
 
 allowReplacementOfCertificates
-* required
+*required
 
-Allow replacement of certificates (required).
+Allow replacement of certificates.
 
 "allowReplacementOfCertificates": true
 
 
 
 allowExtendedValidity
-* required
+*required
 
-Allow generation of self-signed certificate with validity greater than 398 days (required).
+Allow generation of self-signed certificate with validity greater than 398 days.
 
 "allowExtendedValidity": true
 
 
 
 allowRoleTransferForSameSubject
-* required
+*required
 
-Allow the transfer of roles to certificates with same subject (required).
- If the matching certificate on Cisco ISE has either admin or portal role and if request has admin or portal role selected along with allowRoleTransferForSameSubject parameter as true, self-signed certificate would be generated with both admin and portal role enabled
+Allow the transfer of roles to certificates with same subject.
+ If the matching certificate on Cisco ISE has either admin or portal role and if the request has admin or portal role selected along with
+allowRoleTransferForSameSubject
+ parameter as true, a self-signed certificate would be generated with both admin and portal role enabled.
 
 "allowRoleTransferForSameSubject": true
 
 
 
 allowPortalTagTransferForSameSubject
-* required
+*required
 
-Acquire the group tag of the matching certificate (required). If the request portal groug tag is different from the group tag of matching certificate (If matching certificate in Cisco ISE has portal role enabled), self-signed certificate would be generated by acquiring the group tag of matching certificate if allowPortalTagTransferForSameSubject parameter is true
+Acquire the group tag of the matching certificate. If the request portal groug tag is different from the group tag of the matching certificate (If matching certificate in Cisco ISE has portal role enabled), a self-signed certificate would be generated by acquiring the group tag of the matching certificate if the
+allowPortalTagTransferForSameSubject
+ parameter is true.
 
 "allowPortalTagTransferForSameSubject": true
 
 
 
 allowSanDnsBadName
-* required
+*required
 
- Allow generation of self-signed certificate with bad Common Name & SAN Values [like "example.org.","invalid.","test.","localhost" ,etc.] (required).
+ Allow generation of self-signed certificates with bad common name & SAN values such as "example.org.","invalid.","test.","localhost" and so on.
 SECURITY ALERT:
-It is recommended to use
-"allowSanDnsBadName": false
- to avoid generation of certificates with bad Common Name & SAN Values which are not secure
-
+We recommend to set the parameter
+allowSanDnsBadName
+ as
+false
+ to avoid generation of certificates with bad Common Name & SAN Values which are not secure.
 
 "allowSanDnsBadName": true
 
 
 
 allowSanDnsNonResolvable
-* required
+*required
 
-Allow generation of self-signed certificate with non resolvable Common Name or SAN Values (required).
+Allow generation of self-signed certificate with non resolvable Common Name or SAN Values .
 
 "allowSanDnsNonResolvable": true
 
@@ -2137,18 +2150,22 @@ func (s *CertificatesService) GenerateSelfSignedCertificate(requestCertificatesG
 
 }
 
-//ImportSystemCert Import system certificate into Cisco ISE.
+//ImportSystemCert Import system certificate in Cisco ISE
 /*
-
 Import an X509 certificate as a system certificate.
 
 NOTE:
-The certificate may have a validity period longer than 398 days. It may be untrusted by many browsers.
 
-NOTE:
+
+This API is used to import a certificate on a specific node mentioned in the server section of the URL. To import a certificate on a secondary node, execute this RESTApi directly on a secondary node by specifying the server name of the secondary node in the URL
+ Example: "<https://secondary-ise-node>/api/v1/certs/system-certificate/import"
+
+The certificate may have a validity period of more than 398 days. It may be untrusted by many browsers.
+
 Request parameters accepting True and False as input can be replaced by 1 and 0 respectively.
 
-Following parameters are used in POST body
+
+Following parameters are used in the POST body
 
 
 
@@ -2172,30 +2189,30 @@ Friendly name of the certificate.
 
 
 password
-* required
+*required
 
-Password of the certificate to be imported (required).
+Password of the certificate to be imported.
 
 "password": "certificate password"
 
 
 
 data
-* required
+*required
 
- Plain-text contents of the certificate file. Every space needs to be replaced with newline escape sequence (\n) (required).
- Use
+ Plain-text contents of the certificate file. Every space needs to be replaced with a newline escape sequence (\n).
+ Use the command
 awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' <<your .pem file>>
- to extract data from certificate file.
+ to extract data from the certificate file.
 
 "data": "Plain-text contents of the certificate file."
 
 
 
 privateKeyData
-* required
+*required
 
- Plain-text contents of the private key file. Every space needs to be replaced with newline escape sequence (\n) (required). Use
+ Plain-text contents of the private key file. Every space needs to be replaced with a newline escape sequence (\n). Use the command
 awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' <<your .pem file>>
  to extract privateKeyData from private key file.
 
@@ -2204,37 +2221,39 @@ awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' <<your .pem file>>
 
 
 allowOutOfDateCert
-* required
+*required
 
- Allow out of date certificates (required).
+ Allow out of date certificates .
 SECURITY ALERT:
-It is recommended to use
-"allowOutOfDateCert": false
- to avoid import of expired certificates (not Secure).
-
+We recommend to set the parameter
+allowOutOfDateCert
+ as
+false
+ to avoid the import of expired certificates (not Secure).
 
 "allowOutOfDateCert": true
 
 
 
 allowSHA1certificates
-* required
+*required
 
- Allow import of certificate with signature that uses the SHA-1 hashing algorithm and is considered less secure (required).
+ Allow import of certificate with signature that uses the SHA-1 hashing algorithm and is considered less secure .
 SECURITY ALERT:
-It is recommended to use
-"allowSHA1certificates": false
- to avoid import of SHA1 based certificates (less secure).
-
+We recommend to set the parameter
+allowSHA1certificates
+as
+false
+ to avoid the import of SHA1 based certificates (less secure).
 
 "allowSHA1certificates": true
 
 
 
 allowExtendedValidity
-* required
+*required
 
-Allow the certificates greater than validity of 398 days (required).
+Allow the certificates greater than validity of 398 days.
 
 "allowExtendedValidity": true
 
@@ -2242,13 +2261,19 @@ Allow the certificates greater than validity of 398 days (required).
 
 allowRoleTransferForSameSubject
 
-Allow the transfer of roles to certificates with same subject
+password
+*required
+
+Allow the transfer of roles to certificates with the same subject
 
 "allowRoleTransferForSameSubject": true
 
 
 
 allowPortalTagTransferForSameSubject
+
+password
+*required
 
 Acquire the group tag of the matching certificate
 
@@ -2258,7 +2283,7 @@ Acquire the group tag of the matching certificate
 
 admin
 
-Use certificate to authenticate the Cisco ISE Admin Portal
+Use the certificate to authenticate the Cisco ISE admin portal
 
 "admin": false
 
@@ -2266,7 +2291,7 @@ Use certificate to authenticate the Cisco ISE Admin Portal
 
 eap
 
-Use certificate for EAP protocols that use SSL/TLS tunneling
+Use the certificate for EAP protocols that use SSL/TLS tunneling
 
 "eap": false
 
@@ -2274,7 +2299,7 @@ Use certificate for EAP protocols that use SSL/TLS tunneling
 
 radius
 
-Use certificate for RADSec server
+Use the certificate for RADSec server
 
 "radius": false
 
@@ -2282,7 +2307,7 @@ Use certificate for RADSec server
 
 pxgrid
 
-Use certificate for the pxGrid Controller
+Use the certificate for the pxGrid Controller
 
 "pxgrid": false
 
@@ -2290,7 +2315,7 @@ Use certificate for the pxGrid Controller
 
 ims
 
-Use certificate for the Cisco ISE Messaging Service
+Use the certificate for the Cisco ISE messaging service
 
 "ims": false
 
@@ -2298,7 +2323,7 @@ Use certificate for the Cisco ISE Messaging Service
 
 saml
 
-Use certificate for SAML Signing
+Use the certificate for SAML Signing
 
 "saml": false
 
@@ -2306,7 +2331,7 @@ Use certificate for SAML Signing
 
 portal
 
-Use certificate for portal
+Use the certificate for portal
 
 "portal": false
 
@@ -2321,9 +2346,9 @@ Portal Group Tag for using certificate with portal role
 
 
 allowReplacementOfPortalGroupTag
-* required
+*required
 
-Allow Replacement of Portal Group Tag (required).
+Allow Replacement of Portal Group Tag .
 
 "allowReplacementOfPortalGroupTag": true
 
@@ -2331,7 +2356,7 @@ Allow Replacement of Portal Group Tag (required).
 
 allowWildCardcertificates
 
-Allow use of WildCards in certificates
+Allow use of wildcards in certificates
 
 "allowWildCardcertificates": false
 
@@ -2368,7 +2393,7 @@ False
 
 Enabling Admin role for this certificate causes an application server restart on the selected node.
 Note:
- Make sure required Certificate Chain is imported under Trusted Certificates
+ Make sure the required certificate chain is imported under Trusted Certificates
 
 
 
@@ -2398,7 +2423,7 @@ False
 
 SAML cannot be used with other Usage. Enabling SAML unchecks all other Usage.
 Note:
- Make sure required Certificate Chain is imported under Trusted Certificates
+ Make sure the required certificate chain is imported under Trusted Certificates
 
 
 
@@ -2436,20 +2461,18 @@ func (s *CertificatesService) ImportSystemCert(requestCertificatesImportSystemCe
 
 }
 
-//Alias of ImportSystemCert Import system certificate into Cisco ISE.
+// Alias of ImportSystemCert Import system certificate in Cisco ISE
 func (s *CertificatesService) ImportSystemCertificate(requestCertificatesImportSystemCert *RequestCertificatesImportSystemCert) (*ResponseCertificatesImportSystemCert, *resty.Response, error) {
 	return s.ImportSystemCert(requestCertificatesImportSystemCert)
 }
 
-//ImportTrustCert Add root certificate to the Cisco ISE truststore.
+//ImportTrustCert Add root certificate to the Cisco ISE truststore
 /*
-
-Import an X509 certificate as a trust certificate.
+Import an X509 certificate as a trust certificate
 
 NOTE:
-Request parameters accepting True and False as input can be replaced by 1 and 0 respectively.
-
-Following parameters are used in POST body
+Request parameters accepting True and False as input can be replaced by 1< and 0< respectively.
+ Following parameters are used in the POST body:
 
 
 
@@ -2481,54 +2504,61 @@ Description of the certificate
 
 
 data
-* required
+*required
 
- Plain-text contents of the certificate file. Every space needs to be replaced with newline escape sequence (\n) (required).
- Use
+ Plain-text contents of the certificate file. Every space needs to be replaced with a newline escape sequence (\n).
+ Use the command
 awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' <<your .pem file>>
- to extract data from certificate file.
+ to extract data from the certificate file.
 
 "data": "Plain-text contents of the certificate file."
 
 
 
 allowOutOfDateCert
-* required
+*required
 
- Allow out of date certificates (required).
+ Allow out of date certificates.
 SECURITY ALERT:
-It is recommended to use
-"allowOutOfDateCert": false
- to avoid import of expired certificates (not Secure).
-
+We recommend to set the parameter
+allowOutOfDateCert
+ as
+false
+ to avoid the import of expired certificates (not secure).
 
 "allowOutOfDateCert": true
 
 
 
 allowSHA1Certificates
-* required
+*required
 
- Allow import of certificate with signature that uses SHA-1 hashing algorithm and is considered less secure (required).
+ Allow import of certificate with signature that uses SHA-1 hashing algorithm and is considered less secure.
 SECURITY ALERT:
-It is recommended to use
-"allowSHA1Certificates": false
- to avoid import of SHA1 based certificates (less secure).
-
+We recommend to set the parameter
+allowSHA1Certificates
+ as
+false
+ to avoid the import of SHA1 based certificates (less secure).
 
 "allowSHA1Certificates": true
 
 
 
 allowBasicConstraintCAFalse
-* required
+*required
 
- Allow certificates with Basic Constraints CA Field as False (required).
+ Allow certificates with Basic Constraints CA Field as False.
 SECURITY ALERT:
-It is recommended to use
-"allowBasicConstraintCAFalse": false
- to avoid import of certificates with Basic Constraints CA Field as False (not Secure).
-
+We recommend to set the parameter
+allowBasicConstraintCAFalse
+ as
+false
+ to avoid the import of certificates with
+Basic Constraints CA Field
+ set as
+False
+ (not Secure).
 
 "allowBasicConstraintCAFalse": true
 
@@ -2544,7 +2574,7 @@ Trust for authentication within Cisco ISE
 
 trustForClientAuth
 
-Trust for client authentication and Syslog
+Trust for client authentication and syslog
 
 "trustForClientAuth": false
 
@@ -2552,7 +2582,7 @@ Trust for client authentication and Syslog
 
 trustForCertificateBasedAdminAuth
 
-Trust for certificate based Admin authentication
+Trust for certificate based admin authentication
 
 "trustForCertificateBasedAdminAuth": false
 
@@ -2560,7 +2590,7 @@ Trust for certificate based Admin authentication
 
 trustForCiscoServicesAuth
 
-Trust for authentication of Cisco Services
+Trust for authentication of Cisco services
 
 "trustForCiscoServicesAuth": false
 
@@ -2575,16 +2605,17 @@ Validate extensions for trust certificate
 
 
 
-NOTE:
-If name is not set, a default name with the following format is used:
+NOTE
+: If
+name
+ is not set, a default name with the following format is used where
+nnnnn
+ is a unique number:
 common-name#issuer#nnnnn
-
-    where
-"nnnnn"
- is a unique number. You can always change the friendly name later by editing the certificate.
+ You can always change the friendly name later by editing the certificate.
 
 
-    You must choose how this certificate is trusted in Cisco ISE. The objective here is to distinguish between certificates that are used for trust within an Cisco ISE deployment and public certificates that are used to trust Cisco services. Typically, you do not want to use a given certificate for both purposes.
+You must choose how this certificate is trusted in Cisco ISE. The objective here is to distinguish between certificates that are used for trust within a Cisco ISE deployment and public certificates that are used to trust Cisco services. We recommend not using a given certificate for both purposes.
 
 
 
@@ -2609,7 +2640,7 @@ Client authentication and Syslog
 
 Use
 "trustForClientAuth":true
- if the certificate is to be used for authentication of endpoints that contact Cisco ISE over the EAP protocol. Also check this box if certificate is used to trust a Syslog server. Make sure to have keyCertSign bit asserted under KeyUsage extension for this certificate.
+ if the certificate is to be used for authentication of endpoints that contact Cisco ISE over the EAP protocol. This is also used if the certificate is used to trust a Syslog server. Make sure to have keyCertSign bit asserted under KeyUsage extension for this certificate.
 Note:
  "" can be set true only if the "trustForIseAuth" has been set true.
 
@@ -2621,7 +2652,12 @@ Use
 "trustForCertificateBasedAdminAuth":true
  if the certificate is used for trust within Cisco ISE, such as for secure communication between Cisco ISE nodes
 Note:
- "trustForCertificateBasedAdminAuth" can be set true only if "trustForIseAuth" and "trustForClientAuth" are true.
+trustForCertificateBasedAdminAuth
+ can be set true only if both
+trustForIseAuth
+ and
+trustForClientAuth
+ are true.
 
 
 
@@ -2667,14 +2703,13 @@ func (s *CertificatesService) ImportTrustCert(requestCertificatesImportTrustCert
 
 }
 
-//Alias of ImportTrustCert Add root certificate to the Cisco ISE truststore.
+// Alias of ImportTrustCert Add root certificate to the Cisco ISE truststore
 func (s *CertificatesService) ImportTrustCertificate(requestCertificatesImportTrustCert *RequestCertificatesImportTrustCert) (*ResponseCertificatesImportTrustCert, *resty.Response, error) {
 	return s.ImportTrustCert(requestCertificatesImportTrustCert)
 }
 
-//UpdateSystemCert Update data for existing system certificate.
+//UpdateSystemCert Update data for existing system certificate
 /*
-
 Update a System Certificate.
 
 NOTE:
@@ -2683,7 +2718,7 @@ Renewing a certificate causes an application server restart on the selected node
 NOTE:
 Request parameters accepting True and False as input can be replaced by 1 and 0 respectively.
 
-Following parameters are used in POST body
+Following parameters are used in the POST body
 
 
 
@@ -2779,28 +2814,27 @@ Portal Group Tag for using certificate with portal role
 
 
 allowReplacementOfPortalGroupTag
-* required
+*required
 
-Allow Replacement of Portal Group Tag (required).
+Allow Replacement of Portal Group Tag.
 
 "allowReplacementOfPortalGroupTag": true
 
 
 
-allowRoleTransferForSameSubjec
-* required
-t
+allowRoleTransferForSameSubject
+*required
 
-Allow transfer of roles to certificates with same subject (required).
+Allow transfer of roles to certificates with same subject.
 
 "allowRoleTransferForSameSubject": true
 
 
 
 allowPortalTagTransferForSameSubject
-* required
+*required
 
-Acquire group tag of the matching certificate (required).
+Acquire group tag of the matching certificate.
 
 "allowPortalTagTransferForSameSubject": true
 
@@ -2857,7 +2891,7 @@ False
 
 Enabling Admin role for this certificate causes an application server restart on the selected node.
 Note:
- Make sure required Certificate Chain is imported under Trusted Certificates
+ Make sure that the required certificate chain is imported under Trusted Certificates
 
 
 
@@ -2867,7 +2901,7 @@ False
 
 Only one system certificate can be used for EAP. Assigning EAP to this certificate removes the assignment from another certificate.
 Note:
- Make sure required Certificate Chain is imported under Trusted Certificates
+ Make sure that the required certificate chain is imported under Trusted Certificates
 
 
 
@@ -2877,7 +2911,7 @@ False
 
 Only one system certificate can be used for DTLS. Assigning DTLS to this certificate removes the assignment from another certificate.
 Note:
- Make sure required Certificate Chain is imported under Trusted Certificates
+ Make sure that the required certificate chain is imported under Trusted Certificates
 
 
 
@@ -2885,16 +2919,16 @@ SAML
 
 False
 
-SAML cannot be used with other Usage. Enabling SAML unchecks all other Usage.
+SAML cannot be used with other usage. Enabling SAML unchecks all other usage.
 Note:
- Make sure required Certificate Chain is imported under Trusted Certificates
+ Make sure that the required certificate chain is imported under Trusted Certificates
 
 
 
 
 
 @param id id path parameter. ID of the System Certificate to be updated
-@param hostName hostName path parameter. Name of Host whose certificate needs to be updated
+@param hostName hostName path parameter. Name of host whose certificate needs to be updated
 */
 func (s *CertificatesService) UpdateSystemCert(id string, hostName string, requestCertificatesUpdateSystemCert *RequestCertificatesUpdateSystemCert) (*ResponseCertificatesUpdateSystemCert, *resty.Response, error) {
 	setHost(s.client, "_ui")
@@ -2930,18 +2964,15 @@ func (s *CertificatesService) UpdateSystemCert(id string, hostName string, reque
 
 }
 
-//Alias of UpdateSystemCert Update data for existing system certificate.
+// Alias of UpdateSystemCert Update data for existing system certificate
 func (s *CertificatesService) UpdateSystemCertificate(id string, hostName string, requestCertificatesUpdateSystemCert *RequestCertificatesUpdateSystemCert) (*ResponseCertificatesUpdateSystemCert, *resty.Response, error) {
 	return s.UpdateSystemCert(id, hostName, requestCertificatesUpdateSystemCert)
 }
 
-//UpdateTrustedCertificate Update trust certificate already present in Cisco ISE trust store.
+//UpdateTrustedCertificate Update the trust certificate already present in the Cisco ISE trust store
 /*
-
 Update a trusted certificate present in Cisco ISE trust store.
-
-Following parameters are used in PUT request body
-
+ The following parameters are used in the PUT request body
 
 
 
@@ -2956,9 +2987,9 @@ EXAMPLE
 
 
 name
-* required
+*required
 
-Friendly name of the certificate (required).
+Friendly name of the certificate.
 
 "name": "Trust Certificate"
 
@@ -3167,7 +3198,7 @@ Use
 "trustForClientAuth":true
  if the certificate is to be used for authentication of endpoints that contact Cisco ISE over the EAP protocol. Also check this box if certificate is used to trust a Syslog server. Make sure to have keyCertSign bit asserted under KeyUsage extension for this certificate.
 Note:
- "trustForClientAuth" can be set true only if the "trustForIseAuth" has been set true.
+ "trustForClientAuth" can be set true only if "trustForIseAuth" has been set true.
 
 
 
@@ -3207,6 +3238,7 @@ Use
 "enableOCSPValidation":true
  to validate the certificate against OCSP service mentioned in the field
 selectedOCSPService
+.
 
 
 
@@ -3214,9 +3246,13 @@ OCSP Service name
 
 Use
 "selectedOCSPService":"Name of OCSP Service"
- Name of the OCSP service against which the certificate should be validated
+ to mention the OCSP service name against which the certificate should be validated.
 Note:
- "selectedOCSPService" value is used if "enableOCSPValidation" has been set true.
+
+selectedOCSPService
+ value is used if
+enableOCSPValidation
+ has been set true.
 
 
 
@@ -3224,9 +3260,13 @@ Reject the request if OCSP returns UNKNOWN status
 
 Use
 "rejectIfNoStatusFromOCSP":true
- to reject the certificate if the OCSP service returns UNKNOWN status
+ to reject the certificate if the OCSP service returns UNKNOWN status.
 Note:
- "rejectIfNoStatusFromOCSP:true" can be used only if "enableOCSPValidation" has been set true.
+
+"rejectIfNoStatusFromOCSP":true
+ can be used only if the parameter
+enableOCSPValidation
+ has been set true.
 
 
 
@@ -3236,7 +3276,11 @@ Reject the request if OCSP Responder is unreachable
 "rejectIfUnreachableFromOCSP":true
  to reject the certificate if the OCSP service is unreachable.
 Note:
- "rejectIfUnreachableFromOCSP:true" can be used only if "enableOCSPValidation" has been set true.
+
+"rejectIfUnreachableFromOCSP":true
+ can be used only if
+enableOCSPValidation
+ has been set true.
 
 
 
@@ -3274,13 +3318,21 @@ Note:
 Retrieve CRL time
 
 Use
-"automaticCRLUpdate":true and automaticCRLUpdatePeriod, automaticCRLUpdatePeriod
+"automaticCRLUpdate":true
+,
+automaticCRLUpdatePeriod
+, and
+automaticCRLUpdatePeriod
  to set the time before which CRL is automatically retrieved prior to expiration Use
-"nonAutomaticCRLUpdatePeriod, nonAutomaticCRLUpdateUnits
+nonAutomaticCRLUpdatePeriod
+ and
+nonAutomaticCRLUpdateUnits
  to set the time period for CRL retrieval in loop.
 
 Note:
- All the above fields can be used only if "downloadCRL" has been set true.
+ All the above fields can be used only if
+"downloadCRL"
+ has been set true.
 
 
 
@@ -3290,7 +3342,12 @@ Use
 "crlDownloadFailureRetries" and "crlDownloadFailureRetriesUnits"
  to set retry time period if CRL download fails
 Note:
- "crlDownloadFailureRetries" and "crlDownloadFailureRetriesUnits" can be used only if "downloadCRL" has been set true.
+crlDownloadFailureRetries
+ and
+crlDownloadFailureRetriesUnits
+ can be used only if
+downloadCRL
+ has been set true.
 
 
 
@@ -3300,7 +3357,10 @@ Use
 "enableServerIdentityCheck":true
  to verify that HTTPS or LDAPS server certificate name fits the configured server URL
 Note:
- "enableServerIdentityCheck:true" can be used only if "downloadCRL" has been set true.
+"enableServerIdentityCheck":true
+ can be used only if
+downloadCRL
+ has been set true.
 
 
 
@@ -3310,7 +3370,9 @@ Use
 "authenticateBeforeCRLReceived":true
  to bypass CRL Verification if CRL is not Received
 Note:
- "authenticateBeforeCRLReceived:true" can be used only if "downloadCRL" has been set true.
+"authenticateBeforeCRLReceived":true can be used only if
+downloadCRL
+ has been set true.
 
 
 
@@ -3320,7 +3382,10 @@ Ignore that CRL is not yet valid or has expired
 "ignoreCRLExpiration":true
  to ignore if CRL is not yet valid or expired
 Note:
- "ignoreCRLExpiration:true" can be used only if "downloadCRL" has been set true.
+"ignoreCRLExpiration":true
+ can be used only if
+downloadCRL
+ has been set true.
 
 
 
@@ -3328,7 +3393,6 @@ Note:
 
 Note:
 boolean properties accept integers values as well, with 0 considered as false and other values being considered as true
-
 
 @param id id path parameter. ID of the trust certificate
 */
@@ -3365,8 +3429,8 @@ func (s *CertificatesService) UpdateTrustedCertificate(id string, requestCertifi
 
 }
 
-//DeleteCsr Delete Certificate Signing Request (CSR) by ID
-/* This API deletes a Certificate Signing Request of a particular node based on given HostName and ID.
+//DeleteCsr Delete the certificate signing request for a given ID
+/* This API deletes the certificate signing request of a particular node based on a given hostname and ID.
 
 @param hostName hostName path parameter. Name of the host of which CSR's should be deleted
 @param id id path parameter. ID of the Certificate Signing Request to be deleted
@@ -3401,16 +3465,16 @@ func (s *CertificatesService) DeleteCsr(hostName string, id string) (*ResponseCe
 
 }
 
-//Alias of DeleteCsr Delete Certificate Signing Request (CSR) by ID
+// Alias of DeleteCsr Delete the certificate signing request for a given ID
 func (s *CertificatesService) DeleteCsrByID(hostName string, id string) (*ResponseCertificatesDeleteCsr, *resty.Response, error) {
 	return s.DeleteCsr(hostName, id)
 }
 
 //DeleteSystemCertificateByID Delete System Certificate by ID and hostname
-/* This API deletes a System Certificate of a particular node based on given HostName and ID.
+/* This API deletes a system certificate of a particular node based on the given hostname and ID.
 
-@param hostName hostName path parameter. Name of the host from which System Certificate needs to be deleted
-@param id id path parameter. ID of the System Certificate to be deleted
+@param hostName hostName path parameter. Name of the host from which system certificate needs to be deleted
+@param id id path parameter. ID of the system certificate to be deleted
 */
 func (s *CertificatesService) DeleteSystemCertificateByID(hostName string, id string) (*ResponseCertificatesDeleteSystemCertificateByID, *resty.Response, error) {
 	setHost(s.client, "_ui")
@@ -3442,7 +3506,7 @@ func (s *CertificatesService) DeleteSystemCertificateByID(hostName string, id st
 
 }
 
-//DeleteTrustedCertificateByID Delete Trusted Certificate by ID
+//DeleteTrustedCertificateByID Delete a trusted certificate based on a given ID
 /* This API deletes a Trust Certificate from Trusted Certificate Store based on a given ID.
 
 @param id id path parameter. ID of the Trusted Certificate to be deleted

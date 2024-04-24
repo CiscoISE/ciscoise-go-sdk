@@ -45,7 +45,7 @@ type RequestProxyUpdateProxyConnection struct {
 	UserName         string `json:"userName,omitempty"`         // User name for the proxy connection
 }
 
-//GetProxyConnection Returns ISE proxy connection settings
+//GetProxyConnection Return ISE proxy connection settings
 /* The following functionalities are impacted by the proxy settings:
 
 
