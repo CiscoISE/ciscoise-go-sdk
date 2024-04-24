@@ -11,32 +11,41 @@ import (
 type NodeDeploymentService service
 
 type GetDeploymentNodesQueryParams struct {
-	Filter     string `url:"filter,omitempty"`     //<div> <style type="text/css" scoped> .apiServiceTable td, .apiServiceTable th { padding: 5px 10px !important; text-align: left; } </style> <span> <b>Simple filtering</b> is available through the filter query string parameter. The structure of a filter is a triplet of field operator and value, separated by dots. More than one filter can be sent. The logical operator common to all filter criteria is AND by default, and can be changed by using the <i>"filterType=or"</i> query string parameter. Each resource Data model description should specify if an attribute is a filtered field. </span> <br /> <table class="apiServiceTable"> <thead> <tr> <th>OPERATOR</th> <th>DESCRIPTION</th> </tr> </thead> <tbody> <tr> <td>EQ</td> <td>Equals</td> </tr> <tr> <td>NEQ</td> <td>Not Equals</td> </tr> <tr> <td>STARTSW</td> <td>Starts With</td> </tr> <tr> <td>NSTARTSW</td> <td>Not Starts With</td> </tr> <tr> <td>ENDSW</td> <td>Ends With</td> </tr> <tr> <td>NENDSW</td> <td>Not Ends With</td> </tr> <tr> <td>CONTAINS</td> <td>Contains</td> </tr> <tr> <td>NCONTAINS</td> <td>Not Contains</td> </tr> </tbody> </table> </div>
-	FilterType string `url:"filterType,omitempty"` //The logical operator common to all filter criteria is AND by default, and can be changed by using this parameter.
+	Filter     []string `url:"filter,omitempty"`     //<div> <style type="text/css" scoped> .apiServiceTable td, .apiServiceTable th { padding: 5px 10px !important; text-align: left; } </style> <span> <b>Simple filtering</b> is available through the filter query string parameter. The structure of a filter is a triplet of field operator and value, separated by dots. More than one filter can be sent. The logical operator common to all filter criteria is AND by default, and can be changed by using the <i>"filterType=or"</i> query string parameter. Each resource Data model description should specify if an attribute is a filtered field. </span> <br /> <table class="apiServiceTable"> <thead> <tr> <th>OPERATOR</th> <th>DESCRIPTION</th> </tr> </thead> <tbody> <tr> <td>EQ</td> <td>Equals</td> </tr> <tr> <td>NEQ</td> <td>Not Equals</td> </tr> <tr> <td>STARTSW</td> <td>Starts With</td> </tr> <tr> <td>NSTARTSW</td> <td>Not Starts With</td> </tr> <tr> <td>ENDSW</td> <td>Ends With</td> </tr> <tr> <td>NENDSW</td> <td>Not Ends With</td> </tr> <tr> <td>CONTAINS</td> <td>Contains</td> </tr> <tr> <td>NCONTAINS</td> <td>Not Contains</td> </tr> </tbody> </table> </div>
+	FilterType string   `url:"filterType,omitempty"` //The logical operator common to all filter criteria is AND by default, and can be changed by using this parameter.
 }
 
-// GetNodesQueryParams is deprecated, please use GetDeploymentNodesQueryParams
-type GetNodesQueryParams = GetDeploymentNodesQueryParams
+type ResponseNodeDeploymentMakePrimary struct {
+	Success *ResponseNodeDeploymentMakePrimarySuccess `json:"success,omitempty"` //
+	Version string                                    `json:"version,omitempty"` //
+}
+
+type ResponseNodeDeploymentMakePrimarySuccess struct {
+	Message string `json:"message,omitempty"` //
+}
+
+type ResponseNodeDeploymentMakeStandalone struct {
+	Success *ResponseNodeDeploymentMakeStandaloneSuccess `json:"success,omitempty"` //
+	Version string                                       `json:"version,omitempty"` //
+}
+
+type ResponseNodeDeploymentMakeStandaloneSuccess struct {
+	Message string `json:"message,omitempty"` //
+}
 
 type ResponseNodeDeploymentGetDeploymentNodes struct {
 	Response *[]ResponseNodeDeploymentGetDeploymentNodesResponse `json:"response,omitempty"` //
 	Version  string                                              `json:"version,omitempty"`  //
 }
 
-// ResponseNodeDeploymentGetNodes is deprecated, please use ResponseNodeDeploymentGetDeploymentNodes
-type ResponseNodeDeploymentGetNodes = ResponseNodeDeploymentGetDeploymentNodes
-
 type ResponseNodeDeploymentGetDeploymentNodesResponse struct {
-	Fqdn       string   `json:"fqdn,omitempty"`       //
 	Hostname   string   `json:"hostname,omitempty"`   //
+	Fqdn       string   `json:"fqdn,omitempty"`       //
 	IPAddress  string   `json:"ipAddress,omitempty"`  //
-	NodeStatus string   `json:"nodeStatus,omitempty"` //
-	Roles      []string `json:"roles,omitempty"`      // Roles can be empty or have many values for a node.
-	Services   []string `json:"services,omitempty"`   // Services can be empty or have many values for a node.
+	Roles      []string `json:"roles,omitempty"`      //
+	Services   []string `json:"services,omitempty"`   //
+	Nodestatus string   `json:"nodeStatus,omitempty"` //
 }
-
-// ResponseNodeDeploymentGetNodesResponse is deprecated, please use ResponseNodeDeploymentGetDeploymentNodesResponse
-type ResponseNodeDeploymentGetNodesResponse = ResponseNodeDeploymentGetDeploymentNodesResponse
 
 type ResponseNodeDeploymentRegisterNode struct {
 	Success *ResponseNodeDeploymentRegisterNodeSuccess `json:"success,omitempty"` //
@@ -53,12 +62,12 @@ type ResponseNodeDeploymentGetNodeDetails struct {
 }
 
 type ResponseNodeDeploymentGetNodeDetailsResponse struct {
-	Fqdn       string   `json:"fqdn,omitempty"`       //
 	Hostname   string   `json:"hostname,omitempty"`   //
+	Fqdn       string   `json:"fqdn,omitempty"`       //
 	IPAddress  string   `json:"ipAddress,omitempty"`  //
-	NodeStatus string   `json:"nodeStatus,omitempty"` //
-	Roles      []string `json:"roles,omitempty"`      // Roles can be empty or have many values for a node.
-	Services   []string `json:"services,omitempty"`   // Services can be empty or have many values for a node.
+	Roles      []string `json:"roles,omitempty"`      //
+	Services   []string `json:"services,omitempty"`   //
+	Nodestatus string   `json:"nodeStatus,omitempty"` //
 }
 
 type ResponseNodeDeploymentUpdateDeploymentNode struct {
@@ -91,12 +100,13 @@ type ResponseNodeDeploymentDeleteDeploymentNodeSuccess struct {
 // ResponseNodeDeploymentDeleteNodeSuccess is deprecated, please use ResponseNodeDeploymentDeleteDeploymentNodeSuccess
 type ResponseNodeDeploymentDeleteNodeSuccess = ResponseNodeDeploymentDeleteDeploymentNodeSuccess
 
-type ResponseNodeDeploymentMakePrimary struct {
-	Success *ResponseNodeDeploymentMakePrimarySuccess `json:"success,omitempty"` //
-	Version string                                    `json:"version,omitempty"` //
+type ResponseNodeDeploymentSyncNode struct {
+	Response *ResponseNodeDeploymentSyncNodeResponse `json:"response,omitempty"` //
+	Version  string                                  `json:"version,omitempty"`  //
 }
 
-type ResponseNodeDeploymentMakePrimarySuccess struct {
+type ResponseNodeDeploymentSyncNodeResponse struct {
+	ID      string `json:"id,omitempty"`      // ID which can be used to track the status of the deployment task using the Task Service API.
 	Message string `json:"message,omitempty"` //
 }
 
@@ -109,37 +119,18 @@ type ResponseNodeDeploymentPromoteNodeSuccess struct {
 	Message string `json:"message,omitempty"` //
 }
 
-type ResponseNodeDeploymentMakeStandalone struct {
-	Success *ResponseNodeDeploymentMakeStandaloneSuccess `json:"success,omitempty"` //
-	Version string                                       `json:"version,omitempty"` //
-}
-
-type ResponseNodeDeploymentMakeStandaloneSuccess struct {
-	Message string `json:"message,omitempty"` //
-}
-
-type ResponseNodeDeploymentSyncNode struct {
-	Response *ResponseNodeDeploymentSyncNodeResponse `json:"response,omitempty"` //
-	Version  string                                  `json:"version,omitempty"`  //
-}
-
-type ResponseNodeDeploymentSyncNodeResponse struct {
-	ID      string `json:"id,omitempty"`      // ID which can be used to track the status of the deployment task using the Task Service API.
-	Message string `json:"message,omitempty"` //
-}
-
 type RequestNodeDeploymentRegisterNode struct {
-	AllowCertImport *bool    `json:"allowCertImport,omitempty"` // Consent to import the self-signed certificate of the registering node.
 	Fqdn            string   `json:"fqdn,omitempty"`            //
-	Password        string   `json:"password,omitempty"`        //
-	Roles           []string `json:"roles,omitempty"`           // Roles can be empty or have many values for a node.
-	Services        []string `json:"services,omitempty"`        // Services can be empty or have many values for a node.
 	UserName        string   `json:"userName,omitempty"`        //
+	Password        string   `json:"password,omitempty"`        //
+	AllowCertImport *bool    `json:"allowCertImport,omitempty"` // Consent to import the self-signed certificate of the registering node.
+	Roles           []string `json:"roles,omitempty"`           //
+	Services        []string `json:"services,omitempty"`        //
 }
 
 type RequestNodeDeploymentUpdateDeploymentNode struct {
-	Roles    []string `json:"roles,omitempty"`    // Roles can be empty or have many values for a node.
-	Services []string `json:"services,omitempty"` // Services can be empty or have many values for a node.
+	Roles    []string `json:"roles,omitempty"`    //
+	Services []string `json:"services,omitempty"` //
 }
 
 // RequestNodeDeploymentUpdateNode is deprecated, please use RequestNodeDeploymentUpdateDeploymentNode
@@ -147,8 +138,11 @@ type RequestNodeDeploymentUpdateNode = RequestNodeDeploymentUpdateDeploymentNode
 
 //GetDeploymentNodes Retrieve the list of all the nodes that are deployed in the cluster.
 /* The API lists all the nodes that are deployed in the cluster.
- Returns basic information about each of the deployed nodes in the cluster like hostname, status, roles, and services.
- Supports filtering on FQDN, hostname, IP address, roles, services and node status.
+
+Returns basic information about each of the deployed nodes in the cluster like hostname, status, roles, and services.
+
+Supports filtering on FQDN, hostname, IP address, roles, services and node status.
+
 
 @param getDeploymentNodesQueryParams Filtering parameter
 */
@@ -182,13 +176,9 @@ func (s *NodeDeploymentService) GetDeploymentNodes(getDeploymentNodesQueryParams
 
 }
 
-// Alias of GetDeploymentNodes Retrieve the list of all the nodes that are deployed in the cluster.
-func (s *NodeDeploymentService) GetNodes(getDeploymentNodesQueryParams *GetDeploymentNodesQueryParams) (*ResponseNodeDeploymentGetDeploymentNodes, *resty.Response, error) {
-	return s.GetDeploymentNodes(getDeploymentNodesQueryParams)
-}
-
 //GetNodeDetails Retrieve details of a deployed node.
 /* This API retrieves detailed information of the deployed node.
+
 
 @param hostname hostname path parameter. Hostname of the deployed node.
 */
@@ -221,44 +211,9 @@ func (s *NodeDeploymentService) GetNodeDetails(hostname string) (*ResponseNodeDe
 
 }
 
-//RegisterNode Register a standalone node to the cluster
-/* This API registers a Cisco ISE node to form a multi-node deployment.
-Approximate execution time 300 seconds.
-
-*/
-func (s *NodeDeploymentService) RegisterNode(requestNodeDeploymentRegisterNode *RequestNodeDeploymentRegisterNode) (*ResponseNodeDeploymentRegisterNode, *resty.Response, error) {
-	setHost(s.client, "_ui")
-	path := "/api/v1/deployment/node"
-
-	setCSRFToken(s.client)
-	response, err := s.client.R().
-		SetHeader("Content-Type", "application/json").
-		SetHeader("Accept", "application/json").
-		SetBody(requestNodeDeploymentRegisterNode).
-		SetResult(&ResponseNodeDeploymentRegisterNode{}).
-		SetError(&Error).
-		Post(path)
-
-	if err != nil {
-		if err.Error() == emptyStringToJSONError {
-			return &ResponseNodeDeploymentRegisterNode{}, response, nil
-		}
-		return nil, nil, err
-
-	}
-
-	getCSFRToken(response.Header())
-	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation RegisterNode")
-	}
-
-	result := response.Result().(*ResponseNodeDeploymentRegisterNode)
-	return result, response, err
-
-}
-
 //MakePrimary Promote a standalone node to a primary PAN.
 /* This API promotes the standalone node on which the API is invoked to the primary Policy Administration node (PAN).
+
 
  */
 func (s *NodeDeploymentService) MakePrimary() (*ResponseNodeDeploymentMakePrimary, *resty.Response, error) {
@@ -291,43 +246,9 @@ func (s *NodeDeploymentService) MakePrimary() (*ResponseNodeDeploymentMakePrimar
 
 }
 
-//PromoteNode Promote the secondary PAN in a multi-node cluster to the role of primary PAN.
-/* Execute this API in the secondary PAN in the cluster to promote the node to primary PAN.  Ensure that the API Gateway setting is enabled in the secondary PAN.
-Approximate execution time 300 seconds.
-
-*/
-func (s *NodeDeploymentService) PromoteNode() (*ResponseNodeDeploymentPromoteNode, *resty.Response, error) {
-	setHost(s.client, "_ui")
-	path := "/api/v1/deployment/promote"
-
-	setCSRFToken(s.client)
-	response, err := s.client.R().
-		SetHeader("Content-Type", "application/json").
-		SetHeader("Accept", "application/json").
-		SetResult(&ResponseNodeDeploymentPromoteNode{}).
-		SetError(&Error).
-		Post(path)
-
-	if err != nil {
-		if err.Error() == emptyStringToJSONError {
-			return &ResponseNodeDeploymentPromoteNode{}, response, nil
-		}
-		return nil, nil, err
-
-	}
-
-	getCSFRToken(response.Header())
-	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation PromoteNode")
-	}
-
-	result := response.Result().(*ResponseNodeDeploymentPromoteNode)
-	return result, response, err
-
-}
-
 //MakeStandalone Change a primary PAN to a standalone node.
 /* This API changes the primary PAN in a single node cluster on which the API is invoked, to a standalone node.
+
 
  */
 func (s *NodeDeploymentService) MakeStandalone() (*ResponseNodeDeploymentMakeStandalone, *resty.Response, error) {
@@ -360,9 +281,44 @@ func (s *NodeDeploymentService) MakeStandalone() (*ResponseNodeDeploymentMakeSta
 
 }
 
+//RegisterNode Register a standalone node to the cluster
+/* This API registers a Cisco ISE node to form a multi-node deployment.
+
+
+ */
+func (s *NodeDeploymentService) RegisterNode(requestNodeDeploymentRegisterNode *RequestNodeDeploymentRegisterNode) (*ResponseNodeDeploymentRegisterNode, *resty.Response, error) {
+	setHost(s.client, "_ui")
+	path := "/api/v1/deployment/node"
+
+	setCSRFToken(s.client)
+	response, err := s.client.R().
+		SetHeader("Content-Type", "application/json").
+		SetHeader("Accept", "application/json").
+		SetBody(requestNodeDeploymentRegisterNode).
+		SetResult(&ResponseNodeDeploymentRegisterNode{}).
+		SetError(&Error).
+		Post(path)
+
+	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNodeDeploymentRegisterNode{}, response, nil
+		}
+		return nil, nil, err
+
+	}
+
+	getCSFRToken(response.Header())
+	if response.IsError() {
+		return nil, response, fmt.Errorf("error with operation RegisterNode")
+	}
+
+	result := response.Result().(*ResponseNodeDeploymentRegisterNode)
+	return result, response, err
+
+}
+
 //SyncNode Trigger manual synchronization of the node.
 /* Performing a manual synchronization involves a reload of the target node, but not the primary PAN.
- Approximate execution time 300 seconds.
 
 @param hostname hostname path parameter. Hostname of the node.
 */
@@ -397,9 +353,44 @@ func (s *NodeDeploymentService) SyncNode(hostname string) (*ResponseNodeDeployme
 
 }
 
+//PromoteNode Promote the secondary PAN in a multi-node cluster to the role of primary PAN.
+/* Execute this API in the secondary PAN in the cluster to promote the node to primary PAN.  Ensure that the API Gateway setting is enabled in the secondary PAN.
+
+
+ */
+func (s *NodeDeploymentService) PromoteNode() (*ResponseNodeDeploymentPromoteNode, *resty.Response, error) {
+	setHost(s.client, "_ui")
+	path := "/api/v1/deployment/promote"
+
+	setCSRFToken(s.client)
+	response, err := s.client.R().
+		SetHeader("Content-Type", "application/json").
+		SetHeader("Accept", "application/json").
+		SetResult(&ResponseNodeDeploymentPromoteNode{}).
+		SetError(&Error).
+		Post(path)
+
+	if err != nil {
+		if err.Error() == emptyStringToJSONError {
+			return &ResponseNodeDeploymentPromoteNode{}, response, nil
+		}
+		return nil, nil, err
+
+	}
+
+	getCSFRToken(response.Header())
+	if response.IsError() {
+		return nil, response, fmt.Errorf("error with operation PromoteNode")
+	}
+
+	result := response.Result().(*ResponseNodeDeploymentPromoteNode)
+	return result, response, err
+
+}
+
 //UpdateDeploymentNode Replace the existing configuration of the Cisco ISE node with the configuration provided.
 /* This API updates the configuration of the Cisco ISE node with the configuration provided.
- Approximate execution time 300 seconds.
+
 
 @param hostname hostname path parameter. Hostname of the deployed node.
 */
@@ -443,8 +434,9 @@ func (s *NodeDeploymentService) UpdateNode(hostname string, requestNodeDeploymen
 
 //DeleteDeploymentNode Remove a deployed node from a cluster.
 /* The deregistered node becomes a standalone Cisco ISE node.
- It retains the last configuration that it received from the primary PAN and assumes the default roles and services of a standalone node.
- Approximate execution time 300 seconds.
+
+It retains the last configuration that it received from the primary PAN and assumes the default roles and services of a standalone node.
+
 
 @param hostname hostname path parameter. The hostname of the node in the deployment to be deregistered.
 */

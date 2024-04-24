@@ -14,11 +14,11 @@ type ResponsePanHaGetPanHaStatus struct {
 }
 
 type ResponsePanHaGetPanHaStatusResponse struct {
-	FailedAttempts           *int                                                         `json:"failedAttempts,omitempty"`           // Failover occurs if the primary PAN is down for the specified number of failure polls. Count (2 - 60).<br> The default value is 5.
 	IsEnabled                *bool                                                        `json:"isEnabled,omitempty"`                //
-	PollingInterval          *int                                                         `json:"pollingInterval,omitempty"`          // Administration nodes are checked after each interval. Seconds (30 - 300) <br> The default value is 120.
 	PrimaryHealthCheckNode   *ResponsePanHaGetPanHaStatusResponsePrimaryHealthCheckNode   `json:"primaryHealthCheckNode,omitempty"`   //
 	SecondaryHealthCheckNode *ResponsePanHaGetPanHaStatusResponseSecondaryHealthCheckNode `json:"secondaryHealthCheckNode,omitempty"` //
+	PollingInterval          *int                                                         `json:"pollingInterval,omitempty"`          // Administration nodes are checked after each interval. Seconds (30 - 300) <br> The default value is 120.
+	FailedAttempts           *int                                                         `json:"failedAttempts,omitempty"`           // Failover occurs if the primary PAN is down for the specified number of failure polls. Count (2 - 60).<br> The default value is 5.
 }
 
 type ResponsePanHaGetPanHaStatusResponsePrimaryHealthCheckNode struct {
@@ -39,11 +39,11 @@ type ResponsePanHaUpdatePanHaSuccess struct {
 }
 
 type RequestPanHaUpdatePanHa struct {
-	FailedAttempts           *int                                             `json:"failedAttempts,omitempty"`           // Failover occurs if the primary PAN is down for the specified number of failure polls. Count (2 - 60).<br> The default value is 5.
 	IsEnabled                *bool                                            `json:"isEnabled,omitempty"`                //
-	PollingInterval          *int                                             `json:"pollingInterval,omitempty"`          // Administration nodes are checked after each interval. Seconds (30 - 300) <br> The default value is 120.
 	PrimaryHealthCheckNode   *RequestPanHaUpdatePanHaPrimaryHealthCheckNode   `json:"primaryHealthCheckNode,omitempty"`   //
 	SecondaryHealthCheckNode *RequestPanHaUpdatePanHaSecondaryHealthCheckNode `json:"secondaryHealthCheckNode,omitempty"` //
+	PollingInterval          *int                                             `json:"pollingInterval,omitempty"`          // Administration nodes are checked after each interval. Seconds (30 - 300) <br> The default value is 120.
+	FailedAttempts           *int                                             `json:"failedAttempts,omitempty"`           // Failover occurs if the primary PAN is down for the specified number of failure polls. Count (2 - 60).<br> The default value is 5.
 }
 
 type RequestPanHaUpdatePanHaPrimaryHealthCheckNode struct {

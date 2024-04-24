@@ -68,18 +68,21 @@ type ResponsePatchingRollbackPatchResponse struct {
 }
 
 type RequestPatchingInstallHotpatch struct {
-	HotpatchName   string `json:"hotpatchName,omitempty"`   //
-	RepositoryName string `json:"repositoryName,omitempty"` //
+	HotpatchName      string `json:"hotpatchName,omitempty"`      //
+	IsDirectoryListed *bool  `json:"isDirectoryListed,omitempty"` //
+	RepositoryName    string `json:"repositoryName,omitempty"`    //
 }
 
 type RequestPatchingRollbackHotpatch struct {
-	HotpatchName   string `json:"hotpatchName,omitempty"`   //
-	RepositoryName string `json:"repositoryName,omitempty"` //
+	HotpatchName      string `json:"hotpatchName,omitempty"`      //
+	IsDirectoryListed *bool  `json:"isDirectoryListed,omitempty"` //
+	RepositoryName    string `json:"repositoryName,omitempty"`    //
 }
 
 type RequestPatchingInstallPatch struct {
-	PatchName      string `json:"patchName,omitempty"`      //
-	RepositoryName string `json:"repositoryName,omitempty"` //
+	IsDirectoryListed *bool  `json:"isDirectoryListed,omitempty"` //
+	PatchName         string `json:"patchName,omitempty"`         //
+	RepositoryName    string `json:"repositoryName,omitempty"`    //
 }
 
 type RequestPatchingRollbackPatch struct {
@@ -151,7 +154,7 @@ func (s *PatchingService) ListInstalledPatches() (*ResponsePatchingListInstalled
 }
 
 //InstallHotpatch Trigger hotpatch installation on Cisco ISE node.
-/* Triggers hot patch installation on the Cisco ISE node. A task ID is returned which  can be used to monitor the progress of the hot patch installation process.  As hot patch installation triggers the Cisco ISE to restart, the task API becomes  unavailable for a certain period of time.
+/* Triggers hot patch installation on the Cisco ISE node. A task ID is returned which  can be used to monitor the progress of the hot patch installation process.  As hot patch installation triggers the Cisco ISE to restart, the task API becomes  unavailable for a certain period of time. For installation of hotpatch on  secondary nodes, request needs to be sent to individual node instead of the Primary Administration Node.
 
  */
 func (s *PatchingService) InstallHotpatch(requestPatchingInstallHotpatch *RequestPatchingInstallHotpatch) (*ResponsePatchingInstallHotpatch, *resty.Response, error) {
@@ -186,7 +189,7 @@ func (s *PatchingService) InstallHotpatch(requestPatchingInstallHotpatch *Reques
 }
 
 //RollbackHotpatch Rollback hotpatch from the Cisco ISE node.
-/* Triggers hot patch rollback on the Cisco ISE node. A task ID is returned which  can be used to monitor the progress of the hot patch rollback process.  As hot patch rollback triggers the Cisco ISE to restart, the task API becomes  unavailable for a certain period of time.
+/* Triggers hot patch rollback on the Cisco ISE node. A task ID is returned which  can be used to monitor the progress of the hot patch rollback process.  As hot patch rollback triggers the Cisco ISE to restart, the task API becomes  unavailable for a certain period of time. For rollback of hotpatch on secondary nodes , request needs to be sent on individual node instead of the Primary Administration Node.
 
  */
 func (s *PatchingService) RollbackHotpatch(requestPatchingRollbackHotpatch *RequestPatchingRollbackHotpatch) (*ResponsePatchingRollbackHotpatch, *resty.Response, error) {
@@ -221,7 +224,7 @@ func (s *PatchingService) RollbackHotpatch(requestPatchingRollbackHotpatch *Requ
 }
 
 //InstallPatch Trigger patch installation on the Cisco ISE node.
-/* Triggers patch installation on the Cisco ISE node. A task ID is returned which can be used to monitor the progress of the patch installation process. As the patch   installation triggers the Cisco ISE to restart, the task API becomes unavailable for  a certain period of time.
+/* Triggers patch installation on the Cisco ISE node. A task ID is returned which can be used to monitor the progress of the patch installation process. As the patch   installation triggers the Cisco ISE to restart, the task API becomes unavailable for  a certain period of time. For installation of patch on secondary nodes, request needs  to be sent to individual node instead of the Primary Administration Node.
 
  */
 func (s *PatchingService) InstallPatch(requestPatchingInstallPatch *RequestPatchingInstallPatch) (*ResponsePatchingInstallPatch, *resty.Response, error) {
@@ -256,7 +259,7 @@ func (s *PatchingService) InstallPatch(requestPatchingInstallPatch *RequestPatch
 }
 
 //RollbackPatch Removes patch from the Cisco ISE node.
-/* Triggers patch rollback on the Cisco ISE node. A task ID is returned which can be used to monitor the progress of the patch rollback process. As the patch   rollback triggers the Cisco ISE to restart, the task API becomes unavailable for  a certain period of time.
+/* Triggers patch rollback on the Cisco ISE node. A task ID is returned which can be used to monitor the progress of the patch rollback process. As the patch   rollback triggers the Cisco ISE to restart, the task API becomes unavailable for  a certain period of time. For rollback of patch on secondary nodes , request needs to sent on individual node instead of the Primary Administration Node.
 
  */
 func (s *PatchingService) RollbackPatch(requestPatchingRollbackPatch *RequestPatchingRollbackPatch) (*ResponsePatchingRollbackPatch, *resty.Response, error) {

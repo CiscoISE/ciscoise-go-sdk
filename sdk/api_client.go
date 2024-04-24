@@ -43,7 +43,9 @@ type Client struct {
 	// API Services
 	AciBindings                                           *AciBindingsService
 	AciSettings                                           *AciSettingsService
+	ADGroups                                              *ADGroupsService
 	AncEndpoint                                           *AncEndpointService
+	ActiveDirectories                                     *ActiveDirectoriesService
 	ActiveDirectory                                       *ActiveDirectoryService
 	AdminUser                                             *AdminUserService
 	AllowedProtocols                                      *AllowedProtocolsService
@@ -72,8 +74,10 @@ type Client struct {
 	DeviceAdministrationServiceNames                      *DeviceAdministrationServiceNamesService
 	DeviceAdministrationTimeDateConditions                *DeviceAdministrationTimeDateConditionsService
 	DownloadableACL                                       *DownloadableACLService
-	Edda                                                  *EddaService
+	DuoIDentitySync                                       *DuoIDentitySyncService
+	DuoMfa                                                *DuoMfaService
 	EgressMatrixCell                                      *EgressMatrixCellService
+	EndpointStopReplicationService                        *EndpointStopReplicationServiceService
 	EndpointCertificate                                   *EndpointCertificateService
 	EndpointIDentityGroup                                 *EndpointIDentityGroupService
 	ExternalRadiusServer                                  *ExternalRadiusServerService
@@ -93,6 +97,7 @@ type Client struct {
 	Mdm                                                   *MdmService
 	Misc                                                  *MiscService
 	MyDevicePortal                                        *MyDevicePortalService
+	NativeIPsec                                           *NativeIPsecService
 	NativeSupplicantProfile                               *NativeSupplicantProfileService
 	NetworkAccessAuthenticationRules                      *NetworkAccessAuthenticationRulesService
 	NetworkAccessAuthorizationExceptionRules              *NetworkAccessAuthorizationExceptionRulesService
@@ -138,6 +143,7 @@ type Client struct {
 	SecurityGroupsACLs                                    *SecurityGroupsACLsService
 	SelfRegisteredPortal                                  *SelfRegisteredPortalService
 	SessionDirectory                                      *SessionDirectoryService
+	SgtRangeReservation                                   *SgtRangeReservationService
 	SponsorGroup                                          *SponsorGroupService
 	SponsorGroupMember                                    *SponsorGroupMemberService
 	SponsorPortal                                         *SponsorPortalService
@@ -155,14 +161,25 @@ type Client struct {
 	TelemetryInformation                                  *TelemetryInformationService
 	TrustSecConfiguration                                 *TrustSecConfigurationService
 	TrustSecSxp                                           *TrustSecSxpService
+	UserEquipment                                         *UserEquipmentService
 	VersionAndPatch                                       *VersionAndPatchService
 	VersionInfo                                           *VersionInfoService
+	CustomAttributes                                      *CustomAttributesService
+	EnableMFA                                             *EnableMFAService
 	Endpoint                                              *EndpointService
+	Endpoints                                             *EndpointsService
+	FullUpgrade                                           *FullUpgradeService
+	IsMFAEnabled                                          *IsMFAEnabledService
+	NbarApp                                               *NbarAppService
 	Portal                                                *PortalService
 	Proxy                                                 *ProxyService
+	PxGridDirect                                          *PxGridDirectService
 	PxGridNode                                            *PxGridNodeService
+	SgVnMapping                                           *SgVnMappingService
 	Tasks                                                 *TasksService
 	Telemetry                                             *TelemetryService
+	VirtualNetwork                                        *VirtualNetworkService
+	VnVLANMapping                                         *VnVLANMappingService
 }
 
 type service struct {
@@ -207,6 +224,9 @@ func getPort(group string) string {
 	}
 	if group == "_px_grid" {
 		return ":8910"
+	}
+	if group == "_px_grid_direct" {
+		return ":44330"
 	}
 	return ""
 }
@@ -263,7 +283,9 @@ func NewClient() (*Client, error) {
 	}
 	c.AciBindings = (*AciBindingsService)(&c.common)
 	c.AciSettings = (*AciSettingsService)(&c.common)
+	c.ADGroups = (*ADGroupsService)(&c.common)
 	c.AncEndpoint = (*AncEndpointService)(&c.common)
+	c.ActiveDirectories = (*ActiveDirectoriesService)(&c.common)
 	c.ActiveDirectory = (*ActiveDirectoryService)(&c.common)
 	c.AdminUser = (*AdminUserService)(&c.common)
 	c.AllowedProtocols = (*AllowedProtocolsService)(&c.common)
@@ -292,8 +314,10 @@ func NewClient() (*Client, error) {
 	c.DeviceAdministrationServiceNames = (*DeviceAdministrationServiceNamesService)(&c.common)
 	c.DeviceAdministrationTimeDateConditions = (*DeviceAdministrationTimeDateConditionsService)(&c.common)
 	c.DownloadableACL = (*DownloadableACLService)(&c.common)
-	c.Edda = (*EddaService)(&c.common)
+	c.DuoIDentitySync = (*DuoIDentitySyncService)(&c.common)
+	c.DuoMfa = (*DuoMfaService)(&c.common)
 	c.EgressMatrixCell = (*EgressMatrixCellService)(&c.common)
+	c.EndpointStopReplicationService = (*EndpointStopReplicationServiceService)(&c.common)
 	c.EndpointCertificate = (*EndpointCertificateService)(&c.common)
 	c.EndpointIDentityGroup = (*EndpointIDentityGroupService)(&c.common)
 	c.ExternalRadiusServer = (*ExternalRadiusServerService)(&c.common)
@@ -313,6 +337,7 @@ func NewClient() (*Client, error) {
 	c.Mdm = (*MdmService)(&c.common)
 	c.Misc = (*MiscService)(&c.common)
 	c.MyDevicePortal = (*MyDevicePortalService)(&c.common)
+	c.NativeIPsec = (*NativeIPsecService)(&c.common)
 	c.NativeSupplicantProfile = (*NativeSupplicantProfileService)(&c.common)
 	c.NetworkAccessAuthenticationRules = (*NetworkAccessAuthenticationRulesService)(&c.common)
 	c.NetworkAccessAuthorizationExceptionRules = (*NetworkAccessAuthorizationExceptionRulesService)(&c.common)
@@ -358,6 +383,7 @@ func NewClient() (*Client, error) {
 	c.SecurityGroupsACLs = (*SecurityGroupsACLsService)(&c.common)
 	c.SelfRegisteredPortal = (*SelfRegisteredPortalService)(&c.common)
 	c.SessionDirectory = (*SessionDirectoryService)(&c.common)
+	c.SgtRangeReservation = (*SgtRangeReservationService)(&c.common)
 	c.SponsorGroup = (*SponsorGroupService)(&c.common)
 	c.SponsorGroupMember = (*SponsorGroupMemberService)(&c.common)
 	c.SponsorPortal = (*SponsorPortalService)(&c.common)
@@ -375,12 +401,25 @@ func NewClient() (*Client, error) {
 	c.TelemetryInformation = (*TelemetryInformationService)(&c.common)
 	c.TrustSecConfiguration = (*TrustSecConfigurationService)(&c.common)
 	c.TrustSecSxp = (*TrustSecSxpService)(&c.common)
+	c.UserEquipment = (*UserEquipmentService)(&c.common)
+	c.VersionAndPatch = (*VersionAndPatchService)(&c.common)
+	c.VersionInfo = (*VersionInfoService)(&c.common)
+	c.CustomAttributes = (*CustomAttributesService)(&c.common)
+	c.EnableMFA = (*EnableMFAService)(&c.common)
 	c.Endpoint = (*EndpointService)(&c.common)
+	c.Endpoints = (*EndpointsService)(&c.common)
+	c.FullUpgrade = (*FullUpgradeService)(&c.common)
+	c.IsMFAEnabled = (*IsMFAEnabledService)(&c.common)
+	c.NbarApp = (*NbarAppService)(&c.common)
 	c.Portal = (*PortalService)(&c.common)
 	c.Proxy = (*ProxyService)(&c.common)
+	c.PxGridDirect = (*PxGridDirectService)(&c.common)
 	c.PxGridNode = (*PxGridNodeService)(&c.common)
+	c.SgVnMapping = (*SgVnMappingService)(&c.common)
 	c.Tasks = (*TasksService)(&c.common)
 	c.Telemetry = (*TelemetryService)(&c.common)
+	c.VirtualNetwork = (*VirtualNetworkService)(&c.common)
+	c.VnVLANMapping = (*VnVLANMappingService)(&c.common)
 
 	client.SetBasicAuth(username, password)
 	return c, nil

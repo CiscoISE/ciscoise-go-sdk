@@ -28,7 +28,7 @@ type RequestConfigurationUpdateConfiguration struct {
 
  */
 func (s *ConfigurationService) GetConfiguration() (*ResponseConfigurationGetConfiguration, *resty.Response, error) {
-	setHost(s.client, "_main")
+	setHost(s.client, "_ui")
 	path := "/api/v1/lsd/updateLsdSettings"
 
 	setCSRFToken(s.client)
@@ -60,7 +60,7 @@ func (s *ConfigurationService) GetConfiguration() (*ResponseConfigurationGetConf
 
  */
 func (s *ConfigurationService) UpdateConfiguration(requestConfigurationUpdateConfiguration *RequestConfigurationUpdateConfiguration) (*ResponseConfigurationUpdateConfiguration, *resty.Response, error) {
-	setHost(s.client, "_main")
+	setHost(s.client, "_ui")
 	path := "/api/v1/lsd/updateLsdSettings"
 
 	setCSRFToken(s.client)

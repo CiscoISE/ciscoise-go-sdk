@@ -121,8 +121,9 @@ https://pkg.go.dev/github.com/CiscoISE/ciscoise-go-sdk
 |--------------|-----------------------------|
 | 0.y.z        |  3.1.0                      |
 | 1.0.z        |  3.1.0                      |
-| 1.1.z        |  3.1_Patch_1                |
-| 1.2.z        |  3.2-Beta                   |
+| 1.1.z        |  3.1 Patch 1                |
+| 1.2.z        |  3.2 Beta                   |
+| 1.3.z        |  3.3 patch 1                |
 
 ## Changelog
 

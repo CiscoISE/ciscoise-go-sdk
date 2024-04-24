@@ -10,20 +10,20 @@ import (
 
 type SgVnMappingService service
 
-type GetSgVnMappingsQueryParams struct {
-	Page       int      `url:"page,omitempty"`       //Page number
-	Size       int      `url:"size,omitempty"`       //Number of objects returned per page
-	Sort       string   `url:"sort,omitempty"`       //sort type - asc or desc
-	SortBy     string   `url:"sortBy,omitempty"`     //sort column by which objects needs to be sorted
-	Filter     []string `url:"filter,omitempty"`     //<div> <style type="text/css" scoped> .apiServiceTable td, .apiServiceTable th { padding: 5px 10px !important; text-align: left; } </style> <span> <b>Simple filtering</b> should be available through the filter query string parameter. The structure of a filter is a triplet of field operator and value separated with dots. More than one filter can be sent. The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the <i>"filterType=or"</i> query string parameter. Each resource Data model description should specify if an attribute is a filtered field. </span> <br /> <table class="apiServiceTable"> <thead> <tr> <th>OPERATOR</th> <th>DESCRIPTION</th> </tr> </thead> <tbody> <tr> <td>EQ</td> <td>Equals</td> </tr> <tr> <td>NEQ</td> <td>Not Equals</td> </tr> <tr> <td>GT</td> <td>Greater Than</td> </tr> <tr> <td>LT</td> <td>Less Then</td> </tr> <tr> <td>STARTSW</td> <td>Starts With</td> </tr> <tr> <td>NSTARTSW</td> <td>Not Starts With</td> </tr> <tr> <td>ENDSW</td> <td>Ends With</td> </tr> <tr> <td>NENDSW</td> <td>Not Ends With</td> </tr> <tr> <td>CONTAINS</td> <td>Contains</td> </tr> <tr> <td>NCONTAINS</td> <td>Not Contains</td> </tr> </tbody> </table> </div>
-	FilterType string   `url:"filterType,omitempty"` //The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the parameter
+type GetSgVnMappingListQueryParams struct {
+	Page       int    `url:"page,omitempty"`       //Page number
+	Size       int    `url:"size,omitempty"`       //Number of objects returned per page
+	Sort       string `url:"sort,omitempty"`       //sort type - asc or desc
+	SortBy     string `url:"sortBy,omitempty"`     //sort column by which objects needs to be sorted
+	Filter     string `url:"filter,omitempty"`     //<div> <style type="text/css" scoped> .apiServiceTable td, .apiServiceTable th { padding: 5px 10px !important; text-align: left; } </style> <span> <b>Simple filtering</b> should be available through the filter query string parameter. The structure of a filter is a triplet of field operator and value separated with dots. More than one filter can be sent. The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the <i>"filterType=or"</i> query string parameter. Each resource Data model description should specify if an attribute is a filtered field. </span> <br /> <table class="apiServiceTable"> <thead> <tr> <th>OPERATOR</th> <th>DESCRIPTION</th> </tr> </thead> <tbody> <tr> <td>EQ</td> <td>Equals</td> </tr> <tr> <td>NEQ</td> <td>Not Equals</td> </tr> <tr> <td>GT</td> <td>Greater Than</td> </tr> <tr> <td>LT</td> <td>Less Then</td> </tr> <tr> <td>STARTSW</td> <td>Starts With</td> </tr> <tr> <td>NSTARTSW</td> <td>Not Starts With</td> </tr> <tr> <td>ENDSW</td> <td>Ends With</td> </tr> <tr> <td>NENDSW</td> <td>Not Ends With</td> </tr> <tr> <td>CONTAINS</td> <td>Contains</td> </tr> <tr> <td>NCONTAINS</td> <td>Not Contains</td> </tr> </tbody> </table> </div>
+	FilterType string `url:"filterType,omitempty"` //The logical operator common to ALL filter criteria will be by default AND, and can be changed by using the parameter
 }
 
-type ResponseSgVnMappingGetSgVnMappings struct {
-	Response *[]ResponseSgVnMappingGetSgVnMappingsResponse `json:"response,omitempty"` // Array of SG-VN Mapping
+type ResponseSgVnMappingGetSgVnMappingList struct {
+	Response *[]ResponseSgVnMappingGetSgVnMappingListResponse `json:"response,omitempty"` // Array of SG-VN Mapping
 }
 
-type ResponseSgVnMappingGetSgVnMappingsResponse struct {
+type ResponseSgVnMappingGetSgVnMappingListResponse struct {
 	ID         string `json:"id,omitempty"`         // Identifier of the SG-VN mapping
 	LastUpdate string `json:"lastUpdate,omitempty"` // Timestamp for the last update of the SG-VN mapping
 	SgName     string `json:"sgName,omitempty"`     // Name of the associated Security Group to be used for identity if id is not provided
@@ -61,13 +61,16 @@ type ResponseSgVnMappingGetSgVnMappingByIDResponse struct {
 	VnName     string `json:"vnName,omitempty"`     // Name of the associated Virtual Network to be used for identity if id is not provided
 }
 
-type ResponseSgVnMappingUpdateSgVnMappingByID struct {
-	Code    *int   `json:"code,omitempty"`    //
-	Message string `json:"message,omitempty"` //
+type ResponseSgVnMappingUpdateSgVnMapping struct {
+	ID         string `json:"id,omitempty"`         // Identifier of the SG-VN mapping
+	LastUpdate string `json:"lastUpdate,omitempty"` // Timestamp for the last update of the SG-VN mapping
+	SgName     string `json:"sgName,omitempty"`     // Name of the associated Security Group to be used for identity if id is not provided
+	SgtID      string `json:"sgtId,omitempty"`      // Identifier of the associated Security Group which is required unless its name is provided
+	VnID       string `json:"vnId,omitempty"`       // Identifier for the associated Virtual Network which is required unless its name is provided
+	VnName     string `json:"vnName,omitempty"`     // Name of the associated Virtual Network to be used for identity if id is not provided
 }
 
-type ResponseSgVnMappingDeleteSgVnMappingByID struct {
-	Code    *int   `json:"code,omitempty"`    //
+type ResponseSgVnMappingDeleteSgVnMapping struct {
 	Message string `json:"message,omitempty"` //
 }
 
@@ -104,7 +107,7 @@ type RequestItemSgVnMappingBulkUpdateSgVnMappings struct {
 	VnName     string `json:"vnName,omitempty"`     // Name of the associated Virtual Network to be used for identity if id is not provided
 }
 
-type RequestSgVnMappingUpdateSgVnMappingByID struct {
+type RequestSgVnMappingUpdateSgVnMapping struct {
 	ID         string `json:"id,omitempty"`         // Identifier of the SG-VN mapping
 	LastUpdate string `json:"lastUpdate,omitempty"` // Timestamp for the last update of the SG-VN mapping
 	SgName     string `json:"sgName,omitempty"`     // Name of the associated Security Group to be used for identity if id is not provided
@@ -113,22 +116,22 @@ type RequestSgVnMappingUpdateSgVnMappingByID struct {
 	VnName     string `json:"vnName,omitempty"`     // Name of the associated Virtual Network to be used for identity if id is not provided
 }
 
-//GetSgVnMappings Get all SG-VN Mappings
+//GetSgVnMappingList Get all SG-VN Mappings
 /* Get all Security Group and Virtual Network mappings
 
-@param getSgVnMappingsQueryParams Filtering parameter
+@param getSgVnMappingListQueryParams Filtering parameter
 */
-func (s *SgVnMappingService) GetSgVnMappings(getSgVnMappingsQueryParams *GetSgVnMappingsQueryParams) (*ResponseSgVnMappingGetSgVnMappings, *resty.Response, error) {
+func (s *SgVnMappingService) GetSgVnMappingList(getSgVnMappingListQueryParams *GetSgVnMappingListQueryParams) (*ResponseSgVnMappingGetSgVnMappingList, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/trustsec/sgvnmapping"
 
-	queryString, _ := query.Values(getSgVnMappingsQueryParams)
+	queryString, _ := query.Values(getSgVnMappingListQueryParams)
 
 	setCSRFToken(s.client)
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetQueryString(queryString.Encode()).SetResult(&ResponseSgVnMappingGetSgVnMappings{}).
+		SetQueryString(queryString.Encode()).SetResult(&ResponseSgVnMappingGetSgVnMappingList{}).
 		SetError(&Error).
 		Get(path)
 
@@ -138,12 +141,12 @@ func (s *SgVnMappingService) GetSgVnMappings(getSgVnMappingsQueryParams *GetSgVn
 	}
 
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation GetSgVnMappings")
+		return nil, response, fmt.Errorf("error with operation GetSgVnMappingList")
 	}
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*ResponseSgVnMappingGetSgVnMappings)
+	result := response.Result().(*ResponseSgVnMappingGetSgVnMappingList)
 	return result, response, err
 
 }
@@ -322,12 +325,12 @@ func (s *SgVnMappingService) BulkUpdateSgVnMappings(requestSgVnMappingBulkUpdate
 
 }
 
-//UpdateSgVnMappingByID Update SG-VN mapping
+//UpdateSgVnMapping Update SG-VN mapping
 /* Update Security Group and Virtual Network mapping
 
 @param id id path parameter.
 */
-func (s *SgVnMappingService) UpdateSgVnMappingByID(id string, requestSgVnMappingUpdateSgVnMappingById *RequestSgVnMappingUpdateSgVnMappingByID) (*ResponseSgVnMappingUpdateSgVnMappingByID, *resty.Response, error) {
+func (s *SgVnMappingService) UpdateSgVnMapping(id string, requestSgVnMappingUpdateSgVnMapping *RequestSgVnMappingUpdateSgVnMapping) (*ResponseSgVnMappingUpdateSgVnMapping, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/trustsec/sgvnmapping/{id}"
 	path = strings.Replace(path, "{id}", fmt.Sprintf("%v", id), -1)
@@ -336,36 +339,36 @@ func (s *SgVnMappingService) UpdateSgVnMappingByID(id string, requestSgVnMapping
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetBody(requestSgVnMappingUpdateSgVnMappingById).
-		SetResult(&ResponseSgVnMappingUpdateSgVnMappingByID{}).
+		SetBody(requestSgVnMappingUpdateSgVnMapping).
+		SetResult(&ResponseSgVnMappingUpdateSgVnMapping{}).
 		SetError(&Error).
 		Put(path)
 
 	if err != nil {
 		if err.Error() == emptyStringToJSONError {
-			return &ResponseSgVnMappingUpdateSgVnMappingByID{}, response, nil
+			return &ResponseSgVnMappingUpdateSgVnMapping{}, response, nil
 		}
 		return nil, nil, err
 
 	}
 
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation UpdateSgVnMappingById")
+		return nil, response, fmt.Errorf("error with operation UpdateSgVnMapping")
 	}
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*ResponseSgVnMappingUpdateSgVnMappingByID)
+	result := response.Result().(*ResponseSgVnMappingUpdateSgVnMapping)
 	return result, response, err
 
 }
 
-//DeleteSgVnMappingByID Delete SG-VN mapping
+//DeleteSgVnMapping Delete SG-VN mapping
 /* Delete Security Group and Virtual Network mapping
 
 @param id id path parameter.
 */
-func (s *SgVnMappingService) DeleteSgVnMappingByID(id string) (*ResponseSgVnMappingDeleteSgVnMappingByID, *resty.Response, error) {
+func (s *SgVnMappingService) DeleteSgVnMapping(id string) (*ResponseSgVnMappingDeleteSgVnMapping, *resty.Response, error) {
 	setHost(s.client, "_ui")
 	path := "/api/v1/trustsec/sgvnmapping/{id}"
 	path = strings.Replace(path, "{id}", fmt.Sprintf("%v", id), -1)
@@ -374,7 +377,7 @@ func (s *SgVnMappingService) DeleteSgVnMappingByID(id string) (*ResponseSgVnMapp
 	response, err := s.client.R().
 		SetHeader("Content-Type", "application/json").
 		SetHeader("Accept", "application/json").
-		SetResult(&ResponseSgVnMappingDeleteSgVnMappingByID{}).
+		SetResult(&ResponseSgVnMappingDeleteSgVnMapping{}).
 		SetError(&Error).
 		Delete(path)
 
@@ -384,12 +387,12 @@ func (s *SgVnMappingService) DeleteSgVnMappingByID(id string) (*ResponseSgVnMapp
 	}
 
 	if response.IsError() {
-		return nil, response, fmt.Errorf("error with operation DeleteSgVnMappingById")
+		return nil, response, fmt.Errorf("error with operation DeleteSgVnMapping")
 	}
 
 	getCSFRToken(response.Header())
 
-	result := response.Result().(*ResponseSgVnMappingDeleteSgVnMappingByID)
+	result := response.Result().(*ResponseSgVnMappingDeleteSgVnMapping)
 	return result, response, err
 
 }
