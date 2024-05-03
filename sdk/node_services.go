@@ -42,63 +42,83 @@ type ResponseNodeServicesGetProfilerProbeConfig struct {
 }
 
 type ResponseNodeServicesGetProfilerProbeConfigResponse struct {
-	Netflow         *ResponseNodeServicesGetProfilerProbeConfigResponseNetflow         `json:"netflow,omitempty"`         // The NetFlow probe collects the NetFlow packets that are sent to it from routers.
+	ActiveDirectory *ResponseNodeServicesGetProfilerProbeConfigResponseActiveDirectory `json:"activeDirectory,omitempty"` // The Active Directory probe queries the Active Directory for Windows information.
 	Dhcp            *ResponseNodeServicesGetProfilerProbeConfigResponseDhcp            `json:"dhcp,omitempty"`            // The DHCP probe listens for DHCP packets from IP helpers.
 	DhcpSpan        *ResponseNodeServicesGetProfilerProbeConfigResponseDhcpSpan        `json:"dhcpSpan,omitempty"`        // The DHCP SPAN probe collects DHCP packets.
-	HTTP            *ResponseNodeServicesGetProfilerProbeConfigResponseHTTP            `json:"http,omitempty"`            // The HTTP probe receives and parses HTTP packets.
-	Radius          *[]ResponseNodeServicesGetProfilerProbeConfigResponseRadius        `json:"radius,omitempty"`          // The RADIUS probe collects RADIUS session attributes as well as CDP, LLDP, DHCP, HTTP, and MDM attributes from IOS Sensors.
-	Nmap            *[]ResponseNodeServicesGetProfilerProbeConfigResponseNmap          `json:"nmap,omitempty"`            // The NMAP probe scans endpoints for open ports and OS.
 	DNS             *ResponseNodeServicesGetProfilerProbeConfigResponseDNS             `json:"dns,omitempty"`             // The DNS probe performs a DNS lookup for the FQDN.
+	HTTP            *ResponseNodeServicesGetProfilerProbeConfigResponseHTTP            `json:"http,omitempty"`            // The HTTP probe receives and parses HTTP packets.
+	Netflow         *ResponseNodeServicesGetProfilerProbeConfigResponseNetflow         `json:"netflow,omitempty"`         // The NetFlow probe collects the NetFlow packets that are sent to it from routers.
+	Nmap            *[]ResponseNodeServicesGetProfilerProbeConfigResponseNmap          `json:"nmap,omitempty"`            // The NMAP probe scans endpoints for open ports and OS.
+	Pxgrid          *[]ResponseNodeServicesGetProfilerProbeConfigResponsePxgrid        `json:"pxgrid,omitempty"`          // The pxGrid probe fetches attributes of MAC address or IP address as a subscriber from the pxGrid queue.
+	Radius          *[]ResponseNodeServicesGetProfilerProbeConfigResponseRadius        `json:"radius,omitempty"`          // The RADIUS probe collects RADIUS session attributes as well as CDP, LLDP, DHCP, HTTP, and MDM attributes from IOS Sensors.
 	SNMPQuery       *ResponseNodeServicesGetProfilerProbeConfigResponseSNMPQuery       `json:"snmpQuery,omitempty"`       // The SNMP query probe collects details from network devices such as interface, CDP, LLDP, and ARP.
 	SNMPTrap        *ResponseNodeServicesGetProfilerProbeConfigResponseSNMPTrap        `json:"snmpTrap,omitempty"`        // The SNMP trap probe receives linkup, linkdown, and MAC notification traps from network devices.
-	ActiveDirectory *ResponseNodeServicesGetProfilerProbeConfigResponseActiveDirectory `json:"activeDirectory,omitempty"` // The Active Directory probe queries the Active Directory for Windows information.
-	Pxgrid          *[]ResponseNodeServicesGetProfilerProbeConfigResponsePxgrid        `json:"pxgrid,omitempty"`          // The pxGrid probe fetches attributes of MAC address or IP address as a subscriber from the pxGrid queue.
-}
-
-type ResponseNodeServicesGetProfilerProbeConfigResponseNetflow struct {
-	Interface string `json:"interface,omitempty"` //
-	Port      *int   `json:"port,omitempty"`      //
-}
-
-type ResponseNodeServicesGetProfilerProbeConfigResponseDhcp struct {
-	Interface string `json:"interface,omitempty"` //
-	Port      *int   `json:"port,omitempty"`      //
-}
-
-type ResponseNodeServicesGetProfilerProbeConfigResponseDhcpSpan struct {
-	Interface string `json:"interface,omitempty"` //
-}
-
-type ResponseNodeServicesGetProfilerProbeConfigResponseHTTP struct {
-	Interface string `json:"interface,omitempty"` //
-}
-
-type ResponseNodeServicesGetProfilerProbeConfigResponseRadius interface{}
-
-type ResponseNodeServicesGetProfilerProbeConfigResponseNmap interface{}
-
-type ResponseNodeServicesGetProfilerProbeConfigResponseDNS struct {
-	Timeout *int `json:"timeout,omitempty"` //
-}
-
-type ResponseNodeServicesGetProfilerProbeConfigResponseSNMPQuery struct {
-	Retries      *int `json:"retries,omitempty"`      //
-	Timeout      *int `json:"timeout,omitempty"`      //
-	EventTimeout *int `json:"eventTimeout,omitempty"` //
-}
-
-type ResponseNodeServicesGetProfilerProbeConfigResponseSNMPTrap struct {
-	LinkTrapQuery *bool  `json:"linkTrapQuery,omitempty"` //
-	MacTrapQuery  *bool  `json:"macTrapQuery,omitempty"`  //
-	Interface     string `json:"interface,omitempty"`     //
-	Port          *int   `json:"port,omitempty"`          //
 }
 
 type ResponseNodeServicesGetProfilerProbeConfigResponseActiveDirectory struct {
 	DaysBeforeRescan *int `json:"daysBeforeRescan,omitempty"` //
 }
 
+type ResponseNodeServicesGetProfilerProbeConfigResponseDhcp struct {
+	Interfaces *[]ResponseNodeServicesGetProfilerProbeConfigResponseDhcpInterfaces `json:"interfaces,omitempty"` //
+	Port       *int                                                                `json:"port,omitempty"`       //
+}
+
+type ResponseNodeServicesGetProfilerProbeConfigResponseDhcpInterfaces struct {
+	Interface string `json:"interface,omitempty"` //
+}
+
+type ResponseNodeServicesGetProfilerProbeConfigResponseDhcpSpan struct {
+	Interfaces *[]ResponseNodeServicesGetProfilerProbeConfigResponseDhcpSpanInterfaces `json:"interfaces,omitempty"` //
+}
+
+type ResponseNodeServicesGetProfilerProbeConfigResponseDhcpSpanInterfaces struct {
+	Interface string `json:"interface,omitempty"` //
+}
+
+type ResponseNodeServicesGetProfilerProbeConfigResponseDNS struct {
+	Timeout *int `json:"timeout,omitempty"` //
+}
+
+type ResponseNodeServicesGetProfilerProbeConfigResponseHTTP struct {
+	Interfaces *[]ResponseNodeServicesGetProfilerProbeConfigResponseHTTPInterfaces `json:"interfaces,omitempty"` //
+}
+
+type ResponseNodeServicesGetProfilerProbeConfigResponseHTTPInterfaces struct {
+	Interface string `json:"interface,omitempty"` //
+}
+
+type ResponseNodeServicesGetProfilerProbeConfigResponseNetflow struct {
+	Interfaces *[]ResponseNodeServicesGetProfilerProbeConfigResponseNetflowInterfaces `json:"interfaces,omitempty"` //
+	Port       *int                                                                   `json:"port,omitempty"`       //
+}
+
+type ResponseNodeServicesGetProfilerProbeConfigResponseNetflowInterfaces struct {
+	Interface string `json:"interface,omitempty"` //
+}
+
+type ResponseNodeServicesGetProfilerProbeConfigResponseNmap interface{}
+
 type ResponseNodeServicesGetProfilerProbeConfigResponsePxgrid interface{}
+
+type ResponseNodeServicesGetProfilerProbeConfigResponseRadius interface{}
+
+type ResponseNodeServicesGetProfilerProbeConfigResponseSNMPQuery struct {
+	EventTimeout *int `json:"eventTimeout,omitempty"` //
+	Retries      *int `json:"retries,omitempty"`      //
+	Timeout      *int `json:"timeout,omitempty"`      //
+}
+
+type ResponseNodeServicesGetProfilerProbeConfigResponseSNMPTrap struct {
+	Interfaces    *[]ResponseNodeServicesGetProfilerProbeConfigResponseSNMPTrapInterfaces `json:"interfaces,omitempty"`    //
+	LinkTrapQuery *bool                                                                   `json:"linkTrapQuery,omitempty"` //
+	MacTrapQuery  *bool                                                                   `json:"macTrapQuery,omitempty"`  //
+	Port          *int                                                                    `json:"port,omitempty"`          //
+}
+
+type ResponseNodeServicesGetProfilerProbeConfigResponseSNMPTrapInterfaces struct {
+	Interface string `json:"interface,omitempty"` //
+}
 
 type ResponseNodeServicesSetProfilerProbeConfig struct {
 	Success *ResponseNodeServicesSetProfilerProbeConfigSuccess `json:"success,omitempty"` //
@@ -114,67 +134,86 @@ type RequestNodeServicesSetSxpInterface struct {
 }
 
 type RequestNodeServicesSetProfilerProbeConfig struct {
-	Netflow         *RequestNodeServicesSetProfilerProbeConfigNetflow         `json:"netflow,omitempty"`         // The NetFlow probe collects the NetFlow packets that are sent to it from routers.
+	ActiveDirectory *RequestNodeServicesSetProfilerProbeConfigActiveDirectory `json:"activeDirectory,omitempty"` // The Active Directory probe queries the Active Directory for Windows information.
 	Dhcp            *RequestNodeServicesSetProfilerProbeConfigDhcp            `json:"dhcp,omitempty"`            // The DHCP probe listens for DHCP packets from IP helpers.
 	DhcpSpan        *RequestNodeServicesSetProfilerProbeConfigDhcpSpan        `json:"dhcpSpan,omitempty"`        // The DHCP SPAN probe collects DHCP packets.
-	HTTP            *RequestNodeServicesSetProfilerProbeConfigHTTP            `json:"http,omitempty"`            // The HTTP probe receives and parses HTTP packets.
-	Radius          *[]RequestNodeServicesSetProfilerProbeConfigRadius        `json:"radius,omitempty"`          // The RADIUS probe collects RADIUS session attributes as well as CDP, LLDP, DHCP, HTTP, and MDM attributes from IOS Sensors.
-	Nmap            *[]RequestNodeServicesSetProfilerProbeConfigNmap          `json:"nmap,omitempty"`            // The NMAP probe scans endpoints for open ports and OS.
 	DNS             *RequestNodeServicesSetProfilerProbeConfigDNS             `json:"dns,omitempty"`             // The DNS probe performs a DNS lookup for the FQDN.
+	HTTP            *RequestNodeServicesSetProfilerProbeConfigHTTP            `json:"http,omitempty"`            // The HTTP probe receives and parses HTTP packets.
+	Netflow         *RequestNodeServicesSetProfilerProbeConfigNetflow         `json:"netflow,omitempty"`         // The NetFlow probe collects the NetFlow packets that are sent to it from routers.
+	Nmap            *[]RequestNodeServicesSetProfilerProbeConfigNmap          `json:"nmap,omitempty"`            // The NMAP probe scans endpoints for open ports and OS.
+	Pxgrid          *[]RequestNodeServicesSetProfilerProbeConfigPxgrid        `json:"pxgrid,omitempty"`          // The pxGrid probe fetches attributes of MAC address or IP address as a subscriber from the pxGrid queue.
+	Radius          *[]RequestNodeServicesSetProfilerProbeConfigRadius        `json:"radius,omitempty"`          // The RADIUS probe collects RADIUS session attributes as well as CDP, LLDP, DHCP, HTTP, and MDM attributes from IOS Sensors.
 	SNMPQuery       *RequestNodeServicesSetProfilerProbeConfigSNMPQuery       `json:"snmpQuery,omitempty"`       // The SNMP query probe collects details from network devices such as interface, CDP, LLDP, and ARP.
 	SNMPTrap        *RequestNodeServicesSetProfilerProbeConfigSNMPTrap        `json:"snmpTrap,omitempty"`        // The SNMP trap probe receives linkup, linkdown, and MAC notification traps from network devices.
-	ActiveDirectory *RequestNodeServicesSetProfilerProbeConfigActiveDirectory `json:"activeDirectory,omitempty"` // The Active Directory probe queries the Active Directory for Windows information.
-	Pxgrid          *[]RequestNodeServicesSetProfilerProbeConfigPxgrid        `json:"pxgrid,omitempty"`          // The pxGrid probe fetches attributes of MAC address or IP address as a subscriber from the pxGrid queue.
-}
-
-type RequestNodeServicesSetProfilerProbeConfigNetflow struct {
-	Interface string `json:"interface,omitempty"` //
-	Port      *int   `json:"port,omitempty"`      //
-}
-
-type RequestNodeServicesSetProfilerProbeConfigDhcp struct {
-	Interface string `json:"interface,omitempty"` //
-	Port      *int   `json:"port,omitempty"`      //
-}
-
-type RequestNodeServicesSetProfilerProbeConfigDhcpSpan struct {
-	Interface string `json:"interface,omitempty"` //
-}
-
-type RequestNodeServicesSetProfilerProbeConfigHTTP struct {
-	Interface string `json:"interface,omitempty"` //
-}
-
-type RequestNodeServicesSetProfilerProbeConfigRadius interface{}
-
-type RequestNodeServicesSetProfilerProbeConfigNmap interface{}
-
-type RequestNodeServicesSetProfilerProbeConfigDNS struct {
-	Timeout *int `json:"timeout,omitempty"` //
-}
-
-type RequestNodeServicesSetProfilerProbeConfigSNMPQuery struct {
-	Retries      *int `json:"retries,omitempty"`      //
-	Timeout      *int `json:"timeout,omitempty"`      //
-	EventTimeout *int `json:"eventTimeout,omitempty"` //
-}
-
-type RequestNodeServicesSetProfilerProbeConfigSNMPTrap struct {
-	LinkTrapQuery *bool  `json:"linkTrapQuery,omitempty"` //
-	MacTrapQuery  *bool  `json:"macTrapQuery,omitempty"`  //
-	Interface     string `json:"interface,omitempty"`     //
-	Port          *int   `json:"port,omitempty"`          //
 }
 
 type RequestNodeServicesSetProfilerProbeConfigActiveDirectory struct {
 	DaysBeforeRescan *int `json:"daysBeforeRescan,omitempty"` //
 }
 
+type RequestNodeServicesSetProfilerProbeConfigDhcp struct {
+	Interfaces *[]RequestNodeServicesSetProfilerProbeConfigDhcpInterfaces `json:"interfaces,omitempty"` //
+	Port       *int                                                       `json:"port,omitempty"`       //
+}
+
+type RequestNodeServicesSetProfilerProbeConfigDhcpInterfaces struct {
+	Interface string `json:"interface,omitempty"` //
+}
+
+type RequestNodeServicesSetProfilerProbeConfigDhcpSpan struct {
+	Interfaces *[]RequestNodeServicesSetProfilerProbeConfigDhcpSpanInterfaces `json:"interfaces,omitempty"` //
+}
+
+type RequestNodeServicesSetProfilerProbeConfigDhcpSpanInterfaces struct {
+	Interface string `json:"interface,omitempty"` //
+}
+
+type RequestNodeServicesSetProfilerProbeConfigDNS struct {
+	Timeout *int `json:"timeout,omitempty"` //
+}
+
+type RequestNodeServicesSetProfilerProbeConfigHTTP struct {
+	Interfaces *[]RequestNodeServicesSetProfilerProbeConfigHTTPInterfaces `json:"interfaces,omitempty"` //
+}
+
+type RequestNodeServicesSetProfilerProbeConfigHTTPInterfaces struct {
+	Interface string `json:"interface,omitempty"` //
+}
+
+type RequestNodeServicesSetProfilerProbeConfigNetflow struct {
+	Interfaces *[]RequestNodeServicesSetProfilerProbeConfigNetflowInterfaces `json:"interfaces,omitempty"` //
+	Port       *int                                                          `json:"port,omitempty"`       //
+}
+
+type RequestNodeServicesSetProfilerProbeConfigNetflowInterfaces struct {
+	Interface string `json:"interface,omitempty"` //
+}
+
+type RequestNodeServicesSetProfilerProbeConfigNmap interface{}
+
 type RequestNodeServicesSetProfilerProbeConfigPxgrid interface{}
+
+type RequestNodeServicesSetProfilerProbeConfigRadius interface{}
+
+type RequestNodeServicesSetProfilerProbeConfigSNMPQuery struct {
+	EventTimeout *int `json:"eventTimeout,omitempty"` //
+	Retries      *int `json:"retries,omitempty"`      //
+	Timeout      *int `json:"timeout,omitempty"`      //
+}
+
+type RequestNodeServicesSetProfilerProbeConfigSNMPTrap struct {
+	Interfaces    *[]RequestNodeServicesSetProfilerProbeConfigSNMPTrapInterfaces `json:"interfaces,omitempty"`    //
+	LinkTrapQuery *bool                                                          `json:"linkTrapQuery,omitempty"` //
+	MacTrapQuery  *bool                                                          `json:"macTrapQuery,omitempty"`  //
+	Port          *int                                                           `json:"port,omitempty"`          //
+}
+
+type RequestNodeServicesSetProfilerProbeConfigSNMPTrapInterfaces struct {
+	Interface string `json:"interface,omitempty"` //
+}
 
 //GetInterfaces Get the list of interfaces on a node in a cluster.
 /* This API retrieves the list of interfaces on a node in a cluster.
-
 
 @param hostname hostname path parameter. Hostname of the node.
 */
@@ -210,7 +249,6 @@ func (s *NodeServicesService) GetInterfaces(hostname string) (*ResponseNodeServi
 //GetSxpInterface Get the interface configured for SXP.
 /* This API retrieves the SXP interface.
 
-
 @param hostname hostname path parameter. Hostname of the node.
 */
 func (s *NodeServicesService) GetSxpInterface(hostname string) (*ResponseNodeServicesGetSxpInterface, *resty.Response, error) {
@@ -245,7 +283,6 @@ func (s *NodeServicesService) GetSxpInterface(hostname string) (*ResponseNodeSer
 //GetProfilerProbeConfig Retrieve the profiler probe configuration of a PSN.
 /* This API retrieves the profiler probe configuration of a PSN.
 
-
 @param hostname hostname path parameter. Hostname of the node.
 */
 func (s *NodeServicesService) GetProfilerProbeConfig(hostname string) (*ResponseNodeServicesGetProfilerProbeConfig, *resty.Response, error) {
@@ -279,7 +316,6 @@ func (s *NodeServicesService) GetProfilerProbeConfig(hostname string) (*Response
 
 //SetSxpInterface Configure the interface for use with SXP.
 /* This API configures the SXP interface.
-
 
 @param hostname hostname path parameter. Hostname of the node.
 */

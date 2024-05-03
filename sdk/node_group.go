@@ -20,16 +20,16 @@ type ResponseNodeGroupGetNodeGroups struct {
 }
 
 type ResponseNodeGroupGetNodeGroupsResponse struct {
-	Name        string                                          `json:"name,omitempty"`        //
 	Description string                                          `json:"description,omitempty"` //
 	MarCache    *ResponseNodeGroupGetNodeGroupsResponseMarCache `json:"marCache,omitempty"`    //
+	Name        string                                          `json:"name,omitempty"`        //
 }
 
 type ResponseNodeGroupGetNodeGroupsResponseMarCache struct {
-	ReplicationTimeout  *int `json:"replication-timeout,omitempty"`  // The time, in seconds, after which the cache entry replication times out. (1 - 10).
-	ReplicationAttempts *int `json:"replication-attempts,omitempty"` // The number of times Cisco ISE attempts to perform MAR cache entry replication. (0 - 5).
-	QueryTimeout        *int `json:"query-timeout,omitempty"`        // The time, in seconds, after which the cache entry query times out. (1 - 10).
 	QueryAttempts       *int `json:"query-attempts,omitempty"`       // The number of times Cisco ISE attempts to perform the cache entry query. (0 - 5).
+	QueryTimeout        *int `json:"query-timeout,omitempty"`        // The time, in seconds, after which the cache entry query times out. (1 - 10).
+	ReplicationAttempts *int `json:"replication-attempts,omitempty"` // The number of times Cisco ISE attempts to perform MAR cache entry replication. (0 - 5).
+	ReplicationTimeout  *int `json:"replication-timeout,omitempty"`  // The time, in seconds, after which the cache entry replication times out. (1 - 10).
 }
 
 type ResponseNodeGroupCreateNodeGroup struct {
@@ -47,16 +47,16 @@ type ResponseNodeGroupGetNodeGroup struct {
 }
 
 type ResponseNodeGroupGetNodeGroupResponse struct {
-	Name        string                                         `json:"name,omitempty"`        //
 	Description string                                         `json:"description,omitempty"` //
 	MarCache    *ResponseNodeGroupGetNodeGroupResponseMarCache `json:"marCache,omitempty"`    //
+	Name        string                                         `json:"name,omitempty"`        //
 }
 
 type ResponseNodeGroupGetNodeGroupResponseMarCache struct {
-	ReplicationTimeout  *int `json:"replication-timeout,omitempty"`  // The time, in seconds, after which the cache entry replication times out. (1 - 10).
-	ReplicationAttempts *int `json:"replication-attempts,omitempty"` // The number of times Cisco ISE attempts to perform MAR cache entry replication. (0 - 5).
-	QueryTimeout        *int `json:"query-timeout,omitempty"`        // The time, in seconds, after which the cache entry query times out. (1 - 10).
 	QueryAttempts       *int `json:"query-attempts,omitempty"`       // The number of times Cisco ISE attempts to perform the cache entry query. (0 - 5).
+	QueryTimeout        *int `json:"query-timeout,omitempty"`        // The time, in seconds, after which the cache entry query times out. (1 - 10).
+	ReplicationAttempts *int `json:"replication-attempts,omitempty"` // The number of times Cisco ISE attempts to perform MAR cache entry replication. (0 - 5).
+	ReplicationTimeout  *int `json:"replication-timeout,omitempty"`  // The time, in seconds, after which the cache entry replication times out. (1 - 10).
 }
 
 type ResponseNodeGroupUpdateNodeGroup struct {
@@ -78,20 +78,11 @@ type ResponseNodeGroupDeleteNodeGroupSuccess struct {
 }
 
 type ResponseNodeGroupAddNode struct {
-	Success *ResponseNodeGroupAddNodesuccess `json:"success,omitempty"` //
+	Success *ResponseNodeGroupAddNodeSuccess `json:"success,omitempty"` //
 	Version string                           `json:"version,omitempty"` //
 }
 
-type ResponseNodeGroupAddNodesuccess struct {
-	Message string `json:"message,omitempty"` //
-}
-
-type ResponseNodeGroupRemoveNode struct {
-	Success *ResponseNodeGroupRemoveNodesuccess `json:"success,omitempty"` //
-	Version string                              `json:"version,omitempty"` //
-}
-
-type ResponseNodeGroupRemoveNodesuccess struct {
+type ResponseNodeGroupAddNodeSuccess struct {
 	Message string `json:"message,omitempty"` //
 }
 
@@ -104,30 +95,39 @@ type ResponseNodeGroupGetNodesResponse struct {
 	Hostname string `json:"hostname,omitempty"` //
 }
 
+type ResponseNodeGroupRemoveNode struct {
+	Success *ResponseNodeGroupRemoveNodeSuccess `json:"success,omitempty"` //
+	Version string                              `json:"version,omitempty"` //
+}
+
+type ResponseNodeGroupRemoveNodeSuccess struct {
+	Message string `json:"message,omitempty"` //
+}
+
 type RequestNodeGroupCreateNodeGroup struct {
-	Name        string                                   `json:"name,omitempty"`        //
 	Description string                                   `json:"description,omitempty"` //
 	MarCache    *RequestNodeGroupCreateNodeGroupMarCache `json:"marCache,omitempty"`    //
+	Name        string                                   `json:"name,omitempty"`        //
 }
 
 type RequestNodeGroupCreateNodeGroupMarCache struct {
-	ReplicationTimeout  *int `json:"replication-timeout,omitempty"`  // The time, in seconds, after which the cache entry replication times out. (1 - 10).
-	ReplicationAttempts *int `json:"replication-attempts,omitempty"` // The number of times Cisco ISE attempts to perform MAR cache entry replication. (0 - 5).
-	QueryTimeout        *int `json:"query-timeout,omitempty"`        // The time, in seconds, after which the cache entry query times out. (1 - 10).
 	QueryAttempts       *int `json:"query-attempts,omitempty"`       // The number of times Cisco ISE attempts to perform the cache entry query. (0 - 5).
+	QueryTimeout        *int `json:"query-timeout,omitempty"`        // The time, in seconds, after which the cache entry query times out. (1 - 10).
+	ReplicationAttempts *int `json:"replication-attempts,omitempty"` // The number of times Cisco ISE attempts to perform MAR cache entry replication. (0 - 5).
+	ReplicationTimeout  *int `json:"replication-timeout,omitempty"`  // The time, in seconds, after which the cache entry replication times out. (1 - 10).
 }
 
 type RequestNodeGroupUpdateNodeGroup struct {
-	Name        string                                   `json:"name,omitempty"`        //
 	Description string                                   `json:"description,omitempty"` //
 	MarCache    *RequestNodeGroupUpdateNodeGroupMarCache `json:"marCache,omitempty"`    //
+	Name        string                                   `json:"name,omitempty"`        //
 }
 
 type RequestNodeGroupUpdateNodeGroupMarCache struct {
-	ReplicationTimeout  *int `json:"replication-timeout,omitempty"`  // The time, in seconds, after which the cache entry replication times out. (1 - 10).
-	ReplicationAttempts *int `json:"replication-attempts,omitempty"` // The number of times Cisco ISE attempts to perform MAR cache entry replication. (0 - 5).
-	QueryTimeout        *int `json:"query-timeout,omitempty"`        // The time, in seconds, after which the cache entry query times out. (1 - 10).
 	QueryAttempts       *int `json:"query-attempts,omitempty"`       // The number of times Cisco ISE attempts to perform the cache entry query. (0 - 5).
+	QueryTimeout        *int `json:"query-timeout,omitempty"`        // The time, in seconds, after which the cache entry query times out. (1 - 10).
+	ReplicationAttempts *int `json:"replication-attempts,omitempty"` // The number of times Cisco ISE attempts to perform MAR cache entry replication. (0 - 5).
+	ReplicationTimeout  *int `json:"replication-timeout,omitempty"`  // The time, in seconds, after which the cache entry replication times out. (1 - 10).
 }
 
 type RequestNodeGroupAddNode struct {
@@ -274,7 +274,7 @@ description
 
 Description of the node group (
 valid-range:
- 1-256 characters)
+ 0-256 characters)
 
 {"name": "site2", "description": "sample"}
 
