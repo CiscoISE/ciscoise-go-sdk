@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.1] - 2024-05-03
+### Added
+- Adding missing struct in `node_group` and `node_services`.
+
 ## [1.3.0] - 2024-04-24
 ### Added
 - `ciscoise-go-sdk` now supports ISE 3.3 patch 1 API.
@@ -228,4 +232,5 @@ Following parameters were added to `RequestNetworkAccessAuthenticationRulesCreat
 [1.1.22]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.21...v1.1.22
 [1.2.0]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.1.22...v1.2.0
 [1.3.0]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.2.0...v1.3.0
-[Unreleased]: https://github.com/cisco-en-programmability/ciscoise-go-sdk/compare/v1.3.0...main
+[1.3.1]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.3.1...v1.3.1
+[Unreleased]: https://github.com/cisco-en-programmability/ciscoise-go-sdk/compare/v1.3.1...main
