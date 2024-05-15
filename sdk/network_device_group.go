@@ -28,7 +28,7 @@ type ResponseNetworkDeviceGroupGetNetworkDeviceGroupByNameNetworkDeviceGroup str
 	Name        string                                                                       `json:"name,omitempty"`        //
 	Description string                                                                       `json:"description,omitempty"` //
 	Link        *ResponseNetworkDeviceGroupGetNetworkDeviceGroupByNameNetworkDeviceGroupLink `json:"link,omitempty"`        //
-	Ndgtype     string                                                                       `json:"ndgtype,omitempty"`     //
+	Othername   string                                                                       `json:"othername,omitempty"`   //
 }
 
 type ResponseNetworkDeviceGroupGetNetworkDeviceGroupByNameNetworkDeviceGroupLink struct {
@@ -46,7 +46,7 @@ type ResponseNetworkDeviceGroupGetNetworkDeviceGroupByIDNetworkDeviceGroup struc
 	Name        string                                                                     `json:"name,omitempty"`        //
 	Description string                                                                     `json:"description,omitempty"` //
 	Link        *ResponseNetworkDeviceGroupGetNetworkDeviceGroupByIDNetworkDeviceGroupLink `json:"link,omitempty"`        //
-	Ndgtype     string                                                                     `json:"ndgtype,omitempty"`     //
+	Othername   string                                                                     `json:"othername,omitempty"`   //
 }
 
 type ResponseNetworkDeviceGroupGetNetworkDeviceGroupByIDNetworkDeviceGroupLink struct {
@@ -132,7 +132,7 @@ type RequestNetworkDeviceGroupUpdateNetworkDeviceGroupByIDNetworkDeviceGroup str
 	ID          string `json:"id,omitempty"`          //
 	Name        string `json:"name,omitempty"`        //
 	Description string `json:"description,omitempty"` //
-	Ndgtype     string `json:"ndgtype,omitempty"`     //
+	Othername   string `json:"othername,omitempty"`   //
 }
 
 type RequestNetworkDeviceGroupCreateNetworkDeviceGroup struct {
@@ -142,7 +142,7 @@ type RequestNetworkDeviceGroupCreateNetworkDeviceGroup struct {
 type RequestNetworkDeviceGroupCreateNetworkDeviceGroupNetworkDeviceGroup struct {
 	Name        string `json:"name,omitempty"`        //
 	Description string `json:"description,omitempty"` //
-	Ndgtype     string `json:"ndgtype,omitempty"`     //
+	Othername   string `json:"othername,omitempty"`   //
 }
 
 //GetNetworkDeviceGroupByName Get network device group by name
