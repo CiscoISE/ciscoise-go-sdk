@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.3] - 2024-05-15
+### Fixed
+- Added missing parameters in Children structs at `network_access_authorization_rules`
+
 ## [1.3.2] - 2024-05-15
 ### Fixed
 - Update NetworkDeviceGroup API parameter name from `ndgtpye` to `othername`in 3.3 patch 1.
