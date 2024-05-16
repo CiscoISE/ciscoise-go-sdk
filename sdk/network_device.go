@@ -67,7 +67,7 @@ type ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettings st
 	DeviceAuthenticationSettings  *ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettingsDeviceAuthenticationSettings  `json:"deviceAuthenticationSettings,omitempty"`  //
 	SgaNotificationAndUpdates     *ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettingsSgaNotificationAndUpdates     `json:"sgaNotificationAndUpdates,omitempty"`     //
 	DeviceConfigurationDeployment *ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettingsDeviceConfigurationDeployment `json:"deviceConfigurationDeployment,omitempty"` //
-	PushIDSupport                 *bool                                                                                                  `json:"pushIdSupport,omitempty"`                 //
+	PushIDSupport                 string                                                                                                 `json:"pushIdSupport,omitempty"`                 //
 }
 
 type ResponseNetworkDeviceGetNetworkDeviceByNameNetworkDeviceTrustsecsettingsDeviceAuthenticationSettings struct {
