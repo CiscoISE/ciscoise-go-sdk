@@ -24,6 +24,8 @@ const ISE_DEBUG = "ISE_DEBUG"
 const ISE_SSL_VERIFY = "ISE_SSL_VERIFY"
 const ISE_USE_API_GATEWAY = "ISE_USE_API_GATEWAY"
 const ISE_USE_CSRF_TOKEN = "ISE_USE_CSRF_TOKEN"
+const VERSION = "3.3_patch_1"
+const USER_AGENT = "go-cisco-ise/" + VERSION
 
 const emptyStringToJSONError = "unexpected end of JSON input"
 
@@ -239,6 +241,7 @@ var Error map[string]interface{}
 func NewClient() (*Client, error) {
 	var err error
 	client := resty.New()
+	client.SetHeader("User-Agent", USER_AGENT)
 	c := &Client{}
 	c.common.client = client
 	username := ""
@@ -461,5 +464,6 @@ func NewClientWithOptions(baseURL string, username string, password string, debu
 
 // RestyClient returns the resty.Client used by the sdk
 func (s *Client) RestyClient() *resty.Client {
+	s.common.client.SetHeader("User-Agent", USER_AGENT)
 	return s.common.client
 }
