@@ -6,10 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.4] - 2024-08-06
+### Added
+- Set User-Agent header in API client
+
 ## [1.3.3] - 2024-05-15
 ### Fixed
 - Added missing parameters in Children structs at `network_access_authorization_rules`
-
+    
 ## [1.3.2] - 2024-05-15
 ### Fixed
 - Update NetworkDeviceGroup API parameter name from `ndgtpye` to `othername`in 3.3 patch 1.
@@ -242,4 +246,6 @@ Following parameters were added to `RequestNetworkAccessAuthenticationRulesCreat
 [1.3.0]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.2.0...v1.3.0
 [1.3.1]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.3.0...v1.3.1
 [1.3.2]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.3.1...v1.3.2
-[Unreleased]: https://github.com/cisco-en-programmability/ciscoise-go-sdk/compare/v1.3.2...main
+[1.3.3]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.3.2...v1.3.3
+[1.3.4]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.3.3...v1.3.4
+[Unreleased]: https://github.com/cisco-en-programmability/ciscoise-go-sdk/compare/v1.3.4...main
