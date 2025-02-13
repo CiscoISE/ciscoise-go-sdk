@@ -172,6 +172,7 @@ type Client struct {
 	Endpoints                                             *EndpointsService
 	FullUpgrade                                           *FullUpgradeService
 	IsMFAEnabled                                          *IsMFAEnabledService
+	Ldap                                                  *LdapService
 	NbarApp                                               *NbarAppService
 	Portal                                                *PortalService
 	Proxy                                                 *ProxyService
@@ -413,6 +414,7 @@ func NewClient() (*Client, error) {
 	c.Endpoints = (*EndpointsService)(&c.common)
 	c.FullUpgrade = (*FullUpgradeService)(&c.common)
 	c.IsMFAEnabled = (*IsMFAEnabledService)(&c.common)
+	c.Ldap = (*LdapService)(&c.common)
 	c.NbarApp = (*NbarAppService)(&c.common)
 	c.Portal = (*PortalService)(&c.common)
 	c.Proxy = (*ProxyService)(&c.common)

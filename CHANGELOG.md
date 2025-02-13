@@ -6,6 +6,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.5] - 2025-02-12
+### Added
+- Added `ldap.go` with the following functions:
+  - `GetLdap`
+  - `PostLdap`
+  - `GetLdapid`
+  - `PutLdapid`
+  - `DeleteLdapid`
+  - `GetLdapRootcacertificates`
+  - `GetLdapHosts`
+  - `GetLdapissuercacertificates`
+  - `GetLdapNameName`
+  - `PutLdapidTestbindprimary`
+  - `PutLdapidTestbindsecondary`
+
 ## [1.3.4] - 2024-08-06
 ### Added
 - Set User-Agent header in API client
@@ -248,4 +263,5 @@ Following parameters were added to `RequestNetworkAccessAuthenticationRulesCreat
 [1.3.2]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.3.1...v1.3.2
 [1.3.3]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.3.2...v1.3.3
 [1.3.4]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.3.3...v1.3.4
-[Unreleased]: https://github.com/cisco-en-programmability/ciscoise-go-sdk/compare/v1.3.4...main
+[1.3.5]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.3.4...v1.3.5
+[Unreleased]: https://github.com/cisco-en-programmability/ciscoise-go-sdk/compare/v1.3.5...main
