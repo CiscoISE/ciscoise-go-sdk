@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.6] - 2025-02-13
+### Added
+- Added `nextPage` and `previousPage` fields to `ResponseLdapGetLdapSearchResult`.
+
 ## [1.3.5] - 2025-02-12
 ### Added
 - Added `ldap.go` with the following functions:
@@ -264,4 +268,5 @@ Following parameters were added to `RequestNetworkAccessAuthenticationRulesCreat
 [1.3.3]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.3.2...v1.3.3
 [1.3.4]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.3.3...v1.3.4
 [1.3.5]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.3.4...v1.3.5
-[Unreleased]: https://github.com/cisco-en-programmability/ciscoise-go-sdk/compare/v1.3.5...main
+[1.3.6]: https://github.com/CiscoISE/ciscoise-go-sdk/compare/v1.3.5...v1.3.6
+[Unreleased]: https://github.com/cisco-en-programmability/ciscoise-go-sdk/compare/v1.3.6...main

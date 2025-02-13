@@ -144,8 +144,10 @@ type ResponseLdapGetLdap struct {
 }
 
 type ResponseLdapGetLdapSearchResult struct {
-	Total     *int                                        `json:"total,omitempty"`     //
-	Resources *[]ResponseLdapGetLdapSearchResultResources `json:"resources,omitempty"` //
+	Total        *int                                         `json:"total,omitempty"`         //
+	Resources    *[]ResponseLdapGetLdapSearchResultResources  `json:"resources,omitempty"`     //
+	NextPage     *ResponseLdapGetLdapSearchResultNextPage     `json:"nextHyperLink,omitempty"` //
+	PreviousPage *ResponseLdapGetLdapSearchResultPreviousPage `json:"prevHyperLink,omitempty"` //
 }
 
 type ResponseLdapGetLdapSearchResultResources struct {
@@ -153,6 +155,18 @@ type ResponseLdapGetLdapSearchResultResources struct {
 	Name        string                                        `json:"name,omitempty"`        // name description
 	Description string                                        `json:"description,omitempty"` // description
 	Link        *ResponseLdapGetLdapSearchResultResourcesLink `json:"link,omitempty"`        //
+}
+
+type ResponseLdapGetLdapSearchResultNextPage struct {
+	Rel  string `json:"rel,omitempty"`  //
+	Href string `json:"href,omitempty"` //
+	Type string `json:"type,omitempty"` //
+}
+
+type ResponseLdapGetLdapSearchResultPreviousPage struct {
+	Rel  string `json:"rel,omitempty"`  //
+	Href string `json:"href,omitempty"` //
+	Type string `json:"type,omitempty"` //
 }
 
 type ResponseLdapGetLdapSearchResultResourcesLink struct {
